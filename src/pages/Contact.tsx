@@ -118,14 +118,18 @@ export default function Contact() {
                 </div>
               </div>
 
-              {/* Map visualizer */}
-              <div className="map-placeholder">
-                <div className="map-grid-lines"></div>
-                <MapPin className="map-icon" size={40} />
-                <div style={{ zIndex: 2, textAlign: 'center' }}>
-                  <h4 style={{ color: '#fff', fontSize: '16px', fontWeight: '700', marginBottom: '4px' }}>Bangalore Office Location</h4>
-                  <p style={{ color: 'var(--accent)', fontSize: '12px', fontWeight: '500' }}>Hebbal / Kempapura Coordinates</p>
-                </div>
+              {/* Real Map visualizer */}
+              <div style={{ borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(15, 23, 42, 0.1)', boxShadow: 'var(--shadow-lg)', height: '320px' }}>
+                <iframe
+                  title="Bangalore Office Location Map"
+                  src="https://maps.google.com/maps?q=Century%20Marvel%20Apartments,%20Kempapura,%20Hebbal,%20Bangalore&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0, display: 'block' }}
+                  allowFullScreen={false}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
               </div>
             </div>
 

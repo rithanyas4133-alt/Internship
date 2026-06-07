@@ -63,6 +63,11 @@ export default function Footer() {
                     Courier Cost Optimizer <ArrowUpRight size={12} style={{ opacity: 0.5 }} />
                   </Link>
                 </li>
+                <li>
+                  <Link to="/products" onClick={handleScrollToTop} style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                    Family Tree Platform <ArrowUpRight size={12} style={{ opacity: 0.5 }} />
+                  </Link>
+                </li>
               </ul>
             </div>
 

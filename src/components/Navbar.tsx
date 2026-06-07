@@ -64,7 +64,7 @@ export default function Navbar() {
             onClick={() => navigate('/contact')} 
             className="btn btn-cta btn-sm"
           >
-            Get Started
+            Book a Demo
             <ArrowRight size={16} />
           </button>
         </div>
@@ -96,7 +96,7 @@ export default function Navbar() {
               className="btn btn-cta w-full"
               style={{ width: '100%' }}
             >
-              Get Started
+              Book a Demo
               <ArrowRight size={16} />
             </button>
           </li>

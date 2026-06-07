@@ -3,7 +3,11 @@ import { motion } from 'framer-motion';
 import { 
   Check, 
   Send, 
-  CheckCircle2
+  CheckCircle2,
+  Factory,
+  ShieldCheck,
+  AlertTriangle,
+  Truck
 } from 'lucide-react';
 
 export default function Products() {
@@ -101,7 +105,10 @@ export default function Products() {
           >
             <div>
               <span className="product-tagline">Track. Measure. Improve.</span>
-              <h2 style={{ fontSize: '32px', margin: '8px 0 16px 0' }}>VERICEA Manufacturing</h2>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', margin: '8px 0 16px 0' }}>
+                <Factory size={28} style={{ color: 'var(--secondary)', flexShrink: 0 }} />
+                <h2 style={{ fontSize: '32px', margin: 0 }}>VERICEA Manufacturing</h2>
+              </div>
               <p style={{ color: 'var(--text-muted)', marginBottom: '24px', fontSize: '15px' }}>
                 A premium floor-execution and tracking tool designed for live operations. Monitor work-in-progress (WIP), identify idle machine stages, and measure Overall Equipment Effectiveness (OEE) in real-time.
               </p>
@@ -195,7 +202,10 @@ export default function Products() {
 
             <div>
               <span className="product-tagline">Create. Maintain. Monitor.</span>
-              <h2 style={{ fontSize: '32px', margin: '8px 0 16px 0' }}>VERICEA Compliance</h2>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', margin: '8px 0 16px 0' }}>
+                <ShieldCheck size={28} style={{ color: 'var(--secondary)', flexShrink: 0 }} />
+                <h2 style={{ fontSize: '32px', margin: 0 }}>VERICEA Compliance</h2>
+              </div>
               <p style={{ color: 'var(--text-muted)', marginBottom: '24px', fontSize: '15px' }}>
                 An enterprise audit and evidence locker platform. Create compliance plans, schedule standard inspections, log inspector feedback, and keep checklists ready for official ISO or environmental validation audits.
               </p>
@@ -229,7 +239,10 @@ export default function Products() {
           >
             <div>
               <span className="product-tagline">Identify. Assess. Mitigate.</span>
-              <h2 style={{ fontSize: '32px', margin: '8px 0 16px 0' }}>FactSafe</h2>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', margin: '8px 0 16px 0' }}>
+                <AlertTriangle size={28} style={{ color: 'var(--secondary)', flexShrink: 0 }} />
+                <h2 style={{ fontSize: '32px', margin: 0 }}>FactSafe</h2>
+              </div>
               <p style={{ color: 'var(--text-muted)', marginBottom: '24px', fontSize: '15px' }}>
                 A high-fidelity risk mapping platform built to identify structural, environmental, and workflow vulnerabilities before they halt production. Classify hazard severity and establish automated escalation routes.
               </p>
@@ -298,7 +311,10 @@ export default function Products() {
 
             <div>
               <span className="product-tagline">Optimize Logistics Costs Efficiently</span>
-              <h2 style={{ fontSize: '32px', margin: '8px 0 16px 0' }}>Courier Cost Management</h2>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', margin: '8px 0 16px 0' }}>
+                <Truck size={28} style={{ color: 'var(--secondary)', flexShrink: 0 }} />
+                <h2 style={{ fontSize: '32px', margin: 0 }}>Courier Cost Management</h2>
+              </div>
               <p style={{ color: 'var(--text-muted)', marginBottom: '24px', fontSize: '15px' }}>
                 A financial control module designed to audit shipping and logistics bills automatically. Validate courier rate-cards, identify erroneous weight surcharges, and reconcile invoices to avoid billing overcharges.
               </p>

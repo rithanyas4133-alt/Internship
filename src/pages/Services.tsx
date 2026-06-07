@@ -1,20 +1,20 @@
 import { useState } from 'react';
 import { motion as motionFramer } from 'framer-motion';
 import { 
-  FolderGit2, 
-  MessagesSquare, 
-  Package, 
-  Terminal, 
+  Briefcase, 
+  Lightbulb, 
+  Monitor, 
   Smartphone, 
-  Globe2,
-  Factory,
-  Wrench,
-  Shirt,
-  Users2,
-  Store,
-  DollarSign,
-  Truck,
-  ArrowRight,
+  Layers, 
+  Settings, 
+  Factory, 
+  Cog, 
+  Shirt, 
+  HeartHandshake, 
+  ShoppingBag, 
+  Landmark, 
+  Truck, 
+  ArrowRight, 
   CheckCircle2
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
@@ -39,27 +39,27 @@ export default function Services() {
   const coreServices = [
     {
       title: 'Project Management',
-      icon: <FolderGit2 />,
+      icon: <Briefcase />,
       desc: 'Structured execution timelines, resource management, and risk mitigation workflows built specifically to support large industrial technology deployments.'
     },
     {
       title: 'Consulting Services',
-      icon: <MessagesSquare />,
+      icon: <Lightbulb />,
       desc: 'Expert reviews of standard ERP, CRM, and logistics frameworks. We analyze your process inefficiencies and identify scaling opportunities.'
     },
     {
       title: 'Application Delivery',
-      icon: <Package />,
+      icon: <Settings />,
       desc: 'Seamless deployment of pre-configured software solutions, ensuring third-party APIs, data layers, and device interfaces link without delays.'
     },
     {
       title: 'Product Development',
-      icon: <Terminal />,
+      icon: <Layers />,
       desc: 'Engineering proprietary tools tailored to unique workflows, moving manual shop floor processes into robust automated digital applications.'
     },
     {
       title: 'Web Development',
-      icon: <Globe2 />,
+      icon: <Monitor />,
       desc: 'Creating high-fidelity analytics platforms and dashboard hubs. Secure database designs with optimized page speed and responsive web grids.'
     },
     {
@@ -123,11 +123,11 @@ export default function Services() {
 
   const industriesServed = [
     { name: 'Manufacturing', icon: <Factory /> },
-    { name: 'Engineering', icon: <Wrench /> },
+    { name: 'Engineering', icon: <Cog /> },
     { name: 'Textiles', icon: <Shirt /> },
-    { name: 'NGO & Non-Profits', icon: <Users2 /> },
-    { name: 'Retail & Distribution', icon: <Store /> },
-    { name: 'Finance & Banking', icon: <DollarSign /> },
+    { name: 'NGO & Non-Profits', icon: <HeartHandshake /> },
+    { name: 'Retail & Distribution', icon: <ShoppingBag /> },
+    { name: 'Finance & Banking', icon: <Landmark /> },
     { name: 'Logistics & Shipping', icon: <Truck /> }
   ];
 

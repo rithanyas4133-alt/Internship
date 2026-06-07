@@ -1018,12 +1018,21 @@ export default function Home() {
               <div className="logo-marquee-content">
                 {/* Loop names for continuous marquee ticker effect */}
                 {[...Array(2)].flatMap((_, outerIdx) => 
-                  ['Apex Engineering', 'Zen Textiles', 'Helix Logistics', 'ProRetail Ltd.', 'Centric NGO', 'Alpha Microfinance', 'Vardhman Fabrics', 'Bangalore Ironworks'].map((name, innerIdx) => (
+                  [
+                    { name: 'Apex Engineering', icon: <Cog size={16} /> },
+                    { name: 'Zen Textiles', icon: <Shirt size={16} /> },
+                    { name: 'Helix Logistics', icon: <Truck size={16} /> },
+                    { name: 'ProRetail Ltd.', icon: <ShoppingBag size={16} /> },
+                    { name: 'Centric NGO', icon: <HeartHandshake size={16} /> },
+                    { name: 'Alpha Microfinance', icon: <Landmark size={16} /> },
+                    { name: 'Vardhman Fabrics', icon: <Layers size={16} /> },
+                    { name: 'Bangalore Ironworks', icon: <Factory size={16} /> }
+                  ].map((partner, innerIdx) => (
                     <div key={`${outerIdx}-${innerIdx}`} className="logo-placeholder-item" style={{ color: 'var(--primary)', opacity: '0.8' }}>
                       <div className="logo-icon-placeholder" style={{ backgroundColor: 'rgba(15,23,42,0.08)' }}>
-                        <Building size={16} />
+                        {partner.icon}
                       </div>
-                      <span>{name}</span>
+                      <span>{partner.name}</span>
                     </div>
                   ))
                 )}

@@ -23,6 +23,18 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
+
   const menuItems = [
     { name: 'Home', path: '/' },
     { name: 'About Us', path: '/about' },
@@ -73,6 +85,11 @@ export default function Navbar() {
         <button className="hamburger" onClick={toggleMenu} aria-label="Toggle navigation">
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
+
+        {/* Backdrop Overlay */}
+        {isOpen && (
+          <div className="mobile-nav-overlay" onClick={closeMenu} />
+        )}
 
         {/* Mobile Navigation Drawer */}
         <ul className={`mobile-nav ${isOpen ? 'open' : ''}`}>

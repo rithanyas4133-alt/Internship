@@ -138,7 +138,7 @@ export default function Services() {
       variants={pageTransition}
     >
       {/* --- HERO SECTION --- */}
-      <section className="inner-hero">
+      <section className="inner-hero services-hero">
         <div className="container" style={{ textAlign: 'center' }}>
           <span className="section-subtitle">Our Expertise</span>
           <h1 className="inner-hero-title">Technology Solutions That Drive Business Growth</h1>

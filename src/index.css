@@ -255,6 +255,8 @@ a {
 .logo-container {
   display: flex;
   flex-direction: column;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 .logo-main {
@@ -264,6 +266,7 @@ a {
   color: var(--primary);
   letter-spacing: -0.5px;
   line-height: 1;
+  white-space: nowrap;
 }
 
 .logo-sub {
@@ -273,6 +276,7 @@ a {
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-top: 2px;
+  white-space: nowrap;
 }
 
 .nav-links {
@@ -288,6 +292,7 @@ a {
   color: var(--text-muted);
   position: relative;
   padding: 8px 0;
+  white-space: nowrap;
 }
 
 .nav-link:hover, .nav-link.active {
@@ -349,7 +354,22 @@ a {
 
 .mobile-nav .nav-link {
   font-size: 18px;
-  display: block;
+  display: inline-block;
+  width: max-content;
+}
+
+/* Backdrop Overlay for mobile drawer */
+.mobile-nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  z-index: 998;
+  transition: opacity var(--transition-normal);
 }
 
 /* --- PREMIUM CARD & GLASSMORPHISM LAYOUTS --- */
@@ -1053,6 +1073,29 @@ a {
   letter-spacing: -1px;
 }
 
+/* Custom services page hero background with premium color overlay (#020617) */
+.services-hero {
+  background: 
+    linear-gradient(rgba(2, 6, 23, 0.82), rgba(2, 6, 23, 0.88)), 
+    url('/images/industrial_control_room_1780849774868.png') no-repeat center center;
+  background-size: cover;
+  padding: 160px 0 100px 0;
+  position: relative;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.services-hero .inner-hero-title {
+  color: #ffffff;
+}
+
+.services-hero .section-subtitle {
+  color: var(--accent);
+}
+
+.services-hero p {
+  color: rgba(248, 250, 252, 0.75) !important;
+}
+
 /* --- BLOG FILTER TABS --- */
 .blog-tabs {
   display: flex;
@@ -1281,15 +1324,7 @@ a {
   .grid-4 {
     grid-template-columns: 1fr;
   }
-  .hamburger {
-    display: block;
-  }
-  .nav-links {
-    display: none;
-  }
-  .nav-actions {
-    display: none;
-  }
+  /* Mobile menu rules moved to max-width 1024px media query */
   .section {
     padding: 60px 0;
   }
@@ -1357,5 +1392,37 @@ a {
   color: var(--background);
   transform: scale(1.1);
   box-shadow: 0 8px 16px rgba(37, 99, 235, 0.2);
+}
+
+/* --- ADDITIONAL NAVBAR RESPONSIVE STYLES --- */
+
+/* Compress navigation spacing on smaller desktop screens to fit content */
+@media (max-width: 1200px) {
+  .nav-links {
+    gap: 20px;
+  }
+}
+
+/* Toggle mobile layout at 1024px to prevent tablet navigation issues */
+@media (max-width: 1024px) {
+  .hamburger {
+    display: block;
+  }
+  .nav-links {
+    display: none;
+  }
+  .nav-actions {
+    display: none;
+  }
+}
+
+/* Completely hide mobile menu elements on desktop screens */
+@media (min-width: 1025px) {
+  .mobile-nav {
+    display: none !important;
+  }
+  .mobile-nav-overlay {
+    display: none !important;
+  }
 }
 

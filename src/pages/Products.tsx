@@ -56,7 +56,7 @@ export default function Products() {
   // Selection state for products (slider index & transition direction)
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
-  const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
+
 
   const handleNext = () => {
     setDirection(1);
@@ -325,24 +325,24 @@ export default function Products() {
       <section 
         className="section"
         style={{ 
-          padding: '160px 0 100px 0', 
+          padding: '180px 0 140px 0', 
           color: '#ffffff',
           position: 'relative',
           overflow: 'hidden',
-          backgroundImage: 'linear-gradient(rgba(11, 31, 58, 0.82), rgba(11, 31, 58, 0.94)), url("/images/vericea_dashboard_mockup.png")',
+          backgroundImage: 'linear-gradient(rgba(11, 31, 58, 0.85), rgba(11, 31, 58, 0.95)), url("/images/products_hero_bg.png")',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           borderBottom: '1px solid rgba(14, 116, 144, 0.15)'
         }}
       >
-        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'radial-gradient(circle at 75% 30%, rgba(14, 116, 144, 0.22) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
+        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'radial-gradient(circle at 50% 50%, rgba(14, 116, 144, 0.25) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
-          <div className="grid-2" style={{ gap: '48px', alignItems: 'center' }}>
+          <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
             <motion.div 
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 25 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7 }}
-              style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}
+              style={{ display: 'flex', flexDirection: 'column', gap: '24px', alignItems: 'center' }}
             >
               <div 
                 className="section-subtitle" 
@@ -364,15 +364,15 @@ export default function Products() {
                 <span>Enterprise Grade Platforms</span>
               </div>
               
-              <h1 style={{ fontSize: '46px', lineHeight: '1.15', letterSpacing: '-1.5px', color: '#ffffff', fontWeight: '800', margin: 0 }}>
+              <h1 style={{ fontSize: '52px', lineHeight: '1.15', letterSpacing: '-1.5px', color: '#ffffff', fontWeight: '800', margin: 0, fontFamily: 'var(--font-headings)' }}>
                 CEA's Flagship Products
               </h1>
               
-              <p style={{ fontSize: '17.5px', color: 'rgba(241, 245, 249, 0.88)', lineHeight: '1.6', margin: 0 }}>
+              <p style={{ fontSize: '19px', color: 'rgba(241, 245, 249, 0.9)', lineHeight: '1.6', margin: 0, maxWidth: '680px' }}>
                 Purpose-built software platforms designed to improve operational efficiency, production visibility, compliance management and business performance.
               </p>
               
-              <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', marginTop: '12px' }}>
+              <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', justifyContent: 'center', marginTop: '8px' }}>
                 <motion.button 
                   onClick={() => selectProductAndScroll(activeProduct.name)} 
                   className="btn btn-cta"
@@ -392,38 +392,6 @@ export default function Products() {
                 >
                   Explore Solutions
                 </motion.button>
-              </div>
-            </motion.div>
-
-            {/* Dashboard Mockup on Right */}
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.92, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-              style={{ display: 'flex', justifyContent: 'center' }}
-            >
-              <div 
-                style={{
-                  position: 'relative',
-                  width: '100%',
-                  borderRadius: '16px',
-                  overflow: 'hidden',
-                  boxShadow: '0 25px 50px -12px rgba(2, 6, 23, 0.7)',
-                  border: '1px solid rgba(255, 255, 255, 0.12)',
-                  background: '#0B1F3A'
-                }}
-              >
-                <div style={{ background: 'rgba(15, 23, 42, 0.6)', padding: '10px 16px', display: 'flex', gap: '6px', alignItems: 'center', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
-                  <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#ef4444' }}></span>
-                  <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#f59e0b' }}></span>
-                  <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#10b981' }}></span>
-                  <span style={{ fontSize: '10.5px', color: 'rgba(255,255,255,0.4)', marginLeft: '12px', letterSpacing: '0.5px' }}>CEA Dashboard Console</span>
-                </div>
-                <img 
-                  src="/images/vericea_dashboard_mockup.png" 
-                  alt="CEA Software Suite Dashboard" 
-                  style={{ width: '100%', display: 'block', height: 'auto', maxHeight: '360px', objectFit: 'cover' }}
-                />
               </div>
             </motion.div>
           </div>
@@ -943,88 +911,7 @@ export default function Products() {
 
 
 
-      {/* ==================================================
-          SECTION: PRODUCT DEMONSTRATION
-          ================================================== */}
-      <section className="section" style={{ backgroundColor: '#ffffff' }}>
-        <div className="container">
-          <div className="section-title-wrapper" style={{ marginBottom: '48px' }}>
-            <span className="section-subtitle">Visual Tour</span>
-            <h2 className="section-title">See Our Solutions In Action</h2>
-            <p className="section-desc">Watch how CEA Infotech products help organizations improve visibility, efficiency and compliance management.</p>
-          </div>
 
-          <div style={{ maxWidth: '820px', margin: '0 auto' }}>
-            <div 
-              style={{ 
-                position: 'relative', 
-                borderRadius: '16px', 
-                overflow: 'hidden', 
-                boxShadow: 'var(--shadow-xl)',
-                border: '1px solid rgba(15, 23, 42, 0.08)',
-                aspectRatio: '16 / 9',
-                backgroundColor: '#020617',
-                cursor: 'pointer'
-              }}
-              onClick={() => setIsDemoModalOpen(true)}
-            >
-              {/* Overlay elements */}
-              <div 
-                style={{ 
-                  position: 'absolute', 
-                  top: 0, 
-                  left: 0, 
-                  right: 0, 
-                  bottom: 0, 
-                  background: 'linear-gradient(rgba(11,31,58,0.3), rgba(2,6,23,0.75))',
-                  zIndex: 2,
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  padding: '24px',
-                  color: '#ffffff',
-                  textAlign: 'center'
-                }}
-              >
-                <motion.button 
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  style={{
-                    width: '76px',
-                    height: '76px',
-                    borderRadius: '50%',
-                    backgroundColor: 'var(--cta)',
-                    color: '#ffffff',
-                    border: 'none',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    cursor: 'pointer',
-                    boxShadow: '0 0 20px rgba(245, 158, 11, 0.4)',
-                    paddingLeft: '4px',
-                    marginBottom: '16px'
-                  }}
-                >
-                  <Play size={30} fill="#ffffff" />
-                </motion.button>
-                <h3 style={{ color: '#ffffff', fontSize: '20px', fontWeight: '800', margin: '0 0 6px 0' }}>
-                  Production Tracking Tool Demo
-                </h3>
-                <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '13.5px', maxWidth: '480px', margin: 0 }}>
-                  This video features a real walkthrough showing live machinery status updates, production schedules, and operator reports.
-                </p>
-              </div>
-
-              <img 
-                src="/images/video_placeholder_1780849979236.png" 
-                alt="Product Demo Video Thumbnail" 
-                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-              />
-            </div>
-          </div>
-        </div>
-      </section>
 
 
       {/* ==================================================
@@ -1244,155 +1131,7 @@ export default function Products() {
         </div>
       </section>
 
-      {/* ==================================================
-          VIDEO MODAL OVERLAY
-          ================================================== */}
-      <AnimatePresence>
-        {isDemoModalOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            style={{
-              position: 'fixed',
-              top: 0,
-              left: 0,
-              right: 0,
-              bottom: 0,
-              backgroundColor: 'rgba(2, 6, 23, 0.9)',
-              backdropFilter: 'blur(8px)',
-              zIndex: 9999,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              padding: '24px'
-            }}
-            onClick={() => setIsDemoModalOpen(false)}
-          >
-            <motion.div
-              initial={{ scale: 0.95, y: 15 }}
-              animate={{ scale: 1, y: 0 }}
-              exit={{ scale: 0.95, y: 15 }}
-              transition={{ duration: 0.3 }}
-              style={{
-                width: '100%',
-                maxWidth: '820px',
-                background: '#030d1a',
-                border: '1px solid rgba(14, 116, 144, 0.25)',
-                borderRadius: '16px',
-                boxShadow: 'var(--shadow-xl)',
-                position: 'relative',
-                overflow: 'hidden'
-              }}
-              onClick={(e) => e.stopPropagation()} // Stop closing
-            >
-              {/* Close Button */}
-              <button
-                onClick={() => setIsDemoModalOpen(false)}
-                style={{
-                  position: 'absolute',
-                  top: '12px',
-                  right: '12px',
-                  width: '36px',
-                  height: '36px',
-                  borderRadius: '50%',
-                  backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                  color: '#ffffff',
-                  border: 'none',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  cursor: 'pointer',
-                  zIndex: 10
-                }}
-              >
-                <X size={18} />
-              </button>
 
-              <div style={{ padding: '24px', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
-                <h3 style={{ color: '#ffffff', fontSize: '18px', fontWeight: '800', margin: 0 }}>
-                  VERICEA Production Tracking Tool Walkthrough
-                </h3>
-              </div>
-
-              {/* Video body simulation */}
-              <div style={{ position: 'relative', padding: '20px', backgroundColor: '#020617', aspectRatio: '16 / 9', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-                
-                {/* Simulated interface view */}
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 3fr', gap: '16px', height: '100%' }}>
-                  {/* Left Sidebar simulator */}
-                  <div style={{ borderRight: '1px solid rgba(255,255,255,0.06)', paddingRight: '12px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                    <div style={{ height: '24px', borderRadius: '4px', backgroundColor: 'rgba(14, 116, 144, 0.3)', width: '80%' }}></div>
-                    <div style={{ height: '18px', borderRadius: '4px', backgroundColor: 'rgba(255, 255, 255, 0.05)', width: '60%' }}></div>
-                    <div style={{ height: '18px', borderRadius: '4px', backgroundColor: 'rgba(255, 255, 255, 0.05)', width: '70%' }}></div>
-                    <div style={{ height: '18px', borderRadius: '4px', backgroundColor: 'rgba(255, 255, 255, 0.05)', width: '55%' }}></div>
-                  </div>
-
-                  {/* Main Dashboard Simulator */}
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', paddingLeft: '4px' }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                      <span style={{ fontSize: '11px', color: 'rgba(255,255,255,0.4)' }}>Real-Time Machinery Yield</span>
-                      <span style={{ fontSize: '11px', color: 'var(--accent)', fontWeight: '700' }}>Line 3 Peak Performance</span>
-                    </div>
-
-                    {/* Progress bars */}
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                      <div>
-                        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '10px', color: 'rgba(255,255,255,0.6)', marginBottom: '3px' }}>
-                          <span>Stitching Unit - Line A</span>
-                          <span>94% efficiency</span>
-                        </div>
-                        <div style={{ height: '6px', backgroundColor: 'rgba(255,255,255,0.08)', borderRadius: '3px', overflow: 'hidden' }}>
-                          <motion.div initial={{ width: 0 }} animate={{ width: '94%' }} transition={{ duration: 1.5 }} style={{ height: '100%', backgroundColor: 'var(--secondary)' }}></motion.div>
-                        </div>
-                      </div>
-                      <div>
-                        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '10px', color: 'rgba(255,255,255,0.6)', marginBottom: '3px' }}>
-                          <span>Cutting Unit - Line B</span>
-                          <span>81% efficiency</span>
-                        </div>
-                        <div style={{ height: '6px', backgroundColor: 'rgba(255,255,255,0.08)', borderRadius: '3px', overflow: 'hidden' }}>
-                          <motion.div initial={{ width: 0 }} animate={{ width: '81%' }} transition={{ duration: 1.5, delay: 0.2 }} style={{ height: '100%', backgroundColor: 'var(--accent)' }}></motion.div>
-                        </div>
-                      </div>
-                      <div>
-                        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '10px', color: 'rgba(255,255,255,0.6)', marginBottom: '3px' }}>
-                          <span>Finishing Unit - Line C</span>
-                          <span>98% efficiency</span>
-                        </div>
-                        <div style={{ height: '6px', backgroundColor: 'rgba(255,255,255,0.08)', borderRadius: '3px', overflow: 'hidden' }}>
-                          <motion.div initial={{ width: 0 }} animate={{ width: '98%' }} transition={{ duration: 1.5, delay: 0.4 }} style={{ height: '100%', backgroundColor: '#10b981' }}></motion.div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Video controls simulator overlay */}
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '10px', marginTop: '10px' }}>
-                  <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
-                    <Play size={14} fill="#ffffff" style={{ color: '#ffffff', cursor: 'pointer' }} />
-                    <span style={{ fontSize: '11px', color: 'rgba(255,255,255,0.6)' }}>0:15 / 2:45</span>
-                  </div>
-                  <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
-                    <div style={{ width: '40px', height: '4px', borderRadius: '2px', backgroundColor: 'rgba(255,255,255,0.2)' }}></div>
-                    <span style={{ fontSize: '10px', color: 'var(--accent)', fontWeight: '600', border: '1px solid var(--accent)', padding: '2px 6px', borderRadius: '3px' }}>1080p HD</span>
-                  </div>
-                </div>
-              </div>
-
-              <div style={{ padding: '16px 24px', display: 'flex', justifyContent: 'flex-end', backgroundColor: 'rgba(11,31,58,0.2)' }}>
-                <button 
-                  onClick={() => setIsDemoModalOpen(false)} 
-                  className="btn btn-secondary btn-sm"
-                >
-                  Close Walkthrough
-                </button>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </motion.div>
   );
 }

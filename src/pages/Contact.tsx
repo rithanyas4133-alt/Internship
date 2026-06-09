@@ -65,7 +65,7 @@ export default function Contact() {
       variants={pageTransition}
     >
       {/* --- HERO SECTION --- */}
-      <section className="inner-hero">
+      <section className="inner-hero contact-hero">
         <div className="container" style={{ textAlign: 'center' }}>
           <span className="section-subtitle">Get In Touch</span>
           <h1 className="inner-hero-title">Start Your Modernization Journey</h1>

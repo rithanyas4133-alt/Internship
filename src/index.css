@@ -1109,6 +1109,28 @@ a {
   color: rgba(248, 250, 252, 0.75) !important;
 }
 
+.contact-hero {
+  background: 
+    linear-gradient(rgba(2, 6, 23, 0.82), rgba(2, 6, 23, 0.88)), 
+    url('/images/business_consultation_1780850767888.png') no-repeat center center;
+  background-size: cover;
+  padding: 160px 0 100px 0;
+  position: relative;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.contact-hero .inner-hero-title {
+  color: #ffffff;
+}
+
+.contact-hero .section-subtitle {
+  color: var(--accent);
+}
+
+.contact-hero p {
+  color: rgba(248, 250, 252, 0.75) !important;
+}
+
 /* --- BLOG FILTER TABS --- */
 .blog-tabs {
   display: flex;

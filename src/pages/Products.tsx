@@ -1,5 +1,5 @@
-import { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence, useInView } from 'framer-motion';
+import { useState, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Factory, 
   ShieldCheck, 
@@ -8,10 +8,6 @@ import {
   Network, 
   Check, 
   ArrowRight, 
-  Play, 
-  X, 
-  ChevronDown, 
-  ChevronUp, 
   Database, 
   Sparkles, 
   Clock, 
@@ -19,14 +15,8 @@ import {
   Layers,
   TrendingUp,
   Shirt,
-  Scissors,
-  Briefcase,
-  Heart,
-  Building2,
-  Globe,
   Settings,
   Send,
-  HelpCircle,
   Cog,
   ShoppingBag,
   Landmark,
@@ -90,7 +80,7 @@ export default function Products() {
     visible: { 
       opacity: 1, 
       y: 0,
-      transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] }
+      transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }
     }
   };
 
@@ -108,7 +98,7 @@ export default function Products() {
     initial: { opacity: 0, y: 45 },
     whileInView: { opacity: 1, y: 0 },
     viewport: { once: true, margin: "-100px" },
-    transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] as any }
+    transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }
   };
 
   const productsData: Product[] = [

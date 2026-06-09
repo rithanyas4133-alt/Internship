@@ -25,8 +25,6 @@ import {
   Network,
   Cog,
   Shirt,
-  ShoppingBag,
-  Landmark,
   HeartHandshake,
   Rocket,
   Headset,
@@ -213,14 +211,14 @@ export default function Home() {
   const heroFadeIn = {
     initial: { opacity: 0, y: 30 },
     animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as any }
+    transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }
   };
 
   const scrollReveal = {
     initial: { opacity: 0, y: 45 },
     whileInView: { opacity: 1, y: 0 },
     viewport: { once: true, margin: "-100px" },
-    transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] as any }
+    transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }
   };
 
   const buttonHover = {

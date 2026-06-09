@@ -373,7 +373,7 @@ export default function About() {
                   <motion.img 
                     whileHover={{ scale: 1.04 }}
                     transition={{ duration: 0.4 }}
-                    src="/images/about_us_md_cards_1780850959717.png" 
+                    src="/images/about_us_section_1780850946744.png" 
                     alt="M. D. Manohar - Managing Director" 
                     style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'cover' }}
                   />

@@ -14,7 +14,6 @@ import {
   Factory,
   ShieldCheck,
   Truck,
-  Network,
   Cog,
   Shirt,
   ShoppingBag,
@@ -23,12 +22,7 @@ import {
   Rocket,
   Headset,
   Cpu,
-  Recycle,
-  HeartPulse,
-  Droplets,
-  CalendarDays,
   Wallet,
-  Clock,
   TrendingUp,
   Calendar,
   Code,
@@ -568,67 +562,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* ==================================================
-          SECTION 8 - SOLUTIONS DELIVERED
-          ================================================== */}
-      <section className="section" style={{ backgroundColor: 'var(--background)' }}>
-        <div className="container">
-          <div className="section-title-wrapper" style={{ marginBottom: '48px' }}>
-            <span className="section-subtitle">Our Delivery Record</span>
-            <h2 className="section-title">Solutions Successfully Delivered</h2>
-            <p className="section-desc">Real-world business software engineered and configured for scale.</p>
-          </div>
-
-          <div className="grid-3" style={{ gap: '24px' }}>
-            {[
-              { title: "Brand-Supplier Risk Survey Tool", icon: <ShieldCheck size={20} />, desc: "Supplier risk assessment and monitoring platform." },
-              { title: "Scrap Management System", icon: <Recycle size={20} />, desc: "Track, manage and optimize scrap operations." },
-              { title: "Courier Cost Management System", icon: <Truck size={20} />, desc: "Monitor and reduce logistics and courier expenses." },
-              { title: "Overtime Tracking & Approval System", icon: <Clock size={20} />, desc: "Automate overtime requests, approvals and reporting." },
-              { title: "Women Health Beneficiary Tracking System", icon: <HeartPulse size={20} />, desc: "Government beneficiary monitoring and reporting solution." },
-              { title: "Job Portal & Recruitment System", icon: <Users size={20} />, desc: "End-to-end recruitment and talent management platform." },
-              { title: "Community Water Plant System", icon: <Droplets size={20} />, desc: "Monitor community water plant operations and services." },
-              { title: "Golf Tee Time Booking System", icon: <CalendarDays size={20} />, desc: "Online reservation and scheduling platform." },
-              { title: "Microfinance Accounting Product", icon: <Wallet size={20} />, desc: "Financial accounting platform for SHGs and cooperatives." },
-              { title: "Family Tree Platform", icon: <Network size={20} />, desc: "Scalable multilingual family relationship platform." }
-            ].map((sol, idx) => (
-              <motion.div
-                key={idx}
-                variants={scrollReveal}
-                initial="initial"
-                whileInView="whileInView"
-                viewport={scrollReveal.viewport}
-                whileHover={{ y: -5, borderColor: 'rgba(14, 116, 144, 0.25)', boxShadow: 'var(--shadow-md)' }}
-                style={{
-                  backgroundColor: '#ffffff',
-                  border: '1px solid rgba(15, 23, 42, 0.08)',
-                  borderRadius: 'var(--border-radius-lg)',
-                  padding: '24px',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '12px',
-                  transition: 'all 0.3s ease'
-                }}
-              >
-                <div style={{ 
-                  width: '40px', 
-                  height: '40px', 
-                  borderRadius: '6px', 
-                  backgroundColor: 'rgba(14, 116, 144, 0.05)', 
-                  color: 'var(--secondary)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center'
-                }}>
-                  {sol.icon}
-                </div>
-                <h3 style={{ fontSize: '15px', fontWeight: '700', color: 'var(--primary)', margin: 0 }}>{sol.title}</h3>
-                <p style={{ fontSize: '13px', color: 'var(--text-muted)', lineHeight: '1.5', margin: 0 }}>{sol.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* ==================================================
           SECTION 9 - OUR JOURNEY

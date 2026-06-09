@@ -34,40 +34,7 @@ import {
   Building
 } from 'lucide-react';
 
-// Counter component for stats impact numbers
-const Counter = ({ value, duration = 2 }: { value: string; duration?: number }) => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-50px" });
-  const [count, setCount] = useState(0);
 
-  // Extract number and suffix (e.g. "35+" -> 35, "+")
-  const numericValue = parseInt(value.replace(/[^0-9]/g, ''), 10) || 0;
-  const suffix = value.replace(/[0-9]/g, '');
-
-  useEffect(() => {
-    if (!isInView) return;
-    
-    let start = 0;
-    const end = numericValue;
-    if (start === end) return;
-    
-    const totalMilliseconds = duration * 1000;
-    const incrementTime = Math.max(Math.floor(totalMilliseconds / end), 20);
-    
-    const timer = setInterval(() => {
-      start += Math.ceil(end / 50); // increment steps to complete in duration
-      if (start >= end) {
-        start = end;
-        clearInterval(timer);
-      }
-      setCount(start);
-    }, incrementTime);
-    
-    return () => clearInterval(timer);
-  }, [isInView, numericValue, duration]);
-
-  return <span ref={ref}>{count}{suffix}</span>;
-};
 
 // Detailed Product Data structure
 interface Product {
@@ -1059,62 +1026,6 @@ export default function Products() {
         </div>
       </section>
 
-      {/* ==================================================
-          SECTION: PRODUCT IMPACT (DYNAMIC COUNTERS)
-          ================================================== */}
-      <section className="section" style={{ backgroundColor: 'var(--primary)', color: '#ffffff', borderTop: '4px solid var(--accent)' }}>
-        <div className="container">
-          <div 
-            style={{ 
-              display: 'grid', 
-              gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', 
-              gap: '32px',
-              textAlign: 'center'
-            }}
-          >
-            <div>
-              <div style={{ fontSize: '42px', fontWeight: '800', color: 'var(--accent)', fontFamily: 'var(--font-headings)' }}>
-                <Counter value="35+" />
-              </div>
-              <h4 style={{ fontSize: '14px', fontWeight: '700', color: '#ffffff', marginTop: '8px', letterSpacing: '0.5px' }}>
-                Years Industry Expertise
-              </h4>
-            </div>
-            <div>
-              <div style={{ fontSize: '42px', fontWeight: '800', color: 'var(--accent)', fontFamily: 'var(--font-headings)' }}>
-                <Counter value="11+" />
-              </div>
-              <h4 style={{ fontSize: '14px', fontWeight: '700', color: '#ffffff', marginTop: '8px', letterSpacing: '0.5px' }}>
-                Industry Domains
-              </h4>
-            </div>
-            <div>
-              <div style={{ fontSize: '42px', fontWeight: '800', color: 'var(--accent)', fontFamily: 'var(--font-headings)' }}>
-                <Counter value="15+" />
-              </div>
-              <h4 style={{ fontSize: '14px', fontWeight: '700', color: '#ffffff', marginTop: '8px', letterSpacing: '0.5px' }}>
-                Countries Served
-              </h4>
-            </div>
-            <div>
-              <div style={{ fontSize: '42px', fontWeight: '800', color: 'var(--accent)', fontFamily: 'var(--font-headings)' }}>
-                <Counter value="250+" />
-              </div>
-              <h4 style={{ fontSize: '14px', fontWeight: '700', color: '#ffffff', marginTop: '8px', letterSpacing: '0.5px' }}>
-                Enterprise & NGO Projects
-              </h4>
-            </div>
-            <div>
-              <div style={{ fontSize: '42px', fontWeight: '800', color: 'var(--accent)', fontFamily: 'var(--font-headings)' }}>
-                <Counter value="98%" />
-              </div>
-              <h4 style={{ fontSize: '14px', fontWeight: '700', color: '#ffffff', marginTop: '8px', letterSpacing: '0.5px' }}>
-                Customer Retention
-              </h4>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* ==================================================
           SECTION: PRODUCT INQUIRY & FINAL CTA

@@ -8,7 +8,6 @@ import {
   Sparkles, 
   X,
   CheckCircle,
-  MapPin,
   Calendar,
   Award,
   Globe,
@@ -157,8 +156,8 @@ const solutions = [
 ];
 
 const partnersRow1 = [
-  { name: "Atlas Export Enterprises", icon: Globe, color: "#2563EB" },
-  { name: "Atlas Processing Mills", icon: Factory, color: "#14B8A6" },
+  { name: "Atlas Export Enterprises", icon: Globe, color: "#0E7490" },
+  { name: "Atlas Processing Mills", icon: Factory, color: "#F59E0B" },
   { name: "Shripranav Textile Creations Pvt Ltd", icon: Layers, color: "#F59E0B" },
   { name: "CBC Fashions (Asia) Pvt Ltd", icon: Shirt, color: "#EC4899" },
   { name: "Ashwath Inc", icon: Building, color: "#6366F1" },
@@ -166,9 +165,9 @@ const partnersRow1 = [
   { name: "Masturlal Pvt Ltd", icon: ShieldCheck, color: "#10B981" },
   { name: "Research Manufacturing & Development Corporation", icon: Cpu, color: "#3B82F6" },
   { name: "Omega Scientific", icon: Award, color: "#F59E0B" },
-  { name: "Mii Ret Cam", icon: Smartphone, color: "#14B8A6" },
+  { name: "Mii Ret Cam", icon: Smartphone, color: "#0E7490" },
   { name: "Dynamic Engineering", icon: Cog, color: "#6B7280" },
-  { name: "Zonestra USA", icon: Globe, color: "#2563EB" }
+  { name: "Zonestra USA", icon: Globe, color: "#0E7490" }
 ];
 
 const partnersRow2 = [
@@ -182,24 +181,17 @@ const partnersRow2 = [
   { name: "Fuzhio", icon: Sparkles, color: "#F59E0B" },
   { name: "GenYGolf Australia", icon: Target, color: "#10B981" },
   { name: "UNODC Nigeria", icon: ShieldCheck, color: "#3B82F6" },
-  { name: "UNICEF India", icon: HeartHandshake, color: "#14B8A6" },
+  { name: "UNICEF India", icon: HeartHandshake, color: "#0E7490" },
   { name: "Al Ansari Group UAE", icon: Building, color: "#6366F1" },
   { name: "A", icon: CircleDot, color: "#F59E0B" }
 ];
 
 export default function Home() {
   const navigate = useNavigate();
-  const [activeProductTab, setActiveProductTab] = useState<'manufacturing' | 'compliance' | 'factsafe' | 'courier' | 'familytree'>('manufacturing');
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
 
   // Background slideshow slider state
   const [currentBgIndex, setCurrentBgIndex] = useState(0);
-
-  // Simulated live dashboard data updates for premium visual experience
-  const [oeeVal, setOeeVal] = useState(86.4);
-  const [activeJobs, setActiveJobs] = useState(12);
-  const [reconciledCount, setReconciledCount] = useState(2486);
-  const [auditScore, setAuditScore] = useState(98.6);
 
   useEffect(() => {
     // Slideshow transition timer every 5 seconds
@@ -207,18 +199,8 @@ export default function Home() {
       setCurrentBgIndex(prev => (prev + 1) % heroBackgrounds.length);
     }, 5000);
 
-    const interval = setInterval(() => {
-      setOeeVal(prev => +(prev + (Math.random() * 0.4 - 0.2)).toFixed(1));
-      setAuditScore(prev => +(Math.max(97.5, Math.min(100, prev + (Math.random() * 0.1 - 0.05)))).toFixed(1));
-      if (Math.random() > 0.8) {
-        setActiveJobs(prev => Math.max(8, Math.min(16, prev + (Math.random() > 0.5 ? 1 : -1))));
-        setReconciledCount(prev => prev + Math.floor(Math.random() * 3) + 1);
-      }
-    }, 3000);
-
     return () => {
       clearInterval(bgTimer);
-      clearInterval(interval);
     };
   }, []);
 
@@ -343,7 +325,7 @@ export default function Home() {
                   className="btn btn-cta"
                   whileHover={buttonHover.whileHover}
                   whileTap={buttonHover.whileTap}
-                  style={{ color: '#0F172A' }}
+                  style={{ color: '#0B1F3A' }}
                 >
                   Explore Products
                   <ArrowRight size={16} />
@@ -459,103 +441,7 @@ export default function Home() {
       </section>
 
 
-      {/* --- ABOUT CEA INFOTECH --- */}
-      <section className="section" style={{ backgroundColor: '#ffffff' }}>
-        <div className="container">
-          <div className="grid-2">
-            <motion.div
-              variants={scrollReveal}
-              initial="initial"
-              whileInView="whileInView"
-              viewport={scrollReveal.viewport}
-            >
-              <span className="section-subtitle">Corporate Focus</span>
-              <h2 className="section-title">Bangalore HQ Technology Solutions & Integration Specialist</h2>
-              <p style={{ color: 'var(--text-muted)', fontSize: '16px', lineHeight: '1.7', marginBottom: '28px' }}>
-                CEA Infotech is a Bangalore-based technology company specializing in ERP solutions, production tracking systems, compliance management and custom software development. Under the architectural stewardship of Managing Director M.D. Manohar (35+ years global IT experience), we build highly dependable applications that optimize production floors and resolve logistics constraints.
-              </p>
-              
-              <div style={{ padding: '16px', background: 'var(--background)', borderRadius: '12px', border: '1px solid rgba(15, 23, 42, 0.08)', display: 'flex', gap: '14px', alignItems: 'center' }}>
-                <div style={{ width: '40px', height: '40px', borderRadius: '50%', backgroundColor: 'var(--primary)', color: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '16px', fontWeight: '700', flexShrink: 0 }}>
-                  MD
-                </div>
-                <div>
-                  <h4 style={{ fontSize: '14px', fontWeight: '700', color: 'var(--primary)', marginBottom: '1px' }}>M.D. Manohar</h4>
-                  <p style={{ fontSize: '11px', color: 'var(--secondary)', fontWeight: '600', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Founder & Managing Director • 35+ Yrs IT Exp</p>
-                </div>
-              </div>
-            </motion.div>
 
-            {/* Modern Visual Cards with Real Photographic Backgrounds */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-              {[
-                { 
-                  title: 'Customer Success', 
-                  desc: 'Focusing on business outcomes, yield optimization, and measurable operations uptime.', 
-                  image: '/images/business_consultation_1780850767888.png',
-                  icon: <Award /> 
-                },
-                { 
-                  title: 'Technology Innovation', 
-                  desc: 'Bridging legacy shop floors with responsive Web, Mobile, and API integrations.', 
-                  image: '/images/manufacturing_floor_1780850784796.png',
-                  icon: <Cpu /> 
-                },
-                { 
-                  title: 'Long-Term Partnerships', 
-                  desc: 'Enterprise SLAs and solutions engineered for future scalability and expansion.', 
-                  image: '/images/quality_audit_1780850801169.png',
-                  icon: <HeartHandshake /> 
-                }
-              ].map((card) => (
-                <motion.div
-                  key={card.title}
-                  variants={scrollReveal}
-                  initial="initial"
-                  whileInView="whileInView"
-                  viewport={scrollReveal.viewport}
-                  whileHover={{ scale: 1.02 }}
-                  style={{ 
-                    position: 'relative',
-                    borderRadius: '12px', 
-                    padding: '24px', 
-                    display: 'flex', 
-                    gap: '16px', 
-                    alignItems: 'flex-start', 
-                    cursor: 'pointer',
-                    minHeight: '120px',
-                    overflow: 'hidden',
-                    boxShadow: 'var(--shadow-md)',
-                    border: '1px solid rgba(15, 23, 42, 0.1)'
-                  }}
-                >
-                  {/* Photo background with dark overlay */}
-                  <div 
-                    style={{
-                      position: 'absolute',
-                      top: 0,
-                      left: 0,
-                      right: 0,
-                      bottom: 0,
-                      backgroundImage: `linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.9)), url(${card.image})`,
-                      backgroundSize: 'cover',
-                      backgroundPosition: 'center',
-                      zIndex: 1
-                    }}
-                  />
-                  <div style={{ color: 'var(--accent)', width: '38px', height: '38px', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgba(255,255,255,0.08)', borderRadius: '8px', flexShrink: 0, zIndex: 2, border: '1px solid rgba(255,255,255,0.1)' }}>
-                    {card.icon}
-                  </div>
-                  <div style={{ zIndex: 2 }}>
-                    <h4 style={{ fontSize: '16px', color: '#ffffff', fontWeight: '600', marginBottom: '4px' }}>{card.title}</h4>
-                    <p style={{ fontSize: '13px', color: '#cbd5e1', lineHeight: '1.5' }}>{card.desc}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* --- SERVICES OVERVIEW --- */}
       <section className="section section-alt" style={{ backgroundColor: 'var(--background)' }}>
@@ -959,7 +845,7 @@ export default function Home() {
                   tagline: "Connect. Preserve. Scale.",
                   desc: "Scalable Multilingual Relationship Management Platform",
                   icon: <Network size={22} />,
-                  color: "#14b8a6"
+                  color: "#F59E0B"
                 }
               ].map((solution, index) => (
                 <motion.div
@@ -970,7 +856,7 @@ export default function Home() {
                   viewport={{ once: true, margin: "-80px" }}
                   whileHover={{ 
                     y: -6, 
-                    borderColor: 'rgba(37, 99, 235, 0.25)', 
+                    borderColor: 'rgba(14, 116, 144, 0.25)', 
                     boxShadow: 'var(--shadow-xl)',
                     transition: { duration: 0.2 }
                   }}
@@ -1238,7 +1124,7 @@ export default function Home() {
                   aria-label="Play product video"
                   whileHover={{ scale: 1.08 }}
                   whileTap={{ scale: 0.96 }}
-                  style={{ backgroundColor: 'var(--cta)', color: '#0F172A' }}
+                  style={{ backgroundColor: 'var(--cta)', color: '#0B1F3A' }}
                 >
                   <Play fill="currentColor" size={28} />
                 </motion.button>
@@ -1512,7 +1398,7 @@ export default function Home() {
       </section>
 
       {/* --- CALL TO ACTION --- */}
-      <section className="section section-dark" style={{ background: 'linear-gradient(135deg, #0F172A 0%, #2563EB 100%)', position: 'relative', overflow: 'hidden' }}>
+      <section className="section section-dark" style={{ background: 'linear-gradient(135deg, #0B1F3A 0%, #0E7490 100%)', position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', top: '-10%', right: '-10%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(20, 184, 166, 0.12) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
         <div style={{ position: 'absolute', bottom: '-10%', left: '-10%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(245, 158, 11, 0.08) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
 
@@ -1534,7 +1420,7 @@ export default function Home() {
                 className="btn btn-cta"
                 whileHover={buttonHover.whileHover}
                 whileTap={buttonHover.whileTap}
-                style={{ color: '#0F172A' }}
+                style={{ color: '#0B1F3A' }}
               >
                 Schedule Consultation
                 <PhoneCall size={16} />
@@ -1599,7 +1485,7 @@ export default function Home() {
                 <p style={{ color: '#94a3b8', fontSize: '15px', maxWidth: '480px', marginBottom: '32px', lineHeight: '1.5' }}>
                   This overlay represents the interactive media player for the VERICEA Manufacturing software. In a production environment, this embeds the explainer video walk-through.
                 </p>
-                <button onClick={() => setIsVideoModalOpen(false)} className="btn btn-cta btn-sm" style={{ color: '#0F172A' }}>
+                <button onClick={() => setIsVideoModalOpen(false)} className="btn btn-cta btn-sm" style={{ color: '#0B1F3A' }}>
                   Close Walkthrough Demo
                 </button>
               </div>

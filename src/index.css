@@ -2,12 +2,12 @@
 
 /* --- DESIGN SYSTEM TOKENS --- */
 :root {
-  --primary: #0F172A;
-  --primary-rgb: 15, 23, 42;
-  --secondary: #2563EB;
-  --secondary-rgb: 37, 99, 235;
-  --accent: #14B8A6;
-  --accent-rgb: 20, 184, 166;
+  --primary: #0B1F3A;
+  --primary-rgb: 11, 31, 58;
+  --secondary: #0E7490;
+  --secondary-rgb: 14, 116, 144;
+  --accent: #F59E0B;
+  --accent-rgb: 245, 158, 11;
   --cta: #F59E0B;
   --cta-hover: #D97706;
   --background: #F8FAFC;

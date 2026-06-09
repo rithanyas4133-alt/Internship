@@ -125,16 +125,6 @@ export default function Services() {
     }
   ];
 
-  const challenges = [
-    { name: "Production Tracking Challenges", approach: "Implement VERICEA Manufacturing for real-time tracking, shop-floor OEE dashboard interfaces, and automatic log collections." },
-    { name: "Compliance Monitoring Difficulties", approach: "Deploy VERICEA Compliance to automate evidence tracking, audit schedules, and checklist verifications." },
-    { name: "Manual Processes", approach: "Replace spreadsheets and paper sheets with automated custom database forms and guided software workflows." },
-    { name: "Disconnected Systems", approach: "Build custom API gateways and system integration layers linking legacy databases, warehouse scanners, and cloud setups." },
-    { name: "Reporting Inefficiencies", approach: "Configure centralized operations dashboards with custom filter logs and instant PDF/Excel exports." },
-    { name: "Audit Readiness Issues", approach: "Set up real-time status trackers, historical audit trails, and encrypted document evidence vaults." },
-    { name: "Operational Visibility Problems", approach: "Construct executive overview consoles, supervisor notification logs, and live machinery alert updates." },
-    { name: "Data Management Challenges", approach: "Deploy secure MongoDB database clustering, role-based user permissions, and automatic cloud backups." }
-  ];
 
   const processTimeline = [
     { step: "01", name: "Discover", desc: "Understanding business objectives and studying manual workflows on the ground." },
@@ -398,68 +388,6 @@ export default function Services() {
                 </motion.div>
               );
             })}
-          </div>
-        </div>
-      </section>
-
-      {/* ==================================================
-          SECTION: BUSINESS CHALLENGES WE SOLVE
-          ================================================== */}
-      <section className="section" style={{ backgroundColor: 'var(--alternate-bg)' }}>
-        <div className="container">
-          <div className="section-title-wrapper" style={{ marginBottom: '56px' }}>
-            <span className="section-subtitle">Operational Diagnostics</span>
-            <h2 className="section-title">Turning Challenges Into Opportunities</h2>
-            <p className="section-desc">
-              We resolve systemic obstacles by implementing high-availability, modern enterprise platforms.
-            </p>
-          </div>
-
-          <div className="grid-3" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px' }}>
-            {challenges.map((chal, index) => (
-              <motion.div
-                key={index}
-                variants={scrollReveal}
-                initial="initial"
-                whileInView="whileInView"
-                viewport={scrollReveal.viewport}
-                whileHover={{ y: -6, borderColor: 'var(--secondary)', boxShadow: 'var(--shadow-lg)' }}
-                style={{
-                  backgroundColor: '#ffffff',
-                  border: '1px solid rgba(15, 23, 42, 0.07)',
-                  borderRadius: '12px',
-                  padding: '28px 24px',
-                  boxShadow: 'var(--shadow-sm)',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '12px',
-                  transition: 'all 0.3s ease'
-                }}
-              >
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#ef4444' }}>
-                  <HelpCircle size={16} />
-                  <span style={{ fontSize: '14px', fontWeight: '800', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
-                    Challenge
-                  </span>
-                </div>
-                <h4 style={{ fontSize: '16px', fontWeight: '800', color: 'var(--primary)', margin: 0, fontFamily: 'var(--font-headings)' }}>
-                  {chal.name}
-                </h4>
-                
-                <div style={{ display: 'flex', color: 'var(--text-muted)', paddingLeft: '4px', margin: '4px 0' }}>
-                  <ArrowRight size={14} style={{ transform: 'rotate(90deg)' }} />
-                </div>
-
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                  <span style={{ fontSize: '11px', fontWeight: '700', color: 'var(--secondary)', textTransform: 'uppercase', letterSpacing: '1px' }}>
-                    CEA Solution Approach
-                  </span>
-                  <p style={{ fontSize: '13px', color: 'var(--text-muted)', lineHeight: '1.6', margin: 0 }}>
-                    {chal.approach}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
           </div>
         </div>
       </section>

@@ -1139,46 +1139,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* --- INDUSTRIES WE SERVE --- */}
-      <section className="section" style={{ backgroundColor: 'var(--background)' }}>
-        <div className="container">
-          <div className="section-title-wrapper">
-            <span className="section-subtitle">Sectors We Transform</span>
-            <h2 className="section-title">Designed for Complex Industrial Environments</h2>
-            <p className="section-desc">Our software suites adapt to the distinct database, scale, and compliance requirements of diverse sectors.</p>
-          </div>
-
-          <div className="industry-grid">
-            {[
-              { title: 'Manufacturing', desc: 'Real-time plant OEE monitors, WIP audits, and material flow logs.', icon: <Factory /> },
-              { title: 'Engineering', desc: 'Custom project lifecycle tracking, dependency logging, and structural blueprint updates.', icon: <Cog /> },
-              { title: 'Textiles & Apparel', desc: 'Batch dye house tracking, raw material configuration, and operator efficiency logs.', icon: <Shirt /> },
-              { title: 'Retail', desc: 'Stock synchronization, supplier analytics, and courier reconciliation metrics.', icon: <ShoppingBag /> },
-              { title: 'Finance', desc: 'Reconciliation ledgers, audit trail history logs, and localized security configs.', icon: <Landmark /> },
-              { title: 'NGO', desc: 'Grant reporting accounts, localized project logs, and compliance score monitoring.', icon: <HeartHandshake /> },
-              { title: 'Logistics', desc: 'Courier rate auditing, invoice checkers, and shipping savings audits.', icon: <Truck /> },
-              { title: 'Construction', desc: 'Material procurement logs, site safety checks, and heavy machine usage diaries.', icon: <Building /> }
-            ].map((industry) => (
-
-              <motion.div
-                key={industry.title}
-                className="industry-card"
-                variants={scrollReveal}
-                initial="initial"
-                whileInView="whileInView"
-                viewport={scrollReveal.viewport}
-                style={{ backgroundColor: '#ffffff', borderColor: 'rgba(15,23,42,0.06)' }}
-              >
-                <div className="industry-icon-wrapper" style={{ backgroundColor: 'var(--alternate-bg)', color: 'var(--secondary)' }}>
-                  {industry.icon}
-                </div>
-                <h3 className="industry-title">{industry.title}</h3>
-                <p className="industry-desc">{industry.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* --- WHY CHOOSE CEA INFOTECH --- */}
       <section className="section" style={{ backgroundColor: 'var(--alternate-bg)' }}>

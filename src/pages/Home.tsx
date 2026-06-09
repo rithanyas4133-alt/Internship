@@ -31,7 +31,18 @@ import {
   HeartHandshake,
   Rocket,
   Headset,
-  Cpu
+  Cpu,
+  Recycle,
+  HeartPulse,
+  Droplets,
+  BarChart3,
+  CalendarDays,
+  Wallet,
+  Clock,
+  Heart,
+  Target,
+  CircleDot,
+  TrendingUp
 } from 'lucide-react';
 
 
@@ -80,6 +91,100 @@ const heroBackgrounds = [
   '/images/logistics_terminal_1780850837146.png',
   '/images/safety_inspection_1780850817856.png',
   '/images/family_archives_1780850863160.png'
+];
+
+const solutions = [
+  {
+    title: "Brand-Supplier Risk Survey Tool",
+    icon: ShieldCheck,
+    description: "Supplier risk assessment and monitoring platform."
+  },
+  {
+    title: "Scrap Management System",
+    icon: Recycle,
+    description: "Track, manage and optimize scrap operations."
+  },
+  {
+    title: "Courier Cost Management System",
+    icon: Truck,
+    description: "Monitor and reduce logistics and courier expenses."
+  },
+  {
+    title: "Overtime Tracking & Approval System",
+    icon: Clock,
+    description: "Automate overtime requests, approvals and reporting."
+  },
+  {
+    title: "Women Health Beneficiaries Tracking System",
+    icon: HeartPulse,
+    description: "Government beneficiary monitoring and reporting solution."
+  },
+  {
+    title: "Job Portal & Recruitment System",
+    icon: Users,
+    description: "End-to-end recruitment and talent management platform."
+  },
+  {
+    title: "Community Water Plant System",
+    icon: Droplets,
+    description: "Monitor community water plant operations and services."
+  },
+  {
+    title: "MIS Framework for NGO Operations",
+    icon: BarChart3,
+    description: "Centralized monitoring and reporting for NGO activities."
+  },
+  {
+    title: "Golf Tee Time Booking System",
+    icon: CalendarDays,
+    description: "Online reservation and scheduling platform."
+  },
+  {
+    title: "Country Development Project Monitoring System",
+    icon: Globe,
+    description: "Track and monitor multi-year development initiatives."
+  },
+  {
+    title: "Microfinance Accounting Product",
+    icon: Wallet,
+    description: "Financial accounting platform for SHGs and cooperatives."
+  },
+  {
+    title: "Family Tree Platform",
+    icon: Network,
+    description: "Scalable multilingual family relationship management platform."
+  }
+];
+
+const partnersRow1 = [
+  { name: "Atlas Export Enterprises", icon: Globe, color: "#2563EB" },
+  { name: "Atlas Processing Mills", icon: Factory, color: "#14B8A6" },
+  { name: "Shripranav Textile Creations Pvt Ltd", icon: Layers, color: "#F59E0B" },
+  { name: "CBC Fashions (Asia) Pvt Ltd", icon: Shirt, color: "#EC4899" },
+  { name: "Ashwath Inc", icon: Building, color: "#6366F1" },
+  { name: "Kandhan Knits", icon: Layers, color: "#8B5CF6" },
+  { name: "Masturlal Pvt Ltd", icon: ShieldCheck, color: "#10B981" },
+  { name: "Research Manufacturing & Development Corporation", icon: Cpu, color: "#3B82F6" },
+  { name: "Omega Scientific", icon: Award, color: "#F59E0B" },
+  { name: "Mii Ret Cam", icon: Smartphone, color: "#14B8A6" },
+  { name: "Dynamic Engineering", icon: Cog, color: "#6B7280" },
+  { name: "Zonestra USA", icon: Globe, color: "#2563EB" }
+];
+
+const partnersRow2 = [
+  { name: "Solidaridad India", icon: HeartHandshake, color: "#10B981" },
+  { name: "Skilift Consulting Company", icon: TrendingUp, color: "#3B82F6" },
+  { name: "SkilFil Consultants", icon: Briefcase, color: "#6366F1" },
+  { name: "Catalyst Group", icon: Rocket, color: "#EC4899" },
+  { name: "Catalyst Management Services", icon: Award, color: "#F59E0B" },
+  { name: "Vrutti", icon: Users, color: "#8B5CF6" },
+  { name: "Swasti", icon: Heart, color: "#EF4444" },
+  { name: "Fuzhio", icon: Sparkles, color: "#F59E0B" },
+  { name: "GenYGolf Australia", icon: Target, color: "#10B981" },
+  { name: "UNODC Nigeria", icon: ShieldCheck, color: "#3B82F6" },
+  { name: "UNICEF India", icon: HeartHandshake, color: "#14B8A6" },
+  { name: "Al Ansari Group UAE", icon: Building, color: "#6366F1" },
+  { name: "A", icon: CircleDot, color: "#F59E0B" }
 ];
 
 export default function Home() {
@@ -509,357 +614,591 @@ export default function Home() {
         </div>
       </section>
 
-      {/* --- FEATURED PRODUCTS --- */}
-      <section className="section" style={{ backgroundColor: '#ffffff' }}>
+      {/* --- CEA'S FLAGSHIP PRODUCTS --- */}
+      <section className="section" style={{ backgroundColor: '#ffffff', overflow: 'hidden' }}>
         <div className="container">
-          <div className="section-title-wrapper" style={{ marginBottom: '44px' }}>
-            <span className="section-subtitle">Our Software Suite</span>
-            <h2 className="section-title">Product Ecosystem & Live Previews</h2>
-            <p className="section-desc">Deploy ready-to-scale software platforms designed to optimize execution, mitigate safety risks, and audit logistics.</p>
+          {/* Section Header */}
+          <motion.div 
+            variants={scrollReveal}
+            initial="initial"
+            whileInView="whileInView"
+            viewport={{ once: true, margin: "-100px" }}
+            className="section-title-wrapper"
+            style={{ marginBottom: '80px' }}
+          >
+            <span className="section-subtitle" style={{ color: 'var(--secondary)' }}>Our Proprietary Software</span>
+            <h2 className="section-title" style={{ fontSize: '38px', fontWeight: '800' }}>
+              CEA's Flagship Products
+            </h2>
+            <p className="section-desc" style={{ fontSize: '16px', lineHeight: '1.6', color: 'var(--text-muted)' }}>
+              Innovative software solutions developed by CEA Infotech to improve manufacturing efficiency, strengthen compliance management and support operational excellence.
+            </p>
+          </motion.div>
+
+          {/* Flagship Products Rows */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '80px', marginBottom: '100px' }}>
+            
+            {/* PRODUCT 1: VERICEA Manufacturing */}
+            <div className="grid-2" style={{ alignItems: 'center', gap: '50px' }}>
+              {/* Left Column: Text & Features */}
+              <motion.div
+                variants={scrollReveal}
+                initial="initial"
+                whileInView="whileInView"
+                viewport={{ once: true, margin: "-100px" }}
+                style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}
+              >
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                  <span style={{ fontSize: '13px', fontWeight: '700', color: 'var(--secondary)', textTransform: 'uppercase', letterSpacing: '1.5px' }}>
+                    Track. Measure. Improve.
+                  </span>
+                  <h3 style={{ fontSize: '32px', fontWeight: '800', color: 'var(--primary)', fontFamily: 'var(--font-headings)' }}>
+                    VERICEA Manufacturing
+                  </h3>
+                </div>
+
+                {/* Special Badge */}
+                <motion.div 
+                  whileHover={{ scale: 1.03 }}
+                  style={{ 
+                    display: 'inline-flex', 
+                    alignItems: 'center', 
+                    gap: '6px', 
+                    background: 'rgba(20, 184, 166, 0.08)', 
+                    border: '1px solid rgba(20, 184, 166, 0.2)', 
+                    color: 'var(--accent)', 
+                    borderRadius: '20px', 
+                    padding: '6px 14px', 
+                    fontSize: '11px', 
+                    fontWeight: '700', 
+                    textTransform: 'uppercase', 
+                    width: 'fit-content'
+                  }}
+                >
+                  <ShieldCheck size={13} />
+                  <span>Trademark & Copyright Protected</span>
+                </motion.div>
+
+                <p style={{ fontSize: '15px', color: 'var(--text-muted)', lineHeight: '1.6', margin: 0 }}>
+                  Improve production efficiency through real-time tracking, operational visibility and manufacturing analytics.
+                </p>
+
+                {/* Feature Highlights Grid */}
+                <div style={{ 
+                  display: 'grid', 
+                  gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', 
+                  gap: '12px 24px', 
+                  marginTop: '10px',
+                  background: 'rgba(241, 245, 249, 0.5)',
+                  padding: '20px',
+                  borderRadius: 'var(--border-radius-md)',
+                  border: '1px solid rgba(15, 23, 42, 0.04)'
+                }}>
+                  {[
+                    "Production Tracking",
+                    "Efficiency Monitoring",
+                    "Manufacturing Analytics",
+                    "Real-Time Visibility",
+                    "Supports 11+ Manufacturing Domains"
+                  ].map((feat, idx) => (
+                    <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13.5px', fontWeight: '600', color: 'var(--text-main)' }}>
+                      <CheckCircle size={16} style={{ color: 'var(--secondary)', flexShrink: 0 }} />
+                      <span>{feat}</span>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+
+              {/* Right Column: Visual Preview */}
+              <motion.div
+                variants={scrollReveal}
+                initial="initial"
+                whileInView="whileInView"
+                viewport={{ once: true, margin: "-100px" }}
+                style={{ position: 'relative' }}
+              >
+                {/* Simulated Browser Frame with Glassmorphism */}
+                <div style={{
+                  backgroundColor: '#ffffff',
+                  borderRadius: 'var(--border-radius-lg)',
+                  border: '1px solid rgba(15, 23, 42, 0.1)',
+                  boxShadow: 'var(--shadow-xl)',
+                  overflow: 'hidden',
+                  position: 'relative'
+                }}>
+                  {/* Safari dots */}
+                  <div style={{
+                    height: '36px',
+                    background: '#f1f5f9',
+                    borderBottom: '1px solid rgba(15, 23, 42, 0.06)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    padding: '0 16px',
+                    gap: '6px'
+                  }}>
+                    <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#ef4444' }}></span>
+                    <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#f59e0b' }}></span>
+                    <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#10b981' }}></span>
+                    <span style={{ fontSize: '11px', color: '#94a3b8', marginLeft: '12px', fontWeight: '500' }}>vericea-mes-dashboard.cea</span>
+                  </div>
+
+                  {/* Browser contents: stacked factory photo + dashboard */}
+                  <div style={{ position: 'relative', height: '320px', overflow: 'hidden' }}>
+                    {/* Factory background photo */}
+                    <div style={{
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      backgroundImage: 'linear-gradient(rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.5)), url("/images/manufacturing_floor_1780850784796.png")',
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center'
+                    }}></div>
+
+                    {/* Dashboard mock overlay that zooms on hover */}
+                    <div style={{
+                      position: 'absolute',
+                      top: '10%',
+                      left: '8%',
+                      right: '8%',
+                      bottom: '10%',
+                      borderRadius: '8px',
+                      overflow: 'hidden',
+                      boxShadow: '0 20px 40px rgba(0, 0, 0, 0.35)',
+                      border: '1px solid rgba(255, 255, 255, 0.15)'
+                    }}>
+                      <motion.img 
+                        whileHover={{ scale: 1.05 }}
+                        transition={{ duration: 0.3 }}
+                        src="/images/vericea_dashboard_mockup.png" 
+                        alt="VERICEA Manufacturing Dashboard" 
+                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* PRODUCT 2: VERICEA Compliance */}
+            <div className="grid-2" style={{ alignItems: 'center', gap: '50px' }}>
+              {/* Left Column: Text & Features */}
+              <motion.div
+                variants={scrollReveal}
+                initial="initial"
+                whileInView="whileInView"
+                viewport={{ once: true, margin: "-100px" }}
+                style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}
+              >
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                  <span style={{ fontSize: '13px', fontWeight: '700', color: 'var(--secondary)', textTransform: 'uppercase', letterSpacing: '1.5px' }}>
+                    Create. Maintain. Monitor.
+                  </span>
+                  <h3 style={{ fontSize: '32px', fontWeight: '800', color: 'var(--primary)', fontFamily: 'var(--font-headings)' }}>
+                    VERICEA Compliance
+                  </h3>
+                </div>
+
+                {/* Special Badge */}
+                <motion.div 
+                  whileHover={{ scale: 1.03 }}
+                  style={{ 
+                    display: 'inline-flex', 
+                    alignItems: 'center', 
+                    gap: '6px', 
+                    background: 'rgba(20, 184, 166, 0.08)', 
+                    border: '1px solid rgba(20, 184, 166, 0.2)', 
+                    color: 'var(--accent)', 
+                    borderRadius: '20px', 
+                    padding: '6px 14px', 
+                    fontSize: '11px', 
+                    fontWeight: '700', 
+                    textTransform: 'uppercase', 
+                    width: 'fit-content'
+                  }}
+                >
+                  <ShieldCheck size={13} />
+                  <span>Trademark & Copyright Protected</span>
+                </motion.div>
+
+                <p style={{ fontSize: '15px', color: 'var(--text-muted)', lineHeight: '1.6', margin: 0 }}>
+                  Manage compliance activities, audits and evidence tracking through a centralized platform.
+                </p>
+
+                {/* Feature Highlights Grid */}
+                <div style={{ 
+                  display: 'grid', 
+                  gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', 
+                  gap: '12px 24px', 
+                  marginTop: '10px',
+                  background: 'rgba(241, 245, 249, 0.5)',
+                  padding: '20px',
+                  borderRadius: 'var(--border-radius-md)',
+                  border: '1px solid rgba(15, 23, 42, 0.04)'
+                }}>
+                  {[
+                    "Compliance Monitoring",
+                    "Audit Management",
+                    "Evidence Tracking",
+                    "Corrective Actions",
+                    "Daily, Weekly & Monthly Tracking"
+                  ].map((feat, idx) => (
+                    <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13.5px', fontWeight: '600', color: 'var(--text-main)' }}>
+                      <CheckCircle size={16} style={{ color: 'var(--secondary)', flexShrink: 0 }} />
+                      <span>{feat}</span>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+
+              {/* Right Column: Visual Preview */}
+              <motion.div
+                variants={scrollReveal}
+                initial="initial"
+                whileInView="whileInView"
+                viewport={{ once: true, margin: "-100px" }}
+                style={{ position: 'relative' }}
+              >
+                {/* Simulated Browser Frame */}
+                <div style={{
+                  backgroundColor: '#ffffff',
+                  borderRadius: 'var(--border-radius-lg)',
+                  border: '1px solid rgba(15, 23, 42, 0.1)',
+                  boxShadow: 'var(--shadow-xl)',
+                  overflow: 'hidden',
+                  position: 'relative'
+                }}>
+                  {/* Safari dots */}
+                  <div style={{
+                    height: '36px',
+                    background: '#f1f5f9',
+                    borderBottom: '1px solid rgba(15, 23, 42, 0.06)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    padding: '0 16px',
+                    gap: '6px'
+                  }}>
+                    <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#ef4444' }}></span>
+                    <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#f59e0b' }}></span>
+                    <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#10b981' }}></span>
+                    <span style={{ fontSize: '11px', color: '#94a3b8', marginLeft: '12px', fontWeight: '500' }}>vericea-compliance.cea</span>
+                  </div>
+
+                  {/* Browser contents */}
+                  <div style={{ position: 'relative', height: '320px', overflow: 'hidden' }}>
+                    {/* Compliance background photo */}
+                    <div style={{
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      backgroundImage: 'linear-gradient(rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.5)), url("/images/quality_audit_1780850801169.png")',
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center'
+                    }}></div>
+
+                    {/* Dashboard mock overlay that zooms on hover */}
+                    <div style={{
+                      position: 'absolute',
+                      top: '10%',
+                      left: '8%',
+                      right: '8%',
+                      bottom: '10%',
+                      borderRadius: '8px',
+                      overflow: 'hidden',
+                      boxShadow: '0 20px 40px rgba(0, 0, 0, 0.35)',
+                      border: '1px solid rgba(255, 255, 255, 0.15)'
+                    }}>
+                      <motion.img 
+                        whileHover={{ scale: 1.05 }}
+                        transition={{ duration: 0.3 }}
+                        src="/images/product_tab_compliance_1780851018319.png" 
+                        alt="VERICEA Compliance Dashboard" 
+                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+
           </div>
 
-          {/* Interactive tabs */}
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '32px' }}>
+          {/* ADDITIONAL SOLUTIONS SECTION */}
+          <div style={{ borderTop: '1px solid rgba(15, 23, 42, 0.08)', paddingTop: '80px' }}>
+            <div style={{ textAlign: 'center', marginBottom: '48px' }}>
+              <span style={{ fontSize: '13px', fontWeight: '700', color: 'var(--secondary)', textTransform: 'uppercase', letterSpacing: '1.5px', display: 'block', marginBottom: '8px' }}>
+                Enterprise Applications
+              </span>
+              <h3 style={{ fontSize: '28px', fontWeight: '800', color: 'var(--primary)' }}>
+                Additional Digital Solutions
+              </h3>
+            </div>
+
+            {/* Grid of smaller cards */}
+            <div className="grid-3" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px' }}>
+              {[
+                {
+                  title: "FactSafe",
+                  tagline: "Identify. Assess. Mitigate.",
+                  desc: "Risk Assessment & Monitoring Platform",
+                  icon: <AlertTriangle size={22} />,
+                  color: "#ef4444"
+                },
+                {
+                  title: "Courier Cost Management",
+                  tagline: "Optimize. Control. Reduce.",
+                  desc: "Logistics Cost Optimization Solution",
+                  icon: <Truck size={22} />,
+                  color: "#3b82f6"
+                },
+                {
+                  title: "Family Tree Platform",
+                  tagline: "Connect. Preserve. Scale.",
+                  desc: "Scalable Multilingual Relationship Management Platform",
+                  icon: <Network size={22} />,
+                  color: "#14b8a6"
+                }
+              ].map((solution, index) => (
+                <motion.div
+                  key={index}
+                  variants={scrollReveal}
+                  initial="initial"
+                  whileInView="whileInView"
+                  viewport={{ once: true, margin: "-80px" }}
+                  whileHover={{ 
+                    y: -6, 
+                    borderColor: 'rgba(37, 99, 235, 0.25)', 
+                    boxShadow: 'var(--shadow-xl)',
+                    transition: { duration: 0.2 }
+                  }}
+                  style={{
+                    backgroundColor: '#ffffff',
+                    border: '1px solid rgba(15, 23, 42, 0.08)',
+                    borderRadius: 'var(--border-radius-lg)',
+                    padding: '32px 24px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '16px',
+                    boxShadow: 'var(--shadow-md)',
+                    transition: 'border-color 0.2s, box-shadow 0.2s',
+                    height: '100%'
+                  }}
+                >
+                  {/* Icon Wrapper */}
+                  <div style={{
+                    width: '44px',
+                    height: '44px',
+                    borderRadius: '8px',
+                    backgroundColor: `${solution.color}10`,
+                    color: solution.color,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    flexShrink: 0
+                  }}>
+                    {solution.icon}
+                  </div>
+
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', flexGrow: 1 }}>
+                    <span style={{ fontSize: '11px', fontWeight: '700', color: solution.color, textTransform: 'uppercase', letterSpacing: '1px' }}>
+                      {solution.tagline}
+                    </span>
+                    <h4 style={{ fontSize: '18px', fontWeight: '700', color: 'var(--primary)', margin: 0, fontFamily: 'var(--font-headings)' }}>
+                      {solution.title}
+                    </h4>
+                    <p style={{ fontSize: '13.5px', color: 'var(--text-muted)', lineHeight: '1.5', margin: '4px 0 0 0' }}>
+                      {solution.desc}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* --- SOLUTIONS SUCCESSFULLY DELIVERED --- */}
+      <section className="section" style={{ backgroundColor: '#F8FAFC', overflow: 'hidden', position: 'relative' }}>
+        {/* Real business imagery in background accents */}
+        <div 
+          style={{
+            position: 'absolute',
+            right: '-10%',
+            top: '5%',
+            width: '450px',
+            height: '450px',
+            backgroundImage: 'url("/images/manufacturing_floor_1780850784796.png")',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            opacity: 0.025,
+            pointerEvents: 'none',
+            borderRadius: '50%',
+            filter: 'grayscale(100%) blur(2px)'
+          }}
+        />
+        <div 
+          style={{
+            position: 'absolute',
+            left: '-10%',
+            bottom: '5%',
+            width: '450px',
+            height: '450px',
+            backgroundImage: 'url("/images/quality_audit_1780850801169.png")',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            opacity: 0.025,
+            pointerEvents: 'none',
+            borderRadius: '50%',
+            filter: 'grayscale(100%) blur(2px)'
+          }}
+        />
+
+        <div className="container" style={{ position: 'relative', zIndex: 2 }}>
+          <div className="section-title-wrapper" style={{ marginBottom: '48px' }}>
+            <span className="section-subtitle">Our Delivery Record</span>
+            <h2 className="section-title">Solutions Successfully Delivered</h2>
+            <p className="section-desc">
+              Real-world business applications developed across manufacturing, compliance, finance, NGO, logistics and enterprise domains.
+            </p>
+          </div>
+
+          {/* Section statistics */}
+          <div style={{ 
+            display: 'grid', 
+            gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', 
+            gap: '20px', 
+            marginBottom: '56px'
+          }}>
             {[
-              { id: 'manufacturing', label: 'VERICEA Manufacturing', icon: <Factory size={16} /> },
-              { id: 'compliance', label: 'VERICEA Compliance', icon: <ShieldCheck size={16} /> },
-              { id: 'factsafe', label: 'FactSafe', icon: <AlertTriangle size={16} /> },
-              { id: 'courier', label: 'Courier Cost Mgr', icon: <Truck size={16} /> },
-              { id: 'familytree', label: 'Family Tree Platform', icon: <Network size={16} /> }
-            ].map(tab => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveProductTab(tab.id as any)}
-                style={{
-                  padding: '10px 20px',
-                  borderRadius: '30px',
-                  border: 'none',
-                  backgroundColor: activeProductTab === tab.id ? 'var(--primary)' : 'var(--alternate-bg)',
-                  color: activeProductTab === tab.id ? '#ffffff' : 'var(--text-muted)',
-                  fontFamily: 'var(--font-headings)',
-                  fontWeight: '600',
-                  fontSize: '14px',
-                  cursor: 'pointer',
-                  transition: 'all 0.3s ease',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '8px'
-                }}
-              >
-                {tab.icon}
-                {tab.label}
-              </button>
+              { value: <><CountUp end={12} duration={1} />+</>, label: "Solutions Delivered", sub: "Production-ready systems" },
+              { value: <><CountUp end={11} duration={1} />+</>, label: "Industry Domains", sub: "Diverse business verticals" },
+              { value: "Global", label: "Project Experience", sub: "Multi-country footprint" },
+              { value: "Enterprise", label: "Applications", sub: "Uptime & scale optimized" }
+            ].map((stat, idx) => (
+              <div key={idx} style={{ 
+                background: '#ffffff', 
+                border: '1px solid rgba(15, 23, 42, 0.06)', 
+                borderRadius: 'var(--border-radius-md)', 
+                padding: '24px', 
+                textAlign: 'center',
+                boxShadow: 'var(--shadow-sm)',
+                position: 'relative',
+                overflow: 'hidden'
+              }}>
+                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', background: idx % 2 === 0 ? 'var(--secondary)' : 'var(--accent)' }}></div>
+                <div style={{ fontSize: '32px', fontWeight: '800', color: 'var(--primary)', fontFamily: 'var(--font-headings)' }}>{stat.value}</div>
+                <div style={{ fontSize: '14px', fontWeight: '700', color: 'var(--secondary)', marginTop: '4px' }}>{stat.label}</div>
+                <div style={{ fontSize: '12px', color: 'var(--text-muted)', marginTop: '2px' }}>{stat.sub}</div>
+              </div>
             ))}
           </div>
 
-          {/* Tab content display grid */}
-          <div className="grid-2" style={{ background: 'var(--background)', padding: '40px', borderRadius: '16px', border: '1px solid rgba(15,23,42,0.06)' }}>
-            <AnimatePresence mode="wait">
-              {activeProductTab === 'manufacturing' && (
+          {/* Staggered card animations and hover effects */}
+          <motion.div 
+            variants={{
+              initial: {},
+              whileInView: {
+                transition: {
+                  staggerChildren: 0.04
+                }
+              }
+            }}
+            initial="initial"
+            whileInView="whileInView"
+            viewport={{ once: true, margin: "-80px" }}
+            style={{ 
+              display: 'grid', 
+              gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', 
+              gap: '24px',
+              marginBottom: '48px'
+            }}
+          >
+            {solutions.map((solution, index) => {
+              const IconComp = solution.icon;
+              return (
                 <motion.div
-                  key="mfg"
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.3 }}
-                  style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '20px' }}
+                  key={index}
+                  variants={{
+                    initial: { opacity: 0, y: 24 },
+                    whileInView: { 
+                      opacity: 1, 
+                      y: 0,
+                      transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] }
+                    }
+                  }}
+                  whileHover={{ 
+                    y: -6, 
+                    borderColor: 'rgba(37, 99, 235, 0.35)', 
+                    boxShadow: 'var(--shadow-lg)',
+                    transition: { duration: 0.2 }
+                  }}
+                  style={{
+                    backgroundColor: '#ffffff',
+                    border: '1px solid rgba(15, 23, 42, 0.07)',
+                    borderRadius: 'var(--border-radius-lg)',
+                    padding: '28px 24px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '16px',
+                    boxShadow: 'var(--shadow-sm)',
+                    position: 'relative',
+                    overflow: 'hidden',
+                    transition: 'border-color 0.2s, box-shadow 0.2s'
+                  }}
                 >
-                  <span style={{ fontSize: '13px', fontWeight: '700', color: 'var(--accent)', textTransform: 'uppercase', letterSpacing: '1px' }}>Track. Measure. Improve.</span>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                    <Factory size={32} style={{ color: 'var(--secondary)', flexShrink: 0 }} />
-                    <h3 style={{ fontSize: '26px', color: 'var(--primary)', margin: 0 }}>VERICEA Manufacturing (MES)</h3>
+                  <div style={{ 
+                    position: 'absolute', 
+                    top: 0, 
+                    right: 0, 
+                    width: '32px', 
+                    height: '32px', 
+                    background: 'linear-gradient(135deg, transparent 50%, rgba(20, 184, 166, 0.08) 50%)',
+                    borderRadius: '0 0 0 12px'
+                  }} />
+
+                  <div style={{ 
+                    width: '46px', 
+                    height: '46px', 
+                    borderRadius: 'var(--border-radius-md)', 
+                    backgroundColor: 'rgba(37, 99, 235, 0.05)', 
+                    color: 'var(--secondary)', 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    justifyContent: 'center',
+                    flexShrink: 0
+                  }}>
+                    <IconComp size={22} strokeWidth={1.75} />
                   </div>
-                  <p style={{ color: 'var(--text-muted)', fontSize: '14px', lineHeight: '1.6' }}>
-                    A comprehensive manufacturing execution and WIP tracking system designed to streamline shop floor operations, minimize bottlenecks, and provide absolute operational transparency.
-                  </p>
-                  <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '13px', color: 'var(--text-main)' }}>
-                    <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><CheckCircle size={16} style={{ color: 'var(--accent)' }} /> Production Tracking (real-time loom and stage logging)</li>
-                    <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><CheckCircle size={16} style={{ color: 'var(--accent)' }} /> Efficiency Monitoring (OEE parameters mapping)</li>
-                    <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><CheckCircle size={16} style={{ color: 'var(--accent)' }} /> Plant floor productivity analytics and yield reporting</li>
-                  </ul>
-                  <button onClick={() => navigate('/products')} className="btn btn-primary btn-sm" style={{ alignSelf: 'flex-start', marginTop: '12px' }}>
-                    Learn More Details
-                  </button>
-                </motion.div>
-              )}
 
-              {activeProductTab === 'compliance' && (
-                <motion.div
-                  key="comp"
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.3 }}
-                  style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '20px' }}
-                >
-                  <span style={{ fontSize: '13px', fontWeight: '700', color: 'var(--accent)', textTransform: 'uppercase', letterSpacing: '1px' }}>Create. Maintain. Monitor.</span>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                    <ShieldCheck size={32} style={{ color: 'var(--secondary)', flexShrink: 0 }} />
-                    <h3 style={{ fontSize: '26px', color: 'var(--primary)', margin: 0 }}>VERICEA Compliance Hub</h3>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', flexGrow: 1 }}>
+                    <h3 style={{ fontSize: '16px', fontWeight: '700', color: 'var(--primary)', margin: 0, fontFamily: 'var(--font-headings)' }}>
+                      {solution.title}
+                    </h3>
+                    <p style={{ fontSize: '13.5px', color: 'var(--text-muted)', lineHeight: '1.5', margin: 0 }}>
+                      {solution.description}
+                    </p>
                   </div>
-                  <p style={{ color: 'var(--text-muted)', fontSize: '14px', lineHeight: '1.6' }}>
-                    Automated audit trail and compliance management platform ensuring seamless adherence to industrial safety and product quality parameters.
-                  </p>
-                  <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '13px', color: 'var(--text-main)' }}>
-                    <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><CheckCircle size={16} style={{ color: 'var(--accent)' }} /> Audit Tracking & logs validation</li>
-                    <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><CheckCircle size={16} style={{ color: 'var(--accent)' }} /> Compliance Monitoring scoreboards</li>
-                    <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><CheckCircle size={16} style={{ color: 'var(--accent)' }} /> Evidence Management locker with security vaults</li>
-                  </ul>
-                  <button onClick={() => navigate('/products')} className="btn btn-primary btn-sm" style={{ alignSelf: 'flex-start', marginTop: '12px' }}>
-                    Learn More Details
-                  </button>
                 </motion.div>
-              )}
+              );
+            })}
+          </motion.div>
 
-              {activeProductTab === 'factsafe' && (
-                <motion.div
-                  key="safe"
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.3 }}
-                  style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '20px' }}
-                >
-                  <span style={{ fontSize: '13px', fontWeight: '700', color: 'var(--accent)', textTransform: 'uppercase', letterSpacing: '1px' }}>Industrial Risk Assessment</span>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                    <AlertTriangle size={32} style={{ color: 'var(--secondary)', flexShrink: 0 }} />
-                    <h3 style={{ fontSize: '26px', color: 'var(--primary)', margin: 0 }}>FactSafe Risk Management</h3>
-                  </div>
-                  <p style={{ color: 'var(--text-muted)', fontSize: '14px', lineHeight: '1.6' }}>
-                    Enterprise risk management system cataloging safety checks, mapping mitigation pathways, and organizing routine safety audits across factories and construction zones.
-                  </p>
-                  <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '13px', color: 'var(--text-main)' }}>
-                    <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><CheckCircle size={16} style={{ color: 'var(--accent)' }} /> Floor safety audit log templates</li>
-                    <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><CheckCircle size={16} style={{ color: 'var(--accent)' }} /> Hazard mapping & alert routing controls</li>
-                    <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><CheckCircle size={16} style={{ color: 'var(--accent)' }} /> Dynamic compliance status grids</li>
-                  </ul>
-                  <button onClick={() => navigate('/products')} className="btn btn-primary btn-sm" style={{ alignSelf: 'flex-start', marginTop: '12px' }}>
-                    Learn More Details
-                  </button>
-                </motion.div>
-              )}
-
-              {activeProductTab === 'courier' && (
-                <motion.div
-                  key="cour"
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.3 }}
-                  style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '20px' }}
-                >
-                  <span style={{ fontSize: '13px', fontWeight: '700', color: 'var(--accent)', textTransform: 'uppercase', letterSpacing: '1px' }}>Logistics Cost Optimization</span>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                    <Truck size={32} style={{ color: 'var(--secondary)', flexShrink: 0 }} />
-                    <h3 style={{ fontSize: '26px', color: 'var(--primary)', margin: 0 }}>Courier Cost Management</h3>
-                  </div>
-                  <p style={{ color: 'var(--text-muted)', fontSize: '14px', lineHeight: '1.6' }}>
-                    Prevent transport discrepancies and overbilling. Automatically checks courier rate cards, maps weight deviations, and reconciles supplier invoices.
-                  </p>
-                  <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '13px', color: 'var(--text-main)' }}>
-                    <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><CheckCircle size={16} style={{ color: 'var(--accent)' }} /> Multi-carrier rate card audits</li>
-                    <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><CheckCircle size={16} style={{ color: 'var(--accent)' }} /> Automated discrepancy calculations</li>
-                    <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><CheckCircle size={16} style={{ color: 'var(--accent)' }} /> Detailed logistics saving metrics panels</li>
-                  </ul>
-                  <button onClick={() => navigate('/products')} className="btn btn-primary btn-sm" style={{ alignSelf: 'flex-start', marginTop: '12px' }}>
-                    Learn More Details
-                  </button>
-                </motion.div>
-              )}
-
-              {activeProductTab === 'familytree' && (
-                <motion.div
-                  key="fam"
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.3 }}
-                  style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '20px' }}
-                >
-                  <span style={{ fontSize: '13px', fontWeight: '700', color: 'var(--accent)', textTransform: 'uppercase', letterSpacing: '1px' }}>Preserve Heritage & Legacies</span>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                    <Network size={32} style={{ color: 'var(--secondary)', flexShrink: 0 }} />
-                    <h3 style={{ fontSize: '26px', color: 'var(--primary)', margin: 0 }}>Family Tree Platform</h3>
-                  </div>
-                  <p style={{ color: 'var(--text-muted)', fontSize: '14px', lineHeight: '1.6' }}>
-                    A highly scalable multilingual solution mapping generational hierarchies, organizing family media vaults, and offering secure invitation-only access permissions.
-                  </p>
-                  <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '13px', color: 'var(--text-main)' }}>
-                    <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><CheckCircle size={16} style={{ color: 'var(--accent)' }} /> Interactive node-graph generation visualizers</li>
-                    <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><CheckCircle size={16} style={{ color: 'var(--accent)' }} /> Multi-language asset structures</li>
-                    <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><CheckCircle size={16} style={{ color: 'var(--accent)' }} /> Media file lockers and generation maps</li>
-                  </ul>
-                  <button onClick={() => navigate('/products')} className="btn btn-primary btn-sm" style={{ alignSelf: 'flex-start', marginTop: '12px' }}>
-                    Learn More Details
-                  </button>
-                </motion.div>
-              )}
-            </AnimatePresence>
-
-
-            {/* Dashboard Console Overlaying Real Domain Photography */}
-            <div 
-              style={{ 
-                position: 'relative',
-                borderRadius: '16px', 
-                padding: '16px', 
-                color: '#fff', 
-                display: 'flex', 
-                flexDirection: 'column', 
-                minHeight: '340px', 
-                justifyContent: 'stretch', 
-                boxShadow: '0 25px 50px -12px rgba(0,0,0,0.4)',
-                overflow: 'hidden',
-                border: '1px solid rgba(255,255,255,0.06)',
-                contentVisibility: 'auto'
-              }}
+          {/* CTA Button */}
+          <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <motion.button 
+              onClick={() => navigate('/services')} 
+              className="btn btn-primary"
+              whileHover={{ scale: 1.03, boxShadow: 'var(--shadow-md)' }}
+              whileTap={{ scale: 0.98 }}
+              style={{ padding: '12px 30px' }}
             >
-              {/* Background photograph with dark overlay shifting based on active tab selection */}
-              <div 
-                style={{
-                  position: 'absolute',
-                  top: 0,
-                  left: 0,
-                  right: 0,
-                  bottom: 0,
-                  backgroundImage: `linear-gradient(rgba(15, 23, 42, 0.15), rgba(15, 23, 42, 0.45)), url(${
-                    activeProductTab === 'manufacturing' ? '/images/manufacturing_floor_1780850784796.png' :
-                    activeProductTab === 'compliance' ? '/images/quality_audit_1780850801169.png' :
-                    activeProductTab === 'factsafe' ? '/images/safety_inspection_1780850817856.png' :
-                    activeProductTab === 'courier' ? '/images/logistics_terminal_1780850837146.png' :
-                    '/images/family_archives_1780850863160.png'
-                  })`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                  transition: 'background-image 0.5s ease',
-                  zIndex: 1
-                }}
-              />
-              
-              <div 
-                style={{ 
-                  position: 'relative', 
-                  zIndex: 2, 
-                  display: 'flex', 
-                  flexDirection: 'column', 
-                  height: '100%', 
-                  justifyContent: 'space-between', 
-                  flexGrow: 1, 
-                  gap: '12px',
-                  background: 'rgba(15, 23, 42, 0.75)',
-                  backdropFilter: 'blur(10px)',
-                  WebkitBackdropFilter: 'blur(10px)',
-                  padding: '20px',
-                  borderRadius: '12px',
-                  border: '1px solid rgba(255, 255, 255, 0.08)'
-                }}
-              >
-                <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(255,255,255,0.08)', paddingBottom: '10px' }}>
-                  <span style={{ fontSize: '11px', textTransform: 'uppercase', letterSpacing: '1px', color: 'var(--accent)' }}>System Health Status</span>
-                  <span style={{ fontSize: '10px', color: '#10b981' }}>● ONLINE</span>
-                </div>
-
-                {activeProductTab === 'manufacturing' && (
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                      <span style={{ fontSize: '13px', color: '#cbd5e1' }}>Plant OEE Rating</span>
-                      <span style={{ fontSize: '18px', fontWeight: '700', color: '#10b981' }}>{oeeVal}%</span>
-                    </div>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                      <span style={{ fontSize: '13px', color: '#cbd5e1' }}>Active WIP Orders</span>
-                      <span style={{ fontSize: '18px', fontWeight: '700', color: '#fff' }}>{activeJobs} Run Bins</span>
-                    </div>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', marginTop: '10px' }}>
-                      <span style={{ fontSize: '11px', color: '#94a3b8' }}>Floor Efficiency Level</span>
-                      <div style={{ width: '100%', height: '8px', backgroundColor: 'rgba(255,255,255,0.05)', borderRadius: '4px', overflow: 'hidden' }}>
-                        <div style={{ width: `${(oeeVal - 60) * 2.5}%`, height: '100%', backgroundColor: 'var(--secondary)', transition: 'width 0.5s ease' }}></div>
-                      </div>
-                    </div>
-                  </div>
-                )}
-
-                {activeProductTab === 'compliance' && (
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                      <span style={{ fontSize: '13px', color: '#cbd5e1' }}>Audit Score Rating</span>
-                      <span style={{ fontSize: '18px', fontWeight: '700', color: 'var(--accent)' }}>{auditScore}%</span>
-                    </div>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                      <span style={{ fontSize: '13px', color: '#cbd5e1' }}>Locker Files Verified</span>
-                      <span style={{ fontSize: '18px', fontWeight: '700', color: '#fff' }}>4,920 Docs</span>
-                    </div>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', marginTop: '10px' }}>
-                      <span style={{ fontSize: '11px', color: '#94a3b8' }}>Risk Factor Index</span>
-                      <div style={{ width: '100%', height: '8px', backgroundColor: 'rgba(255,255,255,0.05)', borderRadius: '4px', overflow: 'hidden' }}>
-                        <div style={{ width: '12%', height: '100%', backgroundColor: '#10b981' }}></div>
-                      </div>
-                    </div>
-                  </div>
-                )}
-
-                {activeProductTab === 'factsafe' && (
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                      <span style={{ fontSize: '13px', color: '#cbd5e1' }}>Vulnerability Score</span>
-                      <span style={{ fontSize: '18px', fontWeight: '700', color: '#10b981' }}>Low (12/100)</span>
-                    </div>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                      <span style={{ fontSize: '13px', color: '#cbd5e1' }}>Active Plant Drills</span>
-                      <span style={{ fontSize: '18px', fontWeight: '700', color: '#fff' }}>100% Completed</span>
-                    </div>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', marginTop: '10px' }}>
-                      <span style={{ fontSize: '11px', color: '#94a3b8' }}>Hazards Resolved</span>
-                      <div style={{ width: '100%', height: '8px', backgroundColor: 'rgba(255,255,255,0.05)', borderRadius: '4px', overflow: 'hidden' }}>
-                        <div style={{ width: '98%', height: '100%', backgroundColor: '#10b981' }}></div>
-                      </div>
-                    </div>
-                  </div>
-                )}
-
-                {activeProductTab === 'courier' && (
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                      <span style={{ fontSize: '13px', color: '#cbd5e1' }}>Total Audit Savings</span>
-                      <span style={{ fontSize: '18px', fontWeight: '700', color: '#10b981' }}>$12,482</span>
-                    </div>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                      <span style={{ fontSize: '13px', color: '#cbd5e1' }}>Reconciled Invoices</span>
-                      <span style={{ fontSize: '18px', fontWeight: '700', color: '#fff' }}>{reconciledCount} Units</span>
-                    </div>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', marginTop: '10px' }}>
-                      <span style={{ fontSize: '11px', color: '#94a3b8' }}>Overcharge Discrepancy Rate</span>
-                      <div style={{ width: '100%', height: '8px', backgroundColor: 'rgba(255,255,255,0.05)', borderRadius: '4px', overflow: 'hidden' }}>
-                        <div style={{ width: '4.8%', height: '100%', backgroundColor: 'var(--cta)' }}></div>
-                      </div>
-                    </div>
-                  </div>
-                )}
-
-                {activeProductTab === 'familytree' && (
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                      <span style={{ fontSize: '13px', color: '#cbd5e1' }}>Generations Mapped</span>
-                      <span style={{ fontSize: '18px', fontWeight: '700', color: 'var(--accent)' }}>8 Generations</span>
-                    </div>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                      <span style={{ fontSize: '13px', color: '#cbd5e1' }}>Registered Profiles</span>
-                      <span style={{ fontSize: '18px', fontWeight: '700', color: '#fff' }}>148 Members</span>
-                    </div>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', marginTop: '10px' }}>
-                      <span style={{ fontSize: '11px', color: '#94a3b8' }}>Render Performance</span>
-                      <div style={{ width: '100%', height: '8px', backgroundColor: 'rgba(255,255,255,0.05)', borderRadius: '4px', overflow: 'hidden' }}>
-                        <div style={{ width: '92%', height: '100%', backgroundColor: '#10b981' }}></div>
-                      </div>
-                    </div>
-                  </div>
-                )}
-
-                <div style={{ borderTop: '1px solid rgba(255,255,255,0.08)', paddingTop: '12px', display: 'flex', justifyContent: 'space-between', fontSize: '10px', color: '#64748b' }}>
-                  <span>DB Latency: 4ms</span>
-                  <span>Version 2.4.1</span>
-                </div>
-              </div>
-            </div>
+              View Our Expertise
+              <ArrowRight size={16} />
+            </motion.button>
           </div>
         </div>
       </section>
@@ -956,7 +1295,7 @@ export default function Home() {
       </section>
 
       {/* --- WHY CHOOSE CEA INFOTECH --- */}
-      <section className="section" style={{ backgroundColor: '#ffffff' }}>
+      <section className="section" style={{ backgroundColor: 'var(--alternate-bg)' }}>
         <div className="container">
           <div className="section-title-wrapper">
             <span className="section-subtitle">Our Value Proposition</span>
@@ -1007,97 +1346,168 @@ export default function Home() {
         </div>
       </section>
 
-      {/* --- CUSTOMER LOGO SECTION --- */}
-      <section className="section section-alt" style={{ padding: '60px 0', backgroundColor: '#F1F5F9' }}>
-        <div className="container">
-          <div style={{ textAlign: 'center', marginBottom: '28px' }}>
-            <span style={{ fontSize: '13px', fontWeight: '600', color: 'var(--primary)', textTransform: 'uppercase', letterSpacing: '1.5px' }}>Trusted By Industry Leaders</span>
-          </div>
-          <div className="logo-carousel-container">
-            <div className="logo-marquee-wrapper">
-              <div className="logo-marquee-content">
-                {/* Loop names for continuous marquee ticker effect */}
-                {[...Array(2)].flatMap((_, outerIdx) => 
-                  [
-                    { name: 'Apex Engineering', icon: <Cog size={16} /> },
-                    { name: 'Zen Textiles', icon: <Shirt size={16} /> },
-                    { name: 'Helix Logistics', icon: <Truck size={16} /> },
-                    { name: 'ProRetail Ltd.', icon: <ShoppingBag size={16} /> },
-                    { name: 'Centric NGO', icon: <HeartHandshake size={16} /> },
-                    { name: 'Alpha Microfinance', icon: <Landmark size={16} /> },
-                    { name: 'Vardhman Fabrics', icon: <Layers size={16} /> },
-                    { name: 'Bangalore Ironworks', icon: <Factory size={16} /> }
-                  ].map((partner, innerIdx) => (
-                    <div key={`${outerIdx}-${innerIdx}`} className="logo-placeholder-item" style={{ color: 'var(--primary)', opacity: '0.8' }}>
-                      <div className="logo-icon-placeholder" style={{ backgroundColor: 'rgba(15,23,42,0.08)' }}>
-                        {partner.icon}
+      {/* --- TRUSTED PARTNERS SECTION --- */}
+      <section className="section" style={{ 
+        padding: '100px 0', 
+        backgroundColor: '#ffffff',
+        borderTop: '1px solid rgba(15, 23, 42, 0.05)',
+        borderBottom: '1px solid rgba(15, 23, 42, 0.05)',
+        position: 'relative',
+        overflow: 'hidden'
+      }}>
+        <div className="container" style={{ position: 'relative', zIndex: 2 }}>
+          {/* Section Heading */}
+          <motion.div 
+            variants={scrollReveal}
+            initial="initial"
+            whileInView="whileInView"
+            viewport={{ once: true, margin: "-100px" }}
+            className="section-title-wrapper" 
+            style={{ marginBottom: '56px' }}
+          >
+            <span className="section-subtitle" style={{ color: 'var(--secondary)' }}>Trusted Partners</span>
+            <h2 className="section-title" style={{ fontSize: '38px', fontWeight: '800' }}>
+              Trusted Partners
+            </h2>
+            <p className="section-desc" style={{ fontSize: '16px', lineHeight: '1.6', color: 'var(--text-muted)' }}>
+              Organizations across manufacturing, engineering, consulting, NGO and enterprise sectors trust CEA Infotech for technology solutions, compliance systems and digital transformation initiatives.
+            </p>
+          </motion.div>
+
+          {/* Infinite Marquee Logo Carousel */}
+          <motion.div 
+            variants={scrollReveal}
+            initial="initial"
+            whileInView="whileInView"
+            viewport={{ once: true, margin: "-100px" }}
+            className="logo-carousel-container"
+          >
+            <div className="logo-marquee-wrapper" style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+              
+              {/* Replace placeholders with official customer and partner logos provided by CEA Infotech. */}
+              
+              {/* Row 1: Left to Right */}
+              <div className="marquee-row marquee-row-ltr">
+                {[...partnersRow1, ...partnersRow1].map((partner, index) => {
+                  const IconComp = partner.icon;
+                  return (
+                    <motion.div
+                      key={`row1-${index}`}
+                      whileHover={{ 
+                        scale: 1.04, 
+                        filter: 'grayscale(0%)', 
+                        opacity: 1,
+                        borderColor: 'var(--secondary)',
+                        boxShadow: 'var(--shadow-md)'
+                      }}
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '12px',
+                        background: '#ffffff',
+                        border: '1px solid rgba(15, 23, 42, 0.08)',
+                        borderRadius: '12px',
+                        padding: '12px 22px',
+                        boxShadow: 'var(--shadow-sm)',
+                        cursor: 'pointer',
+                        filter: 'grayscale(100%)',
+                        opacity: 0.6,
+                        transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
+                        whiteSpace: 'nowrap'
+                      }}
+                    >
+                      <div style={{ 
+                        width: '32px', 
+                        height: '32px', 
+                        borderRadius: '6px', 
+                        backgroundColor: `${partner.color}15`, 
+                        color: partner.color,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        flexShrink: 0
+                      }}>
+                        <IconComp size={16} strokeWidth={2} />
                       </div>
-                      <span>{partner.name}</span>
-                    </div>
-                  ))
-                )}
+                      <span style={{ fontSize: '15px', fontWeight: '600', color: 'var(--primary)', fontFamily: 'var(--font-headings)' }}>
+                        {partner.name}
+                      </span>
+                    </motion.div>
+                  );
+                })}
               </div>
+
+              {/* Row 2: Right to Left */}
+              <div className="marquee-row marquee-row-rtl">
+                {[...partnersRow2, ...partnersRow2].map((partner, index) => {
+                  const IconComp = partner.icon;
+                  return (
+                    <motion.div
+                      key={`row2-${index}`}
+                      whileHover={{ 
+                        scale: 1.04, 
+                        filter: 'grayscale(0%)', 
+                        opacity: 1,
+                        borderColor: 'var(--secondary)',
+                        boxShadow: 'var(--shadow-md)'
+                      }}
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '12px',
+                        background: '#ffffff',
+                        border: '1px solid rgba(15, 23, 42, 0.08)',
+                        borderRadius: '12px',
+                        padding: '12px 22px',
+                        boxShadow: 'var(--shadow-sm)',
+                        cursor: 'pointer',
+                        filter: 'grayscale(100%)',
+                        opacity: 0.6,
+                        transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
+                        whiteSpace: 'nowrap'
+                      }}
+                    >
+                      <div style={{ 
+                        width: '32px', 
+                        height: '32px', 
+                        borderRadius: '6px', 
+                        backgroundColor: `${partner.color}15`, 
+                        color: partner.color,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        flexShrink: 0
+                      }}>
+                        <IconComp size={16} strokeWidth={2} />
+                      </div>
+                      <span style={{ fontSize: '15px', fontWeight: '600', color: 'var(--primary)', fontFamily: 'var(--font-headings)' }}>
+                        {partner.name}
+                      </span>
+                    </motion.div>
+                  );
+                })}
+              </div>
+
             </div>
-          </div>
-        </div>
-      </section>
+          </motion.div>
 
-      {/* --- GLOBAL PRESENCE MAP --- */}
-      <section className="section" style={{ backgroundColor: '#ffffff' }}>
-        <div className="container">
-          <div className="grid-2">
-            {/* Column 1: Headquarters Details */}
-            <motion.div
-              variants={scrollReveal}
-              initial="initial"
-              whileInView="whileInView"
-              viewport={scrollReveal.viewport}
-            >
-              <span className="section-subtitle">Global Presence</span>
-              <h2 className="section-title">Bangalore Headquarters & R&D Hub</h2>
-              <p style={{ color: 'var(--text-muted)', fontSize: '16px', lineHeight: '1.7', marginBottom: '20px' }}>
-                CEA Infotech coordinates its global software and ERP deployments from Hebbal, Bangalore. Under the solution architecture and architectural stewardship of M.D. Manohar (35+ years global IT experience), our solution engineers deploy automated tracking, risk, and logistics software worldwide.
-              </p>
-              <p style={{ color: 'var(--text-muted)', fontSize: '16px', lineHeight: '1.7', marginBottom: '28px' }}>
-                Our solutions are designed to support complex industrial operations across 12 countries, including Singapore, Indonesia, USA, Bangladesh, Latvia, UAE, Oman, and Kenya. By combining a robust localized headquarters with global delivery capabilities, we ensure consistent high uptime and support for enterprise clients worldwide.
-              </p>
-            </motion.div>
-
-            {/* Column 2: Real Google Map with Overlay Address */}
-            <motion.div
-              variants={scrollReveal}
-              initial="initial"
-              whileInView="whileInView"
-              viewport={scrollReveal.viewport}
-            >
-              <div style={{ borderRadius: '16px', overflow: 'hidden', border: '1px solid rgba(15, 23, 42, 0.1)', boxShadow: 'var(--shadow-xl)', position: 'relative', height: '400px' }}>
-                <iframe
-                  title="CEA Global Presence Map"
-                  src="https://maps.google.com/maps?q=Bangalore,%20India&t=&z=2&ie=UTF8&iwloc=&output=embed"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0, display: 'block' }}
-                  allowFullScreen={false}
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                ></iframe>
-                {/* Overlay card containing the quoted address lines */}
-                <div style={{ position: 'absolute', bottom: '20px', left: '20px', right: '20px', background: 'rgba(15, 23, 42, 0.95)', backdropFilter: 'blur(8px)', border: '1px solid rgba(255,255,255,0.12)', padding: '16px', borderRadius: '12px', color: '#fff', boxShadow: '0 12px 36px rgba(0,0,0,0.4)' }}>
-                  <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-                    <MapPin size={20} style={{ color: 'var(--accent)', flexShrink: 0, marginTop: '2px' }} />
-                    <div style={{ fontSize: '13px', lineHeight: '1.5' }}>
-                      <strong style={{ color: '#fff', display: 'block', marginBottom: '4px', fontSize: '14px' }}>CEA Infotech Private Limited</strong>
-                      <span>B-205 Century Marvel Apartments, Kempapura, Hebbal, Bangalore - 560024, India</span>
-                      <div style={{ marginTop: '8px', display: 'flex', gap: '16px', fontSize: '11px', color: 'rgba(255,255,255,0.7)' }}>
-                        <span>Ph: +91 9980138172</span>
-                        <span>Email: manohar.md@ceainfotech.com</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          </div>
+          {/* Supporting Text */}
+          <motion.div
+            variants={scrollReveal}
+            initial="initial"
+            whileInView="whileInView"
+            viewport={{ once: true, margin: "-50px" }}
+            style={{ 
+              textAlign: 'center', 
+              marginTop: '48px', 
+              fontSize: '15px', 
+              color: 'var(--text-muted)', 
+              fontWeight: '500',
+              fontStyle: 'italic'
+            }}
+          >
+            Building long-term relationships through innovation, reliability and business excellence.
+          </motion.div>
         </div>
       </section>
 

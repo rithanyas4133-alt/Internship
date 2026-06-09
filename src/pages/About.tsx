@@ -27,7 +27,8 @@ import {
   Calendar,
   Code,
   FileText,
-  Sparkles
+  Sparkles,
+  User
 } from 'lucide-react';
 
 // CountUp Component for statistics numeric tick animation
@@ -370,13 +371,48 @@ export default function About() {
                   boxShadow: 'var(--shadow-xl)',
                   border: '1px solid rgba(15, 23, 42, 0.08)'
                 }}>
-                  <motion.img 
-                    whileHover={{ scale: 1.04 }}
-                    transition={{ duration: 0.4 }}
-                    src="/images/about_us_section_1780850946744.png" 
-                    alt="M. D. Manohar - Managing Director" 
-                    style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'cover' }}
-                  />
+                  <div style={{
+                    width: '100%',
+                    aspectRatio: '1/1',
+                    background: 'linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%)',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    color: '#ffffff',
+                    padding: '40px',
+                    position: 'relative'
+                  }}>
+                    {/* Placeholder portrait outline */}
+                    <div style={{
+                      position: 'relative',
+                      width: '120px',
+                      height: '120px',
+                      borderRadius: '50%',
+                      border: '2px dashed rgba(255, 255, 255, 0.35)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      backgroundColor: 'rgba(255, 255, 255, 0.08)'
+                    }}>
+                      <User size={56} style={{ color: 'var(--accent)' }} />
+                    </div>
+                    
+                    <span style={{ 
+                      fontSize: '11px', 
+                      color: 'rgba(255, 255, 255, 0.65)', 
+                      fontWeight: '700', 
+                      marginTop: '20px', 
+                      textTransform: 'uppercase', 
+                      letterSpacing: '1.5px',
+                      border: '1px solid rgba(255, 255, 255, 0.15)',
+                      padding: '4px 12px',
+                      borderRadius: '12px',
+                      background: 'rgba(0, 0, 0, 0.1)'
+                    }}>
+                      Official Portrait
+                    </span>
+                  </div>
                   <div style={{
                     position: 'absolute',
                     bottom: 0,

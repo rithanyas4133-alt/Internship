@@ -10,13 +10,10 @@ import {
   ShieldCheck,
   Truck,
   Headset,
-  Cpu,
   Code,
   Sparkles,
   ChevronDown,
   ChevronUp,
-  Database,
-  Cloud,
   CheckCircle,
   HelpCircle,
   Smartphone,
@@ -167,12 +164,7 @@ export default function Services() {
     { title: "Scalable Growth", desc: "System architectures designed to support modular expansion." }
   ];
 
-  const techStack = [
-    { category: "Frontend", icon: <Monitor size={16} />, badges: ["React", "TypeScript", "Tailwind CSS"] },
-    { category: "Backend", icon: <Cpu size={16} />, badges: ["Node.js", "Express.js"] },
-    { category: "Database", icon: <Database size={16} />, badges: ["MongoDB"] },
-    { category: "Cloud & Devops", icon: <Cloud size={16} />, badges: ["Vercel", "Netlify", "Render"] }
-  ];
+
 
   const handleScrollToSolutions = () => {
     const section = document.getElementById('solutions-matching');
@@ -708,81 +700,7 @@ export default function Services() {
         </div>
       </section>
 
-      {/* ==================================================
-          SECTION: TECHNOLOGY EXPERTISE
-          ================================================== */}
-      <section className="section" style={{ backgroundColor: 'var(--alternate-bg)' }}>
-        <div className="container">
-          <div className="section-title-wrapper" style={{ marginBottom: '48px' }}>
-            <span className="section-subtitle">Our Capabilities</span>
-            <h2 className="section-title">Technologies Behind Our Solutions</h2>
-            <p className="section-desc">We build solutions using modern, secure, and highly scalable technology stacks.</p>
-          </div>
 
-          <div className="grid-4" style={{ gap: '24px' }}>
-            {techStack.map((tech, index) => (
-              <motion.div
-                key={index}
-                variants={scrollReveal}
-                initial="initial"
-                whileInView="whileInView"
-                viewport={scrollReveal.viewport}
-                whileHover={{ y: -4 }}
-                style={{
-                  backgroundColor: '#ffffff',
-                  border: '1px solid rgba(15, 23, 42, 0.06)',
-                  borderRadius: '12px',
-                  padding: '28px 24px',
-                  boxShadow: 'var(--shadow-sm)',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '16px',
-                  alignItems: 'center',
-                  textAlign: 'center',
-                  transition: 'all 0.2s ease'
-                }}
-              >
-                <div style={{
-                  width: '40px',
-                  height: '40px',
-                  borderRadius: '8px',
-                  backgroundColor: 'rgba(14, 116, 144, 0.05)',
-                  color: 'var(--secondary)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center'
-                }}>
-                  {tech.icon}
-                </div>
-                
-                <div>
-                  <h3 style={{ fontSize: '16px', fontWeight: '800', color: 'var(--primary)', margin: '0 0 12px 0' }}>
-                    {tech.category}
-                  </h3>
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', justifyContent: 'center' }}>
-                    {tech.badges.map((badge, idx) => (
-                      <span
-                        key={idx}
-                        style={{
-                          fontSize: '11px',
-                          fontWeight: '700',
-                          color: 'var(--primary)',
-                          backgroundColor: 'var(--alternate-bg)',
-                          padding: '5px 12px',
-                          borderRadius: '4px',
-                          border: '1px solid rgba(15, 23, 42, 0.06)'
-                        }}
-                      >
-                        {badge}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* ==================================================
           CTA SECTION

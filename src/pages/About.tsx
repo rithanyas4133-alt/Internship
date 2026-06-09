@@ -96,11 +96,6 @@ export default function About() {
     whileTap: { scale: 0.98 }
   };
 
-  const secondaryButtonHover = {
-    whileHover: { scale: 1.03, backgroundColor: 'rgba(255, 255, 255, 0.1)' },
-    whileTap: { scale: 0.98 }
-  };
-
   return (
     <motion.div
       initial="initial"
@@ -118,7 +113,7 @@ export default function About() {
           color: '#ffffff',
           position: 'relative',
           overflow: 'hidden',
-          backgroundImage: 'linear-gradient(rgba(11, 31, 58, 0.75), rgba(11, 31, 58, 0.85)), url("/images/about_us_section_1780850946744.png")',
+          backgroundImage: 'linear-gradient(rgba(11, 31, 58, 0.75), rgba(11, 31, 58, 0.85)), url("/images/business_consultation_1780850767888.png")',
           backgroundSize: 'cover',
           backgroundPosition: 'center'
         }}
@@ -162,37 +157,10 @@ export default function About() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              style={{ fontSize: '18px', color: 'rgba(241, 245, 249, 0.85)', marginBottom: '40px', lineHeight: '1.6' }}
+              style={{ fontSize: '18px', color: 'rgba(241, 245, 249, 0.85)', marginBottom: '0px', lineHeight: '1.6' }}
             >
               Since 2015, CEA Infotech has been delivering technology solutions, consulting services and enterprise software products that help organizations improve efficiency, strengthen compliance and achieve operational excellence.
             </motion.p>
-            
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.3 }}
-              style={{ display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap' }}
-            >
-              <motion.button 
-                onClick={() => navigate('/services')} 
-                className="btn btn-cta"
-                whileHover={buttonHover.whileHover}
-                whileTap={buttonHover.whileTap}
-                style={{ color: '#0B1F3A', display: 'flex', alignItems: 'center', gap: '8px' }}
-              >
-                Explore Solutions
-                <ArrowRight size={16} />
-              </motion.button>
-              <motion.button 
-                onClick={() => navigate('/contact')} 
-                className="btn btn-dark-outline"
-                whileHover={secondaryButtonHover.whileHover}
-                whileTap={secondaryButtonHover.whileTap}
-                style={{ border: '2px solid rgba(255, 255, 255, 0.35)', color: '#ffffff' }}
-              >
-                Contact Us
-              </motion.button>
-            </motion.div>
           </div>
         </div>
       </section>

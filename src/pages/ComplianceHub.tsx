@@ -272,21 +272,22 @@ export default function ComplianceHub() {
       initial="initial"
       animate="animate"
       variants={pageTransition}
-      style={{ overflow: 'hidden', backgroundColor: 'var(--background)' }}
+      className="compliance-page"
+      style={{ overflow: 'hidden', backgroundColor: '#0F172A', color: '#F8FAFC' }}
     >
       {/* INJECT PREMIUM CUSTOM STYLES */}
       <style dangerouslySetInnerHTML={{ __html: `
         /* Theme Overrides & Global Component Styles */
         :root {
-          --c-navy: #0B1F3A;
-          --c-teal: #0E7490;
-          --c-gold: #F59E0B;
-          --c-slate-50: #F8FAFC;
-          --c-slate-100: #F1F5F9;
-          --c-slate-200: #E2E8F0;
-          --c-slate-700: #334155;
-          --c-slate-800: #1E293B;
-          --c-slate-900: #0F172A;
+          --c-navy: #0F172A;
+          --c-teal: #06B6D4;
+          --c-gold: #EAB308;
+          --c-slate-50: #090D1A;
+          --c-slate-100: #020617;
+          --c-slate-200: rgba(255, 255, 255, 0.08);
+          --c-slate-700: #cbd5e1;
+          --c-slate-800: rgba(255, 255, 255, 0.03);
+          --c-slate-900: #ffffff;
         }
 
         .compliance-hero-badge {
@@ -380,21 +381,21 @@ export default function ComplianceHub() {
 
         /* Challenge Cards */
         .challenge-card {
-          background: #ffffff;
+          background: rgba(30, 41, 59, 0.3);
           border: 1px solid var(--c-slate-200);
           border-radius: var(--border-radius-md);
           padding: 30px;
           display: flex;
           gap: 20px;
           align-items: flex-start;
-          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .challenge-card:hover {
-          border-color: rgba(14, 116, 144, 0.25);
-          background: linear-gradient(to bottom right, #ffffff, var(--c-slate-50));
-          box-shadow: 0 10px 20px rgba(11, 31, 58, 0.03);
-          transform: scale(1.01);
+          border-color: var(--c-teal);
+          background: rgba(255, 255, 255, 0.05);
+          box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+          transform: translateY(-2px);
         }
 
         .challenge-num {
@@ -433,11 +434,11 @@ export default function ComplianceHub() {
           width: 6px;
         }
         .stage-nav-list::-webkit-scrollbar-track {
-          background: rgba(15, 23, 42, 0.02);
+          background: rgba(255, 255, 255, 0.01);
           border-radius: 100px;
         }
         .stage-nav-list::-webkit-scrollbar-thumb {
-          background: rgba(15, 23, 42, 0.08);
+          background: rgba(255, 255, 255, 0.08);
           border-radius: 100px;
         }
         .stage-nav-list::-webkit-scrollbar-thumb:hover {
@@ -445,10 +446,10 @@ export default function ComplianceHub() {
         }
 
         .stage-nav-card {
-          background: rgba(255, 255, 255, 0.7);
-          backdrop-filter: blur(8px);
-          -webkit-backdrop-filter: blur(8px);
-          border: 1px solid rgba(15, 23, 42, 0.08);
+          background: rgba(255, 255, 255, 0.03);
+          backdrop-filter: blur(12px);
+          -webkit-backdrop-filter: blur(12px);
+          border: 1px solid rgba(255, 255, 255, 0.05);
           border-radius: var(--border-radius-md);
           padding: 14px 18px;
           display: flex;
@@ -472,15 +473,15 @@ export default function ComplianceHub() {
         }
 
         .stage-nav-card:hover {
-          background: #ffffff;
+          background: rgba(255, 255, 255, 0.08);
           transform: translateX(4px);
-          border-color: rgba(14, 116, 144, 0.20);
+          border-color: var(--c-teal);
         }
 
         .stage-nav-card.active {
-          background: #ffffff;
+          background: rgba(255, 255, 255, 0.08);
           border-color: var(--c-teal);
-          box-shadow: var(--shadow-md);
+          box-shadow: 0 10px 30px rgba(6, 182, 212, 0.15);
         }
 
         .stage-nav-card.active::before {
@@ -491,7 +492,7 @@ export default function ComplianceHub() {
           font-size: 13px;
           font-weight: 700;
           color: var(--c-gold);
-          background: rgba(245, 158, 11, 0.08);
+          background: rgba(234, 179, 8, 0.08);
           width: 26px;
           height: 26px;
           border-radius: 6px;
@@ -509,7 +510,7 @@ export default function ComplianceHub() {
         .stage-nav-title {
           font-size: 14px;
           font-weight: 600;
-          color: var(--c-navy);
+          color: #ffffff;
           flex-grow: 1;
           margin: 0;
           text-align: left;
@@ -520,7 +521,7 @@ export default function ComplianceHub() {
           opacity: 0.7;
           display: flex;
           align-items: center;
-          justify-content: center;
+          justifyContent: center;
           transition: transform 0.3s ease;
         }
 
@@ -535,10 +536,12 @@ export default function ComplianceHub() {
         }
 
         .stage-content-panel {
-          background: #ffffff;
-          border: 1px solid var(--c-slate-200);
+          background: rgba(30, 41, 59, 0.45);
+          border: 1px solid rgba(255, 255, 255, 0.06);
           border-radius: var(--border-radius-lg);
-          box-shadow: var(--shadow-lg);
+          box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.25);
+          backdrop-filter: blur(20px);
+          -webkit-backdrop-filter: blur(20px);
           overflow: hidden;
           display: flex;
           flex-direction: column;
@@ -565,7 +568,7 @@ export default function ComplianceHub() {
           font-size: 11px;
           font-weight: 700;
           color: var(--c-teal);
-          background: rgba(14, 116, 144, 0.08);
+          background: rgba(6, 182, 212, 0.12);
           padding: 4px 12px;
           border-radius: 100px;
           text-transform: uppercase;
@@ -579,7 +582,7 @@ export default function ComplianceHub() {
           align-items: center;
           gap: 8px;
           font-size: 14px;
-          color: var(--c-slate-800);
+          color: #cbd5e1;
           font-weight: 500;
           text-align: left;
         }
@@ -596,13 +599,13 @@ export default function ComplianceHub() {
           box-shadow: var(--shadow-md);
           min-height: 320px;
           height: 100%;
-          border: 1px solid var(--c-slate-100);
+          border: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         /* Major Audit Types Grid */
         .audit-type-card {
-          background: #ffffff;
-          border: 1px solid var(--c-slate-200);
+          background: rgba(30, 41, 59, 0.3);
+          border: 1px solid rgba(255, 255, 255, 0.05);
           border-radius: var(--border-radius-md);
           padding: 28px;
           cursor: pointer;
@@ -611,7 +614,8 @@ export default function ComplianceHub() {
 
         .audit-type-card:hover {
           border-color: var(--c-teal);
-          box-shadow: var(--shadow-md);
+          background: rgba(255, 255, 255, 0.05);
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
         /* Interactive Works Tabs */
@@ -620,10 +624,10 @@ export default function ComplianceHub() {
           align-items: center;
           gap: 12px;
           padding: 16px 24px;
-          background: #ffffff;
-          border: 1px solid var(--c-slate-200);
+          background: rgba(255, 255, 255, 0.03);
+          border: 1px solid rgba(255, 255, 255, 0.06);
           border-radius: var(--border-radius-md);
-          color: var(--c-slate-700);
+          color: #cbd5e1;
           font-weight: 600;
           cursor: pointer;
           transition: all 0.3s ease;
@@ -632,26 +636,26 @@ export default function ComplianceHub() {
         }
 
         .works-tab-btn:hover {
-          background: var(--c-slate-50);
-          color: var(--c-navy);
-          border-color: rgba(14, 116, 144, 0.25);
+          background: rgba(255, 255, 255, 0.08);
+          color: #ffffff;
+          border-color: var(--c-teal);
         }
 
         .works-tab-btn.active {
-          background: var(--c-navy);
-          color: #ffffff;
-          border-color: var(--c-navy);
-          box-shadow: var(--shadow-md);
+          background: var(--c-gold);
+          color: #0F172A;
+          border-color: var(--c-gold);
+          box-shadow: 0 8px 20px rgba(234, 179, 8, 0.2);
         }
 
         /* Hierarchy visual flowchart styles */
         .hierarchy-node {
-          background: #ffffff;
-          border: 2px solid var(--c-navy);
+          background: rgba(30, 41, 59, 0.45);
+          border: 1px solid rgba(255, 255, 255, 0.06);
           border-radius: var(--border-radius-md);
           padding: 16px 28px;
           font-weight: 700;
-          color: var(--c-navy);
+          color: #ffffff;
           font-size: 16px;
           text-align: center;
           box-shadow: var(--shadow-sm);
@@ -665,7 +669,7 @@ export default function ComplianceHub() {
         .hierarchy-node:hover {
           border-color: var(--c-teal);
           transform: translateY(-3px);
-          box-shadow: var(--shadow-md);
+          box-shadow: 0 10px 25px rgba(6, 182, 212, 0.15);
           color: var(--c-teal);
         }
 
@@ -674,7 +678,7 @@ export default function ComplianceHub() {
           position: absolute;
           width: 2px;
           height: 30px;
-          background: var(--c-slate-200);
+          background: rgba(255, 255, 255, 0.1);
           bottom: -32px;
           left: 50%;
           transform: translateX(-50%);
@@ -694,9 +698,9 @@ export default function ComplianceHub() {
           font-weight: 700;
           padding: 4px 10px;
           border-radius: 100px;
-          background: var(--c-slate-100);
-          color: var(--c-slate-700);
-          border: 1px solid var(--c-slate-200);
+          background: rgba(255, 255, 255, 0.06);
+          color: #cbd5e1;
+          border: 1px solid rgba(255, 255, 255, 0.08);
           display: inline-flex;
           align-items: center;
           gap: 4px;
@@ -704,14 +708,14 @@ export default function ComplianceHub() {
 
         /* Client grid logo list */
         .client-logo-card {
-          background: #ffffff;
-          border: 1px solid var(--c-slate-100);
+          background: rgba(255, 255, 255, 0.03);
+          border: 1px solid rgba(255, 255, 255, 0.05);
           border-radius: var(--border-radius-sm);
           padding: 24px;
           display: flex;
           flex-direction: column;
           align-items: center;
-          justify-content: center;
+          justifyContent: center;
           text-align: center;
           min-height: 100px;
           filter: grayscale(100%);
@@ -722,15 +726,15 @@ export default function ComplianceHub() {
         .client-logo-card:hover {
           filter: grayscale(0%);
           opacity: 1;
-          border-color: rgba(14, 116, 144, 0.25);
-          box-shadow: var(--shadow-md);
+          border-color: var(--c-teal);
+          box-shadow: 0 10px 25px rgba(6, 182, 212, 0.15);
           transform: translateY(-4px);
         }
 
         .client-logo-title {
           font-size: 13px;
           font-weight: 700;
-          color: var(--c-navy);
+          color: #ffffff;
           margin-bottom: 4px;
         }
 
@@ -822,12 +826,12 @@ export default function ComplianceHub() {
       </section>
 
       {/* --- KEY COMPLIANCE CHALLENGES SECTION --- */}
-      <section className="section" style={{ backgroundColor: '#ffffff' }}>
+      <section className="section" style={{ backgroundColor: 'var(--c-navy)' }}>
         <div className="container">
           <div className="section-title-wrapper" style={{ marginBottom: '56px' }}>
             <span className="section-subtitle" style={{ color: 'var(--c-teal)' }}>Key Compliance Challenges</span>
-            <h2 className="section-title">Common Challenges Organizations Face</h2>
-            <p className="section-desc">
+            <h2 className="section-title" style={{ color: '#ffffff' }}>Common Challenges Organizations Face</h2>
+            <p className="section-desc" style={{ color: 'var(--c-slate-700)' }}>
               Operational bottlenecks and fragmented systems often prevent companies from reaching total compliance efficiency.
             </p>
           </div>
@@ -844,10 +848,10 @@ export default function ComplianceHub() {
               >
                 <span className="challenge-num">{challenge.num}</span>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                  <h3 style={{ fontSize: '18px', color: 'var(--c-navy)', fontWeight: 700, margin: 0 }}>
+                  <h3 style={{ fontSize: '18px', color: '#ffffff', fontWeight: 700, margin: 0 }}>
                     {challenge.title}
                   </h3>
-                  <p style={{ color: 'var(--text-muted)', fontSize: '14px', lineHeight: '1.5', margin: 0 }}>
+                  <p style={{ color: 'var(--c-slate-700)', fontSize: '14px', lineHeight: '1.5', margin: 0 }}>
                     {challenge.desc}
                   </p>
                 </div>
@@ -905,15 +909,15 @@ export default function ComplianceHub() {
                     <span className="stage-category-badge">
                       {commandCenterStages[activeCommandStage].category}
                     </span>
-                    <h3 style={{ fontSize: '28px', color: 'var(--c-navy)', fontWeight: 800, marginBottom: '16px', textAlign: 'left' }}>
+                    <h3 style={{ fontSize: '28px', color: '#ffffff', fontWeight: 800, marginBottom: '16px', textAlign: 'left' }}>
                       {commandCenterStages[activeCommandStage].title}
                     </h3>
-                    <p style={{ color: 'var(--text-muted)', fontSize: '15px', lineHeight: '1.6', marginBottom: '24px', textAlign: 'left' }}>
+                    <p style={{ color: 'var(--c-slate-700)', fontSize: '15px', lineHeight: '1.6', marginBottom: '24px', textAlign: 'left' }}>
                       {commandCenterStages[activeCommandStage].desc}
                     </p>
 
                     {/* Key Activities */}
-                    <h5 style={{ fontSize: '12px', fontWeight: 700, color: 'var(--c-navy)', marginBottom: '12px', textTransform: 'uppercase', letterSpacing: '0.5px', textAlign: 'left' }}>
+                    <h5 style={{ fontSize: '12px', fontWeight: 700, color: 'var(--c-teal)', marginBottom: '12px', textTransform: 'uppercase', letterSpacing: '0.5px', textAlign: 'left' }}>
                       Key Activities:
                     </h5>
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '10px', marginBottom: '24px' }}>
@@ -927,10 +931,10 @@ export default function ComplianceHub() {
 
                     {/* Expected Outcome */}
                     <div style={{ background: 'var(--c-slate-50)', padding: '16px 20px', borderRadius: '12px', borderLeft: '4px solid var(--c-gold)', display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                      <h6 style={{ margin: 0, fontSize: '11px', fontWeight: 700, color: 'var(--c-navy)', textTransform: 'uppercase', letterSpacing: '0.5px', textAlign: 'left' }}>
+                      <h6 style={{ margin: 0, fontSize: '11px', fontWeight: 700, color: 'var(--c-gold)', textTransform: 'uppercase', letterSpacing: '0.5px', textAlign: 'left' }}>
                         Expected Outcome:
                       </h6>
-                      <p style={{ margin: 0, fontSize: '13.5px', color: 'var(--c-slate-800)', fontWeight: 500, lineHeight: '1.4', textAlign: 'left' }}>
+                      <p style={{ margin: 0, fontSize: '13.5px', color: '#ffffff', fontWeight: 500, lineHeight: '1.4', textAlign: 'left' }}>
                         {commandCenterStages[activeCommandStage].outcome}
                       </p>
                     </div>
@@ -955,12 +959,12 @@ export default function ComplianceHub() {
       </section>
 
       {/* --- MAJOR AUDIT TYPES SECTION --- */}
-      <section className="section section-alt" style={{ backgroundColor: 'var(--c-slate-100)' }}>
+      <section className="section section-alt" style={{ backgroundColor: 'var(--c-slate-50)' }}>
         <div className="container">
           <div className="section-title-wrapper">
-            <span className="section-subtitle">Major Audit Types</span>
-            <h2 className="section-title">Supporting Every Audit Requirement</h2>
-            <p className="section-desc">
+            <span className="section-subtitle" style={{ color: 'var(--c-teal)' }}>Major Audit Types</span>
+            <h2 className="section-title" style={{ color: '#ffffff' }}>Supporting Every Audit Requirement</h2>
+            <p className="section-desc" style={{ color: 'var(--c-slate-700)' }}>
               Comprehensive frameworks tailored to help your facilities prepare for any local or international assessment standard.
             </p>
           </div>
@@ -977,14 +981,14 @@ export default function ComplianceHub() {
                   whileHover={{ y: -4 }}
                 >
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
-                    <h3 style={{ fontSize: '18px', color: 'var(--c-navy)', fontWeight: 700, margin: 0 }}>
+                    <h3 style={{ fontSize: '18px', color: '#ffffff', fontWeight: 700, margin: 0 }}>
                       {type.title}
                     </h3>
                     <div style={{ color: 'var(--c-teal)', display: 'flex', alignItems: 'center' }}>
                       {isExpanded ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
                     </div>
                   </div>
-                  <p style={{ color: 'var(--text-muted)', fontSize: '14px', lineHeight: '1.6', margin: 0 }}>
+                  <p style={{ color: 'var(--c-slate-700)', fontSize: '14px', lineHeight: '1.6', margin: 0 }}>
                     {type.desc}
                   </p>
 
@@ -999,7 +1003,7 @@ export default function ComplianceHub() {
                       >
                         <div style={{ display: 'flex', gap: '8px', marginBottom: '8px' }}>
                           <Info size={16} style={{ color: 'var(--c-gold)', flexShrink: 0, marginTop: '2px' }} />
-                          <h5 style={{ margin: 0, fontSize: '13px', fontWeight: 700, color: 'var(--c-navy)' }}>Detailed Scope:</h5>
+                          <h5 style={{ margin: 0, fontSize: '13px', fontWeight: 700, color: '#ffffff' }}>Detailed Scope:</h5>
                         </div>
                         <p style={{ color: 'var(--c-slate-700)', fontSize: '13px', lineHeight: '1.6', margin: 0 }}>
                           {type.details}
@@ -1015,12 +1019,12 @@ export default function ComplianceHub() {
       </section>
 
       {/* --- HOW VERICEA COMPLIANCE WORKS SECTION --- */}
-      <section id="how-it-works" className="section" style={{ backgroundColor: '#ffffff' }}>
+      <section id="how-it-works" className="section" style={{ backgroundColor: 'var(--c-navy)' }}>
         <div className="container">
           <div className="section-title-wrapper" style={{ marginBottom: '56px' }}>
-            <span className="section-subtitle">How VERICEA Compliance Works</span>
-            <h2 className="section-title">A Smarter Way To Manage Compliance</h2>
-            <p className="section-desc">
+            <span className="section-subtitle" style={{ color: 'var(--c-teal)' }}>How VERICEA Compliance Works</span>
+            <h2 className="section-title" style={{ color: '#ffffff' }}>A Smarter Way To Manage Compliance</h2>
+            <p className="section-desc" style={{ color: 'var(--c-slate-700)' }}>
               VERICEA provides an end-to-end digital dashboard to map, measure, and scale compliance management processes.
             </p>
           </div>
@@ -1078,20 +1082,20 @@ export default function ComplianceHub() {
                     {worksTabs[activeTab].badge}
                   </span>
                   
-                  <h3 style={{ fontSize: '28px', color: 'var(--c-navy)', fontWeight: 800, marginBottom: '8px' }}>
+                  <h3 style={{ fontSize: '28px', color: '#ffffff', fontWeight: 800, marginBottom: '8px' }}>
                     {worksTabs[activeTab].subtitle}
                   </h3>
                   
-                  <p style={{ color: 'var(--text-muted)', fontSize: '15px', lineHeight: '1.7', marginBottom: '28px' }}>
+                  <p style={{ color: 'var(--c-slate-700)', fontSize: '15px', lineHeight: '1.7', marginBottom: '28px' }}>
                     {worksTabs[activeTab].desc}
                   </p>
 
-                  <h5 style={{ fontSize: '14px', fontWeight: 700, color: 'var(--c-navy)', marginBottom: '14px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                  <h5 style={{ fontSize: '14px', fontWeight: 700, color: 'var(--c-teal)', marginBottom: '14px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
                     Key Features Included:
                   </h5>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
                     {worksTabs[activeTab].features.map((feat, fidx) => (
-                      <div key={fidx} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '14px', fontWeight: '600', color: 'var(--c-slate-800)' }}>
+                      <div key={fidx} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '14px', fontWeight: '600', color: 'var(--c-slate-700)' }}>
                         <CheckCircle2 size={16} style={{ color: 'var(--c-teal)' }} />
                         <span>{feat}</span>
                       </div>
@@ -1120,9 +1124,9 @@ export default function ComplianceHub() {
       <section className="section section-alt" style={{ backgroundColor: 'var(--c-slate-100)' }}>
         <div className="container">
           <div className="section-title-wrapper">
-            <span className="section-subtitle">Management Benefits</span>
-            <h2 className="section-title">Benefits For Leadership & Compliance Teams</h2>
-            <p className="section-desc">
+            <span className="section-subtitle" style={{ color: 'var(--c-teal)' }}>Management Benefits</span>
+            <h2 className="section-title" style={{ color: '#ffffff' }}>Benefits For Leadership & Compliance Teams</h2>
+            <p className="section-desc" style={{ color: 'var(--c-slate-700)' }}>
               Enable your executives to control risks, optimize resources, and standardize operational excellence.
             </p>
           </div>
@@ -1157,17 +1161,17 @@ export default function ComplianceHub() {
               <motion.div 
                 key={bidx} 
                 className="glass-card" 
-                style={{ background: '#ffffff', borderColor: 'var(--c-slate-200)', display: 'flex', gap: '16px', padding: '28px' }}
+                style={{ background: 'rgba(255, 255, 255, 0.03)', borderColor: 'rgba(255, 255, 255, 0.06)', display: 'flex', gap: '16px', padding: '28px' }}
                 whileHover={{ y: -5, borderColor: 'var(--c-teal)' }}
               >
                 <div style={{ color: 'var(--c-teal)', flexShrink: 0, marginTop: '4px' }}>
                   <CheckCircle2 size={20} />
                 </div>
                 <div>
-                  <h4 style={{ margin: '0 0 8px 0', fontSize: '17px', color: 'var(--c-navy)', fontWeight: 700 }}>
+                  <h4 style={{ margin: '0 0 8px 0', fontSize: '17px', color: '#ffffff', fontWeight: 700 }}>
                     {benefit.title}
                   </h4>
-                  <p style={{ margin: 0, color: 'var(--text-muted)', fontSize: '13.5px', lineHeight: '1.6' }}>
+                  <p style={{ margin: 0, color: 'var(--c-slate-700)', fontSize: '13.5px', lineHeight: '1.6' }}>
                     {benefit.desc}
                   </p>
                 </div>

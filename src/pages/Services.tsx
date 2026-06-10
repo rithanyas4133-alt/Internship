@@ -239,7 +239,7 @@ export default function Services() {
                 className="btn btn-cta"
                 whileHover={buttonHover.whileHover}
                 whileTap={buttonHover.whileTap}
-                style={{ color: '#0B1F3A', display: 'flex', alignItems: 'center', gap: '8px' }}
+                style={{ color: '#0F172A', display: 'flex', alignItems: 'center', gap: '8px' }}
               >
                 Discuss Your Requirements
                 <ArrowRight size={16} />
@@ -632,9 +632,9 @@ export default function Services() {
       {/* ==================================================
           CTA SECTION
           ================================================== */}
-      <section className="section section-dark" style={{ background: 'linear-gradient(135deg, #0B1F3A 0%, #020617 100%)', position: 'relative', overflow: 'hidden' }}>
-        <div style={{ position: 'absolute', top: '-10%', right: '-10%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(245, 158, 11, 0.08) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
-        <div style={{ position: 'absolute', bottom: '-10%', left: '-10%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(14, 116, 144, 0.06) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
+      <section className="section section-dark" style={{ background: 'linear-gradient(135deg, #0F172A 0%, #1E293B 100%)', position: 'relative', overflow: 'hidden' }}>
+        <div style={{ position: 'absolute', top: '-10%', right: '-10%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(234, 179, 8, 0.08) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
+        <div style={{ position: 'absolute', bottom: '-10%', left: '-10%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(6, 182, 212, 0.06) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
 
         <div className="container" style={{ textAlign: 'center', position: 'relative', zIndex: 2 }}>
           <motion.div 
@@ -656,7 +656,7 @@ export default function Services() {
                 className="btn btn-cta"
                 whileHover={buttonHover.whileHover}
                 whileTap={buttonHover.whileTap}
-                style={{ color: '#0B1F3A', display: 'flex', alignItems: 'center', gap: '8px' }}
+                style={{ color: '#0F172A', display: 'flex', alignItems: 'center', gap: '8px' }}
               >
                 Schedule A Consultation
                 <ArrowRight size={16} />

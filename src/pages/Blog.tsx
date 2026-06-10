@@ -3,30 +3,18 @@ import { motion, AnimatePresence } from 'framer-motion';
 import {
   Calendar,
   Clock,
-  BookOpen,
   Mail,
   Send,
   CheckCircle2,
-
   ArrowRight,
   Sparkles,
-  ShieldCheck,
-  Layers,
-  TrendingUp,
-  BarChart3,
-  FileText,
-  Database,
-  Cpu,
-  AlertTriangle,
-  Code,
-  Factory,
   ChevronRight,
+  ArrowUpRight,
   Quote,
-  ArrowUpRight
+  FileText
 } from 'lucide-react';
 
 export default function Blog() {
-  const [selectedCategory, setSelectedCategory] = useState('All');
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
   const [error, setError] = useState('');
@@ -45,25 +33,6 @@ export default function Blog() {
     transition: { duration: 0.5 }
   };
 
-  const staggerContainer = {
-    animate: {
-      transition: {
-        staggerChildren: 0.08
-      }
-    }
-  };
-
-  // Categories with their colors and icons (Section 3)
-  const categoriesList = [
-    { name: 'All', icon: BookOpen, color: '#64748B', desc: 'Browse all articles' },
-    { name: 'Manufacturing Excellence', icon: Factory, color: '#2563EB', desc: 'OEE, WIP and shop floor tracking' },
-    { name: 'Compliance & Audits', icon: ShieldCheck, color: '#14B8A6', desc: 'ISO, OSHA and quality audit trails' },
-    { name: 'ERP Solutions', icon: Database, color: '#3B82F6', desc: 'Enterprise resources, materials and ledger tracking' },
-    { name: 'Digital Transformation', icon: Cpu, color: '#8B5CF6', desc: 'Cloud migrations and system integration' },
-    { name: 'Risk Assessment', icon: AlertTriangle, color: '#EF4444', desc: 'FactSafe checks and hazard mitigation' },
-    { name: 'Custom Software', icon: Code, color: '#EC4899', desc: 'Custom enterprise applications' },
-    { name: 'Business Strategy', icon: TrendingUp, color: '#F59E0B', desc: 'Consulting audits and growth strategies' }
-  ];
 
   // Featured Insights data (Section 2)
   const featuredArticles = [
@@ -101,47 +70,6 @@ export default function Blog() {
       date: 'May 28, 2026'
     }
   ];
-
-  // Knowledge Highlights (Section 4)
-  const knowledgeHighlights = [
-    {
-      title: 'Production Tracking Benefits',
-      description: 'Real-time WIP visibility reduces shop floor bottlenecks, optimizes active routing, and boosts assembly line yield.',
-      icon: Factory,
-      color: '#2563EB'
-    },
-    {
-      title: 'Audit Readiness',
-      description: 'Automating document compilation secures continuous compliance and eliminates stressful manual audit prep.',
-      icon: ShieldCheck,
-      color: '#14B8A6'
-    },
-    {
-      title: 'Operational Efficiency',
-      description: 'Connecting floor telemetry directly with managers dashboards drives rapid supervisor intervention and high OEE.',
-      icon: BarChart3,
-      color: '#F59E0B'
-    },
-    {
-      title: 'Supplier Quality Management',
-      description: 'End-to-end component tracking flags defective supplier batches early and protects final product standards.',
-      icon: Layers,
-      color: '#8B5CF6'
-    },
-    {
-      title: 'Risk Mitigation',
-      description: 'Predictive safety logs identify potential machinery stress, software vulnerabilities, and operational hazards.',
-      icon: AlertTriangle,
-      color: '#EF4444'
-    },
-    {
-      title: 'Continuous Improvement',
-      description: 'Systematic metrics-to-action loops turn daily floor yield data into direct workforce standard training guides.',
-      icon: TrendingUp,
-      color: '#10B981'
-    }
-  ];
-
   // Latest Insights - 6 Card Blog Grid (Section 5)
   const latestInsights = [
     {
@@ -261,10 +189,6 @@ export default function Blog() {
     setSubscribed(true);
   };
 
-  // Filter latest insights based on selectedCategory
-  const filteredInsights = selectedCategory === 'All'
-    ? latestInsights
-    : latestInsights.filter(post => post.category === selectedCategory);
 
   return (
     <motion.div
@@ -357,7 +281,7 @@ export default function Blog() {
       <section className="section" style={{ padding: '80px 0 100px 0' }}>
         <div className="container">
           <div className="section-title-wrapper" style={{ marginBottom: '56px', textAlign: 'left', marginLeft: '0' }}>
-            <span className="section-subtitle" style={{ color: '#2563EB' }}>EDITOR'S PICKS</span>
+            <span className="section-subtitle" style={{ color: 'var(--supporting)' }}>EDITOR'S PICKS</span>
             <h2 className="section-title" style={{ fontSize: '38px', color: '#0F172A' }}>Featured Insights</h2>
             <p className="section-desc" style={{ maxWidth: '600px' }}>Deep-dive analyses and strategic frameworks selected by our industrial leadership team.</p>
           </div>
@@ -460,7 +384,7 @@ export default function Blog() {
                         display: 'inline-flex',
                         alignItems: 'center',
                         gap: '4px',
-                        color: '#2563EB',
+                        color: 'var(--supporting)',
                         fontWeight: 600,
                         cursor: 'pointer'
                       }}
@@ -471,172 +395,6 @@ export default function Blog() {
                 </div>
               </motion.article>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 3: INDUSTRY CATEGORIES */}
-      <section className="section section-alt" style={{ padding: '80px 0' }}>
-        <div className="container">
-          <div className="section-title-wrapper" style={{ marginBottom: '48px' }}>
-            <span className="section-subtitle">KNOWLEDGE DIRECTORY</span>
-            <h2 className="section-title">Industry Categories</h2>
-            <p className="section-desc">Select a core domain category below to narrow down insights matching your objectives.</p>
-          </div>
-
-          {/* Large Interactive Category Grid */}
-          <motion.div
-            variants={staggerContainer}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            className="grid-4"
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-              gap: '20px'
-            }}
-          >
-            {categoriesList.map((cat,) => {
-              const IconComp = cat.icon;
-              const isActive = selectedCategory === cat.name;
-
-              return (
-                <motion.div
-                  key={cat.name}
-                  variants={fadeInUp}
-                  whileHover={{ y: -6, transition: { duration: 0.2 } }}
-                  onClick={() => setSelectedCategory(cat.name)}
-                  style={{
-                    backgroundColor: isActive ? '#0F172A' : '#FFFFFF',
-                    color: isActive ? '#FFFFFF' : '#1E293B',
-                    border: isActive ? '1px solid #0F172A' : '1px solid rgba(15, 23, 42, 0.05)',
-                    padding: '24px',
-                    borderRadius: '12px',
-                    cursor: 'pointer',
-                    boxShadow: isActive
-                      ? '0 12px 24px -10px rgba(15, 23, 42, 0.3)'
-                      : '0 4px 12px -2px rgba(15, 23, 42, 0.03)',
-                    transition: 'background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease'
-                  }}
-                >
-                  <div
-                    style={{
-                      width: '44px',
-                      height: '44px',
-                      borderRadius: '8px',
-                      backgroundColor: isActive ? 'rgba(255,255,255,0.08)' : 'rgba(37, 99, 235, 0.05)',
-                      color: isActive ? '#14B8A6' : cat.color,
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      marginBottom: '16px'
-                    }}
-                  >
-                    <IconComp size={22} />
-                  </div>
-                  <h3
-                    style={{
-                      fontSize: '16px',
-                      fontWeight: 700,
-                      color: isActive ? '#FFFFFF' : '#0F172A',
-                      marginBottom: '6px'
-                    }}
-                  >
-                    {cat.name}
-                  </h3>
-                  <p
-                    style={{
-                      fontSize: '12px',
-                      color: isActive ? '#94a3b8' : '#64748B',
-                      lineHeight: 1.4
-                    }}
-                  >
-                    {cat.desc}
-                  </p>
-                </motion.div>
-              );
-            })}
-          </motion.div>
-
-          {/* Reset Filter Button if active */}
-          {selectedCategory !== 'All' && (
-            <div style={{ textAlign: 'center', marginTop: '32px' }}>
-              <button
-                onClick={() => setSelectedCategory('All')}
-                className="btn btn-secondary btn-sm"
-                style={{
-                  borderRadius: '30px',
-                  padding: '8px 20px',
-                  backgroundColor: '#FFFFFF',
-                  color: '#2563EB',
-                  borderColor: '#2563EB'
-                }}
-              >
-                Reset Filter (Show All Articles)
-              </button>
-            </div>
-          )}
-        </div>
-      </section>
-
-      {/* SECTION 4: KNOWLEDGE HIGHLIGHTS */}
-      <section className="section" style={{ padding: '100px 0' }}>
-        <div className="container">
-          <div className="section-title-wrapper" style={{ marginBottom: '60px' }}>
-            <span className="section-subtitle">PRACTICAL TAKEAWAYS</span>
-            <h2 className="section-title">Knowledge Highlights</h2>
-            <p className="section-desc">Key operational principles derived from our corporate profile and deployment documentation.</p>
-          </div>
-
-          <div className="grid-3" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '28px' }}>
-            {knowledgeHighlights.map((hl, idx) => {
-              const IconComp = hl.icon;
-              return (
-                <motion.div
-                  key={idx}
-                  variants={fadeInUp}
-                  initial="initial"
-                  whileInView="whileInView"
-                  viewport={{ once: true }}
-                  className="glass-card"
-                  style={{
-                    backgroundColor: '#FFFFFF',
-                    border: '1px solid rgba(15, 23, 42, 0.05)',
-                    borderLeft: `4px solid ${hl.color}`,
-                    borderRadius: '12px',
-                    padding: '28px',
-                    boxShadow: '0 4px 20px -2px rgba(15, 23, 42, 0.02)'
-                  }}
-                >
-                  <div style={{ display: 'flex', alignItems: 'start', gap: '16px' }}>
-                    <div
-                      style={{
-                        width: '36px',
-                        height: '36px',
-                        borderRadius: '6px',
-                        backgroundColor: 'rgba(15, 23, 42, 0.03)',
-                        color: hl.color,
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        flexShrink: 0
-                      }}
-                    >
-                      <IconComp size={18} />
-                    </div>
-                    <div>
-                      <h3 style={{ fontSize: '17px', color: '#0F172A', fontWeight: 700, marginBottom: '8px' }}>
-                        {hl.title}
-                      </h3>
-                      <p style={{ color: '#64748B', fontSize: '13.5px', lineHeight: 1.55 }}>
-                        {hl.description}
-                      </p>
-                    </div>
-                  </div>
-                </motion.div>
-              );
-            })}
           </div>
         </div>
       </section>
@@ -659,11 +417,11 @@ export default function Blog() {
             <div>
               <span className="section-subtitle">RESOURCES AND ANALYSES</span>
               <h2 className="section-title" style={{ marginBottom: '0', fontSize: '36px' }}>
-                Latest Insights {selectedCategory !== 'All' && `: ${selectedCategory}`}
+                Latest Insights
               </h2>
             </div>
             <span style={{ fontSize: '14px', color: '#64748B', fontWeight: 500 }}>
-              Showing {filteredInsights.length} of {latestInsights.length} Articles
+              Showing {latestInsights.length} Articles
             </span>
           </div>
 
@@ -678,7 +436,7 @@ export default function Blog() {
             }}
           >
             <AnimatePresence mode="popLayout">
-              {filteredInsights.map((insight) => (
+              {latestInsights.map((insight) => (
                 <motion.article
                   key={insight.id}
                   layout
@@ -713,7 +471,7 @@ export default function Blog() {
                     <span
                       style={{
                         fontSize: '11px',
-                        color: '#2563EB',
+                        color: 'var(--supporting)',
                         fontWeight: 700,
                         textTransform: 'uppercase',
                         letterSpacing: '1px',
@@ -882,8 +640,8 @@ export default function Blog() {
                 width: '56px',
                 height: '56px',
                 borderRadius: '50%',
-                backgroundColor: 'rgba(37, 99, 235, 0.08)',
-                color: '#2563EB',
+                backgroundColor: 'rgba(6, 182, 212, 0.08)',
+                color: 'var(--supporting)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -951,9 +709,7 @@ export default function Blog() {
                   style={{
                     height: '50px',
                     padding: '0 30px',
-                    borderRadius: '8px',
-                    backgroundColor: '#F59E0B',
-                    color: '#FFFFFF'
+                    borderRadius: '8px'
                   }}
                 >
                   Subscribe <Send size={15} />
@@ -1045,7 +801,7 @@ export default function Blog() {
         <div
           style={{
             padding: '100px 0',
-            background: 'linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #2563EB 100%)',
+            background: 'linear-gradient(135deg, #0F172A 0%, #1E293B 100%)',
             color: '#FFFFFF',
             textAlign: 'center'
           }}
@@ -1087,7 +843,7 @@ export default function Blog() {
                 <button
                   onClick={() => window.location.href = '/products'}
                   className="btn btn-cta"
-                  style={{ backgroundColor: '#F59E0B', color: '#FFFFFF', minWidth: '180px' }}
+                  style={{ minWidth: '180px' }}
                 >
                   Explore Solutions <ArrowRight size={15} />
                 </button>

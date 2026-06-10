@@ -88,7 +88,7 @@ export default function Footer() {
               <h4 style={{ color: 'var(--background)', fontSize: '16px', fontWeight: '600', marginBottom: '24px', letterSpacing: '0.5px' }}>CONTACT DETAILS</h4>
               <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '16px', fontSize: '14px' }}>
                 <li style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-                  <MapPin size={18} style={{ color: 'var(--secondary)', flexShrink: 0, marginTop: '3px' }} />
+                  <MapPin size={18} style={{ color: 'var(--supporting)', flexShrink: 0, marginTop: '3px' }} />
                   <span>
                     B-205 Century Marvel Apartments,<br />
                     Kempapura, Hebbal,<br />
@@ -96,11 +96,11 @@ export default function Footer() {
                   </span>
                 </li>
                 <li style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
-                  <Phone size={18} style={{ color: 'var(--secondary)', flexShrink: 0 }} />
+                  <Phone size={18} style={{ color: 'var(--supporting)', flexShrink: 0 }} />
                   <a href="tel:+919980138172" style={{ color: 'inherit' }}>+91 9980138172</a>
                 </li>
                 <li style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
-                  <Mail size={18} style={{ color: 'var(--secondary)', flexShrink: 0 }} />
+                  <Mail size={18} style={{ color: 'var(--supporting)', flexShrink: 0 }} />
                   <a href="mailto:manohar.md@ceainfotech.com" style={{ color: 'inherit', wordBreak: 'break-all' }}>manohar.md@ceainfotech.com</a>
                 </li>
               </ul>

@@ -307,25 +307,26 @@ export default function Products() {
     <motion.div
       initial="hidden"
       animate="visible"
-      style={{ overflow: 'hidden', backgroundColor: 'var(--background)' }}
+      className="products-page"
+      style={{ overflow: 'hidden', backgroundColor: '#0F172A', color: '#F8FAFC' }}
     >
       {/* ==================================================
           HERO SECTION
           ================================================== */}
       <section 
-        className="section"
+        className="section section-dark"
         style={{ 
           padding: '180px 0 140px 0', 
           color: '#ffffff',
           position: 'relative',
           overflow: 'hidden',
-          backgroundImage: 'linear-gradient(rgba(11, 31, 58, 0.85), rgba(11, 31, 58, 0.95)), url("/images/products_hero_bg.png")',
+          backgroundImage: 'linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.95)), url("/images/products_hero_bg.png")',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          borderBottom: '1px solid rgba(14, 116, 144, 0.15)'
+          borderBottom: '1px solid rgba(255, 255, 255, 0.05)'
         }}
       >
-        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'radial-gradient(circle at 50% 50%, rgba(14, 116, 144, 0.25) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
+        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'radial-gradient(circle at 50% 50%, rgba(6, 182, 212, 0.15) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
           <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
             <motion.div 
@@ -366,9 +367,9 @@ export default function Products() {
                 <motion.button 
                   onClick={() => selectProductAndScroll(activeProduct.name)} 
                   className="btn btn-cta"
-                  whileHover={{ scale: 1.03, boxShadow: '0px 6px 12px rgba(245, 158, 11, 0.3)' }}
+                  whileHover={{ scale: 1.03, boxShadow: '0px 6px 12px rgba(234, 179, 8, 0.35)' }}
                   whileTap={{ scale: 0.98 }}
-                  style={{ color: '#0B1F3A', display: 'flex', alignItems: 'center', gap: '8px' }}
+                  style={{ color: '#0F172A', display: 'flex', alignItems: 'center', gap: '8px' }}
                 >
                   Request Product Demo
                   <ArrowRight size={16} />
@@ -391,27 +392,27 @@ export default function Products() {
       {/* ==================================================
           SECTION: OUR PRODUCT ECOSYSTEM (CAROUSEL SLIDER)
           ================================================== */}
-      <section id="ecosystem-section" className="section" style={{ backgroundColor: 'var(--background)' }}>
+      <section id="ecosystem-section" className="section section-dark" style={{ backgroundColor: '#090D1A', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
         <div className="container">
           <div className="section-title-wrapper" style={{ marginBottom: '48px' }}>
-            <span className="section-subtitle">Core Platforms</span>
-            <h2 className="section-title">Our Product Ecosystem</h2>
-            <p className="section-desc">Explore CEA's flagship enterprise software platforms designed for scalable business operations.</p>
+            <span className="section-subtitle" style={{ color: 'var(--supporting)' }}>Core Platforms</span>
+            <h2 className="section-title" style={{ color: '#ffffff' }}>Our Product Ecosystem</h2>
+            <p className="section-desc" style={{ color: '#94a3b8' }}>Explore CEA's flagship enterprise software platforms designed for scalable business operations.</p>
           </div>
 
           {/* Slider Controls Row */}
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px', flexWrap: 'wrap', gap: '16px' }}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-              <span style={{ fontSize: '11px', fontWeight: '800', textTransform: 'uppercase', color: 'var(--secondary)', letterSpacing: '1px' }}>
+              <span style={{ fontSize: '11px', fontWeight: '800', textTransform: 'uppercase', color: 'var(--supporting)', letterSpacing: '1px' }}>
                 Active Platform
               </span>
-              <h3 style={{ fontSize: '20px', fontWeight: '800', color: 'var(--primary)', margin: 0, display: 'flex', alignItems: 'center', gap: '10px' }}>
+              <h3 style={{ fontSize: '20px', fontWeight: '800', color: '#ffffff', margin: 0, display: 'flex', alignItems: 'center', gap: '10px' }}>
                 <span style={{
                   width: '32px',
                   height: '32px',
                   borderRadius: '6px',
-                  backgroundColor: 'rgba(14, 116, 144, 0.06)',
-                  color: 'var(--secondary)',
+                  backgroundColor: 'rgba(6, 182, 212, 0.08)',
+                  color: 'var(--supporting)',
                   display: 'inline-flex',
                   alignItems: 'center',
                   justifyContent: 'center'
@@ -423,46 +424,46 @@ export default function Products() {
             </div>
             
             <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
-              <span style={{ fontSize: '14.5px', fontWeight: '700', color: 'var(--text-muted)', fontFamily: 'var(--font-headings)' }}>
+              <span style={{ fontSize: '14.5px', fontWeight: '700', color: '#94a3b8', fontFamily: 'var(--font-headings)' }}>
                 {String(currentIndex + 1).padStart(2, '0')} <span style={{ opacity: 0.4 }}>/</span> {String(productsData.length).padStart(2, '0')}
               </span>
               
               <div style={{ display: 'flex', gap: '10px' }}>
                 <motion.button
-                  whileHover={{ scale: 1.05, backgroundColor: 'rgba(11, 31, 58, 0.05)' }}
+                  whileHover={{ scale: 1.05, backgroundColor: 'rgba(255, 255, 255, 0.08)' }}
                   whileTap={{ scale: 0.95 }}
                   onClick={handlePrev}
                   style={{
                     width: '40px',
                     height: '40px',
                     borderRadius: '50%',
-                    border: '1px solid rgba(15, 23, 42, 0.12)',
-                    backgroundColor: '#ffffff',
+                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                    backgroundColor: 'rgba(255, 255, 255, 0.04)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                     cursor: 'pointer',
-                    color: 'var(--primary)'
+                    color: '#ffffff'
                   }}
                 >
                   <ArrowRight size={16} style={{ transform: 'rotate(180deg)' }} />
                 </motion.button>
                 
                 <motion.button
-                  whileHover={{ scale: 1.05, backgroundColor: 'rgba(11, 31, 58, 0.05)' }}
+                  whileHover={{ scale: 1.05, backgroundColor: 'rgba(255, 255, 255, 0.08)' }}
                   whileTap={{ scale: 0.95 }}
                   onClick={handleNext}
                   style={{
                     width: '40px',
                     height: '40px',
                     borderRadius: '50%',
-                    border: '1px solid rgba(15, 23, 42, 0.12)',
-                    backgroundColor: '#ffffff',
+                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                    backgroundColor: 'rgba(255, 255, 255, 0.04)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                     cursor: 'pointer',
-                    color: 'var(--primary)'
+                    color: '#ffffff'
                   }}
                 >
                   <ArrowRight size={16} />
@@ -503,11 +504,12 @@ export default function Products() {
                 animate="center"
                 exit="exit"
                 style={{
-                  backgroundColor: '#ffffff',
-                  border: '1px solid rgba(15, 23, 42, 0.08)',
+                  backgroundColor: 'rgba(30, 41, 59, 0.45)',
+                  border: '1px solid rgba(255, 255, 255, 0.06)',
                   borderRadius: '20px',
                   padding: '44px',
-                  boxShadow: 'var(--shadow-xl)',
+                  backdropFilter: 'blur(20px)',
+                  boxShadow: '0 20px 50px -10px rgba(0, 0, 0, 0.25)',
                   width: '100%'
                 }}
               >
@@ -517,7 +519,7 @@ export default function Products() {
                     <div>
                       <span 
                         style={{ 
-                          color: 'var(--secondary)', 
+                          color: 'var(--supporting)', 
                           fontSize: '12.5px', 
                           fontWeight: '700', 
                           textTransform: 'uppercase', 
@@ -528,23 +530,23 @@ export default function Products() {
                       >
                         {activeProduct.tagline}
                       </span>
-                      <h2 style={{ fontSize: '32px', color: 'var(--primary)', fontWeight: '800', margin: 0 }}>
+                      <h2 style={{ fontSize: '32px', color: '#ffffff', fontWeight: '800', margin: 0 }}>
                         {activeProduct.name}
                       </h2>
-                      <p style={{ color: 'var(--text-muted)', fontSize: '15px', marginTop: '12px', lineHeight: '1.6' }}>
+                      <p style={{ color: '#94a3b8', fontSize: '15px', marginTop: '12px', lineHeight: '1.6' }}>
                         {activeProduct.description}
                       </p>
                     </div>
 
                     {/* Key Features */}
                     <div>
-                      <h4 style={{ fontSize: '13px', fontWeight: '800', textTransform: 'uppercase', color: 'var(--primary)', letterSpacing: '0.5px', marginBottom: '12px' }}>
+                      <h4 style={{ fontSize: '13px', fontWeight: '800', textTransform: 'uppercase', color: '#ffffff', letterSpacing: '0.5px', marginBottom: '12px' }}>
                         Key Features
                       </h4>
                       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '10px' }}>
                         {activeProduct.keyFeatures.map((feat, idx) => (
-                          <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13.5px', color: 'var(--text-main)' }}>
-                            <div style={{ width: '18px', height: '18px', borderRadius: '50%', backgroundColor: 'rgba(14, 116, 144, 0.08)', color: 'var(--secondary)', display: 'flex', alignItems: 'center', justifyItems: 'center', flexShrink: 0 }}>
+                          <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13.5px', color: '#f8fafc' }}>
+                            <div style={{ width: '18px', height: '18px', borderRadius: '50%', backgroundColor: 'rgba(6, 182, 212, 0.12)', color: 'var(--supporting)', display: 'flex', alignItems: 'center', justifyItems: 'center', flexShrink: 0 }}>
                               <Check size={11} style={{ margin: 'auto' }} />
                             </div>
                             <span style={{ fontWeight: '500' }}>{feat}</span>
@@ -554,17 +556,17 @@ export default function Products() {
                     </div>
 
                     {/* Business Value & Target Industries */}
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', borderTop: '1px solid rgba(15, 23, 42, 0.06)', paddingTop: '20px' }}>
+                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', borderTop: '1px solid rgba(255, 255, 255, 0.08)', paddingTop: '20px' }}>
                       <div>
-                        <h4 style={{ fontSize: '11px', fontWeight: '800', textTransform: 'uppercase', color: 'var(--secondary)', letterSpacing: '0.5px', marginBottom: '6px' }}>
+                        <h4 style={{ fontSize: '11px', fontWeight: '800', textTransform: 'uppercase', color: 'var(--supporting)', letterSpacing: '0.5px', marginBottom: '6px' }}>
                           Business Value
                         </h4>
-                        <p style={{ fontSize: '13px', color: 'var(--text-muted)', lineHeight: '1.4', margin: 0 }}>
+                        <p style={{ fontSize: '13px', color: '#94a3b8', lineHeight: '1.4', margin: 0 }}>
                           {activeProduct.businessValue}
                         </p>
                       </div>
                       <div>
-                        <h4 style={{ fontSize: '11px', fontWeight: '800', textTransform: 'uppercase', color: 'var(--secondary)', letterSpacing: '0.5px', marginBottom: '6px' }}>
+                        <h4 style={{ fontSize: '11px', fontWeight: '800', textTransform: 'uppercase', color: 'var(--supporting)', letterSpacing: '0.5px', marginBottom: '6px' }}>
                           Target Industries
                         </h4>
                         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '5px' }}>
@@ -573,12 +575,12 @@ export default function Products() {
                               key={idx} 
                               style={{ 
                                 fontSize: '11.5px', 
-                                backgroundColor: 'var(--alternate-bg)', 
-                                color: 'var(--primary)', 
+                                backgroundColor: 'rgba(255, 255, 255, 0.05)', 
+                                color: '#ffffff', 
                                 padding: '3px 10px', 
                                 borderRadius: '4px',
                                 fontWeight: '600',
-                                border: '1px solid rgba(15, 23, 42, 0.05)'
+                                border: '1px solid rgba(255, 255, 255, 0.08)'
                               }}
                             >
                               {ind}
@@ -591,8 +593,8 @@ export default function Products() {
                     <div style={{ marginTop: '8px' }}>
                       <button 
                         onClick={() => selectProductAndScroll(activeProduct.name)} 
-                        className="btn btn-primary btn-sm"
-                        style={{ padding: '10px 22px' }}
+                        className="btn btn-cta btn-sm"
+                        style={{ padding: '10px 22px', color: '#0F172A' }}
                       >
                         Request Product Demo
                       </button>
@@ -608,7 +610,7 @@ export default function Products() {
                       style={{
                         width: '100%',
                         background: '#020617',
-                        border: '1px solid rgba(15, 23, 42, 0.1)',
+                        border: '1px solid rgba(255, 255, 255, 0.08)',
                         borderRadius: '12px',
                         padding: '12px',
                         boxShadow: 'var(--shadow-xl)',
@@ -652,7 +654,7 @@ export default function Products() {
                     width: isActive ? '24px' : '8px',
                     height: '8px',
                     borderRadius: '4px',
-                    backgroundColor: isActive ? 'var(--secondary)' : 'rgba(15, 23, 42, 0.15)',
+                    backgroundColor: isActive ? 'var(--supporting)' : 'rgba(255, 255, 255, 0.2)',
                     border: 'none',
                     cursor: 'pointer',
                     transition: 'all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1)',
@@ -669,12 +671,12 @@ export default function Products() {
       {/* ==================================================
           SECTION: BUSINESS CHALLENGES SOLVED BY OUR PRODUCTS
           ================================================== */}
-      <section className="section" style={{ backgroundColor: '#ffffff', borderTop: '1px solid rgba(15, 23, 42, 0.05)' }}>
+      <section className="section section-dark" style={{ backgroundColor: '#0F172A', borderTop: '1px solid rgba(255, 255, 255, 0.05)' }}>
         <div className="container">
           <div className="section-title-wrapper" style={{ marginBottom: '56px' }}>
-            <span className="section-subtitle">Diagnostics & Resolution</span>
-            <h2 className="section-title">Business Challenges Solved By Our Products</h2>
-            <p className="section-desc">
+            <span className="section-subtitle" style={{ color: 'var(--supporting)' }}>Diagnostics & Resolution</span>
+            <h2 className="section-title" style={{ color: '#ffffff' }}>Business Challenges Solved By Our Products</h2>
+            <p className="section-desc" style={{ color: '#94a3b8' }}>
               Every product in the CEA portfolio is designed to solve a specific operational, compliance or management challenge.
             </p>
           </div>
@@ -696,12 +698,12 @@ export default function Products() {
                 variants={fadeIn}
                 whileHover={{ 
                   y: -8, 
-                  borderColor: 'var(--secondary)', 
-                  boxShadow: 'var(--shadow-xl)',
+                  borderColor: 'var(--supporting)', 
+                  boxShadow: '0 12px 30px rgba(0, 0, 0, 0.25)',
                 }}
                 style={{
-                  backgroundColor: 'var(--background)',
-                  border: '1px solid rgba(15, 23, 42, 0.06)',
+                  backgroundColor: 'rgba(30, 41, 59, 0.3)',
+                  border: '1px solid rgba(255, 255, 255, 0.05)',
                   borderRadius: '16px',
                   padding: '32px 28px',
                   boxShadow: 'var(--shadow-sm)',
@@ -720,8 +722,8 @@ export default function Products() {
                     width: '44px',
                     height: '44px',
                     borderRadius: '10px',
-                    backgroundColor: 'rgba(14, 116, 144, 0.06)',
-                    color: 'var(--secondary)',
+                    backgroundColor: 'rgba(6, 182, 212, 0.08)',
+                    color: 'var(--supporting)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center'
@@ -731,8 +733,8 @@ export default function Products() {
                   <span style={{ 
                     fontSize: '11px', 
                     fontWeight: '800', 
-                    color: 'var(--secondary)', 
-                    backgroundColor: 'rgba(14, 116, 144, 0.06)', 
+                    color: 'var(--supporting)', 
+                    backgroundColor: 'rgba(6, 182, 212, 0.08)', 
                     padding: '4px 12px', 
                     borderRadius: '20px',
                     textTransform: 'uppercase',
@@ -744,20 +746,20 @@ export default function Products() {
 
                 {/* Middle Section: Challenge & Description */}
                 <div style={{ flexGrow: 1, display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                  <span style={{ fontSize: '11px', fontWeight: '700', color: '#ef4444', textTransform: 'uppercase', letterSpacing: '1px', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                    <span style={{ width: '5px', height: '5px', borderRadius: '50%', backgroundColor: '#ef4444' }}></span>
+                  <span style={{ fontSize: '11px', fontWeight: '700', color: '#f87171', textTransform: 'uppercase', letterSpacing: '1px', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                    <span style={{ width: '5px', height: '5px', borderRadius: '50%', backgroundColor: '#f87171' }}></span>
                     Challenge
                   </span>
-                  <h3 style={{ fontSize: '17.5px', fontWeight: '800', color: 'var(--primary)', margin: '0 0 6px 0', fontFamily: 'var(--font-headings)' }}>
+                  <h3 style={{ fontSize: '17.5px', fontWeight: '800', color: '#ffffff', margin: '0 0 6px 0', fontFamily: 'var(--font-headings)' }}>
                     {item.challenge}
                   </h3>
-                  <p style={{ fontSize: '13.5px', color: 'var(--text-muted)', lineHeight: '1.6', margin: 0 }}>
+                  <p style={{ fontSize: '13.5px', color: '#94a3b8', lineHeight: '1.6', margin: 0 }}>
                     {item.desc}
                   </p>
                 </div>
 
                 {/* Bottom Row: Action Link */}
-                <div style={{ display: 'flex', justifyContent: 'flex-start', borderTop: '1px solid rgba(15, 23, 42, 0.05)', paddingTop: '16px', marginTop: '20px' }}>
+                <div style={{ display: 'flex', justifyContent: 'flex-start', borderTop: '1px solid rgba(255, 255, 255, 0.06)', paddingTop: '16px', marginTop: '20px' }}>
                   <button 
                     onClick={() => selectProductAndScroll(
                       item.solution === "Workflow Automation Solutions" ? "VERICEA Manufacturing" : 
@@ -768,7 +770,7 @@ export default function Products() {
                     style={{
                       background: 'none',
                       border: 'none',
-                      color: 'var(--primary)',
+                      color: 'var(--supporting)',
                       fontSize: '12.5px',
                       fontWeight: '700',
                       display: 'flex',
@@ -778,8 +780,8 @@ export default function Products() {
                       cursor: 'pointer',
                       transition: 'color 0.2s'
                     }}
-                    onMouseEnter={(e) => e.currentTarget.style.color = 'var(--secondary)'}
-                    onMouseLeave={(e) => e.currentTarget.style.color = 'var(--primary)'}
+                    onMouseEnter={(e) => e.currentTarget.style.color = 'var(--accent)'}
+                    onMouseLeave={(e) => e.currentTarget.style.color = 'var(--supporting)'}
                   >
                     Learn more about this solution
                     <ArrowRight size={13} />
@@ -794,12 +796,12 @@ export default function Products() {
       {/* ==================================================
           SECTION: SECTORS WE TRANSFORM
           ================================================== */}
-      <section className="section" style={{ backgroundColor: 'var(--background)' }}>
+      <section className="section section-dark" style={{ backgroundColor: '#090D1A', borderTop: '1px solid rgba(255, 255, 255, 0.05)', borderBottom: '1px solid rgba(255, 255, 255, 0.05)' }}>
         <div className="container">
           <div className="section-title-wrapper">
-            <span className="section-subtitle">Sectors We Transform</span>
-            <h2 className="section-title">Designed for Complex Industrial Environments</h2>
-            <p className="section-desc">Our software suites adapt to the distinct database, scale, and compliance requirements of diverse sectors.</p>
+            <span className="section-subtitle" style={{ color: 'var(--supporting)' }}>Sectors We Transform</span>
+            <h2 className="section-title" style={{ color: '#ffffff' }}>Designed for Complex Industrial Environments</h2>
+            <p className="section-desc" style={{ color: '#94a3b8' }}>Our software suites adapt to the distinct database, scale, and compliance requirements of diverse sectors.</p>
           </div>
 
           <div className="industry-grid">
@@ -820,13 +822,13 @@ export default function Products() {
                 initial="initial"
                 whileInView="whileInView"
                 viewport={scrollReveal.viewport}
-                style={{ backgroundColor: '#ffffff', borderColor: 'rgba(15,23,42,0.06)' }}
+                style={{ backgroundColor: 'rgba(30, 41, 59, 0.3)', borderColor: 'rgba(255, 255, 255, 0.05)' }}
               >
-                <div className="industry-icon-wrapper" style={{ backgroundColor: 'var(--alternate-bg)', color: 'var(--secondary)' }}>
+                <div className="industry-icon-wrapper" style={{ backgroundColor: 'rgba(255, 255, 255, 0.04)', color: 'var(--supporting)' }}>
                   {industry.icon}
                 </div>
-                <h3 className="industry-title">{industry.title}</h3>
-                <p className="industry-desc">{industry.desc}</p>
+                <h3 className="industry-title" style={{ color: '#ffffff' }}>{industry.title}</h3>
+                <p className="industry-desc" style={{ color: '#94a3b8' }}>{industry.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -836,12 +838,12 @@ export default function Products() {
       {/* ==================================================
           SECTION: WHY OUR PRODUCTS STAND OUT
           ================================================== */}
-      <section className="section" style={{ backgroundColor: '#ffffff' }}>
+      <section className="section section-dark" style={{ backgroundColor: '#0F172A' }}>
         <div className="container">
           <div className="section-title-wrapper" style={{ marginBottom: '56px' }}>
-            <span className="section-subtitle">Architectural Quality</span>
-            <h2 className="section-title">Why Our Products Stand Out</h2>
-            <p className="section-desc">We build enterprise software that integrates directly, ensures compliance, and scales easily.</p>
+            <span className="section-subtitle" style={{ color: 'var(--supporting)' }}>Architectural Quality</span>
+            <h2 className="section-title" style={{ color: '#ffffff' }}>Why Our Products Stand Out</h2>
+            <p className="section-desc" style={{ color: '#94a3b8' }}>We build enterprise software that integrates directly, ensures compliance, and scales easily.</p>
           </div>
 
           <motion.div 
@@ -859,10 +861,10 @@ export default function Products() {
               <motion.div
                 key={index}
                 variants={fadeIn}
-                whileHover={{ y: -4, borderColor: 'var(--secondary)' }}
+                whileHover={{ y: -4, borderColor: 'var(--supporting)' }}
                 style={{
-                  backgroundColor: 'var(--background)',
-                  border: '1px solid rgba(15, 23, 42, 0.06)',
+                  backgroundColor: 'rgba(30, 41, 59, 0.3)',
+                  border: '1px solid rgba(255, 255, 255, 0.05)',
                   borderRadius: '12px',
                   padding: '24px 20px',
                   display: 'flex',
@@ -876,8 +878,8 @@ export default function Products() {
                   width: '36px',
                   height: '36px',
                   borderRadius: '50%',
-                  backgroundColor: 'rgba(14, 116, 144, 0.08)',
-                  color: 'var(--secondary)',
+                  backgroundColor: 'rgba(6, 182, 212, 0.15)',
+                  color: 'var(--supporting)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
@@ -886,10 +888,10 @@ export default function Products() {
                   {st.icon}
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                  <h4 style={{ fontSize: '15px', fontWeight: '800', color: 'var(--primary)', margin: 0, fontFamily: 'var(--font-headings)' }}>
+                  <h4 style={{ fontSize: '15px', fontWeight: '800', color: '#ffffff', margin: 0, fontFamily: 'var(--font-headings)' }}>
                     {st.title}
                   </h4>
-                  <p style={{ fontSize: '12.5px', color: 'var(--text-muted)', lineHeight: '1.4', margin: 0 }}>
+                  <p style={{ fontSize: '12.5px', color: '#94a3b8', lineHeight: '1.4', margin: 0 }}>
                     {st.desc}
                   </p>
                 </div>
@@ -907,21 +909,23 @@ export default function Products() {
       {/* ==================================================
           SECTION: PRODUCT INQUIRY & FINAL CTA
           ================================================== */}
-      <section ref={inquiryRef} className="section" id="inquiry-form" style={{ background: 'radial-gradient(circle at bottom, rgba(14, 116, 144, 0.05) 0%, transparent 40%)', backgroundColor: 'var(--alternate-bg)' }}>
+      <section ref={inquiryRef} className="section section-dark" id="inquiry-form" style={{ background: 'radial-gradient(circle at bottom, rgba(6, 182, 212, 0.04) 0%, transparent 40%)', backgroundColor: '#090D1A' }}>
         <div className="container" style={{ maxWidth: '780px' }}>
           <div className="section-title-wrapper" style={{ marginBottom: '40px' }}>
-            <span className="section-subtitle">Request Information</span>
-            <h2 className="section-title">Request A Product Demo</h2>
-            <p className="section-desc">Select a product and tell us about your operational challenges.</p>
+            <span className="section-subtitle" style={{ color: 'var(--supporting)' }}>Request Information</span>
+            <h2 className="section-title" style={{ color: '#ffffff' }}>Request A Product Demo</h2>
+            <p className="section-desc" style={{ color: '#94a3b8' }}>Select a product and tell us about your operational challenges.</p>
           </div>
 
           <div 
             style={{
-              backgroundColor: '#ffffff',
-              border: '1px solid rgba(15, 23, 42, 0.08)',
+              backgroundColor: 'rgba(30, 41, 59, 0.45)',
+              border: '1px solid rgba(255, 255, 255, 0.06)',
               borderRadius: '16px',
               padding: '36px',
-              boxShadow: 'var(--shadow-lg)'
+              boxShadow: 'var(--shadow-xl)',
+              backdropFilter: 'blur(16px)',
+              WebkitBackdropFilter: 'blur(16px)'
             }}
           >
             {isSubmitted ? (
@@ -933,18 +937,18 @@ export default function Products() {
                 <div style={{ width: '64px', height: '64px', borderRadius: '50%', backgroundColor: 'rgba(16,185,129,0.1)', color: '#10b981', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px auto' }}>
                   <Check size={32} />
                 </div>
-                <h3 style={{ fontSize: '22px', marginBottom: '8px', color: 'var(--primary)', fontWeight: '800' }}>Inquiry Submitted Successfully</h3>
-                <p style={{ color: 'var(--text-muted)', fontSize: '15px', marginBottom: '24px', maxWidth: '480px', margin: '0 auto 24px auto' }}>
+                <h3 style={{ fontSize: '22px', marginBottom: '8px', color: '#ffffff', fontWeight: '800' }}>Inquiry Submitted Successfully</h3>
+                <p style={{ color: '#94a3b8', fontSize: '15px', marginBottom: '24px', maxWidth: '480px', margin: '0 auto 24px auto' }}>
                   Thank you for contacting us. A product consultant from our office will email you shortly with access parameters.
                 </p>
-                <button onClick={() => setIsSubmitted(false)} className="btn btn-secondary btn-sm">
+                <button onClick={() => setIsSubmitted(false)} className="btn btn-secondary btn-sm" style={{ border: '1px solid rgba(255,255,255,0.15)', color: '#ffffff' }}>
                   Submit Another Inquiry
                 </button>
               </motion.div>
             ) : (
               <form onSubmit={handleSubmit}>
                 <div className="form-group" style={{ marginBottom: '20px' }}>
-                  <label className="form-label" style={{ fontSize: '13px', fontWeight: '700', display: 'block', marginBottom: '6px', color: 'var(--primary)' }} htmlFor="name">Full Name</label>
+                  <label className="form-label" style={{ fontSize: '13px', fontWeight: '700', display: 'block', marginBottom: '6px', color: '#ffffff' }} htmlFor="name">Full Name</label>
                   <input 
                     type="text" 
                     id="name" 
@@ -953,7 +957,9 @@ export default function Products() {
                       width: '100%',
                       padding: '12px 16px',
                       borderRadius: '8px',
-                      border: '1px solid rgba(15, 23, 42, 0.15)',
+                      border: '1px solid rgba(255, 255, 255, 0.1)',
+                      backgroundColor: 'rgba(15, 23, 42, 0.4)',
+                      color: '#ffffff',
                       fontSize: '14.5px',
                       fontFamily: 'var(--font-body)',
                       outline: 'none',
@@ -968,7 +974,7 @@ export default function Products() {
 
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', marginBottom: '20px' }}>
                   <div className="form-group">
-                    <label className="form-label" style={{ fontSize: '13px', fontWeight: '700', display: 'block', marginBottom: '6px', color: 'var(--primary)' }} htmlFor="email">Email Address</label>
+                    <label className="form-label" style={{ fontSize: '13px', fontWeight: '700', display: 'block', marginBottom: '6px', color: '#ffffff' }} htmlFor="email">Email Address</label>
                     <input 
                       type="email" 
                       id="email" 
@@ -977,7 +983,9 @@ export default function Products() {
                         width: '100%',
                         padding: '12px 16px',
                         borderRadius: '8px',
-                        border: '1px solid rgba(15, 23, 42, 0.15)',
+                        border: '1px solid rgba(255, 255, 255, 0.1)',
+                        backgroundColor: 'rgba(15, 23, 42, 0.4)',
+                        color: '#ffffff',
                         fontSize: '14.5px',
                         fontFamily: 'var(--font-body)',
                         outline: 'none',
@@ -991,7 +999,7 @@ export default function Products() {
                   </div>
 
                   <div className="form-group">
-                    <label className="form-label" style={{ fontSize: '13px', fontWeight: '700', display: 'block', marginBottom: '6px', color: 'var(--primary)' }} htmlFor="company">Company Name</label>
+                    <label className="form-label" style={{ fontSize: '13px', fontWeight: '700', display: 'block', marginBottom: '6px', color: '#ffffff' }} htmlFor="company">Company Name</label>
                     <input 
                       type="text" 
                       id="company" 
@@ -1000,7 +1008,9 @@ export default function Products() {
                         width: '100%',
                         padding: '12px 16px',
                         borderRadius: '8px',
-                        border: '1px solid rgba(15, 23, 42, 0.15)',
+                        border: '1px solid rgba(255, 255, 255, 0.1)',
+                        backgroundColor: 'rgba(15, 23, 42, 0.4)',
+                        color: '#ffffff',
                         fontSize: '14.5px',
                         fontFamily: 'var(--font-body)',
                         outline: 'none',
@@ -1015,7 +1025,7 @@ export default function Products() {
                 </div>
 
                 <div className="form-group" style={{ marginBottom: '20px' }}>
-                  <label className="form-label" style={{ fontSize: '13px', fontWeight: '700', display: 'block', marginBottom: '6px', color: 'var(--primary)' }} htmlFor="product">Product of Interest</label>
+                  <label className="form-label" style={{ fontSize: '13px', fontWeight: '700', display: 'block', marginBottom: '6px', color: '#ffffff' }} htmlFor="product">Product of Interest</label>
                   <select 
                     id="product" 
                     name="product" 
@@ -1023,10 +1033,11 @@ export default function Products() {
                       width: '100%',
                       padding: '12px 16px',
                       borderRadius: '8px',
-                      border: '1px solid rgba(15, 23, 42, 0.15)',
+                      border: '1px solid rgba(255, 255, 255, 0.1)',
+                      backgroundColor: '#0F172A',
+                      color: '#ffffff',
                       fontSize: '14.5px',
                       fontFamily: 'var(--font-body)',
-                      backgroundColor: '#ffffff',
                       outline: 'none',
                       transition: 'border-color 0.2s'
                     }}
@@ -1042,7 +1053,7 @@ export default function Products() {
                 </div>
 
                 <div className="form-group" style={{ marginBottom: '24px' }}>
-                  <label className="form-label" style={{ fontSize: '13px', fontWeight: '700', display: 'block', marginBottom: '6px', color: 'var(--primary)' }} htmlFor="message">How can we help you?</label>
+                  <label className="form-label" style={{ fontSize: '13px', fontWeight: '700', display: 'block', marginBottom: '6px', color: '#ffffff' }} htmlFor="message">How can we help you?</label>
                   <textarea 
                     id="message" 
                     name="message" 
@@ -1050,7 +1061,9 @@ export default function Products() {
                       width: '100%',
                       padding: '12px 16px',
                       borderRadius: '8px',
-                      border: '1px solid rgba(15, 23, 42, 0.15)',
+                      border: '1px solid rgba(255, 255, 255, 0.1)',
+                      backgroundColor: 'rgba(15, 23, 42, 0.4)',
+                      color: '#ffffff',
                       fontSize: '14.5px',
                       fontFamily: 'var(--font-body)',
                       outline: 'none',
@@ -1065,7 +1078,7 @@ export default function Products() {
                   {errors.message && <span style={{ color: '#ef4444', fontSize: '12px', marginTop: '4px', display: 'block' }}>{errors.message}</span>}
                 </div>
 
-                <button type="submit" className="btn btn-cta" style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
+                <button type="submit" className="btn btn-cta" style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', color: '#0F172A' }}>
                   Send Inquiry
                   <Send size={16} />
                 </button>
@@ -1078,9 +1091,9 @@ export default function Products() {
       {/* ==================================================
           FINAL CTA PANEL
           ================================================== */}
-      <section className="section section-dark" style={{ background: 'linear-gradient(135deg, #0B1F3A 0%, #020617 100%)', position: 'relative', overflow: 'hidden' }}>
-        <div style={{ position: 'absolute', top: '-10%', right: '-10%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(245, 158, 11, 0.07) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
-        <div style={{ position: 'absolute', bottom: '-10%', left: '-10%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(14, 116, 144, 0.05) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
+      <section className="section section-dark" style={{ background: 'linear-gradient(135deg, #0F172A 0%, #020617 100%)', position: 'relative', overflow: 'hidden' }}>
+        <div style={{ position: 'absolute', top: '-10%', right: '-10%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(234, 179, 8, 0.05) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
+        <div style={{ position: 'absolute', bottom: '-10%', left: '-10%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(6, 182, 212, 0.05) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
 
         <div className="container" style={{ textAlign: 'center', position: 'relative', zIndex: 2 }}>
           <motion.div 
@@ -1093,16 +1106,16 @@ export default function Products() {
             <h2 style={{ fontSize: '36px', marginBottom: '16px', letterSpacing: '-1.5px', color: '#ffffff', fontWeight: '800' }}>
               Looking For The Right Software Solution?
             </h2>
-            <p style={{ fontSize: '16px', color: 'rgba(241, 245, 249, 0.82)', marginBottom: '36px', lineHeight: '1.6' }}>
+            <p style={{ fontSize: '16px', color: '#cbd5e1', marginBottom: '36px', lineHeight: '1.6' }}>
               Explore how CEA Infotech's products can help your organization improve efficiency, visibility and operational excellence.
             </p>
             <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap' }}>
               <motion.button 
                 onClick={() => selectProductAndScroll(activeProduct.name)} 
                 className="btn btn-cta"
-                whileHover={{ scale: 1.03, boxShadow: '0px 6px 12px rgba(245, 158, 11, 0.3)' }}
+                whileHover={{ scale: 1.03, boxShadow: '0px 6px 12px rgba(234, 179, 8, 0.35)' }}
                 whileTap={{ scale: 0.98 }}
-                style={{ color: '#0B1F3A', display: 'flex', alignItems: 'center', gap: '8px' }}
+                style={{ color: '#0F172A', display: 'flex', alignItems: 'center', gap: '8px' }}
               >
                 Request A Demo
                 <ArrowRight size={16} />

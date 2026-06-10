@@ -323,7 +323,7 @@ export default function Home() {
                   className="btn btn-cta"
                   whileHover={buttonHover.whileHover}
                   whileTap={buttonHover.whileTap}
-                  style={{ color: '#0B1F3A' }}
+                  style={{ color: '#0F172A' }}
                 >
                   Explore Products
                   <ArrowRight size={16} />
@@ -843,7 +843,7 @@ export default function Home() {
                   tagline: "Connect. Preserve. Scale.",
                   desc: "Scalable Multilingual Relationship Management Platform",
                   icon: <Network size={22} />,
-                  color: "#F59E0B"
+                  color: "#EAB308"
                 }
               ].map((solution, index) => (
                 <motion.div
@@ -1122,7 +1122,7 @@ export default function Home() {
                   aria-label="Play product video"
                   whileHover={{ scale: 1.08 }}
                   whileTap={{ scale: 0.96 }}
-                  style={{ backgroundColor: 'var(--cta)', color: '#0B1F3A' }}
+                  style={{ backgroundColor: 'var(--cta)', color: '#0F172A' }}
                 >
                   <Play fill="currentColor" size={28} />
                 </motion.button>
@@ -1356,9 +1356,9 @@ export default function Home() {
       </section>
 
       {/* --- CALL TO ACTION --- */}
-      <section className="section section-dark" style={{ background: 'linear-gradient(135deg, #0B1F3A 0%, #0E7490 100%)', position: 'relative', overflow: 'hidden' }}>
-        <div style={{ position: 'absolute', top: '-10%', right: '-10%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(20, 184, 166, 0.12) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
-        <div style={{ position: 'absolute', bottom: '-10%', left: '-10%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(245, 158, 11, 0.08) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
+      <section className="section section-dark" style={{ background: 'linear-gradient(135deg, #0F172A 0%, #1E293B 100%)', position: 'relative', overflow: 'hidden' }}>
+        <div style={{ position: 'absolute', top: '-10%', right: '-10%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(6, 182, 212, 0.12) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
+        <div style={{ position: 'absolute', bottom: '-10%', left: '-10%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(234, 179, 8, 0.08) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
 
         <div className="container" style={{ textAlign: 'center', position: 'relative', zIndex: 2 }}>
           <motion.div 
@@ -1378,7 +1378,7 @@ export default function Home() {
                 className="btn btn-cta"
                 whileHover={buttonHover.whileHover}
                 whileTap={buttonHover.whileTap}
-                style={{ color: '#0B1F3A' }}
+                style={{ color: '#0F172A' }}
               >
                 Schedule Consultation
                 <PhoneCall size={16} />
@@ -1443,7 +1443,7 @@ export default function Home() {
                 <p style={{ color: '#94a3b8', fontSize: '15px', maxWidth: '480px', marginBottom: '32px', lineHeight: '1.5' }}>
                   This overlay represents the interactive media player for the VERICEA Manufacturing software. In a production environment, this embeds the explainer video walk-through.
                 </p>
-                <button onClick={() => setIsVideoModalOpen(false)} className="btn btn-cta btn-sm" style={{ color: '#0B1F3A' }}>
+                <button onClick={() => setIsVideoModalOpen(false)} className="btn btn-cta btn-sm" style={{ color: '#0F172A' }}>
                   Close Walkthrough Demo
                 </button>
               </div>

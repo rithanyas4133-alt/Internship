@@ -1,73 +1,283 @@
-# React + TypeScript + Vite
+# 🌐 CEA Infotech Corporate Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern enterprise-grade corporate website developed for CEA Infotech Private Limited, showcasing software products, enterprise services, compliance solutions, and industry expertise.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🎯 Features
 
-## React Compiler
+### Enterprise Corporate Presence
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Professional company profile with modern UI/UX design.
 
-## Expanding the ESLint configuration
+### Flagship Product Showcase
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Dedicated product portfolio featuring:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+* VERICEA Manufacturing
+* VERICEA Compliance
+* FactSafe
+* Courier Cost Management System
+* Family Tree Platform
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Compliance Hub
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Comprehensive compliance and audit management knowledge center with interactive audit lifecycle visualization.
+
+### Industry Insights Blog
+
+Knowledge-sharing platform covering:
+
+* Manufacturing Excellence
+* Compliance Best Practices
+* Enterprise Software
+* Digital Transformation
+* Risk Management
+
+### Responsive Design
+
+Fully optimized experience across desktop, tablet, and mobile devices.
+
+### Interactive User Experience
+
+Smooth animations, hover effects, scroll transitions, and enterprise-grade visual interactions.
+
+---
+
+## 🏗️ Architecture
+
+```text
+Users
+  ↓
+CEA Infotech Website
+  ↓
+React + TypeScript Frontend
+  ↓
+Node.js + Express Backend (Planned)
+  ↓
+MongoDB Database (Planned)
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Frontend
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```text
+React
+│
+├── Home
+├── About
+├── Services
+├── Products
+├── Compliance Hub
+├── Blog
+└── Contact
 ```
+
+### Backend (Future Integration)
+
+```text
+Express REST APIs
+│
+├── Contact Management
+├── Demo Requests
+├── Newsletter Subscriptions
+├── Blog Management
+└── Admin Dashboard
+```
+
+---
+
+## 🚀 Quick Start
+
+### Prerequisites
+
+* Node.js 18+
+* npm
+* Git
+
+### Installation
+
+```bash
+git clone https://github.com/your-username/cea-infotech-website.git
+```
+
+```bash
+cd cea-infotech-website
+```
+
+```bash
+npm install
+```
+
+```bash
+npm run dev
+```
+
+---
+
+## 🌍 Website Pages
+
+### Home
+
+Corporate introduction, services overview, flagship products, trusted partners, and business highlights.
+
+### About Us
+
+Company overview, mission, vision, expertise, and values.
+
+### Services
+
+Enterprise software services and solution delivery capabilities.
+
+### Products
+
+Interactive showcase of CEA's software platforms and business solutions.
+
+### Compliance Hub
+
+Audit lifecycle, compliance framework, audit types, and compliance management knowledge center.
+
+### Blog
+
+Industry insights and enterprise technology articles.
+
+### Contact
+
+Business enquiries, consultations, and product demo requests.
+
+---
+
+## 🎨 Design System
+
+### Primary Color
+
+Deep Navy
+
+```css
+#0B1F3A
+```
+
+### Secondary Color
+
+Industrial Teal
+
+```css
+#0E7490
+```
+
+### Accent Color
+
+Premium Gold
+
+```css
+#F59E0B
+```
+
+### Background
+
+```css
+#F8FAFC
+```
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+
+* React.js
+* TypeScript
+* Tailwind CSS
+* Framer Motion
+* Lucide React Icons
+* Vite
+
+### Backend (Planned)
+
+* Node.js
+* Express.js
+
+### Database (Planned)
+
+* MongoDB
+
+### Deployment
+
+* Vercel
+* Netlify
+
+---
+
+## 📁 Project Structure
+
+```text
+src/
+│
+├── components/
+├── pages/
+│   ├── Home
+│   ├── About
+│   ├── Services
+│   ├── Products
+│   ├── ComplianceHub
+│   ├── Blog
+│   └── Contact
+│
+├── assets/
+├── hooks/
+├── utils/
+├── App.tsx
+└── main.tsx
+```
+
+---
+
+## ✨ Key Highlights
+
+* Modern Enterprise UI
+* Mobile Responsive Design
+* Interactive Compliance Hub
+* Product Portfolio Showcase
+* Smooth Animations
+* SEO-Friendly Structure
+* Professional Visual Design
+* Scalable Architecture
+
+---
+
+## 📊 Future Enhancements
+
+### Backend Integration
+
+* Contact Form Processing
+* Product Demo Requests
+* Newsletter Management
+* Blog CMS
+
+### Advanced Features
+
+* Admin Dashboard
+* Analytics Integration
+* Authentication & Authorization
+* Multi-Language Support
+* CRM Integration
+
+---
+
+## 👨‍💻 Contributors
+
+* Rithanya S
+* Benitaa
+
+---
+
+## 🎓 Internship Project
+
+This project was developed as part of an internship program for CEA Infotech Private Limited with the objective of creating a professional, responsive, and enterprise-grade corporate website using modern web technologies and design principles.
+
+---
+
+## 📄 License
+
+This project is developed for educational and internship purposes.
+
+© CEA Infotech Private Limited. All Rights Reserved.

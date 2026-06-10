@@ -97,11 +97,11 @@ Express REST APIs
 ### Installation
 
 ```bash
-git clone https://github.com/your-username/cea-infotech-website.git
+git clone https://github.com/rithanyas4133-alt/Internship.git
 ```
 
 ```bash
-cd cea-infotech-website
+cd Internship
 ```
 
 ```bash

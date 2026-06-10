@@ -263,7 +263,7 @@ src/
 
 ---
 
-## 👨‍💻 Contributors
+## 👨💻 Contributors
 
 * Rithanya S
 * Benitaa

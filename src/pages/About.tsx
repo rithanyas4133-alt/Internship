@@ -1480,22 +1480,50 @@ export default function About() {
         </div>
       </section>
 
-      {/* ===== WHY CHOOSE CEA ===== */}
-      <section className="about-why-section">
+      {/* ===== WHY CHOOSE CEA — METRO EXPERIENCE ===== */}
+      <section className="about-why-section metro-section">
         <div className="container">
           <motion.div className="section-title-wrapper" {...fadeInUp}>
             <span className="section-subtitle">Our Advantage</span>
             <h2 className="section-title">Why Choose CEA Infotech</h2>
             <p className="section-desc">The differentiators that make us a trusted technology partner.</p>
           </motion.div>
-          <motion.div className="why-grid" variants={staggerContainer} initial="initial" whileInView="whileInView" viewport={{ once: true }}>
-            {whyChoose.map((item, i) => (
-              <motion.div key={i} variants={staggerItem} className="why-card">
-                <div className={`why-icon ${item.color}`}>{item.icon}</div>
-                <h3>{item.title}</h3>
-                <p>{item.desc}</p>
-              </motion.div>
-            ))}
+
+          {/* Metro tiles — asymmetrical, image-first layout */}
+          <motion.div className="metro-grid" variants={staggerContainer} initial="initial" whileInView="whileInView" viewport={{ once: true }}>
+            {(() => {
+              const tiles = [
+                { key: 'global', title: 'Global Delivery', size: 'large', image: '/images/world_operations_map.jpg' },
+                { key: 'leadership', title: '35+ Years Leadership', size: 'medium', image: '/images/executive_meeting.jpg' },
+                { key: 'domains', title: '11+ Industry Domains', size: 'medium', image: '/images/multi_industry_ecosystem.jpg' },
+                { key: 'custom', title: 'Custom Enterprise Solutions', size: 'wide', image: '/images/enterprise_architecture.jpg' },
+                { key: 'relationships', title: 'Long-Term Relationships', size: 'medium', image: '/images/partnership_visual.jpg' },
+                { key: 'innovation', title: 'Product Innovation', size: 'medium', image: '/images/digital_innovation_lab.jpg' },
+              ];
+
+              return tiles.map((t, i) => {
+                const content = whyChoose.find(w => w.title === t.title) || { desc: '' };
+                return (
+                  <motion.article
+                    key={t.key}
+                    className={`metro-tile tile-${t.size}`}
+                    style={{ backgroundImage: `url(${t.image})` }}
+                    variants={staggerItem}
+                    whileHover={{ scale: 1.02 }}
+                    transition={{ duration: 0.45 }}
+                  >
+                    <div className="metro-tile-bg" />
+                    <motion.div className="metro-tile-accent" initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }} />
+                    <div className="metro-tile-overlay" />
+                    <div className="metro-tile-content">
+                      <div className="metro-tile-meta">{t.title}</div>
+                      <h3>{t.title}</h3>
+                      <p>{content.desc}</p>
+                    </div>
+                  </motion.article>
+                );
+              });
+            })()}
           </motion.div>
         </div>
       </section>

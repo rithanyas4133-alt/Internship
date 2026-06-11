@@ -36,7 +36,7 @@
   --background: var(--primary-bg);
   --background-white: var(--secondary-bg);
   --alternate-bg: var(--secondary-bg);
-  --footer-bg: #26292C;
+  --footer-bg: #050B14;
 
   /* ── Text ── */
   --text-main: #E8E6E2; /* warm off-white */
@@ -131,8 +131,10 @@ a {
 
 @media (min-width: 1025px) {
 .section-dark h3,
+
 .section-dark h4 {
   color: #FFFFFF;
+}
 }
 
 .grid-2 {

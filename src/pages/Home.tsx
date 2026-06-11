@@ -7,7 +7,6 @@ import {
   Play, 
   Sparkles, 
   X,
-  Check,
   Calendar,
   Award,
   Globe,
@@ -21,18 +20,10 @@ import {
   Factory,
   ShieldCheck,
   Truck,
-  Network,
   Cog,
   Rocket,
   Headset,
-  Cpu,
-  Recycle,
-  HeartPulse,
-  Droplets,
-  BarChart3,
-  CalendarDays,
-  Wallet,
-  Clock
+  Cpu
 } from 'lucide-react';
 
 
@@ -162,7 +153,7 @@ const partnersRow2 = [
   { name: "Mahindra", icon: Factory, color: "#D4AF37" }
 ];
 
-// ── FLAGSHIP PLATFORMS DATA ──────────────────────────────────────────────────
+// â”€â”€ FLAGSHIP PLATFORMS DATA â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 const flagshipPlatforms = [
   {
@@ -232,7 +223,7 @@ const flagshipPlatforms = [
   }
 ];
 
-// ── FLAGSHIP ANIMATION VARIANTS ───────────────────────────────────────────────
+// â”€â”€ FLAGSHIP ANIMATION VARIANTS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 const flagshipCardVariants = {
   initial: {
@@ -296,7 +287,7 @@ const flagshipBtnVariants = {
   }
 };
 
-// ── FLAGSHIP CARD COMPONENT ───────────────────────────────────────────────────
+// â”€â”€ FLAGSHIP CARD COMPONENT â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 interface FlagshipPlatform {
   id: string;
@@ -502,7 +493,7 @@ function FlagshipCard({ platform, onNavigate, variant = 'standard' }: {
   );
 }
 
-// ── SOLUTIONS COVERFLOW CAROUSEL ─────────────────────────────────────────────
+// â”€â”€ SOLUTIONS COVERFLOW CAROUSEL â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 interface SolutionItem {
   title: string;
@@ -548,8 +539,6 @@ function SolutionsCoverflow({
     autoRef.current = setInterval(advance, 2400);
     return () => { if (autoRef.current) clearInterval(autoRef.current); };
   }, [isHovered, advance]);
-
-  const visibleWidth = STEP * 3 - GAP;
 
   return (
     <div
@@ -734,397 +723,6 @@ function SolutionsCoverflow({
   );
 }
 
-export default function Home() {
-  const navigate = useNavigate();
-  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
-
-  // Background slideshow slider state
-  const [currentBgIndex, setCurrentBgIndex] = useState(0);
-
-
-      {/* Radial glow center */}
-      <div style={{
-        position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)',
-        width: '700px', height: '700px', borderRadius: '50%',
-        background: 'radial-gradient(circle, rgba(245,158,11,0.06) 0%, transparent 65%)',
-        pointerEvents: 'none'
-      }} />
-
-      <div className="container" style={{ position: 'relative', zIndex: 2 }}>
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }} transition={{ duration: 0.6 }}
-          style={{ textAlign: 'center', marginBottom: '64px' }}
-        >
-          <div style={{
-            display: 'inline-flex', alignItems: 'center', gap: '8px',
-            background: 'rgba(245,158,11,0.08)', border: '1px solid rgba(245,158,11,0.25)',
-            borderRadius: '40px', padding: '6px 18px', marginBottom: '20px'
-          }}>
-            <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#F59E0B', boxShadow: '0 0 8px #F59E0B' }} />
-            <span style={{ fontSize: '11px', fontWeight: '700', color: '#F59E0B', letterSpacing: '1.5px', textTransform: 'uppercase' }}>Core Strengths</span>
-          </div>
-          <h2 style={{ fontSize: 'clamp(28px,3.5vw,46px)', fontWeight: '800', color: '#fff', margin: '0 0 12px', fontFamily: 'var(--font-headings)', letterSpacing: '-0.5px' }}>
-            Enterprise Command Center
-          </h2>
-          <p style={{ fontSize: '15px', color: 'rgba(209,213,219,0.7)', maxWidth: '520px', margin: '0 auto', lineHeight: 1.6 }}>
-            CEA Infotech's integrated digital ecosystem — nine capability pillars orbiting a unified enterprise core.
-          </p>
-        </motion.div>
-
-        {/* SVG Network */}
-        <div ref={containerRef} style={{ display: 'flex', justifyContent: 'center' }}>
-          <svg
-            viewBox="0 0 800 800"
-            style={{ width: '100%', maxWidth: '780px', height: 'auto', overflow: 'visible' }}
-          >
-            <defs>
-              {NODES.map(node => (
-                <radialGradient key={node.id} id={`grad-${node.id}`} cx="50%" cy="50%" r="50%">
-                  <stop offset="0%" stopColor={node.color} stopOpacity="0.35" />
-                  <stop offset="100%" stopColor={node.color} stopOpacity="0" />
-                </radialGradient>
-              ))}
-              <filter id="glow-filter">
-                <feGaussianBlur stdDeviation="3" result="blur" />
-                <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
-              </filter>
-              <filter id="strong-glow">
-                <feGaussianBlur stdDeviation="6" result="blur" />
-                <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
-              </filter>
-              <marker id="arrowhead" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
-                <path d="M0,0 L0,6 L6,3 z" fill="rgba(245,158,11,0.4)" />
-              </marker>
-            </defs>
-
-            {/* Orbit rings */}
-            <circle cx={CX} cy={CY} r={RADIUS} fill="none" stroke="rgba(255,255,255,0.04)" strokeWidth="1" />
-            <circle cx={CX} cy={CY} r={RADIUS * 0.6} fill="none" stroke="rgba(255,255,255,0.03)" strokeWidth="1" strokeDasharray="4 8" />
-
-            {/* Connection lines */}
-            {NODES.map((node, i) => {
-              const pos = getPos(node.angle, RADIUS);
-              const isActive = hoveredNode === node.id || pulse === i;
-              return (
-                <motion.line
-                  key={`line-${node.id}`}
-                  x1={CX} y1={CY} x2={pos.x} y2={pos.y}
-                  stroke={isActive ? node.color : 'rgba(255,255,255,0.07)'}
-                  strokeWidth={isActive ? 1.5 : 0.8}
-                  strokeDasharray={isActive ? 'none' : '4 6'}
-                  animate={{ opacity: isActive ? 1 : 0.4 }}
-                  transition={{ duration: 0.4 }}
-                  markerEnd={isActive ? 'url(#arrowhead)' : undefined}
-                  filter={isActive ? 'url(#glow-filter)' : undefined}
-                />
-              );
-            })}
-
-            {/* Pulse travel dot on active line */}
-            {NODES.map((node, i) => {
-              if (pulse !== i && hoveredNode !== node.id) return null;
-              const pos = getPos(node.angle, RADIUS);
-              return (
-                <motion.circle
-                  key={`pulse-${node.id}`}
-                  r="4"
-                  fill={node.color}
-                  filter="url(#strong-glow)"
-                  initial={{ atX: CX, atY: CY, opacity: 0 }}
-                  animate={{
-                    x: [CX, pos.x],
-                    y: [CY, pos.y],
-                    opacity: [0, 1, 1, 0],
-                  }}
-                  transition={{ duration: 1.2, ease: 'easeInOut', repeat: Infinity, repeatDelay: 0.4 }}
-                />
-              );
-            })}
-
-            {/* Outer nodes */}
-            {NODES.map((node, i) => {
-              const pos = getPos(node.angle, RADIUS);
-              const isActive = hoveredNode === node.id || pulse === i;
-              const labelLines = node.label.split('\n');
-              const textAnchor = pos.x < CX - 10 ? 'end' : pos.x > CX + 10 ? 'start' : 'middle';
-              const labelOffsetX = pos.x < CX - 10 ? -22 : pos.x > CX + 10 ? 22 : 0;
-              const labelOffsetY = pos.y < CY - 10 ? -22 : pos.y > CY + 10 ? 22 : 0;
-
-              return (
-                <g
-                  key={node.id}
-                  onMouseEnter={() => setHoveredNode(node.id)}
-                  onMouseLeave={() => setHoveredNode(null)}
-                  style={{ cursor: 'pointer' }}
-                >
-                  {/* Glow halo */}
-                  <motion.circle
-                    cx={pos.x} cy={pos.y}
-                    animate={{ r: isActive ? 32 : 22, opacity: isActive ? 0.5 : 0.15 }}
-                    transition={{ duration: 0.35 }}
-                    fill={`url(#grad-${node.id})`}
-                  />
-                  {/* Node circle */}
-                  <motion.circle
-                    cx={pos.x} cy={pos.y}
-                    animate={{
-                      r: isActive ? 18 : 13,
-                      fill: isActive ? node.color : '#0D1828',
-                      stroke: node.color,
-                      strokeWidth: isActive ? 2.5 : 1.5,
-                    }}
-                    transition={{ duration: 0.3 }}
-                    filter={isActive ? 'url(#glow-filter)' : undefined}
-                  />
-                  {/* Index number inside node */}
-                  <text
-                    x={pos.x} y={pos.y + 4}
-                    textAnchor="middle"
-                    fontSize="10"
-                    fontWeight="800"
-                    fill={isActive ? '#0A0F1C' : node.color}
-                    fontFamily="var(--font-headings)"
-                  >
-                    {String(i + 1).padStart(2, '0')}
-                  </text>
-                  {/* Label */}
-                  <motion.g
-                    animate={{ opacity: isActive ? 1 : 0.65 }}
-                    transition={{ duration: 0.25 }}
-                  >
-                    {labelLines.map((line, li) => (
-                      <text
-                        key={li}
-                        x={pos.x + labelOffsetX}
-                        y={pos.y + labelOffsetY + li * 14 + (labelLines.length > 1 ? -7 : 0)}
-                        textAnchor={textAnchor}
-                        fontSize="11"
-                        fontWeight="700"
-                        fill={isActive ? node.color : 'rgba(209,213,219,0.8)'}
-                        fontFamily="var(--font-headings)"
-                      >
-                        {line}
-                      </text>
-                    ))}
-                  </motion.g>
-                </g>
-              );
-            })}
-
-            {/* Center hub */}
-            <g>
-              <circle cx={CX} cy={CY} r={72} fill="none" stroke="rgba(245,158,11,0.15)" strokeWidth="1" strokeDasharray="3 5" />
-              <circle cx={CX} cy={CY} r={58} fill="#0D1828" stroke="rgba(245,158,11,0.35)" strokeWidth="1.5" />
-              <motion.circle
-                cx={CX} cy={CY} r={58}
-                fill="none"
-                stroke="#F59E0B"
-                strokeWidth="1.5"
-                strokeDasharray="20 180"
-                animate={{ rotate: 360 }}
-                transition={{ duration: 12, ease: 'linear', repeat: Infinity }}
-                style={{ transformOrigin: `${CX}px ${CY}px` }}
-              />
-              <text x={CX} y={CY - 12} textAnchor="middle" fontSize="11" fontWeight="800" fill="#F59E0B" fontFamily="var(--font-headings)" letterSpacing="1">CEA</text>
-              <text x={CX} y={CY + 3} textAnchor="middle" fontSize="9" fontWeight="600" fill="rgba(209,213,219,0.7)" fontFamily="var(--font-headings)">INFOTECH</text>
-              <text x={CX} y={CY + 16} textAnchor="middle" fontSize="8" fontWeight="500" fill="rgba(245,158,11,0.8)" fontFamily="var(--font-headings)" letterSpacing="0.5">DIGITAL ECOSYSTEM</text>
-            </g>
-          </svg>
-        </div>
-
-        {/* Node legend strip */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.3 }}
-          style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '10px', marginTop: '40px' }}
-        >
-          {NODES.map(node => (
-            <div
-              key={node.id}
-              onMouseEnter={() => setHoveredNode(node.id)}
-              onMouseLeave={() => setHoveredNode(null)}
-              style={{
-                display: 'flex', alignItems: 'center', gap: '7px',
-                background: hoveredNode === node.id ? `${node.color}18` : 'rgba(255,255,255,0.04)',
-                border: `1px solid ${hoveredNode === node.id ? node.color + '60' : 'rgba(255,255,255,0.08)'}`,
-                borderRadius: '20px', padding: '5px 13px', cursor: 'default',
-                transition: 'all 0.25s',
-              }}
-            >
-              <div style={{ width: '7px', height: '7px', borderRadius: '50%', background: node.color, flexShrink: 0, boxShadow: hoveredNode === node.id ? `0 0 8px ${node.color}` : 'none' }} />
-              <span style={{ fontSize: '11.5px', fontWeight: '600', color: hoveredNode === node.id ? node.color : 'rgba(209,213,219,0.7)', fontFamily: 'var(--font-headings)', whiteSpace: 'nowrap' }}>
-                {node.label.replace('\n', ' ')}
-              </span>
-            </div>
-          ))}
-        </motion.div>
-      </div>
-    </section>
-  );
-}
-
-// ── INDUSTRY WALL ─────────────────────────────────────────────────────────────
-
-const INDUSTRIES = [
-  { id: 'manufacturing', label: 'Manufacturing',         image: '/images/ind_manufacturing.jpg',  span: 2 },
-  { id: 'construction',  label: 'Construction',          image: '/images/ind_construction.jpg',   span: 1 },
-  { id: 'engineering',   label: 'Engineering',           image: '/images/ind_engineering.jpg',    span: 1 },
-  { id: 'apparel',       label: 'Apparel',               image: '/images/ind_apparel.jpg',        span: 1 },
-  { id: 'textiles',      label: 'Home Textiles',         image: '/images/ind_home_textiles.jpg',  span: 1 },
-  { id: 'retail',        label: 'Retail',                image: '/images/ind_retail.jpg',         span: 2 },
-  { id: 'finance',       label: 'Finance',               image: '/images/ind_finance.jpg',        span: 1 },
-  { id: 'ngo',           label: 'NGO Operations',        image: '/images/ind_ngo.jpg',            span: 1 },
-  { id: 'compliance',    label: 'Compliance Management', image: '/images/ind_compliance.jpg',     span: 2 },
-];
-
-function IndustryWall() {
-  const [hovered, setHovered] = useState<string | null>(null);
-
-  return (
-    <section style={{ background: '#080E1C', padding: '100px 0 110px', overflow: 'hidden', position: 'relative' }}>
-      <div style={{
-        position: 'absolute', inset: 0,
-        backgroundImage: 'linear-gradient(rgba(245,158,11,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(245,158,11,0.02) 1px, transparent 1px)',
-        backgroundSize: '80px 80px', pointerEvents: 'none'
-      }} />
-
-      <div className="container" style={{ position: 'relative', zIndex: 2 }}>
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }} transition={{ duration: 0.6 }}
-          style={{ textAlign: 'center', marginBottom: '56px' }}
-        >
-          <div style={{
-            display: 'inline-flex', alignItems: 'center', gap: '8px',
-            background: 'rgba(245,158,11,0.08)', border: '1px solid rgba(245,158,11,0.25)',
-            borderRadius: '40px', padding: '6px 18px', marginBottom: '20px'
-          }}>
-            <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#F59E0B', boxShadow: '0 0 8px #F59E0B' }} />
-            <span style={{ fontSize: '11px', fontWeight: '700', color: '#F59E0B', letterSpacing: '1.5px', textTransform: 'uppercase' }}>Domain Expertise</span>
-          </div>
-          <h2 style={{ fontSize: 'clamp(28px,3.5vw,46px)', fontWeight: '800', color: '#fff', margin: '0 0 12px', fontFamily: 'var(--font-headings)', letterSpacing: '-0.5px' }}>
-            Interactive Industry Wall
-          </h2>
-          <p style={{ fontSize: '15px', color: 'rgba(209,213,219,0.7)', maxWidth: '500px', margin: '0 auto', lineHeight: 1.6 }}>
-            Nine industry verticals. One enterprise technology partner.
-          </p>
-        </motion.div>
-
-        {/* Mosaic grid */}
-        <motion.div
-          initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
-          viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.15 }}
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(4, 1fr)',
-            gap: '10px',
-            maxWidth: '1100px',
-            margin: '0 auto',
-          }}
-        >
-          {INDUSTRIES.map((ind, i) => {
-            const isHovered = hovered === ind.id;
-            const anyHovered = hovered !== null;
-            return (
-              <motion.div
-                key={ind.id}
-                onHoverStart={() => setHovered(ind.id)}
-                onHoverEnd={() => setHovered(null)}
-                animate={{
-                  opacity: anyHovered && !isHovered ? 0.45 : 1,
-                  scale: isHovered ? 1.02 : anyHovered ? 0.98 : 1,
-                }}
-                transition={{ duration: 0.35, ease: [0.32, 0.72, 0, 1] }}
-                style={{
-                  gridColumn: `span ${ind.span}`,
-                  height: ind.span === 2 ? '240px' : '190px',
-                  position: 'relative',
-                  borderRadius: '14px',
-                  overflow: 'hidden',
-                  cursor: 'default',
-                  border: isHovered ? '1.5px solid rgba(245,158,11,0.7)' : '1px solid rgba(255,255,255,0.06)',
-                  boxShadow: isHovered ? '0 0 28px rgba(245,158,11,0.2), 0 12px 40px rgba(0,0,0,0.6)' : '0 4px 20px rgba(0,0,0,0.4)',
-                }}
-              >
-                {/* Background image with zoom */}
-                <motion.img
-                  src={ind.image}
-                  alt={ind.label}
-                  animate={{ scale: isHovered ? 1.08 : 1 }}
-                  transition={{ duration: 0.55, ease: [0.32, 0.72, 0, 1] }}
-                  style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-                />
-
-                {/* Dark overlay */}
-                <motion.div
-                  animate={{ opacity: isHovered ? 0.55 : 0.72 }}
-                  transition={{ duration: 0.35 }}
-                  style={{
-                    position: 'absolute', inset: 0,
-                    background: 'linear-gradient(to top, rgba(6,12,26,0.95) 0%, rgba(6,12,26,0.3) 60%, transparent 100%)',
-                  }}
-                />
-
-                {/* Gold top border sweep on hover */}
-                <motion.div
-                  animate={{ scaleX: isHovered ? 1 : 0, opacity: isHovered ? 1 : 0 }}
-                  transition={{ duration: 0.4, ease: [0.32, 0.72, 0, 1] }}
-                  style={{
-                    position: 'absolute', top: 0, left: 0, right: 0, height: '2px',
-                    background: 'linear-gradient(90deg, transparent, #F59E0B, #FCD34D, #F59E0B, transparent)',
-                    transformOrigin: 'left',
-                  }}
-                />
-
-                {/* Index */}
-                <div style={{
-                  position: 'absolute', top: '12px', left: '12px',
-                  fontSize: '10px', fontWeight: '800', color: isHovered ? '#F59E0B' : 'rgba(156,163,175,0.7)',
-                  fontFamily: 'var(--font-headings)', letterSpacing: '0.5px',
-                  background: 'rgba(6,12,26,0.65)', backdropFilter: 'blur(6px)',
-                  border: `1px solid ${isHovered ? 'rgba(245,158,11,0.4)' : 'rgba(255,255,255,0.06)'}`,
-                  borderRadius: '5px', padding: '2px 7px',
-                  transition: 'color 0.3s, border-color 0.3s',
-                }}>
-                  {String(i + 1).padStart(2, '0')}
-                </div>
-
-                {/* Label at bottom */}
-                <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '16px 18px' }}>
-                  <motion.h3
-                    animate={{ y: isHovered ? -4 : 0, color: isHovered ? '#F59E0B' : '#FFFFFF' }}
-                    transition={{ duration: 0.3 }}
-                    style={{
-                      margin: 0, fontSize: ind.span === 2 ? '17px' : '14px',
-                      fontWeight: '800', fontFamily: 'var(--font-headings)',
-                      lineHeight: 1.2, letterSpacing: '-0.2px',
-                      textShadow: '0 2px 12px rgba(0,0,0,0.8)',
-                    }}
-                  >
-                    {ind.label}
-                  </motion.h3>
-                  <motion.div
-                    animate={{ opacity: isHovered ? 1 : 0, y: isHovered ? 0 : 6 }}
-                    transition={{ duration: 0.3, delay: 0.05 }}
-                    style={{ display: 'flex', alignItems: 'center', gap: '5px', marginTop: '5px' }}
-                  >
-                    <div style={{ width: '20px', height: '1.5px', background: '#F59E0B', borderRadius: '1px' }} />
-                    <span style={{ fontSize: '11px', fontWeight: '600', color: 'rgba(245,158,11,0.9)', letterSpacing: '0.5px' }}>
-                      CEA SOLUTIONS AVAILABLE
-                    </span>
-                  </motion.div>
-                </div>
-              </motion.div>
-            );
-          })}
-        </motion.div>
-      </div>
-    </section>
-  );
-}
 
 export default function Home() {
   const navigate = useNavigate();
@@ -1422,7 +1020,7 @@ export default function Home() {
       </section>
 
       {/* ==================================================
-          SECTION: FLAGSHIP PLATFORMS SHOWCASE (HOME PAGE)  — PREMIUM
+          SECTION: FLAGSHIP PLATFORMS SHOWCASE (HOME PAGE)  â€” PREMIUM
           ================================================== */}
       <section
         style={{
@@ -1456,7 +1054,7 @@ export default function Home() {
 
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
 
-          {/* ── SECTION HEADER ──────────────────────────────────── */}
+          {/* â”€â”€ SECTION HEADER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
           <motion.div
             variants={scrollReveal}
             initial="initial"
@@ -1518,7 +1116,7 @@ export default function Home() {
             }} />
           </motion.div>
 
-          {/* ── HERO CARD (Product #1 — full width) ──────────────── */}
+          {/* â”€â”€ HERO CARD (Product #1 â€” full width) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
           <motion.div
             variants={scrollReveal}
             initial="initial"
@@ -1533,7 +1131,7 @@ export default function Home() {
             />
           </motion.div>
 
-          {/* ── GRID ROW 2 (Products #2 + #3) ───────────────────── */}
+          {/* â”€â”€ GRID ROW 2 (Products #2 + #3) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
           <motion.div
             variants={{ initial: {}, whileInView: { transition: { staggerChildren: 0.12 } } }}
             initial="initial"
@@ -1548,7 +1146,7 @@ export default function Home() {
             ))}
           </motion.div>
 
-          {/* ── GRID ROW 3 (Products #4 + #5) ───────────────────── */}
+          {/* â”€â”€ GRID ROW 3 (Products #4 + #5) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
           <motion.div
             variants={{ initial: {}, whileInView: { transition: { staggerChildren: 0.12 } } }}
             initial="initial"
@@ -1563,7 +1161,7 @@ export default function Home() {
             ))}
           </motion.div>
 
-          {/* ── VIEW ALL PRODUCTS CTA ─────────────────────────────── */}
+          {/* â”€â”€ VIEW ALL PRODUCTS CTA â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
           <motion.div
             variants={scrollReveal}
             initial="initial"
@@ -1608,7 +1206,7 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Coverflow Carousel — full bleed */}
+        {/* Coverflow Carousel â€” full bleed */}
         <SolutionsCoverflow solutions={solutions} onNavigate={navigate} />
       </section>
 
@@ -1653,7 +1251,7 @@ export default function Home() {
                 </motion.button>
                 <h3 className="video-info-title">Launch VERICEA Demo Walkthrough</h3>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', justifyContent: 'center', marginTop: '6px' }}>
-                  <span className="video-info-subtitle" style={{ color: 'var(--accent)' }}>Operations Overview • 2:40 mins</span>
+                  <span className="video-info-subtitle" style={{ color: 'var(--accent)' }}>Operations Overview â€¢ 2:40 mins</span>
                   <span style={{ fontSize: '11px', fontWeight: '700', padding: '3px 8px', background: 'rgba(245, 158, 11, 0.15)', color: 'var(--cta)', borderRadius: '4px', border: '1px solid rgba(245, 158, 11, 0.3)' }}>COMING SOON</span>
                 </div>
               </div>

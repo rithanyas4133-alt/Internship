@@ -141,7 +141,7 @@ export default function Contact() {
                   animate={{ opacity: 1, scale: 1 }}
                   style={{ textAlign: 'center', padding: '40px 0' }}
                 >
-                  <div style={{ width: '64px', height: '64px', borderRadius: '50%', backgroundColor: 'rgba(16,185,129,0.1)', color: '#10b981', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px auto' }}>
+                  <div style={{ width: '64px', height: '64px', borderRadius: '50%', backgroundColor: 'rgba(var(--success-rgb), 0.1)', color: 'var(--success)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px auto' }}>
                     <Check size={32} />
                   </div>
                   <h3 style={{ fontSize: '24px', marginBottom: '8px', color: 'var(--primary)' }}>Message Sent Successfully</h3>
@@ -167,7 +167,7 @@ export default function Contact() {
                       onChange={handleInputChange}
                       placeholder="e.g. John Doe"
                     />
-                    {errors.name && <span style={{ color: '#ef4444', fontSize: '12px', marginTop: '4px', display: 'block' }}>{errors.name}</span>}
+                    {errors.name && <span style={{ color: 'var(--danger)', fontSize: '12px', marginTop: '4px', display: 'block' }}>{errors.name}</span>}
                   </div>
 
                   <div className="form-row">
@@ -182,7 +182,7 @@ export default function Contact() {
                         onChange={handleInputChange}
                         placeholder="john@company.com"
                       />
-                      {errors.email && <span style={{ color: '#ef4444', fontSize: '12px', marginTop: '4px', display: 'block' }}>{errors.email}</span>}
+                      {errors.email && <span style={{ color: 'var(--danger)', fontSize: '12px', marginTop: '4px', display: 'block' }}>{errors.email}</span>}
                     </div>
 
                     <div className="form-group">
@@ -196,7 +196,7 @@ export default function Contact() {
                         onChange={handleInputChange}
                         placeholder="+91 XXXXX XXXXX"
                       />
-                      {errors.phone && <span style={{ color: '#ef4444', fontSize: '12px', marginTop: '4px', display: 'block' }}>{errors.phone}</span>}
+                      {errors.phone && <span style={{ color: 'var(--danger)', fontSize: '12px', marginTop: '4px', display: 'block' }}>{errors.phone}</span>}
                     </div>
                   </div>
 
@@ -211,7 +211,7 @@ export default function Contact() {
                       onChange={handleInputChange}
                       placeholder="Organization name"
                     />
-                    {errors.company && <span style={{ color: '#ef4444', fontSize: '12px', marginTop: '4px', display: 'block' }}>{errors.company}</span>}
+                    {errors.company && <span style={{ color: 'var(--danger)', fontSize: '12px', marginTop: '4px', display: 'block' }}>{errors.company}</span>}
                   </div>
 
                   <div className="form-group">
@@ -225,7 +225,7 @@ export default function Contact() {
                       onChange={handleInputChange}
                       placeholder="Please details what operational systems, ERP platforms, or compliance monitoring challenges you would like to resolve..."
                     ></textarea>
-                    {errors.message && <span style={{ color: '#ef4444', fontSize: '12px', marginTop: '4px', display: 'block' }}>{errors.message}</span>}
+                    {errors.message && <span style={{ color: 'var(--danger)', fontSize: '12px', marginTop: '4px', display: 'block' }}>{errors.message}</span>}
                   </div>
 
                   <button type="submit" className="btn btn-cta w-full" style={{ width: '100%', marginTop: '8px' }}>

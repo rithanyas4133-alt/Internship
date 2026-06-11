@@ -60,7 +60,7 @@ function DigitalEcosystem() {
   };
 
   return (
-    <section style={{ background: '#04080F', padding: '110px 0 120px', overflow: 'hidden', position: 'relative' }}>
+    <section style={{ background: 'var(--primary-bg)', padding: '110px 0 120px', overflow: 'hidden', position: 'relative' }}>
       {/* Animated grid */}
       <div style={{
         position: 'absolute', inset: 0,
@@ -71,7 +71,7 @@ function DigitalEcosystem() {
       <div style={{
         position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)',
         width: '900px', height: '900px', borderRadius: '50%',
-        background: 'radial-gradient(circle,rgba(245,158,11,0.07) 0%,rgba(34,211,238,0.03) 35%,transparent 65%)',
+        background: 'radial-gradient(circle,rgba(var(--accent-rgb),0.07) 0%,rgba(34,211,238,0.03) 35%,transparent 65%)',
         pointerEvents: 'none',
       }} />
       {/* Scan line */}
@@ -88,10 +88,10 @@ function DigitalEcosystem() {
             <motion.div animate={{ opacity: [1, 0.3, 1] }} transition={{ duration: 1.5, repeat: Infinity }} style={{ width: '7px', height: '7px', borderRadius: '50%', background: '#22D3EE', boxShadow: '0 0 10px #22D3EE' }} />
             <span style={{ fontSize: '11px', fontWeight: '700', color: '#22D3EE', letterSpacing: '1.5px', textTransform: 'uppercase' }}>CEA Digital Ecosystem</span>
           </div>
-          <h2 style={{ fontSize: 'clamp(30px,3.8vw,52px)', fontWeight: '800', color: '#fff', margin: '0 0 16px', fontFamily: 'var(--font-headings)', letterSpacing: '-0.5px' }}>
+          <h2 style={{ fontSize: 'clamp(30px,3.8vw,52px)', fontWeight: '800', color: 'var(--text-main)', margin: '0 0 16px', fontFamily: 'var(--font-headings)', letterSpacing: '-0.5px' }}>
             Enterprise Command Center
           </h2>
-          <p style={{ fontSize: '15.5px', color: 'rgba(209,213,219,0.65)', maxWidth: '600px', margin: '0 auto', lineHeight: 1.65 }}>
+          <p style={{ fontSize: '15.5px', color: 'var(--text-muted)', maxWidth: '600px', margin: '0 auto', lineHeight: 1.65 }}>
             An interconnected enterprise ecosystem delivering manufacturing excellence, compliance governance, operational intelligence, and business transformation.
           </p>
         </motion.div>
@@ -107,8 +107,8 @@ function DigitalEcosystem() {
                 </radialGradient>
               ))}
               <radialGradient id="eco-center-grad" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stopColor="#F59E0B" stopOpacity="0.15" />
-                <stop offset="100%" stopColor="#F59E0B" stopOpacity="0" />
+                <stop offset="0%" stopColor="var(--accent)" stopOpacity="0.15" />
+                <stop offset="100%" stopColor="var(--accent)" stopOpacity="0" />
               </radialGradient>
               <filter id="eco-glow">
                 <feGaussianBlur stdDeviation="3.5" result="b" />
@@ -119,7 +119,7 @@ function DigitalEcosystem() {
                 <feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
               </filter>
               <marker id="eco-arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
-                <path d="M0,0 L0,6 L6,3 z" fill="rgba(245,158,11,0.5)" />
+                <path d="M0,0 L0,6 L6,3 z" fill="rgba(var(--accent-rgb),0.5)" />
               </marker>
             </defs>
 
@@ -193,7 +193,7 @@ function DigitalEcosystem() {
                   />
                   {/* Ring */}
                   <motion.circle cx={p.x} cy={p.y}
-                    animate={{ r: active ? 20 : 14, fill: active ? n.color : '#0A1020', stroke: n.color, strokeWidth: active ? 2.5 : 1.5 }}
+                    animate={{ r: active ? 20 : 14, fill: active ? n.color : 'var(--primary-bg)', stroke: n.color, strokeWidth: active ? 2.5 : 1.5 }}
                     transition={{ duration: 0.28 }}
                     filter={active ? 'url(#eco-glow)' : undefined}
                   />

@@ -9,7 +9,7 @@ export default function Footer() {
   };
 
   return (
-    <footer style={{ backgroundColor: 'var(--footer-bg)', color: '#94a3b8', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
+    <footer style={{ backgroundColor: 'var(--footer-bg)', color: 'var(--text-muted)', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
       {/* Upper Footer section */}
       <div className="section" style={{ padding: '80px 0 60px 0' }}>
         <div className="container">
@@ -18,11 +18,11 @@ export default function Footer() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
               <div>
                 <Link to="/" onClick={handleScrollToTop} style={{ display: 'inline-flex', flexDirection: 'column' }}>
-                  <span className="logo-main" style={{ color: 'var(--background)' }}>CEA INFOTECH</span>
+                  <span className="logo-main" style={{ color: 'var(--text-main)' }}>CEA INFOTECH</span>
                   <span className="logo-sub" style={{ color: 'var(--accent)' }}>Operational Excellence</span>
                 </Link>
               </div>
-              <p style={{ fontSize: '14px', lineHeight: '1.6', color: '#64748b' }}>
+              <p style={{ fontSize: '14px', lineHeight: '1.6', color: 'var(--text-muted)' }}>
                 Delivering premium enterprise SaaS, custom ERP, production tracking, and compliance management solutions since June 2015.
               </p>
               {/* Social links - replaced with inline SVGs to avoid missing exports */}
@@ -41,7 +41,7 @@ export default function Footer() {
 
             {/* Column 2: Quick Links */}
             <div>
-              <h4 style={{ color: 'var(--background)', fontSize: '16px', fontWeight: '600', marginBottom: '24px', letterSpacing: '0.5px' }}>SOLUTIONS</h4>
+              <h4 style={{ color: 'var(--text-main)', fontSize: '16px', fontWeight: '600', marginBottom: '24px', letterSpacing: '0.5px' }}>SOLUTIONS</h4>
               <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '14px' }}>
                 <li>
                   <Link to="/products" onClick={handleScrollToTop} style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
@@ -73,7 +73,7 @@ export default function Footer() {
 
             {/* Column 3: Company */}
             <div>
-              <h4 style={{ color: 'var(--background)', fontSize: '16px', fontWeight: '600', marginBottom: '24px', letterSpacing: '0.5px' }}>COMPANY</h4>
+              <h4 style={{ color: 'var(--text-main)', fontSize: '16px', fontWeight: '600', marginBottom: '24px', letterSpacing: '0.5px' }}>COMPANY</h4>
               <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '14px' }}>
                 <li><Link to="/about" onClick={handleScrollToTop}>About Us</Link></li>
                 <li><Link to="/services" onClick={handleScrollToTop}>Our Services</Link></li>
@@ -85,7 +85,7 @@ export default function Footer() {
 
             {/* Column 4: Contact Info */}
             <div>
-              <h4 style={{ color: 'var(--background)', fontSize: '16px', fontWeight: '600', marginBottom: '24px', letterSpacing: '0.5px' }}>CONTACT DETAILS</h4>
+              <h4 style={{ color: 'var(--text-main)', fontSize: '16px', fontWeight: '600', marginBottom: '24px', letterSpacing: '0.5px' }}>CONTACT DETAILS</h4>
               <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '16px', fontSize: '14px' }}>
                 <li style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
                   <MapPin size={18} style={{ color: 'var(--supporting)', flexShrink: 0, marginTop: '3px' }} />

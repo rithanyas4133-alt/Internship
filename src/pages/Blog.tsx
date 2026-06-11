@@ -206,7 +206,7 @@ export default function Blog() {
           backgroundImage: `linear-gradient(rgba(10, 15, 28, 0.88), rgba(10, 15, 28, 0.94)), url("https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80")`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          color: '#F8FAFC',
+          color: 'var(--text-main)',
           borderBottom: 'none'
         }}
       >
@@ -239,7 +239,7 @@ export default function Blog() {
             style={{
               fontSize: '54px',
               fontWeight: 800,
-              color: '#FFFFFF',
+              color: 'var(--text-main)',
               maxWidth: '850px',
               margin: '0 auto 20px auto',
               lineHeight: 1.15,
@@ -250,7 +250,7 @@ export default function Blog() {
           </h1>
           <p
             style={{
-              color: '#cbd5e1',
+              color: 'var(--text-muted)',
               fontSize: '19px',
               maxWidth: '680px',
               margin: '0 auto',
@@ -323,7 +323,7 @@ export default function Blog() {
                       fontSize: '11px',
                       fontWeight: 700,
                       backgroundColor: 'var(--primary-bg)',
-                      color: '#FFFFFF',
+                      color: 'var(--text-main)',
                       padding: '4px 12px',
                       borderRadius: '4px',
                       textTransform: 'uppercase',
@@ -340,7 +340,7 @@ export default function Blog() {
                     <span style={{ fontSize: '11px', color: 'var(--supporting)', fontWeight: 700, letterSpacing: '1.5px', textTransform: 'uppercase' }}>
                       {article.tagline}
                     </span>
-                    <span style={{ color: '#94a3b8', fontSize: '12px' }}>•</span>
+                    <span style={{ color: 'var(--text-muted)', fontSize: '12px' }}>•</span>
                     <span style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 500 }}>
                       {article.inspiredBy}
                     </span>
@@ -349,7 +349,7 @@ export default function Blog() {
                   <h3
                     style={{
                       fontSize: '21px',
-                      color: '#FFFFFF',
+                      color: 'var(--text-main)',
                       marginBottom: '14px',
                       lineHeight: 1.35,
                       fontWeight: 700,
@@ -369,7 +369,7 @@ export default function Blog() {
                       alignItems: 'center',
                       justifyContent: 'space-between',
                       fontSize: '12px',
-                      color: '#94a3b8',
+                      color: 'var(--text-muted)',
                       borderTop: '1px solid var(--border-color)',
                       paddingTop: '20px'
                     }}
@@ -420,7 +420,7 @@ export default function Blog() {
                 Latest Insights
               </h2>
             </div>
-            <span style={{ fontSize: '14px', color: '#64748B', fontWeight: 500 }}>
+            <span style={{ fontSize: '14px', color: 'var(--text-muted)', fontWeight: 500 }}>
               Showing {latestInsights.length} Articles
             </span>
           </div>
@@ -470,8 +470,8 @@ export default function Blog() {
                   <div style={{ padding: '24px 24px 12px 24px' }}>
                     <span
                       style={{
-                        fontSize: '11px',
-                        color: 'var(--supporting)',
+                          fontSize: '11px',
+                          color: 'var(--supporting)',
                         fontWeight: 700,
                         textTransform: 'uppercase',
                         letterSpacing: '1px',
@@ -481,7 +481,7 @@ export default function Blog() {
                     >
                       {insight.category}
                     </span>
-                    <h3 style={{ fontSize: '18px', color: '#FFFFFF', fontWeight: 700, lineHeight: 1.4, margin: '0' }}>
+                      <h3 style={{ fontSize: '18px', color: 'var(--text-main)', fontWeight: 700, lineHeight: 1.4, margin: '0' }}>
                       {insight.title}
                     </h3>
                   </div>
@@ -505,7 +505,7 @@ export default function Blog() {
                       fontSize: '12px'
                     }}
                   >
-                    <div style={{ display: 'flex', gap: '12px', color: '#94a3b8' }}>
+                      <div style={{ display: 'flex', gap: '12px', color: 'var(--text-muted)' }}>
                       <span>{insight.date}</span>
                       <span>•</span>
                       <span>{insight.readTime}</span>
@@ -608,7 +608,7 @@ export default function Blog() {
                     flexDirection: 'column'
                   }}
                 >
-                  <span style={{ fontSize: '15px', color: '#FFFFFF', fontWeight: 700 }}>{q.author}</span>
+                  <span style={{ fontSize: '15px', color: 'var(--text-main)', fontWeight: 700 }}>{q.author}</span>
                   <span style={{ fontSize: '13px', color: 'var(--text-muted)' }}>{q.company}</span>
                 </div>
               </motion.div>
@@ -651,7 +651,7 @@ export default function Blog() {
               <Mail size={24} />
             </div>
 
-            <h2 style={{ fontSize: '32px', fontWeight: 800, color: '#FFFFFF', marginBottom: '12px' }}>
+            <h2 style={{ fontSize: '32px', fontWeight: 800, color: 'var(--text-main)', marginBottom: '12px' }}>
               Stay Updated With Industry Insights
             </h2>
 
@@ -664,7 +664,7 @@ export default function Blog() {
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 style={{
-                  color: '#10B981',
+                  color: 'var(--success)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
@@ -699,9 +699,9 @@ export default function Blog() {
                     }}
                   />
                   {error && (
-                    <span style={{ color: '#EF4444', fontSize: '12px', textAlign: 'left', display: 'block', marginTop: '6px', paddingLeft: '4px' }}>
+                    <span style={{ color: 'var(--danger)', fontSize: '12px', textAlign: 'left', display: 'block', marginTop: '6px', paddingLeft: '4px' }}>
                       {error}
-                    </span>
+                        </span>
                   )}
                 </div>
 
@@ -767,7 +767,7 @@ export default function Blog() {
                   style={{
                     fontSize: '11px',
                     fontWeight: 700,
-                    color: '#94a3b8',
+                    color: 'var(--text-muted)',
                     textTransform: 'uppercase',
                     letterSpacing: '1px',
                     marginBottom: '8px'
@@ -783,7 +783,7 @@ export default function Blog() {
                 <span
                   style={{
                     fontSize: '12px',
-                    color: '#94a3b8',
+                    color: 'var(--text-muted)',
                     fontWeight: 500,
                     backgroundColor: 'var(--tertiary-bg)',
                     padding: '4px 12px',
@@ -800,11 +800,11 @@ export default function Blog() {
 
       {/* SECTION 9: CALL TO ACTION */}
       <section className="section" style={{ padding: '0', position: 'relative', overflow: 'hidden' }}>
-        <div
+            <div
           style={{
             padding: '100px 0',
             background: 'linear-gradient(135deg, var(--primary-bg) 0%, var(--secondary-bg) 100%)',
-            color: '#FFFFFF',
+            color: 'var(--text-main)',
             textAlign: 'center'
           }}
         >
@@ -820,7 +820,7 @@ export default function Blog() {
                 style={{
                   fontSize: '42px',
                   fontWeight: 800,
-                  color: '#FFFFFF',
+                  color: 'var(--text-main)',
                   marginBottom: '20px',
                   letterSpacing: '-1.5px',
                   fontFamily: 'var(--font-headings)'
@@ -832,7 +832,7 @@ export default function Blog() {
               <p
                 style={{
                   fontSize: '18px',
-                  color: '#cbd5e1',
+                  color: 'var(--text-muted)',
                   marginBottom: '38px',
                   lineHeight: 1.6,
                   fontFamily: 'var(--font-body)'

@@ -273,21 +273,21 @@ export default function ComplianceHub() {
       animate="animate"
       variants={pageTransition}
       className="compliance-page"
-      style={{ overflow: 'hidden', backgroundColor: '#0F172A', color: '#F8FAFC' }}
+      style={{ overflow: 'hidden', backgroundColor: 'var(--background)', color: 'var(--text-main)' }}
     >
       {/* INJECT PREMIUM CUSTOM STYLES */}
       <style dangerouslySetInnerHTML={{ __html: `
-        /* Theme Overrides & Global Component Styles */
+        /* Theme Overrides & Global Component Styles (mapped to design tokens) */
         :root {
-          --c-navy: #0A0F1C;
-          --c-teal: #06B6D4;
-          --c-gold: #F59E0B;
-          --c-slate-50: #111827;
-          --c-slate-100: #0A0F1C;
-          --c-slate-200: rgba(255, 255, 255, 0.08);
-          --c-slate-700: #9CA3AF;
-          --c-slate-800: rgba(255, 255, 255, 0.03);
-          --c-slate-900: #E5E7EB;
+          --c-navy: var(--primary-bg);
+          --c-teal: var(--accent);
+          --c-gold: var(--accent);
+          --c-slate-50: var(--secondary-bg);
+          --c-slate-100: var(--primary-bg);
+          --c-slate-200: rgba(var(--primary-rgb), 0.08);
+          --c-slate-700: var(--text-muted);
+          --c-slate-800: rgba(var(--primary-rgb), 0.03);
+          --c-slate-900: var(--text-main);
         }
 
         .compliance-hero-badge {
@@ -295,10 +295,10 @@ export default function ComplianceHub() {
           align-items: center;
           gap: 8px;
           padding: 8px 16px;
-          background: rgba(14, 116, 144, 0.15);
-          border: 1px solid rgba(14, 116, 144, 0.3);
+          background: rgba(var(--accent-rgb), 0.15);
+          border: 1px solid rgba(var(--accent-rgb), 0.3);
           border-radius: 100px;
-          color: #38bdf8;
+          color: var(--accent);
           font-size: 13px;
           font-weight: 600;
           text-transform: uppercase;
@@ -307,7 +307,7 @@ export default function ComplianceHub() {
         }
 
         .premium-text-gradient {
-          background: linear-gradient(135deg, #ffffff 40%, #94a3b8 100%);
+          background: linear-gradient(135deg, var(--text-main) 40%, var(--text-muted) 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
         }
@@ -331,7 +331,7 @@ export default function ComplianceHub() {
 
         /* Why Compliance Card Design */
         .why-card {
-          background: rgba(17, 24, 39, 0.65);
+          background: rgba(var(--secondary-bg-rgb), 0.65);
           border: 1px solid var(--c-slate-200);
           border-radius: var(--border-radius-lg);
           padding: 36px 28px;
@@ -343,7 +343,7 @@ export default function ComplianceHub() {
         .why-card:hover {
           transform: translateY(-8px);
           border-color: var(--c-teal);
-          box-shadow: 0 20px 30px rgba(11, 31, 58, 0.08);
+          box-shadow: 0 20px 30px rgba(var(--primary-bg-rgb), 0.08);
         }
 
         .why-card-badge {
@@ -355,7 +355,7 @@ export default function ComplianceHub() {
           letter-spacing: 1px;
           font-weight: 700;
           color: var(--c-teal);
-          background: rgba(14, 116, 144, 0.08);
+          background: rgba(var(--accent-rgb), 0.08);
           padding: 3px 8px;
           border-radius: 4px;
         }
@@ -364,7 +364,7 @@ export default function ComplianceHub() {
           width: 50px;
           height: 50px;
           border-radius: 10px;
-          background: rgba(14, 116, 144, 0.08);
+          background: rgba(var(--accent-rgb), 0.08);
           color: var(--c-teal);
           display: flex;
           align-items: center;
@@ -375,13 +375,13 @@ export default function ComplianceHub() {
 
         .why-card:hover .why-card-icon {
           background: var(--c-teal);
-          color: #ffffff;
+          color: var(--text-main);
           transform: scale(1.05);
         }
 
         /* Challenge Cards */
         .challenge-card {
-          background: rgba(30, 41, 59, 0.3);
+          background: rgba(var(--tertiary-bg-rgb), 0.3);
           border: 1px solid var(--c-slate-200);
           border-radius: var(--border-radius-md);
           padding: 30px;
@@ -393,7 +393,7 @@ export default function ComplianceHub() {
 
         .challenge-card:hover {
           border-color: var(--c-teal);
-          background: rgba(255, 255, 255, 0.05);
+          background: rgba(var(--primary-rgb), 0.05);
           box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
           transform: translateY(-2px);
         }
@@ -752,17 +752,17 @@ export default function ComplianceHub() {
         className="section" 
         style={{ 
           padding: '170px 0 110px 0', 
-          color: '#ffffff',
+          color: 'var(--text-main)',
           position: 'relative',
           overflow: 'hidden',
-          backgroundColor: '#071122',
-          backgroundImage: `linear-gradient(rgba(11, 31, 58, 0.88), rgba(11, 31, 58, 0.94)), url("/images/quality_audit_1780850801169.png")`,
+          backgroundColor: 'var(--primary-bg)',
+          backgroundImage: `linear-gradient(rgba(var(--primary-bg-rgb), 0.88), rgba(var(--primary-bg-rgb), 0.94)), url("/images/quality_audit_1780850801169.png")`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           borderBottom: '1px solid rgba(255, 255, 255, 0.08)'
         }}
       >
-        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'radial-gradient(circle at 80% 20%, rgba(14, 116, 144, 0.15) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
+        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: `radial-gradient(circle at 80% 20%, rgba(var(--accent-rgb), 0.15) 0%, transparent 60%)`, zIndex: 1, pointerEvents: 'none' }}></div>
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
           <div style={{ display: 'flex', justifyContent: 'center' }}>
             {/* Centered Content Box */}
@@ -771,12 +771,12 @@ export default function ComplianceHub() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               style={{
-                background: 'rgba(11, 31, 58, 0.85)',
+                background: 'rgba(var(--secondary-bg-rgb), 0.85)',
                 backdropFilter: 'blur(16px)',
                 WebkitBackdropFilter: 'blur(16px)',
                 padding: '48px',
                 borderRadius: '24px',
-                border: '1px solid rgba(255, 255, 255, 0.08)',
+                border: '1px solid rgba(var(--primary-rgb), 0.08)',
                 boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)',
                 width: '100%',
                 maxWidth: '740px',
@@ -792,11 +792,11 @@ export default function ComplianceHub() {
                 Compliance Excellence Through Structured Audit Management
               </h1>
               
-              <h3 style={{ fontSize: '20px', color: 'var(--c-gold)', fontWeight: 600, marginBottom: '24px', letterSpacing: '0.5px' }}>
+              <h3 style={{ fontSize: '20px', color: 'var(--accent)', fontWeight: 600, marginBottom: '24px', letterSpacing: '0.5px' }}>
                 Create. Maintain. Monitor.
               </h3>
               
-              <p style={{ fontSize: '16.5px', color: 'rgba(248, 250, 252, 0.88)', marginBottom: '36px', lineHeight: '1.6' }}>
+              <p style={{ fontSize: '16.5px', color: 'rgba(var(--primary-rgb), 0.88)', marginBottom: '36px', lineHeight: '1.6' }}>
                 Empowering organizations to achieve continuous compliance, audit readiness and operational excellence through structured processes, monitoring and accountability.
               </p>
               

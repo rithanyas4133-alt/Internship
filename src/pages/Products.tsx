@@ -304,12 +304,41 @@ export default function Products() {
 
   const activeProduct = productsData[currentIndex];
 
+  // Resolve accent tint (handles hex or css var references)
+  const resolveTint = (accent: string, alpha = 0.08) => {
+    try {
+      if (!accent) return `rgba(var(--primary-rgb), 0.02)`;
+      if (accent.startsWith('var(')) {
+        const name = accent.slice(4, -1).trim();
+        const map: Record<string, string> = {
+          '--cta': '--accent-rgb',
+          '--accent': '--accent-rgb',
+          '--supporting': '--supporting-rgb',
+          '--secondary': '--secondary-rgb',
+          '--primary': '--primary-rgb'
+        };
+        const rgbVar = map[name] || `${name}-rgb`;
+        return `rgba(var(${rgbVar}), ${alpha})`;
+      }
+      if (accent.startsWith('#')) {
+        const hex = accent.replace('#', '');
+        const rr = parseInt(hex.substring(0, 2), 16);
+        const gg = parseInt(hex.substring(2, 4), 16);
+        const bb = parseInt(hex.substring(4, 6), 16);
+        return `rgba(${rr}, ${gg}, ${bb}, ${alpha})`;
+      }
+      return accent;
+    } catch (e) {
+      return `rgba(var(--primary-rgb), 0.02)`;
+    }
+  };
+
   return (
     <motion.div
       initial="hidden"
       animate="visible"
       className="products-page"
-      style={{ overflow: 'hidden', backgroundColor: '#0F172A', color: '#F8FAFC' }}
+      style={{ overflow: 'hidden', backgroundColor: 'var(--background)', color: 'var(--text-main)' }}
     >
       {/* ==================================================
           HERO SECTION
@@ -318,16 +347,16 @@ export default function Products() {
         className="section section-dark"
         style={{ 
           padding: '180px 0 140px 0', 
-          color: '#ffffff',
+          color: 'var(--text-main)',
           position: 'relative',
           overflow: 'hidden',
-          backgroundImage: 'linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.95)), url("/images/products_hero_bg.png")',
+          backgroundImage: 'linear-gradient(rgba(var(--primary-rgb), 0.85), rgba(var(--primary-rgb), 0.95)), url("/images/products_hero_bg.png")',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          borderBottom: '1px solid rgba(255, 255, 255, 0.05)'
+          borderBottom: '1px solid rgba(var(--primary-rgb), 0.05)'
         }}
       >
-        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'radial-gradient(circle at 50% 50%, rgba(6, 182, 212, 0.15) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
+        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: `radial-gradient(circle at 50% 50%, ${resolveTint('var(--supporting)', 0.15)} 0%, transparent 60%)`, zIndex: 1, pointerEvents: 'none' }}></div>
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
           <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
             <motion.div 
@@ -343,12 +372,12 @@ export default function Products() {
                   alignItems: 'center', 
                   gap: '8px', 
                   padding: '6px 14px', 
-                  background: 'rgba(255, 255, 255, 0.08)', 
+                  background: 'rgba(var(--primary-rgb), 0.06)', 
                   borderRadius: '20px', 
                   fontSize: '13px', 
                   color: 'var(--accent)', 
                   fontWeight: '600',
-                  border: '1px solid rgba(255, 255, 255, 0.12)',
+                  border: '1px solid rgba(var(--primary-rgb), 0.12)',
                   width: 'max-content'
                 }}
               >
@@ -356,11 +385,11 @@ export default function Products() {
                 <span>Enterprise Grade Platforms</span>
               </div>
               
-              <h1 style={{ fontSize: '52px', lineHeight: '1.15', letterSpacing: '-1.5px', color: '#ffffff', fontWeight: '800', margin: 0, fontFamily: 'var(--font-headings)' }}>
+              <h1 style={{ fontSize: '52px', lineHeight: '1.15', letterSpacing: '-1.5px', color: 'var(--text-main)', fontWeight: '800', margin: 0, fontFamily: 'var(--font-headings)' }}>
                 CEA's Flagship Products
               </h1>
               
-              <p style={{ fontSize: '19px', color: 'rgba(241, 245, 249, 0.9)', lineHeight: '1.6', margin: 0, maxWidth: '680px' }}>
+              <p style={{ fontSize: '19px', color: 'rgba(var(--primary-rgb), 0.9)', lineHeight: '1.6', margin: 0, maxWidth: '680px' }}>
                 Purpose-built software platforms designed to improve operational efficiency, production visibility, compliance management and business performance.
               </p>
               
@@ -380,7 +409,7 @@ export default function Products() {
                   className="btn btn-dark-outline"
                   whileHover={{ scale: 1.03, backgroundColor: 'rgba(255, 255, 255, 0.1)' }}
                   whileTap={{ scale: 0.98 }}
-                  style={{ border: '2px solid rgba(255, 255, 255, 0.35)', color: '#ffffff' }}
+                  style={{ border: '2px solid rgba(var(--primary-rgb), 0.35)', color: 'var(--text-main)' }}
                 >
                   Explore Solutions
                 </motion.button>
@@ -391,344 +420,28 @@ export default function Products() {
       </section>
 
       {/* ==================================================
-          SECTION: FLAGSHIP PRODUCTS SHOWCASE
-          ================================================== */}
-      <section className="section section-dark" style={{ backgroundColor: '#0F172A', borderBottom: '1px solid rgba(255,255,255,0.05)', overflow: 'hidden' }}>
-        <div className="container">
-          {/* Section Header */}
-          <motion.div 
-            variants={scrollReveal}
-            initial="initial"
-            whileInView="whileInView"
-            viewport={{ once: true, margin: "-100px" }}
-            className="section-title-wrapper"
-            style={{ marginBottom: '80px' }}
-          >
-            <span className="section-subtitle" style={{ color: 'var(--supporting)' }}>Our Proprietary Software</span>
-            <h2 className="section-title" style={{ fontSize: '38px', fontWeight: '800', color: '#ffffff' }}>
-              CEA Flagship Products
-            </h2>
-            <p className="section-desc" style={{ fontSize: '16px', lineHeight: '1.6', color: '#94a3b8' }}>
-              Innovative software solutions developed by CEA Infotech to improve manufacturing efficiency, strengthen compliance management and support operational excellence.
-            </p>
-          </motion.div>
-
-          {/* Flagship Products Rows */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '80px', marginBottom: '40px' }}>
-            
-            {/* PRODUCT 1: VERICEA Manufacturing */}
-            <div className="grid-2" style={{ alignItems: 'center', gap: '50px' }}>
-              {/* Left Column: Text & Features */}
-              <motion.div
-                variants={scrollReveal}
-                initial="initial"
-                whileInView="whileInView"
-                viewport={{ once: true, margin: "-100px" }}
-                style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}
-              >
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-                  <span style={{ fontSize: '13px', fontWeight: '700', color: 'var(--supporting)', textTransform: 'uppercase', letterSpacing: '1.5px' }}>
-                    Track. Measure. Improve.
-                  </span>
-                  <h3 style={{ fontSize: '32px', fontWeight: '800', color: '#ffffff', fontFamily: 'var(--font-headings)' }}>
-                    VERICEA Manufacturing
-                  </h3>
-                </div>
-
-                {/* Special Badge */}
-                <motion.div 
-                  whileHover={{ scale: 1.03 }}
-                  style={{ 
-                    display: 'inline-flex', 
-                    alignItems: 'center', 
-                    gap: '6px', 
-                    background: 'rgba(20, 184, 166, 0.08)', 
-                    border: '1px solid rgba(20, 184, 166, 0.2)', 
-                    color: 'var(--accent)', 
-                    borderRadius: '20px', 
-                    padding: '6px 14px', 
-                    fontSize: '11px', 
-                    fontWeight: '700', 
-                    textTransform: 'uppercase', 
-                    width: 'fit-content'
-                  }}
-                >
-                  <ShieldCheck size={13} />
-                  <span>Trademark & Copyright Protected</span>
-                </motion.div>
-
-                <p style={{ fontSize: '15px', color: '#94a3b8', lineHeight: '1.6', margin: 0 }}>
-                  Improve production efficiency through real-time tracking, operational visibility and manufacturing analytics.
-                </p>
-
-                {/* Feature Highlights Grid */}
-                <div style={{ 
-                  display: 'grid', 
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', 
-                  gap: '12px 24px', 
-                  marginTop: '10px',
-                  background: 'rgba(255, 255, 255, 0.03)',
-                  padding: '20px',
-                  borderRadius: 'var(--border-radius-md)',
-                  border: '1px solid var(--border-color)'
-                }}>
-                  {[
-                    "Production Tracking",
-                    "Efficiency Monitoring",
-                    "Manufacturing Analytics",
-                    "Real-Time Visibility",
-                    "Supports 11+ Manufacturing Domains"
-                  ].map((feat, idx) => (
-                    <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13.5px', fontWeight: '600', color: '#f8fafc' }}>
-                      <CheckCircle size={16} style={{ color: 'var(--supporting)', flexShrink: 0 }} />
-                      <span>{feat}</span>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-
-              {/* Right Column: Visual Preview */}
-              <motion.div
-                variants={scrollReveal}
-                initial="initial"
-                whileInView="whileInView"
-                viewport={{ once: true, margin: "-100px" }}
-                style={{ position: 'relative' }}
-              >
-                {/* Simulated Browser Frame with Glassmorphism */}
-                <div style={{
-                  backgroundColor: 'var(--secondary-bg)',
-                  borderRadius: 'var(--border-radius-lg)',
-                  border: '1px solid var(--border-color)',
-                  boxShadow: 'var(--shadow-xl)',
-                  overflow: 'hidden',
-                  position: 'relative'
-                }}>
-                  {/* Safari dots */}
-                  <div style={{
-                    height: '36px',
-                    background: 'var(--tertiary-bg)',
-                    borderBottom: '1px solid var(--border-color)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    padding: '0 16px',
-                    gap: '6px'
-                  }}>
-                    <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#ef4444' }}></span>
-                    <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#f59e0b' }}></span>
-                    <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#10b981' }}></span>
-                    <span style={{ fontSize: '11px', color: '#94a3b8', marginLeft: '12px', fontWeight: '500' }}>vericea-mes-dashboard.cea</span>
-                  </div>
-
-                  {/* Browser contents: stacked factory photo + dashboard */}
-                  <div style={{ position: 'relative', height: '320px', overflow: 'hidden' }}>
-                    {/* Factory background photo */}
-                    <div style={{
-                      position: 'absolute',
-                      top: 0,
-                      left: 0,
-                      right: 0,
-                      bottom: 0,
-                      backgroundImage: 'linear-gradient(rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.5)), url("/images/manufacturing_floor_1780850784796.png")',
-                      backgroundSize: 'cover',
-                      backgroundPosition: 'center'
-                    }}></div>
-
-                    {/* Dashboard mock overlay that zooms on hover */}
-                    <div style={{
-                      position: 'absolute',
-                      top: '10%',
-                      left: '8%',
-                      right: '8%',
-                      bottom: '10%',
-                      borderRadius: '8px',
-                      overflow: 'hidden',
-                      boxShadow: '0 20px 40px rgba(0, 0, 0, 0.35)',
-                      border: '1px solid rgba(255, 255, 255, 0.15)'
-                    }}>
-                      <motion.img 
-                        whileHover={{ scale: 1.05 }}
-                        transition={{ duration: 0.3 }}
-                        src="/images/vericea_dashboard_mockup.png" 
-                        alt="VERICEA Manufacturing Dashboard" 
-                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                      />
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-
-            {/* PRODUCT 2: VERICEA Compliance */}
-            <div className="grid-2" style={{ alignItems: 'center', gap: '50px' }}>
-              {/* Left Column: Text & Features */}
-              <motion.div
-                variants={scrollReveal}
-                initial="initial"
-                whileInView="whileInView"
-                viewport={{ once: true, margin: "-100px" }}
-                style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}
-              >
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-                  <span style={{ fontSize: '13px', fontWeight: '700', color: 'var(--supporting)', textTransform: 'uppercase', letterSpacing: '1.5px' }}>
-                    Create. Maintain. Monitor.
-                  </span>
-                  <h3 style={{ fontSize: '32px', fontWeight: '800', color: '#ffffff', fontFamily: 'var(--font-headings)' }}>
-                    VERICEA Compliance
-                  </h3>
-                </div>
-
-                {/* Special Badge */}
-                <motion.div 
-                  whileHover={{ scale: 1.03 }}
-                  style={{ 
-                    display: 'inline-flex', 
-                    alignItems: 'center', 
-                    gap: '6px', 
-                    background: 'rgba(20, 184, 166, 0.08)', 
-                    border: '1px solid rgba(20, 184, 166, 0.2)', 
-                    color: 'var(--accent)', 
-                    borderRadius: '20px', 
-                    padding: '6px 14px', 
-                    fontSize: '11px', 
-                    fontWeight: '700', 
-                    textTransform: 'uppercase', 
-                    width: 'fit-content'
-                  }}
-                >
-                  <ShieldCheck size={13} />
-                  <span>Trademark & Copyright Protected</span>
-                </motion.div>
-
-                <p style={{ fontSize: '15px', color: '#94a3b8', lineHeight: '1.6', margin: 0 }}>
-                  Manage compliance activities, audits and evidence tracking through a centralized platform.
-                </p>
-
-                {/* Feature Highlights Grid */}
-                <div style={{ 
-                  display: 'grid', 
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', 
-                  gap: '12px 24px', 
-                  marginTop: '10px',
-                  background: 'rgba(255, 255, 255, 0.03)',
-                  padding: '20px',
-                  borderRadius: 'var(--border-radius-md)',
-                  border: '1px solid var(--border-color)'
-                }}>
-                  {[
-                    "Compliance Monitoring",
-                    "Audit Management",
-                    "Evidence Tracking",
-                    "Corrective Actions",
-                    "Daily, Weekly & Monthly Tracking"
-                  ].map((feat, idx) => (
-                    <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13.5px', fontWeight: '600', color: '#f8fafc' }}>
-                      <CheckCircle size={16} style={{ color: 'var(--supporting)', flexShrink: 0 }} />
-                      <span>{feat}</span>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-
-              {/* Right Column: Visual Preview */}
-              <motion.div
-                variants={scrollReveal}
-                initial="initial"
-                whileInView="whileInView"
-                viewport={{ once: true, margin: "-100px" }}
-                style={{ position: 'relative' }}
-              >
-                {/* Simulated Browser Frame */}
-                <div style={{
-                  backgroundColor: 'var(--secondary-bg)',
-                  borderRadius: 'var(--border-radius-lg)',
-                  border: '1px solid var(--border-color)',
-                  boxShadow: 'var(--shadow-xl)',
-                  overflow: 'hidden',
-                  position: 'relative'
-                }}>
-                  {/* Safari dots */}
-                  <div style={{
-                    height: '36px',
-                    background: 'var(--tertiary-bg)',
-                    borderBottom: '1px solid var(--border-color)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    padding: '0 16px',
-                    gap: '6px'
-                  }}>
-                    <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#ef4444' }}></span>
-                    <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#f59e0b' }}></span>
-                    <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#10b981' }}></span>
-                    <span style={{ fontSize: '11px', color: '#94a3b8', marginLeft: '12px', fontWeight: '500' }}>vericea-compliance.cea</span>
-                  </div>
-
-                  {/* Browser contents */}
-                  <div style={{ position: 'relative', height: '320px', overflow: 'hidden' }}>
-                    {/* Compliance background photo */}
-                    <div style={{
-                      position: 'absolute',
-                      top: 0,
-                      left: 0,
-                      right: 0,
-                      bottom: 0,
-                      backgroundImage: 'linear-gradient(rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.5)), url("/images/quality_audit_1780850801169.png")',
-                      backgroundSize: 'cover',
-                      backgroundPosition: 'center'
-                    }}></div>
-
-                    {/* Dashboard mock overlay that zooms on hover */}
-                    <div style={{
-                      position: 'absolute',
-                      top: '10%',
-                      left: '8%',
-                      right: '8%',
-                      bottom: '10%',
-                      borderRadius: '8px',
-                      overflow: 'hidden',
-                      boxShadow: '0 20px 40px rgba(0, 0, 0, 0.35)',
-                      border: '1px solid rgba(255, 255, 255, 0.15)'
-                    }}>
-                      <motion.img 
-                        whileHover={{ scale: 1.05 }}
-                        transition={{ duration: 0.3 }}
-                        src="/images/product_tab_compliance_1780851018319.png" 
-                        alt="VERICEA Compliance Dashboard" 
-                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                      />
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* ==================================================
           SECTION: OUR PRODUCT ECOSYSTEM (CAROUSEL SLIDER)
           ================================================== */}
-      <section id="ecosystem-section" className="section section-dark" style={{ backgroundColor: '#090D1A', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+      <section id="ecosystem-section" className="section section-dark" style={{ backgroundColor: 'var(--secondary-bg)', borderBottom: '1px solid rgba(var(--primary-rgb),0.05)' }}>
         <div className="container">
           <div className="section-title-wrapper" style={{ marginBottom: '48px' }}>
             <span className="section-subtitle" style={{ color: 'var(--supporting)' }}>Core Platforms</span>
-            <h2 className="section-title" style={{ color: '#ffffff' }}>Our Product Ecosystem</h2>
-            <p className="section-desc" style={{ color: '#94a3b8' }}>Explore CEA's flagship enterprise software platforms designed for scalable business operations.</p>
+            <h2 className="section-title" style={{ color: 'var(--text-main)' }}>Our Product Ecosystem</h2>
+            <p className="section-desc" style={{ color: 'var(--text-muted)' }}>Explore CEA's flagship enterprise software platforms designed for scalable business operations.</p>
           </div>
 
           {/* Slider Controls Row */}
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px', flexWrap: 'wrap', gap: '16px' }}>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
               <span style={{ fontSize: '11px', fontWeight: '800', textTransform: 'uppercase', color: 'var(--supporting)', letterSpacing: '1px' }}>
                 Active Platform
               </span>
-              <h3 style={{ fontSize: '20px', fontWeight: '800', color: '#ffffff', margin: 0, display: 'flex', alignItems: 'center', gap: '10px' }}>
+              <h3 style={{ fontSize: '20px', fontWeight: '800', color: 'var(--text-main)', margin: 0, display: 'flex', alignItems: 'center', gap: '10px' }}>
                 <span style={{
                   width: '32px',
                   height: '32px',
                   borderRadius: '6px',
-                  backgroundColor: 'rgba(6, 182, 212, 0.08)',
+                  backgroundColor: resolveTint('var(--supporting)', 0.08),
                   color: 'var(--supporting)',
                   display: 'inline-flex',
                   alignItems: 'center',
@@ -740,8 +453,8 @@ export default function Products() {
               </h3>
             </div>
             
-            <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
-              <span style={{ fontSize: '14.5px', fontWeight: '700', color: '#94a3b8', fontFamily: 'var(--font-headings)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
+              <span style={{ fontSize: '14.5px', fontWeight: '700', color: 'var(--text-muted)', fontFamily: 'var(--font-headings)' }}>
                 {String(currentIndex + 1).padStart(2, '0')} <span style={{ opacity: 0.4 }}>/</span> {String(productsData.length).padStart(2, '0')}
               </span>
               
@@ -750,17 +463,17 @@ export default function Products() {
                   whileHover={{ scale: 1.05, backgroundColor: 'rgba(255, 255, 255, 0.08)' }}
                   whileTap={{ scale: 0.95 }}
                   onClick={handlePrev}
-                  style={{
+                    style={{
                     width: '40px',
                     height: '40px',
                     borderRadius: '50%',
-                    border: '1px solid rgba(255, 255, 255, 0.1)',
-                    backgroundColor: 'rgba(255, 255, 255, 0.04)',
+                    border: '1px solid rgba(var(--primary-rgb), 0.1)',
+                    backgroundColor: 'rgba(var(--primary-rgb), 0.04)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                     cursor: 'pointer',
-                    color: '#ffffff'
+                    color: 'var(--text-main)'
                   }}
                 >
                   <ArrowRight size={16} style={{ transform: 'rotate(180deg)' }} />
@@ -771,17 +484,17 @@ export default function Products() {
                   whileTap={{ scale: 0.95 }}
                   onClick={handleNext}
                   style={{
-                    width: '40px',
-                    height: '40px',
-                    borderRadius: '50%',
-                    border: '1px solid rgba(255, 255, 255, 0.1)',
-                    backgroundColor: 'rgba(255, 255, 255, 0.04)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    cursor: 'pointer',
-                    color: '#ffffff'
-                  }}
+                      width: '40px',
+                      height: '40px',
+                      borderRadius: '50%',
+                      border: '1px solid rgba(var(--primary-rgb), 0.1)',
+                      backgroundColor: 'rgba(var(--primary-rgb), 0.04)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      cursor: 'pointer',
+                      color: 'var(--text-main)'
+                    }}
                 >
                   <ArrowRight size={16} />
                 </motion.button>

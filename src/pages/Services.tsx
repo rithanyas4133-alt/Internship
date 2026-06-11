@@ -152,6 +152,42 @@ export default function Services() {
     }
   };
 
+  // Resolve accent tint (accepts hex like "#10b981" or css var like "var(--accent)")
+  const resolveTint = (accent: string, alpha = 0.08) => {
+    try {
+      if (!accent) return `rgba(255,255,255,0.02)`;
+      if (accent.startsWith('var(')) {
+        const name = accent.slice(4, -1).trim();
+        const map: Record<string, string> = {
+          '--cta': '--accent-rgb',
+          '--accent': '--accent-rgb',
+          '--supporting': '--supporting-rgb',
+          '--secondary': '--secondary-rgb',
+          '--primary': '--primary-rgb'
+        };
+        const rgbVar = map[name] || `${name}-rgb`;
+        return `rgba(var(${rgbVar}), ${alpha})`;
+      }
+
+      // hex -> rgba
+      if (accent.startsWith('#')) {
+        const hex = accent.replace('#', '');
+        const r = parseInt(hex.length === 3 ? hex[0] + hex[0] : hex.substring(0, 2), 16);
+        const g = parseInt(hex.length === 3 ? hex[1] + hex[1] : hex.substring(hex.length === 3 ? 2 : 2, hex.length === 3 ? 4 : 4), 16);
+        const b = parseInt(hex.length === 3 ? hex[2] + hex[2] : hex.substring(hex.length === 3 ? 4 : 4), 16);
+        // Fallback safe parsing for common 6-char
+        const rr = parseInt(hex.substring(0, 2), 16);
+        const gg = parseInt(hex.substring(2, 4), 16);
+        const bb = parseInt(hex.substring(4, 6), 16);
+        return `rgba(${isNaN(rr) ? r : rr}, ${isNaN(gg) ? g : gg}, ${isNaN(bb) ? b : bb}, ${alpha})`;
+      }
+
+      return accent;
+    } catch (e) {
+      return `rgba(255,255,255,0.02)`;
+    }
+  };
+
   return (
     <motion.div
       initial="initial"
@@ -166,7 +202,7 @@ export default function Services() {
         className="section"
         style={{ 
           padding: '160px 0 120px 0', 
-          color: '#ffffff',
+          color: 'var(--text-main)',
           position: 'relative',
           overflow: 'hidden',
           backgroundImage: 'linear-gradient(rgba(11, 31, 58, 0.75), rgba(11, 31, 58, 0.85)), url("/images/industrial_control_room_1780849774868.png")',
@@ -174,37 +210,37 @@ export default function Services() {
           backgroundPosition: 'center'
         }}
       >
-        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'radial-gradient(circle at 80% 20%, rgba(14, 116, 144, 0.15) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
+        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'radial-gradient(circle at 80% 20%, rgba(var(--supporting-rgb), 0.12) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
           <div style={{ maxWidth: '780px', margin: '0 auto', textAlign: 'center' }}>
-            <motion.div 
+                <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               className="section-subtitle" 
-              style={{ 
-                display: 'inline-flex', 
-                alignItems: 'center', 
-                gap: '8px', 
-                padding: '6px 14px', 
-                background: 'rgba(255, 255, 255, 0.08)', 
-                borderRadius: '20px', 
-                fontSize: '13px', 
-                color: 'var(--accent)', 
-                fontWeight: '600',
-                marginBottom: '24px',
-                border: '1px solid rgba(255, 255, 255, 0.12)'
-              }}
+                  style={{ 
+                    display: 'inline-flex', 
+                    alignItems: 'center', 
+                    gap: '8px', 
+                    padding: '6px 14px', 
+                    background: 'rgba(var(--primary-rgb), 0.06)', 
+                    borderRadius: '20px', 
+                    fontSize: '13px', 
+                    color: 'var(--accent)', 
+                    fontWeight: '600',
+                    marginBottom: '24px',
+                    border: '1px solid rgba(var(--primary-rgb), 0.12)'
+                  }}
             >
               <Sparkles size={14} style={{ color: 'var(--cta)' }} />
               <span>Tailored Technical Deliveries</span>
             </motion.div>
             
-            <motion.h1 
+              <motion.h1 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              style={{ fontSize: '48px', lineHeight: '1.15', margin: '0 0 24px 0', letterSpacing: '-1.5px', color: '#ffffff', fontWeight: '800' }}
+                style={{ fontSize: '48px', lineHeight: '1.15', margin: '0 0 24px 0', letterSpacing: '-1.5px', color: 'var(--text-main)', fontWeight: '800' }}
             >
               Enterprise Software Services
             </motion.h1>
@@ -213,7 +249,7 @@ export default function Services() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              style={{ fontSize: '18px', color: 'rgba(241, 245, 249, 0.85)', marginBottom: '40px', lineHeight: '1.6' }}
+              style={{ fontSize: '18px', color: 'rgba(var(--primary-rgb), 0.85)', marginBottom: '40px', lineHeight: '1.6' }}
             >
               Delivering technology solutions that improve operational efficiency, strengthen compliance and support business growth.
             </motion.p>
@@ -239,7 +275,7 @@ export default function Services() {
                 className="btn btn-dark-outline"
                 whileHover={secondaryButtonHover.whileHover}
                 whileTap={secondaryButtonHover.whileTap}
-                style={{ border: '2px solid rgba(255, 255, 255, 0.35)', color: '#ffffff' }}
+                style={{ border: '2px solid rgba(var(--primary-rgb), 0.35)', color: 'var(--text-main)' }}
               >
                 Explore Solutions
               </motion.button>
@@ -295,7 +331,7 @@ export default function Services() {
                         width: '40px',
                         height: '40px',
                         borderRadius: '8px',
-                        backgroundColor: `${card.accent}12`,
+                        backgroundColor: resolveTint(card.accent, 0.08),
                         color: card.accent,
                         display: 'flex',
                         alignItems: 'center',
@@ -397,7 +433,7 @@ export default function Services() {
                         <div style={{ 
                           marginTop: '24px',
                           padding: '16px 20px', 
-                          backgroundColor: 'rgba(255, 255, 255, 0.02)', 
+                          backgroundColor: 'rgba(var(--primary-rgb), 0.02)', 
                           borderRadius: '8px',
                           borderLeft: `4px solid var(--accent)`,
                           border: '1px solid var(--border-color)',

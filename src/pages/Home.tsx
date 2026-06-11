@@ -315,12 +315,12 @@ function FlagshipCard({ platform, onNavigate, variant = 'standard' }: {
       initial="initial"
       whileHover="hover"
       onClick={() => onNavigate(platform.path)}
-      style={{
+        style={{
         position: 'relative',
         borderRadius: '20px',
         overflow: 'hidden',
-        border: '1px solid rgba(245,158,11,0.12)',
-        backgroundColor: '#0D1321',
+        border: '1px solid rgba(var(--accent-rgb),0.12)',
+        backgroundColor: 'var(--card-bg)',
         cursor: 'pointer',
         height: isHero ? '720px' : '580px',
         display: 'flex',
@@ -338,7 +338,7 @@ function FlagshipCard({ platform, onNavigate, variant = 'standard' }: {
           left: 0,
           right: 0,
           height: '2px',
-          background: `linear-gradient(90deg, transparent, ${platform.accentColor}, #F59E0B, ${platform.accentColor}, transparent)`,
+          background: `linear-gradient(90deg, transparent, ${platform.accentColor}, var(--accent), ${platform.accentColor}, transparent)`,
           zIndex: 10,
           transformOrigin: 'left center'
         }}
@@ -353,14 +353,14 @@ function FlagshipCard({ platform, onNavigate, variant = 'standard' }: {
         width: '32px',
         height: '32px',
         borderRadius: '8px',
-        background: 'rgba(245,158,11,0.12)',
-        border: '1px solid rgba(245,158,11,0.3)',
+        background: 'rgba(var(--accent-rgb),0.12)',
+        border: '1px solid rgba(var(--accent-rgb),0.3)',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
         fontSize: '12px',
         fontWeight: '800',
-        color: '#F59E0B',
+        color: 'var(--accent)',
         fontFamily: 'var(--font-headings)',
         backdropFilter: 'blur(8px)',
       }}>
@@ -383,7 +383,7 @@ function FlagshipCard({ platform, onNavigate, variant = 'standard' }: {
         <div style={{ fontSize: '14px', fontWeight: '800', color: platform.accentColor, fontFamily: 'var(--font-headings)', lineHeight: 1 }}>
           {platform.stat.value}
         </div>
-        <div style={{ fontSize: '9px', fontWeight: '600', color: '#9CA3AF', textTransform: 'uppercase', letterSpacing: '0.5px', marginTop: '2px' }}>
+        <div style={{ fontSize: '9px', fontWeight: '600', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.5px', marginTop: '2px' }}>
           {platform.stat.label}
         </div>
       </div>

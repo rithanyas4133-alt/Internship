@@ -290,10 +290,10 @@ export default function ProductDetail() {
 
   if (!product) {
     return (
-      <div className="section section-dark" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', backgroundColor: '#0A0F1C', color: '#E5E7EB' }}>
+      <div className="section section-dark" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', backgroundColor: 'var(--background)', color: 'var(--text-main)' }}>
         <AlertTriangle size={48} style={{ color: 'var(--accent)', marginBottom: '16px' }} />
         <h2>Product Not Found</h2>
-        <p style={{ color: '#9CA3AF', marginBottom: '24px' }}>The product path you requested does not exist.</p>
+        <p style={{ color: 'var(--text-muted)', marginBottom: '24px' }}>The product path you requested does not exist.</p>
         <button onClick={() => navigate('/products')} className="btn btn-primary">
           Back to Products Page
         </button>
@@ -342,6 +342,36 @@ export default function ProductDetail() {
     transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] }
   };
 
+  // Resolve tint helper for hex or css var colors
+  const resolveTint = (accent: string, alpha = 0.08) => {
+    try {
+      if (!accent) return `rgba(var(--primary-rgb), 0.02)`;
+      if (accent.startsWith('var(')) {
+        const name = accent.slice(4, -1).trim();
+        const map: Record<string, string> = {
+          '--cta': '--accent-rgb',
+          '--accent': '--accent-rgb',
+          '--supporting': '--supporting-rgb',
+          '--secondary': '--secondary-rgb',
+          '--primary': '--primary-rgb'
+        };
+        const rgbVar = map[name] || `${name}-rgb`;
+        return `rgba(var(${rgbVar}), ${alpha})`;
+      }
+      if (accent.startsWith('#')) {
+        const hex = accent.replace('#', '');
+        const rr = parseInt(hex.substring(0, 2), 16);
+        const gg = parseInt(hex.substring(2, 4), 16);
+        const bb = parseInt(hex.substring(4, 6), 16);
+        return `rgba(${rr}, ${gg}, ${bb}, ${alpha})`;
+      }
+      return accent;
+    } catch (e) {
+      return `rgba(var(--primary-rgb), 0.02)`;
+    }
+  };
+
+
   // Get the other 4 platforms for cross-navigation
   const otherPlatforms = Object.values(productsMap).filter(p => p.id !== product.id).slice(0, 4);
 
@@ -351,7 +381,7 @@ export default function ProductDetail() {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -16 }}
       transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
-      style={{ backgroundColor: '#0A0F1C', color: '#E5E7EB', minHeight: '100vh', overflow: 'hidden' }}
+      style={{ backgroundColor: 'var(--background)', color: 'var(--text-main)', minHeight: '100vh', overflow: 'hidden' }}
     >
       {/* ── TOP NAVIGATION BAR ── */}
       <div className="container" style={{ paddingTop: '100px', position: 'relative', zIndex: 10 }}>
@@ -360,8 +390,8 @@ export default function ProductDetail() {
           <button 
             onClick={handleBackToProducts}
             style={{
-              background: 'rgba(255, 255, 255, 0.03)',
-              color: '#9CA3AF',
+              background: 'rgba(var(--primary-rgb), 0.03)',
+              color: 'var(--text-muted)',
               fontSize: '13.5px',
               fontWeight: '600',
               display: 'inline-flex',
@@ -370,18 +400,18 @@ export default function ProductDetail() {
               cursor: 'pointer',
               padding: '8px 16px',
               borderRadius: '8px',
-              border: '1px solid rgba(255, 255, 255, 0.07)',
+              border: '1px solid rgba(var(--primary-rgb), 0.07)',
               transition: 'all 0.25s'
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.07)';
-              e.currentTarget.style.color = '#ffffff';
-              e.currentTarget.style.borderColor = 'rgba(255,255,255,0.15)';
+              e.currentTarget.style.backgroundColor = 'rgba(var(--primary-rgb), 0.07)';
+              e.currentTarget.style.color = 'var(--text-main)';
+              e.currentTarget.style.borderColor = 'rgba(var(--primary-rgb),0.15)';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.03)';
-              e.currentTarget.style.color = '#9CA3AF';
-              e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.07)';
+              e.currentTarget.style.backgroundColor = 'rgba(var(--primary-rgb), 0.03)';
+              e.currentTarget.style.color = 'var(--text-muted)';
+              e.currentTarget.style.borderColor = 'rgba(var(--primary-rgb), 0.07)';
             }}
           >
             <ArrowLeft size={15} />
@@ -389,12 +419,12 @@ export default function ProductDetail() {
           </button>
 
           {/* Breadcrumb */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12.5px', color: '#6B7280' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12.5px', color: 'var(--text-muted)' }}>
             <span>Home</span>
             <ChevronRight size={12} />
             <span>Products</span>
             <ChevronRight size={12} />
-            <span style={{ color: '#F59E0B', fontWeight: '600' }}>{product.name}</span>
+            <span style={{ color: 'var(--accent)', fontWeight: '600' }}>{product.name}</span>
           </div>
         </div>
       </div>

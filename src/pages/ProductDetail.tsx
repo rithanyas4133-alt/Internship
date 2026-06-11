@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+﻿import { useState, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { 
@@ -50,7 +50,7 @@ interface ProductData {
 const productsMap: Record<string, ProductData> = {
   'vericea-manufacturing': {
     id: 'vericea-manufacturing',
-    name: 'VERICEA Manufacturing',
+    name: 'Vericea Manufacturing',
     tagline: 'Real-Time Production Visibility & Defect Intelligence',
     valueProp: 'A production tracking platform that helps manufacturing companies monitor activities, improve efficiency and optimize shop-floor operations.',
     image: '/images/manufacturing_floor_1780850784796.png',
@@ -62,7 +62,7 @@ const productsMap: Record<string, ProductData> = {
       'Siloed communications between floor operations and executive teams.',
       'Inefficient machinery diagnostics leading to high downtime rates.'
     ],
-    solutionOverview: 'VERICEA Manufacturing integrates directly with your assembly floor sensors and localized reporting terminals. By capturing real-time telemetry, it translates floor activity into live dashboards, allowing managers to instantly detect bottlenecks, log defective units, and assess Overall Equipment Effectiveness (OEE) metrics.',
+    solutionOverview: 'Vericea Manufacturing integrates directly with your assembly floor sensors and localized reporting terminals. By capturing real-time telemetry, it translates floor activity into live dashboards, allowing managers to instantly detect bottlenecks, log defective units, and assess Overall Equipment Effectiveness (OEE) metrics.',
     capabilities: [
       {
         title: 'Production Tracking',
@@ -84,7 +84,7 @@ const productsMap: Record<string, ProductData> = {
       { step: '04', title: 'Analytics Delivery', description: 'Operations leaders receive live reports and OEE scorecards via mobile and desktop.' }
     ],
     dashboardImage: '/images/vericea_dashboard_mockup.png',
-    dashboardTitle: 'VERICEA Manufacturing Control Console',
+    dashboardTitle: 'Vericea Manufacturing Control Console',
     benefits: [
       { stat: '22%', label: 'OEE Increase', desc: 'Average increase in Overall Equipment Effectiveness within 6 months.' },
       { stat: '45%', label: 'Paper Reduction', desc: 'Elimination of physical floor slips and manual assembly sheets.' },
@@ -94,7 +94,7 @@ const productsMap: Record<string, ProductData> = {
   },
   'vericea-compliance': {
     id: 'vericea-compliance',
-    name: 'VERICEA Compliance',
+    name: 'Vericea Compliance',
     tagline: 'Audit Readiness & Compliance Governance Platform',
     valueProp: 'A compliance management platform that helps organizations track activities, manage evidence and maintain audit readiness.',
     image: '/images/quality_audit_1780850801169.png',
@@ -106,7 +106,7 @@ const productsMap: Record<string, ProductData> = {
       'Missed compliance deadlines leading to penalties and supplier suspensions.',
       'Inconsistent auditing formats between internal teams and external auditors.'
     ],
-    solutionOverview: 'VERICEA Compliance provides a structured digital locker and scheduling calendar. It breaks down standards into daily, weekly, and monthly action items, prompting floor managers to upload verifiable evidence. When third-party auditors arrive, all logs are index-ready and fully traceable.',
+    solutionOverview: 'Vericea Compliance provides a structured digital locker and scheduling calendar. It breaks down standards into daily, weekly, and monthly action items, prompting floor managers to upload verifiable evidence. When third-party auditors arrive, all logs are index-ready and fully traceable.',
     capabilities: [
       {
         title: 'Audit Scheduling',
@@ -128,7 +128,7 @@ const productsMap: Record<string, ProductData> = {
       { step: '04', title: 'Audit Verification', description: 'Generate audit exports and read-only logins for certification teams.' }
     ],
     dashboardImage: '/images/product_tab_compliance_1780851018319.png',
-    dashboardTitle: 'VERICEA Compliance Audit Hub',
+    dashboardTitle: 'Vericea Compliance Audit Hub',
     benefits: [
       { stat: '100%', label: 'Audit Success', desc: 'Passing rate achieved by enterprise customers during external reviews.' },
       { stat: '0%', label: 'Late Penalties', desc: 'Complete elimination of late filings and certificate expiration lapses.' },

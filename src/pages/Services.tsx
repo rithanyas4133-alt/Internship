@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
@@ -125,8 +125,8 @@ export default function Services() {
   ];
 
   const solutionMatching = [
-    { need: "Production Efficiency", product: "VERICEA Manufacturing", desc: "Improve production tracking and operational efficiency.", accent: "var(--secondary)", icon: <Factory size={20} /> },
-    { need: "Compliance Management", product: "VERICEA Compliance", desc: "Track compliance activities and improve audit readiness.", accent: "var(--accent)", icon: <ShieldCheck size={20} /> },
+    { need: "Production Efficiency", product: "Vericea Manufacturing", desc: "Improve production tracking and operational efficiency.", accent: "var(--secondary)", icon: <Factory size={20} /> },
+    { need: "Compliance Management", product: "Vericea Compliance", desc: "Track compliance activities and improve audit readiness.", accent: "var(--accent)", icon: <ShieldCheck size={20} /> },
     { need: "Risk Assessment", product: "FactSafe", desc: "Identify, assess and monitor business risks.", accent: "#ef4444", icon: <AlertTriangle size={20} /> },
     { need: "Logistics Cost Optimization", product: "Courier Cost Management", desc: "Control and reduce logistics-related expenses.", accent: "#3b82f6", icon: <Truck size={20} /> },
     { need: "Custom Business Operations", product: "Custom Application Development", desc: "Tailored software solutions designed around business requirements.", accent: "var(--cta)", icon: <Code size={20} /> }
@@ -287,12 +287,12 @@ export default function Services() {
       {/* ==================================================
           SECTION: HOW WE PARTNER WITH OUR CLIENTS
           ================================================== */}
-      <section className="section" style={{ backgroundColor: 'var(--background)' }}>
+      <section className="section section-dark" style={{ backgroundColor: '#0F172A', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
         <div className="container">
           <div className="section-title-wrapper" style={{ marginBottom: '56px' }}>
-            <span className="section-subtitle">Our Engagement Model</span>
-            <h2 className="section-title">How We Partner With Our Clients</h2>
-            <p className="section-desc">
+            <span className="section-subtitle" style={{ color: 'var(--supporting)' }}>Our Engagement Model</span>
+            <h2 className="section-title" style={{ color: '#ffffff' }}>How We Partner With Our Clients</h2>
+            <p className="section-desc" style={{ color: '#94a3b8' }}>
               Every organization has unique challenges. Explore how CEA Infotech collaborates with businesses to design, develop and support technology solutions.
             </p>
           </div>
@@ -306,11 +306,11 @@ export default function Services() {
                   layout
                   onClick={() => setExpandedCard(isExpanded ? null : index)}
                   style={{
-                    backgroundColor: 'var(--secondary-bg)',
-                    border: '1px solid var(--border-color)',
+                    backgroundColor: 'rgba(30, 41, 59, 0.6)',
+                    border: '1px solid rgba(255,255,255,0.07)',
                     borderRadius: '12px',
                     padding: '24px 32px',
-                    boxShadow: 'var(--shadow-sm)',
+                    boxShadow: '0 4px 24px rgba(0,0,0,0.3)',
                     cursor: 'pointer',
                     overflow: 'hidden',
                     display: 'flex',
@@ -340,18 +340,18 @@ export default function Services() {
                         {card.icon}
                       </div>
                       <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
-                        <h3 style={{ fontSize: '18px', fontWeight: '800', color: 'var(--primary)', margin: 0 }}>
+                        <h3 style={{ fontSize: '18px', fontWeight: '800', color: '#ffffff', margin: 0 }}>
                           {card.title}
                         </h3>
                         {!isExpanded && (
-                          <p style={{ fontSize: '13.5px', color: 'var(--text-muted)', margin: 0 }}>
+                          <p style={{ fontSize: '13.5px', color: '#94a3b8', margin: 0 }}>
                             {card.summary}
                           </p>
                         )}
                       </div>
                     </div>
 
-                    <div style={{ color: 'var(--text-muted)' }}>
+                    <div style={{ color: '#94a3b8' }}>
                       {isExpanded ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
                     </div>
                   </div>
@@ -364,7 +364,7 @@ export default function Services() {
                         animate={{ opacity: 1, height: 'auto' }}
                         exit={{ opacity: 0, height: 0 }}
                         transition={{ duration: 0.3 }}
-                        style={{ borderTop: '1px solid var(--border-color)', paddingTop: '24px', marginTop: '8px' }}
+                        style={{ borderTop: '1px solid rgba(255,255,255,0.08)', paddingTop: '24px', marginTop: '8px' }}
                         onClick={(e) => e.stopPropagation()} // Prevent collapse on details click
                       >
                         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px' }}>
@@ -374,7 +374,7 @@ export default function Services() {
                               <h4 style={{ fontSize: '12.5px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px', color: 'var(--supporting)', marginBottom: '6px', textAlign: 'left' }}>
                                 Business Challenges
                               </h4>
-                              <p style={{ fontSize: '13.5px', color: 'var(--text-muted)', lineHeight: '1.5', margin: 0, textAlign: 'left' }}>
+                              <p style={{ fontSize: '13.5px', color: '#94a3b8', lineHeight: '1.5', margin: 0, textAlign: 'left' }}>
                                 {card.challenges}
                               </p>
                             </div>
@@ -383,7 +383,7 @@ export default function Services() {
                               <h4 style={{ fontSize: '12.5px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px', color: 'var(--supporting)', marginBottom: '6px', textAlign: 'left' }}>
                                 CEA Approach
                               </h4>
-                              <p style={{ fontSize: '13.5px', color: 'var(--text-main)', lineHeight: '1.5', margin: 0, textAlign: 'left' }}>
+                              <p style={{ fontSize: '13.5px', color: '#f1f5f9', lineHeight: '1.5', margin: 0, textAlign: 'left' }}>
                                 {card.approach}
                               </p>
                             </div>
@@ -392,7 +392,7 @@ export default function Services() {
                               <h4 style={{ fontSize: '12.5px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px', color: 'var(--supporting)', marginBottom: '6px', textAlign: 'left' }}>
                                 Technology Stack
                               </h4>
-                              <p style={{ fontSize: '13.5px', color: 'var(--text-muted)', fontFamily: 'monospace', margin: 0, textAlign: 'left' }}>
+                              <p style={{ fontSize: '13.5px', color: '#94a3b8', fontFamily: 'monospace', margin: 0, textAlign: 'left' }}>
                                 {card.techStack}
                               </p>
                             </div>
@@ -404,7 +404,7 @@ export default function Services() {
                               <h4 style={{ fontSize: '12.5px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px', color: 'var(--accent)', marginBottom: '6px', textAlign: 'left' }}>
                                 Implementation Roadmap
                               </h4>
-                              <p style={{ fontSize: '13.5px', color: 'var(--text-main)', lineHeight: '1.5', margin: 0, textAlign: 'left' }}>
+                              <p style={{ fontSize: '13.5px', color: '#f1f5f9', lineHeight: '1.5', margin: 0, textAlign: 'left' }}>
                                 {card.roadmap}
                               </p>
                             </div>
@@ -413,7 +413,7 @@ export default function Services() {
                               <h4 style={{ fontSize: '12.5px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px', color: 'var(--accent)', marginBottom: '6px', textAlign: 'left' }}>
                                 Customer Benefits
                               </h4>
-                              <p style={{ fontSize: '13.5px', color: 'var(--text-muted)', lineHeight: '1.5', margin: 0, textAlign: 'left' }}>
+                              <p style={{ fontSize: '13.5px', color: '#94a3b8', lineHeight: '1.5', margin: 0, textAlign: 'left' }}>
                                 {card.benefits}
                               </p>
                             </div>
@@ -422,7 +422,7 @@ export default function Services() {
                               <h4 style={{ fontSize: '12.5px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px', color: 'var(--accent)', marginBottom: '6px', textAlign: 'left' }}>
                                 Business KPIs
                               </h4>
-                              <p style={{ fontSize: '13.5px', color: 'var(--text-main)', fontWeight: '600', margin: 0, textAlign: 'left' }}>
+                              <p style={{ fontSize: '13.5px', color: '#f1f5f9', fontWeight: '600', margin: 0, textAlign: 'left' }}>
                                 {card.kpis}
                               </p>
                             </div>
@@ -433,16 +433,16 @@ export default function Services() {
                         <div style={{ 
                           marginTop: '24px',
                           padding: '16px 20px', 
-                          backgroundColor: 'rgba(var(--primary-rgb), 0.02)', 
+                          backgroundColor: 'rgba(6,182,212,0.06)', 
                           borderRadius: '8px',
-                          borderLeft: `4px solid var(--accent)`,
-                          border: '1px solid var(--border-color)',
-                          borderLeftWidth: '4px'
+                          border: '1px solid rgba(6,182,212,0.15)',
+                          borderLeftWidth: '4px',
+                          borderLeftColor: 'var(--supporting)'
                         }}>
-                          <h4 style={{ margin: '0 0 4px 0', fontSize: '11px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1.5px', color: 'var(--accent)', textAlign: 'left' }}>
+                          <h4 style={{ margin: '0 0 4px 0', fontSize: '11px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1.5px', color: 'var(--supporting)', textAlign: 'left' }}>
                             Expected Outcome:
                           </h4>
-                          <p style={{ margin: 0, fontSize: '14px', color: 'var(--text-light)', fontWeight: '600', lineHeight: '1.4', textAlign: 'left' }}>
+                          <p style={{ margin: 0, fontSize: '14px', color: '#f1f5f9', fontWeight: '600', lineHeight: '1.4', textAlign: 'left' }}>
                             {card.outcomes}
                           </p>
                         </div>
@@ -459,12 +459,13 @@ export default function Services() {
       {/* ==================================================
           SECTION: OUR SOLUTION DELIVERY FRAMEWORK
           ================================================== */}
-      <section className="section">
-        <div className="container">
+      <section className="section section-dark" style={{ backgroundColor: '#1E293B', borderTop: '1px solid rgba(255,255,255,0.05)', borderBottom: '1px solid rgba(255,255,255,0.05)', position: 'relative', overflow: 'hidden' }}>
+        <div style={{ position: 'absolute', top: '0', left: '50%', transform: 'translateX(-50%)', width: '600px', height: '300px', background: 'radial-gradient(ellipse at center, rgba(6,182,212,0.07) 0%, transparent 70%)', pointerEvents: 'none' }} />
+        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <div className="section-title-wrapper" style={{ marginBottom: '64px' }}>
-            <span className="section-subtitle">Workflow & Rigor</span>
-            <h2 className="section-title">How We Deliver Results</h2>
-            <p className="section-desc">Our end-to-end delivery framework ensures predictable schedules and high-uptime solutions.</p>
+            <span className="section-subtitle" style={{ color: 'var(--supporting)' }}>Workflow & Rigor</span>
+            <h2 className="section-title" style={{ color: '#ffffff' }}>How We Deliver Results</h2>
+            <p className="section-desc" style={{ color: '#94a3b8' }}>Our end-to-end delivery framework ensures predictable schedules and high-uptime solutions.</p>
           </div>
 
           {/* Animated Horizontal Process Roadmap */}
@@ -483,7 +484,7 @@ export default function Services() {
                 left: '80px',
                 right: '80px',
                 height: '3px',
-                backgroundColor: 'rgba(14, 116, 144, 0.1)',
+                backgroundColor: 'rgba(6, 182, 212, 0.2)',
                 zIndex: 1
               }}></div>
 
@@ -511,13 +512,13 @@ export default function Services() {
                       width: '50px',
                       height: '50px',
                       borderRadius: '50%',
-                      backgroundColor: 'var(--primary)',
-                      border: '4px solid #ffffff',
-                      boxShadow: 'var(--shadow-md)',
+                      backgroundColor: 'rgba(6,182,212,0.15)',
+                      border: '2px solid rgba(6,182,212,0.4)',
+                      boxShadow: '0 0 20px rgba(6,182,212,0.2)',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      color: 'var(--accent)',
+                      color: 'var(--supporting)',
                       fontSize: '14px',
                       fontWeight: '800',
                       marginBottom: '16px',
@@ -527,10 +528,10 @@ export default function Services() {
                     {step.step}
                   </motion.div>
 
-                  <h3 style={{ fontSize: '15px', fontWeight: '800', color: 'var(--primary)', margin: '0 0 6px 0' }}>
+                  <h3 style={{ fontSize: '15px', fontWeight: '800', color: '#ffffff', margin: '0 0 6px 0' }}>
                     {step.name}
                   </h3>
-                  <p style={{ fontSize: '11.5px', color: 'var(--text-muted)', lineHeight: '1.5', margin: 0 }}>
+                  <p style={{ fontSize: '11.5px', color: '#94a3b8', lineHeight: '1.5', margin: 0 }}>
                     {step.desc}
                   </p>
                 </motion.div>
@@ -543,12 +544,14 @@ export default function Services() {
       {/* ==================================================
           SECTION: MATCHING BUSINESS NEEDS TO SOLUTIONS
           ================================================== */}
-      <section id="solutions-matching" className="section" style={{ backgroundColor: 'var(--alternate-bg)' }}>
-        <div className="container">
+      <section id="solutions-matching" className="section section-dark" style={{ backgroundColor: '#020617', position: 'relative', overflow: 'hidden' }}>
+        <div style={{ position: 'absolute', top: '-20%', right: '-10%', width: '500px', height: '500px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(184,155,94,0.06) 0%, transparent 65%)', pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', bottom: '-20%', left: '-10%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(6,182,212,0.05) 0%, transparent 65%)', pointerEvents: 'none' }} />
+        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <div className="section-title-wrapper" style={{ marginBottom: '56px' }}>
-            <span className="section-subtitle">Product Alignments</span>
-            <h2 className="section-title">The Right Solution For Every Business Need</h2>
-            <p className="section-desc">Aligning specific operational demands to our proprietary tools or customized engineering tracks.</p>
+            <span className="section-subtitle" style={{ color: 'var(--supporting)' }}>Product Alignments</span>
+            <h2 className="section-title" style={{ color: '#ffffff' }}>The Right Solution For Every Business Need</h2>
+            <p className="section-desc" style={{ color: '#94a3b8' }}>Aligning specific operational demands to our proprietary tools or customized engineering tracks.</p>
           </div>
 
           <div className="grid-3" style={{ gap: '24px' }}>
@@ -559,16 +562,16 @@ export default function Services() {
                 initial="initial"
                 whileInView="whileInView"
                 viewport={scrollReveal.viewport}
-                whileHover={{ y: -6, boxShadow: 'var(--shadow-xl)', borderColor: sol.accent }}
+                whileHover={{ y: -6, boxShadow: '0 20px 50px rgba(0,0,0,0.4)', borderColor: sol.accent }}
                 style={{
-                  backgroundColor: 'var(--secondary-bg)',
-                  border: '1px solid var(--border-color)',
+                  backgroundColor: 'rgba(30, 41, 59, 0.5)',
+                  border: '1px solid rgba(255,255,255,0.07)',
                   borderRadius: '12px',
                   padding: '32px 24px',
                   display: 'flex',
                   flexDirection: 'column',
                   gap: '16px',
-                  boxShadow: 'var(--shadow-sm)',
+                  boxShadow: '0 4px 24px rgba(0,0,0,0.3)',
                   position: 'relative',
                   overflow: 'hidden',
                   transition: 'all 0.3s ease'
@@ -581,7 +584,7 @@ export default function Services() {
                     width: '36px',
                     height: '36px',
                     borderRadius: '6px',
-                    backgroundColor: `${sol.accent}12`,
+                    backgroundColor: `${sol.accent}18`,
                     color: sol.accent,
                     display: 'flex',
                     alignItems: 'center',
@@ -595,21 +598,21 @@ export default function Services() {
                 </div>
 
                 <div style={{ flexGrow: 1 }}>
-                  <h3 style={{ fontSize: '18px', fontWeight: '800', color: 'var(--primary)', margin: '0 0 6px 0', fontFamily: 'var(--font-headings)' }}>
+                  <h3 style={{ fontSize: '18px', fontWeight: '800', color: '#ffffff', margin: '0 0 6px 0', fontFamily: 'var(--font-headings)' }}>
                     {sol.product}
                   </h3>
-                  <p style={{ fontSize: '13.5px', color: 'var(--text-muted)', lineHeight: '1.5', margin: 0 }}>
+                  <p style={{ fontSize: '13.5px', color: '#94a3b8', lineHeight: '1.5', margin: 0 }}>
                     {sol.desc}
                   </p>
                 </div>
 
-                <div style={{ display: 'flex', justifyContent: 'flex-start', borderTop: '1px solid rgba(15, 23, 42, 0.05)', paddingTop: '16px', marginTop: '8px' }}>
+                <div style={{ display: 'flex', justifyContent: 'flex-start', borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: '16px', marginTop: '8px' }}>
                   <button 
                     onClick={() => navigate('/products')} 
                     style={{
                       background: 'none',
                       border: 'none',
-                      color: 'var(--secondary)',
+                      color: 'var(--supporting)',
                       fontSize: '12.5px',
                       fontWeight: '700',
                       display: 'flex',
@@ -632,12 +635,13 @@ export default function Services() {
       {/* ==================================================
           SECTION: BUSINESS OUTCOMES
           ================================================== */}
-      <section className="section" style={{ backgroundColor: 'var(--background)' }}>
-        <div className="container">
+      <section className="section section-dark" style={{ backgroundColor: '#0F172A', borderTop: '1px solid rgba(255,255,255,0.05)', position: 'relative', overflow: 'hidden' }}>
+        <div style={{ position: 'absolute', bottom: 0, right: '20%', width: '500px', height: '300px', background: 'radial-gradient(ellipse at center, rgba(184,155,94,0.05) 0%, transparent 70%)', pointerEvents: 'none' }} />
+        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <div className="section-title-wrapper" style={{ marginBottom: '56px' }}>
-            <span className="section-subtitle">Target Metrics</span>
-            <h2 className="section-title">Value Delivered To Our Customers</h2>
-            <p className="section-desc">Concrete outcomes and performance updates organizations achieve with CEA systems.</p>
+            <span className="section-subtitle" style={{ color: 'var(--supporting)' }}>Target Metrics</span>
+            <h2 className="section-title" style={{ color: '#ffffff' }}>Value Delivered To Our Customers</h2>
+            <p className="section-desc" style={{ color: '#94a3b8' }}>Concrete outcomes and performance updates organizations achieve with CEA systems.</p>
           </div>
 
           <div style={{ 
@@ -652,16 +656,16 @@ export default function Services() {
                 initial="initial"
                 whileInView="whileInView"
                 viewport={scrollReveal.viewport}
-                whileHover={{ y: -4, borderColor: 'var(--secondary)' }}
+                whileHover={{ y: -4, borderColor: 'var(--supporting)' }}
                 style={{
-                  backgroundColor: 'var(--secondary-bg)',
-                  border: '1px solid var(--border-color)',
+                  backgroundColor: 'rgba(30, 41, 59, 0.45)',
+                  border: '1px solid rgba(255,255,255,0.07)',
                   borderRadius: '8px',
                   padding: '24px 20px',
                   display: 'flex',
                   gap: '16px',
                   alignItems: 'flex-start',
-                  boxShadow: 'var(--shadow-sm)',
+                  boxShadow: '0 4px 20px rgba(0,0,0,0.2)',
                   transition: 'all 0.3s ease'
                 }}
               >
@@ -669,8 +673,8 @@ export default function Services() {
                   width: '28px',
                   height: '28px',
                   borderRadius: '50%',
-                  backgroundColor: 'rgba(14, 116, 144, 0.06)',
-                  color: 'var(--secondary)',
+                  backgroundColor: 'rgba(6, 182, 212, 0.12)',
+                  color: 'var(--supporting)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
@@ -679,10 +683,10 @@ export default function Services() {
                   <CheckCircle size={15} />
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                  <h4 style={{ fontSize: '15px', fontWeight: '800', color: 'var(--primary)', margin: 0 }}>
+                  <h4 style={{ fontSize: '15px', fontWeight: '800', color: '#ffffff', margin: 0 }}>
                     {out.title}
                   </h4>
-                  <p style={{ fontSize: '12.5px', color: 'var(--text-muted)', lineHeight: '1.4', margin: 0 }}>
+                  <p style={{ fontSize: '12.5px', color: '#94a3b8', lineHeight: '1.4', margin: 0 }}>
                     {out.desc}
                   </p>
                 </div>

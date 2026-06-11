@@ -50,8 +50,20 @@ export default function Navbar() {
       <div className="container">
         {/* Logo Section */}
         <NavLink to="/" className="logo-container" onClick={closeMenu}>
-          <span className="logo-main">CEA INFOTECH</span>
-          <span className="logo-sub">Operational Excellence</span>
+          {/* Desktop: Horizontal logo (planet + CEA + company name) */}
+          <img
+            src="/images/logo-horizontal.png"
+            alt="CEA Infotech Private Limited"
+            className="logo-img-horizontal"
+            style={{
+              height: '44px',
+              width: 'auto',
+              display: 'block',
+              objectFit: 'contain',
+              mixBlendMode: 'screen',
+              imageRendering: 'high-quality',
+            }}
+          />
         </NavLink>
 
         {/* Desktop Navigation Links */}
@@ -93,6 +105,26 @@ export default function Navbar() {
 
         {/* Mobile Navigation Drawer */}
         <ul className={`mobile-nav ${isOpen ? 'open' : ''}`}>
+          {/* Planet logo branding at top of mobile drawer */}
+          <li style={{ marginBottom: '8px', paddingBottom: '20px', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
+            <NavLink to="/" onClick={closeMenu} style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none' }}>
+              <img
+                src="/images/logo-planet.png"
+                alt="CEA Infotech"
+                style={{
+                  height: '36px',
+                  width: 'auto',
+                  objectFit: 'contain',
+                  mixBlendMode: 'screen',
+                  flexShrink: 0,
+                }}
+              />
+              <div>
+                <span style={{ display: 'block', fontSize: '15px', fontWeight: '800', color: 'var(--text-main)', fontFamily: 'var(--font-headings)', lineHeight: 1 }}>CEA INFOTECH</span>
+                <span style={{ display: 'block', fontSize: '9px', color: 'var(--supporting)', fontWeight: '600', textTransform: 'uppercase', letterSpacing: '1px', marginTop: '2px' }}>Operational Excellence</span>
+              </div>
+            </NavLink>
+          </li>
           {menuItems.map((item) => (
             <li key={item.name}>
               <NavLink 

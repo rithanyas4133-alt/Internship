@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+﻿import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin, ArrowUpRight } from 'lucide-react';
 
 export default function Footer() {
@@ -18,8 +18,19 @@ export default function Footer() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
               <div>
                 <Link to="/" onClick={handleScrollToTop} style={{ display: 'inline-flex', flexDirection: 'column' }}>
-                  <span className="logo-main" style={{ color: 'var(--text-main)' }}>CEA INFOTECH</span>
-                  <span className="logo-sub" style={{ color: 'var(--accent)' }}>Operational Excellence</span>
+                  {/* CEA Text Logo in footer */}
+                  <img
+                    src="/images/logo-cea-text.png"
+                    alt="CEA Infotech Private Limited"
+                    style={{
+                      height: '38px',
+                      width: 'auto',
+                      objectFit: 'contain',
+                      mixBlendMode: 'screen',
+                      display: 'block',
+                      maxWidth: '200px',
+                    }}
+                  />
                 </Link>
               </div>
               <p style={{ fontSize: '14px', lineHeight: '1.6', color: 'var(--text-muted)' }}>
@@ -45,12 +56,12 @@ export default function Footer() {
               <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '14px' }}>
                 <li>
                   <Link to="/products" onClick={handleScrollToTop} style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
-                    VERICEA Manufacturing <ArrowUpRight size={12} style={{ opacity: 0.5 }} />
+                    Vericea Manufacturing <ArrowUpRight size={12} style={{ opacity: 0.5 }} />
                   </Link>
                 </li>
                 <li>
                   <Link to="/products" onClick={handleScrollToTop} style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
-                    VERICEA Compliance <ArrowUpRight size={12} style={{ opacity: 0.5 }} />
+                    Vericea Compliance <ArrowUpRight size={12} style={{ opacity: 0.5 }} />
                   </Link>
                 </li>
                 <li>
@@ -112,8 +123,19 @@ export default function Footer() {
       {/* Bottom Bar */}
       <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)', padding: '24px 0', fontSize: '13px' }}>
         <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '16px' }}>
-          <div>
-            &copy; {currentYear} CEA Infotech Private Limited. All rights reserved.
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+            <img
+              src="/images/logo-planet.png"
+              alt="CEA Infotech"
+              style={{
+                height: '22px',
+                width: 'auto',
+                objectFit: 'contain',
+                mixBlendMode: 'screen',
+                opacity: 0.85,
+              }}
+            />
+            <span>&copy; {currentYear} CEA Infotech Private Limited. All rights reserved.</span>
           </div>
           <div style={{ display: 'flex', gap: '24px' }}>
             <a href="#">Privacy Policy</a>

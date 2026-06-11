@@ -1,4 +1,4 @@
-import { useState, useRef, type ReactNode } from 'react';
+﻿import { useState, useRef, type ReactNode } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Factory, 
@@ -63,7 +63,7 @@ export default function Products() {
     name: '',
     email: '',
     company: '',
-    product: 'VERICEA Manufacturing',
+    product: 'Vericea Manufacturing',
     message: ''
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -95,7 +95,7 @@ export default function Products() {
   const productsData: Product[] = [
     {
       id: 'vericea-manufacturing',
-      name: 'VERICEA Manufacturing',
+      name: 'Vericea Manufacturing',
       tagline: 'Transforming Production Visibility Into Operational Excellence',
       oneLiner: 'Live shop-floor production tracking and equipment efficiency analytics.',
       description: 'A production tracking platform that helps manufacturing companies monitor activities, improve efficiency and optimize shop-floor operations.',
@@ -113,7 +113,7 @@ export default function Products() {
     },
     {
       id: 'vericea-compliance',
-      name: 'VERICEA Compliance',
+      name: 'Vericea Compliance',
       tagline: 'Create. Maintain. Monitor.',
       oneLiner: 'Automated audit tracking and secure compliance evidence vaults.',
       description: 'A compliance management platform that helps organizations track activities, manage evidence and maintain audit readiness.',
@@ -188,13 +188,13 @@ export default function Products() {
   const challengeSolutionData = [
     {
       challenge: "Production Tracking Challenges",
-      solution: "VERICEA Manufacturing",
+      solution: "Vericea Manufacturing",
       desc: "Real-time production monitoring, efficiency tracking and operational visibility.",
       icon: <Factory size={22} />
     },
     {
       challenge: "Compliance Monitoring Difficulties",
-      solution: "VERICEA Compliance",
+      solution: "Vericea Compliance",
       desc: "Automated compliance activities, evidence management and audit readiness.",
       icon: <ShieldCheck size={22} />
     },
@@ -212,7 +212,7 @@ export default function Products() {
     },
     {
       challenge: "Audit Readiness Issues",
-      solution: "VERICEA Compliance",
+      solution: "Vericea Compliance",
       desc: "Continuous compliance monitoring and audit preparation.",
       icon: <ShieldCheck size={22} />
     },
@@ -376,7 +376,7 @@ export default function Products() {
               </div>
               
               <h1 style={{ fontSize: '52px', lineHeight: '1.15', letterSpacing: '-1.5px', color: '#ffffff', fontWeight: '800', margin: 0, fontFamily: 'var(--font-headings)' }}>
-                CEA's Flagship Products
+                CEA Flagship Products
               </h1>
               
               <p style={{ fontSize: '19px', color: 'rgba(255,255,255,0.78)', lineHeight: '1.6', margin: 0, maxWidth: '680px' }}>
@@ -782,8 +782,8 @@ export default function Products() {
                 <div style={{ display: 'flex', justifyContent: 'flex-start', borderTop: '1px solid rgba(255, 255, 255, 0.06)', paddingTop: '16px', marginTop: '20px' }}>
                   <button 
                     onClick={() => selectProductAndScroll(
-                      item.solution === "Workflow Automation Solutions" ? "VERICEA Manufacturing" : 
-                      item.solution === "Analytics Dashboards" ? "VERICEA Manufacturing" : 
+                      item.solution === "Workflow Automation Solutions" ? "Vericea Manufacturing" : 
+                      item.solution === "Analytics Dashboards" ? "Vericea Manufacturing" : 
                       item.solution === "Courier Cost Management" ? "Courier Cost Management System" :
                       item.solution
                     )}
@@ -842,14 +842,14 @@ export default function Products() {
                   const sizeClass = isLarge ? 'capability-panel--large' : 'capability-panel--medium';
                   const keySafe = st.title.toLowerCase().replace(/\s+/g, '-');
                   const images: Record<string, string> = {
-                    'industry-focused-design': 'https://images.unsplash.com/photo-1542831371-d531d36971e6?auto=format&fit=crop&w=1400&q=60',
-                    'scalable-architecture': 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1400&q=60',
-                    'real-time-visibility': 'https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=1400&q=60',
-                    'compliance-readiness': 'https://images.unsplash.com/photo-1554774853-bc6b5319b19b?auto=format&fit=crop&w=1400&q=60',
-                    'data-driven-decisions': 'https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=1400&q=60',
-                    'continuous-innovation': 'https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=1400&q=60',
-                    'operational-efficiency': 'https://images.unsplash.com/photo-1581091012184-7e0f3a1d3f47?auto=format&fit=crop&w=1400&q=60',
-                    'long-term-business-value': 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1400&q=60',
+                    'industry-focused-design': '/images/ind_manufacturing.jpg',
+                    'scalable-architecture': '/images/ind_engineering.jpg',
+                    'real-time-visibility': '/images/industrial_control_room_1780849774868.png',
+                    'compliance-readiness': '/images/ind_compliance.jpg',
+                    'data-driven-decisions': '/images/quality_audit_1780850801169.png',
+                    'continuous-innovation': '/images/ind_construction.jpg',
+                    'operational-efficiency': '/images/manufacturing_floor_1780850784796.png',
+                    'long-term-business-value': '/images/business_consultation_1780850767888.png',
                   };
                   const imageUrl = images[keySafe] || images['data-driven-decisions'];
 
@@ -1068,8 +1068,8 @@ export default function Products() {
                     value={formData.product}
                     onChange={handleInputChange}
                   >
-                    <option value="VERICEA Manufacturing">VERICEA Manufacturing</option>
-                    <option value="VERICEA Compliance">VERICEA Compliance</option>
+                    <option value="Vericea Manufacturing">Vericea Manufacturing</option>
+                    <option value="Vericea Compliance">Vericea Compliance</option>
                     <option value="FactSafe">FactSafe (Risk Platform)</option>
                     <option value="Courier Cost Management">Courier Cost Management System</option>
                     <option value="Family Tree Platform">Family Tree Platform</option>

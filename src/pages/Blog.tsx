@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Calendar,
@@ -41,7 +41,7 @@ export default function Blog() {
       category: 'Manufacturing Excellence',
       title: 'Improving Manufacturing Efficiency Through Production Tracking',
       tagline: 'Track. Measure. Improve.',
-      inspiredBy: 'VERICEA Manufacturing',
+      inspiredBy: 'Vericea Manufacturing',
       summary: 'How manufacturers can improve operational visibility, efficiency and productivity through real-time production monitoring.',
       image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80',
       readTime: '6 min read',
@@ -52,7 +52,7 @@ export default function Blog() {
       category: 'Compliance & Audits',
       title: 'Why Compliance Monitoring Should Be Continuous',
       tagline: 'Create. Maintain. Monitor.',
-      inspiredBy: 'VERICEA Compliance',
+      inspiredBy: 'Vericea Compliance',
       summary: 'How organizations can strengthen audit readiness through structured compliance management and encrypted evidence locks.',
       image: 'https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=800&q=80',
       readTime: '5 min read',

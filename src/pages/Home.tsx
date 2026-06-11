@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback } from 'react';
+﻿import { useState, useEffect, useRef, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { 
@@ -159,7 +159,7 @@ const flagshipPlatforms = [
   {
     id: "vericea-manufacturing",
     index: 1,
-    name: "VERICEA Manufacturing",
+    name: "Vericea Manufacturing",
     category: "Manufacturing Intelligence",
     tagline: "Real-Time Production Visibility & Defect Intelligence",
     capabilities: ["Production Tracking", "Defect Monitoring", "Operational Dashboards"],
@@ -172,7 +172,7 @@ const flagshipPlatforms = [
   {
     id: "vericea-compliance",
     index: 2,
-    name: "VERICEA Compliance",
+    name: "Vericea Compliance",
     category: "Compliance Governance",
     tagline: "Audit Readiness & Compliance Governance Platform",
     capabilities: ["Audit Scheduling", "Evidence Tracking", "Compliance Analytics"],
@@ -1216,8 +1216,8 @@ export default function Home() {
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
           <div className="section-title-wrapper">
             <span className="section-subtitle" style={{ color: 'var(--accent)' }}>Production Tracking Tool</span>
-            <h2 className="section-title" style={{ color: '#ffffff' }}>Watch VERICEA in Action</h2>
-            <p className="section-desc" style={{ color: 'rgba(255,255,255,0.7)' }}>Watch how VERICEA improves manufacturing efficiency, production visibility and operational performance.</p>
+            <h2 className="section-title" style={{ color: '#ffffff' }}>Watch Vericea in Action</h2>
+            <p className="section-desc" style={{ color: 'rgba(255,255,255,0.7)' }}>Watch how Vericea improves manufacturing efficiency, production visibility and operational performance.</p>
           </div>
 
           <motion.div 
@@ -1249,7 +1249,7 @@ export default function Home() {
                 >
                   <Play fill="currentColor" size={28} />
                 </motion.button>
-                <h3 className="video-info-title">Launch VERICEA Demo Walkthrough</h3>
+                <h3 className="video-info-title">Launch Vericea Demo Walkthrough</h3>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', justifyContent: 'center', marginTop: '6px' }}>
                   <span className="video-info-subtitle" style={{ color: 'var(--accent)' }}>Operations Overview â€¢ 2:40 mins</span>
                   <span style={{ fontSize: '11px', fontWeight: '700', padding: '3px 8px', background: 'rgba(245, 158, 11, 0.15)', color: 'var(--cta)', borderRadius: '4px', border: '1px solid rgba(245, 158, 11, 0.3)' }}>COMING SOON</span>
@@ -1284,7 +1284,7 @@ export default function Home() {
               },
               {
                 title: 'Product Innovation',
-                desc: 'A robust product line including VERICEA MES, Compliance trackers, and FactSafe assessments.',
+                desc: 'A robust product line including Vericea MES, Compliance trackers, and FactSafe assessments.',
                 icon: <Rocket />
               },
               {
@@ -1559,9 +1559,9 @@ export default function Home() {
                   <Cpu size={36} style={{ color: 'var(--accent)' }} />
                   <span className="map-pulse" style={{ position: 'absolute', width: '72px', height: '72px', borderRadius: '50%', border: '2px solid var(--accent)', opacity: 0.4 }}></span>
                 </div>
-                <h3 style={{ color: '#fff', marginBottom: '12px', fontSize: '24px', fontFamily: 'var(--font-headings)' }}>VERICEA Production Tracking Walkthrough</h3>
+                <h3 style={{ color: '#fff', marginBottom: '12px', fontSize: '24px', fontFamily: 'var(--font-headings)' }}>Vericea Production Tracking Walkthrough</h3>
                 <p style={{ color: '#94a3b8', fontSize: '15px', maxWidth: '480px', marginBottom: '32px', lineHeight: '1.5' }}>
-                  This overlay represents the interactive media player for the VERICEA Manufacturing software. In a production environment, this embeds the explainer video walk-through.
+                  This overlay represents the interactive media player for the Vericea Manufacturing software. In a production environment, this embeds the explainer video walk-through.
                 </p>
                 <button onClick={() => setIsVideoModalOpen(false)} className="btn btn-cta btn-sm">
                   Close Walkthrough Demo

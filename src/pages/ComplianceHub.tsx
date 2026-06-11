@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { 
@@ -28,7 +28,7 @@ export default function ComplianceHub() {
   // State for Major Audit Types (Expandable on click)
   const [expandedAudit, setExpandedAudit] = useState<number | null>(null);
 
-  // State for "How VERICEA Works" Interactive Tabs
+  // State for "How Vericea Works" Interactive Tabs
   const [activeTab, setActiveTab] = useState<number>(0);
 
   // State for "Audit Command Center" selected stage
@@ -221,7 +221,7 @@ export default function ComplianceHub() {
     }
   ];
 
-  // 5. "How VERICEA Works" Interactive Tabs Data
+  // 5. "How Vericea Works" Interactive Tabs Data
   const worksTabs = [
     {
       title: 'Plan',
@@ -242,7 +242,7 @@ export default function ComplianceHub() {
     {
       title: 'Verify',
       subtitle: 'Rich Media Evidence Collection',
-      desc: 'Prevent verbal approximations. Inspectors capture and attach real-time evidence directly to specific checklist questions. Store photos with annotations, voice notes explaining issues, legal PDF uploads, and video records into the secure VERICEA Evidence Locker.',
+      desc: 'Prevent verbal approximations. Inspectors capture and attach real-time evidence directly to specific checklist questions. Store photos with annotations, voice notes explaining issues, legal PDF uploads, and video records into the secure Vericea Evidence Locker.',
       features: ['Secure Evidence Locker', 'Photo Annotations & Tags', 'Multi-format File Uploads'],
       image: '/images/vericea_dashboard_mockup.png',
       badge: 'Evidence Management'
@@ -808,7 +808,7 @@ export default function ComplianceHub() {
                   whileTap={{ scale: 0.98 }}
                   style={{ color: 'var(--c-navy)' }}
                 >
-                  Explore VERICEA Compliance
+                  Explore Vericea Compliance
                   <ArrowRight size={16} />
                 </motion.button>
                 <motion.button 
@@ -1018,14 +1018,14 @@ export default function ComplianceHub() {
         </div>
       </section>
 
-      {/* --- HOW VERICEA COMPLIANCE WORKS SECTION --- */}
+      {/* --- HOW Vericea COMPLIANCE WORKS SECTION --- */}
       <section id="how-it-works" className="section" style={{ backgroundColor: 'var(--c-navy)' }}>
         <div className="container">
           <div className="section-title-wrapper" style={{ marginBottom: '56px' }}>
-            <span className="section-subtitle" style={{ color: 'var(--c-teal)' }}>How VERICEA Compliance Works</span>
+            <span className="section-subtitle" style={{ color: 'var(--c-teal)' }}>How Vericea Compliance Works</span>
             <h2 className="section-title" style={{ color: '#ffffff' }}>A Smarter Way To Manage Compliance</h2>
             <p className="section-desc" style={{ color: 'var(--c-slate-700)' }}>
-              VERICEA provides an end-to-end digital dashboard to map, measure, and scale compliance management processes.
+              Vericea provides an end-to-end digital dashboard to map, measure, and scale compliance management processes.
             </p>
           </div>
 
@@ -1200,7 +1200,7 @@ export default function ComplianceHub() {
             Ready To Strengthen Your Compliance Framework?
           </h2>
           <p style={{ color: 'rgba(255, 255, 255, 0.8)', fontSize: '16px', lineHeight: '1.6', marginBottom: '36px' }}>
-            Transform compliance from a reactive activity into a structured and continuously monitored business process with VERICEA Compliance.
+            Transform compliance from a reactive activity into a structured and continuously monitored business process with Vericea Compliance.
           </p>
 
           <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>

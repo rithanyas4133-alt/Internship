@@ -1434,13 +1434,13 @@ export default function About() {
         <div className="container">
           <motion.div className="section-title-wrapper" {...fadeInUp}>
             <span className="section-subtitle">Leadership</span>
-            <h2 className="section-title">Founder & Director</h2>
+            <h2 className="section-title">FOUNDER DIRECTOR</h2>
           </motion.div>
           <motion.div className="founder-card" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-80px' }} transition={{ duration: 0.7 }}>
             <div className="founder-grid">
               <div className="founder-photo-area">
                 <div className="founder-avatar"><span className="founder-avatar-initials">MD</span></div>
-                <div className="founder-name-area"><h3>M.D. Manohar</h3><p>Founder & Director</p></div>
+                <div className="founder-name-area"><h3>M.D. Manohar</h3><p>FOUNDER DIRECTOR</p></div>
               </div>
               <div className="founder-details">
                 <span className="section-subtitle">Executive Profile</span>

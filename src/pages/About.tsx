@@ -225,6 +225,48 @@ export default function About() {
         </div>
       </section>
 
+      {/* ===== SECTION 3.5: CORE VALUES ===== */}
+      <section className="about-values-section" style={{ padding: '100px 0', backgroundColor: 'var(--secondary-bg)', borderTop: '1px solid var(--border-color)', borderBottom: '1px solid var(--border-color)' }}>
+        <div className="container">
+          <motion.div className="section-title-wrapper" {...fadeInUp}>
+            <span className="section-subtitle" style={{ color: 'var(--accent)' }}>Our Pillars</span>
+            <h2 className="section-title">Core Values</h2>
+            <p className="section-desc">The principles that govern our projects, decisions and operations.</p>
+          </motion.div>
+
+          <motion.div
+            className="grid-5"
+            variants={staggerContainer}
+            initial="initial"
+            whileInView="whileInView"
+            viewport={{ once: true }}
+            style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '20px', marginTop: '40px' }}
+          >
+            {[
+              { title: 'Quality', desc: 'Delivering robust, high-performance enterprise systems.', icon: <CheckCircle size={24} style={{ color: 'var(--supporting)' }} /> },
+              { title: 'Integrity', desc: 'Transparent, honest, and ethical partnership at all levels.', icon: <ShieldCheck size={24} style={{ color: 'var(--accent)' }} /> },
+              { title: 'Innovation', desc: 'Continuous research driving advanced technological tools.', icon: <Lightbulb size={24} style={{ color: 'var(--supporting)' }} /> },
+              { title: 'Accountability', desc: 'Taking complete ownership of our promises and milestones.', icon: <Target size={24} style={{ color: 'var(--accent)' }} /> },
+              { title: 'Reliability', desc: 'Serving as a dependable, long-term technical partner.', icon: <Award size={24} style={{ color: 'var(--supporting)' }} /> }
+            ].map((value, idx) => (
+              <motion.div
+                key={idx}
+                variants={staggerItem}
+                className="glass-card"
+                whileHover={{ y: -6, borderColor: 'var(--accent)' }}
+                style={{ padding: '28px 20px', textAlign: 'center', background: 'var(--card-bg)', border: '1px solid var(--border-color)', borderRadius: 'var(--border-radius-md)' }}
+              >
+                <div style={{ width: '48px', height: '48px', borderRadius: '50%', backgroundColor: 'rgba(255,255,255,0.03)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px' }}>
+                  {value.icon}
+                </div>
+                <h3 style={{ fontSize: '18px', fontWeight: '700', color: 'var(--primary)', marginBottom: '8px' }}>{value.title}</h3>
+                <p style={{ fontSize: '13px', color: 'var(--secondary)', lineHeight: '1.5', margin: 0 }}>{value.desc}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
       {/* ===== SECTION 4: FOUNDER & LEADERSHIP ===== */}
       <section className="about-founder-section">
         <div className="container">

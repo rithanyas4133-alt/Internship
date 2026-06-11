@@ -279,15 +279,15 @@ export default function ComplianceHub() {
       <style dangerouslySetInnerHTML={{ __html: `
         /* Theme Overrides & Global Component Styles */
         :root {
-          --c-navy: #0F172A;
+          --c-navy: #0A0F1C;
           --c-teal: #06B6D4;
-          --c-gold: #EAB308;
-          --c-slate-50: #090D1A;
-          --c-slate-100: #020617;
+          --c-gold: #F59E0B;
+          --c-slate-50: #111827;
+          --c-slate-100: #0A0F1C;
           --c-slate-200: rgba(255, 255, 255, 0.08);
-          --c-slate-700: #cbd5e1;
+          --c-slate-700: #9CA3AF;
           --c-slate-800: rgba(255, 255, 255, 0.03);
-          --c-slate-900: #ffffff;
+          --c-slate-900: #E5E7EB;
         }
 
         .compliance-hero-badge {
@@ -331,7 +331,7 @@ export default function ComplianceHub() {
 
         /* Why Compliance Card Design */
         .why-card {
-          background: #ffffff;
+          background: rgba(17, 24, 39, 0.65);
           border: 1px solid var(--c-slate-200);
           border-radius: var(--border-radius-lg);
           padding: 36px 28px;
@@ -788,11 +788,11 @@ export default function ComplianceHub() {
                 <span>Compliance Excellence Platform</span>
               </div>
               
-              <h1 className="premium-text-gradient" style={{ fontSize: '56px', lineHeight: '1.1', margin: '0 0 8px 0', letterSpacing: '-2.5px', fontWeight: 800 }}>
-                Compliance Hub
+              <h1 className="premium-text-gradient" style={{ fontSize: '46px', lineHeight: '1.2', margin: '0 0 16px 0', letterSpacing: '-1.5px', fontWeight: 800 }}>
+                Compliance Excellence Through Structured Audit Management
               </h1>
               
-              <h3 style={{ fontSize: '24px', color: 'var(--c-gold)', fontWeight: 600, marginBottom: '20px', letterSpacing: '0.5px' }}>
+              <h3 style={{ fontSize: '20px', color: 'var(--c-gold)', fontWeight: 600, marginBottom: '24px', letterSpacing: '0.5px' }}>
                 Create. Maintain. Monitor.
               </h3>
               

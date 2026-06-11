@@ -195,7 +195,7 @@ export default function Blog() {
       initial="initial"
       animate="animate"
       variants={pageTransition}
-      style={{ backgroundColor: '#F8FAFC' }}
+      style={{ backgroundColor: 'var(--primary-bg)' }}
     >
       {/* SECTION 1: HERO SECTION */}
       <section
@@ -203,7 +203,7 @@ export default function Blog() {
         style={{
           position: 'relative',
           padding: '180px 0 120px 0',
-          backgroundImage: `linear-gradient(rgba(15, 23, 42, 0.88), rgba(15, 23, 42, 0.94)), url("https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80")`,
+          backgroundImage: `linear-gradient(rgba(10, 15, 28, 0.88), rgba(10, 15, 28, 0.94)), url("https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80")`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           color: '#F8FAFC',
@@ -221,14 +221,14 @@ export default function Blog() {
               alignItems: 'center',
               gap: '8px',
               padding: '6px 16px',
-              backgroundColor: 'rgba(20, 184, 166, 0.15)',
-              color: '#14B8A6',
+              backgroundColor: 'rgba(6, 182, 212, 0.15)',
+              color: 'var(--supporting)',
               borderRadius: '30px',
               fontSize: '13px',
               fontWeight: 700,
               letterSpacing: '2px',
               marginBottom: '20px',
-              border: '1px solid rgba(20, 184, 166, 0.25)'
+              border: '1px solid rgba(6, 182, 212, 0.25)'
             }}
           >
             <Sparkles size={14} />
@@ -271,7 +271,7 @@ export default function Blog() {
             left: 0,
             right: 0,
             height: '24px',
-            backgroundColor: '#F8FAFC',
+            backgroundColor: 'var(--primary-bg)',
             clipPath: 'ellipse(60% 100% at 50% 100%)'
           }}
         ></div>
@@ -282,7 +282,7 @@ export default function Blog() {
         <div className="container">
           <div className="section-title-wrapper" style={{ marginBottom: '56px', textAlign: 'left', marginLeft: '0' }}>
             <span className="section-subtitle" style={{ color: 'var(--supporting)' }}>EDITOR'S PICKS</span>
-            <h2 className="section-title" style={{ fontSize: '38px', color: '#0F172A' }}>Featured Insights</h2>
+            <h2 className="section-title" style={{ fontSize: '38px' }}>Featured Insights</h2>
             <p className="section-desc" style={{ maxWidth: '600px' }}>Deep-dive analyses and strategic frameworks selected by our industrial leadership team.</p>
           </div>
 
@@ -301,10 +301,10 @@ export default function Blog() {
                   overflow: 'hidden',
                   display: 'flex',
                   flexDirection: 'column',
-                  backgroundColor: '#FFFFFF',
+                  backgroundColor: 'var(--secondary-bg)',
                   borderRadius: '16px',
-                  border: '1px solid rgba(15, 23, 42, 0.06)',
-                  boxShadow: '0 10px 30px -10px rgba(15, 23, 42, 0.08)'
+                  border: '1px solid var(--border-color)',
+                  boxShadow: '0 10px 30px -10px rgba(0, 0, 0, 0.35)'
                 }}
               >
                 {/* Image header with category badge */}
@@ -314,7 +314,7 @@ export default function Blog() {
                     alt={article.title}
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                   />
-                  <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(15,23,42,0) 60%, rgba(15,23,42,0.4) 100%)' }}></div>
+                  <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(10,15,28,0) 60%, rgba(10,15,28,0.4) 100%)' }}></div>
                   <span
                     style={{
                       position: 'absolute',
@@ -322,7 +322,7 @@ export default function Blog() {
                       left: '16px',
                       fontSize: '11px',
                       fontWeight: 700,
-                      backgroundColor: '#0F172A',
+                      backgroundColor: 'var(--primary-bg)',
                       color: '#FFFFFF',
                       padding: '4px 12px',
                       borderRadius: '4px',
@@ -337,11 +337,11 @@ export default function Blog() {
                 {/* Editorial Content */}
                 <div style={{ padding: '32px', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
-                    <span style={{ fontSize: '11px', color: '#14B8A6', fontWeight: 700, letterSpacing: '1.5px', textTransform: 'uppercase' }}>
+                    <span style={{ fontSize: '11px', color: 'var(--supporting)', fontWeight: 700, letterSpacing: '1.5px', textTransform: 'uppercase' }}>
                       {article.tagline}
                     </span>
                     <span style={{ color: '#94a3b8', fontSize: '12px' }}>•</span>
-                    <span style={{ fontSize: '11px', color: '#64748B', fontWeight: 500 }}>
+                    <span style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 500 }}>
                       {article.inspiredBy}
                     </span>
                   </div>
@@ -349,7 +349,7 @@ export default function Blog() {
                   <h3
                     style={{
                       fontSize: '21px',
-                      color: '#0F172A',
+                      color: '#FFFFFF',
                       marginBottom: '14px',
                       lineHeight: 1.35,
                       fontWeight: 700,
@@ -359,7 +359,7 @@ export default function Blog() {
                     {article.title}
                   </h3>
 
-                  <p style={{ color: '#64748B', fontSize: '14.5px', lineHeight: 1.6, marginBottom: '24px', flexGrow: 1 }}>
+                  <p style={{ color: 'var(--text-muted)', fontSize: '14.5px', lineHeight: 1.6, marginBottom: '24px', flexGrow: 1 }}>
                     {article.summary}
                   </p>
 
@@ -370,7 +370,7 @@ export default function Blog() {
                       justifyContent: 'space-between',
                       fontSize: '12px',
                       color: '#94a3b8',
-                      borderTop: '1px solid #f1f5f9',
+                      borderTop: '1px solid var(--border-color)',
                       paddingTop: '20px'
                     }}
                   >
@@ -447,14 +447,14 @@ export default function Blog() {
                   whileHover={{ y: -8, transition: { duration: 0.25 } }}
                   className="product-card"
                   style={{
-                    backgroundColor: '#FFFFFF',
-                    border: '1px solid rgba(15, 23, 42, 0.06)',
+                    backgroundColor: 'var(--secondary-bg)',
+                    border: '1px solid var(--border-color)',
                     borderRadius: '16px',
                     overflow: 'hidden',
                     display: 'flex',
                     flexDirection: 'column',
                     height: '100%',
-                    boxShadow: '0 4px 20px -2px rgba(15, 23, 42, 0.04)'
+                    boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3)'
                   }}
                 >
                   {/* Thumbnail */}
@@ -481,14 +481,14 @@ export default function Blog() {
                     >
                       {insight.category}
                     </span>
-                    <h3 style={{ fontSize: '18px', color: '#0F172A', fontWeight: 700, lineHeight: 1.4, margin: '0' }}>
+                    <h3 style={{ fontSize: '18px', color: '#FFFFFF', fontWeight: 700, lineHeight: 1.4, margin: '0' }}>
                       {insight.title}
                     </h3>
                   </div>
 
                   {/* Body excerpt */}
                   <div style={{ padding: '0 24px 24px 24px', flexGrow: 1 }}>
-                    <p style={{ color: '#64748B', fontSize: '13.5px', lineHeight: 1.6, margin: '0' }}>
+                    <p style={{ color: 'var(--text-muted)', fontSize: '13.5px', lineHeight: 1.6, margin: '0' }}>
                       {insight.summary}
                     </p>
                   </div>
@@ -497,8 +497,8 @@ export default function Blog() {
                   <div
                     style={{
                       padding: '16px 24px',
-                      backgroundColor: '#F8FAFC',
-                      borderTop: '1px solid #f1f5f9',
+                      backgroundColor: 'rgba(31, 41, 55, 0.4)',
+                      borderTop: '1px solid var(--border-color)',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'space-between',
@@ -516,7 +516,7 @@ export default function Blog() {
                         display: 'inline-flex',
                         alignItems: 'center',
                         gap: '4px',
-                        color: '#0F172A',
+                        color: 'var(--supporting)',
                         fontWeight: 700,
                         cursor: 'pointer',
                         fontSize: '13px'
@@ -551,11 +551,11 @@ export default function Blog() {
                 viewport={{ once: true }}
                 className="glass-card"
                 style={{
-                  backgroundColor: '#FFFFFF',
+                  backgroundColor: 'var(--secondary-bg)',
                   borderRadius: '16px',
                   padding: '40px',
-                  border: '1px solid rgba(15, 23, 42, 0.05)',
-                  boxShadow: '0 8px 30px rgba(15, 23, 42, 0.03)',
+                  border: '1px solid var(--border-color)',
+                  boxShadow: '0 10px 30px rgba(0, 0, 0, 0.2)',
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'space-between',
@@ -563,7 +563,7 @@ export default function Blog() {
                 }}
               >
                 {/* Visual quote mark */}
-                <div style={{ position: 'absolute', top: '32px', right: '32px', color: '#f1f5f9' }}>
+                <div style={{ position: 'absolute', top: '32px', right: '32px', color: 'rgba(255,255,255,0.03)' }}>
                   <Quote size={54} strokeWidth={1} fill="currentColor" />
                 </div>
 
@@ -573,8 +573,8 @@ export default function Blog() {
                       display: 'inline-block',
                       fontSize: '11px',
                       fontWeight: 700,
-                      color: '#14B8A6',
-                      backgroundColor: 'rgba(20, 184, 166, 0.06)',
+                      color: 'var(--supporting)',
+                      backgroundColor: 'rgba(6, 182, 212, 0.12)',
                       padding: '4px 10px',
                       borderRadius: '4px',
                       textTransform: 'uppercase',
@@ -588,7 +588,7 @@ export default function Blog() {
                   <p
                     style={{
                       fontSize: '16px',
-                      color: '#1E293B',
+                      color: 'var(--text-main)',
                       lineHeight: 1.7,
                       fontWeight: 500,
                       fontStyle: 'italic',
@@ -602,14 +602,14 @@ export default function Blog() {
 
                 <div
                   style={{
-                    borderTop: '1px solid #f1f5f9',
+                    borderTop: '1px solid var(--border-color)',
                     paddingTop: '20px',
                     display: 'flex',
                     flexDirection: 'column'
                   }}
                 >
-                  <span style={{ fontSize: '15px', color: '#0F172A', fontWeight: 700 }}>{q.author}</span>
-                  <span style={{ fontSize: '13px', color: '#64748B' }}>{q.company}</span>
+                  <span style={{ fontSize: '15px', color: '#FFFFFF', fontWeight: 700 }}>{q.author}</span>
+                  <span style={{ fontSize: '13px', color: 'var(--text-muted)' }}>{q.company}</span>
                 </div>
               </motion.div>
             ))}
@@ -628,11 +628,11 @@ export default function Blog() {
             className="glass-card"
             style={{
               padding: '60px 48px',
-              border: '1px solid rgba(37, 99, 235, 0.1)',
+              border: '1px solid var(--border-color)',
               borderRadius: '20px',
               textAlign: 'center',
-              backgroundColor: '#FFFFFF',
-              boxShadow: '0 20px 40px -20px rgba(15, 23, 42, 0.1)'
+              backgroundColor: 'var(--secondary-bg)',
+              boxShadow: '0 20px 40px -20px rgba(0, 0, 0, 0.5)'
             }}
           >
             <div
@@ -651,11 +651,11 @@ export default function Blog() {
               <Mail size={24} />
             </div>
 
-            <h2 style={{ fontSize: '32px', fontWeight: 800, color: '#0F172A', marginBottom: '12px' }}>
+            <h2 style={{ fontSize: '32px', fontWeight: 800, color: '#FFFFFF', marginBottom: '12px' }}>
               Stay Updated With Industry Insights
             </h2>
 
-            <p style={{ color: '#64748B', fontSize: '16px', marginBottom: '36px', maxWidth: '580px', margin: '0 auto 36px auto' }}>
+            <p style={{ color: 'var(--text-muted)', fontSize: '16px', marginBottom: '36px', maxWidth: '580px', margin: '0 auto 36px auto' }}>
               Receive updates on enterprise technology, manufacturing innovation and compliance best practices.
             </p>
 
@@ -691,7 +691,9 @@ export default function Blog() {
                     style={{
                       height: '50px',
                       borderRadius: '8px',
-                      border: '1.5px solid rgba(15, 23, 42, 0.12)',
+                      border: '1.5px solid var(--border-color)',
+                      backgroundColor: 'var(--tertiary-bg)',
+                      color: 'var(--text-main)',
                       padding: '0 18px',
                       fontSize: '15px'
                     }}
@@ -734,11 +736,11 @@ export default function Blog() {
               <div
                 key={idx}
                 style={{
-                  border: '2px dashed rgba(15, 23, 42, 0.08)',
+                  border: '2px dashed var(--border-color)',
                   borderRadius: '16px',
                   padding: '40px 32px',
                   textAlign: 'center',
-                  backgroundColor: 'rgba(248, 250, 252, 0.4)',
+                  backgroundColor: 'var(--secondary-bg)',
                   display: 'flex',
                   flexDirection: 'column',
                   alignItems: 'center',
@@ -750,8 +752,8 @@ export default function Blog() {
                     width: '44px',
                     height: '44px',
                     borderRadius: '50%',
-                    backgroundColor: 'rgba(15, 23, 42, 0.03)',
-                    color: '#94a3b8',
+                    backgroundColor: 'var(--tertiary-bg)',
+                    color: 'var(--supporting)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -774,7 +776,7 @@ export default function Blog() {
                   {fi.tag}
                 </span>
 
-                <h3 style={{ fontSize: '16px', color: '#64748B', fontWeight: 600, marginBottom: '16px', lineHeight: 1.4, maxWidth: '240px' }}>
+                <h3 style={{ fontSize: '16px', color: 'var(--text-main)', fontWeight: 600, marginBottom: '16px', lineHeight: 1.4, maxWidth: '240px' }}>
                   {fi.title}
                 </h3>
 
@@ -783,7 +785,7 @@ export default function Blog() {
                     fontSize: '12px',
                     color: '#94a3b8',
                     fontWeight: 500,
-                    backgroundColor: '#F1F5F9',
+                    backgroundColor: 'var(--tertiary-bg)',
                     padding: '4px 12px',
                     borderRadius: '20px'
                   }}
@@ -801,7 +803,7 @@ export default function Blog() {
         <div
           style={{
             padding: '100px 0',
-            background: 'linear-gradient(135deg, #0F172A 0%, #1E293B 100%)',
+            background: 'linear-gradient(135deg, var(--primary-bg) 0%, var(--secondary-bg) 100%)',
             color: '#FFFFFF',
             textAlign: 'center'
           }}

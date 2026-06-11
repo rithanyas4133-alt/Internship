@@ -119,7 +119,7 @@ export default function Contact() {
               </div>
 
               {/* Real Map visualizer */}
-              <div style={{ borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(15, 23, 42, 0.1)', boxShadow: 'var(--shadow-lg)', height: '320px' }}>
+              <div style={{ borderRadius: '12px', overflow: 'hidden', border: '1px solid var(--border-color)', boxShadow: 'var(--shadow-lg)', height: '320px' }}>
                 <iframe
                   title="Bangalore Office Location Map"
                   src="https://maps.google.com/maps?q=Century%20Marvel%20Apartments,%20Kempapura,%20Hebbal,%20Bangalore&t=&z=15&ie=UTF8&iwloc=&output=embed"

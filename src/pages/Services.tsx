@@ -52,75 +52,65 @@ export default function Services() {
       summary: "Aligning business objectives with practical technology strategies.",
       icon: <Briefcase size={22} />,
       accent: "var(--secondary)",
-      works: "We begin by understanding business goals, operational challenges and project requirements. Our consultants work closely with stakeholders to define project scope, identify risks and establish a structured execution plan.",
-      delivers: [
-        "Business Process Assessment",
-        "Requirement Analysis",
-        "Technology Roadmap",
-        "Project Planning",
-        "Risk Management Strategy"
-      ],
-      outcome: "Improved planning, reduced project risks and successful execution."
+      challenges: "Misaligned system implementations, operational inefficiencies, uncontrolled project scope creep, communication gaps across floor teams.",
+      approach: "Process mapping diagnostics, clear roadmap scoping, milestone setting, cross-team accountability.",
+      techStack: "Microsoft Project, JIRA, Confluence, Custom Advisory Frameworks.",
+      roadmap: "Discovery scoping (Weeks 1-2) -> Milestone planning (Weeks 3-4) -> Resource allocation (Week 5) -> Operational tracking (Ongoing).",
+      outcomes: "Transparent, predictable project execution on budget and schedule.",
+      benefits: "100% project visibility, optimized capital allocation.",
+      kpis: "On-time delivery rate, Budget adherence index, Scope change control."
     },
     {
       title: "Application Development",
       summary: "Building applications that streamline and automate business operations.",
       icon: <Monitor size={22} />,
       accent: "var(--accent)",
-      works: "We analyze existing workflows and identify opportunities to improve efficiency through customized software solutions.",
-      delivers: [
-        "Enterprise Applications",
-        "Business Portals",
-        "Workflow Automation",
-        "Dashboard Solutions",
-        "System Integrations"
-      ],
-      outcome: "Improved productivity and operational visibility."
+      challenges: "Disconnected custom systems, manual paperwork bottlenecks, lack of real-time operational data.",
+      approach: "Custom enterprise web application blueprints, high-availability data integrations.",
+      techStack: "React, TypeScript, Node.js, PostgreSQL, Docker.",
+      roadmap: "Requirements blueprint (Weeks 1-3) -> Schema development (Weeks 4-6) -> UI/UX sprint (Weeks 7-9) -> Core coding (Weeks 10-16) -> Deploy (Weeks 17-18).",
+      outcomes: "Streamlined automated operations, custom cloud dashboard utility.",
+      benefits: "Elimination of paper reports, 24/7 web access.",
+      kpis: "Form automation rate, Page load times (under 1.5s), Data capture accuracy."
     },
     {
       title: "Product Development",
       summary: "Transforming ideas into scalable and reliable software products.",
       icon: <Layers size={22} />,
       accent: "var(--cta)",
-      works: "We convert concepts into software products through architecture planning, development, testing and deployment.",
-      delivers: [
-        "Product Architecture",
-        "UI/UX Design",
-        "Software Development",
-        "Quality Assurance",
-        "Product Enhancement"
-      ],
-      outcome: "Future-ready software products designed for growth."
+      challenges: "Launching modular software applications without architectural foresight, leading to unscalable codebases.",
+      approach: "Modular SaaS platform architecture, decoupled RESTful APIs, continuous R&D feedback loops.",
+      techStack: "Python, Go, React, Kubernetes, AWS.",
+      roadmap: "Product specification (Weeks 1-4) -> Prototype build (Weeks 5-8) -> Core sprints (Weeks 9-18) -> Beta release (Weeks 19-22) -> Scale deployment (Weeks 23+).",
+      outcomes: "Clean, copyright-protected, enterprise-grade packaged software.",
+      benefits: "Proprietary software equity, high feature scalability.",
+      kpis: "Modular scaling index, API response latency, Code coverage (85%+)."
     },
     {
       title: "Mobility Solutions",
       summary: "Empowering teams through mobile-first business applications.",
       icon: <Smartphone size={22} />,
       accent: "#ec4899",
-      works: "We build mobile solutions that enable employees and stakeholders to access information and manage workflows from anywhere.",
-      delivers: [
-        "Mobile Applications",
-        "Workflow Tracking",
-        "Mobile Dashboards",
-        "Field Data Collection",
-        "Real-Time Reporting"
-      ],
-      outcome: "Faster decision-making and improved collaboration."
+      challenges: "Floor inspectors, logistics workers, and field supervisors unable to log status live in real-time due to deskbound applications or offline areas.",
+      approach: "Mobile-first native and hybrid applications, offline-first sync data storage.",
+      techStack: "React Native, Flutter, SQLite, GraphQL.",
+      roadmap: "Mobile UI design (Weeks 1-2) -> Offline database setup (Weeks 3-4) -> Device integration (Weeks 5-8) -> App store build (Weeks 9-10).",
+      outcomes: "Live field reporting, automated synchronization when online.",
+      benefits: "Dynamic floor entry, immediate alert dispatching.",
+      kpis: "Mobile form entry time, Offline-sync recovery success (100%), Active floor session rate."
     },
     {
       title: "Application Support & Maintenance",
       summary: "Ensuring systems remain reliable, secure and optimized.",
       icon: <Headset size={22} />,
       accent: "#10b981",
-      works: "After deployment, we continue to support and enhance applications to ensure long-term performance and reliability.",
-      delivers: [
-        "Performance Monitoring",
-        "Issue Resolution",
-        "Security Updates",
-        "Feature Enhancements",
-        "Technical Support"
-      ],
-      outcome: "Stable systems and reduced downtime."
+      challenges: "Costly application downtime, delayed bug resolutions, security vulnerabilities, lack of long-term updates.",
+      approach: "24/7 SLA help-desk systems, periodic security patches, server performance tuning.",
+      techStack: "Datadog, Prometheus, Grafana, SLA Desk tools.",
+      roadmap: "System log hookups (Week 1) -> Performance baselining (Weeks 2-3) -> Daily logs review (Ongoing) -> Monthly security audit (Recurring).",
+      outcomes: "99.9% uptime compliance, secure system operation.",
+      benefits: "Operational peace of mind, immediate support contact.",
+      kpis: "Mean time to resolution (MTTR < 2h), System uptime percentage, Security vulnerability score (0)."
     }
   ];
 
@@ -280,8 +270,8 @@ export default function Services() {
                   layout
                   onClick={() => setExpandedCard(isExpanded ? null : index)}
                   style={{
-                    backgroundColor: '#ffffff',
-                    border: '1px solid rgba(15, 23, 42, 0.08)',
+                    backgroundColor: 'var(--secondary-bg)',
+                    border: '1px solid var(--border-color)',
                     borderRadius: '12px',
                     padding: '24px 32px',
                     boxShadow: 'var(--shadow-sm)',
@@ -338,48 +328,87 @@ export default function Services() {
                         animate={{ opacity: 1, height: 'auto' }}
                         exit={{ opacity: 0, height: 0 }}
                         transition={{ duration: 0.3 }}
-                        style={{ borderTop: '1px solid rgba(15, 23, 42, 0.08)', paddingTop: '20px', marginTop: '4px' }}
+                        style={{ borderTop: '1px solid var(--border-color)', paddingTop: '24px', marginTop: '8px' }}
                         onClick={(e) => e.stopPropagation()} // Prevent collapse on details click
                       >
-                        <div className="grid-2" style={{ gap: '32px' }}>
-                          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px' }}>
+                          {/* Column 1 */}
+                          <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
                             <div>
-                              <h4 style={{ fontSize: '13px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px', color: card.accent, marginBottom: '6px' }}>
-                                How CEA Works
+                              <h4 style={{ fontSize: '12.5px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px', color: 'var(--supporting)', marginBottom: '6px', textAlign: 'left' }}>
+                                Business Challenges
                               </h4>
-                              <p style={{ fontSize: '14px', color: 'var(--text-main)', lineHeight: '1.6', margin: 0 }}>
-                                {card.works}
+                              <p style={{ fontSize: '13.5px', color: 'var(--text-muted)', lineHeight: '1.5', margin: 0, textAlign: 'left' }}>
+                                {card.challenges}
+                              </p>
+                            </div>
+                            
+                            <div>
+                              <h4 style={{ fontSize: '12.5px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px', color: 'var(--supporting)', marginBottom: '6px', textAlign: 'left' }}>
+                                CEA Approach
+                              </h4>
+                              <p style={{ fontSize: '13.5px', color: 'var(--text-main)', lineHeight: '1.5', margin: 0, textAlign: 'left' }}>
+                                {card.approach}
                               </p>
                             </div>
 
-                            <div style={{ 
-                              padding: '16px', 
-                              backgroundColor: 'var(--alternate-bg)', 
-                              borderRadius: '8px',
-                              borderLeft: `3px solid var(--accent)` 
-                            }}>
-                              <h4 style={{ fontSize: '12px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1.5px', color: 'var(--primary)', marginBottom: '4px' }}>
-                                Business Outcome
+                            <div>
+                              <h4 style={{ fontSize: '12.5px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px', color: 'var(--supporting)', marginBottom: '6px', textAlign: 'left' }}>
+                                Technology Stack
                               </h4>
-                              <p style={{ fontSize: '13.5px', color: 'var(--text-muted)', fontWeight: '600', margin: 0, lineHeight: '1.4' }}>
-                                {card.outcome}
+                              <p style={{ fontSize: '13.5px', color: 'var(--text-muted)', fontFamily: 'monospace', margin: 0, textAlign: 'left' }}>
+                                {card.techStack}
                               </p>
                             </div>
                           </div>
 
-                          <div>
-                            <h4 style={{ fontSize: '13px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px', color: card.accent, marginBottom: '12px' }}>
-                              What We Deliver
-                            </h4>
-                            <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '10px' }}>
-                              {card.delivers.map((item, idx) => (
-                                <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '13.5px', color: 'var(--text-main)', fontWeight: '600' }}>
-                                  <CheckCircle size={15} style={{ color: card.accent, flexShrink: 0 }} />
-                                  <span>{item}</span>
-                                </div>
-                              ))}
+                          {/* Column 2 */}
+                          <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+                            <div>
+                              <h4 style={{ fontSize: '12.5px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px', color: 'var(--accent)', marginBottom: '6px', textAlign: 'left' }}>
+                                Implementation Roadmap
+                              </h4>
+                              <p style={{ fontSize: '13.5px', color: 'var(--text-main)', lineHeight: '1.5', margin: 0, textAlign: 'left' }}>
+                                {card.roadmap}
+                              </p>
+                            </div>
+
+                            <div>
+                              <h4 style={{ fontSize: '12.5px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px', color: 'var(--accent)', marginBottom: '6px', textAlign: 'left' }}>
+                                Customer Benefits
+                              </h4>
+                              <p style={{ fontSize: '13.5px', color: 'var(--text-muted)', lineHeight: '1.5', margin: 0, textAlign: 'left' }}>
+                                {card.benefits}
+                              </p>
+                            </div>
+
+                            <div>
+                              <h4 style={{ fontSize: '12.5px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px', color: 'var(--accent)', marginBottom: '6px', textAlign: 'left' }}>
+                                Business KPIs
+                              </h4>
+                              <p style={{ fontSize: '13.5px', color: 'var(--text-main)', fontWeight: '600', margin: 0, textAlign: 'left' }}>
+                                {card.kpis}
+                              </p>
                             </div>
                           </div>
+                        </div>
+
+                        {/* Full-width bottom outcome panel */}
+                        <div style={{ 
+                          marginTop: '24px',
+                          padding: '16px 20px', 
+                          backgroundColor: 'rgba(255, 255, 255, 0.02)', 
+                          borderRadius: '8px',
+                          borderLeft: `4px solid var(--accent)`,
+                          border: '1px solid var(--border-color)',
+                          borderLeftWidth: '4px'
+                        }}>
+                          <h4 style={{ margin: '0 0 4px 0', fontSize: '11px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1.5px', color: 'var(--accent)', textAlign: 'left' }}>
+                            Expected Outcome:
+                          </h4>
+                          <p style={{ margin: 0, fontSize: '14px', color: 'var(--text-light)', fontWeight: '600', lineHeight: '1.4', textAlign: 'left' }}>
+                            {card.outcomes}
+                          </p>
                         </div>
                       </motion.div>
                     )}
@@ -394,7 +423,7 @@ export default function Services() {
       {/* ==================================================
           SECTION: OUR SOLUTION DELIVERY FRAMEWORK
           ================================================== */}
-      <section className="section" style={{ backgroundColor: '#ffffff' }}>
+      <section className="section">
         <div className="container">
           <div className="section-title-wrapper" style={{ marginBottom: '64px' }}>
             <span className="section-subtitle">Workflow & Rigor</span>
@@ -496,8 +525,8 @@ export default function Services() {
                 viewport={scrollReveal.viewport}
                 whileHover={{ y: -6, boxShadow: 'var(--shadow-xl)', borderColor: sol.accent }}
                 style={{
-                  backgroundColor: '#ffffff',
-                  border: '1px solid rgba(15, 23, 42, 0.08)',
+                  backgroundColor: 'var(--secondary-bg)',
+                  border: '1px solid var(--border-color)',
                   borderRadius: '12px',
                   padding: '32px 24px',
                   display: 'flex',
@@ -589,8 +618,8 @@ export default function Services() {
                 viewport={scrollReveal.viewport}
                 whileHover={{ y: -4, borderColor: 'var(--secondary)' }}
                 style={{
-                  backgroundColor: '#ffffff',
-                  border: '1px solid rgba(15, 23, 42, 0.06)',
+                  backgroundColor: 'var(--secondary-bg)',
+                  border: '1px solid var(--border-color)',
                   borderRadius: '8px',
                   padding: '24px 20px',
                   display: 'flex',
@@ -632,7 +661,7 @@ export default function Services() {
       {/* ==================================================
           CTA SECTION
           ================================================== */}
-      <section className="section section-dark" style={{ background: 'linear-gradient(135deg, #0F172A 0%, #1E293B 100%)', position: 'relative', overflow: 'hidden' }}>
+      <section className="section section-dark" style={{ background: 'linear-gradient(135deg, var(--primary-bg) 0%, var(--secondary-bg) 100%)', position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', top: '-10%', right: '-10%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(234, 179, 8, 0.08) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
         <div style={{ position: 'absolute', bottom: '-10%', left: '-10%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(6, 182, 212, 0.06) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
 

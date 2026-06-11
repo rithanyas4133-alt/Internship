@@ -7,7 +7,7 @@ import {
   Play, 
   Sparkles, 
   X,
-  CheckCircle,
+  Check,
   Calendar,
   Award,
   Globe,
@@ -20,12 +20,9 @@ import {
   Layers,
   Factory,
   ShieldCheck,
-  AlertTriangle,
   Truck,
   Network,
   Cog,
-  Shirt,
-  HeartHandshake,
   Rocket,
   Headset,
   Cpu,
@@ -35,11 +32,7 @@ import {
   BarChart3,
   CalendarDays,
   Wallet,
-  Clock,
-  Heart,
-  Target,
-  CircleDot,
-  TrendingUp
+  Clock
 } from 'lucide-react';
 
 
@@ -154,35 +147,358 @@ const solutions = [
 ];
 
 const partnersRow1 = [
-  { name: "Atlas Export Enterprises", icon: Globe, color: "#0E7490" },
-  { name: "Atlas Processing Mills", icon: Factory, color: "#F59E0B" },
-  { name: "Shripranav Textile Creations Pvt Ltd", icon: Layers, color: "#F59E0B" },
-  { name: "CBC Fashions (Asia) Pvt Ltd", icon: Shirt, color: "#EC4899" },
-  { name: "Ashwath Inc", icon: Building, color: "#6366F1" },
-  { name: "Kandhan Knits", icon: Layers, color: "#8B5CF6" },
-  { name: "Masturlal Pvt Ltd", icon: ShieldCheck, color: "#10B981" },
-  { name: "Research Manufacturing & Development Corporation", icon: Cpu, color: "#3B82F6" },
-  { name: "Omega Scientific", icon: Award, color: "#F59E0B" },
-  { name: "Mii Ret Cam", icon: Smartphone, color: "#0E7490" },
-  { name: "Dynamic Engineering", icon: Cog, color: "#6B7280" },
-  { name: "Zonestra USA", icon: Globe, color: "#0E7490" }
+  { name: "Bosch", icon: Cog, color: "#22D3EE" },
+  { name: "Siemens", icon: Cpu, color: "#D4AF37" },
+  { name: "Schneider Electric", icon: Layers, color: "#22D3EE" },
+  { name: "Honeywell", icon: ShieldCheck, color: "#D4AF37" },
+  { name: "ABB", icon: Cog, color: "#22D3EE" }
 ];
 
 const partnersRow2 = [
-  { name: "Solidaridad India", icon: HeartHandshake, color: "#10B981" },
-  { name: "Skilift Consulting Company", icon: TrendingUp, color: "#3B82F6" },
-  { name: "SkilFil Consultants", icon: Briefcase, color: "#6366F1" },
-  { name: "Catalyst Group", icon: Rocket, color: "#EC4899" },
-  { name: "Catalyst Management Services", icon: Award, color: "#F59E0B" },
-  { name: "Vrutti", icon: Users, color: "#8B5CF6" },
-  { name: "Swasti", icon: Heart, color: "#EF4444" },
-  { name: "Fuzhio", icon: Sparkles, color: "#F59E0B" },
-  { name: "GenYGolf Australia", icon: Target, color: "#10B981" },
-  { name: "UNODC Nigeria", icon: ShieldCheck, color: "#3B82F6" },
-  { name: "UNICEF India", icon: HeartHandshake, color: "#0E7490" },
-  { name: "Al Ansari Group UAE", icon: Building, color: "#6366F1" },
-  { name: "A", icon: CircleDot, color: "#F59E0B" }
+  { name: "Tata Group", icon: Building, color: "#D4AF37" },
+  { name: "TVS", icon: Factory, color: "#22D3EE" },
+  { name: "Ashok Leyland", icon: Truck, color: "#D4AF37" },
+  { name: "Larsen & Toubro", icon: Briefcase, color: "#22D3EE" },
+  { name: "Mahindra", icon: Factory, color: "#D4AF37" }
 ];
+
+// ── FLAGSHIP PLATFORMS DATA ──────────────────────────────────────────────────
+
+const flagshipPlatforms = [
+  {
+    id: "vericea-manufacturing",
+    index: 1,
+    name: "VERICEA Manufacturing",
+    category: "Manufacturing Intelligence",
+    tagline: "Real-Time Production Visibility & Defect Intelligence",
+    capabilities: ["Production Tracking", "Defect Monitoring", "Operational Dashboards"],
+    image: "/images/manufacturing_floor_1780850784796.png",
+    dashboardImage: "/images/product_tab_manufacturing_1780851000218.png",
+    path: "/products/vericea-manufacturing",
+    accentColor: "#22D3EE",
+    stat: { value: "22%", label: "OEE Increase" }
+  },
+  {
+    id: "vericea-compliance",
+    index: 2,
+    name: "VERICEA Compliance",
+    category: "Compliance Governance",
+    tagline: "Audit Readiness & Compliance Governance Platform",
+    capabilities: ["Audit Scheduling", "Evidence Tracking", "Compliance Analytics"],
+    image: "/images/quality_audit_1780850801169.png",
+    dashboardImage: "/images/product_tab_compliance_1780851018319.png",
+    path: "/products/vericea-compliance",
+    accentColor: "#F59E0B",
+    stat: { value: "100%", label: "Audit Success" }
+  },
+  {
+    id: "factsafe",
+    index: 3,
+    name: "FactSafe",
+    category: "Risk Management",
+    tagline: "Proactive Risk Assessment & Management Platform",
+    capabilities: ["Risk Register", "Risk Scoring", "Supplier Risk Monitoring"],
+    image: "/images/safety_inspection_1780850817856.png",
+    dashboardImage: "/images/product_tab_factsafe_1780850981241.png",
+    path: "/products/factsafe",
+    accentColor: "#EF4444",
+    stat: { value: "35%", label: "Risk Reduction" }
+  },
+  {
+    id: "courier-cost-management",
+    index: 4,
+    name: "Courier Cost Management",
+    category: "Logistics Optimization",
+    tagline: "Enterprise Logistics Cost Optimization Platform",
+    capabilities: ["Courier Cost Analysis", "Vendor Comparison", "Shipment Intelligence"],
+    image: "/images/logistics_terminal_1780850837146.png",
+    dashboardImage: "/images/product_tab_courier_1780851035678.png",
+    path: "/products/courier-cost-management",
+    accentColor: "#10B981",
+    stat: { value: "12.4%", label: "Cost Savings" }
+  },
+  {
+    id: "family-tree-platform",
+    index: 5,
+    name: "Family Tree Platform",
+    category: "Data Intelligence",
+    tagline: "Relationship Mapping & Structured Data Intelligence",
+    capabilities: ["Relationship Visualization", "Hierarchical Mapping", "Data Intelligence"],
+    image: "/images/family_archives_1780850863160.png",
+    dashboardImage: "/images/product_tab_family_tree_1780851053149.png",
+    path: "/products/family-tree-platform",
+    accentColor: "#A78BFA",
+    stat: { value: "100k+", label: "Nodes Handled" }
+  }
+];
+
+// ── FLAGSHIP ANIMATION VARIANTS ───────────────────────────────────────────────
+
+const flagshipCardVariants = {
+  initial: {
+    y: 0,
+    borderColor: 'rgba(245, 158, 11, 0.12)',
+    boxShadow: '0 8px 32px rgba(0,0,0,0.4)',
+  },
+  hover: {
+    y: -12,
+    borderColor: 'rgba(245, 158, 11, 0.8)',
+    boxShadow: '0 32px 64px rgba(0,0,0,0.65), 0 0 40px rgba(245,158,11,0.2)',
+    transition: { duration: 0.45, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }
+  }
+};
+
+const flagshipImageZoomVariants = {
+  initial: { scale: 1 },
+  hover: {
+    scale: 1.06,
+    transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }
+  }
+};
+
+const flagshipOverlayVariants = {
+  initial: { opacity: 0.25 },
+  hover: {
+    opacity: 0.72,
+    transition: { duration: 0.45 }
+  }
+};
+
+const flagshipGlowBarVariants = {
+  initial: { scaleX: 0, opacity: 0 },
+  hover: {
+    scaleX: 1,
+    opacity: 1,
+    transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }
+  }
+};
+
+const flagshipDetailsVariants = {
+  initial: { height: 0, opacity: 0, y: 12 },
+  hover: {
+    height: 'auto',
+    opacity: 1,
+    y: 0,
+    transition: {
+      height: { duration: 0.45, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] },
+      opacity: { duration: 0.35, delay: 0.08 },
+      y: { duration: 0.45, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }
+    }
+  }
+};
+
+const flagshipBtnVariants = {
+  initial: { opacity: 0, y: 8 },
+  hover: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.3, delay: 0.15 }
+  }
+};
+
+// ── FLAGSHIP CARD COMPONENT ───────────────────────────────────────────────────
+
+interface FlagshipPlatform {
+  id: string;
+  index: number;
+  name: string;
+  category: string;
+  tagline: string;
+  capabilities: string[];
+  image: string;
+  dashboardImage: string;
+  path: string;
+  accentColor: string;
+  stat: { value: string; label: string };
+}
+
+function FlagshipCard({ platform, onNavigate, variant = 'standard' }: {
+  platform: FlagshipPlatform;
+  onNavigate: (path: string) => void;
+  variant?: 'hero' | 'standard';
+}) {
+  const isHero = variant === 'hero';
+  return (
+    <motion.div
+      variants={flagshipCardVariants}
+      initial="initial"
+      whileHover="hover"
+      onClick={() => onNavigate(platform.path)}
+      style={{
+        position: 'relative',
+        borderRadius: '20px',
+        overflow: 'hidden',
+        border: '1px solid rgba(245,158,11,0.12)',
+        backgroundColor: '#0D1321',
+        cursor: 'pointer',
+        height: isHero ? '540px' : '420px',
+        display: 'flex',
+        flexDirection: 'column',
+        backdropFilter: 'blur(4px)',
+        WebkitBackdropFilter: 'blur(4px)',
+      }}
+    >
+      {/* Animated gold top glow bar */}
+      <motion.div
+        variants={flagshipGlowBarVariants}
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          height: '2px',
+          background: `linear-gradient(90deg, transparent, ${platform.accentColor}, #F59E0B, ${platform.accentColor}, transparent)`,
+          zIndex: 10,
+          transformOrigin: 'left center'
+        }}
+      />
+
+      {/* Product number badge */}
+      <div style={{
+        position: 'absolute',
+        top: '18px',
+        left: '18px',
+        zIndex: 10,
+        width: '32px',
+        height: '32px',
+        borderRadius: '8px',
+        background: 'rgba(245,158,11,0.12)',
+        border: '1px solid rgba(245,158,11,0.3)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        fontSize: '12px',
+        fontWeight: '800',
+        color: '#F59E0B',
+        fontFamily: 'var(--font-headings)',
+        backdropFilter: 'blur(8px)',
+      }}>
+        {String(platform.index).padStart(2, '0')}
+      </div>
+
+      {/* Stat badge top-right */}
+      <div style={{
+        position: 'absolute',
+        top: '18px',
+        right: '18px',
+        zIndex: 10,
+        background: 'rgba(10,15,28,0.75)',
+        border: `1px solid ${platform.accentColor}40`,
+        borderRadius: '8px',
+        padding: '6px 10px',
+        backdropFilter: 'blur(8px)',
+        textAlign: 'center'
+      }}>
+        <div style={{ fontSize: '14px', fontWeight: '800', color: platform.accentColor, fontFamily: 'var(--font-headings)', lineHeight: 1 }}>
+          {platform.stat.value}
+        </div>
+        <div style={{ fontSize: '9px', fontWeight: '600', color: '#9CA3AF', textTransform: 'uppercase', letterSpacing: '0.5px', marginTop: '2px' }}>
+          {platform.stat.label}
+        </div>
+      </div>
+
+      {/* Image area */}
+      <div style={{ position: 'relative', height: isHero ? '310px' : '225px', overflow: 'hidden', flexShrink: 0 }}>
+        <motion.img
+          src={platform.image}
+          alt={platform.name}
+          variants={flagshipImageZoomVariants}
+          style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+        />
+        {/* Gradient overlay */}
+        <motion.div
+          variants={flagshipOverlayVariants}
+          style={{
+            position: 'absolute', inset: 0,
+            background: 'linear-gradient(to bottom, rgba(10,15,28,0.05) 0%, rgba(10,15,28,0.75) 100%)',
+          }}
+        />
+        {/* Category pill on image */}
+        <div style={{
+          position: 'absolute',
+          bottom: '14px',
+          left: '18px',
+          background: 'rgba(10,15,28,0.8)',
+          backdropFilter: 'blur(8px)',
+          border: `1px solid ${platform.accentColor}30`,
+          borderRadius: '20px',
+          padding: '4px 12px',
+          fontSize: '11px',
+          fontWeight: '700',
+          color: platform.accentColor,
+          textTransform: 'uppercase',
+          letterSpacing: '0.8px'
+        }}>
+          {platform.category}
+        </div>
+      </div>
+
+      {/* Content area */}
+      <div style={{ padding: '22px 22px 20px 22px', flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
+        <h3 style={{
+          fontSize: isHero ? '21px' : '17px',
+          fontWeight: '800',
+          color: '#FFFFFF',
+          margin: '0 0 6px 0',
+          fontFamily: 'var(--font-headings)',
+          lineHeight: 1.2,
+          letterSpacing: '-0.3px'
+        }}>
+          {platform.name}
+        </h3>
+        <p style={{
+          fontSize: '12.5px',
+          color: '#9CA3AF',
+          lineHeight: 1.45,
+          margin: 0,
+          flexGrow: 1
+        }}>
+          {platform.tagline}
+        </p>
+
+        {/* Divider */}
+        <div style={{ height: '1px', background: 'rgba(255,255,255,0.05)', margin: '16px 0 0 0' }} />
+
+        {/* Hover-revealed capabilities + button */}
+        <motion.div
+          variants={flagshipDetailsVariants}
+          style={{ overflow: 'hidden' }}
+        >
+          <div style={{ paddingTop: '14px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            {platform.capabilities.map((cap, idx) => (
+              <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <div style={{
+                  width: '5px', height: '5px', borderRadius: '50%',
+                  backgroundColor: platform.accentColor, flexShrink: 0
+                }} />
+                <span style={{ fontSize: '12.5px', color: '#D1D5DB', fontWeight: '500' }}>{cap}</span>
+              </div>
+            ))}
+          </div>
+
+          <motion.div variants={flagshipBtnVariants} style={{ marginTop: '14px' }}>
+            <div style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px',
+              background: 'linear-gradient(135deg, #F59E0B, #D97706)',
+              color: '#0A0F1C',
+              borderRadius: '8px',
+              padding: '9px 18px',
+              fontSize: '12px',
+              fontWeight: '800',
+              boxShadow: '0 4px 12px rgba(245,158,11,0.3)',
+              letterSpacing: '0.3px'
+            }}>
+              Explore Platform
+              <ArrowRight size={13} />
+            </div>
+          </motion.div>
+        </motion.div>
+      </div>
+    </motion.div>
+  );
+}
 
 export default function Home() {
   const navigate = useNavigate();
@@ -311,10 +627,10 @@ export default function Home() {
                 <span>Enterprise Software & Technology Consulting</span>
               </div>
               <h1 style={{ fontSize: '48px', lineHeight: '1.15', margin: '0 0 20px 0', letterSpacing: '-1.5px', color: '#ffffff' }}>
-                Transforming Manufacturing Through Smart Digital Solutions
+                Engineering Digital Excellence for Manufacturing, Compliance & Enterprise Growth
               </h1>
               <p style={{ fontSize: '17px', color: 'rgba(241, 245, 249, 0.85)', marginBottom: '32px', lineHeight: '1.6' }}>
-                ERP • Production Tracking • Compliance Management • Web & Mobile Application Development. Link legacy floor operations with high-performance digital architectures.
+                CEA Infotech delivers enterprise software solutions, compliance platforms, audit intelligence systems and digital transformation initiatives that help organizations improve operational performance, governance and business efficiency.
               </p>
               
               <div className="btn-group">
@@ -325,7 +641,7 @@ export default function Home() {
                   whileTap={buttonHover.whileTap}
                   style={{ color: '#0F172A' }}
                 >
-                  Explore Products
+                  Explore Solutions
                   <ArrowRight size={16} />
                 </motion.button>
                 <motion.button 
@@ -335,7 +651,7 @@ export default function Home() {
                   whileTap={secondaryButtonHover.whileTap}
                   style={{ border: '2px solid rgba(255, 255, 255, 0.35)' }}
                 >
-                  Contact Us
+                  Schedule Consultation
                 </motion.button>
               </div>
             </motion.div>
@@ -346,10 +662,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* --- COMPANY SNAPSHOT --- */}
-      <section className="section section-alt" style={{ padding: '60px 0', backgroundColor: '#F1F5F9' }}>
+      <section className="section section-alt" style={{ padding: '60px 0', backgroundColor: 'var(--secondary-bg)', borderBottom: '1px solid var(--border-color)' }}>
         <div className="container">
-          <div className="grid-5" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '20px' }}>
+          <div className="grid-4" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '20px' }}>
             <motion.div 
               variants={scrollReveal}
               initial="initial"
@@ -357,14 +672,14 @@ export default function Home() {
               viewport={scrollReveal.viewport}
               className="glass-card stat-card"
               whileHover={{ y: -4 }}
-              style={{ padding: '24px', background: '#ffffff', borderColor: 'rgba(15,23,42,0.06)' }}
+              style={{ padding: '24px' }}
             >
               <div className="stat-icon-wrapper">
                 <Calendar size={22} strokeWidth={1.5} />
               </div>
-              <div className="stat-number" style={{ color: 'var(--secondary)' }}><CountUp end={2015} duration={1} /></div>
-              <div className="stat-label" style={{ color: 'var(--primary)' }}>Established</div>
-              <div className="stat-desc">Bangalore Headquarters</div>
+              <div className="stat-number"><CountUp end={25} suffix="+" duration={1} /></div>
+              <div className="stat-label">Years Combined Expertise</div>
+              <div className="stat-desc">Strategic executive leadership</div>
             </motion.div>
 
             <motion.div 
@@ -374,14 +689,14 @@ export default function Home() {
               viewport={scrollReveal.viewport}
               className="glass-card stat-card"
               whileHover={{ y: -4 }}
-              style={{ padding: '24px', background: '#ffffff', borderColor: 'rgba(15,23,42,0.06)' }}
+              style={{ padding: '24px' }}
             >
               <div className="stat-icon-wrapper">
                 <Award size={22} strokeWidth={1.5} />
               </div>
-              <div className="stat-number" style={{ color: 'var(--secondary)' }}><CountUp end={35} suffix="+" duration={1.2} /></div>
-              <div className="stat-label" style={{ color: 'var(--primary)' }}>Years Experience</div>
-              <div className="stat-desc">Founder IT Experience</div>
+              <div className="stat-number"><CountUp end={100} suffix="+" duration={1.2} /></div>
+              <div className="stat-label">Projects Delivered</div>
+              <div className="stat-desc">Production-grade systems</div>
             </motion.div>
 
             <motion.div 
@@ -391,48 +706,31 @@ export default function Home() {
               viewport={scrollReveal.viewport}
               className="glass-card stat-card"
               whileHover={{ y: -4 }}
-              style={{ padding: '24px', background: '#ffffff', borderColor: 'rgba(15,23,42,0.06)' }}
-            >
-              <div className="stat-icon-wrapper">
-                <Building size={22} strokeWidth={1.5} />
-              </div>
-              <div className="stat-number" style={{ color: 'var(--secondary)' }}><CountUp end={11} suffix="+" duration={1} /></div>
-              <div className="stat-label" style={{ color: 'var(--primary)' }}>Industry Domains</div>
-              <div className="stat-desc">Sectors Custom Configured</div>
-            </motion.div>
-
-            <motion.div 
-              variants={scrollReveal}
-              initial="initial"
-              whileInView="whileInView"
-              viewport={scrollReveal.viewport}
-              className="glass-card stat-card"
-              whileHover={{ y: -4 }}
-              style={{ padding: '24px', background: '#ffffff', borderColor: 'rgba(15,23,42,0.06)' }}
-            >
-              <div className="stat-icon-wrapper">
-                <Globe size={22} strokeWidth={1.5} />
-              </div>
-              <div className="stat-number" style={{ color: 'var(--secondary)' }}><CountUp end={12} suffix="+" duration={1} /></div>
-              <div className="stat-label" style={{ color: 'var(--primary)' }}>Global Reach</div>
-              <div className="stat-desc">Deployed Solution Networks</div>
-            </motion.div>
-
-            <motion.div 
-              variants={scrollReveal}
-              initial="initial"
-              whileInView="whileInView"
-              viewport={scrollReveal.viewport}
-              className="glass-card stat-card"
-              whileHover={{ y: -4 }}
-              style={{ padding: '24px', background: '#ffffff', borderColor: 'rgba(15,23,42,0.06)' }}
+              style={{ padding: '24px' }}
             >
               <div className="stat-icon-wrapper">
                 <Users size={22} strokeWidth={1.5} />
               </div>
-              <div className="stat-number" style={{ color: 'var(--secondary)' }}><CountUp end={185} suffix="+" duration={1.2} /></div>
-              <div className="stat-label" style={{ color: 'var(--primary)' }}>Team Leadership</div>
-              <div className="stat-desc">Managed Professionals</div>
+              <div className="stat-number"><CountUp end={50} suffix="+" duration={1} /></div>
+              <div className="stat-label">Enterprise Customers</div>
+              <div className="stat-desc">Trusted by large organizations</div>
+            </motion.div>
+
+            <motion.div 
+              variants={scrollReveal}
+              initial="initial"
+              whileInView="whileInView"
+              viewport={scrollReveal.viewport}
+              className="glass-card stat-card"
+              whileHover={{ y: -4 }}
+              style={{ padding: '24px' }}
+            >
+              <div className="stat-icon-wrapper">
+                <Building size={22} strokeWidth={1.5} />
+              </div>
+              <div className="stat-number"><CountUp end={10} suffix="+" duration={1.2} /></div>
+              <div className="stat-label">Industry Domains</div>
+              <div className="stat-desc">Custom-configured solutions</div>
             </motion.div>
           </div>
         </div>
@@ -486,10 +784,9 @@ export default function Home() {
                 whileInView="whileInView"
                 viewport={scrollReveal.viewport}
                 className="glass-card"
-                style={{ background: '#ffffff', borderColor: 'rgba(15, 23, 42, 0.06)' }}
-                whileHover={{ y: -6, borderColor: 'rgba(37, 99, 235, 0.25)', boxShadow: 'var(--shadow-lg)' }}
+                whileHover={{ y: -6 }}
               >
-                <div className="card-icon" style={{ backgroundColor: 'var(--alternate-bg)', color: 'var(--secondary)' }}>{service.icon}</div>
+                <div className="card-icon">{service.icon}</div>
                 <h3 className="card-title" style={{ fontSize: '18px', fontWeight: '700' }}>{service.title}</h3>
                 <p className="card-text" style={{ fontSize: '14px', lineHeight: '1.6' }}>{service.desc}</p>
               </motion.div>
@@ -498,415 +795,185 @@ export default function Home() {
         </div>
       </section>
 
-      {/* --- CEA'S FLAGSHIP PRODUCTS --- */}
-      <section className="section" style={{ backgroundColor: '#ffffff', overflow: 'hidden' }}>
-        <div className="container">
-          {/* Section Header */}
-          <motion.div 
+      {/* ==================================================
+          SECTION: FLAGSHIP PLATFORMS SHOWCASE (HOME PAGE)  — PREMIUM
+          ================================================== */}
+      <section
+        style={{
+          backgroundColor: '#0A0F1C',
+          color: '#E5E7EB',
+          overflow: 'hidden',
+          position: 'relative',
+          padding: '120px 0 140px 0'
+        }}
+      >
+        {/* Ambient background decoration */}
+        <div style={{
+          position: 'absolute', top: '-120px', left: '-120px',
+          width: '600px', height: '600px', borderRadius: '50%',
+          background: 'radial-gradient(circle, rgba(245,158,11,0.05) 0%, transparent 65%)',
+          pointerEvents: 'none', zIndex: 0
+        }} />
+        <div style={{
+          position: 'absolute', bottom: '-100px', right: '-100px',
+          width: '500px', height: '500px', borderRadius: '50%',
+          background: 'radial-gradient(circle, rgba(34,211,238,0.04) 0%, transparent 65%)',
+          pointerEvents: 'none', zIndex: 0
+        }} />
+        {/* Subtle grid lines */}
+        <div style={{
+          position: 'absolute', inset: 0,
+          backgroundImage: 'linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px)',
+          backgroundSize: '80px 80px',
+          pointerEvents: 'none', zIndex: 0
+        }} />
+
+        <div className="container" style={{ position: 'relative', zIndex: 2 }}>
+
+          {/* ── SECTION HEADER ──────────────────────────────────── */}
+          <motion.div
             variants={scrollReveal}
             initial="initial"
             whileInView="whileInView"
-            viewport={{ once: true, margin: "-100px" }}
-            className="section-title-wrapper"
-            style={{ marginBottom: '80px' }}
+            viewport={{ once: true, margin: '-80px' }}
+            style={{ textAlign: 'center', marginBottom: '80px' }}
           >
-            <span className="section-subtitle" style={{ color: 'var(--secondary)' }}>Our Proprietary Software</span>
-            <h2 className="section-title" style={{ fontSize: '38px', fontWeight: '800' }}>
-              CEA's Flagship Products
+            {/* Eyebrow */}
+            <div style={{
+              display: 'inline-flex', alignItems: 'center', gap: '10px',
+              background: 'rgba(245,158,11,0.07)',
+              border: '1px solid rgba(245,158,11,0.2)',
+              borderRadius: '40px',
+              padding: '7px 18px',
+              marginBottom: '24px'
+            }}>
+              <div style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: '#F59E0B' }} />
+              <span style={{ fontSize: '12px', fontWeight: '700', color: '#F59E0B', textTransform: 'uppercase', letterSpacing: '1.5px' }}>
+                CEA Proprietary Platforms
+              </span>
+              <div style={{
+                background: 'rgba(245,158,11,0.15)',
+                border: '1px solid rgba(245,158,11,0.3)',
+                borderRadius: '20px',
+                padding: '2px 9px',
+                fontSize: '10px',
+                fontWeight: '800',
+                color: '#F59E0B'
+              }}>5 PRODUCTS</div>
+            </div>
+
+            <h2 style={{
+              fontSize: 'clamp(32px, 4vw, 52px)',
+              fontWeight: '900',
+              color: '#FFFFFF',
+              fontFamily: 'var(--font-headings)',
+              margin: '0 0 20px 0',
+              letterSpacing: '-1.5px',
+              lineHeight: 1.1
+            }}>
+              CEA's Flagship Platforms
             </h2>
-            <p className="section-desc" style={{ fontSize: '16px', lineHeight: '1.6', color: 'var(--text-muted)' }}>
-              Innovative software solutions developed by CEA Infotech to improve manufacturing efficiency, strengthen compliance management and support operational excellence.
+            <p style={{
+              fontSize: '17px',
+              color: 'rgba(229,231,235,0.75)',
+              lineHeight: 1.7,
+              maxWidth: '700px',
+              margin: '0 auto'
+            }}>
+              Enterprise software platforms engineered to improve manufacturing visibility, compliance governance,
+              risk management, logistics optimization, and operational intelligence.
             </p>
+
+            {/* Separator line */}
+            <div style={{
+              width: '60px', height: '3px', margin: '28px auto 0 auto',
+              background: 'linear-gradient(90deg, transparent, #F59E0B, transparent)',
+              borderRadius: '2px'
+            }} />
           </motion.div>
 
-          {/* Flagship Products Rows */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '80px', marginBottom: '100px' }}>
-            
-            {/* PRODUCT 1: VERICEA Manufacturing */}
-            <div className="grid-2" style={{ alignItems: 'center', gap: '50px' }}>
-              {/* Left Column: Text & Features */}
-              <motion.div
-                variants={scrollReveal}
-                initial="initial"
-                whileInView="whileInView"
-                viewport={{ once: true, margin: "-100px" }}
-                style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}
-              >
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-                  <span style={{ fontSize: '13px', fontWeight: '700', color: 'var(--secondary)', textTransform: 'uppercase', letterSpacing: '1.5px' }}>
-                    Track. Measure. Improve.
-                  </span>
-                  <h3 style={{ fontSize: '32px', fontWeight: '800', color: 'var(--primary)', fontFamily: 'var(--font-headings)' }}>
-                    VERICEA Manufacturing
-                  </h3>
-                </div>
+          {/* ── HERO CARD (Product #1 — full width) ──────────────── */}
+          <motion.div
+            variants={scrollReveal}
+            initial="initial"
+            whileInView="whileInView"
+            viewport={{ once: true, margin: '-60px' }}
+            style={{ marginBottom: '28px' }}
+          >
+            <FlagshipCard
+              platform={flagshipPlatforms[0]}
+              onNavigate={navigate}
+              variant="hero"
+            />
+          </motion.div>
 
-                {/* Special Badge */}
-                <motion.div 
-                  whileHover={{ scale: 1.03 }}
-                  style={{ 
-                    display: 'inline-flex', 
-                    alignItems: 'center', 
-                    gap: '6px', 
-                    background: 'rgba(20, 184, 166, 0.08)', 
-                    border: '1px solid rgba(20, 184, 166, 0.2)', 
-                    color: 'var(--accent)', 
-                    borderRadius: '20px', 
-                    padding: '6px 14px', 
-                    fontSize: '11px', 
-                    fontWeight: '700', 
-                    textTransform: 'uppercase', 
-                    width: 'fit-content'
-                  }}
-                >
-                  <ShieldCheck size={13} />
-                  <span>Trademark & Copyright Protected</span>
-                </motion.div>
-
-                <p style={{ fontSize: '15px', color: 'var(--text-muted)', lineHeight: '1.6', margin: 0 }}>
-                  Improve production efficiency through real-time tracking, operational visibility and manufacturing analytics.
-                </p>
-
-                {/* Feature Highlights Grid */}
-                <div style={{ 
-                  display: 'grid', 
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', 
-                  gap: '12px 24px', 
-                  marginTop: '10px',
-                  background: 'rgba(241, 245, 249, 0.5)',
-                  padding: '20px',
-                  borderRadius: 'var(--border-radius-md)',
-                  border: '1px solid rgba(15, 23, 42, 0.04)'
-                }}>
-                  {[
-                    "Production Tracking",
-                    "Efficiency Monitoring",
-                    "Manufacturing Analytics",
-                    "Real-Time Visibility",
-                    "Supports 11+ Manufacturing Domains"
-                  ].map((feat, idx) => (
-                    <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13.5px', fontWeight: '600', color: 'var(--text-main)' }}>
-                      <CheckCircle size={16} style={{ color: 'var(--secondary)', flexShrink: 0 }} />
-                      <span>{feat}</span>
-                    </div>
-                  ))}
-                </div>
+          {/* ── GRID ROW 2 (Products #2 + #3) ───────────────────── */}
+          <motion.div
+            variants={{ initial: {}, whileInView: { transition: { staggerChildren: 0.12 } } }}
+            initial="initial"
+            whileInView="whileInView"
+            viewport={{ once: true, margin: '-60px' }}
+            style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '28px', marginBottom: '28px' }}
+          >
+            {flagshipPlatforms.slice(1, 3).map((platform) => (
+              <motion.div key={platform.id} variants={scrollReveal}>
+                <FlagshipCard platform={platform} onNavigate={navigate} variant="standard" />
               </motion.div>
+            ))}
+          </motion.div>
 
-              {/* Right Column: Visual Preview */}
-              <motion.div
-                variants={scrollReveal}
-                initial="initial"
-                whileInView="whileInView"
-                viewport={{ once: true, margin: "-100px" }}
-                style={{ position: 'relative' }}
-              >
-                {/* Simulated Browser Frame with Glassmorphism */}
-                <div style={{
-                  backgroundColor: '#ffffff',
-                  borderRadius: 'var(--border-radius-lg)',
-                  border: '1px solid rgba(15, 23, 42, 0.1)',
-                  boxShadow: 'var(--shadow-xl)',
-                  overflow: 'hidden',
-                  position: 'relative'
-                }}>
-                  {/* Safari dots */}
-                  <div style={{
-                    height: '36px',
-                    background: '#f1f5f9',
-                    borderBottom: '1px solid rgba(15, 23, 42, 0.06)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    padding: '0 16px',
-                    gap: '6px'
-                  }}>
-                    <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#ef4444' }}></span>
-                    <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#f59e0b' }}></span>
-                    <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#10b981' }}></span>
-                    <span style={{ fontSize: '11px', color: '#94a3b8', marginLeft: '12px', fontWeight: '500' }}>vericea-mes-dashboard.cea</span>
-                  </div>
-
-                  {/* Browser contents: stacked factory photo + dashboard */}
-                  <div style={{ position: 'relative', height: '320px', overflow: 'hidden' }}>
-                    {/* Factory background photo */}
-                    <div style={{
-                      position: 'absolute',
-                      top: 0,
-                      left: 0,
-                      right: 0,
-                      bottom: 0,
-                      backgroundImage: 'linear-gradient(rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.5)), url("/images/manufacturing_floor_1780850784796.png")',
-                      backgroundSize: 'cover',
-                      backgroundPosition: 'center'
-                    }}></div>
-
-                    {/* Dashboard mock overlay that zooms on hover */}
-                    <div style={{
-                      position: 'absolute',
-                      top: '10%',
-                      left: '8%',
-                      right: '8%',
-                      bottom: '10%',
-                      borderRadius: '8px',
-                      overflow: 'hidden',
-                      boxShadow: '0 20px 40px rgba(0, 0, 0, 0.35)',
-                      border: '1px solid rgba(255, 255, 255, 0.15)'
-                    }}>
-                      <motion.img 
-                        whileHover={{ scale: 1.05 }}
-                        transition={{ duration: 0.3 }}
-                        src="/images/vericea_dashboard_mockup.png" 
-                        alt="VERICEA Manufacturing Dashboard" 
-                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                      />
-                    </div>
-                  </div>
-                </div>
+          {/* ── GRID ROW 3 (Products #4 + #5) ───────────────────── */}
+          <motion.div
+            variants={{ initial: {}, whileInView: { transition: { staggerChildren: 0.12 } } }}
+            initial="initial"
+            whileInView="whileInView"
+            viewport={{ once: true, margin: '-60px' }}
+            style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '28px' }}
+          >
+            {flagshipPlatforms.slice(3, 5).map((platform) => (
+              <motion.div key={platform.id} variants={scrollReveal}>
+                <FlagshipCard platform={platform} onNavigate={navigate} variant="standard" />
               </motion.div>
-            </div>
+            ))}
+          </motion.div>
 
-            {/* PRODUCT 2: VERICEA Compliance */}
-            <div className="grid-2" style={{ alignItems: 'center', gap: '50px' }}>
-              {/* Left Column: Text & Features */}
-              <motion.div
-                variants={scrollReveal}
-                initial="initial"
-                whileInView="whileInView"
-                viewport={{ once: true, margin: "-100px" }}
-                style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}
+          {/* ── VIEW ALL PRODUCTS CTA ─────────────────────────────── */}
+          <motion.div
+            variants={scrollReveal}
+            initial="initial"
+            whileInView="whileInView"
+            viewport={{ once: true }}
+            style={{ textAlign: 'center', marginTop: '60px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px' }}
+          >
+            <p style={{ fontSize: '14px', color: 'rgba(229,231,235,0.5)', fontWeight: '500' }}>
+              Ready to explore a specific platform?
+            </p>
+            <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', justifyContent: 'center' }}>
+              <motion.button
+                onClick={() => navigate('/products')}
+                whileHover={{ scale: 1.03, boxShadow: '0 8px 24px rgba(245,158,11,0.35)' }}
+                whileTap={{ scale: 0.98 }}
+                className="btn btn-cta"
+                style={{ color: '#0A0F1C', fontWeight: '800' }}
               >
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-                  <span style={{ fontSize: '13px', fontWeight: '700', color: 'var(--secondary)', textTransform: 'uppercase', letterSpacing: '1.5px' }}>
-                    Create. Maintain. Monitor.
-                  </span>
-                  <h3 style={{ fontSize: '32px', fontWeight: '800', color: 'var(--primary)', fontFamily: 'var(--font-headings)' }}>
-                    VERICEA Compliance
-                  </h3>
-                </div>
-
-                {/* Special Badge */}
-                <motion.div 
-                  whileHover={{ scale: 1.03 }}
-                  style={{ 
-                    display: 'inline-flex', 
-                    alignItems: 'center', 
-                    gap: '6px', 
-                    background: 'rgba(20, 184, 166, 0.08)', 
-                    border: '1px solid rgba(20, 184, 166, 0.2)', 
-                    color: 'var(--accent)', 
-                    borderRadius: '20px', 
-                    padding: '6px 14px', 
-                    fontSize: '11px', 
-                    fontWeight: '700', 
-                    textTransform: 'uppercase', 
-                    width: 'fit-content'
-                  }}
-                >
-                  <ShieldCheck size={13} />
-                  <span>Trademark & Copyright Protected</span>
-                </motion.div>
-
-                <p style={{ fontSize: '15px', color: 'var(--text-muted)', lineHeight: '1.6', margin: 0 }}>
-                  Manage compliance activities, audits and evidence tracking through a centralized platform.
-                </p>
-
-                {/* Feature Highlights Grid */}
-                <div style={{ 
-                  display: 'grid', 
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', 
-                  gap: '12px 24px', 
-                  marginTop: '10px',
-                  background: 'rgba(241, 245, 249, 0.5)',
-                  padding: '20px',
-                  borderRadius: 'var(--border-radius-md)',
-                  border: '1px solid rgba(15, 23, 42, 0.04)'
-                }}>
-                  {[
-                    "Compliance Monitoring",
-                    "Audit Management",
-                    "Evidence Tracking",
-                    "Corrective Actions",
-                    "Daily, Weekly & Monthly Tracking"
-                  ].map((feat, idx) => (
-                    <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13.5px', fontWeight: '600', color: 'var(--text-main)' }}>
-                      <CheckCircle size={16} style={{ color: 'var(--secondary)', flexShrink: 0 }} />
-                      <span>{feat}</span>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-
-              {/* Right Column: Visual Preview */}
-              <motion.div
-                variants={scrollReveal}
-                initial="initial"
-                whileInView="whileInView"
-                viewport={{ once: true, margin: "-100px" }}
-                style={{ position: 'relative' }}
+                View All Products
+                <ArrowRight size={16} />
+              </motion.button>
+              <motion.button
+                onClick={() => navigate('/contact')}
+                whileHover={{ scale: 1.03, backgroundColor: 'rgba(255,255,255,0.07)' }}
+                whileTap={{ scale: 0.98 }}
+                className="btn btn-dark-outline"
               >
-                {/* Simulated Browser Frame */}
-                <div style={{
-                  backgroundColor: '#ffffff',
-                  borderRadius: 'var(--border-radius-lg)',
-                  border: '1px solid rgba(15, 23, 42, 0.1)',
-                  boxShadow: 'var(--shadow-xl)',
-                  overflow: 'hidden',
-                  position: 'relative'
-                }}>
-                  {/* Safari dots */}
-                  <div style={{
-                    height: '36px',
-                    background: '#f1f5f9',
-                    borderBottom: '1px solid rgba(15, 23, 42, 0.06)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    padding: '0 16px',
-                    gap: '6px'
-                  }}>
-                    <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#ef4444' }}></span>
-                    <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#f59e0b' }}></span>
-                    <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#10b981' }}></span>
-                    <span style={{ fontSize: '11px', color: '#94a3b8', marginLeft: '12px', fontWeight: '500' }}>vericea-compliance.cea</span>
-                  </div>
-
-                  {/* Browser contents */}
-                  <div style={{ position: 'relative', height: '320px', overflow: 'hidden' }}>
-                    {/* Compliance background photo */}
-                    <div style={{
-                      position: 'absolute',
-                      top: 0,
-                      left: 0,
-                      right: 0,
-                      bottom: 0,
-                      backgroundImage: 'linear-gradient(rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.5)), url("/images/quality_audit_1780850801169.png")',
-                      backgroundSize: 'cover',
-                      backgroundPosition: 'center'
-                    }}></div>
-
-                    {/* Dashboard mock overlay that zooms on hover */}
-                    <div style={{
-                      position: 'absolute',
-                      top: '10%',
-                      left: '8%',
-                      right: '8%',
-                      bottom: '10%',
-                      borderRadius: '8px',
-                      overflow: 'hidden',
-                      boxShadow: '0 20px 40px rgba(0, 0, 0, 0.35)',
-                      border: '1px solid rgba(255, 255, 255, 0.15)'
-                    }}>
-                      <motion.img 
-                        whileHover={{ scale: 1.05 }}
-                        transition={{ duration: 0.3 }}
-                        src="/images/product_tab_compliance_1780851018319.png" 
-                        alt="VERICEA Compliance Dashboard" 
-                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                      />
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
+                Request a Demo
+              </motion.button>
             </div>
-
-          </div>
-
-          {/* ADDITIONAL SOLUTIONS SECTION */}
-          <div style={{ borderTop: '1px solid rgba(15, 23, 42, 0.08)', paddingTop: '80px' }}>
-            <div style={{ textAlign: 'center', marginBottom: '48px' }}>
-              <span style={{ fontSize: '13px', fontWeight: '700', color: 'var(--secondary)', textTransform: 'uppercase', letterSpacing: '1.5px', display: 'block', marginBottom: '8px' }}>
-                Enterprise Applications
-              </span>
-              <h3 style={{ fontSize: '28px', fontWeight: '800', color: 'var(--primary)' }}>
-                Additional Digital Solutions
-              </h3>
-            </div>
-
-            {/* Grid of smaller cards */}
-            <div className="grid-3" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px' }}>
-              {[
-                {
-                  title: "FactSafe",
-                  tagline: "Identify. Assess. Mitigate.",
-                  desc: "Risk Assessment & Monitoring Platform",
-                  icon: <AlertTriangle size={22} />,
-                  color: "#ef4444"
-                },
-                {
-                  title: "Courier Cost Management",
-                  tagline: "Optimize. Control. Reduce.",
-                  desc: "Logistics Cost Optimization Solution",
-                  icon: <Truck size={22} />,
-                  color: "#3b82f6"
-                },
-                {
-                  title: "Family Tree Platform",
-                  tagline: "Connect. Preserve. Scale.",
-                  desc: "Scalable Multilingual Relationship Management Platform",
-                  icon: <Network size={22} />,
-                  color: "#EAB308"
-                }
-              ].map((solution, index) => (
-                <motion.div
-                  key={index}
-                  variants={scrollReveal}
-                  initial="initial"
-                  whileInView="whileInView"
-                  viewport={{ once: true, margin: "-80px" }}
-                  whileHover={{ 
-                    y: -6, 
-                    borderColor: 'rgba(14, 116, 144, 0.25)', 
-                    boxShadow: 'var(--shadow-xl)',
-                    transition: { duration: 0.2 }
-                  }}
-                  style={{
-                    backgroundColor: '#ffffff',
-                    border: '1px solid rgba(15, 23, 42, 0.08)',
-                    borderRadius: 'var(--border-radius-lg)',
-                    padding: '32px 24px',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: '16px',
-                    boxShadow: 'var(--shadow-md)',
-                    transition: 'border-color 0.2s, box-shadow 0.2s',
-                    height: '100%'
-                  }}
-                >
-                  {/* Icon Wrapper */}
-                  <div style={{
-                    width: '44px',
-                    height: '44px',
-                    borderRadius: '8px',
-                    backgroundColor: `${solution.color}10`,
-                    color: solution.color,
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    flexShrink: 0
-                  }}>
-                    {solution.icon}
-                  </div>
-
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', flexGrow: 1 }}>
-                    <span style={{ fontSize: '11px', fontWeight: '700', color: solution.color, textTransform: 'uppercase', letterSpacing: '1px' }}>
-                      {solution.tagline}
-                    </span>
-                    <h4 style={{ fontSize: '18px', fontWeight: '700', color: 'var(--primary)', margin: 0, fontFamily: 'var(--font-headings)' }}>
-                      {solution.title}
-                    </h4>
-                    <p style={{ fontSize: '13.5px', color: 'var(--text-muted)', lineHeight: '1.5', margin: '4px 0 0 0' }}>
-                      {solution.desc}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-
+          </motion.div>
         </div>
       </section>
 
       {/* --- SOLUTIONS SUCCESSFULLY DELIVERED --- */}
-      <section className="section" style={{ backgroundColor: '#F8FAFC', overflow: 'hidden', position: 'relative' }}>
+      <section className="section" style={{ backgroundColor: 'var(--secondary-bg)', overflow: 'hidden', position: 'relative' }}>
         {/* Real business imagery in background accents */}
         <div 
           style={{
@@ -964,14 +1031,16 @@ export default function Home() {
               { value: "Enterprise", label: "Applications", sub: "Uptime & scale optimized" }
             ].map((stat, idx) => (
               <div key={idx} style={{ 
-                background: '#ffffff', 
-                border: '1px solid rgba(15, 23, 42, 0.06)', 
+                background: 'var(--card-bg)', 
+                border: '1px solid var(--border-color)', 
                 borderRadius: 'var(--border-radius-md)', 
                 padding: '24px', 
                 textAlign: 'center',
-                boxShadow: 'var(--shadow-sm)',
+                boxShadow: 'var(--shadow-md)',
                 position: 'relative',
-                overflow: 'hidden'
+                overflow: 'hidden',
+                backdropFilter: 'blur(10px)',
+                WebkitBackdropFilter: 'blur(10px)'
               }}>
                 <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', background: idx % 2 === 0 ? 'var(--secondary)' : 'var(--accent)' }}></div>
                 <div style={{ fontSize: '32px', fontWeight: '800', color: 'var(--primary)', fontFamily: 'var(--font-headings)' }}>{stat.value}</div>
@@ -1021,17 +1090,19 @@ export default function Home() {
                     transition: { duration: 0.2 }
                   }}
                   style={{
-                    backgroundColor: '#ffffff',
-                    border: '1px solid rgba(15, 23, 42, 0.07)',
+                    backgroundColor: 'var(--card-bg)',
+                    border: '1px solid var(--border-color)',
                     borderRadius: 'var(--border-radius-lg)',
                     padding: '28px 24px',
                     display: 'flex',
                     flexDirection: 'column',
                     gap: '16px',
-                    boxShadow: 'var(--shadow-sm)',
+                    boxShadow: 'var(--shadow-md)',
                     position: 'relative',
                     overflow: 'hidden',
-                    transition: 'border-color 0.2s, box-shadow 0.2s'
+                    transition: 'border-color 0.2s, box-shadow 0.2s',
+                    backdropFilter: 'blur(10px)',
+                    WebkitBackdropFilter: 'blur(10px)'
                   }}
                 >
                   <div style={{ 
@@ -1048,8 +1119,8 @@ export default function Home() {
                     width: '46px', 
                     height: '46px', 
                     borderRadius: 'var(--border-radius-md)', 
-                    backgroundColor: 'rgba(37, 99, 235, 0.05)', 
-                    color: 'var(--secondary)', 
+                    backgroundColor: 'rgba(34, 211, 238, 0.08)', 
+                    color: 'var(--supporting)', 
                     display: 'flex', 
                     alignItems: 'center', 
                     justifyContent: 'center',
@@ -1177,7 +1248,7 @@ export default function Home() {
                 whileInView="whileInView"
                 viewport={scrollReveal.viewport}
                 className="glass-card"
-                style={{ backgroundColor: 'var(--background)', borderColor: 'rgba(15,23,42,0.06)' }}
+                style={{ backgroundColor: 'var(--background)', borderColor: 'var(--border-color)' }}
                 whileHover={{ y: -6, borderColor: 'rgba(37, 99, 235, 0.25)', boxShadow: 'var(--shadow-lg)' }}
               >
                 <div className="card-icon" style={{ backgroundColor: 'var(--alternate-bg)', color: idx === 0 ? 'var(--secondary)' : idx === 1 ? 'var(--cta)' : idx === 2 ? 'var(--accent)' : '#10b981' }}>{item.icon}</div>
@@ -1193,9 +1264,8 @@ export default function Home() {
       {/* --- TRUSTED PARTNERS SECTION --- */}
       <section className="section" style={{ 
         padding: '100px 0', 
-        backgroundColor: '#ffffff',
-        borderTop: '1px solid rgba(15, 23, 42, 0.05)',
-        borderBottom: '1px solid rgba(15, 23, 42, 0.05)',
+        borderTop: '1px solid var(--border-color)',
+        borderBottom: '1px solid var(--border-color)',
         position: 'relative',
         overflow: 'hidden'
       }}>
@@ -1241,15 +1311,15 @@ export default function Home() {
                         scale: 1.04, 
                         filter: 'grayscale(0%)', 
                         opacity: 1,
-                        borderColor: 'var(--secondary)',
+                        borderColor: 'var(--supporting)',
                         boxShadow: 'var(--shadow-md)'
                       }}
                       style={{
                         display: 'flex',
                         alignItems: 'center',
                         gap: '12px',
-                        background: '#ffffff',
-                        border: '1px solid rgba(15, 23, 42, 0.08)',
+                        background: 'var(--secondary-bg)',
+                        border: '1px solid var(--border-color)',
                         borderRadius: '12px',
                         padding: '12px 22px',
                         boxShadow: 'var(--shadow-sm)',
@@ -1273,7 +1343,7 @@ export default function Home() {
                       }}>
                         <IconComp size={16} strokeWidth={2} />
                       </div>
-                      <span style={{ fontSize: '15px', fontWeight: '600', color: 'var(--primary)', fontFamily: 'var(--font-headings)' }}>
+                      <span style={{ fontSize: '15px', fontWeight: '600', color: 'var(--text-main)', fontFamily: 'var(--font-headings)' }}>
                         {partner.name}
                       </span>
                     </motion.div>
@@ -1292,15 +1362,15 @@ export default function Home() {
                         scale: 1.04, 
                         filter: 'grayscale(0%)', 
                         opacity: 1,
-                        borderColor: 'var(--secondary)',
+                        borderColor: 'var(--supporting)',
                         boxShadow: 'var(--shadow-md)'
                       }}
                       style={{
                         display: 'flex',
                         alignItems: 'center',
                         gap: '12px',
-                        background: '#ffffff',
-                        border: '1px solid rgba(15, 23, 42, 0.08)',
+                        background: 'var(--secondary-bg)',
+                        border: '1px solid var(--border-color)',
                         borderRadius: '12px',
                         padding: '12px 22px',
                         boxShadow: 'var(--shadow-sm)',
@@ -1324,7 +1394,7 @@ export default function Home() {
                       }}>
                         <IconComp size={16} strokeWidth={2} />
                       </div>
-                      <span style={{ fontSize: '15px', fontWeight: '600', color: 'var(--primary)', fontFamily: 'var(--font-headings)' }}>
+                      <span style={{ fontSize: '15px', fontWeight: '600', color: 'var(--text-main)', fontFamily: 'var(--font-headings)' }}>
                         {partner.name}
                       </span>
                     </motion.div>
@@ -1356,7 +1426,7 @@ export default function Home() {
       </section>
 
       {/* --- CALL TO ACTION --- */}
-      <section className="section section-dark" style={{ background: 'linear-gradient(135deg, #0F172A 0%, #1E293B 100%)', position: 'relative', overflow: 'hidden' }}>
+      <section className="section section-dark" style={{ background: 'linear-gradient(135deg, var(--primary-bg) 0%, var(--secondary-bg) 100%)', position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', top: '-10%', right: '-10%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(6, 182, 212, 0.12) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
         <div style={{ position: 'absolute', bottom: '-10%', left: '-10%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(234, 179, 8, 0.08) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
 
@@ -1378,7 +1448,6 @@ export default function Home() {
                 className="btn btn-cta"
                 whileHover={buttonHover.whileHover}
                 whileTap={buttonHover.whileTap}
-                style={{ color: '#0F172A' }}
               >
                 Schedule Consultation
                 <PhoneCall size={16} />
@@ -1386,9 +1455,8 @@ export default function Home() {
               <motion.button 
                 onClick={() => navigate('/services')} 
                 className="btn btn-dark-outline"
-                whileHover={{ scale: 1.03, borderColor: '#ffffff', backgroundColor: 'rgba(255,255,255,0.05)' }}
+                whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.98 }}
-                style={{ border: '2px solid rgba(255,255,255,0.25)' }}
               >
                 Explore Services
               </motion.button>
@@ -1443,7 +1511,7 @@ export default function Home() {
                 <p style={{ color: '#94a3b8', fontSize: '15px', maxWidth: '480px', marginBottom: '32px', lineHeight: '1.5' }}>
                   This overlay represents the interactive media player for the VERICEA Manufacturing software. In a production environment, this embeds the explainer video walk-through.
                 </p>
-                <button onClick={() => setIsVideoModalOpen(false)} className="btn btn-cta btn-sm" style={{ color: '#0F172A' }}>
+                <button onClick={() => setIsVideoModalOpen(false)} className="btn btn-cta btn-sm">
                   Close Walkthrough Demo
                 </button>
               </div>

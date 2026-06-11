@@ -6,7 +6,8 @@ import {
   AlertTriangle, 
   Truck, 
   Network, 
-  Check, 
+  Check,
+  CheckCircle,
   ArrowRight, 
   Database, 
   Sparkles, 
@@ -157,7 +158,7 @@ export default function Products() {
       icon: <AlertTriangle size={22} />
     },
     {
-      id: 'courier-cost',
+      id: 'courier-cost-management',
       name: 'Courier Cost Management System',
       tagline: 'Smarter Logistics Cost Control',
       oneLiner: 'Reconciliation and automated rate-card verification for shipping.',
@@ -175,7 +176,7 @@ export default function Products() {
       icon: <Truck size={22} />
     },
     {
-      id: 'family-tree',
+      id: 'family-tree-platform',
       name: 'Family Tree Platform',
       tagline: 'Scalable Relationship Mapping Solution',
       oneLiner: 'Multilingual and secure relational network mapping visualizations.',
@@ -385,6 +386,322 @@ export default function Products() {
                 </motion.button>
               </div>
             </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* ==================================================
+          SECTION: FLAGSHIP PRODUCTS SHOWCASE
+          ================================================== */}
+      <section className="section section-dark" style={{ backgroundColor: '#0F172A', borderBottom: '1px solid rgba(255,255,255,0.05)', overflow: 'hidden' }}>
+        <div className="container">
+          {/* Section Header */}
+          <motion.div 
+            variants={scrollReveal}
+            initial="initial"
+            whileInView="whileInView"
+            viewport={{ once: true, margin: "-100px" }}
+            className="section-title-wrapper"
+            style={{ marginBottom: '80px' }}
+          >
+            <span className="section-subtitle" style={{ color: 'var(--supporting)' }}>Our Proprietary Software</span>
+            <h2 className="section-title" style={{ fontSize: '38px', fontWeight: '800', color: '#ffffff' }}>
+              CEA Flagship Products
+            </h2>
+            <p className="section-desc" style={{ fontSize: '16px', lineHeight: '1.6', color: '#94a3b8' }}>
+              Innovative software solutions developed by CEA Infotech to improve manufacturing efficiency, strengthen compliance management and support operational excellence.
+            </p>
+          </motion.div>
+
+          {/* Flagship Products Rows */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '80px', marginBottom: '40px' }}>
+            
+            {/* PRODUCT 1: VERICEA Manufacturing */}
+            <div className="grid-2" style={{ alignItems: 'center', gap: '50px' }}>
+              {/* Left Column: Text & Features */}
+              <motion.div
+                variants={scrollReveal}
+                initial="initial"
+                whileInView="whileInView"
+                viewport={{ once: true, margin: "-100px" }}
+                style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}
+              >
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                  <span style={{ fontSize: '13px', fontWeight: '700', color: 'var(--supporting)', textTransform: 'uppercase', letterSpacing: '1.5px' }}>
+                    Track. Measure. Improve.
+                  </span>
+                  <h3 style={{ fontSize: '32px', fontWeight: '800', color: '#ffffff', fontFamily: 'var(--font-headings)' }}>
+                    VERICEA Manufacturing
+                  </h3>
+                </div>
+
+                {/* Special Badge */}
+                <motion.div 
+                  whileHover={{ scale: 1.03 }}
+                  style={{ 
+                    display: 'inline-flex', 
+                    alignItems: 'center', 
+                    gap: '6px', 
+                    background: 'rgba(20, 184, 166, 0.08)', 
+                    border: '1px solid rgba(20, 184, 166, 0.2)', 
+                    color: 'var(--accent)', 
+                    borderRadius: '20px', 
+                    padding: '6px 14px', 
+                    fontSize: '11px', 
+                    fontWeight: '700', 
+                    textTransform: 'uppercase', 
+                    width: 'fit-content'
+                  }}
+                >
+                  <ShieldCheck size={13} />
+                  <span>Trademark & Copyright Protected</span>
+                </motion.div>
+
+                <p style={{ fontSize: '15px', color: '#94a3b8', lineHeight: '1.6', margin: 0 }}>
+                  Improve production efficiency through real-time tracking, operational visibility and manufacturing analytics.
+                </p>
+
+                {/* Feature Highlights Grid */}
+                <div style={{ 
+                  display: 'grid', 
+                  gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', 
+                  gap: '12px 24px', 
+                  marginTop: '10px',
+                  background: 'rgba(255, 255, 255, 0.03)',
+                  padding: '20px',
+                  borderRadius: 'var(--border-radius-md)',
+                  border: '1px solid var(--border-color)'
+                }}>
+                  {[
+                    "Production Tracking",
+                    "Efficiency Monitoring",
+                    "Manufacturing Analytics",
+                    "Real-Time Visibility",
+                    "Supports 11+ Manufacturing Domains"
+                  ].map((feat, idx) => (
+                    <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13.5px', fontWeight: '600', color: '#f8fafc' }}>
+                      <CheckCircle size={16} style={{ color: 'var(--supporting)', flexShrink: 0 }} />
+                      <span>{feat}</span>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+
+              {/* Right Column: Visual Preview */}
+              <motion.div
+                variants={scrollReveal}
+                initial="initial"
+                whileInView="whileInView"
+                viewport={{ once: true, margin: "-100px" }}
+                style={{ position: 'relative' }}
+              >
+                {/* Simulated Browser Frame with Glassmorphism */}
+                <div style={{
+                  backgroundColor: 'var(--secondary-bg)',
+                  borderRadius: 'var(--border-radius-lg)',
+                  border: '1px solid var(--border-color)',
+                  boxShadow: 'var(--shadow-xl)',
+                  overflow: 'hidden',
+                  position: 'relative'
+                }}>
+                  {/* Safari dots */}
+                  <div style={{
+                    height: '36px',
+                    background: 'var(--tertiary-bg)',
+                    borderBottom: '1px solid var(--border-color)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    padding: '0 16px',
+                    gap: '6px'
+                  }}>
+                    <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#ef4444' }}></span>
+                    <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#f59e0b' }}></span>
+                    <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#10b981' }}></span>
+                    <span style={{ fontSize: '11px', color: '#94a3b8', marginLeft: '12px', fontWeight: '500' }}>vericea-mes-dashboard.cea</span>
+                  </div>
+
+                  {/* Browser contents: stacked factory photo + dashboard */}
+                  <div style={{ position: 'relative', height: '320px', overflow: 'hidden' }}>
+                    {/* Factory background photo */}
+                    <div style={{
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      backgroundImage: 'linear-gradient(rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.5)), url("/images/manufacturing_floor_1780850784796.png")',
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center'
+                    }}></div>
+
+                    {/* Dashboard mock overlay that zooms on hover */}
+                    <div style={{
+                      position: 'absolute',
+                      top: '10%',
+                      left: '8%',
+                      right: '8%',
+                      bottom: '10%',
+                      borderRadius: '8px',
+                      overflow: 'hidden',
+                      boxShadow: '0 20px 40px rgba(0, 0, 0, 0.35)',
+                      border: '1px solid rgba(255, 255, 255, 0.15)'
+                    }}>
+                      <motion.img 
+                        whileHover={{ scale: 1.05 }}
+                        transition={{ duration: 0.3 }}
+                        src="/images/vericea_dashboard_mockup.png" 
+                        alt="VERICEA Manufacturing Dashboard" 
+                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* PRODUCT 2: VERICEA Compliance */}
+            <div className="grid-2" style={{ alignItems: 'center', gap: '50px' }}>
+              {/* Left Column: Text & Features */}
+              <motion.div
+                variants={scrollReveal}
+                initial="initial"
+                whileInView="whileInView"
+                viewport={{ once: true, margin: "-100px" }}
+                style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}
+              >
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                  <span style={{ fontSize: '13px', fontWeight: '700', color: 'var(--supporting)', textTransform: 'uppercase', letterSpacing: '1.5px' }}>
+                    Create. Maintain. Monitor.
+                  </span>
+                  <h3 style={{ fontSize: '32px', fontWeight: '800', color: '#ffffff', fontFamily: 'var(--font-headings)' }}>
+                    VERICEA Compliance
+                  </h3>
+                </div>
+
+                {/* Special Badge */}
+                <motion.div 
+                  whileHover={{ scale: 1.03 }}
+                  style={{ 
+                    display: 'inline-flex', 
+                    alignItems: 'center', 
+                    gap: '6px', 
+                    background: 'rgba(20, 184, 166, 0.08)', 
+                    border: '1px solid rgba(20, 184, 166, 0.2)', 
+                    color: 'var(--accent)', 
+                    borderRadius: '20px', 
+                    padding: '6px 14px', 
+                    fontSize: '11px', 
+                    fontWeight: '700', 
+                    textTransform: 'uppercase', 
+                    width: 'fit-content'
+                  }}
+                >
+                  <ShieldCheck size={13} />
+                  <span>Trademark & Copyright Protected</span>
+                </motion.div>
+
+                <p style={{ fontSize: '15px', color: '#94a3b8', lineHeight: '1.6', margin: 0 }}>
+                  Manage compliance activities, audits and evidence tracking through a centralized platform.
+                </p>
+
+                {/* Feature Highlights Grid */}
+                <div style={{ 
+                  display: 'grid', 
+                  gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', 
+                  gap: '12px 24px', 
+                  marginTop: '10px',
+                  background: 'rgba(255, 255, 255, 0.03)',
+                  padding: '20px',
+                  borderRadius: 'var(--border-radius-md)',
+                  border: '1px solid var(--border-color)'
+                }}>
+                  {[
+                    "Compliance Monitoring",
+                    "Audit Management",
+                    "Evidence Tracking",
+                    "Corrective Actions",
+                    "Daily, Weekly & Monthly Tracking"
+                  ].map((feat, idx) => (
+                    <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13.5px', fontWeight: '600', color: '#f8fafc' }}>
+                      <CheckCircle size={16} style={{ color: 'var(--supporting)', flexShrink: 0 }} />
+                      <span>{feat}</span>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+
+              {/* Right Column: Visual Preview */}
+              <motion.div
+                variants={scrollReveal}
+                initial="initial"
+                whileInView="whileInView"
+                viewport={{ once: true, margin: "-100px" }}
+                style={{ position: 'relative' }}
+              >
+                {/* Simulated Browser Frame */}
+                <div style={{
+                  backgroundColor: 'var(--secondary-bg)',
+                  borderRadius: 'var(--border-radius-lg)',
+                  border: '1px solid var(--border-color)',
+                  boxShadow: 'var(--shadow-xl)',
+                  overflow: 'hidden',
+                  position: 'relative'
+                }}>
+                  {/* Safari dots */}
+                  <div style={{
+                    height: '36px',
+                    background: 'var(--tertiary-bg)',
+                    borderBottom: '1px solid var(--border-color)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    padding: '0 16px',
+                    gap: '6px'
+                  }}>
+                    <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#ef4444' }}></span>
+                    <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#f59e0b' }}></span>
+                    <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#10b981' }}></span>
+                    <span style={{ fontSize: '11px', color: '#94a3b8', marginLeft: '12px', fontWeight: '500' }}>vericea-compliance.cea</span>
+                  </div>
+
+                  {/* Browser contents */}
+                  <div style={{ position: 'relative', height: '320px', overflow: 'hidden' }}>
+                    {/* Compliance background photo */}
+                    <div style={{
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      backgroundImage: 'linear-gradient(rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.5)), url("/images/quality_audit_1780850801169.png")',
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center'
+                    }}></div>
+
+                    {/* Dashboard mock overlay that zooms on hover */}
+                    <div style={{
+                      position: 'absolute',
+                      top: '10%',
+                      left: '8%',
+                      right: '8%',
+                      bottom: '10%',
+                      borderRadius: '8px',
+                      overflow: 'hidden',
+                      boxShadow: '0 20px 40px rgba(0, 0, 0, 0.35)',
+                      border: '1px solid rgba(255, 255, 255, 0.15)'
+                    }}>
+                      <motion.img 
+                        whileHover={{ scale: 1.05 }}
+                        transition={{ duration: 0.3 }}
+                        src="/images/product_tab_compliance_1780851018319.png" 
+                        alt="VERICEA Compliance Dashboard" 
+                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+
           </div>
         </div>
       </section>

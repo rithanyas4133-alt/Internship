@@ -1341,6 +1341,18 @@ export default function About() {
     { title: 'Long-Term Relationships', desc: 'Trusted partnerships built on reliability, transparency and results.', icon: <Handshake size={24} />, color: 'wi-blue' },
     { title: 'Product Innovation', desc: 'Continuous R&D delivering scalable products for modern enterprises.', icon: <Rocket size={24} />, color: 'wi-teal' },
   ];
+  // Images mapped for visual previews (kept as references — replace with production assets as needed)
+  const panelImages: Record<string, string> = {
+    '35+ Years Leadership': '/images/executive_meeting.jpg',
+    '11+ Industry Domains': '/images/multi_industry_ecosystem.jpg',
+    'Global Delivery': '/images/world_operations_map.jpg',
+    'Custom Enterprise Solutions': '/images/enterprise_architecture.jpg',
+    'Long-Term Relationships': '/images/partnership_visual.jpg',
+    'Product Innovation': '/images/digital_innovation_lab.jpg',
+  };
+
+  const [activePanel, setActivePanel] = useState<string | null>(null);
+  const togglePanel = (title: string) => setActivePanel(prev => prev === title ? null : title);
   const founderHighlights = ['35+ Years IT Experience', 'ERP Specialist', 'CRM & SCM Expertise', 'Financial Systems', 'Global Project Delivery'];
 
   return (
@@ -1480,8 +1492,8 @@ export default function About() {
         </div>
       </section>
 
-      {/* ===== WHY CHOOSE CEA — METRO EXPERIENCE ===== */}
-      <section className="about-why-section metro-section">
+      {/* ===== WHY CHOOSE CEA — STACKED PANELS (Enterprise Stack Experience) ===== */}
+      <section className="about-why-section stacked-panels-section">
         <div className="container">
           <motion.div className="section-title-wrapper" {...fadeInUp}>
             <span className="section-subtitle">Our Advantage</span>
@@ -1489,41 +1501,38 @@ export default function About() {
             <p className="section-desc">The differentiators that make us a trusted technology partner.</p>
           </motion.div>
 
-          {/* Metro tiles — asymmetrical, image-first layout */}
-          <motion.div className="metro-grid" variants={staggerContainer} initial="initial" whileInView="whileInView" viewport={{ once: true }}>
-            {(() => {
-              const tiles = [
-                { key: 'global', title: 'Global Delivery', size: 'large', image: '/images/world_operations_map.jpg' },
-                { key: 'leadership', title: '35+ Years Leadership', size: 'medium', image: '/images/executive_meeting.jpg' },
-                { key: 'domains', title: '11+ Industry Domains', size: 'medium', image: '/images/multi_industry_ecosystem.jpg' },
-                { key: 'custom', title: 'Custom Enterprise Solutions', size: 'wide', image: '/images/enterprise_architecture.jpg' },
-                { key: 'relationships', title: 'Long-Term Relationships', size: 'medium', image: '/images/partnership_visual.jpg' },
-                { key: 'innovation', title: 'Product Innovation', size: 'medium', image: '/images/digital_innovation_lab.jpg' },
-              ];
-
-              return tiles.map((t, i) => {
-                const content = whyChoose.find(w => w.title === t.title) || { desc: '' };
-                return (
-                  <motion.article
-                    key={t.key}
-                    className={`metro-tile tile-${t.size}`}
-                    style={{ backgroundImage: `url(${t.image})` }}
-                    variants={staggerItem}
-                    whileHover={{ scale: 1.02 }}
-                    transition={{ duration: 0.45 }}
-                  >
-                    <div className="metro-tile-bg" />
-                    <motion.div className="metro-tile-accent" initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }} />
-                    <div className="metro-tile-overlay" />
-                    <div className="metro-tile-content">
-                      <div className="metro-tile-meta">{t.title}</div>
-                      <h3>{t.title}</h3>
-                      <p>{content.desc}</p>
+          <motion.div className="stacked-panels" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={{ hidden: {}, visible: {} }}>
+            {whyChoose.map((item, i) => {
+              const isActive = activePanel === item.title;
+              const compressed = activePanel !== null && !isActive;
+              const image = panelImages[item.title] || '/images/placeholder.jpg';
+              return (
+                <motion.article
+                  key={item.title}
+                  className={`stacked-panel ${isActive ? 'expanded' : ''} ${compressed ? 'compressed' : ''}`}
+                  style={{ backgroundImage: `linear-gradient(rgba(4,8,16,0.36), rgba(4,8,16,0.36)), url(${image})` }}
+                  onMouseEnter={() => setActivePanel(item.title)}
+                  onMouseLeave={() => setActivePanel(null)}
+                  onClick={() => togglePanel(item.title)}
+                  layout
+                  initial={{ opacity: 0, y: 18 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
+                >
+                  <div className="panel-inner">
+                    <div className="panel-header">
+                      <div className="panel-title">{item.title}</div>
+                      <div className="panel-preview">{/* small visual preview area */}</div>
                     </div>
-                  </motion.article>
-                );
-              });
-            })()}
+
+                    <motion.div className="panel-body" initial={{ opacity: 0, height: 0 }} animate={isActive ? { opacity: 1, height: 'auto' } : { opacity: 0, height: 0 }} transition={{ duration: 0.45 }}>
+                      <div className="gold-divider" />
+                      <p>{item.desc}</p>
+                    </motion.div>
+                  </div>
+                </motion.article>
+              );
+            })}
           </motion.div>
         </div>
       </section>

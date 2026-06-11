@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { 
@@ -86,63 +86,63 @@ const heroBackgrounds = [
 const solutions = [
   {
     title: "Brand-Supplier Risk Survey Tool",
-    icon: ShieldCheck,
-    description: "Supplier risk assessment and monitoring platform."
+    image: "/images/sol_supplier_risk.jpg",
+    path: "/services"
   },
   {
     title: "Scrap Management System",
-    icon: Recycle,
-    description: "Track, manage and optimize scrap operations."
+    image: "/images/sol_scrap_mgmt.jpg",
+    path: "/services"
   },
   {
     title: "Courier Cost Management System",
-    icon: Truck,
-    description: "Monitor and reduce logistics and courier expenses."
+    image: "/images/sol_courier.jpg",
+    path: "/products/courier-cost-management"
   },
   {
     title: "Overtime Tracking & Approval System",
-    icon: Clock,
-    description: "Automate overtime requests, approvals and reporting."
+    image: "/images/sol_overtime.jpg",
+    path: "/services"
   },
   {
-    title: "Women Health Beneficiaries Tracking System",
-    icon: HeartPulse,
-    description: "Government beneficiary monitoring and reporting solution."
+    title: "Women Health Beneficiaries Tracking",
+    image: "/images/sol_women_health.jpg",
+    path: "/services"
   },
   {
     title: "Job Portal & Recruitment System",
-    icon: Users,
-    description: "End-to-end recruitment and talent management platform."
+    image: "/images/sol_job_portal.jpg",
+    path: "/services"
   },
   {
     title: "Community Water Plant System",
-    icon: Droplets,
-    description: "Monitor community water plant operations and services."
+    image: "/images/sol_water_plant.jpg",
+    path: "/services"
   },
   {
     title: "MIS Framework for NGO Operations",
-    icon: BarChart3,
-    description: "Centralized monitoring and reporting for NGO activities."
+    image: "/images/sol_ngo_mis.jpg",
+    path: "/services"
   },
   {
     title: "Golf Tee Time Booking System",
-    icon: CalendarDays,
-    description: "Online reservation and scheduling platform."
+    image: "/images/sol_golf.jpg",
+    path: "/services"
   },
   {
-    title: "Country Development Project Monitoring System",
-    icon: Globe,
-    description: "Track and monitor multi-year development initiatives."
+    title: "Country Development Project Monitoring",
+    image: "/images/sol_dev_project.jpg",
+    path: "/services"
   },
   {
     title: "Microfinance Accounting Product",
-    icon: Wallet,
-    description: "Financial accounting platform for SHGs and cooperatives."
+    image: "/images/sol_microfinance.jpg",
+    path: "/services"
   },
   {
     title: "Family Tree Platform",
-    icon: Network,
-    description: "Scalable multilingual family relationship management platform."
+    image: "/images/sol_family_tree.jpg",
+    path: "/products/family-tree-platform"
   }
 ];
 
@@ -172,7 +172,7 @@ const flagshipPlatforms = [
     category: "Manufacturing Intelligence",
     tagline: "Real-Time Production Visibility & Defect Intelligence",
     capabilities: ["Production Tracking", "Defect Monitoring", "Operational Dashboards"],
-    image: "/images/manufacturing_floor_1780850784796.png",
+    image: "/images/flagship_manufacturing.jpg",
     dashboardImage: "/images/product_tab_manufacturing_1780851000218.png",
     path: "/products/vericea-manufacturing",
     accentColor: "#22D3EE",
@@ -185,7 +185,7 @@ const flagshipPlatforms = [
     category: "Compliance Governance",
     tagline: "Audit Readiness & Compliance Governance Platform",
     capabilities: ["Audit Scheduling", "Evidence Tracking", "Compliance Analytics"],
-    image: "/images/quality_audit_1780850801169.png",
+    image: "/images/flagship_compliance.jpg",
     dashboardImage: "/images/product_tab_compliance_1780851018319.png",
     path: "/products/vericea-compliance",
     accentColor: "#F59E0B",
@@ -198,7 +198,7 @@ const flagshipPlatforms = [
     category: "Risk Management",
     tagline: "Proactive Risk Assessment & Management Platform",
     capabilities: ["Risk Register", "Risk Scoring", "Supplier Risk Monitoring"],
-    image: "/images/safety_inspection_1780850817856.png",
+    image: "/images/flagship_factsafe.jpg",
     dashboardImage: "/images/product_tab_factsafe_1780850981241.png",
     path: "/products/factsafe",
     accentColor: "#EF4444",
@@ -211,7 +211,7 @@ const flagshipPlatforms = [
     category: "Logistics Optimization",
     tagline: "Enterprise Logistics Cost Optimization Platform",
     capabilities: ["Courier Cost Analysis", "Vendor Comparison", "Shipment Intelligence"],
-    image: "/images/logistics_terminal_1780850837146.png",
+    image: "/images/flagship_courier.jpg",
     dashboardImage: "/images/product_tab_courier_1780851035678.png",
     path: "/products/courier-cost-management",
     accentColor: "#10B981",
@@ -224,7 +224,7 @@ const flagshipPlatforms = [
     category: "Data Intelligence",
     tagline: "Relationship Mapping & Structured Data Intelligence",
     capabilities: ["Relationship Visualization", "Hierarchical Mapping", "Data Intelligence"],
-    image: "/images/family_archives_1780850863160.png",
+    image: "/images/flagship_familytree.jpg",
     dashboardImage: "/images/product_tab_family_tree_1780851053149.png",
     path: "/products/family-tree-platform",
     accentColor: "#A78BFA",
@@ -331,7 +331,7 @@ function FlagshipCard({ platform, onNavigate, variant = 'standard' }: {
         border: '1px solid rgba(245,158,11,0.12)',
         backgroundColor: '#0D1321',
         cursor: 'pointer',
-        height: isHero ? '540px' : '420px',
+        height: isHero ? '720px' : '580px',
         display: 'flex',
         flexDirection: 'column',
         backdropFilter: 'blur(4px)',
@@ -398,12 +398,13 @@ function FlagshipCard({ platform, onNavigate, variant = 'standard' }: {
       </div>
 
       {/* Image area */}
-      <div style={{ position: 'relative', height: isHero ? '310px' : '225px', overflow: 'hidden', flexShrink: 0 }}>
+      <div style={{ position: 'relative', height: isHero ? '430px' : '330px', overflow: 'hidden', flexShrink: 0 }}>
+        {/* Real photo fills the card image area */}
         <motion.img
           src={platform.image}
           alt={platform.name}
           variants={flagshipImageZoomVariants}
-          style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+          style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', display: 'block' }}
         />
         {/* Gradient overlay */}
         <motion.div
@@ -427,7 +428,8 @@ function FlagshipCard({ platform, onNavigate, variant = 'standard' }: {
           fontWeight: '700',
           color: platform.accentColor,
           textTransform: 'uppercase',
-          letterSpacing: '0.8px'
+          letterSpacing: '0.8px',
+          zIndex: 2,
         }}>
           {platform.category}
         </div>
@@ -497,6 +499,630 @@ function FlagshipCard({ platform, onNavigate, variant = 'standard' }: {
         </motion.div>
       </div>
     </motion.div>
+  );
+}
+
+// ── SOLUTIONS COVERFLOW CAROUSEL ─────────────────────────────────────────────
+
+interface SolutionItem {
+  title: string;
+  image: string;
+  path: string;
+}
+
+function SolutionsCoverflow({
+  solutions,
+  onNavigate,
+}: {
+  solutions: SolutionItem[];
+  onNavigate: (path: string) => void;
+}) {
+  const CARD_W = 340;
+  const CARD_H = 220;
+  const GAP = 20;
+  const STEP = CARD_W + GAP;
+
+  const total = solutions.length;
+  // Duplicate list for seamless infinite scroll
+  const items = [...solutions, ...solutions, ...solutions];
+  const startOffset = total; // start in middle copy
+
+  const [activeIdx, setActiveIdx] = useState(startOffset);
+  const [isHovered, setIsHovered] = useState(false);
+  const autoRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  const advance = useCallback(() => {
+    setActiveIdx((prev) => {
+      const next = prev + 1;
+      // Seamlessly jump when we've consumed middle copy
+      if (next >= total * 2) return total;
+      return next;
+    });
+  }, [total]);
+
+  useEffect(() => {
+    if (isHovered) {
+      if (autoRef.current) clearInterval(autoRef.current);
+      return;
+    }
+    autoRef.current = setInterval(advance, 2400);
+    return () => { if (autoRef.current) clearInterval(autoRef.current); };
+  }, [isHovered, advance]);
+
+  const visibleWidth = STEP * 3 - GAP;
+
+  return (
+    <div
+      style={{ width: '100%', overflow: 'hidden', position: 'relative' }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      {/* Left / right fade edges */}
+      <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: '120px', background: 'linear-gradient(to right, var(--secondary-bg), transparent)', zIndex: 10, pointerEvents: 'none' }} />
+      <div style={{ position: 'absolute', right: 0, top: 0, bottom: 0, width: '120px', background: 'linear-gradient(to left, var(--secondary-bg), transparent)', zIndex: 10, pointerEvents: 'none' }} />
+
+      {/* Track */}
+      <motion.div
+        style={{
+          display: 'flex',
+          gap: `${GAP}px`,
+          alignItems: 'center',
+          height: `${CARD_H + 48}px`, // extra for lift
+          paddingBottom: '12px',
+          willChange: 'transform',
+        }}
+        animate={{
+          x: `calc(50vw - ${(activeIdx - startOffset) * STEP + CARD_W / 2}px - ${startOffset * STEP}px)`,
+        }}
+        transition={{ duration: 0.7, ease: [0.32, 0.72, 0, 1] }}
+      >
+        {items.map((sol, i) => {
+          const relIdx = i - startOffset;
+          const dist = i - activeIdx;
+          const isCenter = dist === 0;
+          const isAdjacent = Math.abs(dist) === 1;
+
+          return (
+            <motion.div
+              key={`${sol.title}-${i}`}
+              onClick={() => {
+                if (isCenter) {
+                  onNavigate(sol.path);
+                } else {
+                  setActiveIdx(i);
+                }
+              }}
+              animate={{
+                scale: isCenter ? 1.12 : isAdjacent ? 0.93 : 0.82,
+                opacity: isCenter ? 1 : isAdjacent ? 0.72 : 0.38,
+                y: isCenter ? -10 : 0,
+              }}
+              whileHover={isCenter ? {
+                scale: 1.15,
+                transition: { duration: 0.25 }
+              } : {
+                opacity: 0.9,
+                scale: isAdjacent ? 0.96 : 0.86,
+                transition: { duration: 0.2 }
+              }}
+              transition={{ duration: 0.5, ease: [0.32, 0.72, 0, 1] }}
+              style={{
+                position: 'relative',
+                width: `${CARD_W}px`,
+                height: `${CARD_H}px`,
+                flexShrink: 0,
+                borderRadius: '16px',
+                overflow: 'hidden',
+                cursor: 'pointer',
+                border: isCenter
+                  ? '1.5px solid rgba(245,158,11,0.75)'
+                  : '1px solid rgba(255,255,255,0.08)',
+                boxShadow: isCenter
+                  ? '0 0 32px rgba(245,158,11,0.22), 0 16px 48px rgba(0,0,0,0.6)'
+                  : '0 4px 24px rgba(0,0,0,0.4)',
+              }}
+            >
+              {/* Photo */}
+              <motion.img
+                src={sol.image}
+                alt={sol.title}
+                whileHover={isCenter ? { scale: 1.06, transition: { duration: 0.5 } } : {}}
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  display: 'block',
+                }}
+              />
+
+              {/* Gradient overlay */}
+              <div style={{
+                position: 'absolute', inset: 0,
+                background: isCenter
+                  ? 'linear-gradient(to top, rgba(10,15,28,0.88) 0%, rgba(10,15,28,0.1) 55%)'
+                  : 'linear-gradient(to top, rgba(10,15,28,0.92) 0%, rgba(10,15,28,0.3) 100%)',
+              }} />
+
+              {/* Gold top bar on center card */}
+              {isCenter && (
+                <motion.div
+                  layoutId="gold-bar"
+                  style={{
+                    position: 'absolute', top: 0, left: 0, right: 0, height: '2px',
+                    background: 'linear-gradient(90deg, transparent, #F59E0B, #FCD34D, #F59E0B, transparent)',
+                  }}
+                />
+              )}
+
+              {/* Title */}
+              <div style={{
+                position: 'absolute',
+                bottom: 0, left: 0, right: 0,
+                padding: '14px 18px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+              }}>
+                <span style={{
+                  fontSize: isCenter ? '14px' : '12.5px',
+                  fontWeight: '700',
+                  color: '#FFFFFF',
+                  fontFamily: 'var(--font-headings)',
+                  lineHeight: 1.3,
+                  letterSpacing: '-0.2px',
+                  textShadow: '0 1px 8px rgba(0,0,0,0.8)',
+                  maxWidth: '85%',
+                }}>
+                  {sol.title}
+                </span>
+                {isCenter && (
+                  <motion.div
+                    initial={{ opacity: 0, x: -4 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    style={{
+                      width: '28px', height: '28px', borderRadius: '50%',
+                      background: 'rgba(245,158,11,0.18)',
+                      border: '1px solid rgba(245,158,11,0.5)',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      flexShrink: 0,
+                    }}
+                  >
+                    <ArrowRight size={13} color="#F59E0B" />
+                  </motion.div>
+                )}
+              </div>
+
+              {/* Index badge */}
+              <div style={{
+                position: 'absolute', top: '12px', left: '12px',
+                background: 'rgba(10,15,28,0.7)',
+                backdropFilter: 'blur(6px)',
+                border: '1px solid rgba(255,255,255,0.1)',
+                borderRadius: '6px',
+                padding: '3px 8px',
+                fontSize: '10px', fontWeight: '700',
+                color: isCenter ? '#F59E0B' : '#9CA3AF',
+                letterSpacing: '0.5px',
+                fontFamily: 'var(--font-headings)',
+              }}>
+                {String((relIdx % total + total) % total + 1).padStart(2, '0')}
+              </div>
+            </motion.div>
+          );
+        })}
+      </motion.div>
+
+      {/* Dot indicators */}
+      <div style={{ display: 'flex', justifyContent: 'center', gap: '7px', marginTop: '6px' }}>
+        {solutions.map((_, i) => {
+          const dotActive = ((activeIdx - startOffset) % total + total) % total === i;
+          return (
+            <motion.button
+              key={i}
+              onClick={() => setActiveIdx(startOffset + i)}
+              animate={{ width: dotActive ? '22px' : '6px', backgroundColor: dotActive ? '#F59E0B' : 'rgba(255,255,255,0.2)' }}
+              transition={{ duration: 0.3 }}
+              style={{
+                height: '6px', borderRadius: '3px', border: 'none',
+                cursor: 'pointer', padding: 0, flexShrink: 0,
+              }}
+            />
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+export default function Home() {
+  const navigate = useNavigate();
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+
+  // Background slideshow slider state
+  const [currentBgIndex, setCurrentBgIndex] = useState(0);
+
+
+      {/* Radial glow center */}
+      <div style={{
+        position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)',
+        width: '700px', height: '700px', borderRadius: '50%',
+        background: 'radial-gradient(circle, rgba(245,158,11,0.06) 0%, transparent 65%)',
+        pointerEvents: 'none'
+      }} />
+
+      <div className="container" style={{ position: 'relative', zIndex: 2 }}>
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }} transition={{ duration: 0.6 }}
+          style={{ textAlign: 'center', marginBottom: '64px' }}
+        >
+          <div style={{
+            display: 'inline-flex', alignItems: 'center', gap: '8px',
+            background: 'rgba(245,158,11,0.08)', border: '1px solid rgba(245,158,11,0.25)',
+            borderRadius: '40px', padding: '6px 18px', marginBottom: '20px'
+          }}>
+            <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#F59E0B', boxShadow: '0 0 8px #F59E0B' }} />
+            <span style={{ fontSize: '11px', fontWeight: '700', color: '#F59E0B', letterSpacing: '1.5px', textTransform: 'uppercase' }}>Core Strengths</span>
+          </div>
+          <h2 style={{ fontSize: 'clamp(28px,3.5vw,46px)', fontWeight: '800', color: '#fff', margin: '0 0 12px', fontFamily: 'var(--font-headings)', letterSpacing: '-0.5px' }}>
+            Enterprise Command Center
+          </h2>
+          <p style={{ fontSize: '15px', color: 'rgba(209,213,219,0.7)', maxWidth: '520px', margin: '0 auto', lineHeight: 1.6 }}>
+            CEA Infotech's integrated digital ecosystem — nine capability pillars orbiting a unified enterprise core.
+          </p>
+        </motion.div>
+
+        {/* SVG Network */}
+        <div ref={containerRef} style={{ display: 'flex', justifyContent: 'center' }}>
+          <svg
+            viewBox="0 0 800 800"
+            style={{ width: '100%', maxWidth: '780px', height: 'auto', overflow: 'visible' }}
+          >
+            <defs>
+              {NODES.map(node => (
+                <radialGradient key={node.id} id={`grad-${node.id}`} cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stopColor={node.color} stopOpacity="0.35" />
+                  <stop offset="100%" stopColor={node.color} stopOpacity="0" />
+                </radialGradient>
+              ))}
+              <filter id="glow-filter">
+                <feGaussianBlur stdDeviation="3" result="blur" />
+                <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+              </filter>
+              <filter id="strong-glow">
+                <feGaussianBlur stdDeviation="6" result="blur" />
+                <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+              </filter>
+              <marker id="arrowhead" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+                <path d="M0,0 L0,6 L6,3 z" fill="rgba(245,158,11,0.4)" />
+              </marker>
+            </defs>
+
+            {/* Orbit rings */}
+            <circle cx={CX} cy={CY} r={RADIUS} fill="none" stroke="rgba(255,255,255,0.04)" strokeWidth="1" />
+            <circle cx={CX} cy={CY} r={RADIUS * 0.6} fill="none" stroke="rgba(255,255,255,0.03)" strokeWidth="1" strokeDasharray="4 8" />
+
+            {/* Connection lines */}
+            {NODES.map((node, i) => {
+              const pos = getPos(node.angle, RADIUS);
+              const isActive = hoveredNode === node.id || pulse === i;
+              return (
+                <motion.line
+                  key={`line-${node.id}`}
+                  x1={CX} y1={CY} x2={pos.x} y2={pos.y}
+                  stroke={isActive ? node.color : 'rgba(255,255,255,0.07)'}
+                  strokeWidth={isActive ? 1.5 : 0.8}
+                  strokeDasharray={isActive ? 'none' : '4 6'}
+                  animate={{ opacity: isActive ? 1 : 0.4 }}
+                  transition={{ duration: 0.4 }}
+                  markerEnd={isActive ? 'url(#arrowhead)' : undefined}
+                  filter={isActive ? 'url(#glow-filter)' : undefined}
+                />
+              );
+            })}
+
+            {/* Pulse travel dot on active line */}
+            {NODES.map((node, i) => {
+              if (pulse !== i && hoveredNode !== node.id) return null;
+              const pos = getPos(node.angle, RADIUS);
+              return (
+                <motion.circle
+                  key={`pulse-${node.id}`}
+                  r="4"
+                  fill={node.color}
+                  filter="url(#strong-glow)"
+                  initial={{ atX: CX, atY: CY, opacity: 0 }}
+                  animate={{
+                    x: [CX, pos.x],
+                    y: [CY, pos.y],
+                    opacity: [0, 1, 1, 0],
+                  }}
+                  transition={{ duration: 1.2, ease: 'easeInOut', repeat: Infinity, repeatDelay: 0.4 }}
+                />
+              );
+            })}
+
+            {/* Outer nodes */}
+            {NODES.map((node, i) => {
+              const pos = getPos(node.angle, RADIUS);
+              const isActive = hoveredNode === node.id || pulse === i;
+              const labelLines = node.label.split('\n');
+              const textAnchor = pos.x < CX - 10 ? 'end' : pos.x > CX + 10 ? 'start' : 'middle';
+              const labelOffsetX = pos.x < CX - 10 ? -22 : pos.x > CX + 10 ? 22 : 0;
+              const labelOffsetY = pos.y < CY - 10 ? -22 : pos.y > CY + 10 ? 22 : 0;
+
+              return (
+                <g
+                  key={node.id}
+                  onMouseEnter={() => setHoveredNode(node.id)}
+                  onMouseLeave={() => setHoveredNode(null)}
+                  style={{ cursor: 'pointer' }}
+                >
+                  {/* Glow halo */}
+                  <motion.circle
+                    cx={pos.x} cy={pos.y}
+                    animate={{ r: isActive ? 32 : 22, opacity: isActive ? 0.5 : 0.15 }}
+                    transition={{ duration: 0.35 }}
+                    fill={`url(#grad-${node.id})`}
+                  />
+                  {/* Node circle */}
+                  <motion.circle
+                    cx={pos.x} cy={pos.y}
+                    animate={{
+                      r: isActive ? 18 : 13,
+                      fill: isActive ? node.color : '#0D1828',
+                      stroke: node.color,
+                      strokeWidth: isActive ? 2.5 : 1.5,
+                    }}
+                    transition={{ duration: 0.3 }}
+                    filter={isActive ? 'url(#glow-filter)' : undefined}
+                  />
+                  {/* Index number inside node */}
+                  <text
+                    x={pos.x} y={pos.y + 4}
+                    textAnchor="middle"
+                    fontSize="10"
+                    fontWeight="800"
+                    fill={isActive ? '#0A0F1C' : node.color}
+                    fontFamily="var(--font-headings)"
+                  >
+                    {String(i + 1).padStart(2, '0')}
+                  </text>
+                  {/* Label */}
+                  <motion.g
+                    animate={{ opacity: isActive ? 1 : 0.65 }}
+                    transition={{ duration: 0.25 }}
+                  >
+                    {labelLines.map((line, li) => (
+                      <text
+                        key={li}
+                        x={pos.x + labelOffsetX}
+                        y={pos.y + labelOffsetY + li * 14 + (labelLines.length > 1 ? -7 : 0)}
+                        textAnchor={textAnchor}
+                        fontSize="11"
+                        fontWeight="700"
+                        fill={isActive ? node.color : 'rgba(209,213,219,0.8)'}
+                        fontFamily="var(--font-headings)"
+                      >
+                        {line}
+                      </text>
+                    ))}
+                  </motion.g>
+                </g>
+              );
+            })}
+
+            {/* Center hub */}
+            <g>
+              <circle cx={CX} cy={CY} r={72} fill="none" stroke="rgba(245,158,11,0.15)" strokeWidth="1" strokeDasharray="3 5" />
+              <circle cx={CX} cy={CY} r={58} fill="#0D1828" stroke="rgba(245,158,11,0.35)" strokeWidth="1.5" />
+              <motion.circle
+                cx={CX} cy={CY} r={58}
+                fill="none"
+                stroke="#F59E0B"
+                strokeWidth="1.5"
+                strokeDasharray="20 180"
+                animate={{ rotate: 360 }}
+                transition={{ duration: 12, ease: 'linear', repeat: Infinity }}
+                style={{ transformOrigin: `${CX}px ${CY}px` }}
+              />
+              <text x={CX} y={CY - 12} textAnchor="middle" fontSize="11" fontWeight="800" fill="#F59E0B" fontFamily="var(--font-headings)" letterSpacing="1">CEA</text>
+              <text x={CX} y={CY + 3} textAnchor="middle" fontSize="9" fontWeight="600" fill="rgba(209,213,219,0.7)" fontFamily="var(--font-headings)">INFOTECH</text>
+              <text x={CX} y={CY + 16} textAnchor="middle" fontSize="8" fontWeight="500" fill="rgba(245,158,11,0.8)" fontFamily="var(--font-headings)" letterSpacing="0.5">DIGITAL ECOSYSTEM</text>
+            </g>
+          </svg>
+        </div>
+
+        {/* Node legend strip */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.3 }}
+          style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '10px', marginTop: '40px' }}
+        >
+          {NODES.map(node => (
+            <div
+              key={node.id}
+              onMouseEnter={() => setHoveredNode(node.id)}
+              onMouseLeave={() => setHoveredNode(null)}
+              style={{
+                display: 'flex', alignItems: 'center', gap: '7px',
+                background: hoveredNode === node.id ? `${node.color}18` : 'rgba(255,255,255,0.04)',
+                border: `1px solid ${hoveredNode === node.id ? node.color + '60' : 'rgba(255,255,255,0.08)'}`,
+                borderRadius: '20px', padding: '5px 13px', cursor: 'default',
+                transition: 'all 0.25s',
+              }}
+            >
+              <div style={{ width: '7px', height: '7px', borderRadius: '50%', background: node.color, flexShrink: 0, boxShadow: hoveredNode === node.id ? `0 0 8px ${node.color}` : 'none' }} />
+              <span style={{ fontSize: '11.5px', fontWeight: '600', color: hoveredNode === node.id ? node.color : 'rgba(209,213,219,0.7)', fontFamily: 'var(--font-headings)', whiteSpace: 'nowrap' }}>
+                {node.label.replace('\n', ' ')}
+              </span>
+            </div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+// ── INDUSTRY WALL ─────────────────────────────────────────────────────────────
+
+const INDUSTRIES = [
+  { id: 'manufacturing', label: 'Manufacturing',         image: '/images/ind_manufacturing.jpg',  span: 2 },
+  { id: 'construction',  label: 'Construction',          image: '/images/ind_construction.jpg',   span: 1 },
+  { id: 'engineering',   label: 'Engineering',           image: '/images/ind_engineering.jpg',    span: 1 },
+  { id: 'apparel',       label: 'Apparel',               image: '/images/ind_apparel.jpg',        span: 1 },
+  { id: 'textiles',      label: 'Home Textiles',         image: '/images/ind_home_textiles.jpg',  span: 1 },
+  { id: 'retail',        label: 'Retail',                image: '/images/ind_retail.jpg',         span: 2 },
+  { id: 'finance',       label: 'Finance',               image: '/images/ind_finance.jpg',        span: 1 },
+  { id: 'ngo',           label: 'NGO Operations',        image: '/images/ind_ngo.jpg',            span: 1 },
+  { id: 'compliance',    label: 'Compliance Management', image: '/images/ind_compliance.jpg',     span: 2 },
+];
+
+function IndustryWall() {
+  const [hovered, setHovered] = useState<string | null>(null);
+
+  return (
+    <section style={{ background: '#080E1C', padding: '100px 0 110px', overflow: 'hidden', position: 'relative' }}>
+      <div style={{
+        position: 'absolute', inset: 0,
+        backgroundImage: 'linear-gradient(rgba(245,158,11,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(245,158,11,0.02) 1px, transparent 1px)',
+        backgroundSize: '80px 80px', pointerEvents: 'none'
+      }} />
+
+      <div className="container" style={{ position: 'relative', zIndex: 2 }}>
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }} transition={{ duration: 0.6 }}
+          style={{ textAlign: 'center', marginBottom: '56px' }}
+        >
+          <div style={{
+            display: 'inline-flex', alignItems: 'center', gap: '8px',
+            background: 'rgba(245,158,11,0.08)', border: '1px solid rgba(245,158,11,0.25)',
+            borderRadius: '40px', padding: '6px 18px', marginBottom: '20px'
+          }}>
+            <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#F59E0B', boxShadow: '0 0 8px #F59E0B' }} />
+            <span style={{ fontSize: '11px', fontWeight: '700', color: '#F59E0B', letterSpacing: '1.5px', textTransform: 'uppercase' }}>Domain Expertise</span>
+          </div>
+          <h2 style={{ fontSize: 'clamp(28px,3.5vw,46px)', fontWeight: '800', color: '#fff', margin: '0 0 12px', fontFamily: 'var(--font-headings)', letterSpacing: '-0.5px' }}>
+            Interactive Industry Wall
+          </h2>
+          <p style={{ fontSize: '15px', color: 'rgba(209,213,219,0.7)', maxWidth: '500px', margin: '0 auto', lineHeight: 1.6 }}>
+            Nine industry verticals. One enterprise technology partner.
+          </p>
+        </motion.div>
+
+        {/* Mosaic grid */}
+        <motion.div
+          initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
+          viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.15 }}
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(4, 1fr)',
+            gap: '10px',
+            maxWidth: '1100px',
+            margin: '0 auto',
+          }}
+        >
+          {INDUSTRIES.map((ind, i) => {
+            const isHovered = hovered === ind.id;
+            const anyHovered = hovered !== null;
+            return (
+              <motion.div
+                key={ind.id}
+                onHoverStart={() => setHovered(ind.id)}
+                onHoverEnd={() => setHovered(null)}
+                animate={{
+                  opacity: anyHovered && !isHovered ? 0.45 : 1,
+                  scale: isHovered ? 1.02 : anyHovered ? 0.98 : 1,
+                }}
+                transition={{ duration: 0.35, ease: [0.32, 0.72, 0, 1] }}
+                style={{
+                  gridColumn: `span ${ind.span}`,
+                  height: ind.span === 2 ? '240px' : '190px',
+                  position: 'relative',
+                  borderRadius: '14px',
+                  overflow: 'hidden',
+                  cursor: 'default',
+                  border: isHovered ? '1.5px solid rgba(245,158,11,0.7)' : '1px solid rgba(255,255,255,0.06)',
+                  boxShadow: isHovered ? '0 0 28px rgba(245,158,11,0.2), 0 12px 40px rgba(0,0,0,0.6)' : '0 4px 20px rgba(0,0,0,0.4)',
+                }}
+              >
+                {/* Background image with zoom */}
+                <motion.img
+                  src={ind.image}
+                  alt={ind.label}
+                  animate={{ scale: isHovered ? 1.08 : 1 }}
+                  transition={{ duration: 0.55, ease: [0.32, 0.72, 0, 1] }}
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                />
+
+                {/* Dark overlay */}
+                <motion.div
+                  animate={{ opacity: isHovered ? 0.55 : 0.72 }}
+                  transition={{ duration: 0.35 }}
+                  style={{
+                    position: 'absolute', inset: 0,
+                    background: 'linear-gradient(to top, rgba(6,12,26,0.95) 0%, rgba(6,12,26,0.3) 60%, transparent 100%)',
+                  }}
+                />
+
+                {/* Gold top border sweep on hover */}
+                <motion.div
+                  animate={{ scaleX: isHovered ? 1 : 0, opacity: isHovered ? 1 : 0 }}
+                  transition={{ duration: 0.4, ease: [0.32, 0.72, 0, 1] }}
+                  style={{
+                    position: 'absolute', top: 0, left: 0, right: 0, height: '2px',
+                    background: 'linear-gradient(90deg, transparent, #F59E0B, #FCD34D, #F59E0B, transparent)',
+                    transformOrigin: 'left',
+                  }}
+                />
+
+                {/* Index */}
+                <div style={{
+                  position: 'absolute', top: '12px', left: '12px',
+                  fontSize: '10px', fontWeight: '800', color: isHovered ? '#F59E0B' : 'rgba(156,163,175,0.7)',
+                  fontFamily: 'var(--font-headings)', letterSpacing: '0.5px',
+                  background: 'rgba(6,12,26,0.65)', backdropFilter: 'blur(6px)',
+                  border: `1px solid ${isHovered ? 'rgba(245,158,11,0.4)' : 'rgba(255,255,255,0.06)'}`,
+                  borderRadius: '5px', padding: '2px 7px',
+                  transition: 'color 0.3s, border-color 0.3s',
+                }}>
+                  {String(i + 1).padStart(2, '0')}
+                </div>
+
+                {/* Label at bottom */}
+                <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '16px 18px' }}>
+                  <motion.h3
+                    animate={{ y: isHovered ? -4 : 0, color: isHovered ? '#F59E0B' : '#FFFFFF' }}
+                    transition={{ duration: 0.3 }}
+                    style={{
+                      margin: 0, fontSize: ind.span === 2 ? '17px' : '14px',
+                      fontWeight: '800', fontFamily: 'var(--font-headings)',
+                      lineHeight: 1.2, letterSpacing: '-0.2px',
+                      textShadow: '0 2px 12px rgba(0,0,0,0.8)',
+                    }}
+                  >
+                    {ind.label}
+                  </motion.h3>
+                  <motion.div
+                    animate={{ opacity: isHovered ? 1 : 0, y: isHovered ? 0 : 6 }}
+                    transition={{ duration: 0.3, delay: 0.05 }}
+                    style={{ display: 'flex', alignItems: 'center', gap: '5px', marginTop: '5px' }}
+                  >
+                    <div style={{ width: '20px', height: '1.5px', background: '#F59E0B', borderRadius: '1px' }} />
+                    <span style={{ fontSize: '11px', fontWeight: '600', color: 'rgba(245,158,11,0.9)', letterSpacing: '0.5px' }}>
+                      CEA SOLUTIONS AVAILABLE
+                    </span>
+                  </motion.div>
+                </div>
+              </motion.div>
+            );
+          })}
+        </motion.div>
+      </div>
+    </section>
   );
 }
 
@@ -973,189 +1599,17 @@ export default function Home() {
       </section>
 
       {/* --- SOLUTIONS SUCCESSFULLY DELIVERED --- */}
-      <section className="section" style={{ backgroundColor: 'var(--secondary-bg)', overflow: 'hidden', position: 'relative' }}>
-        {/* Real business imagery in background accents */}
-        <div 
-          style={{
-            position: 'absolute',
-            right: '-10%',
-            top: '5%',
-            width: '450px',
-            height: '450px',
-            backgroundImage: 'url("/images/manufacturing_floor_1780850784796.png")',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            opacity: 0.025,
-            pointerEvents: 'none',
-            borderRadius: '50%',
-            filter: 'grayscale(100%) blur(2px)'
-          }}
-        />
-        <div 
-          style={{
-            position: 'absolute',
-            left: '-10%',
-            bottom: '5%',
-            width: '450px',
-            height: '450px',
-            backgroundImage: 'url("/images/quality_audit_1780850801169.png")',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            opacity: 0.025,
-            pointerEvents: 'none',
-            borderRadius: '50%',
-            filter: 'grayscale(100%) blur(2px)'
-          }}
-        />
-
+      <section style={{ backgroundColor: 'var(--secondary-bg)', overflow: 'hidden', position: 'relative', padding: '72px 0 80px' }}>
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
-          <div className="section-title-wrapper" style={{ marginBottom: '48px' }}>
+          {/* Section header */}
+          <div style={{ textAlign: 'center', marginBottom: '44px' }}>
             <span className="section-subtitle">Our Delivery Record</span>
             <h2 className="section-title">Solutions Successfully Delivered</h2>
-            <p className="section-desc">
-              Real-world business applications developed across manufacturing, compliance, finance, NGO, logistics and enterprise domains.
-            </p>
-          </div>
-
-          {/* Section statistics */}
-          <div style={{ 
-            display: 'grid', 
-            gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', 
-            gap: '20px', 
-            marginBottom: '56px'
-          }}>
-            {[
-              { value: <><CountUp end={12} duration={1} />+</>, label: "Solutions Delivered", sub: "Production-ready systems" },
-              { value: <><CountUp end={11} duration={1} />+</>, label: "Industry Domains", sub: "Diverse business verticals" },
-              { value: "Global", label: "Project Experience", sub: "Multi-country footprint" },
-              { value: "Enterprise", label: "Applications", sub: "Uptime & scale optimized" }
-            ].map((stat, idx) => (
-              <div key={idx} style={{ 
-                background: 'var(--card-bg)', 
-                border: '1px solid var(--border-color)', 
-                borderRadius: 'var(--border-radius-md)', 
-                padding: '24px', 
-                textAlign: 'center',
-                boxShadow: 'var(--shadow-md)',
-                position: 'relative',
-                overflow: 'hidden',
-                backdropFilter: 'blur(10px)',
-                WebkitBackdropFilter: 'blur(10px)'
-              }}>
-                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', background: idx % 2 === 0 ? 'var(--secondary)' : 'var(--accent)' }}></div>
-                <div style={{ fontSize: '32px', fontWeight: '800', color: 'var(--primary)', fontFamily: 'var(--font-headings)' }}>{stat.value}</div>
-                <div style={{ fontSize: '14px', fontWeight: '700', color: 'var(--secondary)', marginTop: '4px' }}>{stat.label}</div>
-                <div style={{ fontSize: '12px', color: 'var(--text-muted)', marginTop: '2px' }}>{stat.sub}</div>
-              </div>
-            ))}
-          </div>
-
-          {/* Staggered card animations and hover effects */}
-          <motion.div 
-            variants={{
-              initial: {},
-              whileInView: {
-                transition: {
-                  staggerChildren: 0.04
-                }
-              }
-            }}
-            initial="initial"
-            whileInView="whileInView"
-            viewport={{ once: true, margin: "-80px" }}
-            style={{ 
-              display: 'grid', 
-              gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', 
-              gap: '24px',
-              marginBottom: '48px'
-            }}
-          >
-            {solutions.map((solution, index) => {
-              const IconComp = solution.icon;
-              return (
-                <motion.div
-                  key={index}
-                  variants={{
-                    initial: { opacity: 0, y: 24 },
-                    whileInView: { 
-                      opacity: 1, 
-                      y: 0,
-                      transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] }
-                    }
-                  }}
-                  whileHover={{ 
-                    y: -6, 
-                    borderColor: 'rgba(37, 99, 235, 0.35)', 
-                    boxShadow: 'var(--shadow-lg)',
-                    transition: { duration: 0.2 }
-                  }}
-                  style={{
-                    backgroundColor: 'var(--card-bg)',
-                    border: '1px solid var(--border-color)',
-                    borderRadius: 'var(--border-radius-lg)',
-                    padding: '28px 24px',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: '16px',
-                    boxShadow: 'var(--shadow-md)',
-                    position: 'relative',
-                    overflow: 'hidden',
-                    transition: 'border-color 0.2s, box-shadow 0.2s',
-                    backdropFilter: 'blur(10px)',
-                    WebkitBackdropFilter: 'blur(10px)'
-                  }}
-                >
-                  <div style={{ 
-                    position: 'absolute', 
-                    top: 0, 
-                    right: 0, 
-                    width: '32px', 
-                    height: '32px', 
-                    background: 'linear-gradient(135deg, transparent 50%, rgba(20, 184, 166, 0.08) 50%)',
-                    borderRadius: '0 0 0 12px'
-                  }} />
-
-                  <div style={{ 
-                    width: '46px', 
-                    height: '46px', 
-                    borderRadius: 'var(--border-radius-md)', 
-                    backgroundColor: 'rgba(34, 211, 238, 0.08)', 
-                    color: 'var(--supporting)', 
-                    display: 'flex', 
-                    alignItems: 'center', 
-                    justifyContent: 'center',
-                    flexShrink: 0
-                  }}>
-                    <IconComp size={22} strokeWidth={1.75} />
-                  </div>
-
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', flexGrow: 1 }}>
-                    <h3 style={{ fontSize: '16px', fontWeight: '700', color: 'var(--primary)', margin: 0, fontFamily: 'var(--font-headings)' }}>
-                      {solution.title}
-                    </h3>
-                    <p style={{ fontSize: '13.5px', color: 'var(--text-muted)', lineHeight: '1.5', margin: 0 }}>
-                      {solution.description}
-                    </p>
-                  </div>
-                </motion.div>
-              );
-            })}
-          </motion.div>
-
-          {/* CTA Button */}
-          <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <motion.button 
-              onClick={() => navigate('/services')} 
-              className="btn btn-primary"
-              whileHover={{ scale: 1.03, boxShadow: 'var(--shadow-md)' }}
-              whileTap={{ scale: 0.98 }}
-              style={{ padding: '12px 30px' }}
-            >
-              View Our Expertise
-              <ArrowRight size={16} />
-            </motion.button>
           </div>
         </div>
+
+        {/* Coverflow Carousel — full bleed */}
+        <SolutionsCoverflow solutions={solutions} onNavigate={navigate} />
       </section>
 
       {/* --- PRODUCTION TRACKING TOOL VIDEO PLACEHOLDER --- */}

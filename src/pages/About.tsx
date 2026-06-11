@@ -1353,41 +1353,7 @@ export default function About() {
 
   const [activeIndex, setActiveIndex] = useState<number>(0);
 
-  // Vertical panel helper component
-  function VerticalPanel({ index, title, desc, image }: { index: number; title: string; desc: string; image: string }) {
-    const ref = useRef<HTMLDivElement | null>(null);
-    const inView = useInView(ref, { amount: 0.55 });
-
-    useEffect(() => {
-      if (inView) setActiveIndex(index);
-    }, [inView, index]);
-
-    const isActive = activeIndex === index;
-    const isCompressed = activeIndex !== index;
-
-    return (
-      <motion.article
-        ref={ref}
-        className={`vertical-panel ${isActive ? 'expanded' : ''} ${isCompressed && !isActive ? 'compressed' : ''}`}
-        style={{ backgroundImage: `linear-gradient(rgba(4,8,16,0.36), rgba(4,8,16,0.36)), url(${image})` }}
-        onClick={() => setActiveIndex(index)}
-        initial={{ opacity: 0, y: 24 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-      >
-        <div className="vertical-inner">
-          <header className="vertical-header">
-            <h3 className="vertical-title">{title}</h3>
-          </header>
-
-          <motion.div className="vertical-body" animate={isActive ? { opacity: 1, height: 'auto' } : { opacity: 0, height: 0 }} transition={{ duration: 0.45 }}>
-            <div className="gold-line" />
-            <p>{desc}</p>
-          </motion.div>
-        </div>
-      </motion.article>
-    );
-  }
+  
   const founderHighlights = ['35+ Years IT Experience', 'ERP Specialist', 'CRM & SCM Expertise', 'Financial Systems', 'Global Project Delivery'];
 
   return (
@@ -1527,8 +1493,8 @@ export default function About() {
         </div>
       </section>
 
-      {/* ===== WHY CHOOSE CEA — VERTICAL STORY EXPERIENCE ===== */}
-      <section className="about-why-section vertical-story-section">
+      {/* ===== WHY CHOOSE CEA — TAB SHOWCASE (Compact Enterprise Showcase) ===== */}
+      <section className="about-why-section tab-showcase-section">
         <div className="container-full">
           <motion.div className="section-title-wrapper" {...fadeInUp}>
             <span className="section-subtitle">Our Advantage</span>
@@ -1536,15 +1502,49 @@ export default function About() {
             <p className="section-desc">The differentiators that make us a trusted technology partner.</p>
           </motion.div>
 
-          <div className="vertical-story-wrap">
-            <div className="gold-progress-wrap">
-              <div className="gold-progress" style={{ top: `${(activeIndex / Math.max(1, whyChoose.length - 1)) * 100}%` }} />
+          <div className="tab-showcase">
+            <div className="tabs-row">
+              {whyChoose.map((t, i) => (
+                <button
+                  key={t.title}
+                  className={`tab ${activeIndex === i ? 'active' : ''}`}
+                  onClick={() => setActiveIndex(i)}
+                >
+                  {t.title}
+                </button>
+              ))}
+              <motion.div className="tab-underline" layout transition={{ type: 'spring', stiffness: 260, damping: 30 }} style={{ left: `${(activeIndex * 100) / whyChoose.length}%`, width: `${100 / whyChoose.length}%` }} />
             </div>
 
-            <div className="vertical-panels">
-              {whyChoose.map((item, i) => (
-                <VerticalPanel key={item.title} index={i} title={item.title} desc={item.desc} image={panelImages[item.title] || '/images/placeholder.jpg'} />
-              ))}
+            <div className="tab-content">
+              <div className="tab-media">
+                {whyChoose.map((t, i) => (
+                  <motion.div
+                    key={t.title}
+                    className="tab-image"
+                    initial={{ opacity: 0, scale: 1.02 }}
+                    animate={activeIndex === i ? { opacity: 1, scale: 1.06 } : { opacity: 0, scale: 1 }}
+                    transition={{ duration: 0.8 }}
+                    style={{ backgroundImage: `url(${panelImages[t.title] || '/images/placeholder.jpg'})` }}
+                  />
+                ))}
+              </div>
+
+              <div className="tab-text">
+                {whyChoose.map((t, i) => (
+                  <motion.div
+                    key={t.title}
+                    className="tab-desc"
+                    initial={{ opacity: 0, x: 12 }}
+                    animate={activeIndex === i ? { opacity: 1, x: 0 } : { opacity: 0, x: -8 }}
+                    transition={{ duration: 0.5 }}
+                    style={{ display: activeIndex === i ? 'block' : 'none' }}
+                  >
+                    <h3>{t.title}</h3>
+                    <p>{t.desc}</p>
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </div>
         </div>

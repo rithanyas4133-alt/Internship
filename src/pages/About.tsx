@@ -942,7 +942,7 @@ function CoreValuesSection() {
             </div>
           </div>
         ) : (
-          /* Desktop Premium Network Layout */
+          /* Desktop Premium Network Layout with 3-Column Grid */
           <div
             ref={containerRef}
             style={{
@@ -950,10 +950,12 @@ function CoreValuesSection() {
               width: '100%',
               maxWidth: '1200px',
               margin: '0 auto',
-              height: '750px',
-              display: 'flex',
-              justifyContent: 'center',
+              display: 'grid',
+              gridTemplateColumns: '1fr 460px 1fr',
+              columnGap: '40px',
+              rowGap: '20px',
               alignItems: 'center',
+              minHeight: '750px',
             }}
           >
             {/* SVG Connection Lines */}
@@ -980,121 +982,64 @@ function CoreValuesSection() {
               </svg>
             )}
 
-            {/* Quality (Top Left) */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9, y: 30 }}
-              whileInView={{ opacity: 1, scale: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.1 }}
-              style={{ position: 'absolute', left: '70px', top: '50px' }}
-            >
-              <GlassValueNode
-                v={CORE_VALUES[0]}
-                index={0}
-                isHovered={hovered === 'quality'}
-                isDimmed={hovered !== null && hovered !== 'quality'}
-                onHoverStart={() => setHovered('quality')}
-                onHoverEnd={() => setHovered(null)}
-                nodeRef={nodeRefs.quality}
-                parallaxStyle={{ x: nodeOffsetLeftX, y: nodeOffsetLeftY }}
-              />
-            </motion.div>
+            {/* Left Column: Quality & Innovation */}
+            <div style={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '140px',
+              alignItems: 'flex-end',
+              zIndex: 10,
+            }}>
+              {/* Quality */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9, x: -30 }}
+                whileInView={{ opacity: 1, scale: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, delay: 0.1 }}
+              >
+                <GlassValueNode
+                  v={CORE_VALUES[0]}
+                  index={0}
+                  isHovered={hovered === 'quality'}
+                  isDimmed={hovered !== null && hovered !== 'quality'}
+                  onHoverStart={() => setHovered('quality')}
+                  onHoverEnd={() => setHovered(null)}
+                  nodeRef={nodeRefs.quality}
+                  parallaxStyle={{ x: nodeOffsetLeftX, y: nodeOffsetLeftY }}
+                />
+              </motion.div>
 
-            {/* Integrity (Top Right) */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9, y: 30 }}
-              whileInView={{ opacity: 1, scale: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-              style={{ position: 'absolute', right: '70px', top: '50px' }}
-            >
-              <GlassValueNode
-                v={CORE_VALUES[1]}
-                index={1}
-                isHovered={hovered === 'integrity'}
-                isDimmed={hovered !== null && hovered !== 'integrity'}
-                onHoverStart={() => setHovered('integrity')}
-                onHoverEnd={() => setHovered(null)}
-                nodeRef={nodeRefs.integrity}
-                parallaxStyle={{ x: nodeOffsetRightX, y: nodeOffsetRightY }}
-              />
-            </motion.div>
+              {/* Innovation */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9, x: -30 }}
+                whileInView={{ opacity: 1, scale: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, delay: 0.3 }}
+              >
+                <GlassValueNode
+                  v={CORE_VALUES[2]}
+                  index={2}
+                  isHovered={hovered === 'innovation'}
+                  isDimmed={hovered !== null && hovered !== 'innovation'}
+                  onHoverStart={() => setHovered('innovation')}
+                  onHoverEnd={() => setHovered(null)}
+                  nodeRef={nodeRefs.innovation}
+                  parallaxStyle={{ x: nodeOffsetLeftX, y: nodeOffsetLeftY }}
+                />
+              </motion.div>
+            </div>
 
-            {/* Innovation (Middle Left) */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9, y: 30 }}
-              whileInView={{ opacity: 1, scale: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.3 }}
-              style={{ position: 'absolute', left: '10px', top: '280px' }}
-            >
-              <GlassValueNode
-                v={CORE_VALUES[2]}
-                index={2}
-                isHovered={hovered === 'innovation'}
-                isDimmed={hovered !== null && hovered !== 'innovation'}
-                onHoverStart={() => setHovered('innovation')}
-                onHoverEnd={() => setHovered(null)}
-                nodeRef={nodeRefs.innovation}
-                parallaxStyle={{ x: nodeOffsetLeftX, y: nodeOffsetLeftY }}
-              />
-            </motion.div>
-
-            {/* Accountability (Middle Right) */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9, y: 30 }}
-              whileInView={{ opacity: 1, scale: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.4 }}
-              style={{ position: 'absolute', right: '10px', top: '280px' }}
-            >
-              <GlassValueNode
-                v={CORE_VALUES[3]}
-                index={3}
-                isHovered={hovered === 'accountability'}
-                isDimmed={hovered !== null && hovered !== 'accountability'}
-                onHoverStart={() => setHovered('accountability')}
-                onHoverEnd={() => setHovered(null)}
-                nodeRef={nodeRefs.accountability}
-                parallaxStyle={{ x: nodeOffsetRightX, y: nodeOffsetRightY }}
-              />
-            </motion.div>
-
-            {/* Reliability (Bottom Center) */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9, y: 30 }}
-              whileInView={{ opacity: 1, scale: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.5 }}
-              style={{ position: 'absolute', bottom: '20px', left: '50%', transform: 'translateX(-50%)' }}
-            >
-              <GlassValueNode
-                v={CORE_VALUES[4]}
-                index={4}
-                isHovered={hovered === 'reliability'}
-                isDimmed={hovered !== null && hovered !== 'reliability'}
-                onHoverStart={() => setHovered('reliability')}
-                onHoverEnd={() => setHovered(null)}
-                nodeRef={nodeRefs.reliability}
-                parallaxStyle={{ y: useTransform(smoothY, [-1, 1], ['6px', '-6px']) }}
-              />
-            </motion.div>
-
-            {/* Centerpiece Image & Description */}
-            <div
-              ref={centerRef}
-              style={{
-                width: '460px',
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                gap: '24px',
-                zIndex: 10,
-                marginTop: '-60px',
-              }}
-            >
+            {/* Center Column: Centerpiece, Description, Reliability */}
+            <div style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              gap: '24px',
+              zIndex: 10,
+            }}>
               {/* Large centerpiece visual */}
               <motion.div
+                ref={centerRef}
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
@@ -1286,6 +1231,73 @@ function CoreValuesSection() {
                   )}
                 </AnimatePresence>
               </div>
+
+              {/* Reliability (Bottom Center) */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9, y: 30 }}
+                whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, delay: 0.5 }}
+                style={{ marginTop: '10px' }}
+              >
+                <GlassValueNode
+                  v={CORE_VALUES[4]}
+                  index={4}
+                  isHovered={hovered === 'reliability'}
+                  isDimmed={hovered !== null && hovered !== 'reliability'}
+                  onHoverStart={() => setHovered('reliability')}
+                  onHoverEnd={() => setHovered(null)}
+                  nodeRef={nodeRefs.reliability}
+                  parallaxStyle={{ y: useTransform(smoothY, [-1, 1], ['6px', '-6px']) }}
+                />
+              </motion.div>
+            </div>
+
+            {/* Right Column: Integrity & Accountability */}
+            <div style={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '140px',
+              alignItems: 'flex-start',
+              zIndex: 10,
+            }}>
+              {/* Integrity */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9, x: 30 }}
+                whileInView={{ opacity: 1, scale: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, delay: 0.2 }}
+              >
+                <GlassValueNode
+                  v={CORE_VALUES[1]}
+                  index={1}
+                  isHovered={hovered === 'integrity'}
+                  isDimmed={hovered !== null && hovered !== 'integrity'}
+                  onHoverStart={() => setHovered('integrity')}
+                  onHoverEnd={() => setHovered(null)}
+                  nodeRef={nodeRefs.integrity}
+                  parallaxStyle={{ x: nodeOffsetRightX, y: nodeOffsetRightY }}
+                />
+              </motion.div>
+
+              {/* Accountability */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9, x: 30 }}
+                whileInView={{ opacity: 1, scale: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, delay: 0.4 }}
+              >
+                <GlassValueNode
+                  v={CORE_VALUES[3]}
+                  index={3}
+                  isHovered={hovered === 'accountability'}
+                  isDimmed={hovered !== null && hovered !== 'accountability'}
+                  onHoverStart={() => setHovered('accountability')}
+                  onHoverEnd={() => setHovered(null)}
+                  nodeRef={nodeRefs.accountability}
+                  parallaxStyle={{ x: nodeOffsetRightX, y: nodeOffsetRightY }}
+                />
+              </motion.div>
             </div>
           </div>
         )}

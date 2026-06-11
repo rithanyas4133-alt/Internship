@@ -1,5 +1,7 @@
 import { motion, useInView, useMotionValue, useTransform, useSpring, AnimatePresence } from 'framer-motion';
 import { useState, useEffect, useRef } from 'react';
+import useInViewport from '../hooks/useInViewport';
+import CountUp from '../components/CountUp';
 import {
   HeartHandshake, Target, Lightbulb, CheckCircle,
   Award, Globe, Briefcase, Handshake,
@@ -94,6 +96,16 @@ function DigitalEcosystem() {
           <p style={{ fontSize: '15.5px', color: 'var(--text-muted)', maxWidth: '600px', margin: '0 auto', lineHeight: 1.65 }}>
             An interconnected enterprise ecosystem delivering manufacturing excellence, compliance governance, operational intelligence, and business transformation.
           </p>
+          <div className="stats" style={{ display: 'flex', gap: '64px', justifyContent: 'center', marginTop: '28px', alignItems: 'center' }}>
+            <div style={{ textAlign: 'center' }}>
+              <div className="stat-large"><CountUp end={1200} suffix="+" /></div>
+              <div className="feature-title muted">Deployments</div>
+            </div>
+            <div style={{ textAlign: 'center' }}>
+              <div className="stat-large"><CountUp end={20} suffix="+" /></div>
+              <div className="feature-title muted">Years</div>
+            </div>
+          </div>
         </motion.div>
 
         {/* SVG Network */}

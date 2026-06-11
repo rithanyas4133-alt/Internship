@@ -1351,8 +1351,43 @@ export default function About() {
     'Product Innovation': '/images/digital_innovation_lab.jpg',
   };
 
-  const [activePanel, setActivePanel] = useState<string | null>(null);
-  const togglePanel = (title: string) => setActivePanel(prev => prev === title ? null : title);
+  const [activeIndex, setActiveIndex] = useState<number>(0);
+
+  // Vertical panel helper component
+  function VerticalPanel({ index, title, desc, image }: { index: number; title: string; desc: string; image: string }) {
+    const ref = useRef<HTMLDivElement | null>(null);
+    const inView = useInView(ref, { amount: 0.55 });
+
+    useEffect(() => {
+      if (inView) setActiveIndex(index);
+    }, [inView, index]);
+
+    const isActive = activeIndex === index;
+    const isCompressed = activeIndex !== index;
+
+    return (
+      <motion.article
+        ref={ref}
+        className={`vertical-panel ${isActive ? 'expanded' : ''} ${isCompressed && !isActive ? 'compressed' : ''}`}
+        style={{ backgroundImage: `linear-gradient(rgba(4,8,16,0.36), rgba(4,8,16,0.36)), url(${image})` }}
+        onClick={() => setActiveIndex(index)}
+        initial={{ opacity: 0, y: 24 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
+        <div className="vertical-inner">
+          <header className="vertical-header">
+            <h3 className="vertical-title">{title}</h3>
+          </header>
+
+          <motion.div className="vertical-body" animate={isActive ? { opacity: 1, height: 'auto' } : { opacity: 0, height: 0 }} transition={{ duration: 0.45 }}>
+            <div className="gold-line" />
+            <p>{desc}</p>
+          </motion.div>
+        </div>
+      </motion.article>
+    );
+  }
   const founderHighlights = ['35+ Years IT Experience', 'ERP Specialist', 'CRM & SCM Expertise', 'Financial Systems', 'Global Project Delivery'];
 
   return (
@@ -1492,48 +1527,26 @@ export default function About() {
         </div>
       </section>
 
-      {/* ===== WHY CHOOSE CEA — STACKED PANELS (Enterprise Stack Experience) ===== */}
-      <section className="about-why-section stacked-panels-section">
-        <div className="container">
+      {/* ===== WHY CHOOSE CEA — VERTICAL STORY EXPERIENCE ===== */}
+      <section className="about-why-section vertical-story-section">
+        <div className="container-full">
           <motion.div className="section-title-wrapper" {...fadeInUp}>
             <span className="section-subtitle">Our Advantage</span>
             <h2 className="section-title">Why Choose CEA Infotech</h2>
             <p className="section-desc">The differentiators that make us a trusted technology partner.</p>
           </motion.div>
 
-          <motion.div className="stacked-panels" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={{ hidden: {}, visible: {} }}>
-            {whyChoose.map((item, i) => {
-              const isActive = activePanel === item.title;
-              const compressed = activePanel !== null && !isActive;
-              const image = panelImages[item.title] || '/images/placeholder.jpg';
-              return (
-                <motion.article
-                  key={item.title}
-                  className={`stacked-panel ${isActive ? 'expanded' : ''} ${compressed ? 'compressed' : ''}`}
-                  style={{ backgroundImage: `linear-gradient(rgba(4,8,16,0.36), rgba(4,8,16,0.36)), url(${image})` }}
-                  onMouseEnter={() => setActivePanel(item.title)}
-                  onMouseLeave={() => setActivePanel(null)}
-                  onClick={() => togglePanel(item.title)}
-                  layout
-                  initial={{ opacity: 0, y: 18 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
-                >
-                  <div className="panel-inner">
-                    <div className="panel-header">
-                      <div className="panel-title">{item.title}</div>
-                      <div className="panel-preview">{/* small visual preview area */}</div>
-                    </div>
+          <div className="vertical-story-wrap">
+            <div className="gold-progress-wrap">
+              <div className="gold-progress" style={{ top: `${(activeIndex / Math.max(1, whyChoose.length - 1)) * 100}%` }} />
+            </div>
 
-                    <motion.div className="panel-body" initial={{ opacity: 0, height: 0 }} animate={isActive ? { opacity: 1, height: 'auto' } : { opacity: 0, height: 0 }} transition={{ duration: 0.45 }}>
-                      <div className="gold-divider" />
-                      <p>{item.desc}</p>
-                    </motion.div>
-                  </div>
-                </motion.article>
-              );
-            })}
-          </motion.div>
+            <div className="vertical-panels">
+              {whyChoose.map((item, i) => (
+                <VerticalPanel key={item.title} index={i} title={item.title} desc={item.desc} image={panelImages[item.title] || '/images/placeholder.jpg'} />
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 

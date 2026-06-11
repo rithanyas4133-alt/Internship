@@ -342,34 +342,7 @@ export default function ProductDetail() {
     transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] }
   };
 
-  // Resolve tint helper for hex or css var colors
-  const resolveTint = (accent: string, alpha = 0.08) => {
-    try {
-      if (!accent) return `rgba(var(--primary-rgb), 0.02)`;
-      if (accent.startsWith('var(')) {
-        const name = accent.slice(4, -1).trim();
-        const map: Record<string, string> = {
-          '--cta': '--accent-rgb',
-          '--accent': '--accent-rgb',
-          '--supporting': '--supporting-rgb',
-          '--secondary': '--secondary-rgb',
-          '--primary': '--primary-rgb'
-        };
-        const rgbVar = map[name] || `${name}-rgb`;
-        return `rgba(var(${rgbVar}), ${alpha})`;
-      }
-      if (accent.startsWith('#')) {
-        const hex = accent.replace('#', '');
-        const rr = parseInt(hex.substring(0, 2), 16);
-        const gg = parseInt(hex.substring(2, 4), 16);
-        const bb = parseInt(hex.substring(4, 6), 16);
-        return `rgba(${rr}, ${gg}, ${bb}, ${alpha})`;
-      }
-      return accent;
-    } catch (e) {
-      return `rgba(var(--primary-rgb), 0.02)`;
-    }
-  };
+  /* resolveTint removed (unused) */
 
 
   // Get the other 4 platforms for cross-navigation

@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, type ReactNode } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Factory, 
@@ -7,7 +7,7 @@ import {
   Truck, 
   Network, 
   Check,
-  CheckCircle,
+  // CheckCircle removed (unused)
   ArrowRight, 
   Database, 
   Sparkles, 
@@ -15,19 +15,13 @@ import {
   Award,
   Layers,
   TrendingUp,
-  Shirt,
-  Settings,
-  Send,
-  Cog,
-  ShoppingBag,
-  Landmark,
-  HeartHandshake,
-  Building
-} from 'lucide-react';
+  Settings
+  ,Send
+ } from 'lucide-react';
 
 
 
-// Detailed Product Data structure
+// Product Type
 interface Product {
   id: string;
   name: string;
@@ -38,7 +32,7 @@ interface Product {
   businessValue: string;
   industries: string[];
   image: string;
-  icon: React.ReactNode;
+  icon: ReactNode;
 }
 
 export default function Products() {
@@ -95,12 +89,8 @@ export default function Products() {
     }
   };
 
-  const scrollReveal = {
-    initial: { opacity: 0, y: 45 },
-    whileInView: { opacity: 1, y: 0 },
-    viewport: { once: true, margin: "-100px" },
-    transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }
-  };
+  // scrollReveal removed (unused)
+  const railRef = useRef<HTMLDivElement | null>(null);
 
   const productsData: Product[] = [
     {
@@ -350,13 +340,13 @@ export default function Products() {
           color: 'var(--text-main)',
           position: 'relative',
           overflow: 'hidden',
-          backgroundImage: 'linear-gradient(rgba(var(--primary-rgb), 0.85), rgba(var(--primary-rgb), 0.95)), url("/images/products_hero_bg.png")',
+          backgroundImage: 'linear-gradient(rgba(15, 28, 50, 0.55), rgba(31, 58, 95, 0.68)), url("/images/products_hero_bg.png")',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          borderBottom: '1px solid rgba(var(--primary-rgb), 0.05)'
+          borderBottom: '1px solid rgba(184,155,94,0.18)'
         }}
       >
-        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: `radial-gradient(circle at 50% 50%, ${resolveTint('var(--supporting)', 0.15)} 0%, transparent 60%)`, zIndex: 1, pointerEvents: 'none' }}></div>
+        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'radial-gradient(circle at 50% 50%, rgba(184,155,94,0.06) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
           <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
             <motion.div 
@@ -372,12 +362,12 @@ export default function Products() {
                   alignItems: 'center', 
                   gap: '8px', 
                   padding: '6px 14px', 
-                  background: 'rgba(var(--primary-rgb), 0.06)', 
+                  background: 'rgba(184,155,94,0.12)', 
                   borderRadius: '20px', 
                   fontSize: '13px', 
                   color: 'var(--accent)', 
                   fontWeight: '600',
-                  border: '1px solid rgba(var(--primary-rgb), 0.12)',
+                  border: '1px solid rgba(184,155,94,0.3)',
                   width: 'max-content'
                 }}
               >
@@ -385,11 +375,11 @@ export default function Products() {
                 <span>Enterprise Grade Platforms</span>
               </div>
               
-              <h1 style={{ fontSize: '52px', lineHeight: '1.15', letterSpacing: '-1.5px', color: 'var(--text-main)', fontWeight: '800', margin: 0, fontFamily: 'var(--font-headings)' }}>
+              <h1 style={{ fontSize: '52px', lineHeight: '1.15', letterSpacing: '-1.5px', color: '#ffffff', fontWeight: '800', margin: 0, fontFamily: 'var(--font-headings)' }}>
                 CEA's Flagship Products
               </h1>
               
-              <p style={{ fontSize: '19px', color: 'rgba(var(--primary-rgb), 0.9)', lineHeight: '1.6', margin: 0, maxWidth: '680px' }}>
+              <p style={{ fontSize: '19px', color: 'rgba(255,255,255,0.78)', lineHeight: '1.6', margin: 0, maxWidth: '680px' }}>
                 Purpose-built software platforms designed to improve operational efficiency, production visibility, compliance management and business performance.
               </p>
               
@@ -397,7 +387,7 @@ export default function Products() {
                 <motion.button 
                   onClick={() => selectProductAndScroll(activeProduct.name)} 
                   className="btn btn-cta"
-                  whileHover={{ scale: 1.03, boxShadow: '0px 6px 12px rgba(234, 179, 8, 0.35)' }}
+                  whileHover={{ scale: 1.03, boxShadow: '0px 6px 12px rgba(184,155,94,0.35)' }}
                   whileTap={{ scale: 0.98 }}
                   style={{ color: '#0F172A', display: 'flex', alignItems: 'center', gap: '8px' }}
                 >
@@ -409,7 +399,7 @@ export default function Products() {
                   className="btn btn-dark-outline"
                   whileHover={{ scale: 1.03, backgroundColor: 'rgba(255, 255, 255, 0.1)' }}
                   whileTap={{ scale: 0.98 }}
-                  style={{ border: '2px solid rgba(var(--primary-rgb), 0.35)', color: 'var(--text-main)' }}
+                  style={{ border: '2px solid rgba(255,255,255,0.3)', color: '#ffffff' }}
                 >
                   Explore Solutions
                 </motion.button>
@@ -824,48 +814,6 @@ export default function Products() {
       </section>
 
       {/* ==================================================
-          SECTION: SECTORS WE TRANSFORM
-          ================================================== */}
-      <section className="section section-dark" style={{ backgroundColor: '#090D1A', borderTop: '1px solid rgba(255, 255, 255, 0.05)', borderBottom: '1px solid rgba(255, 255, 255, 0.05)' }}>
-        <div className="container">
-          <div className="section-title-wrapper">
-            <span className="section-subtitle" style={{ color: 'var(--supporting)' }}>Sectors We Transform</span>
-            <h2 className="section-title" style={{ color: '#ffffff' }}>Designed for Complex Industrial Environments</h2>
-            <p className="section-desc" style={{ color: '#94a3b8' }}>Our software suites adapt to the distinct database, scale, and compliance requirements of diverse sectors.</p>
-          </div>
-
-          <div className="industry-grid">
-            {[
-              { title: 'Manufacturing', desc: 'Real-time plant OEE monitors, WIP audits, and material flow logs.', icon: <Factory /> },
-              { title: 'Engineering', desc: 'Custom project lifecycle tracking, dependency logging, and structural blueprint updates.', icon: <Cog /> },
-              { title: 'Textiles & Apparel', desc: 'Batch dye house tracking, raw material configuration, and operator efficiency logs.', icon: <Shirt /> },
-              { title: 'Retail', desc: 'Stock synchronization, supplier analytics, and courier reconciliation metrics.', icon: <ShoppingBag /> },
-              { title: 'Finance', desc: 'Reconciliation ledgers, audit trail history logs, and localized security configs.', icon: <Landmark /> },
-              { title: 'NGO', desc: 'Grant reporting accounts, localized project logs, and compliance score monitoring.', icon: <HeartHandshake /> },
-              { title: 'Logistics', desc: 'Courier rate auditing, invoice checkers, and shipping savings audits.', icon: <Truck /> },
-              { title: 'Construction', desc: 'Material procurement logs, site safety checks, and heavy machine usage diaries.', icon: <Building /> }
-            ].map((industry) => (
-              <motion.div
-                key={industry.title}
-                className="industry-card"
-                variants={scrollReveal}
-                initial="initial"
-                whileInView="whileInView"
-                viewport={scrollReveal.viewport}
-                style={{ backgroundColor: 'rgba(30, 41, 59, 0.3)', borderColor: 'rgba(255, 255, 255, 0.05)' }}
-              >
-                <div className="industry-icon-wrapper" style={{ backgroundColor: 'rgba(255, 255, 255, 0.04)', color: 'var(--supporting)' }}>
-                  {industry.icon}
-                </div>
-                <h3 className="industry-title" style={{ color: '#ffffff' }}>{industry.title}</h3>
-                <p className="industry-desc" style={{ color: '#94a3b8' }}>{industry.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ==================================================
           SECTION: WHY OUR PRODUCTS STAND OUT
           ================================================== */}
       <section className="section section-dark" style={{ backgroundColor: '#0F172A' }}>
@@ -876,58 +824,104 @@ export default function Products() {
             <p className="section-desc" style={{ color: '#94a3b8' }}>We build enterprise software that integrates directly, ensures compliance, and scales easily.</p>
           </div>
 
-          <motion.div 
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            style={{ 
-              display: 'grid', 
-              gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', 
-              gap: '24px' 
-            }}
-          >
-            {standouts.map((st, index) => (
-              <motion.div
-                key={index}
-                variants={fadeIn}
-                whileHover={{ y: -4, borderColor: 'var(--supporting)' }}
-                style={{
-                  backgroundColor: 'rgba(30, 41, 59, 0.3)',
-                  border: '1px solid rgba(255, 255, 255, 0.05)',
-                  borderRadius: '12px',
-                  padding: '24px 20px',
-                  display: 'flex',
-                  gap: '16px',
-                  alignItems: 'flex-start',
-                  boxShadow: 'var(--shadow-sm)',
-                  transition: 'all 0.25s ease'
-                }}
+          <div className="capability-section">
+            <div className="capability-inner">
+              <div className="capability-rail-wrap">
+              <motion.div ref={railRef as any} className="capability-rail"
+                drag="x"
+                dragElastic={0.08}
+                dragConstraints={{ left: -9999, right: 9999 }}
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-120px' }}
+                transition={{ staggerChildren: 0.16 }}
               >
-                <div style={{
-                  width: '36px',
-                  height: '36px',
-                  borderRadius: '50%',
-                  backgroundColor: 'rgba(6, 182, 212, 0.15)',
-                  color: 'var(--supporting)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  flexShrink: 0
-                }}>
-                  {st.icon}
-                </div>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                  <h4 style={{ fontSize: '15px', fontWeight: '800', color: '#ffffff', margin: 0, fontFamily: 'var(--font-headings)' }}>
-                    {st.title}
-                  </h4>
-                  <p style={{ fontSize: '12.5px', color: '#94a3b8', lineHeight: '1.4', margin: 0 }}>
-                    {st.desc}
-                  </p>
-                </div>
+                {/* Map titles to contextual visuals (replace with production assets as available) */}
+                {standouts.map((st, i) => {
+                  const isLarge = i % 2 === 0; // Large on even indices
+                  const sizeClass = isLarge ? 'capability-panel--large' : 'capability-panel--medium';
+                  const keySafe = st.title.toLowerCase().replace(/\s+/g, '-');
+                  const images: Record<string, string> = {
+                    'industry-focused-design': 'https://images.unsplash.com/photo-1542831371-d531d36971e6?auto=format&fit=crop&w=1400&q=60',
+                    'scalable-architecture': 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1400&q=60',
+                    'real-time-visibility': 'https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=1400&q=60',
+                    'compliance-readiness': 'https://images.unsplash.com/photo-1554774853-bc6b5319b19b?auto=format&fit=crop&w=1400&q=60',
+                    'data-driven-decisions': 'https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=1400&q=60',
+                    'continuous-innovation': 'https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=1400&q=60',
+                    'operational-efficiency': 'https://images.unsplash.com/photo-1581091012184-7e0f3a1d3f47?auto=format&fit=crop&w=1400&q=60',
+                    'long-term-business-value': 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1400&q=60',
+                  };
+                  const imageUrl = images[keySafe] || images['data-driven-decisions'];
+
+                  return (
+                      <motion.div
+                        key={i}
+                        className={`capability-panel ${sizeClass} gold-border`}
+                        whileHover={{ scale: 1.035 }}
+                        initial={{ opacity: 0, y: 26 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8, ease: [0.2, 0.9, 0.2, 1] }}
+                        tabIndex={0}
+                        role="group"
+                        aria-label={`${st.title}: ${st.desc}`}
+                        onMouseMove={(e) => {
+                          const el = e.currentTarget as HTMLDivElement;
+                          const rect = el.getBoundingClientRect();
+                          const px = (e.clientX - rect.left) / rect.width - 0.5;
+                          const py = (e.clientY - rect.top) / rect.height - 0.5;
+                          const img = el.querySelector('.capability-image') as HTMLElement | null;
+                          if (img) img.style.transform = `translate(${px * 10}px, ${py * 10}px) scale(1.06)`;
+                        }}
+                        onMouseLeave={(e) => {
+                          const el = e.currentTarget as HTMLDivElement;
+                          const img = el.querySelector('.capability-image') as HTMLElement | null;
+                          if (img) img.style.transform = '';
+                        }}
+                        onKeyDown={(e) => {
+                          const el = e.currentTarget as HTMLDivElement;
+                          if (e.key === 'ArrowRight') {
+                            const next = el.nextElementSibling as HTMLElement | null;
+                            if (next) next.focus(); else (railRef.current as HTMLElement | null)?.scrollBy({ left: 360, behavior: 'smooth' });
+                          }
+                          if (e.key === 'ArrowLeft') {
+                            const prev = el.previousElementSibling as HTMLElement | null;
+                            if (prev) prev.focus(); else (railRef.current as HTMLElement | null)?.scrollBy({ left: -360, behavior: 'smooth' });
+                          }
+                          if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            el.click();
+                          }
+                        }}
+                      >
+                      <div className="capability-image parallax" style={{ backgroundImage: `url(${imageUrl})` }} />
+                      <div className="capability-overlay" />
+                      <div className="capability-gold-border" />
+                      <div className="capability-corner tl" />
+                      <div className="capability-corner tr" />
+                      <div className="capability-content">
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                          <div className="capability-icon">{st.icon}</div>
+                          <div className="capability-title">{st.title}</div>
+                        </div>
+                        <div className="capability-desc">{st.desc}</div>
+                      </div>
+                    </motion.div>
+                  );
+                })}
               </motion.div>
-            ))}
-          </motion.div>
+              <button aria-hidden className="rail-control rail-prev" onClick={() => railRef.current?.scrollBy({ left: -420, behavior: 'smooth' })}>
+                ‹
+              </button>
+              <button aria-hidden className="rail-control rail-next" onClick={() => railRef.current?.scrollBy({ left: 420, behavior: 'smooth' })}>
+                ›
+              </button>
+              </div>
+
+              {/* Gold sweep line (animated on scroll) */}
+              <motion.div className="capability-gold-sweep" initial={{ width: 0 }} whileInView={{ width: '92%' }} viewport={{ once: true, margin: '-120px' }} transition={{ duration: 1.6, ease: [0.2,0.9,0.2,1] }} />
+            </div>
+          </div>
         </div>
       </section>
 

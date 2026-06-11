@@ -1,6 +1,5 @@
 import { motion, useInView, useMotionValue, useTransform, useSpring, AnimatePresence } from 'framer-motion';
 import { useState, useEffect, useRef } from 'react';
-import useInViewport from '../hooks/useInViewport';
 import CountUp from '../components/CountUp';
 import {
   HeartHandshake, Target, Lightbulb, CheckCircle,
@@ -1346,24 +1345,13 @@ export default function About() {
     { year: 'Present', title: 'Enterprise Solutions & Product Innovation' },
   ];
   const whyChoose = [
-    { title: '35+ Years Leadership', desc: 'Decades of industry expertise driving strategic technology decisions.', icon: <Award size={24} />, color: 'wi-amber' },
-    { title: '11+ Industry Domains', desc: 'Deep domain knowledge across manufacturing, finance, retail and more.', icon: <Layers size={24} />, color: 'wi-blue' },
-    { title: 'Global Delivery', desc: 'Proven track record of successful project delivery across 10+ countries.', icon: <Globe size={24} />, color: 'wi-teal' },
-    { title: 'Custom Enterprise Solutions', desc: 'Tailored software architectures built for specific business requirements.', icon: <Briefcase size={24} />, color: 'wi-amber' },
-    { title: 'Long-Term Relationships', desc: 'Trusted partnerships built on reliability, transparency and results.', icon: <Handshake size={24} />, color: 'wi-blue' },
-    { title: 'Product Innovation', desc: 'Continuous R&D delivering scalable products for modern enterprises.', icon: <Rocket size={24} />, color: 'wi-teal' },
+    { title: '35+ Years Leadership', desc: 'Decades of industry expertise driving strategic technology decisions.', icon: <Award size={24} />, color: 'wi-amber', image: '/images/why_leadership.jpg' },
+    { title: '11+ Industry Domains', desc: 'Deep domain knowledge across manufacturing, finance, retail and more.', icon: <Layers size={24} />, color: 'wi-blue', image: '/images/why_industry.jpg' },
+    { title: 'Global Delivery', desc: 'Proven track record of successful project delivery across 10+ countries.', icon: <Globe size={24} />, color: 'wi-teal', image: '/images/why_global.jpg' },
+    { title: 'Custom Enterprise Solutions', desc: 'Tailored software architectures built for specific business requirements.', icon: <Briefcase size={24} />, color: 'wi-amber', image: '/images/why_enterprise.jpg' },
+    { title: 'Long-Term Relationships', desc: 'Trusted partnerships built on reliability, transparency and results.', icon: <Handshake size={24} />, color: 'wi-blue', image: '/images/why_relationships.jpg' },
+    { title: 'Product Innovation', desc: 'Continuous R&D delivering scalable products for modern enterprises.', icon: <Rocket size={24} />, color: 'wi-teal', image: '/images/why_innovation.jpg' },
   ];
-  // Images mapped for visual previews (kept as references — replace with production assets as needed)
-  const panelImages: Record<string, string> = {
-    '35+ Years Leadership': '/images/executive_meeting.jpg',
-    '11+ Industry Domains': '/images/multi_industry_ecosystem.jpg',
-    'Global Delivery': '/images/world_operations_map.jpg',
-    'Custom Enterprise Solutions': '/images/enterprise_architecture.jpg',
-    'Long-Term Relationships': '/images/partnership_visual.jpg',
-    'Product Innovation': '/images/digital_innovation_lab.jpg',
-  };
-
-  const [activeIndex, setActiveIndex] = useState<number>(0);
 
   
   const founderHighlights = ['35+ Years IT Experience', 'ERP Specialist', 'CRM & SCM Expertise', 'Financial Systems', 'Global Project Delivery'];
@@ -1505,60 +1493,76 @@ export default function About() {
         </div>
       </section>
 
-      {/* ===== WHY CHOOSE CEA — TAB SHOWCASE (Compact Enterprise Showcase) ===== */}
-      <section className="about-why-section tab-showcase-section">
-        <div className="container-full">
+      {/* ===== WHY CHOOSE CEA ===== */}
+      <section className="about-why-section" style={{ padding: '100px 0', backgroundColor: 'var(--alternate-bg)' }}>
+        <div className="container">
           <motion.div className="section-title-wrapper" {...fadeInUp}>
             <span className="section-subtitle">Our Advantage</span>
             <h2 className="section-title">Why Choose CEA Infotech</h2>
             <p className="section-desc">The differentiators that make us a trusted technology partner.</p>
           </motion.div>
 
-          <div className="tab-showcase">
-            <div className="tabs-row">
-              {whyChoose.map((t, i) => (
-                <button
-                  key={t.title}
-                  className={`tab ${activeIndex === i ? 'active' : ''}`}
-                  onClick={() => setActiveIndex(i)}
-                >
-                  {t.title}
-                </button>
-              ))}
-              <motion.div className="tab-underline" layout transition={{ type: 'spring', stiffness: 260, damping: 30 }} style={{ left: `${(activeIndex * 100) / whyChoose.length}%`, width: `${100 / whyChoose.length}%` }} />
-            </div>
-
-            <div className="tab-content">
-              <div className="tab-media">
-                {whyChoose.map((t, i) => (
-                  <motion.div
-                    key={t.title}
-                    className="tab-image"
-                    initial={{ opacity: 0, scale: 1.02 }}
-                    animate={activeIndex === i ? { opacity: 1, scale: 1.06 } : { opacity: 0, scale: 1 }}
-                    transition={{ duration: 0.8 }}
-                    style={{ backgroundImage: `url(${panelImages[t.title] || '/images/placeholder.jpg'})` }}
+          <motion.div
+            variants={staggerContainer}
+            initial="initial"
+            whileInView="whileInView"
+            viewport={{ once: true }}
+            style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px' }}
+          >
+            {whyChoose.map((item, i) => (
+              <motion.div
+                key={item.title}
+                variants={staggerItem}
+                whileHover={{ y: -8, boxShadow: '0 24px 56px rgba(0,0,0,0.45), 0 0 0 1px rgba(184,155,94,0.35)' }}
+                transition={{ duration: 0.3, ease: [0.32, 0.72, 0, 1] }}
+                style={{
+                  borderRadius: '16px',
+                  overflow: 'hidden',
+                  border: '1px solid var(--border-color)',
+                  background: 'var(--card-bg)',
+                  backdropFilter: 'blur(12px)',
+                  WebkitBackdropFilter: 'blur(12px)',
+                  boxShadow: 'var(--shadow-md)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                }}
+              >
+                {/* Image */}
+                <div style={{ position: 'relative', height: '200px', overflow: 'hidden', flexShrink: 0 }}>
+                  <motion.img
+                    src={item.image}
+                    alt={item.title}
+                    whileHover={{ scale: 1.06 }}
+                    transition={{ duration: 0.5, ease: [0.32, 0.72, 0, 1] }}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
                   />
-                ))}
-              </div>
+                  {/* Gradient overlay */}
+                  <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(31,58,95,0.85) 0%, rgba(31,58,95,0.15) 55%, transparent 100%)' }} />
+                  {/* Gold top bar on hover handled via parent whileHover — static subtle line */}
+                  <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '2px', background: 'linear-gradient(90deg, transparent, rgba(184,155,94,0.6), transparent)' }} />
+                  {/* Index badge */}
+                  <div style={{ position: 'absolute', top: '12px', left: '14px', fontSize: '10px', fontWeight: '800', color: 'var(--accent)', background: 'rgba(15,28,50,0.72)', backdropFilter: 'blur(6px)', border: '1px solid rgba(184,155,94,0.3)', borderRadius: '5px', padding: '2px 8px', fontFamily: 'var(--font-headings)', letterSpacing: '0.5px' }}>
+                    {String(i + 1).padStart(2, '0')}
+                  </div>
+                </div>
 
-              <div className="tab-text">
-                {whyChoose.map((t, i) => (
-                  <motion.div
-                    key={t.title}
-                    className="tab-desc"
-                    initial={{ opacity: 0, x: 12 }}
-                    animate={activeIndex === i ? { opacity: 1, x: 0 } : { opacity: 0, x: -8 }}
-                    transition={{ duration: 0.5 }}
-                    style={{ display: activeIndex === i ? 'block' : 'none' }}
-                  >
-                    <h3>{t.title}</h3>
-                    <p>{t.desc}</p>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </div>
+                {/* Text */}
+                <div style={{ padding: '22px 24px 26px', display: 'flex', flexDirection: 'column', gap: '10px', flexGrow: 1 }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                    <div className={`why-icon ${item.color}`} style={{ width: '36px', height: '36px', margin: 0, flexShrink: 0 }}>
+                      {item.icon}
+                    </div>
+                    <h3 style={{ margin: 0, fontSize: '16px', fontWeight: '800', color: 'var(--primary)', fontFamily: 'var(--font-headings)', letterSpacing: '-0.2px' }}>
+                      {item.title}
+                    </h3>
+                  </div>
+                  <p style={{ margin: 0, fontSize: '13.5px', color: 'var(--text-muted)', lineHeight: 1.6 }}>
+                    {item.desc}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </section>
 

@@ -38,11 +38,11 @@ export default function Navbar() {
   const menuItems = [
     { name: 'Home', path: '/' },
     { name: 'About Us', path: '/about' },
-    { name: 'Services', path: '/services' },
-    { name: 'Products', path: '/products' },
-    { name: 'Blog', path: '/blog' },
+    { name: 'Courier Optimization', path: '/services' },
+    { name: 'Production Tracking', path: '/products' },
+    { name: 'Risk Management', path: '/blog' },
     { name: 'Compliance Hub', path: '/compliance' },
-    { name: 'Contact Us', path: '/contact' }
+    { name: 'Contact', path: '/contact' }
   ];
 
   return (

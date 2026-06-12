@@ -1,4 +1,4 @@
-﻿import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin, ArrowUpRight } from 'lucide-react';
 
 export default function Footer() {
@@ -87,10 +87,10 @@ export default function Footer() {
               <h4 style={{ color: 'var(--text-main)', fontSize: '16px', fontWeight: '600', marginBottom: '24px', letterSpacing: '0.5px' }}>COMPANY</h4>
               <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '14px' }}>
                 <li><Link to="/about" onClick={handleScrollToTop}>About Us</Link></li>
-                <li><Link to="/services" onClick={handleScrollToTop}>Our Services</Link></li>
-                <li><Link to="/blog" onClick={handleScrollToTop}>Insights & Blog</Link></li>
+                <li><Link to="/services" onClick={handleScrollToTop}>Courier Optimization</Link></li>
+                <li><Link to="/blog" onClick={handleScrollToTop}>Risk Management</Link></li>
                 <li><Link to="/compliance" onClick={handleScrollToTop}>Compliance Hub</Link></li>
-                <li><Link to="/contact" onClick={handleScrollToTop}>Contact Us</Link></li>
+                <li><Link to="/contact" onClick={handleScrollToTop}>Contact</Link></li>
               </ul>
             </div>
 

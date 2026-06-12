@@ -49,20 +49,25 @@ export default function Navbar() {
     <header className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
       <div className="container">
         {/* Logo Section */}
-        <NavLink to="/" className="logo-container" onClick={closeMenu}>
-          {/* Desktop: Horizontal logo (planet + CEA + company name) */}
+        <NavLink to="/" className="logo-container" onClick={closeMenu} style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none' }}>
           <img
-            src="/images/logo-horizontal.png"
-            alt="CEA Infotech Private Limited"
-            className="logo-img-horizontal"
+            src="/images/logo-planet.png"
+            alt="CEA Infotech"
+            className="logo-img-planet"
             style={{
-              height: '44px',
+              height: '38px',
               width: 'auto',
               display: 'block',
               objectFit: 'contain',
               mixBlendMode: 'screen',
+              flexShrink: 0,
+              transition: 'height 0.3s ease'
             }}
           />
+          <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 1.1 }}>
+            <span style={{ display: 'block', fontSize: '17px', fontWeight: '800', color: '#F5F5F5', fontFamily: 'var(--font-headings)', letterSpacing: '0.2px' }}>CEA Infotech</span>
+            <span style={{ display: 'block', fontSize: '9px', color: 'var(--supporting)', fontWeight: '600', textTransform: 'uppercase', letterSpacing: '0.5px', marginTop: '2px' }}>Private Limited</span>
+          </div>
         </NavLink>
 
         {/* Desktop Navigation Links */}

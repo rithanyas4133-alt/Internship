@@ -219,7 +219,7 @@ code, pre, kbd, samp {
     display: block;
   }
   .nav-links {
-    color: var(--text-main);
+    display: none !important;
   }
   .nav-actions {
     display: none;
@@ -373,8 +373,8 @@ code, pre, kbd, samp {
   top: 16px;
   left: 50%;
   transform: translateX(-50%);
-  width: calc(100% - 32px);
-  max-width: 1200px;
+  width: 95%;
+  max-width: 1600px;
   height: 70px;
   background-color: rgba(11, 25, 44, 0.85);
   backdrop-filter: blur(8px);
@@ -400,6 +400,8 @@ code, pre, kbd, samp {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
+  max-width: 100%;
 }
 
 .logo-container {
@@ -409,15 +411,15 @@ code, pre, kbd, samp {
   white-space: nowrap;
 }
 
-/* Horizontal logo image in navbar */
-.logo-img-horizontal {
-  height: 44px;
+/* Planet logo image in navbar */
+.logo-img-planet {
+  height: 38px;
   width: auto;
   transition: height 0.3s ease;
 }
 
-.navbar.scrolled .logo-img-horizontal {
-  height: 36px;
+.navbar.scrolled .logo-img-planet {
+  height: 32px;
 }
 
 .logo-main {
@@ -442,7 +444,7 @@ code, pre, kbd, samp {
 
 .nav-links {
   display: flex;
-  gap: 32px;
+  gap: 24px;
   list-style: none;
   align-items: center;
 }
@@ -2940,9 +2942,9 @@ a.cta:hover { color: var(--cta-hover); transform: translateY(-2px); }
 /* --- ADDITIONAL NAVBAR RESPONSIVE STYLES --- */
 
 /* Compress navigation spacing on smaller desktop screens to fit content */
-@media (max-width: 1200px) {
+@media (max-width: 1300px) {
   .nav-links {
-    gap: 20px;
+    gap: 16px;
   }
 }
 /* Toggle mobile layout at 1024px to prevent tablet navigation issues */
@@ -2951,7 +2953,7 @@ a.cta:hover { color: var(--cta-hover); transform: translateY(-2px); }
     display: block;
   }
   .nav-links {
-  color: var(--text-main);
+    display: none !important;
   }
   .nav-actions {
     display: none;

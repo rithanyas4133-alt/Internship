@@ -1553,6 +1553,7 @@ a:hover {
   padding: 8px 20px;
   background-color: var(--alternate-bg);
   border: none;
+}
 
 .btn-sm {
   padding: 8px 18px; /* slightly reduced horizontal padding for CTA */

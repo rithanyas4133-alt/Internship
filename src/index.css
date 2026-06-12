@@ -408,7 +408,7 @@ code, pre, kbd, samp {
 .logo-container {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 18px; /* spacing between logo and branding text (16-20px) */
   flex-shrink: 0;
   white-space: nowrap;
   margin-right: 20px;
@@ -443,6 +443,26 @@ code, pre, kbd, samp {
   letter-spacing: -0.5px;
   line-height: 1;
   white-space: nowrap;
+}
+
+/* New branding text next to planet logo */
+.brand-text {
+  color: #FFFFFF; /* pure white */
+  font-weight: 600; /* SemiBold */
+  letter-spacing: 0.5px;
+  font-size: 28px; /* desktop default */
+  line-height: 1;
+  font-family: var(--font-headings);
+  display: inline-block;
+  vertical-align: middle;
+}
+
+@media (max-width: 1024px) {
+  .brand-text { font-size: 24px; }
+}
+
+@media (max-width: 768px) {
+  .brand-text { font-size: 20px; }
 }
 
 .logo-sub {
@@ -717,23 +737,13 @@ a:hover {
   .grid-3 { grid-template-columns: 1fr; }
   .grid-4 { grid-template-columns: 1fr 1fr; }
   .grid-2 { grid-template-columns: 1fr; }
-<<<<<<< HEAD
-  .navbar { height: 70px; }
-  
-  .logo-image {
-    height: 50px;
-  }
-  
-  .navbar.scrolled .logo-image {
-    height: 42px;
-  }
-  
-  .logo-container {
-    gap: 10px;
-  }
-=======
   .navbar { height: 76px; }
->>>>>>> 353b7de (chore(nav): add Partners menu and refine navbar spacing/typography)
+
+  .logo-image { height: 50px; }
+
+  .navbar.scrolled .logo-image { height: 42px; }
+
+  .logo-container { gap: 10px; }
 }
 
 /* Backdrop Overlay for mobile drawer */

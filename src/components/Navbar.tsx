@@ -52,7 +52,7 @@ export default function Navbar() {
         {/* Logo Section */}
         <NavLink to="/" className="logo-container" onClick={closeMenu}>
           <img src="/images/logo.png" alt="Company Logo" className="logo-image logo-left" />
-          <img src="/images/CEA.png" alt="CEA" className="logo-image logo-right" />
+          <span className="brand-text">CEA Infotech</span>
         </NavLink>
 
         {/* Desktop Navigation Links */}
@@ -98,7 +98,7 @@ export default function Navbar() {
           <li style={{ marginBottom: '8px', paddingBottom: '20px', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
             <NavLink to="/" onClick={closeMenu} style={{ display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none', justifyContent: 'center' }}>
               <img src="/images/logo.png" alt="Company Logo" style={{ height: '60px', width: 'auto', objectFit: 'contain' }} />
-              <img src="/images/CEA.png" alt="CEA" style={{ height: '60px', width: 'auto', objectFit: 'contain' }} />
+              <span style={{ color: '#FFFFFF', fontWeight: 600, fontSize: '20px', letterSpacing: '0.5px' }}>CEA Infotech</span>
             </NavLink>
           </li>
           {menuItems.map((item) => (

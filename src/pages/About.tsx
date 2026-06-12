@@ -1386,7 +1386,7 @@ export default function About() {
             </motion.div>
             <motion.div className="about-who-card" initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: '-80px' }} transition={{ duration: 0.6, delay: 0.2 }}>
               <span className="section-subtitle">Who We Are</span>
-              <h2>CEA Infotech Private Limited</h2>
+              <h2>CEA Infotech</h2>
               <p>Established in June 2015 and headquartered in Bangalore, India, CEA Infotech is a technology-driven enterprise delivering solutions that transform business operations.</p>
               <p>We specialize in enterprise software solutions, consulting services, manufacturing systems, compliance management and custom application development.</p>
               <div className="about-who-badge-row">

@@ -221,9 +221,9 @@ code, pre, kbd, samp {
   .nav-links {
     display: none !important;
   }
-  .nav-actions {
-    display: none;
-  }
+  /* Keep the CTA visible on tablet widths; mobile drawer already contains a CTA.
+     Hiding `.nav-actions` caused the "Book a Demo" button to disappear at
+     tablet-sized viewports (<=1024px). */
 }
 
 @media (min-width: 1025px) {

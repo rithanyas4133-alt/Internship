@@ -1,6 +1,6 @@
 # 🌐 CEA Infotech Corporate Website
 
-A modern enterprise-grade corporate website developed for CEA Infotech Private Limited, showcasing software products, enterprise services, compliance solutions, and industry expertise.
+A modern enterprise-grade corporate website developed for CEA Infotech, showcasing software products, enterprise services, compliance solutions, and industry expertise.
 
 ---
 
@@ -272,7 +272,7 @@ src/
 
 ## 🎓 Internship Project
 
-This project was developed as part of an internship program for CEA Infotech Private Limited with the objective of creating a professional, responsive, and enterprise-grade corporate website using modern web technologies and design principles.
+This project was developed as part of an internship program for CEA Infotech with the objective of creating a professional, responsive, and enterprise-grade corporate website using modern web technologies and design principles.
 
 ---
 
@@ -280,4 +280,4 @@ This project was developed as part of an internship program for CEA Infotech Pri
 
 This project is developed for educational and internship purposes.
 
-© CEA Infotech Private Limited. All Rights Reserved.
+© CEA Infotech. All Rights Reserved.

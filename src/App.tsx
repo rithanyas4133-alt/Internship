@@ -10,6 +10,7 @@ import ProductDetail from './pages/ProductDetail';
 import Blog from './pages/Blog';
 import ComplianceHub from './pages/ComplianceHub';
 import Contact from './pages/Contact';
+import Partners from './pages/Partners';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             <Route path="/products/:productId" element={<ProductDetail />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/compliance" element={<ComplianceHub />} />
+            <Route path="/partners" element={<Partners />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </main>

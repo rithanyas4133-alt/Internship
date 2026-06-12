@@ -1,4 +1,4 @@
-﻿import { useState, useRef } from 'react';
+import { useState, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { 
@@ -412,7 +412,7 @@ export default function ProductDetail() {
           backgroundColor: '#0A0F1C'
         }}
       >
-        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'radial-gradient(circle at 70% 30%, rgba(245, 158, 11, 0.08) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
+        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'radial-gradient(circle at 70% 30%, rgba(200, 162, 118, 0.08) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
           <div className="grid-2" style={{ alignItems: 'center', gap: '50px' }}>
             <motion.div
@@ -584,10 +584,10 @@ export default function ProductDetail() {
                 whileInView="whileInView"
                 viewport={scrollReveal.viewport}
                 className="glass-card"
-                whileHover={{ y: -6, borderColor: 'rgba(245, 158, 11, 0.3)' }}
+                whileHover={{ y: -6, borderColor: 'rgba(200, 162, 118, 0.3)' }}
                 style={{
                   backgroundColor: '#0A0F1C',
-                  border: '1px solid rgba(245, 158, 11, 0.12)',
+                  border: '1px solid rgba(200, 162, 118, 0.12)',
                   padding: '32px 24px',
                   borderRadius: '16px'
                 }}
@@ -596,7 +596,7 @@ export default function ProductDetail() {
                   width: '44px',
                   height: '44px',
                   borderRadius: '10px',
-                  backgroundColor: 'rgba(245, 158, 11, 0.08)',
+                  backgroundColor: 'rgba(200, 162, 118, 0.08)',
                   color: 'var(--accent)',
                   display: 'flex',
                   alignItems: 'center',
@@ -803,14 +803,14 @@ export default function ProductDetail() {
       <section style={{ backgroundColor: '#0A0F1C', padding: '60px 0', borderTop: '1px solid rgba(255,255,255,0.04)' }}>
         <div className="container">
           <div style={{ marginBottom: '28px' }}>
-            <span style={{ fontSize: '11px', fontWeight: '800', color: '#F59E0B', textTransform: 'uppercase', letterSpacing: '1.5px' }}>Explore More Platforms</span>
+            <span style={{ fontSize: '11px', fontWeight: '800', color: '#C8A276', textTransform: 'uppercase', letterSpacing: '1.5px' }}>Explore More Platforms</span>
             <h3 style={{ fontSize: '22px', fontWeight: '800', color: '#FFFFFF', margin: '6px 0 0 0', fontFamily: 'var(--font-headings)' }}>Other CEA Platforms</h3>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '16px' }}>
             {otherPlatforms.map((p) => (
               <motion.div
                 key={p.id}
-                whileHover={{ y: -4, borderColor: 'rgba(245,158,11,0.35)', boxShadow: '0 12px 32px rgba(0,0,0,0.4)' }}
+                whileHover={{ y: -4, borderColor: 'rgba(200,162,118,0.35)', boxShadow: '0 12px 32px rgba(0,0,0,0.4)' }}
                 onClick={() => navigate(`/products/${p.id}`)}
                 style={{
                   backgroundColor: '#111827',
@@ -826,7 +826,7 @@ export default function ProductDetail() {
               >
                 <div style={{
                   width: '36px', height: '36px', borderRadius: '8px',
-                  backgroundColor: 'rgba(245,158,11,0.08)',
+                  backgroundColor: 'rgba(200,162,118,0.08)',
                   marginBottom: '4px',
                   overflow: 'hidden'
                 }}>
@@ -834,7 +834,7 @@ export default function ProductDetail() {
                 </div>
                 <h4 style={{ fontSize: '14px', fontWeight: '700', color: '#FFFFFF', margin: 0, lineHeight: 1.3 }}>{p.name}</h4>
                 <p style={{ fontSize: '11.5px', color: '#6B7280', margin: 0, lineHeight: 1.4 }}>{p.tagline}</p>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '4px', color: '#F59E0B', fontSize: '11px', fontWeight: '700', marginTop: '4px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '4px', color: '#C8A276', fontSize: '11px', fontWeight: '700', marginTop: '4px' }}>
                   Explore <ArrowRight size={11} />
                 </div>
               </motion.div>
@@ -844,7 +844,7 @@ export default function ProductDetail() {
       </section>
 
       {/* --- SECTION 9: CALL TO ACTION (INQUIRY FORM) --- */}
-      <section ref={formRef} className="section" style={{ backgroundColor: '#0A0F1C', background: 'radial-gradient(circle at bottom, rgba(245, 158, 11, 0.04) 0%, transparent 50%)' }}>
+      <section ref={formRef} className="section" style={{ backgroundColor: '#0A0F1C', background: 'radial-gradient(circle at bottom, rgba(200, 162, 118, 0.04) 0%, transparent 50%)' }}>
         <div className="container" style={{ maxWidth: '680px' }}>
           <div className="section-title-wrapper" style={{ marginBottom: '32px' }}>
             <span className="section-subtitle" style={{ color: 'var(--accent)' }}>Partner With Us</span>
@@ -854,8 +854,8 @@ export default function ProductDetail() {
 
           <div 
             style={{
-              backgroundColor: '#111827',
-              border: '1px solid rgba(255, 255, 255, 0.06)',
+              backgroundColor: 'rgba(17, 34, 64, 0.85)',
+              border: '1px solid rgba(200, 162, 118, 0.18)',
               borderRadius: '16px',
               padding: '36px',
               boxShadow: 'var(--shadow-xl)'

@@ -327,8 +327,8 @@ export default function Products() {
     <motion.div
       initial="hidden"
       animate="visible"
-      className="products-page"
-      style={{ overflow: 'hidden', backgroundColor: 'var(--background)', color: 'var(--text-main)' }}
+      className="products-page products-page-bg"
+      style={{ overflow: 'hidden', color: 'var(--text-main)' }}
     >
       {/* ==================================================
           HERO SECTION
@@ -340,13 +340,13 @@ export default function Products() {
           color: 'var(--text-main)',
           position: 'relative',
           overflow: 'hidden',
-          backgroundImage: 'linear-gradient(rgba(15, 28, 50, 0.55), rgba(31, 58, 95, 0.68)), url("/images/products_hero_bg_clear.png")',
+          backgroundImage: 'linear-gradient(rgba(11, 25, 44, 0.55), rgba(11, 25, 44, 0.68)), url("/images/products_hero_bg_clear.png")',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          borderBottom: '1px solid rgba(184,155,94,0.18)'
+          borderBottom: '1px solid rgba(200, 162, 118, 0.18)'
         }}
       >
-        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'radial-gradient(circle at 50% 50%, rgba(184,155,94,0.06) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
+        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'radial-gradient(circle at 50% 50%, rgba(200, 162, 118, 0.06) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
           <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
             <motion.div 
@@ -362,12 +362,12 @@ export default function Products() {
                   alignItems: 'center', 
                   gap: '8px', 
                   padding: '6px 14px', 
-                  background: 'rgba(184,155,94,0.12)', 
+                  background: 'rgba(200, 162, 118, 0.12)', 
                   borderRadius: '20px', 
                   fontSize: '13px', 
                   color: 'var(--accent)', 
                   fontWeight: '600',
-                  border: '1px solid rgba(184,155,94,0.3)',
+                  border: '1px solid rgba(200, 162, 118, 0.3)',
                   width: 'max-content'
                 }}
               >
@@ -387,7 +387,7 @@ export default function Products() {
                 <motion.button 
                   onClick={() => selectProductAndScroll(activeProduct.name)} 
                   className="btn btn-cta"
-                  whileHover={{ scale: 1.03, boxShadow: '0px 6px 12px rgba(184,155,94,0.35)' }}
+                  whileHover={{ scale: 1.03, boxShadow: '0px 6px 12px rgba(200, 162, 118, 0.35)' }}
                   whileTap={{ scale: 0.98 }}
                   style={{ color: '#0F172A', display: 'flex', alignItems: 'center', gap: '8px' }}
                 >
@@ -412,7 +412,7 @@ export default function Products() {
       {/* ==================================================
           SECTION: OUR PRODUCT ECOSYSTEM (CAROUSEL SLIDER)
           ================================================== */}
-      <section id="ecosystem-section" className="section section-dark" style={{ backgroundColor: 'var(--secondary-bg)', borderBottom: '1px solid rgba(var(--primary-rgb),0.05)' }}>
+      <section id="ecosystem-section" className="section services-section-texture" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.10)' }}>
         <div className="container">
           <div className="section-title-wrapper" style={{ marginBottom: '48px' }}>
             <span className="section-subtitle" style={{ color: 'var(--supporting)' }}>Core Platforms</span>
@@ -523,14 +523,11 @@ export default function Products() {
                 initial="enter"
                 animate="center"
                 exit="exit"
+                className="glass-card"
                 style={{
-                  backgroundColor: 'rgba(30, 41, 59, 0.45)',
-                  border: '1px solid rgba(255, 255, 255, 0.06)',
-                  borderRadius: '20px',
                   padding: '44px',
-                  backdropFilter: 'blur(20px)',
-                  boxShadow: '0 20px 50px -10px rgba(0, 0, 0, 0.25)',
-                  width: '100%'
+                  width: '100%',
+                  borderRadius: '20px'
                 }}
               >
                 <div className="grid-2" style={{ gap: '48px', alignItems: 'center' }}>
@@ -566,7 +563,7 @@ export default function Products() {
                       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '10px' }}>
                         {activeProduct.keyFeatures.map((feat, idx) => (
                           <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13.5px', color: '#f8fafc' }}>
-                            <div style={{ width: '18px', height: '18px', borderRadius: '50%', backgroundColor: 'rgba(6, 182, 212, 0.12)', color: 'var(--supporting)', display: 'flex', alignItems: 'center', justifyItems: 'center', flexShrink: 0 }}>
+                            <div style={{ width: '18px', height: '18px', borderRadius: '50%', backgroundColor: 'rgba(200, 162, 118, 0.12)', color: 'var(--supporting)', display: 'flex', alignItems: 'center', justifyItems: 'center', flexShrink: 0 }}>
                               <Check size={11} style={{ margin: 'auto' }} />
                             </div>
                             <span style={{ fontWeight: '500' }}>{feat}</span>
@@ -691,7 +688,7 @@ export default function Products() {
       {/* ==================================================
           SECTION: BUSINESS CHALLENGES SOLVED BY OUR PRODUCTS
           ================================================== */}
-      <section className="section section-dark" style={{ backgroundColor: '#0F172A', borderTop: '1px solid rgba(255, 255, 255, 0.05)' }}>
+      <section className="section about-section-texture" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.10)' }}>
         <div className="container">
           <div className="section-title-wrapper" style={{ marginBottom: '56px' }}>
             <span className="section-subtitle" style={{ color: 'var(--supporting)' }}>Diagnostics & Resolution</span>
@@ -716,18 +713,9 @@ export default function Products() {
               <motion.div
                 key={index}
                 variants={fadeIn}
-                whileHover={{ 
-                  y: -8, 
-                  borderColor: 'var(--supporting)', 
-                  boxShadow: '0 12px 30px rgba(0, 0, 0, 0.25)',
-                }}
+                className="glass-card"
                 style={{
-                  backgroundColor: 'rgba(30, 41, 59, 0.3)',
-                  border: '1px solid rgba(255, 255, 255, 0.05)',
-                  borderRadius: '16px',
                   padding: '32px 28px',
-                  boxShadow: 'var(--shadow-sm)',
-                  transition: 'all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1)',
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'space-between',
@@ -742,7 +730,7 @@ export default function Products() {
                     width: '44px',
                     height: '44px',
                     borderRadius: '10px',
-                    backgroundColor: 'rgba(6, 182, 212, 0.08)',
+                    backgroundColor: 'rgba(200, 162, 118, 0.08)',
                     color: 'var(--supporting)',
                     display: 'flex',
                     alignItems: 'center',
@@ -754,7 +742,7 @@ export default function Products() {
                     fontSize: '11px', 
                     fontWeight: '800', 
                     color: 'var(--supporting)', 
-                    backgroundColor: 'rgba(6, 182, 212, 0.08)', 
+                    backgroundColor: 'rgba(200, 162, 118, 0.08)', 
                     padding: '4px 12px', 
                     borderRadius: '20px',
                     textTransform: 'uppercase',
@@ -816,7 +804,7 @@ export default function Products() {
       {/* ==================================================
           SECTION: WHY OUR PRODUCTS STAND OUT
           ================================================== */}
-      <section className="section section-dark" style={{ backgroundColor: '#0F172A' }}>
+      <section className="section compliance-section-texture" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.10)' }}>
         <div className="container">
           <div className="section-title-wrapper" style={{ marginBottom: '56px' }}>
             <span className="section-subtitle" style={{ color: 'var(--supporting)' }}>Architectural Quality</span>
@@ -933,7 +921,7 @@ export default function Products() {
       {/* ==================================================
           SECTION: PRODUCT INQUIRY & FINAL CTA
           ================================================== */}
-      <section ref={inquiryRef} className="section section-dark" id="inquiry-form" style={{ background: 'radial-gradient(circle at bottom, rgba(6, 182, 212, 0.04) 0%, transparent 40%)', backgroundColor: '#090D1A' }}>
+      <section ref={inquiryRef} className="section contact-section-texture" id="inquiry-form" style={{ background: 'radial-gradient(circle at bottom, rgba(200, 162, 118, 0.05) 0%, transparent 40%)', borderBottom: '1px solid rgba(200, 162, 118, 0.10)' }}>
         <div className="container" style={{ maxWidth: '780px' }}>
           <div className="section-title-wrapper" style={{ marginBottom: '40px' }}>
             <span className="section-subtitle" style={{ color: 'var(--supporting)' }}>Request Information</span>
@@ -942,14 +930,10 @@ export default function Products() {
           </div>
 
           <div 
+            className="glass-card"
             style={{
-              backgroundColor: 'rgba(30, 41, 59, 0.45)',
-              border: '1px solid rgba(255, 255, 255, 0.06)',
-              borderRadius: '16px',
               padding: '36px',
-              boxShadow: 'var(--shadow-xl)',
-              backdropFilter: 'blur(16px)',
-              WebkitBackdropFilter: 'blur(16px)'
+              borderRadius: '16px'
             }}
           >
             {isSubmitted ? (
@@ -981,8 +965,8 @@ export default function Products() {
                       width: '100%',
                       padding: '12px 16px',
                       borderRadius: '8px',
-                      border: '1px solid rgba(255, 255, 255, 0.1)',
-                      backgroundColor: 'rgba(15, 23, 42, 0.4)',
+                      border: '1px solid rgba(255, 255, 255, 0.12)',
+                      backgroundColor: 'rgba(255, 255, 255, 0.05)',
                       color: '#ffffff',
                       fontSize: '14.5px',
                       fontFamily: 'var(--font-body)',
@@ -1007,8 +991,8 @@ export default function Products() {
                         width: '100%',
                         padding: '12px 16px',
                         borderRadius: '8px',
-                        border: '1px solid rgba(255, 255, 255, 0.1)',
-                        backgroundColor: 'rgba(15, 23, 42, 0.4)',
+                        border: '1px solid rgba(255, 255, 255, 0.12)',
+                        backgroundColor: 'rgba(255, 255, 255, 0.05)',
                         color: '#ffffff',
                         fontSize: '14.5px',
                         fontFamily: 'var(--font-body)',
@@ -1032,8 +1016,8 @@ export default function Products() {
                         width: '100%',
                         padding: '12px 16px',
                         borderRadius: '8px',
-                        border: '1px solid rgba(255, 255, 255, 0.1)',
-                        backgroundColor: 'rgba(15, 23, 42, 0.4)',
+                        border: '1px solid rgba(255, 255, 255, 0.12)',
+                        backgroundColor: 'rgba(255, 255, 255, 0.05)',
                         color: '#ffffff',
                         fontSize: '14.5px',
                         fontFamily: 'var(--font-body)',
@@ -1057,8 +1041,8 @@ export default function Products() {
                       width: '100%',
                       padding: '12px 16px',
                       borderRadius: '8px',
-                      border: '1px solid rgba(255, 255, 255, 0.1)',
-                      backgroundColor: '#0F172A',
+                      border: '1px solid rgba(255, 255, 255, 0.12)',
+                      backgroundColor: '#112240',
                       color: '#ffffff',
                       fontSize: '14.5px',
                       fontFamily: 'var(--font-body)',
@@ -1085,8 +1069,8 @@ export default function Products() {
                       width: '100%',
                       padding: '12px 16px',
                       borderRadius: '8px',
-                      border: '1px solid rgba(255, 255, 255, 0.1)',
-                      backgroundColor: 'rgba(15, 23, 42, 0.4)',
+                      border: '1px solid rgba(255, 255, 255, 0.12)',
+                      backgroundColor: 'rgba(255, 255, 255, 0.05)',
                       color: '#ffffff',
                       fontSize: '14.5px',
                       fontFamily: 'var(--font-body)',
@@ -1115,9 +1099,9 @@ export default function Products() {
       {/* ==================================================
           FINAL CTA PANEL
           ================================================== */}
-      <section className="section section-dark" style={{ background: 'linear-gradient(135deg, #0F172A 0%, #020617 100%)', position: 'relative', overflow: 'hidden' }}>
-        <div style={{ position: 'absolute', top: '-10%', right: '-10%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(234, 179, 8, 0.05) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
-        <div style={{ position: 'absolute', bottom: '-10%', left: '-10%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(6, 182, 212, 0.05) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
+      <section className="section contact-section-texture" style={{ position: 'relative', overflow: 'hidden' }}>
+        <div style={{ position: 'absolute', top: '-10%', right: '-10%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(200, 162, 118, 0.06) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
+        <div style={{ position: 'absolute', bottom: '-10%', left: '-10%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(200, 162, 118, 0.06) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
 
         <div className="container" style={{ textAlign: 'center', position: 'relative', zIndex: 2 }}>
           <motion.div 
@@ -1137,7 +1121,7 @@ export default function Products() {
               <motion.button 
                 onClick={() => selectProductAndScroll(activeProduct.name)} 
                 className="btn btn-cta"
-                whileHover={{ scale: 1.03, boxShadow: '0px 6px 12px rgba(234, 179, 8, 0.35)' }}
+                whileHover={{ scale: 1.03, boxShadow: '0px 6px 12px rgba(200, 162, 118, 0.35)' }}
                 whileTap={{ scale: 0.98 }}
                 style={{ color: '#0F172A', display: 'flex', alignItems: 'center', gap: '8px' }}
               >

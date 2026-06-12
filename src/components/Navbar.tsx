@@ -61,7 +61,6 @@ export default function Navbar() {
               display: 'block',
               objectFit: 'contain',
               mixBlendMode: 'screen',
-              imageRendering: 'high-quality',
             }}
           />
         </NavLink>

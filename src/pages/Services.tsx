@@ -1,4 +1,4 @@
-﻿import { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
@@ -37,7 +37,7 @@ export default function Services() {
   };
 
   const buttonHover = {
-    whileHover: { scale: 1.03, boxShadow: '0px 6px 12px rgba(245, 158, 11, 0.3)' },
+    whileHover: { scale: 1.03, boxShadow: '0px 6px 12px rgba(200, 162, 118, 0.3)' },
     whileTap: { scale: 0.98 }
   };
 
@@ -193,7 +193,8 @@ export default function Services() {
       initial="initial"
       animate="animate"
       variants={pageTransition}
-      style={{ overflow: 'hidden', backgroundColor: 'var(--background)' }}
+      className="services-page services-page-bg"
+      style={{ overflow: 'hidden', color: 'var(--text-main)' }}
     >
       {/* ==================================================
           HERO SECTION
@@ -205,12 +206,13 @@ export default function Services() {
           color: 'var(--text-main)',
           position: 'relative',
           overflow: 'hidden',
-          backgroundImage: 'linear-gradient(rgba(11, 31, 58, 0.75), rgba(11, 31, 58, 0.85)), url("/images/industrial_control_room_1780849774868.png")',
+          backgroundImage: 'linear-gradient(rgba(31, 58, 95, 0.85), rgba(15, 28, 50, 0.92)), url("/images/industrial_control_room_1780849774868.png")',
           backgroundSize: 'cover',
-          backgroundPosition: 'center'
+          backgroundPosition: 'center',
+          borderBottom: '1px solid rgba(200, 162, 118, 0.18)'
         }}
       >
-        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'radial-gradient(circle at 80% 20%, rgba(var(--supporting-rgb), 0.12) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
+        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'radial-gradient(circle at 80% 20%, rgba(200, 162, 118, 0.05) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
           <div style={{ maxWidth: '780px', margin: '0 auto', textAlign: 'center' }}>
                 <motion.div 
@@ -223,13 +225,13 @@ export default function Services() {
                     alignItems: 'center', 
                     gap: '8px', 
                     padding: '6px 14px', 
-                    background: 'rgba(var(--primary-rgb), 0.06)', 
+                    background: 'rgba(200, 162, 118, 0.12)', 
                     borderRadius: '20px', 
                     fontSize: '13px', 
                     color: 'var(--accent)', 
                     fontWeight: '600',
                     marginBottom: '24px',
-                    border: '1px solid rgba(var(--primary-rgb), 0.12)'
+                    border: '1px solid rgba(200, 162, 118, 0.3)'
                   }}
             >
               <Sparkles size={14} style={{ color: 'var(--cta)' }} />
@@ -275,7 +277,7 @@ export default function Services() {
                 className="btn btn-dark-outline"
                 whileHover={secondaryButtonHover.whileHover}
                 whileTap={secondaryButtonHover.whileTap}
-                style={{ border: '2px solid rgba(var(--primary-rgb), 0.35)', color: 'var(--text-main)' }}
+                style={{ border: '2px solid rgba(200, 162, 118, 0.35)', color: 'var(--text-main)' }}
               >
                 Explore Solutions
               </motion.button>
@@ -287,7 +289,7 @@ export default function Services() {
       {/* ==================================================
           SECTION: HOW WE PARTNER WITH OUR CLIENTS
           ================================================== */}
-      <section className="section section-dark" style={{ backgroundColor: '#0F172A', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+      <section className="section about-section-texture" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.12)' }}>
         <div className="container">
           <div className="section-title-wrapper" style={{ marginBottom: '56px' }}>
             <span className="section-subtitle" style={{ color: 'var(--supporting)' }}>Our Engagement Model</span>
@@ -305,23 +307,15 @@ export default function Services() {
                   key={index}
                   layout
                   onClick={() => setExpandedCard(isExpanded ? null : index)}
+                className="glass-card"
                   style={{
-                    backgroundColor: 'rgba(30, 41, 59, 0.6)',
-                    border: '1px solid rgba(255,255,255,0.07)',
-                    borderRadius: '12px',
                     padding: '24px 32px',
-                    boxShadow: '0 4px 24px rgba(0,0,0,0.3)',
                     cursor: 'pointer',
                     overflow: 'hidden',
                     display: 'flex',
                     flexDirection: 'column',
                     gap: '16px',
-                    borderLeft: `5px solid ${card.accent}`,
-                    transition: 'box-shadow 0.2s, border-color 0.2s'
-                  }}
-                  whileHover={{ 
-                    boxShadow: 'var(--shadow-md)',
-                    borderColor: card.accent
+                    borderLeft: `5px solid ${card.accent === 'var(--secondary)' || card.accent === 'var(--accent)' || card.accent === 'var(--cta)' ? 'var(--accent)' : card.accent}`
                   }}
                 >
                   {/* Card Header (Collapsed State content) */}
@@ -433,9 +427,9 @@ export default function Services() {
                         <div style={{ 
                           marginTop: '24px',
                           padding: '16px 20px', 
-                          backgroundColor: 'rgba(6,182,212,0.06)', 
+                          backgroundColor: 'rgba(200, 162, 118, 0.05)', 
                           borderRadius: '8px',
-                          border: '1px solid rgba(6,182,212,0.15)',
+                          border: '1px solid rgba(200, 162, 118, 0.18)',
                           borderLeftWidth: '4px',
                           borderLeftColor: 'var(--supporting)'
                         }}>
@@ -459,8 +453,8 @@ export default function Services() {
       {/* ==================================================
           SECTION: OUR SOLUTION DELIVERY FRAMEWORK
           ================================================== */}
-      <section className="section section-dark" style={{ backgroundColor: '#1E293B', borderTop: '1px solid rgba(255,255,255,0.05)', borderBottom: '1px solid rgba(255,255,255,0.05)', position: 'relative', overflow: 'hidden' }}>
-        <div style={{ position: 'absolute', top: '0', left: '50%', transform: 'translateX(-50%)', width: '600px', height: '300px', background: 'radial-gradient(ellipse at center, rgba(6,182,212,0.07) 0%, transparent 70%)', pointerEvents: 'none' }} />
+      <section className="section compliance-section-texture" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.12)', position: 'relative', overflow: 'hidden' }}>
+        <div style={{ position: 'absolute', top: '0', left: '50%', transform: 'translateX(-50%)', width: '600px', height: '300px', background: 'radial-gradient(ellipse at center, rgba(200, 162, 118, 0.04) 0%, transparent 70%)', pointerEvents: 'none' }} />
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <div className="section-title-wrapper" style={{ marginBottom: '64px' }}>
             <span className="section-subtitle" style={{ color: 'var(--supporting)' }}>Workflow & Rigor</span>
@@ -484,7 +478,7 @@ export default function Services() {
                 left: '80px',
                 right: '80px',
                 height: '3px',
-                backgroundColor: 'rgba(6, 182, 212, 0.2)',
+                backgroundColor: 'var(--gold-divider)',
                 zIndex: 1
               }}></div>
 
@@ -512,9 +506,9 @@ export default function Services() {
                       width: '50px',
                       height: '50px',
                       borderRadius: '50%',
-                      backgroundColor: 'rgba(6,182,212,0.15)',
-                      border: '2px solid rgba(6,182,212,0.4)',
-                      boxShadow: '0 0 20px rgba(6,182,212,0.2)',
+                      backgroundColor: 'rgba(200, 162, 118, 0.12)',
+                      border: '2px solid var(--accent)',
+                      boxShadow: '0 0 15px rgba(200, 162, 118, 0.2)',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
@@ -544,9 +538,9 @@ export default function Services() {
       {/* ==================================================
           SECTION: MATCHING BUSINESS NEEDS TO SOLUTIONS
           ================================================== */}
-      <section id="solutions-matching" className="section section-dark" style={{ backgroundColor: '#020617', position: 'relative', overflow: 'hidden' }}>
-        <div style={{ position: 'absolute', top: '-20%', right: '-10%', width: '500px', height: '500px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(184,155,94,0.06) 0%, transparent 65%)', pointerEvents: 'none' }} />
-        <div style={{ position: 'absolute', bottom: '-20%', left: '-10%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(6,182,212,0.05) 0%, transparent 65%)', pointerEvents: 'none' }} />
+      <section id="solutions-matching" className="section products-section-texture" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.12)', position: 'relative', overflow: 'hidden' }}>
+        <div style={{ position: 'absolute', top: '-20%', right: '-10%', width: '500px', height: '500px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(200, 162, 118, 0.04) 0%, transparent 65%)', pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', bottom: '-20%', left: '-10%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(200, 162, 118, 0.03) 0%, transparent 65%)', pointerEvents: 'none' }} />
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <div className="section-title-wrapper" style={{ marginBottom: '56px' }}>
             <span className="section-subtitle" style={{ color: 'var(--supporting)' }}>Product Alignments</span>
@@ -562,19 +556,15 @@ export default function Services() {
                 initial="initial"
                 whileInView="whileInView"
                 viewport={scrollReveal.viewport}
-                whileHover={{ y: -6, boxShadow: '0 20px 50px rgba(0,0,0,0.4)', borderColor: sol.accent }}
+                className="glass-card"
                 style={{
-                  backgroundColor: 'rgba(30, 41, 59, 0.5)',
-                  border: '1px solid rgba(255,255,255,0.07)',
-                  borderRadius: '12px',
                   padding: '32px 24px',
                   display: 'flex',
                   flexDirection: 'column',
                   gap: '16px',
-                  boxShadow: '0 4px 24px rgba(0,0,0,0.3)',
                   position: 'relative',
                   overflow: 'hidden',
-                  transition: 'all 0.3s ease'
+                  borderRadius: '12px'
                 }}
               >
                 <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', backgroundColor: sol.accent }}></div>
@@ -635,8 +625,8 @@ export default function Services() {
       {/* ==================================================
           SECTION: BUSINESS OUTCOMES
           ================================================== */}
-      <section className="section section-dark" style={{ backgroundColor: '#0F172A', borderTop: '1px solid rgba(255,255,255,0.05)', position: 'relative', overflow: 'hidden' }}>
-        <div style={{ position: 'absolute', bottom: 0, right: '20%', width: '500px', height: '300px', background: 'radial-gradient(ellipse at center, rgba(184,155,94,0.05) 0%, transparent 70%)', pointerEvents: 'none' }} />
+      <section className="section services-section-texture" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.12)', position: 'relative', overflow: 'hidden' }}>
+        <div style={{ position: 'absolute', bottom: 0, right: '20%', width: '500px', height: '300px', background: 'radial-gradient(ellipse at center, rgba(200, 162, 118, 0.03) 0%, transparent 70%)', pointerEvents: 'none' }} />
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <div className="section-title-wrapper" style={{ marginBottom: '56px' }}>
             <span className="section-subtitle" style={{ color: 'var(--supporting)' }}>Target Metrics</span>
@@ -656,24 +646,20 @@ export default function Services() {
                 initial="initial"
                 whileInView="whileInView"
                 viewport={scrollReveal.viewport}
-                whileHover={{ y: -4, borderColor: 'var(--supporting)' }}
+                className="glass-card"
                 style={{
-                  backgroundColor: 'rgba(30, 41, 59, 0.45)',
-                  border: '1px solid rgba(255,255,255,0.07)',
-                  borderRadius: '8px',
                   padding: '24px 20px',
                   display: 'flex',
                   gap: '16px',
                   alignItems: 'flex-start',
-                  boxShadow: '0 4px 20px rgba(0,0,0,0.2)',
-                  transition: 'all 0.3s ease'
+                  borderRadius: '8px'
                 }}
               >
                 <div style={{
                   width: '28px',
                   height: '28px',
                   borderRadius: '50%',
-                  backgroundColor: 'rgba(6, 182, 212, 0.12)',
+                  backgroundColor: 'rgba(200, 162, 118, 0.12)',
                   color: 'var(--supporting)',
                   display: 'flex',
                   alignItems: 'center',
@@ -701,9 +687,9 @@ export default function Services() {
       {/* ==================================================
           CTA SECTION
           ================================================== */}
-      <section className="section section-dark" style={{ background: 'linear-gradient(135deg, var(--primary-bg) 0%, var(--secondary-bg) 100%)', position: 'relative', overflow: 'hidden' }}>
-        <div style={{ position: 'absolute', top: '-10%', right: '-10%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(234, 179, 8, 0.08) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
-        <div style={{ position: 'absolute', bottom: '-10%', left: '-10%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(6, 182, 212, 0.06) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
+      <section className="section contact-section-texture" style={{ position: 'relative', overflow: 'hidden' }}>
+        <div style={{ position: 'absolute', top: '-10%', right: '-10%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(200, 162, 118, 0.04) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
+        <div style={{ position: 'absolute', bottom: '-10%', left: '-10%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(200, 162, 118, 0.04) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
 
         <div className="container" style={{ textAlign: 'center', position: 'relative', zIndex: 2 }}>
           <motion.div 

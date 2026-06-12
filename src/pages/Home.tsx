@@ -1,4 +1,4 @@
-﻿import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { 
@@ -138,18 +138,18 @@ const solutions = [
 ];
 
 const partnersRow1 = [
-  { name: "Bosch", icon: Cog, color: "#22D3EE" },
+  { name: "Bosch", icon: Cog, color: "#C8A276" },
   { name: "Siemens", icon: Cpu, color: "#D4AF37" },
-  { name: "Schneider Electric", icon: Layers, color: "#22D3EE" },
+  { name: "Schneider Electric", icon: Layers, color: "#C8A276" },
   { name: "Honeywell", icon: ShieldCheck, color: "#D4AF37" },
-  { name: "ABB", icon: Cog, color: "#22D3EE" }
+  { name: "ABB", icon: Cog, color: "#C8A276" }
 ];
 
 const partnersRow2 = [
   { name: "Tata Group", icon: Building, color: "#D4AF37" },
-  { name: "TVS", icon: Factory, color: "#22D3EE" },
+  { name: "TVS", icon: Factory, color: "#C8A276" },
   { name: "Ashok Leyland", icon: Truck, color: "#D4AF37" },
-  { name: "Larsen & Toubro", icon: Briefcase, color: "#22D3EE" },
+  { name: "Larsen & Toubro", icon: Briefcase, color: "#C8A276" },
   { name: "Mahindra", icon: Factory, color: "#D4AF37" }
 ];
 
@@ -166,7 +166,7 @@ const flagshipPlatforms = [
     image: "/images/flagship_manufacturing.jpg",
     dashboardImage: "/images/product_tab_manufacturing_1780851000218.png",
     path: "/products/vericea-manufacturing",
-    accentColor: "#22D3EE",
+    accentColor: "#C8A276",
     stat: { value: "22%", label: "OEE Increase" }
   },
   {
@@ -179,7 +179,7 @@ const flagshipPlatforms = [
     image: "/images/flagship_compliance.jpg",
     dashboardImage: "/images/product_tab_compliance_1780851018319.png",
     path: "/products/vericea-compliance",
-    accentColor: "#F59E0B",
+    accentColor: "#D4AF37",
     stat: { value: "100%", label: "Audit Success" }
   },
   {
@@ -223,18 +223,23 @@ const flagshipPlatforms = [
   }
 ];
 
-// â”€â”€ FLAGSHIP ANIMATION VARIANTS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ————————————————————————————————————————————————————————————————————————————————
 
 const flagshipCardVariants = {
   initial: {
     y: 0,
-    borderColor: 'rgba(245, 158, 11, 0.12)',
-    boxShadow: '0 8px 32px rgba(0,0,0,0.4)',
+    borderColor: 'rgba(200, 162, 118, 0.18)',
+    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.35)',
+    backdropFilter: 'blur(8px)',
+    WebkitBackdropFilter: 'blur(8px)'
   },
   hover: {
-    y: -12,
-    borderColor: 'rgba(245, 158, 11, 0.8)',
-    boxShadow: '0 32px 64px rgba(0,0,0,0.65), 0 0 40px rgba(245,158,11,0.2)',
+    y: -6,
+    borderColor: 'rgba(200, 162, 118, 0.45)',
+    backgroundColor: 'rgba(17, 34, 64, 0.92)',
+    boxShadow: '0 12px 40px rgba(0, 0, 0, 0.45)',
+    backdropFilter: 'blur(12px)',
+    WebkitBackdropFilter: 'blur(12px)',
     transition: { duration: 0.45, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }
   }
 };
@@ -287,7 +292,7 @@ const flagshipBtnVariants = {
   }
 };
 
-// â”€â”€ FLAGSHIP CARD COMPONENT â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ————————————————————————————————————————————————————————————————————————————————
 
 interface FlagshipPlatform {
   id: string;
@@ -317,16 +322,16 @@ function FlagshipCard({ platform, onNavigate, variant = 'standard' }: {
       onClick={() => onNavigate(platform.path)}
         style={{
         position: 'relative',
-        borderRadius: '20px',
+        borderRadius: '16px',
         overflow: 'hidden',
-        border: '1px solid rgba(var(--accent-rgb),0.12)',
-        backgroundColor: 'var(--card-bg)',
+        border: '1px solid rgba(200, 162, 118, 0.18)',
+        backgroundColor: 'rgba(17, 34, 64, 0.85)',
         cursor: 'pointer',
         height: isHero ? '720px' : '580px',
         display: 'flex',
         flexDirection: 'column',
-        backdropFilter: 'blur(4px)',
-        WebkitBackdropFilter: 'blur(4px)',
+        backdropFilter: 'blur(8px)',
+        WebkitBackdropFilter: 'blur(8px)',
       }}
     >
       {/* Animated gold top glow bar */}
@@ -474,13 +479,13 @@ function FlagshipCard({ platform, onNavigate, variant = 'standard' }: {
               display: 'inline-flex',
               alignItems: 'center',
               gap: '6px',
-              background: 'linear-gradient(135deg, #F59E0B, #D97706)',
-              color: '#0A0F1C',
+              background: 'linear-gradient(135deg, #C8A276, #D4AF37)',
+              color: '#FFFFFF',
               borderRadius: '8px',
               padding: '9px 18px',
               fontSize: '12px',
               fontWeight: '800',
-              boxShadow: '0 4px 12px rgba(245,158,11,0.3)',
+              boxShadow: '0 4px 12px rgba(200,162,11,0.3)',
               letterSpacing: '0.3px'
             }}>
               Explore Platform
@@ -604,10 +609,10 @@ function SolutionsCoverflow({
                 overflow: 'hidden',
                 cursor: 'pointer',
                 border: isCenter
-                  ? '1.5px solid rgba(245,158,11,0.75)'
+                  ? '1.5px solid rgba(200, 162, 118, 0.75)'
                   : '1px solid rgba(255,255,255,0.08)',
                 boxShadow: isCenter
-                  ? '0 0 32px rgba(245,158,11,0.22), 0 16px 48px rgba(0,0,0,0.6)'
+                  ? '0 0 32px rgba(200, 162, 118, 0.22), 0 16px 48px rgba(0,0,0,0.6)'
                   : '0 4px 24px rgba(0,0,0,0.4)',
               }}
             >
@@ -632,13 +637,13 @@ function SolutionsCoverflow({
                   : 'linear-gradient(to top, rgba(10,15,28,0.92) 0%, rgba(10,15,28,0.3) 100%)',
               }} />
 
-              {/* Gold top bar on center card */}
+              {/* Teal top bar on center card */}
               {isCenter && (
                 <motion.div
-                  layoutId="gold-bar"
+                  layoutId="teal-bar"
                   style={{
                     position: 'absolute', top: 0, left: 0, right: 0, height: '2px',
-                    background: 'linear-gradient(90deg, transparent, #F59E0B, #FCD34D, #F59E0B, transparent)',
+                    background: 'linear-gradient(90deg, transparent, #C8A276, #D4AF37, #C8A276, transparent)',
                   }}
                 />
               )}
@@ -670,13 +675,13 @@ function SolutionsCoverflow({
                     animate={{ opacity: 1, x: 0 }}
                     style={{
                       width: '28px', height: '28px', borderRadius: '50%',
-                      background: 'rgba(245,158,11,0.18)',
-                      border: '1px solid rgba(245,158,11,0.5)',
+                      background: 'rgba(200,162,118,0.18)',
+                      border: '1px solid rgba(200,162,118,0.5)',
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
                       flexShrink: 0,
                     }}
                   >
-                    <ArrowRight size={13} color="#F59E0B" />
+                    <ArrowRight size={13} color="#C8A276" />
                   </motion.div>
                 )}
               </div>
@@ -690,7 +695,7 @@ function SolutionsCoverflow({
                 borderRadius: '6px',
                 padding: '3px 8px',
                 fontSize: '10px', fontWeight: '700',
-                color: isCenter ? '#F59E0B' : '#9CA3AF',
+                color: isCenter ? '#C8A276' : '#9CA3AF',
                 letterSpacing: '0.5px',
                 fontFamily: 'var(--font-headings)',
               }}>
@@ -709,7 +714,7 @@ function SolutionsCoverflow({
             <motion.button
               key={i}
               onClick={() => setActiveIdx(startOffset + i)}
-              animate={{ width: dotActive ? '22px' : '6px', backgroundColor: dotActive ? '#F59E0B' : 'rgba(255,255,255,0.2)' }}
+              animate={{ width: dotActive ? '22px' : '6px', backgroundColor: dotActive ? '#C8A276' : 'rgba(255,255,255,0.2)' }}
               transition={{ duration: 0.3 }}
               style={{
                 height: '6px', borderRadius: '3px', border: 'none',
@@ -786,7 +791,7 @@ export default function Home() {
           color: '#ffffff',
           position: 'relative',
           overflow: 'hidden',
-          backgroundColor: '#0b0f19'
+          backgroundColor: 'var(--primary-bg)'
         }}
       >
         {/* Auto-playing fading background slides */}
@@ -803,7 +808,7 @@ export default function Home() {
               left: 0,
               right: 0,
               bottom: 0,
-              backgroundImage: `linear-gradient(rgba(15, 23, 42, 0.55), rgba(15, 23, 42, 0.65)), url(${heroBackgrounds[currentBgIndex]})`,
+              backgroundImage: `linear-gradient(rgba(11, 25, 44, 0.55), rgba(11, 25, 44, 0.65)), url(${heroBackgrounds[currentBgIndex]})`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               zIndex: 0
@@ -811,7 +816,7 @@ export default function Home() {
           />
         </AnimatePresence>
 
-        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'radial-gradient(circle at 80% 20%, rgba(20, 184, 166, 0.12) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
+        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'radial-gradient(circle at 80% 20%, rgba(200, 162, 118, 0.15) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
           <div className="grid-2" style={{ alignItems: 'center' }}>
             {/* Blurred Left Text Container */}
@@ -820,13 +825,13 @@ export default function Home() {
               animate={heroFadeIn.animate}
               transition={heroFadeIn.transition}
               style={{
-                background: 'rgba(15, 23, 42, 0.75)',
-                backdropFilter: 'blur(16px)',
-                WebkitBackdropFilter: 'blur(16px)',
+                background: 'rgba(11, 25, 44, 0.85)',
+                backdropFilter: 'blur(8px)',
+                WebkitBackdropFilter: 'blur(8px)',
                 padding: '44px',
-                borderRadius: '24px',
-                border: '1px solid rgba(255, 255, 255, 0.08)',
-                boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)',
+                borderRadius: '16px',
+                border: '1px solid rgba(200, 162, 118, 0.18)',
+                boxShadow: '0 12px 40px rgba(0, 0, 0, 0.45)',
                 width: '100%',
                 maxWidth: '580px',
                 marginRight: 'auto'
@@ -839,7 +844,7 @@ export default function Home() {
                   alignItems: 'center', 
                   gap: '8px', 
                   padding: '6px 14px', 
-                  background: 'rgba(255, 255, 255, 0.08)', 
+                  background: 'rgba(200, 162, 118, 0.1)', 
                   borderRadius: '20px', 
                   fontSize: '13px', 
                   color: 'var(--accent)', 
@@ -964,7 +969,7 @@ export default function Home() {
 
 
       {/* --- SERVICES OVERVIEW --- */}
-      <section className="section section-alt" style={{ backgroundColor: 'var(--background)' }}>
+      <section className="section services-section-texture">
         <div className="container">
           <div className="section-title-wrapper">
             <span className="section-subtitle">Our Capabilities</span>
@@ -1023,8 +1028,8 @@ export default function Home() {
           SECTION: FLAGSHIP PLATFORMS SHOWCASE (HOME PAGE)  â€” PREMIUM
           ================================================== */}
       <section
+        className="section products-section-texture flagship-shimmer-border"
         style={{
-          backgroundColor: '#0A0F1C',
           color: '#E5E7EB',
           overflow: 'hidden',
           position: 'relative',
@@ -1065,24 +1070,24 @@ export default function Home() {
             {/* Eyebrow */}
             <div style={{
               display: 'inline-flex', alignItems: 'center', gap: '10px',
-              background: 'rgba(245,158,11,0.07)',
-              border: '1px solid rgba(245,158,11,0.2)',
+              background: 'rgba(200, 162, 118, 0.07)',
+              border: '1px solid rgba(200, 162, 118, 0.2)',
               borderRadius: '40px',
               padding: '7px 18px',
               marginBottom: '24px'
             }}>
-              <div style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: '#F59E0B' }} />
-              <span style={{ fontSize: '12px', fontWeight: '700', color: '#F59E0B', textTransform: 'uppercase', letterSpacing: '1.5px' }}>
+              <div style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: '#C8A276' }} />
+              <span style={{ fontSize: '12px', fontWeight: '700', color: '#C8A276', textTransform: 'uppercase', letterSpacing: '1.5px' }}>
                 CEA Proprietary Platforms
               </span>
               <div style={{
-                background: 'rgba(245,158,11,0.15)',
-                border: '1px solid rgba(245,158,11,0.3)',
+                background: 'rgba(200, 162, 118, 0.15)',
+                border: '1px solid rgba(200, 162, 118, 0.3)',
                 borderRadius: '20px',
                 padding: '2px 9px',
                 fontSize: '10px',
                 fontWeight: '800',
-                color: '#F59E0B'
+                color: '#C8A276'
               }}>5 PRODUCTS</div>
             </div>
 
@@ -1095,7 +1100,7 @@ export default function Home() {
               letterSpacing: '-1.5px',
               lineHeight: 1.1
             }}>
-              CEA's Flagship Platforms
+              CEA Flagship Platforms
             </h2>
             <p style={{
               fontSize: '17px',
@@ -1111,7 +1116,7 @@ export default function Home() {
             {/* Separator line */}
             <div style={{
               width: '60px', height: '3px', margin: '28px auto 0 auto',
-              background: 'linear-gradient(90deg, transparent, #F59E0B, transparent)',
+              background: 'linear-gradient(90deg, transparent, #C8A276, transparent)',
               borderRadius: '2px'
             }} />
           </motion.div>
@@ -1197,7 +1202,7 @@ export default function Home() {
       </section>
 
       {/* --- SOLUTIONS SUCCESSFULLY DELIVERED --- */}
-      <section style={{ backgroundColor: 'var(--secondary-bg)', overflow: 'hidden', position: 'relative', padding: '72px 0 80px' }}>
+      <section className="section services-section-texture" style={{ overflow: 'hidden', position: 'relative', padding: '72px 0 80px' }}>
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
           {/* Section header */}
           <div style={{ textAlign: 'center', marginBottom: '44px' }}>
@@ -1211,7 +1216,7 @@ export default function Home() {
       </section>
 
       {/* --- PRODUCTION TRACKING TOOL VIDEO PLACEHOLDER --- */}
-      <section className="section" style={{ background: '#020617', color: '#ffffff', position: 'relative', overflow: 'hidden' }}>
+      <section className="section products-section-texture" style={{ color: '#ffffff', position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'radial-gradient(circle at center, rgba(37, 99, 235, 0.08) 0%, transparent 80%)', zIndex: 1, pointerEvents: 'none' }}></div>
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
           <div className="section-title-wrapper">
@@ -1262,7 +1267,7 @@ export default function Home() {
 
 
       {/* --- WHY CHOOSE CEA INFOTECH --- */}
-      <section className="section" style={{ backgroundColor: 'var(--alternate-bg)' }}>
+      <section className="section about-section-texture">
         <div className="container">
           <div className="section-title-wrapper">
             <span className="section-subtitle">Our Value Proposition</span>
@@ -1314,10 +1319,8 @@ export default function Home() {
       </section>
 
       {/* --- TRUSTED PARTNERS SECTION --- */}
-      <section className="section" style={{ 
-        padding: '100px 0', 
-        borderTop: '1px solid var(--border-color)',
-        borderBottom: '1px solid var(--border-color)',
+      <section className="section contact-section-texture" style={{ 
+        padding: '100px 0 110px 0',
         position: 'relative',
         overflow: 'hidden'
       }}>
@@ -1478,9 +1481,9 @@ export default function Home() {
       </section>
 
       {/* --- CALL TO ACTION --- */}
-      <section className="section section-dark" style={{ background: 'linear-gradient(135deg, var(--primary-bg) 0%, var(--secondary-bg) 100%)', position: 'relative', overflow: 'hidden' }}>
-        <div style={{ position: 'absolute', top: '-10%', right: '-10%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(6, 182, 212, 0.12) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
-        <div style={{ position: 'absolute', bottom: '-10%', left: '-10%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(234, 179, 8, 0.08) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
+      <section className="section contact-section-texture" style={{ position: 'relative', overflow: 'hidden' }}>
+        <div style={{ position: 'absolute', top: '-10%', right: '-10%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(200, 162, 118, 0.12) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
+        <div style={{ position: 'absolute', bottom: '-10%', left: '-10%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(200, 162, 118, 0.08) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
 
         <div className="container" style={{ textAlign: 'center', position: 'relative', zIndex: 2 }}>
           <motion.div 
@@ -1544,7 +1547,7 @@ export default function Home() {
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.95, y: 15 }}
               transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-              style={{ position: 'relative', width: '100%', maxWidth: '840px', aspectRatio: '16/9', backgroundColor: '#020617', borderRadius: '16px', border: '1px solid rgba(20, 184, 166, 0.3)', overflow: 'hidden', boxShadow: '0 25px 50px -12px rgba(0,0,0,0.8)' }}
+              style={{ position: 'relative', width: '100%', maxWidth: '840px', aspectRatio: '16/9', backgroundColor: '#020617', borderRadius: '16px', border: '1px solid rgba(200, 162, 118, 0.3)', overflow: 'hidden', boxShadow: '0 25px 50px -12px rgba(0,0,0,0.8)' }}
               onClick={(e) => e.stopPropagation()}
             >
               <button 
@@ -1555,7 +1558,7 @@ export default function Home() {
                 <X size={20} />
               </button>
               <div style={{ width: '100%', height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', color: '#fff', padding: '40px', textAlign: 'center' }}>
-                <div style={{ position: 'relative', width: '72px', height: '72px', borderRadius: '50%', backgroundColor: 'rgba(20, 184, 166, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '24px' }}>
+                <div style={{ position: 'relative', width: '72px', height: '72px', borderRadius: '50%', backgroundColor: 'rgba(200, 162, 118, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '24px' }}>
                   <Cpu size={36} style={{ color: 'var(--accent)' }} />
                   <span className="map-pulse" style={{ position: 'absolute', width: '72px', height: '72px', borderRadius: '50%', border: '2px solid var(--accent)', opacity: 0.4 }}></span>
                 </div>

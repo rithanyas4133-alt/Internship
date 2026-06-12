@@ -14,7 +14,7 @@ import { useNavigate } from 'react-router-dom';
 
 const NODES = [
   { id: 'erp',      label: 'Enterprise Resource\nPlanning',   angle: 0,   color: '#22D3EE' },
-  { id: 'prod',     label: 'Production\nTracking',            angle: 40,  color: '#F59E0B' },
+  { id: 'prod',     label: 'Production\nTracking',            angle: 40,  color: '#C8A276' },
   { id: 'comp',     label: 'Compliance\nTracking',            angle: 80,  color: '#10B981' },
   { id: 'hrms',     label: 'HRMS &\nPayroll',                 angle: 120, color: '#A78BFA' },
   { id: 'retail',   label: 'Retail\nSolutions',               angle: 160, color: '#F472B6' },
@@ -234,28 +234,28 @@ function DigitalEcosystem() {
             <g>
               {/* Outer spinner ring */}
               <motion.circle cx={CX} cy={CY} r={76}
-                fill="none" stroke="#F59E0B" strokeWidth="1" strokeDasharray="12 24"
+                fill="none" stroke="#C8A276" strokeWidth="1" strokeDasharray="12 24"
                 animate={{ rotate: 360 }}
                 transition={{ duration: 16, ease: 'linear', repeat: Infinity }}
                 style={{ transformOrigin: `${CX}px ${CY}px` }}
               />
               {/* Counter spinner */}
               <motion.circle cx={CX} cy={CY} r={68}
-                fill="none" stroke="rgba(34,211,238,0.25)" strokeWidth="0.75" strokeDasharray="6 14"
+                fill="none" stroke="rgba(200,162,118,0.25)" strokeWidth="0.75" strokeDasharray="6 14"
                 animate={{ rotate: -360 }}
                 transition={{ duration: 22, ease: 'linear', repeat: Infinity }}
                 style={{ transformOrigin: `${CX}px ${CY}px` }}
               />
-              <circle cx={CX} cy={CY} r={60} fill="#06101F" stroke="rgba(245,158,11,0.4)" strokeWidth="1.5" />
+              <circle cx={CX} cy={CY} r={60} fill="#06101F" stroke="rgba(200,162,118,0.4)" strokeWidth="1.5" />
               {/* Pulse ring */}
               <motion.circle cx={CX} cy={CY} r={60}
-                fill="none" stroke="rgba(245,158,11,0.15)"
+                fill="none" stroke="rgba(200,162,118,0.15)"
                 animate={{ r: [60, 72, 60], opacity: [0.15, 0.4, 0.15] }}
                 transition={{ duration: 3, repeat: Infinity }}
               />
-              <text x={CX} y={CY - 14} textAnchor="middle" fontSize="12" fontWeight="800" fill="#F59E0B" fontFamily="var(--font-headings)" letterSpacing="1.5">CEA</text>
+              <text x={CX} y={CY - 14} textAnchor="middle" fontSize="12" fontWeight="800" fill="#C8A276" fontFamily="var(--font-headings)" letterSpacing="1.5">CEA</text>
               <text x={CX} y={CY + 2} textAnchor="middle" fontSize="9.5" fontWeight="600" fill="rgba(209,213,219,0.65)" fontFamily="var(--font-headings)">INFOTECH</text>
-              <text x={CX} y={CY + 17} textAnchor="middle" fontSize="7.5" fontWeight="500" fill="rgba(245,158,11,0.75)" fontFamily="var(--font-headings)" letterSpacing="0.8">DIGITAL ECOSYSTEM</text>
+              <text x={CX} y={CY + 17} textAnchor="middle" fontSize="7.5" fontWeight="500" fill="rgba(200,162,118,0.75)" fontFamily="var(--font-headings)" letterSpacing="0.8">DIGITAL ECOSYSTEM</text>
             </g>
           </svg>
         </div>
@@ -306,9 +306,9 @@ function IndustriesWall() {
 
       <div className="container" style={{ position: 'relative', zIndex: 2 }}>
         <motion.div initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.65 }} style={{ textAlign: 'center', marginBottom: '56px' }}>
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(245,158,11,0.08)', border: '1px solid rgba(245,158,11,0.25)', borderRadius: '40px', padding: '6px 18px', marginBottom: '20px' }}>
-            <motion.div animate={{ opacity: [1, 0.3, 1] }} transition={{ duration: 1.8, repeat: Infinity }} style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#F59E0B', boxShadow: '0 0 8px #F59E0B' }} />
-            <span style={{ fontSize: '11px', fontWeight: '700', color: '#F59E0B', letterSpacing: '1.5px', textTransform: 'uppercase' }}>Industries We Empower</span>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(200,162,118,0.08)', border: '1px solid rgba(200,162,118,0.25)', borderRadius: '40px', padding: '6px 18px', marginBottom: '20px' }}>
+            <motion.div animate={{ opacity: [1, 0.3, 1] }} transition={{ duration: 1.8, repeat: Infinity }} style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#C8A276', boxShadow: '0 0 8px #C8A276' }} />
+            <span style={{ fontSize: '11px', fontWeight: '700', color: '#C8A276', letterSpacing: '1.5px', textTransform: 'uppercase' }}>Industries We Empower</span>
           </div>
           <h2 style={{ fontSize: 'clamp(30px,3.8vw,52px)', fontWeight: '800', color: '#fff', margin: '0 0 16px', fontFamily: 'var(--font-headings)', letterSpacing: '-0.5px' }}>
             Interactive Industry Wall
@@ -358,16 +358,16 @@ function IndustriesWall() {
                 <motion.div
                   animate={{ scaleX: isH ? 1 : 0, opacity: isH ? 1 : 0 }}
                   transition={{ duration: 0.42, ease: [0.32, 0.72, 0, 1] }}
-                  style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '2.5px', background: 'linear-gradient(90deg,transparent,#F59E0B,#FDE68A,#F59E0B,transparent)', transformOrigin: 'left' }}
+                  style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '2.5px', background: 'linear-gradient(90deg,transparent,#C8A276,#D4AF37,#C8A276,transparent)', transformOrigin: 'left' }}
                 />
                 {/* Index badge */}
-                <div style={{ position: 'absolute', top: '11px', left: '11px', fontSize: '9.5px', fontWeight: '800', color: isH ? '#F59E0B' : 'rgba(156,163,175,0.6)', fontFamily: 'var(--font-headings)', letterSpacing: '0.5px', background: 'rgba(4,8,16,0.7)', backdropFilter: 'blur(6px)', border: `1px solid ${isH ? 'rgba(245,158,11,0.45)' : 'rgba(255,255,255,0.06)'}`, borderRadius: '5px', padding: '2px 7px', transition: 'color 0.3s,border-color 0.3s' }}>
+                <div style={{ position: 'absolute', top: '11px', left: '11px', fontSize: '9.5px', fontWeight: '800', color: isH ? '#C8A276' : 'rgba(156,163,175,0.6)', fontFamily: 'var(--font-headings)', letterSpacing: '0.5px', background: 'rgba(4,8,16,0.7)', backdropFilter: 'blur(6px)', border: `1px solid ${isH ? 'rgba(200,162,118,0.45)' : 'rgba(255,255,255,0.06)'}`, borderRadius: '5px', padding: '2px 7px', transition: 'color 0.3s,border-color 0.3s' }}>
                   {String(i + 1).padStart(2, '0')}
                 </div>
                 {/* Label */}
                 <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '16px 18px' }}>
                   <motion.h3
-                    animate={{ y: isH ? -5 : 0, color: isH ? '#F59E0B' : '#FFFFFF' }}
+                    animate={{ y: isH ? -5 : 0, color: isH ? '#C8A276' : '#FFFFFF' }}
                     transition={{ duration: 0.3 }}
                     style={{ margin: 0, fontSize: ind.span === 2 ? '17px' : '14px', fontWeight: '800', fontFamily: 'var(--font-headings)', lineHeight: 1.2, textShadow: '0 2px 14px rgba(0,0,0,0.9)' }}
                   >
@@ -378,8 +378,8 @@ function IndustriesWall() {
                     transition={{ duration: 0.3, delay: 0.06 }}
                     style={{ display: 'flex', alignItems: 'center', gap: '6px', marginTop: '6px' }}
                   >
-                    <div style={{ width: '22px', height: '1.5px', background: '#F59E0B', borderRadius: '1px' }} />
-                    <span style={{ fontSize: '10.5px', fontWeight: '700', color: 'rgba(245,158,11,0.9)', letterSpacing: '0.6px', textTransform: 'uppercase' }}>CEA Solutions Available</span>
+                    <div style={{ width: '22px', height: '1.5px', background: '#C8A276', borderRadius: '1px' }} />
+                    <span style={{ fontSize: '10.5px', fontWeight: '700', color: 'rgba(200,162,118,0.9)', letterSpacing: '0.6px', textTransform: 'uppercase' }}>CEA Solutions Available</span>
                   </motion.div>
                 </div>
               </motion.div>
@@ -402,7 +402,7 @@ const CORE_VALUES = [
     theme: 'Manufacturing Operations',
     desc: 'Delivering robust, high-performance enterprise systems built to last.',
     image: '/images/val_quality.jpg',
-    color: '#D4AF37',
+    color: '#C8A276',
   },
   {
     id: 'integrity',
@@ -410,7 +410,7 @@ const CORE_VALUES = [
     theme: 'Executive Collaboration',
     desc: 'Transparent, honest and ethical partnership at every level.',
     image: '/images/val_integrity.jpg',
-    color: '#D4AF37',
+    color: '#C8A276',
   },
   {
     id: 'innovation',
@@ -418,7 +418,7 @@ const CORE_VALUES = [
     theme: 'Digital Transformation',
     desc: 'Continuous R&D driving next-generation technological tools.',
     image: '/images/val_innovation.jpg',
-    color: '#D4AF37',
+    color: '#C8A276',
   },
   {
     id: 'accountability',
@@ -426,7 +426,7 @@ const CORE_VALUES = [
     theme: 'Project Governance',
     desc: 'Taking complete ownership of every promise and milestone.',
     image: '/images/val_accountability.jpg',
-    color: '#D4AF37',
+    color: '#C8A276',
   },
   {
     id: 'reliability',
@@ -434,7 +434,7 @@ const CORE_VALUES = [
     theme: 'Enterprise Infrastructure',
     desc: 'A dependable long-term technology partner you can count on.',
     image: '/images/val_reliability.jpg',
-    color: '#D4AF37',
+    color: '#C8A276',
   },
 ];
 
@@ -505,9 +505,9 @@ function ConnectionLine({ from, to, isHovered, color }: ConnectionLineProps) {
           cx={dotX}
           cy={dotY}
           r={4.5}
-          fill="#D4AF37"
+          fill="#C8A276"
           style={{
-            filter: 'drop-shadow(0 0 6px #D4AF37)',
+            filter: 'drop-shadow(0 0 6px #C8A276)',
           }}
         />
       )}
@@ -552,18 +552,19 @@ function GlassValueNode({
           scale: isHovered ? 1.05 : 1,
           opacity: isDimmed ? 0.42 : 1,
           boxShadow: isHovered
-            ? '0 0 30px rgba(212, 175, 55, 0.25), 0 20px 48px rgba(0, 0, 0, 0.8)'
-            : '0 8px 32px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05)',
-          borderColor: isHovered ? '#D4AF37' : 'rgba(212, 175, 55, 0.15)',
-          backgroundColor: isHovered ? 'rgba(10, 15, 28, 0.85)' : 'rgba(10, 15, 28, 0.55)',
+            ? '0 12px 40px rgba(0, 0, 0, 0.45)'
+            : '0 8px 32px rgba(0, 0, 0, 0.35)',
+          borderColor: isHovered ? 'rgba(200, 162, 118, 0.45)' : 'rgba(200, 162, 118, 0.18)',
+          backgroundColor: isHovered ? 'rgba(17, 34, 64, 0.92)' : 'rgba(17, 34, 64, 0.85)',
+          backdropFilter: isHovered ? 'blur(12px)' : 'blur(8px)',
         }}
         transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
         style={{
           borderRadius: '16px',
-          border: '1px solid rgba(212, 175, 55, 0.15)',
-          background: 'rgba(10, 15, 28, 0.55)',
-          backdropFilter: 'blur(12px)',
-          WebkitBackdropFilter: 'blur(12px)',
+          border: '1px solid rgba(200, 162, 118, 0.18)',
+          background: 'rgba(17, 34, 64, 0.85)',
+          backdropFilter: 'blur(8px)',
+          WebkitBackdropFilter: 'blur(8px)',
           padding: '20px 24px',
           cursor: 'pointer',
           position: 'relative',
@@ -582,7 +583,7 @@ function GlassValueNode({
             left: 0,
             right: 0,
             height: '2px',
-            background: 'linear-gradient(90deg, transparent, #D4AF37, transparent)',
+            background: 'linear-gradient(90deg, transparent, #C8A276, transparent)',
             transformOrigin: 'left',
           }}
         />
@@ -590,7 +591,7 @@ function GlassValueNode({
         <div style={{
           fontSize: '9px',
           fontWeight: '900',
-          color: isHovered ? '#D4AF37' : 'rgba(255, 255, 255, 0.25)',
+          color: isHovered ? '#C8A276' : 'rgba(255, 255, 255, 0.25)',
           fontFamily: 'var(--font-headings)',
           letterSpacing: '1px',
           marginBottom: '8px',
@@ -607,7 +608,7 @@ function GlassValueNode({
           fontFamily: 'var(--font-headings)',
           letterSpacing: '-0.3px',
           transition: 'color 0.3s',
-          color: isHovered ? '#D4AF37' : '#FFFFFF',
+          color: isHovered ? '#C8A276' : '#FFFFFF',
         }}>
           {v.title}
         </h4>
@@ -624,8 +625,8 @@ function GlassValueNode({
       <div style={{ display: 'flex', justifyContent: 'center', marginTop: '8px' }}>
         <motion.div
           animate={{
-            backgroundColor: isHovered ? '#D4AF37' : 'rgba(255, 255, 255, 0.15)',
-            boxShadow: isHovered ? '0 0 10px #D4AF37' : 'none',
+            backgroundColor: isHovered ? '#C8A276' : 'rgba(255, 255, 255, 0.15)',
+            boxShadow: isHovered ? '0 0 10px #C8A276' : 'none',
             scale: isHovered ? 1.25 : 1,
           }}
           transition={{ duration: 0.25 }}
@@ -809,8 +810,8 @@ function CoreValuesSection() {
             display: 'inline-flex',
             alignItems: 'center',
             gap: '8px',
-            background: 'rgba(212, 175, 55, 0.08)',
-            border: '1px solid rgba(212, 175, 55, 0.25)',
+            background: 'rgba(200, 162, 118, 0.08)',
+            border: '1px solid rgba(200, 162, 118, 0.25)',
             borderRadius: '40px',
             padding: '6px 18px',
             marginBottom: '22px',
@@ -822,14 +823,14 @@ function CoreValuesSection() {
                 width: '6px',
                 height: '6px',
                 borderRadius: '50%',
-                background: '#D4AF37',
-                boxShadow: '0 0 8px #D4AF37',
+                background: '#C8A276',
+                boxShadow: '0 0 8px #C8A276',
               }}
             />
             <span style={{
               fontSize: '11px',
               fontWeight: '750',
-              color: '#D4AF37',
+              color: '#C8A276',
               letterSpacing: '1.5px',
               textTransform: 'uppercase',
             }}>
@@ -901,7 +902,7 @@ function CoreValuesSection() {
             }}>
               {activeValue ? (
                 <div>
-                  <div style={{ fontSize: '10px', fontWeight: '800', color: '#D4AF37', letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: '4px' }}>{activeValue.theme}</div>
+                  <div style={{ fontSize: '10px', fontWeight: '800', color: '#C8A276', letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: '4px' }}>{activeValue.theme}</div>
                   <h4 style={{ fontSize: '18px', fontWeight: '800', color: '#fff', margin: '0 0 6px 0', fontFamily: 'var(--font-headings)' }}>{activeValue.title}</h4>
                   <p style={{ fontSize: '13px', color: 'rgba(209, 213, 219, 0.85)', margin: 0, lineHeight: 1.45 }}>{activeValue.desc}</p>
                 </div>
@@ -924,27 +925,27 @@ function CoreValuesSection() {
                     onClick={() => setHovered(isSelected ? null : v.id)}
                     style={{
                       borderRadius: '12px',
-                      border: `1px solid ${isSelected ? '#D4AF37' : 'rgba(255, 255, 255, 0.08)'}`,
-                      background: isSelected ? 'rgba(10, 15, 28, 0.85)' : 'rgba(10, 15, 28, 0.45)',
+                      border: `1px solid ${isSelected ? '#C8A276' : 'rgba(255, 255, 255, 0.08)'}`,
+                      background: isSelected ? 'rgba(255, 255, 255, 0.12)' : 'rgba(255, 255, 255, 0.08)',
                       padding: '14px 20px',
                       cursor: 'pointer',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'space-between',
-                      boxShadow: isSelected ? '0 0 15px rgba(212, 175, 55, 0.15)' : 'none',
+                      boxShadow: isSelected ? '0 0 15px rgba(200, 162, 118, 0.15)' : 'none',
                       transition: 'all 0.3s ease',
                     }}
                   >
                     <div>
-                      <div style={{ fontSize: '14px', fontWeight: '800', color: isSelected ? '#D4AF37' : '#fff', fontFamily: 'var(--font-headings)' }}>{v.title}</div>
+                      <div style={{ fontSize: '14px', fontWeight: '800', color: isSelected ? '#C8A276' : '#fff', fontFamily: 'var(--font-headings)' }}>{v.title}</div>
                       <div style={{ fontSize: '10.5px', color: 'rgba(209, 213, 219, 0.5)' }}>{v.theme}</div>
                     </div>
                     <div style={{
                       width: '8px',
                       height: '8px',
                       borderRadius: '50%',
-                      backgroundColor: isSelected ? '#D4AF37' : 'rgba(255, 255, 255, 0.2)',
-                      boxShadow: isSelected ? '0 0 8px #D4AF37' : 'none',
+                      backgroundColor: isSelected ? '#C8A276' : 'rgba(255, 255, 255, 0.2)',
+                      boxShadow: isSelected ? '0 0 8px #C8A276' : 'none',
                       transition: 'all 0.3s ease',
                     }} />
                   </div>
@@ -1061,16 +1062,16 @@ function CoreValuesSection() {
                   aspectRatio: '16/10',
                   borderRadius: '24px',
                   overflow: 'hidden',
-                  border: '1px solid rgba(212, 175, 55, 0.18)',
-                  boxShadow: '0 32px 80px rgba(0, 0, 0, 0.8), 0 0 50px rgba(212, 175, 55, 0.05)',
+                  border: '1px solid rgba(200, 162, 118, 0.18)',
+                  boxShadow: '0 32px 80px rgba(0, 0, 0, 0.8), 0 0 50px rgba(200, 162, 118, 0.05)',
                 }}
               >
-                {/* Gold corner brackets */}
+                {/* Matte Gold corner brackets */}
                 {[
-                  { top: -1, left: -1, borderTop: '3px solid #D4AF37', borderLeft: '3px solid #D4AF37', borderRadius: '24px 0 0 0' },
-                  { top: -1, right: -1, borderTop: '3px solid #D4AF37', borderRight: '3px solid #D4AF37', borderRadius: '0 24px 0 0' },
-                  { bottom: -1, left: -1, borderBottom: '3px solid #D4AF37', borderLeft: '3px solid #D4AF37', borderRadius: '0 0 0 24px' },
-                  { bottom: -1, right: -1, borderBottom: '3px solid #D4AF37', borderRight: '3px solid #D4AF37', borderRadius: '0 0 24px 0' },
+                  { top: -1, left: -1, borderTop: '3px solid #C8A276', borderLeft: '3px solid #C8A276', borderRadius: '24px 0 0 0' },
+                  { top: -1, right: -1, borderTop: '3px solid #C8A276', borderRight: '3px solid #C8A276', borderRadius: '0 24px 0 0' },
+                  { bottom: -1, left: -1, borderBottom: '3px solid #C8A276', borderLeft: '3px solid #C8A276', borderRadius: '0 0 0 24px' },
+                  { bottom: -1, right: -1, borderBottom: '3px solid #C8A276', borderRight: '3px solid #C8A276', borderRadius: '0 0 24px 0' },
                 ].map((s, idx) => (
                   <div
                     key={idx}
@@ -1357,7 +1358,7 @@ export default function About() {
   const founderHighlights = ['35+ Years IT Experience', 'ERP Specialist', 'CRM & SCM Expertise', 'Financial Systems', 'Global Project Delivery'];
 
   return (
-    <div>
+    <div className="about-page-bg">
       {/* ===== HERO ===== */}
       <section className="about-hero">
         <div className="about-hero-bg">
@@ -1519,9 +1520,9 @@ export default function About() {
                   borderRadius: '16px',
                   overflow: 'hidden',
                   border: '1px solid var(--border-color)',
-                  background: 'var(--card-bg)',
-                  backdropFilter: 'blur(12px)',
-                  WebkitBackdropFilter: 'blur(12px)',
+                  background: 'rgba(17, 34, 64, 0.85)',
+                  backdropFilter: 'blur(8px)',
+                  WebkitBackdropFilter: 'blur(8px)',
                   boxShadow: 'var(--shadow-md)',
                   display: 'flex',
                   flexDirection: 'column',
@@ -1537,11 +1538,11 @@ export default function About() {
                     style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
                   />
                   {/* Gradient overlay */}
-                  <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(31,58,95,0.85) 0%, rgba(31,58,95,0.15) 55%, transparent 100%)' }} />
+                  <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(11,25,44,0.85) 0%, rgba(11,25,44,0.15) 55%, transparent 100%)' }} />
                   {/* Gold top bar on hover handled via parent whileHover — static subtle line */}
                   <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '2px', background: 'linear-gradient(90deg, transparent, rgba(184,155,94,0.6), transparent)' }} />
                   {/* Index badge */}
-                  <div style={{ position: 'absolute', top: '12px', left: '14px', fontSize: '10px', fontWeight: '800', color: 'var(--accent)', background: 'rgba(15,28,50,0.72)', backdropFilter: 'blur(6px)', border: '1px solid rgba(184,155,94,0.3)', borderRadius: '5px', padding: '2px 8px', fontFamily: 'var(--font-headings)', letterSpacing: '0.5px' }}>
+                  <div style={{ position: 'absolute', top: '12px', left: '14px', fontSize: '10px', fontWeight: '800', color: 'var(--accent)', background: 'rgba(15,28,50,0.72)', backdropFilter: 'blur(6px)', border: '1px solid rgba(200, 162, 118, 0.3)', borderRadius: '5px', padding: '2px 8px', fontFamily: 'var(--font-headings)', letterSpacing: '0.5px' }}>
                     {String(i + 1).padStart(2, '0')}
                   </div>
                 </div>

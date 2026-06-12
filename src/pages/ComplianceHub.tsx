@@ -1,4 +1,4 @@
-﻿import { useState } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { 
@@ -272,21 +272,21 @@ export default function ComplianceHub() {
       initial="initial"
       animate="animate"
       variants={pageTransition}
-      className="compliance-page"
-      style={{ overflow: 'hidden', backgroundColor: 'var(--background)', color: 'var(--text-main)' }}
+      className="compliance-page compliance-page-bg"
+      style={{ overflow: 'hidden', color: 'var(--text-main)' }}
     >
       {/* INJECT PREMIUM CUSTOM STYLES */}
       <style dangerouslySetInnerHTML={{ __html: `
         /* Theme Overrides & Global Component Styles (mapped to design tokens) */
         :root {
-          --c-navy: var(--primary-bg);
+          --c-navy: var(--tertiary-bg);
           --c-teal: var(--accent);
-          --c-gold: var(--accent);
-          --c-slate-50: var(--secondary-bg);
-          --c-slate-100: var(--primary-bg);
-          --c-slate-200: rgba(var(--primary-rgb), 0.08);
+          --c-gold: var(--supporting);
+          --c-slate-50: rgba(255, 255, 255, 0.08);
+          --c-slate-100: var(--tertiary-bg);
+          --c-slate-200: rgba(200, 162, 118, 0.18);
           --c-slate-700: var(--text-muted);
-          --c-slate-800: rgba(var(--primary-rgb), 0.03);
+          --c-slate-800: rgba(255, 255, 255, 0.05);
           --c-slate-900: var(--text-main);
         }
 
@@ -331,21 +331,27 @@ export default function ComplianceHub() {
 
         /* Why Compliance Card Design */
         .why-card {
-          background: rgba(var(--secondary-bg-rgb), 0.65);
-          border: 1px solid var(--c-slate-200);
+          background: rgba(17, 34, 64, 0.85);
+          border: 1px solid rgba(200, 162, 118, 0.18);
           border-radius: var(--border-radius-lg);
           padding: 36px 28px;
           position: relative;
           overflow: hidden;
           transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+          backdrop-filter: blur(8px);
+          -webkit-backdrop-filter: blur(8px);
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
         }
-
+ 
         .why-card:hover {
           transform: translateY(-8px);
+          background: rgba(17, 34, 64, 0.92);
           border-color: var(--c-teal);
-          box-shadow: 0 20px 30px rgba(var(--primary-bg-rgb), 0.08);
+          box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+          backdrop-filter: blur(12px);
+          -webkit-backdrop-filter: blur(12px);
         }
-
+ 
         .why-card-badge {
           position: absolute;
           top: 16px;
@@ -355,24 +361,24 @@ export default function ComplianceHub() {
           letter-spacing: 1px;
           font-weight: 700;
           color: var(--c-teal);
-          background: rgba(var(--accent-rgb), 0.08);
+          background: rgba(200, 162, 118, 0.12);
           padding: 3px 8px;
           border-radius: 4px;
         }
-
+ 
         .why-card-icon {
           width: 50px;
           height: 50px;
           border-radius: 10px;
-          background: rgba(var(--accent-rgb), 0.08);
+          background: rgba(200, 162, 118, 0.12);
           color: var(--c-teal);
           display: flex;
           align-items: center;
-          justify-content: center;
+          justifyContent: center;
           margin-bottom: 24px;
           transition: all 0.3s ease;
         }
-
+ 
         .why-card:hover .why-card-icon {
           background: var(--c-teal);
           color: var(--text-main);
@@ -381,21 +387,26 @@ export default function ComplianceHub() {
 
         /* Challenge Cards */
         .challenge-card {
-          background: rgba(var(--tertiary-bg-rgb), 0.3);
-          border: 1px solid var(--c-slate-200);
+          background: rgba(17, 34, 64, 0.85);
+          border: 1px solid rgba(200, 162, 118, 0.12);
           border-radius: var(--border-radius-md);
           padding: 30px;
           display: flex;
           gap: 20px;
           align-items: flex-start;
           transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+          backdrop-filter: blur(8px);
+          -webkit-backdrop-filter: blur(8px);
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
         }
-
+ 
         .challenge-card:hover {
           border-color: var(--c-teal);
-          background: rgba(var(--primary-rgb), 0.05);
-          box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+          background: rgba(17, 34, 64, 0.92);
+          box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
           transform: translateY(-2px);
+          backdrop-filter: blur(12px);
+          -webkit-backdrop-filter: blur(12px);
         }
 
         .challenge-num {
@@ -446,10 +457,10 @@ export default function ComplianceHub() {
         }
 
         .stage-nav-card {
-          background: rgba(255, 255, 255, 0.03);
-          backdrop-filter: blur(12px);
-          -webkit-backdrop-filter: blur(12px);
-          border: 1px solid rgba(255, 255, 255, 0.05);
+          background: rgba(17, 34, 64, 0.85);
+          backdrop-filter: blur(8px);
+          -webkit-backdrop-filter: blur(8px);
+          border: 1px solid rgba(200, 162, 118, 0.12);
           border-radius: var(--border-radius-md);
           padding: 14px 18px;
           display: flex;
@@ -460,7 +471,7 @@ export default function ComplianceHub() {
           position: relative;
           overflow: hidden;
         }
-
+ 
         .stage-nav-card::before {
           content: '';
           position: absolute;
@@ -471,19 +482,23 @@ export default function ComplianceHub() {
           background: var(--c-teal);
           transition: width 0.25s ease;
         }
-
+ 
         .stage-nav-card:hover {
-          background: rgba(255, 255, 255, 0.08);
+          background: rgba(17, 34, 64, 0.92);
           transform: translateX(4px);
           border-color: var(--c-teal);
+          backdrop-filter: blur(12px);
+          -webkit-backdrop-filter: blur(12px);
         }
-
+ 
         .stage-nav-card.active {
-          background: rgba(255, 255, 255, 0.08);
+          background: rgba(17, 34, 64, 0.95);
           border-color: var(--c-teal);
-          box-shadow: 0 10px 30px rgba(6, 182, 212, 0.15);
+          box-shadow: 0 10px 30px rgba(200, 162, 118, 0.25);
+          backdrop-filter: blur(12px);
+          -webkit-backdrop-filter: blur(12px);
         }
-
+ 
         .stage-nav-card.active::before {
           width: 4px;
         }
@@ -536,12 +551,12 @@ export default function ComplianceHub() {
         }
 
         .stage-content-panel {
-          background: rgba(30, 41, 59, 0.45);
-          border: 1px solid rgba(255, 255, 255, 0.06);
+          background: rgba(17, 34, 64, 0.85);
+          border: 1px solid rgba(200, 162, 118, 0.18);
           border-radius: var(--border-radius-lg);
-          box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.25);
-          backdrop-filter: blur(20px);
-          -webkit-backdrop-filter: blur(20px);
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+          backdrop-filter: blur(8px);
+          -webkit-backdrop-filter: blur(8px);
           overflow: hidden;
           display: flex;
           flex-direction: column;
@@ -604,18 +619,23 @@ export default function ComplianceHub() {
 
         /* Major Audit Types Grid */
         .audit-type-card {
-          background: rgba(30, 41, 59, 0.3);
-          border: 1px solid rgba(255, 255, 255, 0.05);
+          background: rgba(17, 34, 64, 0.85);
+          border: 1px solid rgba(200, 162, 118, 0.18);
           border-radius: var(--border-radius-md);
           padding: 28px;
           cursor: pointer;
           transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+          backdrop-filter: blur(8px);
+          -webkit-backdrop-filter: blur(8px);
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
         }
-
+ 
         .audit-type-card:hover {
           border-color: var(--c-teal);
-          background: rgba(255, 255, 255, 0.05);
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+          background: rgba(17, 34, 64, 0.92);
+          box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+          backdrop-filter: blur(12px);
+          -webkit-backdrop-filter: blur(12px);
         }
 
         /* Interactive Works Tabs */
@@ -624,8 +644,8 @@ export default function ComplianceHub() {
           align-items: center;
           gap: 12px;
           padding: 16px 24px;
-          background: rgba(255, 255, 255, 0.03);
-          border: 1px solid rgba(255, 255, 255, 0.06);
+          background: rgba(17, 34, 64, 0.85);
+          border: 1px solid rgba(200, 162, 118, 0.12);
           border-radius: var(--border-radius-md);
           color: #cbd5e1;
           font-weight: 600;
@@ -633,19 +653,21 @@ export default function ComplianceHub() {
           transition: all 0.3s ease;
           flex: 1;
           justify-content: center;
+          backdrop-filter: blur(8px);
+          -webkit-backdrop-filter: blur(8px);
         }
-
+ 
         .works-tab-btn:hover {
-          background: rgba(255, 255, 255, 0.08);
+          background: rgba(17, 34, 64, 0.92);
           color: #ffffff;
           border-color: var(--c-teal);
         }
-
+ 
         .works-tab-btn.active {
           background: var(--c-gold);
-          color: #0F172A;
+          color: #ffffff;
           border-color: var(--c-gold);
-          box-shadow: 0 8px 20px rgba(234, 179, 8, 0.2);
+          box-shadow: 0 8px 20px rgba(200, 162, 118, 0.25);
         }
 
         /* Hierarchy visual flowchart styles */
@@ -756,13 +778,13 @@ export default function ComplianceHub() {
           position: 'relative',
           overflow: 'hidden',
           backgroundColor: 'var(--primary-bg)',
-          backgroundImage: `linear-gradient(rgba(var(--primary-bg-rgb), 0.88), rgba(var(--primary-bg-rgb), 0.94)), url("/images/quality_audit_1780850801169.png")`,
+          backgroundImage: `linear-gradient(rgba(11, 25, 44, 0.85), rgba(7, 17, 30, 0.92)), url("/images/quality_audit_1780850801169.png")`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          borderBottom: '1px solid rgba(255, 255, 255, 0.08)'
+          borderBottom: '1px solid rgba(200, 162, 118, 0.18)'
         }}
       >
-        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: `radial-gradient(circle at 80% 20%, rgba(var(--accent-rgb), 0.15) 0%, transparent 60%)`, zIndex: 1, pointerEvents: 'none' }}></div>
+        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: `radial-gradient(circle at 80% 20%, rgba(200, 162, 118, 0.15) 0%, transparent 60%)`, zIndex: 1, pointerEvents: 'none' }}></div>
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
           <div style={{ display: 'flex', justifyContent: 'center' }}>
             {/* Centered Content Box */}
@@ -770,14 +792,10 @@ export default function ComplianceHub() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              className="glass-card"
               style={{
-                background: 'rgba(var(--secondary-bg-rgb), 0.85)',
-                backdropFilter: 'blur(16px)',
-                WebkitBackdropFilter: 'blur(16px)',
                 padding: '48px',
                 borderRadius: '24px',
-                border: '1px solid rgba(var(--primary-rgb), 0.08)',
-                boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)',
                 width: '100%',
                 maxWidth: '740px',
                 textAlign: 'center'
@@ -796,7 +814,7 @@ export default function ComplianceHub() {
                 Create. Maintain. Monitor.
               </h3>
               
-              <p style={{ fontSize: '16.5px', color: 'rgba(var(--primary-rgb), 0.88)', marginBottom: '36px', lineHeight: '1.6' }}>
+              <p style={{ fontSize: '16.5px', color: 'rgba(255, 255, 255, 0.88)', marginBottom: '36px', lineHeight: '1.6' }}>
                 Empowering organizations to achieve continuous compliance, audit readiness and operational excellence through structured processes, monitoring and accountability.
               </p>
               
@@ -804,9 +822,9 @@ export default function ComplianceHub() {
                 <motion.button 
                   onClick={() => scrollToSection('how-it-works')}
                   className="btn btn-cta"
-                  whileHover={{ scale: 1.03, boxShadow: '0px 6px 15px rgba(245, 158, 11, 0.35)' }}
+                  whileHover={{ scale: 1.03, boxShadow: '0px 6px 15px rgba(200, 162, 118, 0.35)' }}
                   whileTap={{ scale: 0.98 }}
-                  style={{ color: 'var(--c-navy)' }}
+                  style={{ color: '#0F172A' }}
                 >
                   Explore Vericea Compliance
                   <ArrowRight size={16} />
@@ -826,7 +844,7 @@ export default function ComplianceHub() {
       </section>
 
       {/* --- KEY COMPLIANCE CHALLENGES SECTION --- */}
-      <section className="section" style={{ backgroundColor: 'var(--c-navy)' }}>
+      <section className="section about-section-texture" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.10)' }}>
         <div className="container">
           <div className="section-title-wrapper" style={{ marginBottom: '56px' }}>
             <span className="section-subtitle" style={{ color: 'var(--c-teal)' }}>Key Compliance Challenges</span>
@@ -862,7 +880,7 @@ export default function ComplianceHub() {
       </section>
 
       {/* --- AUDIT COMMAND CENTER SECTION --- */}
-      <section className="section" style={{ backgroundColor: 'var(--c-slate-100)', overflow: 'hidden' }}>
+      <section className="section compliance-section-texture" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.10)', overflow: 'hidden' }}>
         <div className="container">
           <div className="section-title-wrapper" style={{ marginBottom: '60px' }}>
             <span className="section-subtitle">Audit Command Center</span>
@@ -959,7 +977,7 @@ export default function ComplianceHub() {
       </section>
 
       {/* --- MAJOR AUDIT TYPES SECTION --- */}
-      <section className="section section-alt" style={{ backgroundColor: 'var(--c-slate-50)' }}>
+      <section className="section services-section-texture" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.10)' }}>
         <div className="container">
           <div className="section-title-wrapper">
             <span className="section-subtitle" style={{ color: 'var(--c-teal)' }}>Major Audit Types</span>
@@ -1019,7 +1037,7 @@ export default function ComplianceHub() {
       </section>
 
       {/* --- HOW Vericea COMPLIANCE WORKS SECTION --- */}
-      <section id="how-it-works" className="section" style={{ backgroundColor: 'var(--c-navy)' }}>
+      <section id="how-it-works" className="section products-section-texture" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.10)' }}>
         <div className="container">
           <div className="section-title-wrapper" style={{ marginBottom: '56px' }}>
             <span className="section-subtitle" style={{ color: 'var(--c-teal)' }}>How Vericea Compliance Works</span>
@@ -1121,7 +1139,7 @@ export default function ComplianceHub() {
 
 
       {/* --- MANAGEMENT BENEFITS SECTION --- */}
-      <section className="section section-alt" style={{ backgroundColor: 'var(--c-slate-100)' }}>
+      <section className="section about-section-texture" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.10)' }}>
         <div className="container">
           <div className="section-title-wrapper">
             <span className="section-subtitle" style={{ color: 'var(--c-teal)' }}>Management Benefits</span>
@@ -1184,16 +1202,15 @@ export default function ComplianceHub() {
 
       {/* --- FINAL CTA SECTION --- */}
       <section 
-        className="section" 
+        className="section contact-section-texture" 
         style={{ 
           padding: '100px 0', 
-          backgroundColor: 'var(--c-navy)',
           color: '#ffffff',
           position: 'relative',
           overflow: 'hidden'
         }}
       >
-        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'radial-gradient(circle at 20% 80%, rgba(14, 116, 144, 0.2) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
+        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'radial-gradient(circle at 20% 80%, rgba(200, 162, 118, 0.15) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
         <div className="container" style={{ position: 'relative', zIndex: 2, textAlign: 'center', maxWidth: '720px' }}>
           <span className="section-subtitle" style={{ color: 'var(--c-gold)' }}>Take Control of Compliance</span>
           <h2 style={{ fontSize: '38px', color: '#ffffff', marginBottom: '20px', fontWeight: 800 }}>
@@ -1207,9 +1224,9 @@ export default function ComplianceHub() {
             <motion.button 
               onClick={() => navigate('/contact')} 
               className="btn btn-cta"
-              whileHover={{ scale: 1.03, boxShadow: '0px 6px 15px rgba(245, 158, 11, 0.35)' }}
+              whileHover={{ scale: 1.03, boxShadow: '0px 6px 15px rgba(200, 162, 118, 0.35)' }}
               whileTap={{ scale: 0.98 }}
-              style={{ color: 'var(--c-navy)' }}
+              style={{ color: '#0F172A' }}
             >
               Request Demo
             </motion.button>

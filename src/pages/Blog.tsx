@@ -1,4 +1,4 @@
-﻿import { useState } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Calendar,
@@ -195,7 +195,8 @@ export default function Blog() {
       initial="initial"
       animate="animate"
       variants={pageTransition}
-      style={{ backgroundColor: 'var(--primary-bg)' }}
+      className="blog-page-bg"
+      style={{ color: 'var(--text-main)' }}
     >
       {/* SECTION 1: HERO SECTION */}
       <section
@@ -203,11 +204,11 @@ export default function Blog() {
         style={{
           position: 'relative',
           padding: '180px 0 120px 0',
-          backgroundImage: `linear-gradient(rgba(10, 15, 28, 0.88), rgba(10, 15, 28, 0.94)), url("https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80")`,
+          backgroundImage: `linear-gradient(rgba(31, 58, 95, 0.85), rgba(15, 28, 50, 0.92)), url("https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80")`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           color: 'var(--text-main)',
-          borderBottom: 'none'
+          borderBottom: '1px solid rgba(200, 162, 118, 0.18)'
         }}
       >
         <div className="container" style={{ textAlign: 'center', position: 'relative', zIndex: 10 }}>
@@ -221,14 +222,14 @@ export default function Blog() {
               alignItems: 'center',
               gap: '8px',
               padding: '6px 16px',
-              backgroundColor: 'rgba(6, 182, 212, 0.15)',
+              backgroundColor: 'rgba(200, 162, 118, 0.12)',
               color: 'var(--supporting)',
               borderRadius: '30px',
               fontSize: '13px',
               fontWeight: 700,
               letterSpacing: '2px',
               marginBottom: '20px',
-              border: '1px solid rgba(6, 182, 212, 0.25)'
+              border: '1px solid rgba(200, 162, 118, 0.3)'
             }}
           >
             <Sparkles size={14} />
@@ -278,7 +279,7 @@ export default function Blog() {
       </section>
 
       {/* SECTION 2: FEATURED INSIGHTS */}
-      <section className="section" style={{ padding: '80px 0 100px 0' }}>
+      <section className="section about-section-texture" style={{ padding: '80px 0 100px 0', borderBottom: '1px solid rgba(200, 162, 118, 0.12)' }}>
         <div className="container">
           <div className="section-title-wrapper" style={{ marginBottom: '56px', textAlign: 'left', marginLeft: '0' }}>
             <span className="section-subtitle" style={{ color: 'var(--supporting)' }}>EDITOR'S PICKS</span>
@@ -294,17 +295,12 @@ export default function Blog() {
                 initial="initial"
                 whileInView="whileInView"
                 viewport={{ once: true }}
-                whileHover={{ y: -8, transition: { duration: 0.3 } }}
                 className="glass-card"
                 style={{
                   padding: '0',
                   overflow: 'hidden',
                   display: 'flex',
-                  flexDirection: 'column',
-                  backgroundColor: 'var(--secondary-bg)',
-                  borderRadius: '16px',
-                  border: '1px solid var(--border-color)',
-                  boxShadow: '0 10px 30px -10px rgba(0, 0, 0, 0.35)'
+                  flexDirection: 'column'
                 }}
               >
                 {/* Image header with category badge */}
@@ -370,7 +366,7 @@ export default function Blog() {
                       justifyContent: 'space-between',
                       fontSize: '12px',
                       color: 'var(--text-muted)',
-                      borderTop: '1px solid var(--border-color)',
+                      borderTop: '1px solid rgba(200, 162, 118, 0.18)',
                       paddingTop: '20px'
                     }}
                   >
@@ -400,7 +396,7 @@ export default function Blog() {
       </section>
 
       {/* SECTION 5: LATEST INSIGHTS */}
-      <section className="section section-alt" style={{ padding: '100px 0' }}>
+      <section className="section services-section-texture" style={{ padding: '100px 0', borderBottom: '1px solid rgba(200, 162, 118, 0.12)' }}>
         <div className="container">
           <div
             style={{
@@ -440,21 +436,13 @@ export default function Blog() {
                 <motion.article
                   key={insight.id}
                   layout
-                  initial={{ opacity: 0, scale: 0.92 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.92 }}
-                  transition={{ duration: 0.4 }}
-                  whileHover={{ y: -8, transition: { duration: 0.25 } }}
-                  className="product-card"
+                  className="glass-card"
                   style={{
-                    backgroundColor: 'var(--secondary-bg)',
-                    border: '1px solid var(--border-color)',
-                    borderRadius: '16px',
+                    padding: '0',
                     overflow: 'hidden',
                     display: 'flex',
                     flexDirection: 'column',
-                    height: '100%',
-                    boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3)'
+                    height: '100%'
                   }}
                 >
                   {/* Thumbnail */}
@@ -497,8 +485,8 @@ export default function Blog() {
                   <div
                     style={{
                       padding: '16px 24px',
-                      backgroundColor: 'rgba(31, 41, 55, 0.4)',
-                      borderTop: '1px solid var(--border-color)',
+                       backgroundColor: 'rgba(255, 255, 255, 0.03)',
+                      borderTop: '1px solid rgba(200, 162, 118, 0.18)',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'space-between',
@@ -533,7 +521,7 @@ export default function Blog() {
       </section>
 
       {/* SECTION 6: CUSTOMER SUCCESS PERSPECTIVE */}
-      <section className="section" style={{ padding: '100px 0' }}>
+      <section className="section compliance-section-texture" style={{ padding: '100px 0', borderBottom: '1px solid rgba(200, 162, 118, 0.12)' }}>
         <div className="container">
           <div className="section-title-wrapper" style={{ marginBottom: '56px' }}>
             <span className="section-subtitle">IMPACT METRICS</span>
@@ -551,11 +539,8 @@ export default function Blog() {
                 viewport={{ once: true }}
                 className="glass-card"
                 style={{
-                  backgroundColor: 'var(--secondary-bg)',
                   borderRadius: '16px',
                   padding: '40px',
-                  border: '1px solid var(--border-color)',
-                  boxShadow: '0 10px 30px rgba(0, 0, 0, 0.2)',
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'space-between',
@@ -574,7 +559,7 @@ export default function Blog() {
                       fontSize: '11px',
                       fontWeight: 700,
                       color: 'var(--supporting)',
-                      backgroundColor: 'rgba(6, 182, 212, 0.12)',
+                      backgroundColor: 'rgba(200, 162, 118, 0.12)',
                       padding: '4px 10px',
                       borderRadius: '4px',
                       textTransform: 'uppercase',
@@ -602,7 +587,7 @@ export default function Blog() {
 
                 <div
                   style={{
-                    borderTop: '1px solid var(--border-color)',
+                    borderTop: '1px solid rgba(200, 162, 118, 0.18)',
                     paddingTop: '20px',
                     display: 'flex',
                     flexDirection: 'column'
@@ -618,7 +603,7 @@ export default function Blog() {
       </section>
 
       {/* SECTION 7: NEWSLETTER SUBSCRIPTION */}
-      <section className="section section-alt" style={{ padding: '80px 0' }}>
+      <section className="section products-section-texture" style={{ padding: '80px 0', borderBottom: '1px solid rgba(200, 162, 118, 0.12)' }}>
         <div className="container" style={{ maxWidth: '800px' }}>
           <motion.div
             variants={fadeInUp}
@@ -628,11 +613,8 @@ export default function Blog() {
             className="glass-card"
             style={{
               padding: '60px 48px',
-              border: '1px solid var(--border-color)',
               borderRadius: '20px',
-              textAlign: 'center',
-              backgroundColor: 'var(--secondary-bg)',
-              boxShadow: '0 20px 40px -20px rgba(0, 0, 0, 0.5)'
+              textAlign: 'center'
             }}
           >
             <div
@@ -640,7 +622,7 @@ export default function Blog() {
                 width: '56px',
                 height: '56px',
                 borderRadius: '50%',
-                backgroundColor: 'rgba(6, 182, 212, 0.08)',
+                backgroundColor: 'rgba(200, 162, 118, 0.12)',
                 color: 'var(--supporting)',
                 display: 'flex',
                 alignItems: 'center',
@@ -691,8 +673,8 @@ export default function Blog() {
                     style={{
                       height: '50px',
                       borderRadius: '8px',
-                      border: '1.5px solid var(--border-color)',
-                      backgroundColor: 'var(--tertiary-bg)',
+                      border: '1px solid rgba(255, 255, 255, 0.12)',
+                      backgroundColor: 'rgba(255, 255, 255, 0.05)',
                       color: 'var(--text-main)',
                       padding: '0 18px',
                       fontSize: '15px'
@@ -723,7 +705,7 @@ export default function Blog() {
       </section>
 
       {/* SECTION 8: FUTURE INSIGHTS PLACEHOLDER */}
-      <section className="section" style={{ padding: '100px 0' }}>
+      <section className="section about-section-texture" style={{ padding: '100px 0', borderBottom: '1px solid rgba(200, 162, 118, 0.12)' }}>
         <div className="container">
           <div className="section-title-wrapper" style={{ marginBottom: '56px' }}>
             <span className="section-subtitle">FUTURE INTEGRATION</span>
@@ -735,12 +717,12 @@ export default function Blog() {
             {futureInsights.map((fi, idx) => (
               <div
                 key={idx}
+                className="glass-card"
                 style={{
-                  border: '2px dashed var(--border-color)',
+                  border: '2px dashed rgba(200, 162, 118, 0.3)',
                   borderRadius: '16px',
                   padding: '40px 32px',
                   textAlign: 'center',
-                  backgroundColor: 'var(--secondary-bg)',
                   display: 'flex',
                   flexDirection: 'column',
                   alignItems: 'center',
@@ -752,7 +734,7 @@ export default function Blog() {
                     width: '44px',
                     height: '44px',
                     borderRadius: '50%',
-                    backgroundColor: 'var(--tertiary-bg)',
+                    backgroundColor: 'rgba(255, 255, 255, 0.05)',
                     color: 'var(--supporting)',
                     display: 'flex',
                     alignItems: 'center',
@@ -785,7 +767,7 @@ export default function Blog() {
                     fontSize: '12px',
                     color: 'var(--text-muted)',
                     fontWeight: 500,
-                    backgroundColor: 'var(--tertiary-bg)',
+                    backgroundColor: 'rgba(255, 255, 255, 0.05)',
                     padding: '4px 12px',
                     borderRadius: '20px'
                   }}
@@ -799,11 +781,10 @@ export default function Blog() {
       </section>
 
       {/* SECTION 9: CALL TO ACTION */}
-      <section className="section" style={{ padding: '0', position: 'relative', overflow: 'hidden' }}>
+      <section className="section contact-section-texture" style={{ padding: '0', position: 'relative', overflow: 'hidden' }}>
             <div
           style={{
             padding: '100px 0',
-            background: 'linear-gradient(135deg, var(--primary-bg) 0%, var(--secondary-bg) 100%)',
             color: 'var(--text-main)',
             textAlign: 'center'
           }}

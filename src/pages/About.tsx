@@ -122,11 +122,11 @@ function DigitalEcosystem() {
                 <stop offset="100%" stopColor="var(--accent)" stopOpacity="0" />
               </radialGradient>
               <filter id="eco-glow">
-                <feGaussianBlur stdDeviation="3.5" result="b" />
+                <feGaussianBlur stdDeviation="4.5" result="b" />
                 <feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
               </filter>
               <filter id="eco-glow-strong">
-                <feGaussianBlur stdDeviation="7" result="b" />
+                <feGaussianBlur stdDeviation="9" result="b" />
                 <feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
               </filter>
               <marker id="eco-arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
@@ -137,9 +137,9 @@ function DigitalEcosystem() {
             {/* Orbit rings */}
             <circle cx={CX} cy={CY} r={R} fill="none" stroke="rgba(255,255,255,0.035)" strokeWidth="1" />
             <circle cx={CX} cy={CY} r={R * 0.55} fill="none" stroke="rgba(255,255,255,0.025)" strokeWidth="1" strokeDasharray="5 9" />
-            <circle cx={CX} cy={CY} r={R * 0.3} fill="none" stroke="rgba(245,158,11,0.08)" strokeWidth="1" />
+            <circle cx={CX} cy={CY} r={R * 0.4} fill="none" stroke="rgba(245,158,11,0.08)" strokeWidth="1" />
             {/* Center ambient glow */}
-            <circle cx={CX} cy={CY} r={100} fill="url(#eco-center-grad)" />
+            <circle cx={CX} cy={CY} r={130} fill="url(#eco-center-grad)" />
 
             {/* Connection lines */}
             {NODES.map((n, i) => {
@@ -192,24 +192,24 @@ function DigitalEcosystem() {
               const active = hoveredNode === n.id || pulse === i;
               const lines = n.label.split('\n');
               const ta = p.x < CX - 15 ? 'end' : p.x > CX + 15 ? 'start' : 'middle';
-              const lox = p.x < CX - 15 ? -24 : p.x > CX + 15 ? 24 : 0;
-              const loy = p.y < CY - 15 ? -24 : p.y > CY + 15 ? 24 : 0;
+              const lox = p.x < CX - 15 ? -35 : p.x > CX + 15 ? 35 : 0;
+              const loy = p.y < CY - 15 ? -35 : p.y > CY + 15 ? 35 : 0;
               return (
                 <g key={n.id} onMouseEnter={() => setHoveredNode(n.id)} onMouseLeave={() => setHoveredNode(null)} style={{ cursor: 'pointer' }}>
-                  {/* Halo */}
+                  {/* Halo with smooth pulsing animation */}
                   <motion.circle cx={p.x} cy={p.y}
-                    animate={{ r: active ? 38 : 24, opacity: active ? 0.55 : 0.12 }}
-                    transition={{ duration: 0.3 }}
+                    animate={active ? { r: [48, 54, 48], opacity: [0.55, 0.35, 0.55] } : { r: 32, opacity: 0.12 }}
+                    transition={active ? { duration: 2, repeat: Infinity, ease: "easeInOut" } : { duration: 0.3 }}
                     fill={`url(#eco-grad-${n.id})`}
                   />
-                  {/* Ring */}
+                  {/* Ring with active hover scale */}
                   <motion.circle cx={p.x} cy={p.y}
-                    animate={{ r: active ? 20 : 14, fill: active ? n.color : 'var(--primary-bg)', stroke: n.color, strokeWidth: active ? 2.5 : 1.5 }}
+                    animate={{ r: active ? 25 : 18.5, fill: active ? n.color : 'var(--primary-bg)', stroke: n.color, strokeWidth: active ? 2.5 : 1.5 }}
                     transition={{ duration: 0.28 }}
                     filter={active ? 'url(#eco-glow)' : undefined}
                   />
                   {/* Number */}
-                  <text x={p.x} y={p.y + 5} textAnchor="middle" fontSize="10" fontWeight="800"
+                  <text x={p.x} y={p.y + 4.5} textAnchor="middle" fontSize="12.5" fontWeight="900"
                     fill={active ? '#020810' : n.color} fontFamily="var(--font-headings)">
                     {String(i + 1).padStart(2, '0')}
                   </text>
@@ -218,10 +218,11 @@ function DigitalEcosystem() {
                     {lines.map((ln, li) => (
                       <text key={li}
                         x={p.x + lox}
-                        y={p.y + loy + li * 15 + (lines.length > 1 ? -7 : 0)}
-                        textAnchor={ta} fontSize="11.5" fontWeight="700"
-                        fill={active ? n.color : 'rgba(209,213,219,0.75)'}
+                        y={p.y + loy + li * 23 + (lines.length > 1 ? -12 : 0)}
+                        textAnchor={ta} fontSize="18" fontWeight="800"
+                        fill={active ? n.color : '#F5F5F5'}
                         fontFamily="var(--font-headings)"
+                        letterSpacing="0.4"
                         filter={active ? 'url(#eco-glow)' : undefined}
                       >{ln}</text>
                     ))}
@@ -233,29 +234,29 @@ function DigitalEcosystem() {
             {/* Center hub */}
             <g>
               {/* Outer spinner ring */}
-              <motion.circle cx={CX} cy={CY} r={76}
-                fill="none" stroke="#C8A276" strokeWidth="1" strokeDasharray="12 24"
+              <motion.circle cx={CX} cy={CY} r={106}
+                fill="none" stroke="#C8A276" strokeWidth="1.25" strokeDasharray="16 32"
                 animate={{ rotate: 360 }}
                 transition={{ duration: 16, ease: 'linear', repeat: Infinity }}
                 style={{ transformOrigin: `${CX}px ${CY}px` }}
               />
               {/* Counter spinner */}
-              <motion.circle cx={CX} cy={CY} r={68}
-                fill="none" stroke="rgba(200,162,118,0.25)" strokeWidth="0.75" strokeDasharray="6 14"
+              <motion.circle cx={CX} cy={CY} r={96}
+                fill="none" stroke="rgba(200,162,118,0.25)" strokeWidth="0.85" strokeDasharray="8 20"
                 animate={{ rotate: -360 }}
                 transition={{ duration: 22, ease: 'linear', repeat: Infinity }}
                 style={{ transformOrigin: `${CX}px ${CY}px` }}
               />
-              <circle cx={CX} cy={CY} r={60} fill="#06101F" stroke="rgba(200,162,118,0.4)" strokeWidth="1.5" />
+              <circle cx={CX} cy={CY} r={85} fill="#06101F" stroke="rgba(200,162,118,0.4)" strokeWidth="1.5" />
               {/* Pulse ring */}
-              <motion.circle cx={CX} cy={CY} r={60}
+              <motion.circle cx={CX} cy={CY} r={85}
                 fill="none" stroke="rgba(200,162,118,0.15)"
-                animate={{ r: [60, 72, 60], opacity: [0.15, 0.4, 0.15] }}
+                animate={{ r: [85, 98, 85], opacity: [0.15, 0.4, 0.15] }}
                 transition={{ duration: 3, repeat: Infinity }}
               />
-              <text x={CX} y={CY - 14} textAnchor="middle" fontSize="12" fontWeight="800" fill="#C8A276" fontFamily="var(--font-headings)" letterSpacing="1.5">CEA</text>
-              <text x={CX} y={CY + 2} textAnchor="middle" fontSize="9.5" fontWeight="600" fill="rgba(209,213,219,0.65)" fontFamily="var(--font-headings)">INFOTECH</text>
-              <text x={CX} y={CY + 17} textAnchor="middle" fontSize="7.5" fontWeight="500" fill="rgba(200,162,118,0.75)" fontFamily="var(--font-headings)" letterSpacing="0.8">DIGITAL ECOSYSTEM</text>
+              <text x={CX} y={CY - 15} textAnchor="middle" fontSize="34" fontWeight="800" fill="#C8A276" fontFamily="var(--font-headings)" letterSpacing="2">CEA</text>
+              <text x={CX} y={CY + 12} textAnchor="middle" fontSize="19" fontWeight="700" fill="#F5F5F5" fontFamily="var(--font-headings)" letterSpacing="1">INFOTECH</text>
+              <text x={CX} y={CY + 32} textAnchor="middle" fontSize="12.5" fontWeight="600" fill="rgba(200,162,118,0.85)" fontFamily="var(--font-headings)" letterSpacing="1.8">DIGITAL ECOSYSTEM</text>
             </g>
           </svg>
         </div>
@@ -264,7 +265,7 @@ function DigitalEcosystem() {
         <motion.div
           initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.35 }}
-          style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '9px', marginTop: '44px' }}
+          style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '12px', marginTop: '56px' }}
         >
           {NODES.map(n => (
             <motion.div key={n.id}
@@ -272,13 +273,13 @@ function DigitalEcosystem() {
               onHoverEnd={() => setHoveredNode(null)}
               animate={{ background: hoveredNode === n.id ? `${n.color}1A` : 'rgba(255,255,255,0.04)', borderColor: hoveredNode === n.id ? `${n.color}70` : 'rgba(255,255,255,0.08)' }}
               transition={{ duration: 0.2 }}
-              style={{ display: 'flex', alignItems: 'center', gap: '7px', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '20px', padding: '5px 14px', cursor: 'default' }}
+              style={{ display: 'flex', alignItems: 'center', gap: '10px', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '24px', padding: '8px 18px', cursor: 'default' }}
             >
               <motion.div
                 animate={{ boxShadow: hoveredNode === n.id ? `0 0 10px ${n.color}` : 'none' }}
-                style={{ width: '7px', height: '7px', borderRadius: '50%', background: n.color, flexShrink: 0 }}
+                style={{ width: '9px', height: '9px', borderRadius: '50%', background: n.color, flexShrink: 0 }}
               />
-              <span style={{ fontSize: '11.5px', fontWeight: '600', color: hoveredNode === n.id ? n.color : 'rgba(209,213,219,0.65)', fontFamily: 'var(--font-headings)', whiteSpace: 'nowrap', transition: 'color 0.2s' }}>
+              <span style={{ fontSize: '15.5px', fontWeight: '600', color: hoveredNode === n.id ? n.color : 'rgba(245,245,245,0.85)', fontFamily: 'var(--font-headings)', whiteSpace: 'nowrap', transition: 'color 0.2s' }}>
                 {n.label.replace('\n', ' ')}
               </span>
             </motion.div>

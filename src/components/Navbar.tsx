@@ -37,11 +37,12 @@ export default function Navbar() {
 
   const menuItems = [
     { name: 'Home', path: '/' },
-    { name: 'About Us', path: '/about' },
-    { name: 'Courier Optimization', path: '/services' },
     { name: 'Production Tracking', path: '/products' },
+    { name: 'Courier Optimization', path: '/services' },
     { name: 'Risk Management', path: '/blog' },
     { name: 'Compliance Hub', path: '/compliance' },
+    { name: 'Partners', path: '/partners' },
+    { name: 'About Us', path: '/about' },
     { name: 'Contact', path: '/contact' }
   ];
 

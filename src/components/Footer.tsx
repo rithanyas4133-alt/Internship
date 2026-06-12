@@ -17,20 +17,20 @@ export default function Footer() {
             {/* Column 1: Brand Info */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
               <div>
-                <Link to="/" onClick={handleScrollToTop} style={{ display: 'inline-flex', flexDirection: 'column' }}>
-                  {/* CEA Text Logo in footer */}
+                <Link to="/" onClick={handleScrollToTop} style={{ display: 'inline-flex', alignItems: 'center' }}>
+                  {/* Planet logo only (replace previous text-logo and tagline) */}
                   <img
-                    src="/images/logo-cea-text.png"
-                    alt="CEA Infotech Private Limited"
+                    src="/images/logo-planet.png"
+                    alt="Planet Logo"
                     style={{
-                      height: '38px',
+                      height: '40px',
                       width: 'auto',
                       objectFit: 'contain',
                       mixBlendMode: 'screen',
                       display: 'block',
-                      maxWidth: '200px',
                     }}
                   />
+                  <span style={{ color: '#FFFFFF', fontWeight: 600, fontSize: '14px', letterSpacing: '0.4px' }}>CEA Infotech</span>
                 </Link>
               </div>
               <p style={{ fontSize: '14px', lineHeight: '1.6', color: 'var(--text-muted)' }}>

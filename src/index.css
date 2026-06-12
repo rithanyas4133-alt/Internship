@@ -408,7 +408,7 @@ code, pre, kbd, samp {
 .logo-container {
   display: flex;
   align-items: center;
-  gap: 16px; /* spacing between logo and branding text (16-20px) */
+  gap: 10px; /* reduced spacing to bring text closer to logo */
   flex-shrink: 0;
   white-space: nowrap;
   margin-right: 20px;

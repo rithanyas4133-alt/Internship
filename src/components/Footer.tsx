@@ -123,20 +123,21 @@ export default function Footer() {
       {/* Bottom Bar */}
       <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)', padding: '24px 0', fontSize: '13px' }}>
         <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '16px' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <img
-              src="/images/logo.png"
-              alt="CEA Infotech"
-              style={{
-                height: '22px',
-                width: 'auto',
-                objectFit: 'contain',
-                mixBlendMode: 'screen',
-                opacity: 0.85,
-              }}
-            />
-            <span>&copy; {currentYear} CEA Infotech Private Limited. All rights reserved.</span>
-          </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+              <img
+                src="/images/logo.png"
+                alt="CEA Infotech"
+                style={{
+                  height: '22px',
+                  width: 'auto',
+                  objectFit: 'contain',
+                  mixBlendMode: 'screen',
+                  opacity: 0.95,
+                }}
+              />
+              <span style={{ color: '#FFFFFF', fontWeight: 600, marginRight: '8px' }}>CEA Infotech</span>
+              <small style={{ color: 'var(--text-muted)' }}>&copy; {currentYear} All rights reserved.</small>
+            </div>
           <div style={{ display: 'flex', gap: '24px' }}>
             <a href="#">Privacy Policy</a>
             <a href="#">Terms of Service</a>

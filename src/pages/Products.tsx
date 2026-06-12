@@ -1,4 +1,4 @@
-﻿import { useState, useRef, type ReactNode } from 'react';
+import { useState, useRef, type ReactNode } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Factory, 
@@ -340,7 +340,7 @@ export default function Products() {
           color: 'var(--text-main)',
           position: 'relative',
           overflow: 'hidden',
-          backgroundImage: 'linear-gradient(rgba(15, 28, 50, 0.55), rgba(31, 58, 95, 0.68)), url("/images/products_hero_bg.png")',
+          backgroundImage: 'linear-gradient(rgba(15, 28, 50, 0.55), rgba(31, 58, 95, 0.68)), url("/images/products_hero_bg_clear.png")',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           borderBottom: '1px solid rgba(184,155,94,0.18)'

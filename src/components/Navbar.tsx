@@ -49,25 +49,9 @@ export default function Navbar() {
     <header className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
       <div className="container">
         {/* Logo Section */}
-        <NavLink to="/" className="logo-container" onClick={closeMenu} style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none' }}>
-          <img
-            src="/images/logo-planet.png"
-            alt="CEA Infotech"
-            className="logo-img-planet"
-            style={{
-              height: '38px',
-              width: 'auto',
-              display: 'block',
-              objectFit: 'contain',
-              mixBlendMode: 'screen',
-              flexShrink: 0,
-              transition: 'height 0.3s ease'
-            }}
-          />
-          <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 1.1 }}>
-            <span style={{ display: 'block', fontSize: '17px', fontWeight: '800', color: '#F5F5F5', fontFamily: 'var(--font-headings)', letterSpacing: '0.2px' }}>CEA Infotech</span>
-            <span style={{ display: 'block', fontSize: '9px', color: 'var(--supporting)', fontWeight: '600', textTransform: 'uppercase', letterSpacing: '0.5px', marginTop: '2px' }}>Private Limited</span>
-          </div>
+        <NavLink to="/" className="logo-container" onClick={closeMenu}>
+          <img src="/images/logo.png" alt="Company Logo" className="logo-image logo-left" />
+          <img src="/images/CEA.png" alt="CEA" className="logo-image logo-right" />
         </NavLink>
 
         {/* Desktop Navigation Links */}
@@ -109,24 +93,11 @@ export default function Navbar() {
 
         {/* Mobile Navigation Drawer */}
         <ul className={`mobile-nav ${isOpen ? 'open' : ''}`}>
-          {/* Planet logo branding at top of mobile drawer */}
+          {/* Logo branding at top of mobile drawer */}
           <li style={{ marginBottom: '8px', paddingBottom: '20px', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
-            <NavLink to="/" onClick={closeMenu} style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none' }}>
-              <img
-                src="/images/logo-planet.png"
-                alt="CEA Infotech"
-                style={{
-                  height: '36px',
-                  width: 'auto',
-                  objectFit: 'contain',
-                  mixBlendMode: 'screen',
-                  flexShrink: 0,
-                }}
-              />
-              <div>
-                <span style={{ display: 'block', fontSize: '15px', fontWeight: '800', color: 'var(--text-main)', fontFamily: 'var(--font-headings)', lineHeight: 1 }}>CEA INFOTECH</span>
-                <span style={{ display: 'block', fontSize: '9px', color: 'var(--supporting)', fontWeight: '600', textTransform: 'uppercase', letterSpacing: '1px', marginTop: '2px' }}>Operational Excellence</span>
-              </div>
+            <NavLink to="/" onClick={closeMenu} style={{ display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none', justifyContent: 'center' }}>
+              <img src="/images/logo.png" alt="Company Logo" style={{ height: '60px', width: 'auto', objectFit: 'contain' }} />
+              <img src="/images/CEA.png" alt="CEA" style={{ height: '60px', width: 'auto', objectFit: 'contain' }} />
             </NavLink>
           </li>
           {menuItems.map((item) => (

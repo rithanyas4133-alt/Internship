@@ -276,7 +276,7 @@ a {
   top: 0;
   left: 0;
   right: 0;
-  height: 80px;
+  height: 160px;
   background-color: rgba(var(--primary-bg-rgb), 0.82);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
@@ -288,7 +288,7 @@ a {
 }
 
 .navbar.scrolled {
-  height: 70px;
+  height: 130px;
   background-color: rgba(var(--primary-bg-rgb), 0.96);
   border-bottom: 1px solid rgba(var(--accent-rgb), 0.22);
   box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.6);
@@ -302,10 +302,29 @@ a {
 
 .logo-container {
   display: flex;
-  flex-direction: column;
+  align-items: center;
   flex-shrink: 0;
   white-space: nowrap;
 }
+
+.logo-image {
+  height: 160px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+  transition: height var(--transition-normal);
+}
+
+.navbar.scrolled .logo-image {
+  height: 120px;
+}
+
+@media (max-width: 880px) {
+  .logo-image {
+    height: 120px;
+  }
+}
+
 
 .logo-main {
   font-family: var(--font-headings);
@@ -535,7 +554,7 @@ a:hover {
   .grid-3 { grid-template-columns: 1fr; }
   .grid-4 { grid-template-columns: 1fr 1fr; }
   .grid-2 { grid-template-columns: 1fr; }
-  .navbar { height: 72px; }
+  .navbar { height: 130px; }
 }
 
 /* Backdrop Overlay for mobile drawer */

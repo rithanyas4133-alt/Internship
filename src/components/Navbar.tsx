@@ -50,8 +50,7 @@ export default function Navbar() {
       <div className="container">
         {/* Logo Section */}
         <NavLink to="/" className="logo-container" onClick={closeMenu}>
-          <span className="logo-main">CEA INFOTECH</span>
-          <span className="logo-sub">Operational Excellence</span>
+          <img src="/images/logo2.png" alt="CEA Infotech" className="logo-image" />
         </NavLink>
 
         {/* Desktop Navigation Links */}

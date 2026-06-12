@@ -20,7 +20,7 @@ export default function Footer() {
                 <Link to="/" onClick={handleScrollToTop} style={{ display: 'inline-flex', alignItems: 'center' }}>
                   {/* Planet logo only (replace previous text-logo and tagline) */}
                   <img
-                    src="/images/logo-planet.png"
+                    src="/images/logo.png"
                     alt="Planet Logo"
                     style={{
                       height: '40px',
@@ -123,9 +123,9 @@ export default function Footer() {
       {/* Bottom Bar */}
       <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)', padding: '24px 0', fontSize: '13px' }}>
         <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '16px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
             <img
-              src="/images/logo-planet.png"
+              src="/images/logo.png"
               alt="CEA Infotech"
               style={{
                 height: '22px',

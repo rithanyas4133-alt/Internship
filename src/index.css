@@ -373,9 +373,9 @@ code, pre, kbd, samp {
   top: 16px;
   left: 50%;
   transform: translateX(-50%);
-  width: 95%;
-  max-width: 1600px;
-  height: 80px;
+  width: 96%;
+  max-width: 1700px;
+  height: 78px;
   background-color: rgba(11, 25, 44, 0.85);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
@@ -389,19 +389,20 @@ code, pre, kbd, samp {
 }
 
 .navbar.scrolled {
-  top: 8px;
-  height: 65px;
+  top: 10px;
+  height: 68px;
   background-color: rgba(11, 25, 44, 0.95);
   border: 1px solid rgba(200, 162, 118, 0.28);
   box-shadow: 0 12px 48px rgba(0, 0, 0, 0.45);
 }
 
 .navbar .container {
-  display: flex;
+  display: flex; 
   justify-content: space-between;
   align-items: center;
   width: 100%;
   max-width: 100%;
+  padding: 0 36px; /* increased horizontal padding for premium layout */
 }
 
 .logo-container {
@@ -410,6 +411,7 @@ code, pre, kbd, samp {
   gap: 16px;
   flex-shrink: 0;
   white-space: nowrap;
+  margin-right: 20px;
 }
 
 /* Logo images in navbar */
@@ -455,17 +457,19 @@ code, pre, kbd, samp {
 
 .nav-links {
   display: flex;
-  gap: 24px;
+  gap: 30px; /* more breathing room between items */
   list-style: none;
   align-items: center;
+  flex: 1; /* allow links to use available width */
+  justify-content: center; /* center the menu items between logo and CTA */
 }
 
 .nav-link {
-  font-size: 15px;
-  font-weight: 500;
+  font-size: 15px; /* within 15-16px requirement */
+  font-weight: 600; /* slightly bolder for premium feel */
   color: var(--text-muted);
   position: relative;
-  padding: 8px 0;
+  padding: 12px 0; /* increased vertical padding to match taller navbar */
   white-space: nowrap;
 }
 
@@ -491,7 +495,7 @@ code, pre, kbd, samp {
 .nav-actions {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 24px; /* extra space between menu and CTA */
 }
 
 /* Hamburger menu button */
@@ -713,6 +717,7 @@ a:hover {
   .grid-3 { grid-template-columns: 1fr; }
   .grid-4 { grid-template-columns: 1fr 1fr; }
   .grid-2 { grid-template-columns: 1fr; }
+<<<<<<< HEAD
   .navbar { height: 70px; }
   
   .logo-image {
@@ -726,6 +731,9 @@ a:hover {
   .logo-container {
     gap: 10px;
   }
+=======
+  .navbar { height: 76px; }
+>>>>>>> 353b7de (chore(nav): add Partners menu and refine navbar spacing/typography)
 }
 
 /* Backdrop Overlay for mobile drawer */
@@ -3158,4 +3166,21 @@ a.cta:hover { color: var(--cta-hover); transform: translateY(-2px); }
     radial-gradient(circle at 90% 90%, rgba(200, 162, 118, 0.03) 0%, transparent 50%);
   background-size: auto;
 }
+
+/* KPI Conveyor Belt animations */
+@keyframes conveyor-left-to-right {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes gold-tracker-flow {
+  0% { left: -150px; }
+  100% { left: 100%; }
+}
+
+@keyframes data-pulse-sweep {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
 

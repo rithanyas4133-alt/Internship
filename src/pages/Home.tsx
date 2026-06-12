@@ -25,6 +25,7 @@ import {
   Headset,
   Cpu
 } from 'lucide-react';
+import EnterpriseShowcaseCarousel from '../components/EnterpriseShowcaseCarousel';
 
 
 // CountUp Component for statistics numeric tick animation
@@ -968,8 +969,8 @@ export default function Home() {
 
 
 
-      {/* --- SERVICES OVERVIEW --- */}
-      <section className="section services-section-texture">
+      {/* --- SERVICES OVERVIEW (Enterprise Capability Showcase Carousel) --- */}
+      <section className="section services-section-texture" style={{ padding: '40px 0' }}>
         <div className="container">
           <div className="section-title-wrapper">
             <span className="section-subtitle">Our Capabilities</span>
@@ -977,50 +978,7 @@ export default function Home() {
             <p className="section-desc">Consulting, custom programming, and application delivery engineered for industrial scale.</p>
           </div>
 
-          <div className="grid-3" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '24px' }}>
-            {[
-              {
-                title: 'Project Management',
-                desc: 'Structured execution roadmaps tracking dependencies, risk metrics, and release timelines for system predictability.',
-                icon: <Briefcase />
-              },
-              {
-                title: 'Consulting Services',
-                desc: 'Deep process diagnostics to align ERP setups, logistics pipelines, and warehouse tracking with corporate targets.',
-                icon: <Lightbulb />
-              },
-              {
-                title: 'Web Application Development',
-                desc: 'High-performance cloud databases and executive dashboards built utilizing secure React & TypeScript.',
-                icon: <Monitor />
-              },
-              {
-                title: 'Mobile Application Development',
-                desc: 'Offline-capable floor logging systems enabling supervisors and field teams to report status live.',
-                icon: <Smartphone />
-              },
-              {
-                title: 'Product Development',
-                desc: 'Transforming industrial requirements into scalable custom SaaS products with modular structures.',
-                icon: <Layers />
-              }
-            ].map((service) => (
-
-              <motion.div
-                key={service.title}
-                variants={scrollReveal}
-                initial="initial"
-                whileInView="whileInView"
-                viewport={scrollReveal.viewport}
-                className="glass-card"
-                whileHover={{ y: -6 }}
-              >
-                <div className="card-icon">{service.icon}</div>
-                <h3 className="card-title" style={{ fontSize: '18px', fontWeight: '700' }}>{service.title}</h3>
-                <p className="card-text" style={{ fontSize: '14px', lineHeight: '1.6' }}>{service.desc}</p>
-              </motion.div>
-            ))}
-          </div>
+          <EnterpriseShowcaseCarousel />
         </div>
       </section>
 

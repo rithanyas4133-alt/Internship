@@ -22,6 +22,128 @@ import {
 export default function Services() {
   const navigate = useNavigate();
   const [expandedCard, setExpandedCard] = useState<number | null>(null);
+  const [isConveyorHovered, setIsConveyorHovered] = useState(false);
+  const [hoveredCardIndex, setHoveredCardIndex] = useState<number | null>(null);
+
+  const getOutcomeIcon = (title: string) => {
+    switch (title) {
+      case "Increased Productivity":
+        return (
+          <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="5" y="10" width="70" height="60" rx="10" fill="url(#navyGrad)" stroke="rgba(200, 162, 118, 0.25)" strokeWidth="1.5" />
+            <path d="M5 25 H75 M5 45 H75 M25 10 V70 M50 10 V70" stroke="rgba(200, 162, 118, 0.08)" strokeWidth="1" />
+            <path d="M12 55 L22 45 L32 55 V65 H12 V55 Z" fill="rgba(200, 162, 118, 0.15)" stroke="var(--accent)" strokeWidth="1.5" />
+            <path d="M22 45 L32 35 L42 45 V65 H22 V45 Z" fill="rgba(212, 175, 55, 0.2)" stroke="var(--supporting)" strokeWidth="1.5" />
+            <rect x="55" y="16" width="12" height="12" rx="3" fill="rgba(16, 185, 129, 0.15)" stroke="var(--success)" strokeWidth="1" />
+            <circle cx="61" cy="22" r="3" fill="var(--success)" />
+            <rect x="55" y="32" width="12" height="12" rx="3" fill="rgba(200, 162, 118, 0.1)" stroke="var(--accent)" strokeWidth="1" />
+            <path d="M58 38 H64" stroke="var(--accent)" strokeWidth="1.5" strokeLinecap="round" />
+            <path d="M15 58 L30 42 L48 48 L68 22" stroke="var(--accent)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+            <circle cx="68" cy="22" r="4" fill="var(--supporting)" filter="url(#goldGlow)" />
+            <circle cx="30" cy="42" r="2.5" fill="#ffffff" />
+          </svg>
+        );
+      case "Operational Efficiency":
+        return (
+          <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="10" y="10" width="60" height="60" rx="12" fill="url(#navyGrad)" stroke="rgba(200, 162, 118, 0.2)" strokeWidth="1.5" />
+            <circle cx="25" cy="25" r="7" fill="rgba(200, 162, 118, 0.15)" stroke="var(--accent)" strokeWidth="1.5" />
+            <circle cx="55" cy="25" r="7" fill="rgba(200, 162, 118, 0.15)" stroke="var(--accent)" strokeWidth="1.5" />
+            <circle cx="40" cy="55" r="7" fill="rgba(212, 175, 55, 0.2)" stroke="var(--supporting)" strokeWidth="1.5" />
+            <path d="M32 25 H48" stroke="rgba(255, 255, 255, 0.2)" strokeWidth="1.5" strokeDasharray="3 3" />
+            <path d="M28 31 L35 49" stroke="var(--accent)" strokeWidth="2" strokeLinecap="round" />
+            <path d="M52 31 L45 49" stroke="var(--supporting)" strokeWidth="2.5" strokeLinecap="round" />
+            <path d="M23 25 H27 M25 23 V27" stroke="var(--accent)" strokeWidth="1" />
+            <path d="M52 25 L55 28 L58 22" stroke="var(--accent)" strokeWidth="1" />
+            <path d="M40 55 L38 58 H42 L40 61" stroke="#ffffff" strokeWidth="1.5" strokeLinecap="round" />
+            <circle cx="40" cy="35" r="8" stroke="var(--accent)" strokeWidth="1.5" strokeDasharray="4 2" />
+          </svg>
+        );
+      case "Compliance Readiness":
+        return (
+          <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="40" cy="40" r="32" fill="rgba(17, 34, 64, 0.6)" stroke="rgba(200, 162, 118, 0.15)" strokeWidth="1.5" />
+            <circle cx="40" cy="40" r="24" stroke="rgba(200, 162, 118, 0.08)" strokeDasharray="4 4" />
+            <path d="M40 16 C48 16 58 20 58 28 C58 42 48 54 40 60 C32 54 22 42 22 28 C22 20 32 16 40 16 Z" fill="url(#navyGrad)" stroke="var(--accent)" strokeWidth="2.5" strokeLinejoin="round" />
+            <path d="M40 21 C45.5 21 53 24 53 30 C53 40 45.5 50 40 55 C34.5 50 27 40 27 30 C27 24 34.5 21 40 21 Z" fill="rgba(200, 162, 118, 0.08)" stroke="var(--supporting)" strokeWidth="1.5" />
+            <path d="M32 37 L37 42 L48 29" stroke="var(--supporting)" strokeWidth="4.5" strokeLinecap="round" strokeLinejoin="round" filter="url(#goldGlow)" />
+            <circle cx="40" cy="48" r="2" fill="#ffffff" />
+          </svg>
+        );
+      case "Improved Visibility":
+        return (
+          <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="8" y="12" width="64" height="56" rx="8" fill="url(#navyGrad)" stroke="rgba(200, 162, 118, 0.2)" strokeWidth="1.5" />
+            <path d="M8 26 H72 M8 48 H72" stroke="rgba(200, 162, 118, 0.08)" strokeWidth="1" />
+            <circle cx="28" cy="38" r="16" fill="rgba(200, 162, 118, 0.05)" stroke="var(--accent)" strokeWidth="1" />
+            <circle cx="28" cy="38" r="8" stroke="rgba(200, 162, 118, 0.2)" strokeWidth="1" />
+            <line x1="28" y1="38" x2="38" y2="28" stroke="var(--supporting)" strokeWidth="2" strokeLinecap="round" />
+            <circle cx="38" cy="28" r="2" fill="var(--supporting)" filter="url(#goldGlow)" />
+            <rect x="50" y="24" width="6" height="28" rx="2" fill="var(--accent)" />
+            <rect x="58" y="32" width="6" height="20" rx="2" fill="var(--supporting)" />
+            <rect x="66" y="18" width="6" height="34" rx="2" fill="rgba(255, 255, 255, 0.2)" />
+          </svg>
+        );
+      case "Reduced Manual Effort":
+        return (
+          <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="10" y="10" width="60" height="60" rx="12" fill="url(#navyGrad)" stroke="rgba(200, 162, 118, 0.2)" strokeWidth="1.5" />
+            <circle cx="34" cy="32" r="12" stroke="var(--accent)" strokeWidth="2" strokeDasharray="6 3" />
+            <circle cx="34" cy="32" r="5" fill="rgba(200, 162, 118, 0.2)" stroke="var(--accent)" strokeWidth="1" />
+            <circle cx="52" cy="46" r="8" stroke="var(--supporting)" strokeWidth="1.5" strokeDasharray="4 2" />
+            <circle cx="52" cy="46" r="3" fill="rgba(212, 175, 55, 0.2)" stroke="var(--supporting)" strokeWidth="1" />
+            <path d="M18 50 C18 42 24 38 30 38" stroke="rgba(255,255,255,0.2)" strokeWidth="1.5" strokeLinecap="round" />
+            <path d="M46 24 H56 V34" stroke="var(--supporting)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            <line x1="38" y1="20" x2="56" y2="24" stroke="var(--supporting)" strokeWidth="2" strokeLinecap="round" />
+          </svg>
+        );
+      case "Cost Optimization":
+        return (
+          <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="10" y="10" width="60" height="60" rx="12" fill="url(#navyGrad)" stroke="rgba(200, 162, 118, 0.2)" strokeWidth="1.5" />
+            <ellipse cx="28" cy="54" rx="10" ry="4" fill="rgba(200, 162, 118, 0.4)" stroke="var(--accent)" strokeWidth="1" />
+            <ellipse cx="28" cy="49" rx="10" ry="4" fill="rgba(200, 162, 118, 0.6)" stroke="var(--accent)" strokeWidth="1" />
+            <ellipse cx="28" cy="44" rx="10" ry="4" fill="var(--accent)" stroke="var(--supporting)" strokeWidth="1.2" />
+            <ellipse cx="50" cy="54" rx="10" ry="4" fill="rgba(212, 175, 55, 0.4)" stroke="var(--supporting)" strokeWidth="1" />
+            <ellipse cx="50" cy="49" rx="10" ry="4" fill="rgba(212, 175, 55, 0.6)" stroke="var(--supporting)" strokeWidth="1" />
+            <ellipse cx="50" cy="44" rx="10" ry="4" fill="rgba(212, 175, 55, 0.8)" stroke="var(--supporting)" strokeWidth="1" />
+            <ellipse cx="50" cy="39" rx="10" ry="4" fill="var(--supporting)" stroke="#ffffff" strokeWidth="1.2" />
+            <path d="M18 20 L35 34 L48 26 L62 40" stroke="var(--accent)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M54 40 H62 V32" stroke="var(--accent)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        );
+      case "Better Decision-Making":
+        return (
+          <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="8" y="10" width="64" height="60" rx="10" fill="url(#navyGrad)" stroke="rgba(200, 162, 118, 0.2)" strokeWidth="1.5" />
+            <path d="M8 30 H72 M38 10 V70" stroke="rgba(200, 162, 118, 0.08)" strokeWidth="1" />
+            <circle cx="38" cy="42" r="18" stroke="var(--accent)" strokeWidth="1.5" strokeDasharray="3 3" />
+            <circle cx="38" cy="42" r="10" stroke="var(--supporting)" strokeWidth="1.5" />
+            <circle cx="38" cy="42" r="3" fill="#ffffff" />
+            <line x1="18" y1="22" x2="38" y2="42" stroke="rgba(255,255,255,0.2)" strokeWidth="1.5" strokeLinecap="round" />
+            <line x1="58" y1="22" x2="38" y2="42" stroke="var(--accent)" strokeWidth="2" strokeLinecap="round" />
+            <line x1="58" y1="58" x2="38" y2="42" stroke="var(--supporting)" strokeWidth="2.5" strokeLinecap="round" />
+            <circle cx="18" cy="22" r="2.5" fill="rgba(255,255,255,0.4)" />
+            <circle cx="58" cy="22" r="3.5" fill="var(--accent)" />
+            <circle cx="58" cy="58" r="4.5" fill="var(--supporting)" filter="url(#goldGlow)" />
+          </svg>
+        );
+      case "Scalable Growth":
+        return (
+          <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="10" y="10" width="60" height="60" rx="12" fill="url(#navyGrad)" stroke="rgba(200, 162, 118, 0.2)" strokeWidth="1.5" />
+            <rect x="18" y="50" width="10" height="12" rx="2" fill="rgba(200, 162, 118, 0.2)" stroke="var(--accent)" strokeWidth="1.2" />
+            <rect x="34" y="38" width="10" height="24" rx="2" fill="rgba(200, 162, 118, 0.4)" stroke="var(--accent)" strokeWidth="1.2" />
+            <rect x="50" y="24" width="10" height="38" rx="2" fill="rgba(212, 175, 55, 0.3)" stroke="var(--supporting)" strokeWidth="1.2" />
+            <path d="M15 54 L32 32 L48 22 L62 14" stroke="var(--supporting)" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M52 14 H62 V24" stroke="var(--supporting)" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" filter="url(#goldGlow)" />
+            <circle cx="62" cy="14" r="3" fill="#ffffff" />
+          </svg>
+        );
+      default:
+        return null;
+    }
+  };
 
   const pageTransition = {
     initial: { opacity: 0 },
@@ -34,6 +156,30 @@ export default function Services() {
     whileInView: { opacity: 1, y: 0 },
     viewport: { once: true, margin: "-100px" },
     transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }
+  };
+
+  const conveyorContainerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.08,
+        delayChildren: 0.1
+      }
+    }
+  };
+
+  const conveyorCardVariants = {
+    hidden: { opacity: 0, y: 24, scale: 0.96 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: { 
+        duration: 0.7, 
+        ease: [0.16, 1, 0.3, 1] as [number, number, number, number]
+      }
+    }
   };
 
   const buttonHover = {
@@ -623,62 +769,185 @@ export default function Services() {
       </section>
 
       {/* ==================================================
-          SECTION: BUSINESS OUTCOMES
+          SECTION: BUSINESS OUTCOMES (KPI Conveyor Belt)
           ================================================== */}
-      <section className="section services-section-texture" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.12)', position: 'relative', overflow: 'hidden' }}>
+      <section className="section services-section-texture" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.12)', position: 'relative', overflow: 'hidden', padding: '60px 0 65px 0' }}>
+        {/* Shared SVG gradients and filters */}
+        <svg style={{ position: 'absolute', width: 0, height: 0, overflow: 'hidden' }} aria-hidden="true">
+          <defs>
+            <linearGradient id="navyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#0B192C" />
+              <stop offset="100%" stopColor="#1B2A4A" />
+            </linearGradient>
+            <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#C8A276" />
+              <stop offset="100%" stopColor="#D4AF37" />
+            </linearGradient>
+            <filter id="goldGlow" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="3" result="blur" />
+              <feComposite in="SourceGraphic" in2="blur" operator="over" />
+            </filter>
+            <filter id="blueGlow" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="4" result="blur" />
+              <feComposite in="SourceGraphic" in2="blur" operator="over" />
+            </filter>
+          </defs>
+        </svg>
+
         <div style={{ position: 'absolute', bottom: 0, right: '20%', width: '500px', height: '300px', background: 'radial-gradient(ellipse at center, rgba(200, 162, 118, 0.03) 0%, transparent 70%)', pointerEvents: 'none' }} />
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-          <div className="section-title-wrapper" style={{ marginBottom: '56px' }}>
+          <div className="section-title-wrapper" style={{ marginBottom: '32px' }}>
             <span className="section-subtitle" style={{ color: 'var(--supporting)' }}>Target Metrics</span>
             <h2 className="section-title" style={{ color: '#ffffff' }}>Value Delivered To Our Customers</h2>
             <p className="section-desc" style={{ color: '#94a3b8' }}>Concrete outcomes and performance updates organizations achieve with CEA systems.</p>
           </div>
+        </div>
 
-          <div style={{ 
-            display: 'grid', 
-            gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', 
-            gap: '20px' 
-          }}>
-            {outcomes.map((out, index) => (
-              <motion.div
-                key={index}
-                variants={scrollReveal}
-                initial="initial"
-                whileInView="whileInView"
-                viewport={scrollReveal.viewport}
-                className="glass-card"
-                style={{
-                  padding: '24px 20px',
-                  display: 'flex',
-                  gap: '16px',
-                  alignItems: 'flex-start',
-                  borderRadius: '8px'
-                }}
-              >
-                <div style={{
-                  width: '28px',
-                  height: '28px',
-                  borderRadius: '50%',
-                  backgroundColor: 'rgba(200, 162, 118, 0.12)',
-                  color: 'var(--supporting)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  flexShrink: 0
-                }}>
-                  <CheckCircle size={15} />
-                </div>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                  <h4 style={{ fontSize: '15px', fontWeight: '800', color: '#ffffff', margin: 0 }}>
-                    {out.title}
-                  </h4>
-                  <p style={{ fontSize: '12.5px', color: '#94a3b8', lineHeight: '1.4', margin: 0 }}>
-                    {out.desc}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+        {/* Conveyor Belt Wrapper */}
+        <div 
+          style={{ 
+            overflow: 'hidden', 
+            width: '100%', 
+            position: 'relative', 
+            padding: '16px 0'
+          }}
+          onMouseEnter={() => setIsConveyorHovered(true)}
+          onMouseLeave={() => {
+            setIsConveyorHovered(false);
+            setHoveredCardIndex(null);
+          }}
+        >
+          {/* Data Pulse travelling across all metrics */}
+          <div style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            background: 'linear-gradient(90deg, transparent, rgba(200, 162, 118, 0.02) 15%, rgba(200, 162, 118, 0.06) 20%, rgba(212, 175, 55, 0.12) 25%, rgba(200, 162, 118, 0.06) 30%, rgba(200, 162, 118, 0.02) 35%, transparent)',
+            pointerEvents: 'none',
+            mixBlendMode: 'plus-lighter',
+            animation: 'data-pulse-sweep 10s cubic-bezier(0.25, 1, 0.5, 1) infinite',
+            animationPlayState: isConveyorHovered ? 'paused' : 'running',
+            zIndex: 3
+          }} />
+
+          <motion.div 
+            variants={conveyorContainerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            style={{
+              display: 'flex',
+              gap: '24px',
+              width: 'max-content',
+              animation: 'conveyor-left-to-right 45s linear infinite',
+              animationPlayState: isConveyorHovered ? 'paused' : 'running',
+              paddingLeft: '24px'
+            }}
+          >
+            {/* Render outcomes duplicated twice for infinite loop */}
+            {[...outcomes, ...outcomes].map((out, index) => {
+              const isCardHovered = hoveredCardIndex === index;
+              return (
+                <motion.div
+                  key={index}
+                  variants={conveyorCardVariants}
+                  onMouseEnter={() => setHoveredCardIndex(index)}
+                  onMouseLeave={() => setHoveredCardIndex(null)}
+                  className="glass-card"
+                  style={{
+                    width: '420px',
+                    height: '112px',
+                    flexShrink: 0,
+                    padding: '16px 24px',
+                    display: 'flex',
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    gap: '20px',
+                    borderRadius: '12px',
+                    backgroundColor: isCardHovered ? 'rgba(17, 34, 64, 0.95)' : 'rgba(17, 34, 64, 0.75)',
+                    border: isCardHovered ? '1px solid var(--accent)' : '1px solid rgba(200, 162, 118, 0.15)',
+                    boxShadow: isCardHovered 
+                      ? '0 12px 32px rgba(200, 162, 118, 0.25), 0 8px 24px rgba(0, 0, 0, 0.5)' 
+                      : '0 8px 24px rgba(0, 0, 0, 0.35)',
+                    transform: isCardHovered ? 'scale(1.03) translateY(-4px)' : 'scale(1) translateY(0)',
+                    transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
+                    cursor: 'default',
+                    overflow: 'hidden',
+                    position: 'relative'
+                  }}
+                >
+                  {/* Subtle data pulse reflection on individual card if hovered */}
+                  <div style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    background: 'linear-gradient(115deg, transparent, rgba(200, 162, 118, 0.05) 40%, rgba(200, 162, 118, 0.15) 50%, rgba(200, 162, 118, 0.05) 60%, transparent)',
+                    opacity: isCardHovered ? 1 : 0,
+                    transition: 'opacity 0.3s ease',
+                    pointerEvents: 'none'
+                  }} />
+
+                  {/* Premium visual illustration */}
+                  <div style={{ 
+                    width: '80px',
+                    height: '80px',
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    justifyContent: 'center',
+                    flexShrink: 0,
+                    transition: 'transform 0.3s ease, filter 0.3s ease',
+                    transform: isCardHovered ? 'scale(1.08)' : 'scale(1)',
+                    filter: isCardHovered ? 'drop-shadow(0 0 8px rgba(212, 175, 55, 0.35))' : 'none'
+                  }}>
+                    {getOutcomeIcon(out.title)}
+                  </div>
+                  
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', textAlign: 'left' }}>
+                    <h4 style={{ fontSize: '16px', fontWeight: '700', color: '#ffffff', margin: 0, letterSpacing: '-0.1px' }}>
+                      {out.title}
+                    </h4>
+                    <p style={{ fontSize: '13px', color: '#94a3b8', lineHeight: '1.45', margin: 0 }}>
+                      {out.desc}
+                    </p>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </motion.div>
+        </div>
+
+        {/* Animated Gold Tracking Line */}
+        <div className="container" style={{ position: 'relative', marginTop: '16px', zIndex: 2 }}>
+          <motion.div 
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
+            style={{ 
+              position: 'relative', 
+              height: '2px', 
+              width: '100%', 
+              overflow: 'hidden', 
+              backgroundColor: 'rgba(200, 162, 118, 0.12)', 
+              borderRadius: '1px',
+              transformOrigin: 'left'
+            }}
+          >
+            <div style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              height: '100%',
+              width: '240px',
+              background: 'linear-gradient(90deg, transparent, var(--accent), var(--supporting), var(--accent), transparent)',
+              animation: 'gold-tracker-flow 3.5s linear infinite',
+              animationPlayState: isConveyorHovered ? 'paused' : 'running'
+            }} />
+          </motion.div>
         </div>
       </section>
 

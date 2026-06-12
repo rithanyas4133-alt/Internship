@@ -370,11 +370,11 @@ code, pre, kbd, samp {
 /* --- STICKY NAVBAR --- */
 .navbar {
   position: fixed;
-  top: 16px;
+  top: 14px;
   left: 50%;
   transform: translateX(-50%);
-  width: 96%;
-  max-width: 1700px;
+  width: 97%;
+  max-width: 1850px;
   height: 78px;
   background-color: rgba(11, 25, 44, 0.85);
   backdrop-filter: blur(8px);
@@ -402,21 +402,22 @@ code, pre, kbd, samp {
   align-items: center;
   width: 100%;
   max-width: 100%;
-  padding: 0 36px; /* increased horizontal padding for premium layout */
+  padding: 0 28px; /* slightly reduced padding for balanced layout */
 }
 
 .logo-container {
   display: flex;
   align-items: center;
-  gap: 10px; /* reduced spacing to bring text closer to logo */
+  gap: 8px; /* tighter gap to keep brand tight with logo */
   flex-shrink: 0;
   white-space: nowrap;
-  margin-right: 20px;
+  margin-right: 16px; /* slightly smaller margin to free space for nav */
+  max-width: 220px; /* reduce logo section width ~15-20% for tighter layout */
 }
 
 /* Logo images in navbar */
 .logo-image {
-  height: 60px;
+  height: 50px; /* slightly reduced for a more balanced header */
   width: auto;
   display: block;
   object-fit: contain;
@@ -432,7 +433,7 @@ code, pre, kbd, samp {
 }
 
 .navbar.scrolled .logo-image {
-  height: 48px;
+  height: 40px;
 }
 
 .logo-main {
@@ -449,8 +450,8 @@ code, pre, kbd, samp {
 .brand-text {
   color: #FFFFFF; /* pure white */
   font-weight: 600; /* SemiBold */
-  letter-spacing: 0.5px;
-  font-size: 20px; /* reduced desktop size */
+  letter-spacing: 0.25px; /* refined letter spacing */
+  font-size: 18px; /* slightly reduced to free horizontal space */
   line-height: 1;
   font-family: var(--font-headings);
   display: inline-block;
@@ -477,19 +478,21 @@ code, pre, kbd, samp {
 
 .nav-links {
   display: flex;
-  gap: 30px; /* more breathing room between items */
+  gap: 18px; /* optimized spacing between items for better balance */
   list-style: none;
   align-items: center;
   flex: 1; /* allow links to use available width */
   justify-content: center; /* center the menu items between logo and CTA */
+  max-width: 1200px; /* prevent overflow and keep consistent spacing */
 }
 
 .nav-link {
-  font-size: 15px; /* within 15-16px requirement */
+  font-size: 15.5px; /* refined to 15-16px range */
   font-weight: 600; /* slightly bolder for premium feel */
   color: var(--text-muted);
   position: relative;
-  padding: 12px 0; /* increased vertical padding to match taller navbar */
+  padding: 10px 0; /* balanced vertical padding */
+  letter-spacing: 0.25px; /* 0.2-0.3px recommended */
   white-space: nowrap;
 }
 
@@ -516,6 +519,12 @@ code, pre, kbd, samp {
   display: flex;
   align-items: center;
   gap: 24px; /* extra space between menu and CTA */
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px; /* tighter gap to prevent crowding */
 }
 
 /* Hamburger menu button */
@@ -1544,6 +1553,10 @@ a:hover {
   padding: 8px 20px;
   background-color: var(--alternate-bg);
   border: none;
+
+.btn-sm {
+  padding: 8px 18px; /* slightly reduced horizontal padding for CTA */
+  font-size: 14px;
   border-radius: 20px;
   font-family: var(--font-body);
   font-weight: 600;

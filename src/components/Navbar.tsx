@@ -96,9 +96,9 @@ export default function Navbar() {
         <ul className={`mobile-nav ${isOpen ? 'open' : ''}`}>
           {/* Logo branding at top of mobile drawer */}
           <li style={{ marginBottom: '8px', paddingBottom: '20px', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
-              <NavLink to="/" onClick={closeMenu} style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none', justifyContent: 'center' }}>
-                <img src="/images/logo.png" alt="Company Logo" style={{ height: '60px', width: 'auto', objectFit: 'contain' }} />
-                <span style={{ color: '#FFFFFF', fontWeight: 600, fontSize: '20px', letterSpacing: '0.5px' }}>CEA Infotech</span>
+              <NavLink to="/" onClick={closeMenu} style={{ display: 'flex', alignItems: 'center', gap: '8px', textDecoration: 'none', justifyContent: 'center' }}>
+                <img src="/images/logo.png" alt="Company Logo" style={{ height: '48px', width: 'auto', objectFit: 'contain' }} />
+                <span style={{ color: '#FFFFFF', fontWeight: 600, fontSize: '18px', letterSpacing: '0.25px' }}>CEA Infotech</span>
               </NavLink>
           </li>
           {menuItems.map((item) => (

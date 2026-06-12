@@ -408,7 +408,7 @@ code, pre, kbd, samp {
 .logo-container {
   display: flex;
   align-items: center;
-  gap: 18px; /* spacing between logo and branding text (16-20px) */
+  gap: 16px; /* spacing between logo and branding text (16-20px) */
   flex-shrink: 0;
   white-space: nowrap;
   margin-right: 20px;
@@ -450,7 +450,7 @@ code, pre, kbd, samp {
   color: #FFFFFF; /* pure white */
   font-weight: 600; /* SemiBold */
   letter-spacing: 0.5px;
-  font-size: 28px; /* desktop default */
+  font-size: 20px; /* reduced desktop size */
   line-height: 1;
   font-family: var(--font-headings);
   display: inline-block;
@@ -458,11 +458,11 @@ code, pre, kbd, samp {
 }
 
 @media (max-width: 1024px) {
-  .brand-text { font-size: 24px; }
+  .brand-text { font-size: 18px; }
 }
 
 @media (max-width: 768px) {
-  .brand-text { font-size: 20px; }
+  .brand-text { font-size: 16px; }
 }
 
 .logo-sub {

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import ComplianceLifecycle from '../components/ComplianceLifecycle';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { 
@@ -32,7 +33,7 @@ export default function ComplianceHub() {
   const [activeTab, setActiveTab] = useState<number>(0);
 
   // State for "Audit Command Center" selected stage
-  const [activeCommandStage, setActiveCommandStage] = useState<number>(0);
+  // activeCommandStage state removed — managed by ComplianceLifecycle component
 
   // Scroll to section helper
   const scrollToSection = (id: string) => {
@@ -879,102 +880,8 @@ export default function ComplianceHub() {
         </div>
       </section>
 
-      {/* --- AUDIT COMMAND CENTER SECTION --- */}
-      <section className="section compliance-section-texture" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.10)', overflow: 'hidden' }}>
-        <div className="container">
-          <div className="section-title-wrapper" style={{ marginBottom: '60px' }}>
-            <span className="section-subtitle">Audit Command Center</span>
-            <h2 className="section-title">Explore the Compliance Lifecycle</h2>
-            <p className="section-desc">
-              Explore every stage of the compliance lifecycle through an interactive audit management dashboard.
-            </p>
-          </div>
-
-          {/* split-screen dashboard */}
-          <div className="command-center-container">
-            {/* LEFT SIDE (Navigation Panel) */}
-            <div className="stage-nav-list">
-              {commandCenterStages.map((stage, idx) => (
-                <motion.div
-                  key={idx}
-                  onClick={() => setActiveCommandStage(idx)}
-                  className={`stage-nav-card ${activeCommandStage === idx ? 'active' : ''}`}
-                  whileHover={{ scale: 1.01 }}
-                  whileTap={{ scale: 0.99 }}
-                >
-                  <span className="stage-nav-num">{stage.stageNumber}</span>
-                  <span className="stage-nav-title">{stage.title}</span>
-                  <div className="stage-nav-icon">
-                    {stage.icon}
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* RIGHT SIDE (Dynamic Content Panel) */}
-            <div className="stage-content-panel">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={activeCommandStage}
-                  initial={{ opacity: 0, y: 15 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -15 }}
-                  transition={{ duration: 0.3 }}
-                  className="stage-content-body"
-                >
-                  {/* Left Side of Panel */}
-                  <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                    <span className="stage-category-badge">
-                      {commandCenterStages[activeCommandStage].category}
-                    </span>
-                    <h3 style={{ fontSize: '28px', color: '#ffffff', fontWeight: 800, marginBottom: '16px', textAlign: 'left' }}>
-                      {commandCenterStages[activeCommandStage].title}
-                    </h3>
-                    <p style={{ color: 'var(--c-slate-700)', fontSize: '15px', lineHeight: '1.6', marginBottom: '24px', textAlign: 'left' }}>
-                      {commandCenterStages[activeCommandStage].desc}
-                    </p>
-
-                    {/* Key Activities */}
-                    <h5 style={{ fontSize: '12px', fontWeight: 700, color: 'var(--c-teal)', marginBottom: '12px', textTransform: 'uppercase', letterSpacing: '0.5px', textAlign: 'left' }}>
-                      Key Activities:
-                    </h5>
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '10px', marginBottom: '24px' }}>
-                      {commandCenterStages[activeCommandStage].activities.map((act, actIdx) => (
-                        <div key={actIdx} className="stage-activity-item">
-                          <CheckCircle2 size={15} className="stage-activity-icon" />
-                          <span>{act}</span>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* Expected Outcome */}
-                    <div style={{ background: 'var(--c-slate-50)', padding: '16px 20px', borderRadius: '12px', borderLeft: '4px solid var(--c-gold)', display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                      <h6 style={{ margin: 0, fontSize: '11px', fontWeight: 700, color: 'var(--c-gold)', textTransform: 'uppercase', letterSpacing: '0.5px', textAlign: 'left' }}>
-                        Expected Outcome:
-                      </h6>
-                      <p style={{ margin: 0, fontSize: '13.5px', color: '#ffffff', fontWeight: 500, lineHeight: '1.4', textAlign: 'left' }}>
-                        {commandCenterStages[activeCommandStage].outcome}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Right Side of Panel */}
-                  <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                    <div className="stage-image-wrapper">
-                      <img 
-                        src={commandCenterStages[activeCommandStage].image} 
-                        alt={commandCenterStages[activeCommandStage].title} 
-                        style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute', top: 0, left: 0 }}
-                      />
-                      <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'linear-gradient(to top, rgba(11, 31, 58, 0.3) 0%, transparent 100%)', pointerEvents: 'none' }}></div>
-                    </div>
-                  </div>
-                </motion.div>
-              </AnimatePresence>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* --- AUDIT COMMAND CENTER SECTION (Scroll-Driven) --- */}
+      <ComplianceLifecycle stages={commandCenterStages} />
 
       {/* --- MAJOR AUDIT TYPES SECTION --- */}
       <section className="section services-section-texture" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.10)' }}>

@@ -1,0 +1,146 @@
+/* Blog page — CEA Infotech teal accent system (scoped) */
+.blog-page {
+  --blog-accent-primary: #0099A8;
+  --blog-accent-secondary: #00B4C7;
+  --blog-accent-active: #008897;
+  --blog-accent-surface: rgba(0, 153, 168, 0.08);
+  --blog-accent-surface-strong: rgba(0, 153, 168, 0.15);
+  --blog-accent-border: rgba(0, 153, 168, 0.25);
+  --blog-accent-glow: rgba(0, 180, 199, 0.18);
+  --blog-focus-ring: rgba(0, 180, 199, 0.35);
+  --blog-bg-primary: #1F3A5F;
+  --blog-bg-secondary: #2B4A73;
+  --blog-bg-footer: #0E1F35;
+}
+
+.blog-page ::selection {
+  background-color: rgba(0, 153, 168, 0.25);
+  color: #0F172A;
+}
+
+.blog-page .section-subtitle {
+  color: var(--blog-accent-primary);
+}
+
+.blog-page .form-control:focus,
+.blog-page .form-control:focus-visible {
+  border-color: var(--blog-accent-primary) !important;
+  outline: none;
+  box-shadow: 0 0 0 3px var(--blog-focus-ring);
+}
+
+.blog-page .blog-read-link {
+  transition: color 0.2s ease;
+}
+
+.blog-page .blog-read-link:hover {
+  color: var(--blog-accent-secondary);
+}
+
+.blog-page .blog-read-more {
+  color: var(--blog-accent-primary);
+  transition: color 0.2s ease;
+}
+
+.blog-page .blog-read-more:hover {
+  color: var(--blog-accent-secondary);
+}
+
+.blog-page .blog-category-card:hover {
+  border-color: var(--blog-accent-border);
+}
+
+.blog-page .blog-category-card[data-active='true'] {
+  border-color: var(--blog-accent-primary) !important;
+  box-shadow: 0 12px 24px -10px var(--blog-accent-glow) !important;
+}
+
+.blog-page .blog-category-card[data-active='true'] .blog-category-icon {
+  color: var(--blog-accent-secondary);
+}
+
+.blog-page .blog-tab-btn.active,
+.blog-page .blog-tab-btn:hover {
+  background-color: var(--blog-accent-primary);
+  color: #FFFFFF;
+}
+
+.blog-page .blog-btn-cta,
+.blog-page .btn-cta {
+  background-color: var(--blog-accent-primary) !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 153, 168, 0.25);
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.blog-page .blog-btn-cta:hover,
+.blog-page .btn-cta:hover {
+  background-color: var(--blog-accent-secondary) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 20px -3px rgba(0, 180, 199, 0.4);
+}
+
+.blog-page .blog-btn-cta:focus-visible,
+.blog-page .btn-cta:focus-visible {
+  outline: 2px solid var(--blog-accent-secondary);
+  outline-offset: 2px;
+}
+
+.blog-page .blog-btn-outline {
+  color: var(--blog-accent-primary);
+  border-color: var(--blog-accent-primary);
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.blog-page .blog-btn-outline:hover {
+  background-color: var(--blog-accent-surface);
+  color: var(--blog-accent-active);
+  border-color: var(--blog-accent-active);
+}
+
+.blog-page .blog-btn-outline:focus-visible {
+  outline: 2px solid var(--blog-accent-primary);
+  outline-offset: 2px;
+}
+
+.blog-page .btn-dark-outline:hover {
+  border-color: var(--blog-accent-secondary);
+  background-color: rgba(0, 153, 168, 0.08);
+}
+
+.blog-page .btn-dark-outline:focus-visible {
+  outline: 2px solid var(--blog-accent-secondary);
+  outline-offset: 2px;
+}
+
+.blog-page .glass-card:hover {
+  border-color: var(--blog-accent-border);
+  box-shadow: 0 20px 40px -12px var(--blog-accent-glow);
+}
+
+.blog-page .product-card:hover {
+  border-color: var(--blog-accent-border);
+  box-shadow: 0 12px 30px -8px var(--blog-accent-glow);
+}
+
+.blog-page .blog-meta-icon {
+  color: var(--blog-accent-primary);
+}
+
+.blog-page .blog-category-badge {
+  background-color: var(--blog-accent-primary);
+  color: #FFFFFF;
+}
+
+.blog-page .blog-divider {
+  border-color: var(--blog-accent-border) !important;
+}
+
+.blog-page .blog-success {
+  color: var(--blog-accent-primary);
+}
+
+.blog-page .blog-future-icon:hover {
+  color: var(--blog-accent-primary);
+  background-color: var(--blog-accent-surface);
+}

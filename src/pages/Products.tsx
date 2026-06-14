@@ -340,7 +340,7 @@ export default function Products() {
           color: 'var(--text-main)',
           position: 'relative',
           overflow: 'hidden',
-          backgroundImage: 'linear-gradient(rgba(11, 25, 44, 0.55), rgba(11, 25, 44, 0.68)), url("/images/products_hero_bg_clear.png")',
+          backgroundImage: 'linear-gradient(rgba(11, 25, 44, 0.72), rgba(11, 25, 44, 0.85)), url("/images/smart_factory_hero_bg.png")',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           borderBottom: '1px solid rgba(200, 162, 118, 0.18)'

@@ -3207,4 +3207,100 @@ a.cta:hover { color: var(--cta-hover); transform: translateY(-2px); }
   100% { transform: translateX(100%); }
 }
 
+/* --- PARTNERS PAGE ENTERPRISE THEME OVERRIDES --- */
+.partners-page {
+  --primary-bg: #1F3A5F;
+  --primary-bg-rgb: 31, 58, 95;
+  --secondary-bg: #2B4A73;
+  --secondary-bg-rgb: 43, 74, 115;
+  --tertiary-bg: #365980;
+  --tertiary-bg-rgb: 54, 89, 128;
+  --accent: #D4A85A;
+  --accent-rgb: 212, 168, 90;
+  --supporting: #E6C27A;
+  --supporting-rgb: 230, 194, 122;
+  --cta: var(--accent);
+  --cta-hover: var(--supporting);
+  --border-color: rgba(212, 168, 90, 0.2);
+  --gold-divider: rgba(212, 168, 90, 0.15);
+  background-color: var(--primary-bg);
+  color: var(--text-main);
+  position: relative;
+}
+
+.partners-page-bg,
+.partners-section-texture {
+  background-color: #1F3A5F;
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(212, 168, 90, 0.05), transparent 70%),
+    linear-gradient(rgba(255, 255, 255, 0.007) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.007) 1px, transparent 1px);
+  background-size: auto, 60px 60px, 60px 60px;
+}
+
+/* Float Animations for Hero Enterprise Nodes */
+@keyframes node-float-1 {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(1deg); }
+}
+@keyframes node-float-2 {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(12px) rotate(-1.5deg); }
+}
+@keyframes node-float-3 {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(0.8deg); }
+}
+
+.partners-float-1 { animation: node-float-1 8s ease-in-out infinite; }
+.partners-float-2 { animation: node-float-2 9s ease-in-out infinite; }
+.partners-float-3 { animation: node-float-3 7s ease-in-out infinite; }
+
+/* Pulsing markers */
+@keyframes marker-pulse {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
+.marker-pulse-ring {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: marker-pulse 2s infinite ease-out;
+}
+
+/* Gold shimmer border effect for Showcase Cards */
+.gold-border-glow-hover {
+  position: relative;
+  transition: all var(--transition-normal);
+}
+.gold-border-glow-hover::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 1px solid transparent;
+  background: linear-gradient(135deg, var(--accent), transparent, var(--supporting)) border-box;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+  pointer-events: none;
+}
+.gold-border-glow-hover:hover::after {
+  opacity: 1;
+}
+
+/* Glass Reveal Overlay for Ecosystem Showcase cards */
+.glass-reveal-overlay {
+  background: rgba(31, 58, 95, 0.45);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+
 

@@ -14,7 +14,6 @@ import {
   Sparkles,
   ChevronDown,
   ChevronUp,
-  CheckCircle,
   Smartphone,
   AlertTriangle
 } from 'lucide-react';

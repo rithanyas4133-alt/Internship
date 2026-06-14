@@ -68,11 +68,9 @@ function CountUp({ end, duration = 1.5, suffix = '' }: CountUpProps) {
 }
 
 const heroBackgrounds = [
-  '/images/manufacturing_floor_1780850784796.png',
-  '/images/quality_audit_1780850801169.png',
-  '/images/logistics_terminal_1780850837146.png',
-  '/images/safety_inspection_1780850817856.png',
-  '/images/family_archives_1780850863160.png'
+  'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop'
 ];
 
 const solutions = [
@@ -190,7 +188,7 @@ const flagshipPlatforms = [
     category: "Risk Management",
     tagline: "Proactive Risk Assessment & Management Platform",
     capabilities: ["Risk Register", "Risk Scoring", "Supplier Risk Monitoring"],
-    image: "/images/flagship_factsafe.jpg",
+    image: "/images/factsafe_logo.png",
     dashboardImage: "/images/product_tab_factsafe_1780850981241.png",
     path: "/products/factsafe",
     accentColor: "#EF4444",
@@ -203,7 +201,7 @@ const flagshipPlatforms = [
     category: "Logistics Optimization",
     tagline: "Enterprise Logistics Cost Optimization Platform",
     capabilities: ["Courier Cost Analysis", "Vendor Comparison", "Shipment Intelligence"],
-    image: "/images/flagship_courier.jpg",
+    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070&auto=format&fit=crop",
     dashboardImage: "/images/product_tab_courier_1780851035678.png",
     path: "/products/courier-cost-management",
     accentColor: "#10B981",
@@ -216,7 +214,7 @@ const flagshipPlatforms = [
     category: "Data Intelligence",
     tagline: "Relationship Mapping & Structured Data Intelligence",
     capabilities: ["Relationship Visualization", "Hierarchical Mapping", "Data Intelligence"],
-    image: "/images/flagship_familytree.jpg",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
     dashboardImage: "/images/product_tab_family_tree_1780851053149.png",
     path: "/products/family-tree-platform",
     accentColor: "#A78BFA",

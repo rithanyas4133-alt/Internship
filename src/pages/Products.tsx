@@ -90,7 +90,7 @@ export default function Products() {
   };
 
   // scrollReveal removed (unused)
-  const railRef = useRef<HTMLDivElement | null>(null);
+  const railRef = useRef<HTMLDivElement>(null);
 
   const productsData: Product[] = [
     {
@@ -318,7 +318,7 @@ export default function Products() {
         return `rgba(${rr}, ${gg}, ${bb}, ${alpha})`;
       }
       return accent;
-    } catch (e) {
+    } catch {
       return `rgba(var(--primary-rgb), 0.02)`;
     }
   };
@@ -815,7 +815,7 @@ export default function Products() {
           <div className="capability-section">
             <div className="capability-inner">
               <div className="capability-rail-wrap">
-              <motion.div ref={railRef as any} className="capability-rail"
+              <motion.div ref={railRef} className="capability-rail"
                 drag="x"
                 dragElastic={0.08}
                 dragConstraints={{ left: -9999, right: 9999 }}

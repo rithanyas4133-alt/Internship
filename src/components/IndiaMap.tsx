@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { MapPin, ArrowRight } from 'lucide-react';
 import { indiaStatesData } from './IndiaMapData';
 
-export interface CityInfo {
+interface CityInfo {
   name: string;
   state: string;
   stateId: string;
@@ -14,7 +14,7 @@ export interface CityInfo {
   opportunities: string;
 }
 
-export const priorityCities: CityInfo[] = [
+const priorityCities: CityInfo[] = [
   {
     name: 'Chennai',
     state: 'Tamil Nadu',

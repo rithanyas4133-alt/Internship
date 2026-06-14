@@ -18,7 +18,7 @@ export default function useInViewport<T extends HTMLElement>(): [React.RefObject
     );
     obs.observe(el);
     return () => obs.disconnect();
-  }, [ref.current]);
+  }, []);
 
   return [ref as React.RefObject<T>, inView];
 }

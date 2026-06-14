@@ -1046,17 +1046,17 @@ export default function Partners() {
                 flexShrink: 0
               }}
             >
-              {[
+              {([
                 { id: 'consultant', label: 'Growth Consultant', desc: 'Investment: ₹5–10L' },
                 { id: 'reseller', label: 'Tech Reseller', desc: 'Investment: ₹10–20L' },
                 { id: 'distributor', label: 'Regional Distributor', desc: 'Investment: ₹20–50L' }
-              ].map((tab) => {
+              ] as const).map((tab) => {
                 const isSelected = dashboardModel === tab.id;
                 return (
                   <button
                     key={tab.id}
                     onClick={() => {
-                      setDashboardModel(tab.id as any);
+                      setDashboardModel(tab.id);
                       // Sync main active model tab
                       if (tab.id === 'consultant') setActiveModel(0);
                       else if (tab.id === 'reseller') setActiveModel(1);

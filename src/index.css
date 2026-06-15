@@ -363,8 +363,10 @@ code, pre, kbd, samp {
 }
 
 .btn-sm {
-  padding: 10px 20px;
+  padding: 10px 24px;
   font-size: 14px;
+  min-width: 140px;
+  white-space: nowrap;
 }
 
 /* --- STICKY NAVBAR --- */
@@ -402,17 +404,17 @@ code, pre, kbd, samp {
   align-items: center;
   width: 100%;
   max-width: 100%;
-  padding: 0 28px; /* slightly reduced padding for balanced layout */
+  padding: 0 40px; /* increased padding for better balance and spacing */
 }
 
 .logo-container {
   display: flex;
   align-items: center;
-  gap: 8px; /* tighter gap to keep brand tight with logo */
+  gap: 10px; /* increased gap for better spacing */
   flex-shrink: 0;
   white-space: nowrap;
-  margin-right: 16px; /* slightly smaller margin to free space for nav */
-  max-width: 220px; /* reduce logo section width ~15-20% for tighter layout */
+  margin-right: 24px; /* increased margin for better navigation spacing */
+  max-width: 240px; /* slightly increased for better balance */
 }
 
 /* Logo images in navbar */
@@ -422,14 +424,6 @@ code, pre, kbd, samp {
   display: block;
   object-fit: contain;
   transition: height var(--transition-normal);
-}
-
-.logo-left {
-  /* Logo.png on the left */
-}
-
-.logo-right {
-  /* CEA.png on the right */
 }
 
 .navbar.scrolled .logo-image {
@@ -478,7 +472,7 @@ code, pre, kbd, samp {
 
 .nav-links {
   display: flex;
-  gap: 18px; /* optimized spacing between items for better balance */
+  gap: 28px; /* increased spacing between menu items for better readability */
   list-style: none;
   align-items: center;
   flex: 1; /* allow links to use available width */
@@ -519,12 +513,7 @@ code, pre, kbd, samp {
   display: flex;
   align-items: center;
   gap: 24px; /* extra space between menu and CTA */
-}
-
-.nav-actions {
-  display: flex;
-  align-items: center;
-  gap: 16px; /* tighter gap to prevent crowding */
+  margin-left: 16px; /* additional spacing for better balance */
 }
 
 /* Hamburger menu button */
@@ -753,6 +742,18 @@ a:hover {
   .navbar.scrolled .logo-image { height: 42px; }
 
   .logo-container { gap: 10px; }
+  
+  .navbar .container { padding: 0 28px; }
+  
+  .nav-links { gap: 20px; }
+  
+  .nav-actions { margin-left: 12px; }
+}
+
+@media (max-width: 1024px) {
+  .navbar .container { padding: 0 32px; }
+  
+  .nav-links { gap: 24px; }
 }
 
 /* Backdrop Overlay for mobile drawer */

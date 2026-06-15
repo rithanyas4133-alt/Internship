@@ -14,7 +14,6 @@ import {
   Sparkles,
   ChevronDown,
   ChevronUp,
-  CheckCircle,
   Smartphone,
   AlertTriangle
 } from 'lucide-react';
@@ -329,7 +328,7 @@ export default function Services() {
       }
 
       return accent;
-    } catch (e) {
+    } catch {
       return `rgba(255,255,255,0.02)`;
     }
   };

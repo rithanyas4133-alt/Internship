@@ -334,13 +334,12 @@ export default function Products() {
           HERO SECTION
           ================================================== */}
       <section 
-        className="section section-dark"
+        className="section bg-dark-royal"
         style={{ 
           padding: '180px 0 140px 0', 
-          color: 'var(--text-main)',
           position: 'relative',
           overflow: 'hidden',
-          backgroundImage: 'linear-gradient(rgba(11, 25, 44, 0.72), rgba(11, 25, 44, 0.85)), url("/images/smart_factory_hero_bg.png")',
+          backgroundImage: 'linear-gradient(rgba(31, 58, 95, 0.72), rgba(31, 58, 95, 0.85)), url("/images/smart_factory_hero_bg.png")',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           borderBottom: '1px solid rgba(200, 162, 118, 0.18)'
@@ -412,7 +411,7 @@ export default function Products() {
       {/* ==================================================
           SECTION: OUR PRODUCT ECOSYSTEM (CAROUSEL SLIDER)
           ================================================== */}
-      <section id="ecosystem-section" className="section services-section-texture" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.10)' }}>
+      <section id="ecosystem-section" className="section bg-soft-blue services-section-texture" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.10)' }}>
         <div className="container">
           <div className="section-title-wrapper" style={{ marginBottom: '48px' }}>
             <span className="section-subtitle" style={{ color: 'var(--supporting)' }}>Core Platforms</span>
@@ -547,22 +546,22 @@ export default function Products() {
                       >
                         {activeProduct.tagline}
                       </span>
-                      <h2 style={{ fontSize: '32px', color: '#ffffff', fontWeight: '800', margin: 0 }}>
+                      <h2 style={{ fontSize: '32px', fontWeight: '800', margin: 0 }}>
                         {activeProduct.name}
                       </h2>
-                      <p style={{ color: '#94a3b8', fontSize: '15px', marginTop: '12px', lineHeight: '1.6' }}>
+                      <p style={{ fontSize: '15px', marginTop: '12px', lineHeight: '1.6' }}>
                         {activeProduct.description}
                       </p>
                     </div>
 
                     {/* Key Features */}
                     <div>
-                      <h4 style={{ fontSize: '13px', fontWeight: '800', textTransform: 'uppercase', color: '#ffffff', letterSpacing: '0.5px', marginBottom: '12px' }}>
+                      <h4 style={{ fontSize: '13px', fontWeight: '800', textTransform: 'uppercase', color: 'var(--accent)', letterSpacing: '0.5px', marginBottom: '12px' }}>
                         Key Features
                       </h4>
                       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '10px' }}>
                         {activeProduct.keyFeatures.map((feat, idx) => (
-                          <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13.5px', color: '#f8fafc' }}>
+                          <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13.5px' }}>
                             <div style={{ width: '18px', height: '18px', borderRadius: '50%', backgroundColor: 'rgba(200, 162, 118, 0.12)', color: 'var(--supporting)', display: 'flex', alignItems: 'center', justifyItems: 'center', flexShrink: 0 }}>
                               <Check size={11} style={{ margin: 'auto' }} />
                             </div>
@@ -578,7 +577,7 @@ export default function Products() {
                         <h4 style={{ fontSize: '11px', fontWeight: '800', textTransform: 'uppercase', color: 'var(--supporting)', letterSpacing: '0.5px', marginBottom: '6px' }}>
                           Business Value
                         </h4>
-                        <p style={{ fontSize: '13px', color: '#94a3b8', lineHeight: '1.4', margin: 0 }}>
+                        <p style={{ fontSize: '13px', lineHeight: '1.4', margin: 0 }}>
                           {activeProduct.businessValue}
                         </p>
                       </div>
@@ -688,7 +687,7 @@ export default function Products() {
       {/* ==================================================
           SECTION: BUSINESS CHALLENGES SOLVED BY OUR PRODUCTS
           ================================================== */}
-      <section className="section about-section-texture" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.10)' }}>
+      <section className="section bg-royal about-section-texture" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.10)' }}>
         <div className="container">
           <div className="section-title-wrapper" style={{ marginBottom: '56px' }}>
             <span className="section-subtitle" style={{ color: 'var(--supporting)' }}>Diagnostics & Resolution</span>
@@ -758,16 +757,16 @@ export default function Products() {
                     <span style={{ width: '5px', height: '5px', borderRadius: '50%', backgroundColor: '#f87171' }}></span>
                     Challenge
                   </span>
-                  <h3 style={{ fontSize: '17.5px', fontWeight: '800', color: '#ffffff', margin: '0 0 6px 0', fontFamily: 'var(--font-headings)' }}>
+                  <h3 style={{ fontSize: '17.5px', fontWeight: '800', margin: '0 0 6px 0', fontFamily: 'var(--font-headings)' }}>
                     {item.challenge}
                   </h3>
-                  <p style={{ fontSize: '13.5px', color: '#94a3b8', lineHeight: '1.6', margin: 0 }}>
+                  <p style={{ fontSize: '13.5px', lineHeight: '1.6', margin: 0 }}>
                     {item.desc}
                   </p>
                 </div>
 
                 {/* Bottom Row: Action Link */}
-                <div style={{ display: 'flex', justifyContent: 'flex-start', borderTop: '1px solid rgba(255, 255, 255, 0.06)', paddingTop: '16px', marginTop: '20px' }}>
+                <div style={{ display: 'flex', justifyContent: 'flex-start', borderTop: '1px solid var(--border-color)', paddingTop: '16px', marginTop: '20px' }}>
                   <button 
                     onClick={() => selectProductAndScroll(
                       item.solution === "Workflow Automation Solutions" ? "Vericea Manufacturing" : 
@@ -804,12 +803,12 @@ export default function Products() {
       {/* ==================================================
           SECTION: WHY OUR PRODUCTS STAND OUT
           ================================================== */}
-      <section className="section compliance-section-texture" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.10)' }}>
+      <section className="section bg-light-blue compliance-section-texture" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.10)' }}>
         <div className="container">
           <div className="section-title-wrapper" style={{ marginBottom: '56px' }}>
-            <span className="section-subtitle" style={{ color: 'var(--supporting)' }}>Architectural Quality</span>
-            <h2 className="section-title" style={{ color: '#ffffff' }}>Why Our Products Stand Out</h2>
-            <p className="section-desc" style={{ color: '#94a3b8' }}>We build enterprise software that integrates directly, ensures compliance, and scales easily.</p>
+            <span className="section-subtitle" style={{ color: 'var(--accent)' }}>Architectural Quality</span>
+            <h2 className="section-title" style={{ color: 'inherit' }}>Why Our Products Stand Out</h2>
+            <p className="section-desc" style={{ color: 'inherit' }}>We build enterprise software that integrates directly, ensures compliance, and scales easily.</p>
           </div>
 
           <div className="capability-section">
@@ -921,7 +920,7 @@ export default function Products() {
       {/* ==================================================
           SECTION: PRODUCT INQUIRY & FINAL CTA
           ================================================== */}
-      <section ref={inquiryRef} className="section contact-section-texture" id="inquiry-form" style={{ background: 'radial-gradient(circle at bottom, rgba(200, 162, 118, 0.05) 0%, transparent 40%)', borderBottom: '1px solid rgba(200, 162, 118, 0.10)' }}>
+      <section ref={inquiryRef} className="section bg-royal contact-section-texture" id="inquiry-form" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.10)' }}>
         <div className="container" style={{ maxWidth: '780px' }}>
           <div className="section-title-wrapper" style={{ marginBottom: '40px' }}>
             <span className="section-subtitle" style={{ color: 'var(--supporting)' }}>Request Information</span>
@@ -1099,7 +1098,7 @@ export default function Products() {
       {/* ==================================================
           FINAL CTA PANEL
           ================================================== */}
-      <section className="section contact-section-texture" style={{ position: 'relative', overflow: 'hidden' }}>
+      <section className="section bg-soft-blue contact-section-texture" style={{ position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', top: '-10%', right: '-10%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(200, 162, 118, 0.06) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
         <div style={{ position: 'absolute', bottom: '-10%', left: '-10%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(200, 162, 118, 0.06) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
 
@@ -1111,10 +1110,10 @@ export default function Products() {
             transition={{ duration: 0.6 }}
             style={{ maxWidth: '720px', margin: '0 auto' }}
           >
-            <h2 style={{ fontSize: '36px', marginBottom: '16px', letterSpacing: '-1.5px', color: '#ffffff', fontWeight: '800' }}>
+            <h2 style={{ fontSize: '36px', marginBottom: '16px', letterSpacing: '-1.5px', color: 'inherit', fontWeight: '800' }}>
               Looking For The Right Software Solution?
             </h2>
-            <p style={{ fontSize: '16px', color: '#cbd5e1', marginBottom: '36px', lineHeight: '1.6' }}>
+            <p style={{ fontSize: '16px', color: 'inherit', marginBottom: '36px', lineHeight: '1.6' }}>
               Explore how CEA Infotech's products can help your organization improve efficiency, visibility and operational excellence.
             </p>
             <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap' }}>
@@ -1133,7 +1132,6 @@ export default function Products() {
                 className="btn btn-dark-outline"
                 whileHover={{ scale: 1.03, backgroundColor: 'rgba(255, 255, 255, 0.05)' }}
                 whileTap={{ scale: 0.98 }}
-                style={{ border: '2px solid rgba(255, 255, 255, 0.25)', color: '#ffffff' }}
               >
                 Contact Our Team
               </motion.button>

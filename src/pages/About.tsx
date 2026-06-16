@@ -1,5 +1,5 @@
 import { motion, useInView, useMotionValue, useTransform, useSpring, AnimatePresence } from 'framer-motion';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import CountUp from '../components/CountUp';
 import {
   HeartHandshake, Target, Lightbulb, CheckCircle,
@@ -451,7 +451,6 @@ function ConnectionLine({ from, to, isHovered, color }: ConnectionLineProps) {
 
   useEffect(() => {
     if (!isHovered) {
-      setProgress(0);
       return;
     }
     let start: number | null = null;
@@ -467,7 +466,10 @@ function ConnectionLine({ from, to, isHovered, color }: ConnectionLineProps) {
     };
     animId = requestAnimationFrame(step);
 
-    return () => cancelAnimationFrame(animId);
+    return () => {
+      cancelAnimationFrame(animId);
+      setProgress(0);
+    };
   }, [isHovered]);
 
   if (!from || !to) return null;
@@ -524,7 +526,7 @@ interface GlassValueNodeProps {
   onHoverStart: () => void;
   onHoverEnd: () => void;
   nodeRef: React.RefObject<HTMLDivElement | null>;
-  parallaxStyle?: any;
+  parallaxStyle?: import('framer-motion').MotionStyle;
 }
 
 function GlassValueNode({
@@ -646,13 +648,11 @@ function GlassValueNode({
 function CoreValuesSection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const centerRef = useRef<HTMLDivElement>(null);
-  const nodeRefs = {
-    quality: useRef<HTMLDivElement>(null),
-    integrity: useRef<HTMLDivElement>(null),
-    innovation: useRef<HTMLDivElement>(null),
-    accountability: useRef<HTMLDivElement>(null),
-    reliability: useRef<HTMLDivElement>(null),
-  };
+  const qualityRef = useRef<HTMLDivElement>(null);
+  const integrityRef = useRef<HTMLDivElement>(null);
+  const innovationRef = useRef<HTMLDivElement>(null);
+  const accountabilityRef = useRef<HTMLDivElement>(null);
+  const reliabilityRef = useRef<HTMLDivElement>(null);
 
   const [coords, setCoords] = useState<{
     center: { x: number; y: number } | null;
@@ -680,6 +680,7 @@ function CoreValuesSection() {
   const nodeOffsetLeftY = useTransform(smoothY, [-1, 1], ['-3px', '3px']);
   const nodeOffsetRightX = useTransform(smoothX, [-1, 1], ['5px', '-5px']);
   const nodeOffsetRightY = useTransform(smoothY, [-1, 1], ['3px', '-3px']);
+  const nodeOffsetBottomY = useTransform(smoothY, [-1, 1], ['6px', '-6px']);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (isMobile) return;
@@ -693,7 +694,7 @@ function CoreValuesSection() {
     mouseY.set(0);
   };
 
-  const updateCoords = () => {
+  const updateCoords = useCallback(() => {
     if (!containerRef.current || !centerRef.current) return;
     const containerRect = containerRef.current.getBoundingClientRect();
     
@@ -708,6 +709,14 @@ function CoreValuesSection() {
     const centerCoords = getCenter(centerRef.current);
     const newNodes: Record<string, { x: number; y: number }> = {};
     
+    const nodeRefs = {
+      quality: qualityRef,
+      integrity: integrityRef,
+      innovation: innovationRef,
+      accountability: accountabilityRef,
+      reliability: reliabilityRef,
+    };
+
     Object.entries(nodeRefs).forEach(([key, ref]) => {
       if (ref.current) {
         newNodes[key] = getCenter(ref.current);
@@ -718,7 +727,7 @@ function CoreValuesSection() {
       center: centerCoords,
       nodes: newNodes,
     });
-  };
+  }, [containerRef, centerRef, qualityRef, integrityRef, innovationRef, accountabilityRef, reliabilityRef]);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -738,14 +747,14 @@ function CoreValuesSection() {
       };
     }
     return () => window.removeEventListener('resize', checkMobile);
-  }, []);
+  }, [updateCoords]);
 
   // Update coords on resize and when mobile status changes
   useEffect(() => {
     updateCoords();
     const t = setTimeout(updateCoords, 300);
     return () => clearTimeout(t);
-  }, [isMobile, hovered]);
+  }, [isMobile, hovered, updateCoords]);
 
   const activeValue = CORE_VALUES.find(v => v.id === hovered);
 
@@ -1017,7 +1026,7 @@ function CoreValuesSection() {
                   isDimmed={hovered !== null && hovered !== 'quality'}
                   onHoverStart={() => setHovered('quality')}
                   onHoverEnd={() => setHovered(null)}
-                  nodeRef={nodeRefs.quality}
+                  nodeRef={qualityRef}
                   parallaxStyle={{ x: nodeOffsetLeftX, y: nodeOffsetLeftY }}
                 />
               </motion.div>
@@ -1036,7 +1045,7 @@ function CoreValuesSection() {
                   isDimmed={hovered !== null && hovered !== 'innovation'}
                   onHoverStart={() => setHovered('innovation')}
                   onHoverEnd={() => setHovered(null)}
-                  nodeRef={nodeRefs.innovation}
+                  nodeRef={innovationRef}
                   parallaxStyle={{ x: nodeOffsetLeftX, y: nodeOffsetLeftY }}
                 />
               </motion.div>
@@ -1260,8 +1269,8 @@ function CoreValuesSection() {
                   isDimmed={hovered !== null && hovered !== 'reliability'}
                   onHoverStart={() => setHovered('reliability')}
                   onHoverEnd={() => setHovered(null)}
-                  nodeRef={nodeRefs.reliability}
-                  parallaxStyle={{ y: useTransform(smoothY, [-1, 1], ['6px', '-6px']) }}
+                  nodeRef={reliabilityRef}
+                  parallaxStyle={{ y: nodeOffsetBottomY }}
                 />
               </motion.div>
             </div>
@@ -1288,7 +1297,7 @@ function CoreValuesSection() {
                   isDimmed={hovered !== null && hovered !== 'integrity'}
                   onHoverStart={() => setHovered('integrity')}
                   onHoverEnd={() => setHovered(null)}
-                  nodeRef={nodeRefs.integrity}
+                  nodeRef={integrityRef}
                   parallaxStyle={{ x: nodeOffsetRightX, y: nodeOffsetRightY }}
                 />
               </motion.div>
@@ -1307,7 +1316,7 @@ function CoreValuesSection() {
                   isDimmed={hovered !== null && hovered !== 'accountability'}
                   onHoverStart={() => setHovered('accountability')}
                   onHoverEnd={() => setHovered(null)}
-                  nodeRef={nodeRefs.accountability}
+                  nodeRef={accountabilityRef}
                   parallaxStyle={{ x: nodeOffsetRightX, y: nodeOffsetRightY }}
                 />
               </motion.div>

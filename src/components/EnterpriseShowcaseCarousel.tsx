@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 
 interface Capability {
@@ -46,7 +46,6 @@ export default function EnterpriseShowcaseCarousel() {
   const [isHovered, setIsHovered] = useState(false);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const autoRef = useRef<number | null>(null);
-  const dragRef = useRef<{ startX: number | null }>({ startX: null });
 
   useEffect(() => {
     if (isHovered) {
@@ -57,11 +56,6 @@ export default function EnterpriseShowcaseCarousel() {
     return () => { if (autoRef.current) window.clearInterval(autoRef.current); };
   }, [isHovered, total]);
 
-  function handleDragEnd(offsetX: number) {
-    const threshold = 80;
-    if (offsetX > threshold) setIndex(i => (i - 1 + total) % total);
-    else if (offsetX < -threshold) setIndex(i => (i + 1) % total);
-  }
 
   return (
     <section

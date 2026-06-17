@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { 
-  ShieldCheck, 
-  FileCheck2, 
-  LockKeyhole, 
-  BarChart3, 
+import {
+  ShieldCheck,
+  FileCheck2,
+  LockKeyhole,
+  BarChart3,
   Sparkles,
   ArrowRight,
   CheckCircle2,
@@ -276,7 +276,8 @@ export default function ComplianceHub() {
       style={{ overflow: 'hidden', color: 'var(--text-main)' }}
     >
       {/* INJECT PREMIUM CUSTOM STYLES */}
-      <style dangerouslySetInnerHTML={{ __html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         /* Theme Overrides & Global Component Styles (mapped to design tokens) */
         :root {
           --c-navy: var(--tertiary-bg);
@@ -767,60 +768,18 @@ export default function ComplianceHub() {
           font-weight: 600;
           letter-spacing: 0.5px;
         }
-
-        /* Overrides for custom components in Light sections */
-        .bg-soft-blue .challenge-card,
-        .bg-light-blue .challenge-card {
-          background: rgba(255, 255, 255, 0.7);
-          border-color: rgba(15, 23, 42, 0.08);
-          box-shadow: 0 8px 32px rgba(15, 23, 42, 0.08);
-          color: #0F172A;
-        }
-        .bg-soft-blue .challenge-card h3,
-        .bg-light-blue .challenge-card h3 {
-          color: #0F172A;
-        }
-        .bg-soft-blue .challenge-card p,
-        .bg-light-blue .challenge-card p {
-          color: #334155;
-        }
-        .bg-soft-blue .challenge-card:hover,
-        .bg-light-blue .challenge-card:hover {
-          background: rgba(255, 255, 255, 0.9);
-          border-color: var(--c-teal);
-          box-shadow: 0 12px 40px rgba(15, 23, 42, 0.12);
-        }
-
-        .bg-light-blue .audit-type-card {
-          background: rgba(255, 255, 255, 0.7);
-          border-color: rgba(15, 23, 42, 0.08);
-          box-shadow: 0 8px 32px rgba(15, 23, 42, 0.08);
-          color: #0F172A;
-        }
-        .bg-light-blue .audit-type-card:hover {
-          background: rgba(255, 255, 255, 0.9);
-          border-color: var(--c-teal);
-          box-shadow: 0 12px 40px rgba(15, 23, 42, 0.12);
-        }
-        .bg-light-blue .audit-type-card h3 {
-          color: #0F172A !important;
-        }
-        .bg-light-blue .audit-type-card p {
-          color: #334155 !important;
-        }
-        .bg-light-blue .audit-type-card h5 {
-          color: #0F172A !important;
-        }
       `}} />
 
       {/* --- HERO SECTION --- */}
       <section 
-        className="section bg-dark-royal" 
+        className="section surface-royal" 
         style={{ 
           padding: '170px 0 110px 0', 
+
           color: 'var(--text-main)',
           position: 'relative',
           overflow: 'hidden',
+          backgroundColor: 'var(--primary-bg)',
           backgroundImage: `linear-gradient(rgba(11, 25, 44, 0.85), rgba(7, 17, 30, 0.92)), url("/images/quality_audit_1780850801169.png")`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
@@ -831,7 +790,7 @@ export default function ComplianceHub() {
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
           <div style={{ display: 'flex', justifyContent: 'center' }}>
             {/* Centered Content Box */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
@@ -844,25 +803,31 @@ export default function ComplianceHub() {
                 textAlign: 'center'
               }}
             >
+              <div style={{ display: 'flex', justifyContent: 'center', gap: '24px', alignItems: 'center', marginBottom: '24px' }}>
+                <img src="/images/Vericea.png" alt="Vericea Logo" style={{ height: '32px', width: 'auto', objectFit: 'contain' }} />
+                <div style={{ width: '1px', height: '24px', backgroundColor: 'rgba(255, 255, 255, 0.15)' }}></div>
+                <img src="/images/Fact_safe.png" alt="FactSafe Logo" style={{ height: '36px', width: 'auto', objectFit: 'contain' }} />
+              </div>
+
               <div className="compliance-hero-badge" style={{ margin: '0 auto 24px auto' }}>
                 <Sparkles size={14} style={{ color: 'var(--c-gold)' }} />
                 <span>Compliance Excellence Platform</span>
               </div>
-              
+
               <h1 className="premium-text-gradient" style={{ fontSize: '46px', lineHeight: '1.2', margin: '0 0 16px 0', letterSpacing: '-1.5px', fontWeight: 800 }}>
                 Compliance Excellence Through Structured Audit Management
               </h1>
-              
+
               <h3 style={{ fontSize: '20px', color: 'var(--accent)', fontWeight: 600, marginBottom: '24px', letterSpacing: '0.5px' }}>
                 Create. Maintain. Monitor.
               </h3>
-              
+
               <p style={{ fontSize: '16.5px', color: 'rgba(255, 255, 255, 0.88)', marginBottom: '36px', lineHeight: '1.6' }}>
                 Empowering organizations to achieve continuous compliance, audit readiness and operational excellence through structured processes, monitoring and accountability.
               </p>
-              
+
               <div className="btn-group" style={{ justifyContent: 'center' }}>
-                <motion.button 
+                <motion.button
                   onClick={() => scrollToSection('how-it-works')}
                   className="btn btn-cta"
                   whileHover={{ scale: 1.03, boxShadow: '0px 6px 15px rgba(200, 162, 118, 0.35)' }}
@@ -872,8 +837,8 @@ export default function ComplianceHub() {
                   Explore Vericea Compliance
                   <ArrowRight size={16} />
                 </motion.button>
-                <motion.button 
-                  onClick={() => navigate('/contact')} 
+                <motion.button
+                  onClick={() => navigate('/contact')}
                   className="btn btn-dark-outline"
                   whileHover={{ scale: 1.03, backgroundColor: 'rgba(255, 255, 255, 0.08)' }}
                   whileTap={{ scale: 0.98 }}
@@ -887,12 +852,14 @@ export default function ComplianceHub() {
       </section>
 
       {/* --- KEY COMPLIANCE CHALLENGES SECTION --- */}
-      <section className="section bg-soft-blue about-section-texture" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.10)' }}>
+
+      <section className="section surface-matte about-section-texture" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.10)' }}>
+
         <div className="container">
           <div className="section-title-wrapper" style={{ marginBottom: '56px' }}>
             <span className="section-subtitle" style={{ color: 'var(--c-teal)' }}>Key Compliance Challenges</span>
-            <h2 className="section-title">Common Challenges Organizations Face</h2>
-            <p className="section-desc">
+            <h2 className="section-title" style={{ color: '#ffffff' }}>Common Challenges Organizations Face</h2>
+            <p className="section-desc" style={{ color: 'var(--c-slate-700)' }}>
               Operational bottlenecks and fragmented systems often prevent companies from reaching total compliance efficiency.
             </p>
           </div>
@@ -909,10 +876,10 @@ export default function ComplianceHub() {
               >
                 <span className="challenge-num">{challenge.num}</span>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                  <h3 style={{ fontSize: '18px', fontWeight: 700, margin: 0 }}>
+                  <h3 style={{ fontSize: '18px', color: '#ffffff', fontWeight: 700, margin: 0 }}>
                     {challenge.title}
                   </h3>
-                  <p style={{ fontSize: '14px', lineHeight: '1.5', margin: 0 }}>
+                  <p style={{ color: 'var(--c-slate-700)', fontSize: '14px', lineHeight: '1.5', margin: 0 }}>
                     {challenge.desc}
                   </p>
                 </div>
@@ -923,7 +890,9 @@ export default function ComplianceHub() {
       </section>
 
       {/* --- AUDIT COMMAND CENTER SECTION --- */}
-      <section className="section bg-royal compliance-section-texture" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.10)', overflow: 'hidden' }}>
+
+      <section className="section surface-royal compliance-section-texture" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.10)', overflow: 'hidden' }}>
+
         <div className="container">
           <div className="section-title-wrapper" style={{ marginBottom: '60px' }}>
             <span className="section-subtitle">Audit Command Center</span>
@@ -1004,9 +973,9 @@ export default function ComplianceHub() {
                   {/* Right Side of Panel */}
                   <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                     <div className="stage-image-wrapper">
-                      <img 
-                        src={commandCenterStages[activeCommandStage].image} 
-                        alt={commandCenterStages[activeCommandStage].title} 
+                      <img
+                        src={commandCenterStages[activeCommandStage].image}
+                        alt={commandCenterStages[activeCommandStage].title}
                         style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute', top: 0, left: 0 }}
                       />
                       <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'linear-gradient(to top, rgba(11, 31, 58, 0.3) 0%, transparent 100%)', pointerEvents: 'none' }}></div>
@@ -1020,12 +989,14 @@ export default function ComplianceHub() {
       </section>
 
       {/* --- MAJOR AUDIT TYPES SECTION --- */}
-      <section className="section bg-light-blue services-section-texture" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.10)' }}>
+
+      <section className="section surface-matte services-section-texture" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.10)' }}>
+
         <div className="container">
           <div className="section-title-wrapper">
             <span className="section-subtitle" style={{ color: 'var(--c-teal)' }}>Major Audit Types</span>
-            <h2 className="section-title">Supporting Every Audit Requirement</h2>
-            <p className="section-desc">
+            <h2 className="section-title" style={{ color: '#ffffff' }}>Supporting Every Audit Requirement</h2>
+            <p className="section-desc" style={{ color: 'var(--c-slate-700)' }}>
               Comprehensive frameworks tailored to help your facilities prepare for any local or international assessment standard.
             </p>
           </div>
@@ -1042,14 +1013,14 @@ export default function ComplianceHub() {
                   whileHover={{ y: -4 }}
                 >
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
-                    <h3 style={{ fontSize: '18px', fontWeight: 700, margin: 0 }}>
+                    <h3 style={{ fontSize: '18px', color: '#ffffff', fontWeight: 700, margin: 0 }}>
                       {type.title}
                     </h3>
                     <div style={{ color: 'var(--c-teal)', display: 'flex', alignItems: 'center' }}>
                       {isExpanded ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
                     </div>
                   </div>
-                  <p style={{ fontSize: '14px', lineHeight: '1.6', margin: 0 }}>
+                  <p style={{ color: 'var(--c-slate-700)', fontSize: '14px', lineHeight: '1.6', margin: 0 }}>
                     {type.desc}
                   </p>
 
@@ -1064,9 +1035,9 @@ export default function ComplianceHub() {
                       >
                         <div style={{ display: 'flex', gap: '8px', marginBottom: '8px' }}>
                           <Info size={16} style={{ color: 'var(--c-gold)', flexShrink: 0, marginTop: '2px' }} />
-                          <h5 style={{ margin: 0, fontSize: '13px', fontWeight: 700 }}>Detailed Scope:</h5>
+                          <h5 style={{ margin: 0, fontSize: '13px', fontWeight: 700, color: '#ffffff' }}>Detailed Scope:</h5>
                         </div>
-                        <p style={{ fontSize: '13px', lineHeight: '1.6', margin: 0 }}>
+                        <p style={{ color: 'var(--c-slate-700)', fontSize: '13px', lineHeight: '1.6', margin: 0 }}>
                           {type.details}
                         </p>
                       </motion.div>
@@ -1080,12 +1051,14 @@ export default function ComplianceHub() {
       </section>
 
       {/* --- HOW Vericea COMPLIANCE WORKS SECTION --- */}
-      <section id="how-it-works" className="section bg-royal products-section-texture" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.10)' }}>
+
+      <section id="how-it-works" className="section surface-royal products-section-texture" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.10)' }}>
+
         <div className="container">
           <div className="section-title-wrapper" style={{ marginBottom: '56px' }}>
             <span className="section-subtitle" style={{ color: 'var(--c-teal)' }}>How Vericea Compliance Works</span>
-            <h2 className="section-title">A Smarter Way To Manage Compliance</h2>
-            <p className="section-desc" style={{ color: 'rgba(255, 255, 255, 0.8)' }}>
+            <h2 className="section-title" style={{ color: '#ffffff' }}>A Smarter Way To Manage Compliance</h2>
+            <p className="section-desc" style={{ color: 'var(--c-slate-700)' }}>
               Vericea provides an end-to-end digital dashboard to map, measure, and scale compliance management processes.
             </p>
           </div>
@@ -1142,11 +1115,11 @@ export default function ComplianceHub() {
                   }}>
                     {worksTabs[activeTab].badge}
                   </span>
-                  
+
                   <h3 style={{ fontSize: '28px', color: '#ffffff', fontWeight: 800, marginBottom: '8px' }}>
                     {worksTabs[activeTab].subtitle}
                   </h3>
-                  
+
                   <p style={{ color: 'var(--c-slate-700)', fontSize: '15px', lineHeight: '1.7', marginBottom: '28px' }}>
                     {worksTabs[activeTab].desc}
                   </p>
@@ -1166,9 +1139,9 @@ export default function ComplianceHub() {
 
                 {/* Right Image Block */}
                 <div style={{ position: 'relative', minHeight: '340px', background: '#0b1f3a' }}>
-                  <img 
-                    src={worksTabs[activeTab].image} 
-                    alt={worksTabs[activeTab].subtitle} 
+                  <img
+                    src={worksTabs[activeTab].image}
+                    alt={worksTabs[activeTab].subtitle}
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                   />
                   <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'linear-gradient(to right, rgba(11,31,58,0.3) 0%, transparent 100%)', pointerEvents: 'none' }}></div>
@@ -1182,12 +1155,14 @@ export default function ComplianceHub() {
 
 
       {/* --- MANAGEMENT BENEFITS SECTION --- */}
-      <section className="section bg-soft-blue about-section-texture" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.10)' }}>
+
+      <section className="section surface-matte about-section-texture" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.10)' }}>
+
         <div className="container">
           <div className="section-title-wrapper">
             <span className="section-subtitle" style={{ color: 'var(--c-teal)' }}>Management Benefits</span>
-            <h2 className="section-title">Benefits For Leadership & Compliance Teams</h2>
-            <p className="section-desc">
+            <h2 className="section-title" style={{ color: '#ffffff' }}>Benefits For Leadership & Compliance Teams</h2>
+            <p className="section-desc" style={{ color: 'var(--c-slate-700)' }}>
               Enable your executives to control risks, optimize resources, and standardize operational excellence.
             </p>
           </div>
@@ -1219,20 +1194,20 @@ export default function ComplianceHub() {
                 desc: 'Standardize safety protocols, machinery maintenance logs, and quality checksheets into unified templates.'
               }
             ].map((benefit, bidx) => (
-              <motion.div 
-                key={bidx} 
-                className="glass-card" 
-                style={{ display: 'flex', gap: '16px', padding: '28px' }}
+              <motion.div
+                key={bidx}
+                className="glass-card"
+                style={{ background: 'rgba(255, 255, 255, 0.03)', borderColor: 'rgba(255, 255, 255, 0.06)', display: 'flex', gap: '16px', padding: '28px' }}
                 whileHover={{ y: -5, borderColor: 'var(--c-teal)' }}
               >
                 <div style={{ color: 'var(--c-teal)', flexShrink: 0, marginTop: '4px' }}>
                   <CheckCircle2 size={20} />
                 </div>
                 <div>
-                  <h4 style={{ margin: '0 0 8px 0', fontSize: '17px', fontWeight: 700 }}>
+                  <h4 style={{ margin: '0 0 8px 0', fontSize: '17px', color: '#ffffff', fontWeight: 700 }}>
                     {benefit.title}
                   </h4>
-                  <p style={{ margin: 0, fontSize: '13.5px', lineHeight: '1.6' }}>
+                  <p style={{ margin: 0, color: 'var(--c-slate-700)', fontSize: '13.5px', lineHeight: '1.6' }}>
                     {benefit.desc}
                   </p>
                 </div>
@@ -1243,11 +1218,34 @@ export default function ComplianceHub() {
       </section>
 
 
+      {/* --- INTEGRATED RISK & SAFETY MODULE --- */}
+      <section className="section" style={{ background: 'rgba(17, 34, 64, 0.4)', borderBottom: '1px solid rgba(200, 162, 118, 0.10)' }}>
+        <div className="container">
+          <div className="glass-card" style={{ display: 'grid', gridTemplateColumns: '1fr 2.5fr', gap: '32px', alignItems: 'center', padding: '40px', background: 'rgba(17, 34, 64, 0.75)', borderColor: 'rgba(200, 162, 118, 0.18)' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '16px' }}>
+              <img src="/images/Fact_safe.png" alt="FactSafe Logo" style={{ height: '54px', width: 'auto', objectFit: 'contain' }} />
+              <span className="preview-pill" style={{ color: 'var(--c-teal)', background: 'rgba(6, 182, 212, 0.1)' }}>Integrated Risk Module</span>
+            </div>
+            <div>
+              <h3 style={{ fontSize: '24px', color: '#ffffff', fontWeight: 800, marginBottom: '12px', textAlign: 'left' }}>
+                Proactive Hazard Mitigation with FactSafe
+              </h3>
+              <p style={{ color: 'var(--c-slate-700)', fontSize: '14.5px', lineHeight: '1.6', margin: 0, textAlign: 'left' }}>
+                Vericea Compliance integrates seamlessly with FactSafe, our proactive risk assessment and monitoring platform. Identify operational hazards, trigger corrective action workflows, and monitor safety checklists live from a unified compliance hub.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
       {/* --- FINAL CTA SECTION --- */}
+
       <section 
-        className="section bg-dark-royal contact-section-texture" 
+        className="section surface-royal contact-section-texture" 
         style={{ 
           padding: '100px 0', 
+
           color: '#ffffff',
           position: 'relative',
           overflow: 'hidden'
@@ -1264,8 +1262,8 @@ export default function ComplianceHub() {
           </p>
 
           <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <motion.button 
-              onClick={() => navigate('/contact')} 
+            <motion.button
+              onClick={() => navigate('/contact')}
               className="btn btn-cta"
               whileHover={{ scale: 1.03, boxShadow: '0px 6px 15px rgba(200, 162, 118, 0.35)' }}
               whileTap={{ scale: 0.98 }}
@@ -1273,8 +1271,8 @@ export default function ComplianceHub() {
             >
               Request Demo
             </motion.button>
-            <motion.button 
-              onClick={() => navigate('/contact')} 
+            <motion.button
+              onClick={() => navigate('/contact')}
               className="btn btn-dark-outline"
               whileHover={{ scale: 1.03, backgroundColor: 'rgba(255,255,255,0.08)' }}
               whileTap={{ scale: 0.98 }}

@@ -226,39 +226,18 @@ const flagshipPlatforms = [
 const flagshipCardVariants = {
   initial: {
     y: 0,
-    borderColor: 'rgba(200, 164, 93, 0.25)',
-    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.08)',
-    backgroundColor: 'rgba(31, 58, 95, 0.45)',
-    backdropFilter: 'blur(16px)',
-    WebkitBackdropFilter: 'blur(16px)'
+    borderColor: 'rgba(200, 162, 118, 0.18)',
+    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.35)',
+    backdropFilter: 'blur(8px)',
+    WebkitBackdropFilter: 'blur(8px)'
   },
   hover: {
     y: -6,
-    borderColor: 'rgba(200, 164, 93, 0.6)',
-    backgroundColor: 'rgba(31, 58, 95, 0.6)',
-    boxShadow: '0 24px 60px rgba(200, 164, 93, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.15)',
-    backdropFilter: 'blur(16px)',
-    WebkitBackdropFilter: 'blur(16px)',
-    transition: { duration: 0.45, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }
-  }
-};
-
-const flagshipLightCardVariants = {
-  initial: {
-    y: 0,
-    borderColor: 'rgba(31, 58, 95, 0.15)',
-    backgroundColor: 'var(--soft-surface)',
-    backdropFilter: 'blur(16px)',
-    WebkitBackdropFilter: 'blur(16px)',
-    boxShadow: '0 8px 32px rgba(31, 58, 95, 0.08)'
-  },
-  hover: {
-    y: -6,
-    borderColor: 'rgba(200, 164, 93, 0.5)',
-    backgroundColor: 'rgba(255, 255, 255, 0.95)',
-    backdropFilter: 'blur(16px)',
-    WebkitBackdropFilter: 'blur(16px)',
-    boxShadow: '0 20px 50px rgba(31, 58, 95, 0.15)',
+    borderColor: 'rgba(200, 162, 118, 0.45)',
+    backgroundColor: 'rgba(17, 34, 64, 0.92)',
+    boxShadow: '0 12px 40px rgba(0, 0, 0, 0.45)',
+    backdropFilter: 'blur(12px)',
+    WebkitBackdropFilter: 'blur(12px)',
     transition: { duration: 0.45, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }
   }
 };
@@ -333,27 +312,24 @@ function FlagshipCard({ platform, onNavigate, variant = 'standard' }: {
   variant?: 'hero' | 'standard';
 }) {
   const isHero = variant === 'hero';
-  const isEvenCard = platform.index % 2 === 0;
-
-  const titleColor = isEvenCard ? '#0F172A' : '#FFFFFF';
-  const taglineColor = isEvenCard ? '#475569' : '#9CA3AF';
-  const capTextColor = isEvenCard ? '#1E293B' : '#D1D5DB';
-  const dividerColor = isEvenCard ? 'rgba(31, 58, 95, 0.1)' : 'rgba(255, 255, 255, 0.05)';
-
   return (
     <motion.div
-      variants={isEvenCard ? flagshipLightCardVariants : flagshipCardVariants}
+      variants={flagshipCardVariants}
       initial="initial"
       whileHover="hover"
       onClick={() => onNavigate(platform.path)}
-      style={{
+        style={{
         position: 'relative',
         borderRadius: '16px',
         overflow: 'hidden',
+        border: '1px solid rgba(200, 162, 118, 0.18)',
+        backgroundColor: 'rgba(17, 34, 64, 0.85)',
         cursor: 'pointer',
         height: isHero ? '720px' : '580px',
         display: 'flex',
         flexDirection: 'column',
+        backdropFilter: 'blur(8px)',
+        WebkitBackdropFilter: 'blur(8px)',
       }}
     >
       {/* Animated gold top glow bar */}
@@ -400,7 +376,7 @@ function FlagshipCard({ platform, onNavigate, variant = 'standard' }: {
         top: '18px',
         right: '18px',
         zIndex: 10,
-        background: isEvenCard ? 'rgba(255, 255, 255, 0.85)' : 'rgba(10,15,28,0.75)',
+        background: 'rgba(10,15,28,0.75)',
         border: `1px solid ${platform.accentColor}40`,
         borderRadius: '8px',
         padding: '6px 10px',
@@ -410,7 +386,7 @@ function FlagshipCard({ platform, onNavigate, variant = 'standard' }: {
         <div style={{ fontSize: '14px', fontWeight: '800', color: platform.accentColor, fontFamily: 'var(--font-headings)', lineHeight: 1 }}>
           {platform.stat.value}
         </div>
-        <div style={{ fontSize: '9px', fontWeight: '600', color: isEvenCard ? '#475569' : 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.5px', marginTop: '2px' }}>
+        <div style={{ fontSize: '9px', fontWeight: '600', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.5px', marginTop: '2px' }}>
           {platform.stat.label}
         </div>
       </div>
@@ -458,7 +434,7 @@ function FlagshipCard({ platform, onNavigate, variant = 'standard' }: {
         <h3 style={{
           fontSize: isHero ? '21px' : '17px',
           fontWeight: '800',
-          color: titleColor,
+          color: '#FFFFFF',
           margin: '0 0 6px 0',
           fontFamily: 'var(--font-headings)',
           lineHeight: 1.2,
@@ -468,7 +444,7 @@ function FlagshipCard({ platform, onNavigate, variant = 'standard' }: {
         </h3>
         <p style={{
           fontSize: '12.5px',
-          color: taglineColor,
+          color: '#9CA3AF',
           lineHeight: 1.45,
           margin: 0,
           flexGrow: 1
@@ -477,7 +453,7 @@ function FlagshipCard({ platform, onNavigate, variant = 'standard' }: {
         </p>
 
         {/* Divider */}
-        <div style={{ height: '1px', background: dividerColor, margin: '16px 0 0 0' }} />
+        <div style={{ height: '1px', background: 'rgba(255,255,255,0.05)', margin: '16px 0 0 0' }} />
 
         {/* Hover-revealed capabilities + button */}
         <motion.div
@@ -491,7 +467,7 @@ function FlagshipCard({ platform, onNavigate, variant = 'standard' }: {
                   width: '5px', height: '5px', borderRadius: '50%',
                   backgroundColor: platform.accentColor, flexShrink: 0
                 }} />
-                <span style={{ fontSize: '12.5px', color: capTextColor, fontWeight: '500' }}>{cap}</span>
+                <span style={{ fontSize: '12.5px', color: '#D1D5DB', fontWeight: '500' }}>{cap}</span>
               </div>
             ))}
           </div>
@@ -501,7 +477,7 @@ function FlagshipCard({ platform, onNavigate, variant = 'standard' }: {
               display: 'inline-flex',
               alignItems: 'center',
               gap: '6px',
-              background: 'linear-gradient(135deg, #C8A45D, #D9B56D)',
+              background: 'linear-gradient(135deg, #C8A276, #D4AF37)',
               color: '#FFFFFF',
               borderRadius: '8px',
               padding: '9px 18px',
@@ -913,7 +889,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section bg-soft-blue" style={{ padding: '60px 0', borderBottom: '1px solid var(--border-color)' }}>
+
+      <section className="section surface-matte" style={{ padding: '60px 0', borderBottom: '1px solid var(--border-color)' }}>
+
         <div className="container">
           <div className="grid-4" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '20px' }}>
             <motion.div 
@@ -991,7 +969,9 @@ export default function Home() {
 
 
       {/* --- SERVICES OVERVIEW (Enterprise Capability Showcase Carousel) --- */}
-      <section className="section bg-royal services-section-texture" style={{ padding: '40px 0' }}>
+
+      <section className="section surface-royal services-section-texture" style={{ padding: '40px 0' }}>
+
         <div className="container">
           <div className="section-title-wrapper">
             <span className="section-subtitle">Our Capabilities</span>
@@ -1007,8 +987,11 @@ export default function Home() {
           SECTION: FLAGSHIP PLATFORMS SHOWCASE (HOME PAGE)  â€” PREMIUM
           ================================================== */}
       <section
-        className="section bg-light-blue products-section-texture flagship-shimmer-border"
+
+        className="section surface-matte products-section-texture flagship-shimmer-border"
+
         style={{
+          color: '#E5E7EB',
           overflow: 'hidden',
           position: 'relative',
           padding: '120px 0 140px 0'
@@ -1072,7 +1055,7 @@ export default function Home() {
             <h2 style={{
               fontSize: 'clamp(32px, 4vw, 52px)',
               fontWeight: '900',
-              color: 'inherit',
+              color: '#FFFFFF',
               fontFamily: 'var(--font-headings)',
               margin: '0 0 20px 0',
               letterSpacing: '-1.5px',
@@ -1082,7 +1065,7 @@ export default function Home() {
             </h2>
             <p style={{
               fontSize: '17px',
-              color: 'inherit',
+              color: 'rgba(229,231,235,0.75)',
               lineHeight: 1.7,
               maxWidth: '700px',
               margin: '0 auto'
@@ -1152,7 +1135,7 @@ export default function Home() {
             viewport={{ once: true }}
             style={{ textAlign: 'center', marginTop: '60px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px' }}
           >
-            <p style={{ fontSize: '14px', color: 'inherit', opacity: 0.8, fontWeight: '500' }}>
+            <p style={{ fontSize: '14px', color: 'rgba(229,231,235,0.5)', fontWeight: '500' }}>
               Ready to explore a specific platform?
             </p>
             <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', justifyContent: 'center' }}>
@@ -1180,7 +1163,9 @@ export default function Home() {
       </section>
 
       {/* --- SOLUTIONS SUCCESSFULLY DELIVERED --- */}
-      <section className="section bg-royal services-section-texture" style={{ overflow: 'hidden', position: 'relative', padding: '72px 0 80px' }}>
+
+      <section className="section surface-royal services-section-texture" style={{ overflow: 'hidden', position: 'relative', padding: '72px 0 80px' }}>
+
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
           {/* Section header */}
           <div style={{ textAlign: 'center', marginBottom: '44px' }}>
@@ -1194,13 +1179,15 @@ export default function Home() {
       </section>
 
       {/* --- PRODUCTION TRACKING TOOL VIDEO PLACEHOLDER --- */}
-      <section className="section bg-soft-blue products-section-texture" style={{ position: 'relative', overflow: 'hidden' }}>
+
+      <section className="section surface-matte products-section-texture" style={{ position: 'relative', overflow: 'hidden' }}>
+
         <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'radial-gradient(circle at center, rgba(37, 99, 235, 0.08) 0%, transparent 80%)', zIndex: 1, pointerEvents: 'none' }}></div>
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
           <div className="section-title-wrapper">
             <span className="section-subtitle" style={{ color: 'var(--accent)' }}>Production Tracking Tool</span>
-            <h2 className="section-title">Watch Vericea in Action</h2>
-            <p className="section-desc">Watch how Vericea improves manufacturing efficiency, production visibility and operational performance.</p>
+            <h2 className="section-title" style={{ color: '#ffffff' }}>Watch Vericea in Action</h2>
+            <p className="section-desc" style={{ color: 'rgba(255,255,255,0.7)' }}>Watch how Vericea improves manufacturing efficiency, production visibility and operational performance.</p>
           </div>
 
           <motion.div 
@@ -1245,7 +1232,9 @@ export default function Home() {
 
 
       {/* --- WHY CHOOSE CEA INFOTECH --- */}
-      <section className="section bg-royal about-section-texture">
+
+      <section className="section surface-royal about-section-texture">
+
         <div className="container">
           <div className="section-title-wrapper">
             <span className="section-subtitle">Our Value Proposition</span>
@@ -1297,7 +1286,9 @@ export default function Home() {
       </section>
 
       {/* --- TRUSTED PARTNERS SECTION --- */}
-      <section className="section bg-soft-blue contact-section-texture" style={{ 
+
+      <section className="section surface-matte contact-section-texture" style={{ 
+
         padding: '100px 0 110px 0',
         position: 'relative',
         overflow: 'hidden'
@@ -1312,11 +1303,11 @@ export default function Home() {
             className="section-title-wrapper" 
             style={{ marginBottom: '56px' }}
           >
-            <span className="section-subtitle" style={{ color: 'var(--accent)' }}>Trusted Partners</span>
+            <span className="section-subtitle" style={{ color: 'var(--secondary)' }}>Trusted Partners</span>
             <h2 className="section-title" style={{ fontSize: '38px', fontWeight: '800' }}>
               Trusted Partners
             </h2>
-            <p className="section-desc" style={{ fontSize: '16px', lineHeight: '1.6', color: 'inherit' }}>
+            <p className="section-desc" style={{ fontSize: '16px', lineHeight: '1.6', color: 'var(--text-muted)' }}>
               Organizations across manufacturing, engineering, consulting, NGO and enterprise sectors trust CEA Infotech for technology solutions, compliance systems and digital transformation initiatives.
             </p>
           </motion.div>
@@ -1459,7 +1450,9 @@ export default function Home() {
       </section>
 
       {/* --- CALL TO ACTION --- */}
-      <section className="section bg-dark-royal contact-section-texture" style={{ position: 'relative', overflow: 'hidden' }}>
+
+      <section className="section surface-royal contact-section-texture" style={{ position: 'relative', overflow: 'hidden' }}>
+
         <div style={{ position: 'absolute', top: '-10%', right: '-10%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(200, 162, 118, 0.12) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
         <div style={{ position: 'absolute', bottom: '-10%', left: '-10%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(200, 162, 118, 0.08) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
 

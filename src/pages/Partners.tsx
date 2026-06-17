@@ -23,8 +23,8 @@ import {
   Lock,
   Info
 } from 'lucide-react';
+import CountUp from '../components/CountUp';
 import IndiaMap from '../components/IndiaMap';
-import WorldMap from '../components/WorldMap';
 
 // Custom CSS Variable scoped wrapper
 export default function Partners() {
@@ -32,6 +32,12 @@ export default function Partners() {
   
   // Section 3: Orbit Ecosystem benefits state
   const [activeBenefit, setActiveBenefit] = useState<number | null>(null);
+
+  // Section 5: Business Model state
+  const [activeModel, setActiveModel] = useState<number>(0);
+
+  // Section 6: Revenue opportunity state
+  const [dashboardModel, setDashboardModel] = useState<'consultant' | 'reseller' | 'distributor'>('consultant');
 
   // Section 9: Ideal profiles active selection state
   const [activeAudience, setActiveAudience] = useState<number>(0);
@@ -189,7 +195,7 @@ export default function Partners() {
           zIndex: 1,
           borderBottom: '1px solid var(--gold-divider)',
           overflow: 'hidden',
-          backgroundImage: 'linear-gradient(rgba(11, 25, 44, 0.9), rgba(11, 25, 44, 0.96)), url("/images/business_consultation_1780850767888.png")',
+          backgroundImage: 'linear-gradient(rgba(31, 58, 95, 0.78), rgba(14, 31, 53, 0.92)), url("/images/business_consultation_1780850767888.png")',
           backgroundSize: 'cover',
           backgroundPosition: 'center'
         }}
@@ -324,41 +330,33 @@ export default function Partners() {
 
               {/* Floating Node 1: Manufacturing */}
               <div className="partners-float-1" style={{ position: 'absolute', left: '15%', top: '15%', zIndex: 3 }}>
-                <div style={{ padding: '10px 16px', borderRadius: '12px', background: 'rgba(43,74,115,0.9)', border: '1px solid var(--accent)', boxShadow: 'var(--shadow-md)' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#D4A85A' }} />
-                    <span style={{ fontSize: '12px', fontWeight: '800', color: '#ffffff' }}>Manufacturing</span>
-                  </div>
+                <div style={{ padding: '10px 16px', borderRadius: '12px', background: 'rgba(43,74,115,0.9)', border: '1px solid var(--accent)', boxShadow: 'var(--shadow-md)', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <img src="/images/Vericea.png" alt="Vericea Logo" style={{ height: '14px', width: 'auto', objectFit: 'contain' }} />
+                  <span style={{ fontSize: '12px', fontWeight: '800', color: '#ffffff' }}>Manufacturing</span>
                 </div>
               </div>
 
               {/* Floating Node 2: Logistics */}
               <div className="partners-float-2" style={{ position: 'absolute', right: '10%', top: '25%', zIndex: 3 }}>
-                <div style={{ padding: '10px 16px', borderRadius: '12px', background: 'rgba(43,74,115,0.9)', border: '1px solid var(--accent)', boxShadow: 'var(--shadow-md)' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#D4A85A' }} />
-                    <span style={{ fontSize: '12px', fontWeight: '800', color: '#ffffff' }}>Logistics</span>
-                  </div>
+                <div style={{ padding: '10px 16px', borderRadius: '12px', background: 'rgba(43,74,115,0.9)', border: '1px solid var(--accent)', boxShadow: 'var(--shadow-md)', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <img src="/images/Courier Cost Optimizer.png" alt="Courier Cost Optimizer Logo" style={{ height: '20px', width: 'auto', objectFit: 'contain' }} />
+                  <span style={{ fontSize: '12px', fontWeight: '800', color: '#ffffff' }}>Logistics</span>
                 </div>
               </div>
 
               {/* Floating Node 3: Compliance */}
               <div className="partners-float-3" style={{ position: 'absolute', left: '8%', bottom: '25%', zIndex: 3 }}>
-                <div style={{ padding: '10px 16px', borderRadius: '12px', background: 'rgba(43,74,115,0.9)', border: '1px solid var(--accent)', boxShadow: 'var(--shadow-md)' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#D4A85A' }} />
-                    <span style={{ fontSize: '12px', fontWeight: '800', color: '#ffffff' }}>Compliance</span>
-                  </div>
+                <div style={{ padding: '10px 16px', borderRadius: '12px', background: 'rgba(43,74,115,0.9)', border: '1px solid var(--accent)', boxShadow: 'var(--shadow-md)', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <img src="/images/Vericea.png" alt="Vericea Logo" style={{ height: '14px', width: 'auto', objectFit: 'contain' }} />
+                  <span style={{ fontSize: '12px', fontWeight: '800', color: '#ffffff' }}>Compliance</span>
                 </div>
               </div>
 
               {/* Floating Node 4: Risk Management */}
               <div className="partners-float-1" style={{ position: 'absolute', right: '18%', bottom: '15%', zIndex: 3 }}>
-                <div style={{ padding: '10px 16px', borderRadius: '12px', background: 'rgba(43,74,115,0.9)', border: '1px solid var(--accent)', boxShadow: 'var(--shadow-md)' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#D4A85A' }} />
-                    <span style={{ fontSize: '12px', fontWeight: '800', color: '#ffffff' }}>Risk Management</span>
-                  </div>
+                <div style={{ padding: '10px 16px', borderRadius: '12px', background: 'rgba(43,74,115,0.9)', border: '1px solid var(--accent)', boxShadow: 'var(--shadow-md)', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <img src="/images/Fact_safe.png" alt="FactSafe Logo" style={{ height: '18px', width: 'auto', objectFit: 'contain' }} />
+                  <span style={{ fontSize: '12px', fontWeight: '800', color: '#ffffff' }}>Risk Management</span>
                 </div>
               </div>
 
@@ -366,6 +364,7 @@ export default function Partners() {
               <svg style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', pointerEvents: 'none' }}>
                 <path d="M 120 100 Q 230 180 230 230" fill="none" stroke="rgba(212,168,90,0.15)" strokeWidth="1.5" strokeDasharray="4 4" />
                 <path d="M 370 140 Q 280 200 230 230" fill="none" stroke="rgba(212,168,90,0.15)" strokeWidth="1.5" strokeDasharray="4 4" />
+                <path d="M 100 320 Q 200 280 230 230" fill="none" stroke="rgba(212,168,90,0.15)" strokeWidth="1.5" />
                 <path d="M 340 360 Q 250 280 230 230" fill="none" stroke="rgba(212,168,90,0.15)" strokeWidth="1.5" />
               </svg>
             </motion.div>
@@ -374,19 +373,21 @@ export default function Partners() {
       </section>
 
       {/* ── SECTION 2: PRODUCT ECOSYSTEM SHOWCASE ────────────────────────── */}
-      <section style={{ padding: '100px 0', background: 'linear-gradient(180deg, var(--soft-surface) 0%, var(--light-surface) 100%)', borderBottom: '1px solid rgba(11, 25, 44, 0.1)' }}>
+
+      <section className="surface-matte" style={{ padding: '100px 0', background: 'linear-gradient(180deg, var(--premium-light-blue) 0%, var(--mist-blue) 100%)', borderBottom: '1px solid rgba(11, 25, 44, 0.1)' }}>
+
         <div className="container">
           <motion.div 
             {...fadeIn}
             style={{ textAlign: 'center', marginBottom: '60px' }}
           >
-            <span style={{ color: '#0F172A', fontWeight: '800', textTransform: 'uppercase', fontSize: '13px', letterSpacing: '2px' }}>
+            <span style={{ color: 'var(--supporting)', fontWeight: '800', textTransform: 'uppercase', fontSize: '13px', letterSpacing: '2px' }}>
               OUR SOLUTION SUITES
             </span>
-            <h2 style={{ fontSize: '36px', fontWeight: '800', color: '#0B192C', marginTop: '10px' }}>
+            <h2 style={{ fontSize: '36px', fontWeight: '800', color: '#ffffff', marginTop: '10px' }}>
               Enterprise Software Portfolio
             </h2>
-            <p style={{ color: '#475569', maxWidth: '600px', margin: '12px auto 0 auto' }}>
+            <p style={{ color: 'var(--text-muted)', maxWidth: '600px', margin: '12px auto 0 auto' }}>
               Explore the market-ready platforms. Each package is tailored to optimize production, manage logistics spend, control audit checklists, or minimize vendor risk.
             </p>
           </motion.div>
@@ -399,7 +400,8 @@ export default function Partners() {
                 img: '/images/flagship_manufacturing.jpg',
                 url: '/products/vericea-manufacturing',
                 desc: 'Real-time production visibility, yield metrics, and AI-enabled defect tracking to optimize factory floor execution.',
-                focus: 'Smart Factory Operations'
+                focus: 'Smart Factory Operations',
+                logo: '/images/Vericea.png'
               },
               {
                 title: 'Courier Expense Control & Analytics',
@@ -407,7 +409,8 @@ export default function Partners() {
                 img: '/images/flagship_courier.jpg',
                 url: '/products/courier-cost-management',
                 desc: 'Deep audit analytics mapping shipping invoices to courier SLAs. Reclaims automated refunds for late shipments.',
-                focus: 'Logistics Optimization'
+                focus: 'Logistics Optimization',
+                logo: '/images/Courier Cost Optimizer.png'
               },
               {
                 title: 'Compliance Audit Management & Tracking',
@@ -415,7 +418,8 @@ export default function Partners() {
                 img: '/images/flagship_compliance.jpg',
                 url: '/products/vericea-compliance',
                 desc: 'Automates scheduling and tracks visual evidence of regulatory compliance metrics across manufacturing facilities.',
-                focus: 'Regulatory Governance'
+                focus: 'Regulatory Governance',
+                logo: '/images/Vericea.png'
               },
               {
                 title: 'Risk Assessment & Monitoring',
@@ -423,107 +427,100 @@ export default function Partners() {
                 img: '/images/flagship_factsafe.jpg',
                 url: '/products/factsafe',
                 desc: 'Proactive industrial safety monitoring, vendor surveys, and real-time environment dashboard logs.',
-                focus: 'Enterprise Risk Dashboard'
+                focus: 'Enterprise Risk Dashboard',
+                logo: '/images/Fact_safe.png'
               }
-            ].map((p, idx) => {
-              // Alternate background: Card 1 (idx=0) & 3 (idx=2) are Royal Blue (Dark)
-              // Card 2 (idx=1) & 4 (idx=3) are Light Enterprise Blue (Light)
-              const isDarkCard = idx % 2 === 0;
-              const cardBg = isDarkCard ? '#0B192C' : '#E6EFF6';
-              const cardBorder = isDarkCard ? '1px solid rgba(255,255,255,0.06)' : '1px solid rgba(11, 25, 44, 0.08)';
-              const cardTitleColor = isDarkCard ? '#ffffff' : '#0B192C';
-              const cardDescColor = isDarkCard ? '#CBD5E1' : '#334155';
-              const cardFocusColor = isDarkCard ? '#D4A85A' : '#9E7D55';
-              const cardBtnColor = isDarkCard ? '#ffffff' : '#0B192C';
+            ].map((p, idx) => (
+              <motion.div
+                key={idx}
+                className="gold-border-glow-hover"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                style={{
+                  borderRadius: '16px',
+                  overflow: 'hidden',
+                  background: 'rgba(43, 74, 115, 0.45)',
+                  border: '1px solid var(--border-color)',
+                  boxShadow: 'var(--shadow-md)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  height: '100%'
+                }}
+              >
+                {/* Visual Area */}
+                <div style={{ height: '180px', overflow: 'hidden', position: 'relative' }}>
+                  <img 
+                    src={p.img} 
+                    alt={p.title} 
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }} 
+                    className="showcase-img"
+                  />
+                  <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(31,58,95,0.9) 0%, transparent 100%)' }} />
+                  <span 
+                    style={{ 
+                      position: 'absolute', 
+                      bottom: '12px', 
+                      left: '16px', 
+                      fontSize: '10px', 
+                      fontWeight: '800', 
+                      color: 'var(--accent)', 
+                      background: 'rgba(31, 58, 95, 0.9)', 
+                      border: '1px solid var(--border-color)', 
+                      padding: '3px 8px', 
+                      borderRadius: '4px' 
+                    }}
+                  >
+                    {p.tag}
+                  </span>
+                </div>
 
-              return (
-                <motion.div
-                  key={idx}
-                  className="gold-border-glow-hover"
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: idx * 0.1 }}
-                  style={{
-                    borderRadius: '16px',
-                    overflow: 'hidden',
-                    background: cardBg,
-                    border: cardBorder,
-                    boxShadow: '0 8px 24px rgba(0, 0, 0, 0.05)',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    height: '100%',
-                    transition: 'all 0.3s ease'
-                  }}
-                >
-                  {/* Visual Area */}
-                  <div style={{ height: '180px', overflow: 'hidden', position: 'relative' }}>
-                    <img 
-                      src={p.img} 
-                      alt={p.title} 
-                      style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }} 
-                      className="showcase-img"
-                    />
-                    <div style={{ position: 'absolute', inset: 0, background: isDarkCard ? 'linear-gradient(to top, #0B192C 0%, transparent 100%)' : 'linear-gradient(to top, #E6EFF6 0%, transparent 100%)' }} />
-                    <span 
+                {/* Info Content */}
+                <div style={{ padding: '20px', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
+                  {p.logo && (
+                    <div style={{ marginBottom: '14px', display: 'flex', alignItems: 'center' }}>
+                      <img src={p.logo} alt={`${p.title} Logo`} style={{ height: p.logo.includes('courier') ? '48px' : '28px', width: 'auto', objectFit: 'contain' }} />
+                    </div>
+                  )}
+                  <h3 style={{ fontSize: '18px', fontWeight: '800', color: '#ffffff', margin: 0, minHeight: '52px', lineHeight: '1.3' }}>
+                    {p.title}
+                  </h3>
+                  <p style={{ color: 'var(--text-muted)', fontSize: '13px', lineHeight: '1.5', marginTop: '10px', flexGrow: 1 }}>
+                    {p.desc}
+                  </p>
+                  
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '20px', paddingTop: '12px', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
+                    <span style={{ fontSize: '11px', color: 'var(--supporting)', fontWeight: '600' }}>
+                      {p.focus}
+                    </span>
+                    <button 
+                      onClick={() => navigate(p.url)}
                       style={{ 
-                        position: 'absolute', 
-                        bottom: '12px', 
-                        left: '16px', 
-                        fontSize: '10px', 
-                        fontWeight: '800', 
-                        color: isDarkCard ? 'var(--accent)' : '#9E7D55', 
-                        background: isDarkCard ? 'rgba(11, 25, 44, 0.9)' : 'rgba(230, 239, 246, 0.9)', 
-                        border: isDarkCard ? '1px solid rgba(255,255,255,0.1)' : '1px solid rgba(11, 25, 44, 0.1)', 
-                        padding: '3px 8px', 
-                        borderRadius: '4px' 
+                        background: 'none', 
+                        border: 'none', 
+                        color: '#ffffff', 
+                        fontWeight: '700', 
+                        fontSize: '12px', 
+                        display: 'flex', 
+                        alignItems: 'center', 
+                        gap: '4px', 
+                        cursor: 'pointer' 
                       }}
                     >
-                      {p.tag}
-                    </span>
+                      Details
+                      <ChevronRight size={14} color="#D4A85A" />
+                    </button>
                   </div>
-
-                  {/* Info Content */}
-                  <div style={{ padding: '20px', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
-                    <h3 style={{ fontSize: '18px', fontWeight: '800', color: cardTitleColor, margin: 0, minHeight: '52px', lineHeight: '1.3' }}>
-                      {p.title}
-                    </h3>
-                    <p style={{ color: cardDescColor, fontSize: '13px', lineHeight: '1.5', marginTop: '10px', flexGrow: 1 }}>
-                      {p.desc}
-                    </p>
-                    
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '20px', paddingTop: '12px', borderTop: isDarkCard ? '1px solid rgba(255,255,255,0.06)' : '1px solid rgba(11, 25, 44, 0.08)' }}>
-                      <span style={{ fontSize: '11px', color: cardFocusColor, fontWeight: '750' }}>
-                        {p.focus}
-                      </span>
-                      <button 
-                        onClick={() => navigate(p.url)}
-                        style={{ 
-                          background: 'none', 
-                          border: 'none', 
-                          color: cardBtnColor, 
-                          fontWeight: '700', 
-                          fontSize: '12px', 
-                          display: 'flex', 
-                          alignItems: 'center', 
-                          gap: '4px', 
-                          cursor: 'pointer' 
-                        }}
-                      >
-                        Details
-                        <ChevronRight size={14} color={isDarkCard ? "#D4A85A" : "#9E7D55"} />
-                      </button>
-                    </div>
-                  </div>
-                </motion.div>
-              );
-            })}
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* ── SECTION 3: WHY PARTNERS SAY YES ────────────────────────────────── */}
-      <section style={{ padding: '100px 0', background: 'linear-gradient(180deg, var(--primary-bg) 0%, var(--secondary-bg) 100%)', borderBottom: '1px solid var(--gold-divider)', position: 'relative' }}>
+      <section style={{ padding: '100px 0', borderBottom: '1px solid var(--gold-divider)', position: 'relative' }}>
         <div className="container">
           <motion.div 
             {...fadeIn}
@@ -558,57 +555,12 @@ export default function Partners() {
                   position: 'absolute', 
                   width: '320px', 
                   height: '320px', 
-                  border: '2px dashed rgba(212, 175, 55, 0.45)', // Brighter gold border
+                  border: '1.5px dashed rgba(212, 168, 90, 0.2)', 
                   borderRadius: '50%',
+                  animation: 'benefit-orbit 40s linear infinite',
                   pointerEvents: 'none'
                 }} 
               />
-
-              {/* Radial spoke connection lines with bright matte gold & glow */}
-              <svg style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', pointerEvents: 'none' }}>
-                <defs>
-                  <filter id="gold-spoke-glow" x="-50%" y="-50%" width="200%" height="200%">
-                    <feGaussianBlur stdDeviation="3.5" result="blur" />
-                    <feMerge>
-                      <feMergeNode in="blur" />
-                      <feMergeNode in="SourceGraphic" />
-                    </feMerge>
-                  </filter>
-                </defs>
-                {benefits.map((_, idx) => {
-                  const angle = (idx * 360) / 6;
-                  const radius = 160;
-                  const x = radius * Math.cos((angle * Math.PI) / 180);
-                  const y = radius * Math.sin((angle * Math.PI) / 180);
-                  return (
-                    <g key={idx}>
-                      {/* Thicker base line with glow */}
-                      <line
-                        x1={210}
-                        y1={210}
-                        x2={210 + x}
-                        y2={210 + y}
-                        stroke="#D4AF37"
-                        strokeWidth="3.5"
-                        opacity="0.5"
-                        filter="url(#gold-spoke-glow)"
-                      />
-                      {/* Active running pulse on top */}
-                      <motion.line
-                        x1={210}
-                        y1={210}
-                        x2={210 + x}
-                        y2={210 + y}
-                        stroke="#D4AF37"
-                        strokeWidth="2"
-                        strokeDasharray="6 8"
-                        animate={{ strokeDashoffset: [0, -28] }}
-                        transition={{ repeat: Infinity, duration: 1.5, ease: 'linear' }}
-                      />
-                    </g>
-                  );
-                })}
-              </svg>
 
               {/* Central Core: CEA Partner Network */}
               <div 
@@ -767,20 +719,22 @@ export default function Partners() {
         </div>
       </section>
 
+
       {/* ── SECTION 4: REVENUE SHARING MODEL ───────────────────────────── */}
-      <section style={{ padding: '100px 0', background: 'linear-gradient(180deg, var(--soft-surface) 0%, var(--light-surface) 100%)', borderBottom: '1px solid rgba(11, 25, 44, 0.1)', position: 'relative' }}>
+      <section className="surface-matte" style={{ padding: '100px 0', background: 'linear-gradient(180deg, var(--mist-blue) 0%, var(--light-steel-blue) 100%)', borderBottom: '1px solid rgba(11, 25, 44, 0.1)', position: 'relative' }}>
+
         <div className="container">
           <motion.div 
             {...fadeIn}
             style={{ textAlign: 'center', marginBottom: '60px' }}
           >
-            <span style={{ color: '#0F172A', fontWeight: '800', textTransform: 'uppercase', fontSize: '13px', letterSpacing: '2px' }}>
+            <span style={{ color: 'var(--supporting)', fontWeight: '800', textTransform: 'uppercase', fontSize: '13px', letterSpacing: '2px' }}>
               MUTUAL CO-INVESTMENT MODEL
             </span>
-            <h2 style={{ fontSize: '36px', fontWeight: '800', color: '#0B192C', marginTop: '10px' }}>
-              Revenue Sharing Joint Venture
+            <h2 style={{ fontSize: '36px', fontWeight: '800', color: '#ffffff', marginTop: '10px' }}>
+              50/50 Revenue Shared Joint Venture
             </h2>
-            <p style={{ color: '#475569', maxWidth: '600px', margin: '12px auto 0 auto' }}>
+            <p style={{ color: 'var(--text-muted)', maxWidth: '600px', margin: '12px auto 0 auto' }}>
               A premium split-screen breakdown showing exactly how roles are distributed to drive scalable success.
             </p>
           </motion.div>
@@ -792,13 +746,13 @@ export default function Partners() {
                 flex: '1 1 320px', 
                 borderRadius: '18px', 
                 padding: '28px', 
-                background: 'rgba(255, 255, 255, 0.9)', 
-                border: '1px solid rgba(11, 25, 44, 0.08)',
-                boxShadow: '0 8px 24px rgba(0,0,0,0.05)'
+                background: 'rgba(43, 74, 115, 0.45)', 
+                border: '1px solid var(--border-color)',
+                boxShadow: 'var(--shadow-md)'
               }}
             >
-              <h3 style={{ fontSize: '18px', fontWeight: '800', color: '#0B192C', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <Cpu size={18} color="#9E7D55" />
+              <h3 style={{ fontSize: '18px', fontWeight: '800', color: 'var(--accent)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <Cpu size={18} />
                 CEA Infotech Provides
               </h3>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
@@ -812,10 +766,10 @@ export default function Partners() {
                   { title: 'Consulting Advisory', desc: 'Pre-sales technical and security consults.' }
                 ].map((item, i) => (
                   <div key={i} style={{ display: 'flex', gap: '10px', alignItems: 'flex-start' }}>
-                    <CheckCircle2 size={16} color="#9E7D55" style={{ marginTop: '3px', flexShrink: 0 }} />
+                    <CheckCircle2 size={16} color="#D4A85A" style={{ marginTop: '3px', flexShrink: 0 }} />
                     <div>
-                      <h4 style={{ margin: 0, fontSize: '13px', fontWeight: '800', color: '#0B192C' }}>{item.title}</h4>
-                      <p style={{ margin: '1px 0 0 0', fontSize: '12px', color: '#475569' }}>{item.desc}</p>
+                      <h4 style={{ margin: 0, fontSize: '13px', fontWeight: '800', color: '#ffffff' }}>{item.title}</h4>
+                      <p style={{ margin: '1px 0 0 0', fontSize: '12px', color: 'var(--text-muted)' }}>{item.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -841,28 +795,28 @@ export default function Partners() {
                   width: '74px', 
                   height: '74px', 
                   borderRadius: '50%', 
-                  background: 'rgba(158, 125, 85, 0.12)', 
-                  border: '1.5px solid #9E7D55',
+                  background: 'rgba(212, 168, 90, 0.12)', 
+                  border: '1.5px solid var(--accent)',
                   display: 'grid',
                   placeItems: 'center',
-                  boxShadow: '0 0 25px rgba(158,125,85,0.08)'
+                  boxShadow: '0 0 25px rgba(212,168,90,0.1)'
                 }}
               >
-                <HeartHandshake size={32} color="#9E7D55" style={{ animation: 'node-float-3 4s infinite ease-in-out' }} />
+                <HeartHandshake size={32} color="#D4A85A" style={{ animation: 'node-float-3 4s infinite ease-in-out' }} />
               </div>
               <div>
-                <div style={{ color: '#0B192C', fontWeight: '900', fontSize: '15px' }}>Revenue Sharing Split</div>
-                <div style={{ color: '#475569', fontSize: '11px', marginTop: '4px' }}>Balanced co-investment synergy</div>
+                <div style={{ color: '#ffffff', fontWeight: '900', fontSize: '15px' }}>50/50 Revenue Split</div>
+                <div style={{ color: 'var(--text-muted)', fontSize: '11px', marginTop: '4px' }}>Balanced co-investment synergy</div>
               </div>
               
               {/* Dynamic flowing dot indicator */}
-              <div style={{ width: '100%', height: '4px', background: 'rgba(11, 25, 44, 0.08)', borderRadius: '2px', position: 'relative', overflow: 'hidden' }}>
+              <div style={{ width: '100%', height: '4px', background: 'rgba(255,255,255,0.06)', borderRadius: '2px', position: 'relative', overflow: 'hidden' }}>
                 <div 
                   style={{ 
                     position: 'absolute', 
                     height: '100%', 
                     width: '30%', 
-                    background: 'linear-gradient(90deg, transparent, #9E7D55, transparent)', 
+                    background: 'linear-gradient(90deg, transparent, var(--accent), transparent)', 
                     animation: 'data-pulse-sweep 2.5s infinite linear' 
                   }} 
                 />
@@ -875,13 +829,13 @@ export default function Partners() {
                 flex: '1 1 320px', 
                 borderRadius: '18px', 
                 padding: '28px', 
-                background: 'rgba(255, 255, 255, 0.9)', 
-                border: '1px solid rgba(11, 25, 44, 0.08)',
-                boxShadow: '0 8px 24px rgba(0,0,0,0.05)'
+                background: 'rgba(43, 74, 115, 0.45)', 
+                border: '1px solid var(--border-color)',
+                boxShadow: 'var(--shadow-md)'
               }}
             >
-              <h3 style={{ fontSize: '18px', fontWeight: '800', color: '#0B192C', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <Users size={18} color="#9E7D55" />
+              <h3 style={{ fontSize: '18px', fontWeight: '800', color: 'var(--accent)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <Users size={18} />
                 Partner Provides
               </h3>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
@@ -895,10 +849,10 @@ export default function Partners() {
                   { title: 'Local Integration Support', desc: 'Assisting client with setup checklists.' }
                 ].map((item, i) => (
                   <div key={i} style={{ display: 'flex', gap: '10px', alignItems: 'flex-start' }}>
-                    <CheckCircle2 size={16} color="#9E7D55" style={{ marginTop: '3px', flexShrink: 0 }} />
+                    <CheckCircle2 size={16} color="#D4A85A" style={{ marginTop: '3px', flexShrink: 0 }} />
                     <div>
-                      <h4 style={{ margin: 0, fontSize: '13px', fontWeight: '800', color: '#0B192C' }}>{item.title}</h4>
-                      <p style={{ margin: '1px 0 0 0', fontSize: '12px', color: '#475569' }}>{item.desc}</p>
+                      <h4 style={{ margin: 0, fontSize: '13px', fontWeight: '800', color: '#ffffff' }}>{item.title}</h4>
+                      <p style={{ margin: '1px 0 0 0', fontSize: '12px', color: 'var(--text-muted)' }}>{item.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -909,7 +863,7 @@ export default function Partners() {
       </section>
 
       {/* ── SECTION 5: PARTNER BUSINESS MODELS ────────────────────────────── */}
-      <section style={{ padding: '100px 0', background: 'linear-gradient(180deg, var(--primary-bg) 0%, var(--secondary-bg) 100%)', borderBottom: '1px solid var(--gold-divider)', position: 'relative' }}>
+      <section style={{ padding: '100px 0', borderBottom: '1px solid var(--gold-divider)', position: 'relative' }}>
         <div className="container">
           <motion.div 
             {...fadeIn}
@@ -926,106 +880,102 @@ export default function Partners() {
             </p>
           </motion.div>
 
-          {/* 3-Column Comparative Grid */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '28px' }}>
-            {businessModels.map((model, idx) => {
-              const ModelIcon = idx === 0 ? Briefcase : idx === 1 ? Cpu : Globe;
-              const modelImage = idx === 0 
-                ? '/images/business_consultation_1780850767888.png' 
-                : idx === 1 
-                  ? '/images/industrial_control_room_1780849774868.png' 
-                  : '/images/logistics_terminal_1780850837146.png';
+          {/* Model selection tabs */}
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '12px', marginBottom: '32px', flexWrap: 'wrap' }}>
+            {businessModels.map((model, idx) => (
+              <button
+                key={idx}
+                onClick={() => {
+                  setActiveModel(idx);
+                  // Sync with dashboard selector
+                  if (idx === 0) setDashboardModel('consultant');
+                  else if (idx === 1) setDashboardModel('reseller');
+                  else if (idx === 2) setDashboardModel('distributor');
+                }}
+                style={{
+                  padding: '12px 24px',
+                  borderRadius: '12px',
+                  border: '1.5px solid',
+                  borderColor: activeModel === idx ? 'var(--accent)' : 'rgba(255,255,255,0.06)',
+                  background: activeModel === idx ? 'rgba(212, 168, 90, 0.15)' : 'rgba(43, 74, 115, 0.3)',
+                  color: '#ffffff',
+                  fontSize: '14px',
+                  fontWeight: '800',
+                  cursor: 'pointer',
+                  transition: 'all 0.25s',
+                  boxShadow: activeModel === idx ? '0 4px 15px rgba(212,168,90,0.1)' : 'none'
+                }}
+              >
+                {model.title}
+              </button>
+            ))}
+          </div>
 
-              // Specific titles for Technology Reseller (mapping Tech Reseller to Technology Reseller)
-              const displayTitle = idx === 1 ? 'Technology Reseller' : model.title;
-
-              return (
-                <motion.div
-                  key={idx}
-                  whileHover={{ y: -8, boxShadow: '0 16px 40px rgba(200, 162, 118, 0.15)' }}
-                  transition={{ duration: 0.3 }}
-                  style={{
-                    background: 'rgba(17, 34, 64, 0.65)',
-                    border: '1.5px solid var(--border-color)',
-                    borderRadius: '20px',
-                    padding: '28px',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'space-between',
-                    boxShadow: 'var(--shadow-lg)',
-                    backdropFilter: 'blur(8px)',
-                    height: '100%'
-                  }}
-                >
+          {/* Model active detail box */}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeModel}
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -15 }}
+              transition={{ duration: 0.3 }}
+              style={{
+                background: 'rgba(43, 74, 115, 0.45)',
+                border: '1px solid var(--border-color)',
+                borderRadius: '20px',
+                padding: '36px',
+                boxShadow: 'var(--shadow-xl)',
+                backdropFilter: 'blur(8px)'
+              }}
+            >
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '16px' }}>
+                <div>
+                  <span style={{ fontSize: '10px', fontWeight: '800', textTransform: 'uppercase', letterSpacing: '1px', color: 'var(--accent)', background: 'rgba(212, 168, 90, 0.12)', padding: '4px 10px', borderRadius: '4px' }}>
+                    {businessModels[activeModel].badge}
+                  </span>
+                  <h3 style={{ fontSize: '28px', fontWeight: '900', color: '#ffffff', marginTop: '10px', margin: '8px 0 0 0' }}>
+                    {businessModels[activeModel].title}
+                  </h3>
+                </div>
+                
+                <div style={{ display: 'flex', gap: '32px', flexWrap: 'wrap' }}>
                   <div>
-                    {/* Visual Imagery */}
-                    <div style={{ height: '180px', borderRadius: '12px', overflow: 'hidden', position: 'relative', marginBottom: '20px' }}>
-                      <img 
-                        src={modelImage} 
-                        alt={displayTitle} 
-                        style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
-                      />
-                      <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(11, 25, 44, 0.8) 0%, transparent 100%)' }} />
-                    </div>
-
-                    {/* Badge and Icon header */}
-                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px' }}>
-                      <span style={{ fontSize: '10px', fontWeight: '800', textTransform: 'uppercase', letterSpacing: '1px', color: 'var(--accent)', background: 'rgba(212, 168, 90, 0.12)', padding: '4px 10px', borderRadius: '4px' }}>
-                        {model.badge}
-                      </span>
-                      <div style={{ width: '36px', height: '36px', borderRadius: '50%', background: 'rgba(212, 168, 90, 0.15)', display: 'grid', placeItems: 'center' }}>
-                        <ModelIcon size={18} color="#D4A85A" />
-                      </div>
-                    </div>
-
-                    {/* Model Title */}
-                    <h3 style={{ fontSize: '24px', fontWeight: '900', color: '#ffffff', margin: '0 0 16px 0' }}>
-                      {displayTitle}
-                    </h3>
-
-                    {/* Trajectory */}
-                    <p style={{ fontSize: '14px', color: 'var(--text-muted)', lineHeight: '1.6', margin: '0 0 24px 0', minHeight: '68px' }}>
-                      {model.trajectory}
-                    </p>
-
-                    {/* Key Metrics / Revenue Opportunity */}
-                    <div style={{ background: 'rgba(14, 31, 53, 0.4)', borderRadius: '12px', padding: '20px', border: '1px solid rgba(255,255,255,0.03)', marginBottom: '24px' }}>
-                      <h4 style={{ fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.8px', color: 'var(--text-muted)', margin: '0 0 12px 0' }}>
-                        REVENUE OPPORTUNITY
-                      </h4>
-                      <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px' }}>
-                          <span style={{ color: 'var(--text-muted)' }}>Capital Commitment:</span>
-                          <span style={{ fontWeight: '700', color: '#ffffff' }}>{model.investment}</span>
-                        </div>
-                        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px' }}>
-                          <span style={{ color: 'var(--text-muted)' }}>Yr 3 Target Revenue:</span>
-                          <span style={{ fontWeight: '750', color: 'var(--accent)' }}>{model.revenue}</span>
-                        </div>
-                        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px' }}>
-                          <span style={{ color: 'var(--text-muted)' }}>ROI Index / Team:</span>
-                          <span style={{ fontWeight: '700', color: 'var(--supporting)' }}>{model.roi} / {model.teamSize}</span>
-                        </div>
-                      </div>
-                    </div>
+                    <div style={{ fontSize: '11px', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.8px' }}>Capital Commitment</div>
+                    <div style={{ fontSize: '24px', fontWeight: '800', color: '#ffffff' }}>{businessModels[activeModel].investment}</div>
                   </div>
-
-                  {/* Capabilities List */}
                   <div>
-                    <h4 style={{ fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.8px', color: 'var(--text-muted)', marginBottom: '10px' }}>
-                      KEY CAPABILITIES
+                    <div style={{ fontSize: '11px', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.8px' }}>Yr 3 Target Revenue</div>
+                    <div style={{ fontSize: '24px', fontWeight: '800', color: 'var(--accent)' }}>{businessModels[activeModel].revenue}</div>
+                  </div>
+                </div>
+              </div>
+
+              <div style={{ height: '1px', background: 'rgba(255,255,255,0.06)', margin: '24px 0' }} />
+
+              <div style={{ display: 'flex', gap: '32px', flexWrap: 'wrap' }}>
+                <div style={{ flex: '1 1 340px' }}>
+                  <h4 style={{ fontSize: '12px', textTransform: 'uppercase', letterSpacing: '1px', color: 'var(--text-muted)', marginBottom: '8px' }}>
+                    Growth Trajectory
+                  </h4>
+                  <p style={{ fontSize: '14.5px', color: 'var(--text-main)', lineHeight: '1.6', margin: 0 }}>
+                    {businessModels[activeModel].trajectory}
+                  </p>
+
+                  <div style={{ marginTop: '20px' }}>
+                    <h4 style={{ fontSize: '12px', textTransform: 'uppercase', letterSpacing: '1px', color: 'var(--text-muted)', marginBottom: '10px' }}>
+                      Key Capabilities Needed
                     </h4>
-                    <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
-                      {model.skills.map((skill, sIdx) => (
+                    <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+                      {businessModels[activeModel].skills.map((skill, sIdx) => (
                         <span 
                           key={sIdx}
                           style={{
-                            fontSize: '10px',
+                            fontSize: '11px',
                             fontWeight: '600',
                             color: '#ffffff',
                             background: 'rgba(255,255,255,0.04)',
                             border: '1px solid rgba(255,255,255,0.08)',
-                            padding: '3px 10px',
+                            padding: '4px 12px',
                             borderRadius: '20px'
                           }}
                         >
@@ -1034,181 +984,245 @@ export default function Partners() {
                       ))}
                     </div>
                   </div>
-                </motion.div>
-              );
-            })}
-          </div>
+                </div>
+
+                <div 
+                  style={{ 
+                    flex: '1 1 240px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '12px',
+                    background: 'rgba(14, 31, 53, 0.4)',
+                    border: '1px solid rgba(255,255,255,0.04)',
+                    padding: '20px',
+                    borderRadius: '12px'
+                  }}
+                >
+                  <h4 style={{ fontSize: '11px', textTransform: 'uppercase', letterSpacing: '1px', color: 'var(--text-muted)', margin: 0 }}>
+                    Business Scale Projections
+                  </h4>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px' }}>
+                      <span style={{ color: 'var(--text-muted)' }}>Initial Team Size:</span>
+                      <span style={{ fontWeight: '700', color: '#ffffff' }}>{businessModels[activeModel].teamSize}</span>
+                    </div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px' }}>
+                      <span style={{ color: 'var(--text-muted)' }}>Investment ROI Index:</span>
+                      <span style={{ fontWeight: '700', color: 'var(--supporting)' }}>{businessModels[activeModel].roi}</span>
+                    </div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px' }}>
+                      <span style={{ color: 'var(--text-muted)' }}>Revenue Potential:</span>
+                      <span style={{ fontWeight: '700', color: '#ffffff' }}><CountUp end={businessModels[activeModel].revenueVal} prefix="₹" suffix=" Lakhs" /></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </AnimatePresence>
         </div>
       </section>
 
       {/* ── SECTION 6: REVENUE OPPORTUNITY DASHBOARD ───────────────────────── */}
-      <section style={{ padding: '100px 0', background: 'linear-gradient(180deg, var(--soft-surface) 0%, var(--light-surface) 100%)', borderBottom: '1px solid rgba(11, 25, 44, 0.1)', position: 'relative' }}>
+
+      <section className="surface-matte" style={{ padding: '100px 0', background: 'linear-gradient(180deg, var(--premium-light-blue) 0%, var(--mist-blue) 100%)', borderBottom: '1px solid rgba(11, 25, 44, 0.1)', position: 'relative' }}>
+
         <div className="container">
           <motion.div 
             {...fadeIn}
             style={{ textAlign: 'center', marginBottom: '60px' }}
           >
-            <span style={{ color: '#0F172A', fontWeight: '800', textTransform: 'uppercase', fontSize: '13px', letterSpacing: '2px' }}>
+            <span style={{ color: 'var(--supporting)', fontWeight: '800', textTransform: 'uppercase', fontSize: '13px', letterSpacing: '2px' }}>
               GROWTH SIMULATOR
             </span>
-            <h2 style={{ fontSize: '36px', fontWeight: '800', color: '#0B192C', marginTop: '10px' }}>
+            <h2 style={{ fontSize: '36px', fontWeight: '800', color: '#ffffff', marginTop: '10px' }}>
               Revenue Opportunity Dashboard
             </h2>
-            <p style={{ color: '#475569', maxWidth: '600px', margin: '12px auto 0 auto' }}>
-              Simulated cumulative revenue growth trajectories and profit yield parameters compared side-by-side across all three partner models.
+            <p style={{ color: 'var(--text-muted)', maxWidth: '600px', margin: '12px auto 0 auto' }}>
+              Select a partner model to inspect the simulated cumulative revenue growth trajectory across Year 1, 2, and 3.
             </p>
           </motion.div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '28px' }}>
-            {([
-              { id: 'consultant', label: 'Growth Consultant', barColor: 'linear-gradient(180deg, #3B82F6, #1D4ED8)', accentColor: '#3B82F6' },
-              { id: 'reseller', label: 'Technology Reseller', barColor: 'linear-gradient(180deg, #10B981, #047857)', accentColor: '#10B981' },
-              { id: 'distributor', label: 'Regional Distributor', barColor: 'linear-gradient(180deg, #F59E0B, #B45309)', accentColor: '#F59E0B' }
-            ] as const).map((dashboard) => {
-              const data = revenueData[dashboard.id];
-              return (
-                <motion.div
-                  key={dashboard.id}
-                  whileHover={{ y: -6 }}
-                  transition={{ duration: 0.2 }}
-                  style={{
-                    borderRadius: '18px', 
-                    padding: '24px', 
-                    background: 'rgba(255, 255, 255, 0.9)', 
-                    border: '1px solid rgba(11, 25, 44, 0.08)',
-                    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.05)',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'space-between',
-                    minHeight: '440px'
-                  }}
-                >
-                  <div>
-                    {/* Header */}
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
-                      <h4 style={{ margin: 0, fontSize: '15px', fontWeight: '800', textTransform: 'uppercase', letterSpacing: '0.8px', color: '#0B192C', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                        <PieChart size={16} color={dashboard.accentColor} />
-                        {dashboard.label}
-                      </h4>
-                      <span style={{ fontSize: '11px', color: '#475569', fontWeight: '600' }}>Simulated Dashboard</span>
+          <div style={{ display: 'flex', gap: '28px', alignItems: 'stretch', flexWrap: 'wrap' }}>
+            {/* Control Panel */}
+            <div 
+              style={{ 
+                width: '280px', 
+                display: 'flex', 
+                flexDirection: 'column', 
+                gap: '12px',
+                flexShrink: 0
+              }}
+            >
+              {([
+                { id: 'consultant', label: 'Growth Consultant', desc: 'Investment: ₹5–10L' },
+                { id: 'reseller', label: 'Tech Reseller', desc: 'Investment: ₹10–20L' },
+                { id: 'distributor', label: 'Regional Distributor', desc: 'Investment: ₹20–50L' }
+              ] as const).map((tab) => {
+                const isSelected = dashboardModel === tab.id;
+                return (
+                  <button
+                    key={tab.id}
+                    onClick={() => {
+                      setDashboardModel(tab.id);
+                      // Sync main active model tab
+                      if (tab.id === 'consultant') setActiveModel(0);
+                      else if (tab.id === 'reseller') setActiveModel(1);
+                      else if (tab.id === 'distributor') setActiveModel(2);
+                    }}
+                    style={{
+                      padding: '16px 20px',
+                      borderRadius: '12px',
+                      border: '1px solid',
+                      borderColor: isSelected ? 'var(--accent)' : 'rgba(255,255,255,0.06)',
+                      background: isSelected ? 'rgba(212, 168, 90, 0.12)' : 'rgba(27, 42, 74, 0.3)',
+                      textAlign: 'left',
+                      cursor: 'pointer',
+                      transition: 'all 0.2s'
+                    }}
+                  >
+                    <div style={{ fontSize: '14px', fontWeight: '800', color: isSelected ? '#ffffff' : 'var(--text-main)' }}>
+                      {tab.label}
                     </div>
-
-                    {/* Projections summary box */}
-                    <div style={{ borderRadius: '12px', padding: '16px', background: 'rgba(11, 25, 44, 0.04)', border: '1px solid rgba(11, 25, 44, 0.06)', marginBottom: '20px' }}>
-                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                        <div>
-                          <span style={{ fontSize: '9px', color: '#475569', textTransform: 'uppercase', letterSpacing: '0.8px', fontWeight: '750' }}>Yr 3 Profit Potential</span>
-                          <div style={{ fontSize: '22px', fontWeight: '900', color: '#0B192C', marginTop: '2px' }}>
-                            {data.profit}
-                          </div>
-                        </div>
-                        <div style={{ textAlign: 'right' }}>
-                          <span style={{ fontSize: '9px', color: '#475569', textTransform: 'uppercase', letterSpacing: '0.8px', fontWeight: '750' }}>Margin Share</span>
-                          <div style={{ fontSize: '14px', fontWeight: '800', color: '#9E7D55', marginTop: '2px' }}>
-                            ~{data.margin} split
-                          </div>
-                        </div>
-                      </div>
+                    <div style={{ fontSize: '11px', color: 'var(--text-muted)', marginTop: '2px' }}>
+                      {tab.desc}
                     </div>
+                  </button>
+                );
+              })}
 
-                    {/* Chart Visual */}
-                    <div 
-                      style={{ 
-                        display: 'flex', 
-                        alignItems: 'flex-end', 
-                        justifyContent: 'space-around', 
-                        height: '160px', 
-                        borderBottom: '2px solid rgba(11, 25, 44, 0.1)',
-                        paddingBottom: '8px',
-                        position: 'relative',
-                        marginBottom: '16px'
-                      }}
-                    >
-                      {/* Horizontal reference lines */}
-                      <div style={{ position: 'absolute', left: 0, right: 0, top: '25%', borderTop: '1px dashed rgba(11, 25, 44, 0.05)', pointerEvents: 'none' }} />
-                      <div style={{ position: 'absolute', left: 0, right: 0, top: '50%', borderTop: '1px dashed rgba(11, 25, 44, 0.05)', pointerEvents: 'none' }} />
-                      <div style={{ position: 'absolute', left: 0, right: 0, top: '75%', borderTop: '1px dashed rgba(11, 25, 44, 0.05)', pointerEvents: 'none' }} />
+              <div 
+                style={{ 
+                  borderRadius: '12px', 
+                  padding: '16px', 
+                  background: 'rgba(14, 31, 53, 0.4)', 
+                  border: '1px solid rgba(255, 255, 255, 0.04)',
+                  marginTop: '12px'
+                }}
+              >
+                <div style={{ fontSize: '11px', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.8px' }}>Net Profit yr 3</div>
+                <div style={{ fontSize: '24px', fontWeight: '900', color: '#ffffff', marginTop: '2px' }}>
+                  {revenueData[dashboardModel].profit}
+                </div>
+                <div style={{ fontSize: '11px', color: 'var(--supporting)', fontWeight: '600', marginTop: '2px' }}>
+                  ~{revenueData[dashboardModel].margin} margin split
+                </div>
+              </div>
+            </div>
 
-                      {/* Year 1 Bar */}
-                      <div style={{ textAlign: 'center', width: '56px', position: 'relative', zIndex: 1 }}>
-                        <div style={{ fontSize: '11px', fontWeight: '800', color: '#0B192C', marginBottom: '4px' }}>
-                          ₹{data.year1}L
-                        </div>
-                        <motion.div
-                          style={{
-                            width: '100%',
-                            background: dashboard.barColor,
-                            borderRadius: '6px 6px 0 0',
-                            boxShadow: '0 4px 10px rgba(0,0,0,0.06)'
-                          }}
-                          initial={{ height: 0 }}
-                          whileInView={{ height: `${(data.year1 / 300) * 110}px` }}
-                          viewport={{ once: true }}
-                          transition={{ type: 'spring', stiffness: 80, damping: 15 }}
-                        />
-                        <div style={{ fontSize: '10px', fontWeight: '700', color: '#475569', marginTop: '6px' }}>Year 1</div>
-                      </div>
+            {/* Simulated Live Bar Chart Area */}
+            <div 
+              style={{ 
+                flex: '1 1 420px', 
+                borderRadius: '18px', 
+                padding: '28px', 
+                background: 'rgba(43, 74, 115, 0.45)', 
+                border: '1px solid var(--border-color)',
+                boxShadow: 'var(--shadow-lg)',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                minHeight: '340px'
+              }}
+            >
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+                <h4 style={{ margin: 0, fontSize: '13px', fontWeight: '800', textTransform: 'uppercase', letterSpacing: '0.8px', color: '#ffffff', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <PieChart size={16} color="#D4A85A" />
+                  Growth Curve (₹ In Lakhs)
+                </h4>
+                <span style={{ fontSize: '11px', color: 'var(--text-muted)' }}>Cumulative Projections</span>
+              </div>
 
-                      {/* Year 2 Bar */}
-                      <div style={{ textAlign: 'center', width: '56px', position: 'relative', zIndex: 1 }}>
-                        <div style={{ fontSize: '11px', fontWeight: '800', color: '#0B192C', marginBottom: '4px' }}>
-                          ₹{data.year2}L
-                        </div>
-                        <motion.div
-                          style={{
-                            width: '100%',
-                            background: dashboard.barColor,
-                            borderRadius: '6px 6px 0 0',
-                            boxShadow: '0 4px 10px rgba(0,0,0,0.06)'
-                          }}
-                          initial={{ height: 0 }}
-                          whileInView={{ height: `${(data.year2 / 300) * 110}px` }}
-                          viewport={{ once: true }}
-                          transition={{ type: 'spring', stiffness: 80, damping: 15 }}
-                        />
-                        <div style={{ fontSize: '10px', fontWeight: '700', color: '#475569', marginTop: '6px' }}>Year 2</div>
-                      </div>
+              {/* Chart Visual */}
+              <div 
+                style={{ 
+                  display: 'flex', 
+                  alignItems: 'flex-end', 
+                  justifyContent: 'space-around', 
+                  height: '200px', 
+                  borderBottom: '2px stroke rgba(255,255,255,0.06)',
+                  paddingBottom: '8px',
+                  position: 'relative'
+                }}
+              >
+                {/* Horizontal reference lines */}
+                <div style={{ position: 'absolute', left: 0, right: 0, top: '25%', borderTop: '1px dashed rgba(255,255,255,0.04)', pointerEvents: 'none' }} />
+                <div style={{ position: 'absolute', left: 0, right: 0, top: '50%', borderTop: '1px dashed rgba(255,255,255,0.04)', pointerEvents: 'none' }} />
+                <div style={{ position: 'absolute', left: 0, right: 0, top: '75%', borderTop: '1px dashed rgba(255,255,255,0.04)', pointerEvents: 'none' }} />
 
-                      {/* Year 3 Bar */}
-                      <div style={{ textAlign: 'center', width: '56px', position: 'relative', zIndex: 1 }}>
-                        <div style={{ fontSize: '11px', fontWeight: '800', color: '#0B192C', marginBottom: '4px' }}>
-                          ₹{data.year3}L
-                        </div>
-                        <motion.div
-                          style={{
-                            width: '100%',
-                            background: dashboard.barColor,
-                            borderRadius: '6px 6px 0 0',
-                            boxShadow: '0 4px 12px rgba(0,0,0,0.08)'
-                          }}
-                          initial={{ height: 0 }}
-                          whileInView={{ height: `${(data.year3 / 300) * 110}px` }}
-                          viewport={{ once: true }}
-                          transition={{ type: 'spring', stiffness: 80, damping: 15 }}
-                        />
-                        <div style={{ fontSize: '10px', fontWeight: '800', color: '#0B192C', marginTop: '6px' }}>Year 3</div>
-                      </div>
-                    </div>
+                {/* Year 1 Bar */}
+                <div style={{ textAlign: 'center', width: '64px', position: 'relative', zIndex: 1 }}>
+                  <div style={{ fontSize: '13px', fontWeight: '800', color: '#ffffff', marginBottom: '8px' }}>
+                    ₹{revenueData[dashboardModel].year1}L
                   </div>
+                  <motion.div
+                    style={{
+                      width: '100%',
+                      background: 'linear-gradient(180deg, var(--accent), var(--primary-bg))',
+                      borderRadius: '8px 8px 0 0',
+                      boxShadow: '0 0 15px rgba(212,168,90,0.15)'
+                    }}
+                    initial={{ height: 0 }}
+                    animate={{ height: `${(revenueData[dashboardModel].year1 / 300) * 150}px` }}
+                    transition={{ type: 'spring', stiffness: 80, damping: 15 }}
+                  />
+                  <div style={{ fontSize: '12px', fontWeight: '700', color: 'var(--text-muted)', marginTop: '8px' }}>Year 1</div>
+                </div>
 
-                  {/* KPI Indicators bottom row */}
-                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '11px', color: '#475569', borderTop: '1px solid rgba(11, 25, 44, 0.08)', paddingTop: '12px' }}>
-                    <div>
-                      Target Scale: <span style={{ color: '#0B192C', fontWeight: '700' }}>{data.customers}</span>
-                    </div>
-                    <div>
-                      Yield Profile: <span style={{ color: 'var(--success)', fontWeight: '700' }}>Verified ROI</span>
-                    </div>
+                {/* Year 2 Bar */}
+                <div style={{ textAlign: 'center', width: '64px', position: 'relative', zIndex: 1 }}>
+                  <div style={{ fontSize: '13px', fontWeight: '800', color: '#ffffff', marginBottom: '8px' }}>
+                    ₹{revenueData[dashboardModel].year2}L
                   </div>
-                </motion.div>
-              );
-            })}
+                  <motion.div
+                    style={{
+                      width: '100%',
+                      background: 'linear-gradient(180deg, var(--supporting), var(--primary-bg))',
+                      borderRadius: '8px 8px 0 0',
+                      boxShadow: '0 0 15px rgba(230,194,122,0.15)'
+                    }}
+                    initial={{ height: 0 }}
+                    animate={{ height: `${(revenueData[dashboardModel].year2 / 300) * 150}px` }}
+                    transition={{ type: 'spring', stiffness: 80, damping: 15 }}
+                  />
+                  <div style={{ fontSize: '12px', fontWeight: '700', color: 'var(--text-muted)', marginTop: '8px' }}>Year 2</div>
+                </div>
+
+                {/* Year 3 Bar */}
+                <div style={{ textAlign: 'center', width: '64px', position: 'relative', zIndex: 1 }}>
+                  <div style={{ fontSize: '13px', fontWeight: '800', color: '#ffffff', marginBottom: '8px' }}>
+                    ₹{revenueData[dashboardModel].year3}L
+                  </div>
+                  <motion.div
+                    style={{
+                      width: '100%',
+                      background: 'linear-gradient(180deg, var(--accent), var(--supporting))',
+                      borderRadius: '8px 8px 0 0',
+                      boxShadow: '0 0 25px rgba(212,168,90,0.3)'
+                    }}
+                    initial={{ height: 0 }}
+                    animate={{ height: `${(revenueData[dashboardModel].year3 / 300) * 150}px` }}
+                    transition={{ type: 'spring', stiffness: 80, damping: 15 }}
+                  />
+                  <div style={{ fontSize: '12px', fontWeight: '700', color: '#ffffff', marginTop: '8px' }}>Year 3</div>
+                </div>
+              </div>
+
+              {/* KPI Indicators bottom row */}
+              <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '20px', fontSize: '12px', color: 'var(--text-muted)', borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: '16px' }}>
+                <div>
+                  Customers: <span style={{ color: '#ffffff', fontWeight: '700' }}>{revenueData[dashboardModel].customers}</span>
+                </div>
+                <div>
+                  Status: <span style={{ color: 'var(--success)', fontWeight: '700' }}>High Potential Yield</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ── SECTION 7: PRIORITY TERRITORIES ───────────────────────────── */}
-      <section style={{ padding: '100px 0', background: 'linear-gradient(180deg, var(--primary-bg) 0%, var(--secondary-bg) 100%)', borderBottom: '1px solid var(--gold-divider)', position: 'relative' }}>
+      {/* ── SECTION 7: INDIA MARKET OPPORTUNITY ───────────────────────────── */}
+      <section style={{ padding: '100px 0', borderBottom: '1px solid var(--gold-divider)', position: 'relative' }}>
         <div className="container">
           <motion.div 
             {...fadeIn}
@@ -1218,55 +1232,41 @@ export default function Partners() {
               PRIORITY TERRITORIES
             </span>
             <h2 style={{ fontSize: '36px', fontWeight: '800', color: '#ffffff', marginTop: '10px' }}>
-              Priority Territories & Global Footprint
+              India Market Opportunity
             </h2>
             <p style={{ color: 'var(--text-muted)', maxWidth: '600px', margin: '12px auto 0 auto' }}>
-              Interactive expansion mapping showing high-priority domestic clusters and target international hubs.
+              Click on the pulsing gold markers to highlight priorities, industry clusters, and key territory opportunities.
             </p>
           </motion.div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: '40px', alignItems: 'start' }}>
-            <div>
-              <h3 style={{ fontSize: '18px', fontWeight: '800', color: '#ffffff', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '8px', justifyContent: 'center' }}>
-                <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#D4A85A', boxShadow: '0 0 8px #D4A85A' }} />
-                India Opportunities (Royal Blue + Gold)
-              </h3>
-              <IndiaMap />
-            </div>
-            
-            <div>
-              <h3 style={{ fontSize: '18px', fontWeight: '800', color: '#ffffff', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '8px', justifyContent: 'center' }}>
-                <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#D4A85A', boxShadow: '0 0 8px #D4A85A' }} />
-                Global Expansion (Royal Blue + Gold)
-              </h3>
-              <WorldMap />
-            </div>
-          </div>
+          <IndiaMap />
         </div>
       </section>
 
 
       {/* ── SECTION 9: WHO WE ARE LOOKING FOR ────────────────────────────── */}
-      <section style={{ padding: '100px 0', background: 'linear-gradient(180deg, var(--soft-surface) 0%, var(--light-surface) 100%)', borderBottom: '1px solid rgba(11, 25, 44, 0.1)', position: 'relative' }}>
+
+      <section className="surface-matte" style={{ padding: '100px 0', background: 'linear-gradient(180deg, var(--premium-light-blue) 0%, var(--mist-blue) 100%)', borderBottom: '1px solid rgba(11, 25, 44, 0.1)', position: 'relative' }}>
+
         <div className="container">
           <motion.div 
             {...fadeIn}
             style={{ textAlign: 'center', marginBottom: '60px' }}
           >
-            <span style={{ color: '#0F172A', fontWeight: '800', textTransform: 'uppercase', fontSize: '13px', letterSpacing: '2px' }}>
+            <span style={{ color: 'var(--supporting)', fontWeight: '800', textTransform: 'uppercase', fontSize: '13px', letterSpacing: '2px' }}>
               IDEAL PROFILES
             </span>
-            <h2 style={{ fontSize: '42px', fontWeight: '900', color: '#0B192C', marginTop: '10px' }}>
+            <h2 style={{ fontSize: '36px', fontWeight: '800', color: '#ffffff', marginTop: '10px' }}>
               Who We Are Looking For
             </h2>
-            <p style={{ color: '#475569', fontSize: '16px', maxWidth: '600px', margin: '12px auto 0 auto' }}>
+            <p style={{ color: 'var(--text-muted)', maxWidth: '600px', margin: '12px auto 0 auto' }}>
               Are you positioned to build regional success? Tap on a category below to explore custom synergy scores and target focus areas.
             </p>
           </motion.div>
 
-          <div style={{ display: 'flex', gap: '36px', alignItems: 'stretch', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: '32px', alignItems: 'stretch', flexWrap: 'wrap' }}>
             {/* Left Column: Interactive Grid of Pills */}
-            <div style={{ flex: '1 1 420px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '16px' }}>
+            <div style={{ flex: '1 1 420px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '12px' }}>
               {targetAudiences.map((aud, idx) => {
                 const AudIcon = aud.icon;
                 const isActive = activeAudience === idx;
@@ -1279,21 +1279,20 @@ export default function Partners() {
                     style={{
                       borderRadius: '12px',
                       padding: '16px',
-                      background: isActive ? 'rgba(158, 125, 85, 0.15)' : 'rgba(255, 255, 255, 0.85)',
-                      border: '1.5px solid',
-                      borderColor: isActive ? '#9E7D55' : 'rgba(11, 25, 44, 0.08)',
+                      background: isActive ? 'rgba(212, 168, 90, 0.15)' : 'rgba(43, 74, 115, 0.3)',
+                      border: '1px solid',
+                      borderColor: isActive ? 'var(--accent)' : 'rgba(255, 255, 255, 0.05)',
                       display: 'flex',
                       gap: '12px',
                       alignItems: 'center',
                       cursor: 'pointer',
-                      transition: 'all 0.25s',
-                      boxShadow: '0 4px 12px rgba(0,0,0,0.02)'
+                      transition: 'all 0.25s'
                     }}
                   >
-                    <div style={{ color: isActive ? '#9E7D55' : '#475569', flexShrink: 0 }}>
+                    <div style={{ color: isActive ? '#ffffff' : 'var(--accent)', flexShrink: 0 }}>
                       <AudIcon size={18} />
                     </div>
-                    <span style={{ fontSize: '15px', fontWeight: isActive ? '800' : '650', color: isActive ? '#0B192C' : '#334155' }}>
+                    <span style={{ fontSize: '13px', fontWeight: isActive ? '800' : '600', color: isActive ? '#ffffff' : 'var(--text-main)' }}>
                       {aud.title}
                     </span>
                   </motion.div>
@@ -1311,11 +1310,11 @@ export default function Partners() {
                   exit={{ opacity: 0, x: -20 }}
                   transition={{ duration: 0.25 }}
                   style={{
-                    background: 'rgba(255, 255, 255, 0.95)',
-                    border: '1.5px solid #9E7D55',
+                    background: 'rgba(43, 74, 115, 0.45)',
+                    border: '1px solid var(--accent)',
                     borderRadius: '18px',
                     padding: '32px',
-                    boxShadow: '0 12px 40px rgba(0,0,0,0.06)',
+                    boxShadow: 'var(--shadow-xl)',
                     backdropFilter: 'blur(8px)',
                     display: 'flex',
                     flexDirection: 'column',
@@ -1326,36 +1325,36 @@ export default function Partners() {
                 >
                   <div>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
-                      <span style={{ fontSize: '11px', fontWeight: '800', textTransform: 'uppercase', letterSpacing: '1px', color: '#9E7D55', background: 'rgba(158, 125, 85, 0.12)', padding: '4px 10px', borderRadius: '4px' }}>
+                      <span style={{ fontSize: '10px', fontWeight: '800', textTransform: 'uppercase', letterSpacing: '1px', color: '#D4A85A', background: 'rgba(212, 168, 90, 0.12)', padding: '4px 10px', borderRadius: '4px' }}>
                         {targetAudiences[activeAudience].badge}
                       </span>
-                      <span style={{ fontSize: '13px', fontWeight: '750', color: '#047857' }}>
+                      <span style={{ fontSize: '12px', fontWeight: '700', color: 'var(--success)' }}>
                         Synergy Score: {targetAudiences[activeAudience].synergy}%
                       </span>
                     </div>
                     
-                    <h3 style={{ fontSize: '28px', fontWeight: '900', color: '#0B192C', margin: '0 0 12px 0' }}>
+                    <h3 style={{ fontSize: '22px', fontWeight: '900', color: '#ffffff', margin: '0 0 10px 0' }}>
                       {targetAudiences[activeAudience].title}
                     </h3>
                     
-                    <p style={{ fontSize: '15px', color: '#334155', lineHeight: '1.6', margin: 0 }}>
+                    <p style={{ fontSize: '14px', color: 'var(--text-muted)', lineHeight: '1.6', margin: 0 }}>
                       {targetAudiences[activeAudience].desc}
                     </p>
                   </div>
 
-                  <div style={{ marginTop: '24px', borderTop: '1px solid rgba(11, 25, 44, 0.08)', paddingTop: '20px' }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '13px', marginBottom: '8px' }}>
-                      <span style={{ color: '#475569', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Partner Focus Area:</span>
-                      <span style={{ fontWeight: '800', color: '#9E7D55' }}>{targetAudiences[activeAudience].focus}</span>
+                  <div style={{ marginTop: '24px', borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: '20px' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '12px', marginBottom: '8px' }}>
+                      <span style={{ color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Partner Focus Area:</span>
+                      <span style={{ fontWeight: '700', color: 'var(--supporting)' }}>{targetAudiences[activeAudience].focus}</span>
                     </div>
                     
                     {/* Synergy Progress Bar */}
-                    <div style={{ width: '100%', height: '6px', background: 'rgba(11, 25, 44, 0.08)', borderRadius: '3px', overflow: 'hidden', marginTop: '12px' }}>
+                    <div style={{ width: '100%', height: '6px', background: 'rgba(255,255,255,0.06)', borderRadius: '3px', overflow: 'hidden', marginTop: '12px' }}>
                       <motion.div
                         initial={{ width: 0 }}
                         animate={{ width: `${targetAudiences[activeAudience].synergy}%` }}
                         transition={{ duration: 0.5, ease: 'easeOut' }}
-                        style={{ height: '100%', background: 'linear-gradient(90deg, #9E7D55, #D4AF37)' }}
+                        style={{ height: '100%', background: 'linear-gradient(90deg, var(--accent), var(--supporting))' }}
                       />
                     </div>
                   </div>
@@ -1367,7 +1366,7 @@ export default function Partners() {
       </section>
 
       {/* ── SECTION 10: TERRITORIES ARE EXCLUSIVE ─────────────────────────── */}
-      <section style={{ padding: '100px 0', background: 'linear-gradient(180deg, var(--primary-bg) 0%, var(--secondary-bg) 100%)', borderBottom: '1px solid var(--gold-divider)', position: 'relative', overflow: 'hidden' }}>
+      <section style={{ padding: '100px 0', borderBottom: '1px solid var(--gold-divider)', position: 'relative', overflow: 'hidden' }}>
         {/* Glowing visual indicators in the background */}
         <div style={{ position: 'absolute', right: '-10%', top: '-20%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(212,168,90,0.06) 0%, transparent 70%)', pointerEvents: 'none' }} />
 
@@ -1449,7 +1448,7 @@ export default function Partners() {
       </section>
 
       {/* ── FINAL CTA ──────────────────────────────────────────────────────── */}
-      <section style={{ padding: '120px 0', background: 'linear-gradient(180deg, var(--secondary-bg) 0%, var(--primary-bg) 100%)', position: 'relative' }}>
+      <section style={{ padding: '120px 0', position: 'relative' }}>
         {/* Subtle glow background */}
         <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none', background: 'radial-gradient(circle at 50% 50%, rgba(31,58,95,0.85) 0%, transparent 60%)' }} />
         

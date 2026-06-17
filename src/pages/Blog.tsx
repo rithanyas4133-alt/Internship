@@ -200,7 +200,9 @@ export default function Blog() {
     >
       {/* SECTION 1: HERO SECTION */}
       <section
-        className="inner-hero bg-dark-royal"
+
+        className="inner-hero surface-royal"
+
         style={{
           position: 'relative',
           padding: '180px 0 120px 0',
@@ -212,6 +214,21 @@ export default function Blog() {
         }}
       >
         <div className="container" style={{ textAlign: 'center', position: 'relative', zIndex: 10 }}>
+          {/* FactSafe Logo on Risk Management / Blog page */}
+          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '24px' }}>
+            <div style={{ 
+              padding: '10px 20px', 
+              background: 'rgba(255, 255, 255, 0.03)', 
+              border: '1px solid rgba(255, 255, 255, 0.08)',
+              borderRadius: '16px',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '12px'
+            }}>
+              <span style={{ fontSize: '11px', fontWeight: 700, color: 'var(--supporting)', letterSpacing: '1px' }}>POWERED BY</span>
+              <img src="/images/Fact_safe.png" alt="FactSafe Logo" style={{ height: '32px', width: 'auto', objectFit: 'contain' }} />
+            </div>
+          </div>
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -279,7 +296,9 @@ export default function Blog() {
       </section>
 
       {/* SECTION 2: FEATURED INSIGHTS */}
-      <section className="section bg-soft-blue about-section-texture" style={{ padding: '80px 0 100px 0', borderBottom: '1px solid rgba(200, 162, 118, 0.12)' }}>
+
+      <section className="section surface-matte about-section-texture" style={{ padding: '80px 0 100px 0', borderBottom: '1px solid rgba(200, 162, 118, 0.12)' }}>
+
         <div className="container">
           <div className="section-title-wrapper" style={{ marginBottom: '56px', textAlign: 'left', marginLeft: '0' }}>
             <span className="section-subtitle" style={{ color: 'var(--supporting)' }}>EDITOR'S PICKS</span>
@@ -288,7 +307,7 @@ export default function Blog() {
           </div>
 
           <div className="grid-3" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '32px' }}>
-            {featuredArticles.map((article) => (
+            {featuredArticles.map((article,) => (
               <motion.article
                 key={article.id}
                 variants={fadeInUp}
@@ -336,8 +355,8 @@ export default function Blog() {
                     <span style={{ fontSize: '11px', color: 'var(--supporting)', fontWeight: 700, letterSpacing: '1.5px', textTransform: 'uppercase' }}>
                       {article.tagline}
                     </span>
-                    <span>•</span>
-                    <span style={{ fontSize: '11px', fontWeight: 500 }}>
+                    <span style={{ color: 'var(--text-muted)', fontSize: '12px' }}>•</span>
+                    <span style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 500 }}>
                       {article.inspiredBy}
                     </span>
                   </div>
@@ -345,6 +364,7 @@ export default function Blog() {
                   <h3
                     style={{
                       fontSize: '21px',
+                      color: 'var(--text-main)',
                       marginBottom: '14px',
                       lineHeight: 1.35,
                       fontWeight: 700,
@@ -354,7 +374,7 @@ export default function Blog() {
                     {article.title}
                   </h3>
 
-                  <p style={{ fontSize: '14.5px', lineHeight: 1.6, marginBottom: '24px', flexGrow: 1 }}>
+                  <p style={{ color: 'var(--text-muted)', fontSize: '14.5px', lineHeight: 1.6, marginBottom: '24px', flexGrow: 1 }}>
                     {article.summary}
                   </p>
 
@@ -364,6 +384,7 @@ export default function Blog() {
                       alignItems: 'center',
                       justifyContent: 'space-between',
                       fontSize: '12px',
+                      color: 'var(--text-muted)',
                       borderTop: '1px solid rgba(200, 162, 118, 0.18)',
                       paddingTop: '20px'
                     }}
@@ -394,7 +415,9 @@ export default function Blog() {
       </section>
 
       {/* SECTION 5: LATEST INSIGHTS */}
-      <section className="section bg-royal services-section-texture" style={{ padding: '100px 0', borderBottom: '1px solid rgba(200, 162, 118, 0.12)' }}>
+
+      <section className="section surface-royal services-section-texture" style={{ padding: '100px 0', borderBottom: '1px solid rgba(200, 162, 118, 0.12)' }}>
+
         <div className="container">
           <div
             style={{
@@ -519,7 +542,9 @@ export default function Blog() {
       </section>
 
       {/* SECTION 6: CUSTOMER SUCCESS PERSPECTIVE */}
-      <section className="section bg-light-blue compliance-section-texture" style={{ padding: '100px 0', borderBottom: '1px solid rgba(200, 162, 118, 0.12)' }}>
+
+      <section className="section surface-matte compliance-section-texture" style={{ padding: '100px 0', borderBottom: '1px solid rgba(200, 162, 118, 0.12)' }}>
+
         <div className="container">
           <div className="section-title-wrapper" style={{ marginBottom: '56px' }}>
             <span className="section-subtitle">IMPACT METRICS</span>
@@ -571,6 +596,7 @@ export default function Blog() {
                   <p
                     style={{
                       fontSize: '16px',
+                      color: 'var(--text-main)',
                       lineHeight: 1.7,
                       fontWeight: 500,
                       fontStyle: 'italic',
@@ -590,8 +616,8 @@ export default function Blog() {
                     flexDirection: 'column'
                   }}
                 >
-                  <span style={{ fontSize: '15px', fontWeight: 700 }}>{q.author}</span>
-                  <span style={{ fontSize: '13px' }}>{q.company}</span>
+                  <span style={{ fontSize: '15px', color: 'var(--text-main)', fontWeight: 700 }}>{q.author}</span>
+                  <span style={{ fontSize: '13px', color: 'var(--text-muted)' }}>{q.company}</span>
                 </div>
               </motion.div>
             ))}
@@ -600,7 +626,9 @@ export default function Blog() {
       </section>
 
       {/* SECTION 7: NEWSLETTER SUBSCRIPTION */}
-      <section className="section bg-royal products-section-texture" style={{ padding: '80px 0', borderBottom: '1px solid rgba(200, 162, 118, 0.12)' }}>
+
+      <section className="section surface-royal products-section-texture" style={{ padding: '80px 0', borderBottom: '1px solid rgba(200, 162, 118, 0.12)' }}>
+
         <div className="container" style={{ maxWidth: '800px' }}>
           <motion.div
             variants={fadeInUp}
@@ -702,7 +730,9 @@ export default function Blog() {
       </section>
 
       {/* SECTION 8: FUTURE INSIGHTS PLACEHOLDER */}
-      <section className="section bg-soft-blue about-section-texture" style={{ padding: '100px 0', borderBottom: '1px solid rgba(200, 162, 118, 0.12)' }}>
+
+      <section className="section surface-matte about-section-texture" style={{ padding: '100px 0', borderBottom: '1px solid rgba(200, 162, 118, 0.12)' }}>
+
         <div className="container">
           <div className="section-title-wrapper" style={{ marginBottom: '56px' }}>
             <span className="section-subtitle">FUTURE INTEGRATION</span>
@@ -746,6 +776,7 @@ export default function Blog() {
                   style={{
                     fontSize: '11px',
                     fontWeight: 700,
+                    color: 'var(--text-muted)',
                     textTransform: 'uppercase',
                     letterSpacing: '1px',
                     marginBottom: '8px'
@@ -754,13 +785,14 @@ export default function Blog() {
                   {fi.tag}
                 </span>
 
-                <h3 style={{ fontSize: '16px', fontWeight: 600, marginBottom: '16px', lineHeight: 1.4, maxWidth: '240px' }}>
+                <h3 style={{ fontSize: '16px', color: 'var(--text-main)', fontWeight: 600, marginBottom: '16px', lineHeight: 1.4, maxWidth: '240px' }}>
                   {fi.title}
                 </h3>
 
                 <span
                   style={{
                     fontSize: '12px',
+                    color: 'var(--text-muted)',
                     fontWeight: 500,
                     backgroundColor: 'rgba(255, 255, 255, 0.05)',
                     padding: '4px 12px',
@@ -776,7 +808,9 @@ export default function Blog() {
       </section>
 
       {/* SECTION 9: CALL TO ACTION */}
-      <section className="section bg-dark-royal contact-section-texture" style={{ padding: '0', position: 'relative', overflow: 'hidden' }}>
+
+      <section className="section surface-royal contact-section-texture" style={{ padding: '0', position: 'relative', overflow: 'hidden' }}>
+
             <div
           style={{
             padding: '100px 0',

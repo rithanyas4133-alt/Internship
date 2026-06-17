@@ -106,13 +106,14 @@ export default function IndiaMap() {
   const activeStateId = selectedCity?.stateId || null;
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '24px', width: '100%' }}>
+    <div style={{ display: 'flex', gap: '28px', alignItems: 'stretch', flexWrap: 'wrap' }}>
       {/* Map visual card */}
       <div 
         style={{ 
+          flex: '1 1 540px', 
           borderRadius: '20px', 
           padding: '24px', 
-          background: 'rgba(43, 74, 115, 0.25)', 
+          background: 'rgba(43, 74, 115, 0.4)', 
           border: '1px solid var(--border-color)',
           boxShadow: 'var(--shadow-lg)',
           backdropFilter: 'blur(8px)',
@@ -121,8 +122,7 @@ export default function IndiaMap() {
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          minHeight: '400px',
-          width: '100%'
+          minHeight: '600px'
         }}
       >
         {/* Subtle grid background */}
@@ -334,7 +334,7 @@ export default function IndiaMap() {
                   <p style={{ margin: '2px 0 0 0', fontSize: '11px', color: 'var(--text-muted)' }}>{hoveredCity.type}</p>
                 </div>
                 <div style={{ fontSize: '11px', color: '#D4A85A', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
-                  Click to Pin
+                  Click to Select
                 </div>
               </motion.div>
             )}
@@ -342,84 +342,139 @@ export default function IndiaMap() {
         </div>
       </div>
 
-      {/* Selected city information panel below */}
-      <AnimatePresence mode="wait">
-        {selectedCity && (
-          <motion.div
-            key={selectedCity.name}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.25 }}
-            style={{
-              borderRadius: '16px', 
-              padding: '20px', 
-              background: 'linear-gradient(180deg, rgba(43, 74, 115, 0.6), rgba(27, 42, 74, 0.7))', 
-              border: '1.5px solid var(--accent)',
-              boxShadow: '0 12px 36px rgba(0,0,0,0.4)',
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '12px'
-            }}
-          >
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+      {/* Info card side layout */}
+      <div 
+        style={{ 
+          width: '320px', 
+          minWidth: '280px',
+          display: 'flex', 
+          flexDirection: 'column', 
+          gap: '16px',
+          flexShrink: 0
+        }}
+      >
+        {/* City selector list */}
+        <div 
+          style={{ 
+            borderRadius: '16px', 
+            padding: '16px', 
+            background: 'rgba(43, 74, 115, 0.4)', 
+            border: '1px solid var(--border-color)',
+            boxShadow: 'var(--shadow-md)'
+          }}
+        >
+          <h4 style={{ margin: '0 0 12px 0', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '1px', color: 'var(--text-muted)' }}>
+            Select Territory
+          </h4>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
+            {priorityCities.map((city) => {
+              const isSelected = selectedCity?.name === city.name;
+              return (
+                <button
+                  key={city.name}
+                  onClick={() => setSelectedCity(city)}
+                  style={{
+                    padding: '8px 12px',
+                    borderRadius: '8px',
+                    border: '1px solid',
+                    borderColor: isSelected ? 'var(--accent)' : 'rgba(255,255,255,0.06)',
+                    background: isSelected ? 'rgba(212, 168, 90, 0.15)' : 'rgba(27, 42, 74, 0.3)',
+                    color: isSelected ? '#ffffff' : 'var(--text-muted)',
+                    fontSize: '12px',
+                    fontWeight: isSelected ? '800' : '500',
+                    cursor: 'pointer',
+                    transition: 'all 0.2s',
+                    textAlign: 'left'
+                  }}
+                >
+                  {city.name}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Selected city information panel */}
+        <AnimatePresence mode="wait">
+          {selectedCity && (
+            <motion.div
+              key={selectedCity.name}
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              transition={{ duration: 0.25 }}
+              style={{
+                borderRadius: '16px', 
+                padding: '20px', 
+                background: 'linear-gradient(180deg, rgba(43, 74, 115, 0.6), rgba(27, 42, 74, 0.7))', 
+                border: '1px solid var(--accent)',
+                boxShadow: '0 12px 36px rgba(0,0,0,0.4)',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '14px',
+                flexGrow: 1
+              }}
+            >
               <div>
                 <span style={{ fontSize: '10px', fontWeight: '800', textTransform: 'uppercase', letterSpacing: '1.2px', color: '#D4A85A', background: 'rgba(212, 168, 90, 0.12)', padding: '3px 8px', borderRadius: '4px' }}>
                   {selectedCity.state}
                 </span>
-                <h3 style={{ margin: '6px 0 2px 0', fontSize: '20px', fontWeight: '800', color: '#ffffff' }}>
+                <h3 style={{ margin: '8px 0 2px 0', fontSize: '20px', fontWeight: '800', color: '#ffffff' }}>
                   {selectedCity.name}
                 </h3>
+                <p style={{ margin: 0, fontSize: '12px', color: 'var(--supporting)', fontWeight: '600' }}>
+                  {selectedCity.type}
+                </p>
               </div>
-              <span style={{ fontSize: '11px', color: 'var(--supporting)', fontWeight: '600' }}>
-                {selectedCity.type}
-              </span>
-            </div>
 
-            <div style={{ height: '1px', background: 'rgba(212, 168, 90, 0.2)' }} />
+              <div style={{ height: '1px', background: 'rgba(212, 168, 90, 0.2)' }} />
 
-            {/* Clusters List */}
-            <div>
-              <h4 style={{ margin: '0 0 4px 0', fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.8px', color: 'var(--text-muted)' }}>
-                MSME Industry Clusters
-              </h4>
-              <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '8px' }}>
-                {selectedCity.clusters.map((c, i) => (
-                  <span 
-                    key={i} 
-                    style={{ 
-                      fontSize: '11px', 
-                      color: '#ffffff', 
-                      background: 'rgba(255,255,255,0.05)', 
-                      border: '1px solid rgba(255,255,255,0.08)', 
-                      padding: '2px 8px', 
-                      borderRadius: '12px',
-                      fontWeight: '500' 
-                    }}
-                  >
-                    {c}
-                  </span>
-                ))}
+              {/* Clusters List */}
+              <div>
+                <h4 style={{ margin: '0 0 8px 0', fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.8px', color: 'var(--text-muted)' }}>
+                  MSME Industry Clusters
+                </h4>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                  {selectedCity.clusters.map((c, i) => (
+                    <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                      <div style={{ width: '4px', height: '4px', borderRadius: '50%', background: '#D4A85A' }} />
+                      <span style={{ fontSize: '12px', color: '#ffffff', fontWeight: '500' }}>{c}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
 
-            {/* Opportunities Details */}
-            <div>
-              <h4 style={{ margin: '0 0 4px 0', fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.8px', color: 'var(--text-muted)' }}>
-                Market Opportunity
-              </h4>
-              <p style={{ margin: 0, fontSize: '12px', color: 'var(--text-muted)', lineHeight: '1.5' }}>
-                {selectedCity.opportunities}
-              </p>
-            </div>
+              {/* Opportunities Details */}
+              <div style={{ flexGrow: 1 }}>
+                <h4 style={{ margin: '0 0 6px 0', fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.8px', color: 'var(--text-muted)' }}>
+                  Market Opportunity
+                </h4>
+                <p style={{ margin: 0, fontSize: '12px', color: 'var(--text-muted)', lineHeight: '1.5' }}>
+                  {selectedCity.opportunities}
+                </p>
+              </div>
 
-            <div style={{ marginTop: '4px', display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12px', fontWeight: '700', color: '#D4A85A' }}>
-              <span>Territory Available</span>
-              <ArrowRight size={12} style={{ animation: 'conveyor-left-to-right 1.5s infinite linear' }} />
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+              <div style={{ marginTop: 'auto', paddingTop: '10px' }}>
+                <div 
+                  style={{ 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    gap: '6px', 
+                    fontSize: '11px', 
+                    fontWeight: '800', 
+                    color: '#D4A85A',
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.8px'
+                  }}
+                >
+                  Territory Available
+                  <ArrowRight size={12} style={{ animation: 'conveyor-left-to-right 1.5s infinite linear' }} />
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
     </div>
   );
 }

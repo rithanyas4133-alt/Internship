@@ -345,12 +345,15 @@ export default function Services() {
           HERO SECTION
           ================================================== */}
       <section 
-        className="section bg-dark-royal"
+
+        className="section surface-royal"
+
         style={{ 
           padding: '160px 0 120px 0', 
+          color: 'var(--text-main)',
           position: 'relative',
           overflow: 'hidden',
-          backgroundImage: 'linear-gradient(rgba(31, 58, 95, 0.85), rgba(31, 58, 95, 0.92)), url("/images/industrial_control_room_1780849774868.png")',
+          backgroundImage: 'linear-gradient(rgba(31, 58, 95, 0.85), rgba(15, 28, 50, 0.92)), url("/images/industrial_control_room_1780849774868.png")',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           borderBottom: '1px solid rgba(200, 162, 118, 0.18)'
@@ -359,7 +362,22 @@ export default function Services() {
         <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'radial-gradient(circle at 80% 20%, rgba(200, 162, 118, 0.05) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
           <div style={{ maxWidth: '780px', margin: '0 auto', textAlign: 'center' }}>
-                <motion.div 
+              {/* Courier Cost Optimizer Logo on Courier Optimization page */}
+              <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '24px' }}>
+                <div style={{ 
+                  padding: '12px 24px', 
+                  background: 'rgba(255, 255, 255, 0.03)', 
+                  border: '1px solid rgba(255, 255, 255, 0.08)',
+                  borderRadius: '16px',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '12px'
+                }}>
+                  <span style={{ fontSize: '11px', fontWeight: 800, color: 'var(--supporting)', letterSpacing: '1px' }}>POWERED BY</span>
+                  <img src="/images/Courier Cost Optimizer.png" alt="Courier Cost Optimizer Logo" style={{ height: '40px', width: 'auto', objectFit: 'contain' }} />
+                </div>
+              </div>
+              <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
@@ -433,12 +451,14 @@ export default function Services() {
       {/* ==================================================
           SECTION: HOW WE PARTNER WITH OUR CLIENTS
           ================================================== */}
-      <section className="section bg-soft-blue about-section-texture" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.12)' }}>
+
+      <section className="section surface-matte about-section-texture" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.12)' }}>
+
         <div className="container">
           <div className="section-title-wrapper" style={{ marginBottom: '56px' }}>
-            <span className="section-subtitle" style={{ color: 'var(--accent)' }}>Our Engagement Model</span>
-            <h2 className="section-title" style={{ color: 'inherit' }}>How We Partner With Our Clients</h2>
-            <p className="section-desc" style={{ color: 'inherit' }}>
+            <span className="section-subtitle" style={{ color: 'var(--supporting)' }}>Our Engagement Model</span>
+            <h2 className="section-title" style={{ color: '#ffffff' }}>How We Partner With Our Clients</h2>
+            <p className="section-desc" style={{ color: '#94a3b8' }}>
               Every organization has unique challenges. Explore how CEA Infotech collaborates with businesses to design, develop and support technology solutions.
             </p>
           </div>
@@ -478,11 +498,11 @@ export default function Services() {
                         {card.icon}
                       </div>
                       <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
-                        <h3 style={{ fontSize: '18px', fontWeight: '800', color: 'inherit', margin: 0 }}>
-                           {card.title}
+                        <h3 style={{ fontSize: '18px', fontWeight: '800', color: '#ffffff', margin: 0 }}>
+                          {card.title}
                         </h3>
                         {!isExpanded && (
-                          <p style={{ fontSize: '13.5px', color: 'inherit', opacity: 0.85, margin: 0 }}>
+                          <p style={{ fontSize: '13.5px', color: '#94a3b8', margin: 0 }}>
                             {card.summary}
                           </p>
                         )}
@@ -509,28 +529,28 @@ export default function Services() {
                           {/* Column 1 */}
                           <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
                             <div>
-                              <h4 style={{ fontSize: '12.5px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px', color: 'var(--accent)', marginBottom: '6px', textAlign: 'left' }}>
+                              <h4 style={{ fontSize: '12.5px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px', color: 'var(--supporting)', marginBottom: '6px', textAlign: 'left' }}>
                                 Business Challenges
                               </h4>
-                              <p style={{ fontSize: '13.5px', color: 'inherit', lineHeight: '1.5', margin: 0, textAlign: 'left' }}>
+                              <p style={{ fontSize: '13.5px', color: '#94a3b8', lineHeight: '1.5', margin: 0, textAlign: 'left' }}>
                                 {card.challenges}
                               </p>
                             </div>
                             
                             <div>
-                              <h4 style={{ fontSize: '12.5px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px', color: 'var(--accent)', marginBottom: '6px', textAlign: 'left' }}>
+                              <h4 style={{ fontSize: '12.5px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px', color: 'var(--supporting)', marginBottom: '6px', textAlign: 'left' }}>
                                 CEA Approach
                               </h4>
-                              <p style={{ fontSize: '13.5px', color: 'inherit', lineHeight: '1.5', margin: 0, textAlign: 'left' }}>
+                              <p style={{ fontSize: '13.5px', color: '#f1f5f9', lineHeight: '1.5', margin: 0, textAlign: 'left' }}>
                                 {card.approach}
                               </p>
                             </div>
 
                             <div>
-                              <h4 style={{ fontSize: '12.5px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px', color: 'var(--accent)', marginBottom: '6px', textAlign: 'left' }}>
+                              <h4 style={{ fontSize: '12.5px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px', color: 'var(--supporting)', marginBottom: '6px', textAlign: 'left' }}>
                                 Technology Stack
                               </h4>
-                              <p style={{ fontSize: '13.5px', color: 'inherit', fontFamily: 'monospace', margin: 0, textAlign: 'left' }}>
+                              <p style={{ fontSize: '13.5px', color: '#94a3b8', fontFamily: 'monospace', margin: 0, textAlign: 'left' }}>
                                 {card.techStack}
                               </p>
                             </div>
@@ -542,7 +562,7 @@ export default function Services() {
                               <h4 style={{ fontSize: '12.5px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px', color: 'var(--accent)', marginBottom: '6px', textAlign: 'left' }}>
                                 Implementation Roadmap
                               </h4>
-                              <p style={{ fontSize: '13.5px', color: 'inherit', lineHeight: '1.5', margin: 0, textAlign: 'left' }}>
+                              <p style={{ fontSize: '13.5px', color: '#f1f5f9', lineHeight: '1.5', margin: 0, textAlign: 'left' }}>
                                 {card.roadmap}
                               </p>
                             </div>
@@ -551,7 +571,7 @@ export default function Services() {
                               <h4 style={{ fontSize: '12.5px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px', color: 'var(--accent)', marginBottom: '6px', textAlign: 'left' }}>
                                 Customer Benefits
                               </h4>
-                              <p style={{ fontSize: '13.5px', color: 'inherit', lineHeight: '1.5', margin: 0, textAlign: 'left' }}>
+                              <p style={{ fontSize: '13.5px', color: '#94a3b8', lineHeight: '1.5', margin: 0, textAlign: 'left' }}>
                                 {card.benefits}
                               </p>
                             </div>
@@ -560,7 +580,7 @@ export default function Services() {
                               <h4 style={{ fontSize: '12.5px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px', color: 'var(--accent)', marginBottom: '6px', textAlign: 'left' }}>
                                 Business KPIs
                               </h4>
-                              <p style={{ fontSize: '13.5px', color: 'inherit', fontWeight: '600', margin: 0, textAlign: 'left' }}>
+                              <p style={{ fontSize: '13.5px', color: '#f1f5f9', fontWeight: '600', margin: 0, textAlign: 'left' }}>
                                 {card.kpis}
                               </p>
                             </div>
@@ -580,7 +600,7 @@ export default function Services() {
                           <h4 style={{ margin: '0 0 4px 0', fontSize: '11px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1.5px', color: 'var(--supporting)', textAlign: 'left' }}>
                             Expected Outcome:
                           </h4>
-                          <p style={{ margin: 0, fontSize: '14px', color: 'inherit', fontWeight: '600', lineHeight: '1.4', textAlign: 'left' }}>
+                          <p style={{ margin: 0, fontSize: '14px', color: '#f1f5f9', fontWeight: '600', lineHeight: '1.4', textAlign: 'left' }}>
                             {card.outcomes}
                           </p>
                         </div>
@@ -597,7 +617,9 @@ export default function Services() {
       {/* ==================================================
           SECTION: OUR SOLUTION DELIVERY FRAMEWORK
           ================================================== */}
-      <section className="section bg-royal compliance-section-texture" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.12)', position: 'relative', overflow: 'hidden' }}>
+
+      <section className="section surface-royal compliance-section-texture" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.12)', position: 'relative', overflow: 'hidden' }}>
+
         <div style={{ position: 'absolute', top: '0', left: '50%', transform: 'translateX(-50%)', width: '600px', height: '300px', background: 'radial-gradient(ellipse at center, rgba(200, 162, 118, 0.04) 0%, transparent 70%)', pointerEvents: 'none' }} />
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <div className="section-title-wrapper" style={{ marginBottom: '64px' }}>
@@ -682,14 +704,16 @@ export default function Services() {
       {/* ==================================================
           SECTION: MATCHING BUSINESS NEEDS TO SOLUTIONS
           ================================================== */}
-      <section id="solutions-matching" className="section bg-light-blue products-section-texture" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.12)', position: 'relative', overflow: 'hidden' }}>
+
+      <section id="solutions-matching" className="section surface-matte products-section-texture" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.12)', position: 'relative', overflow: 'hidden' }}>
+
         <div style={{ position: 'absolute', top: '-20%', right: '-10%', width: '500px', height: '500px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(200, 162, 118, 0.04) 0%, transparent 65%)', pointerEvents: 'none' }} />
         <div style={{ position: 'absolute', bottom: '-20%', left: '-10%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(200, 162, 118, 0.03) 0%, transparent 65%)', pointerEvents: 'none' }} />
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <div className="section-title-wrapper" style={{ marginBottom: '56px' }}>
-            <span className="section-subtitle" style={{ color: 'var(--accent)' }}>Product Alignments</span>
-            <h2 className="section-title" style={{ color: 'inherit' }}>The Right Solution For Every Business Need</h2>
-            <p className="section-desc" style={{ color: 'inherit' }}>Aligning specific operational demands to our proprietary tools or customized engineering tracks.</p>
+            <span className="section-subtitle" style={{ color: 'var(--supporting)' }}>Product Alignments</span>
+            <h2 className="section-title" style={{ color: '#ffffff' }}>The Right Solution For Every Business Need</h2>
+            <p className="section-desc" style={{ color: '#94a3b8' }}>Aligning specific operational demands to our proprietary tools or customized engineering tracks.</p>
           </div>
 
           <div className="grid-3" style={{ gap: '24px' }}>
@@ -731,16 +755,36 @@ export default function Services() {
                   </span>
                 </div>
 
-                <div style={{ flexGrow: 1 }}>
-                  <h3 style={{ fontSize: '18px', fontWeight: '800', margin: '0 0 6px 0', fontFamily: 'var(--font-headings)' }}>
+                 <div style={{ flexGrow: 1 }}>
+                  {sol.product === "Courier Cost Management" && (
+                    <div style={{ marginBottom: '12px', display: 'flex', alignItems: 'center' }}>
+                      <img src="/images/Courier Cost Optimizer.png" alt="Courier Cost Optimizer Logo" style={{ height: '48px', width: 'auto', objectFit: 'contain' }} />
+                    </div>
+                  )}
+                  {sol.product === "Vericea Manufacturing" && (
+                    <div style={{ marginBottom: '12px', display: 'flex', alignItems: 'center' }}>
+                      <img src="/images/Vericea.png" alt="Vericea Logo" style={{ height: '24px', width: 'auto', objectFit: 'contain' }} />
+                    </div>
+                  )}
+                  {sol.product === "Vericea Compliance" && (
+                    <div style={{ marginBottom: '12px', display: 'flex', alignItems: 'center' }}>
+                      <img src="/images/Vericea.png" alt="Vericea Logo" style={{ height: '24px', width: 'auto', objectFit: 'contain' }} />
+                    </div>
+                  )}
+                  {sol.product === "FactSafe" && (
+                    <div style={{ marginBottom: '12px', display: 'flex', alignItems: 'center' }}>
+                      <img src="/images/Fact_safe.png" alt="FactSafe Logo" style={{ height: '32px', width: 'auto', objectFit: 'contain' }} />
+                    </div>
+                  )}
+                  <h3 style={{ fontSize: '18px', fontWeight: '800', color: '#ffffff', margin: '0 0 6px 0', fontFamily: 'var(--font-headings)' }}>
                     {sol.product}
                   </h3>
-                  <p style={{ fontSize: '13.5px', lineHeight: '1.5', margin: 0 }}>
+                  <p style={{ fontSize: '13.5px', color: '#94a3b8', lineHeight: '1.5', margin: 0 }}>
                     {sol.desc}
                   </p>
                 </div>
 
-                <div style={{ display: 'flex', justifyContent: 'flex-start', borderTop: '1px solid var(--border-color)', paddingTop: '16px', marginTop: '8px' }}>
+                <div style={{ display: 'flex', justifyContent: 'flex-start', borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: '16px', marginTop: '8px' }}>
                   <button 
                     onClick={() => navigate('/products')} 
                     style={{
@@ -769,7 +813,9 @@ export default function Services() {
       {/* ==================================================
           SECTION: BUSINESS OUTCOMES (KPI Conveyor Belt)
           ================================================== */}
-      <section className="section bg-royal services-section-texture" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.12)', position: 'relative', overflow: 'hidden', padding: '60px 0 65px 0' }}>
+
+      <section className="section surface-royal services-section-texture" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.12)', position: 'relative', overflow: 'hidden', padding: '60px 0 65px 0' }}>
+
         {/* Shared SVG gradients and filters */}
         <svg style={{ position: 'absolute', width: 0, height: 0, overflow: 'hidden' }} aria-hidden="true">
           <defs>
@@ -954,7 +1000,9 @@ export default function Services() {
       {/* ==================================================
           CTA SECTION
           ================================================== */}
-      <section className="section bg-soft-blue contact-section-texture" style={{ position: 'relative', overflow: 'hidden' }}>
+
+      <section className="section surface-matte contact-section-texture" style={{ position: 'relative', overflow: 'hidden' }}>
+
         <div style={{ position: 'absolute', top: '-10%', right: '-10%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(200, 162, 118, 0.04) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
         <div style={{ position: 'absolute', bottom: '-10%', left: '-10%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(200, 162, 118, 0.04) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
 
@@ -966,10 +1014,10 @@ export default function Services() {
             viewport={scrollReveal.viewport}
             style={{ maxWidth: '720px', margin: '0 auto' }}
           >
-            <h2 style={{ fontSize: '38px', marginBottom: '20px', letterSpacing: '-1px', color: 'inherit', fontWeight: '800' }}>
+            <h2 style={{ fontSize: '38px', marginBottom: '20px', letterSpacing: '-1px', color: '#ffffff', fontWeight: '800' }}>
               Ready To Solve Your Business Challenges?
             </h2>
-            <p style={{ fontSize: '16px', color: 'inherit', marginBottom: '40px', lineHeight: '1.6' }}>
+            <p style={{ fontSize: '16px', color: 'rgba(241, 245, 249, 0.8)', marginBottom: '40px', lineHeight: '1.6' }}>
               Partner with CEA Infotech to build scalable, secure and efficient technology solutions that drive measurable business outcomes.
             </p>
             <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap' }}>
@@ -986,8 +1034,9 @@ export default function Services() {
               <motion.button 
                 onClick={() => navigate('/products')} 
                 className="btn btn-dark-outline"
-                whileHover={{ scale: 1.03, borderColor: '#ffffff', backgroundColor: 'rgba(255,255,255,0.05)' }}
+                whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.98 }}
+                style={{ border: '2px solid rgba(255,255,255,0.25)', color: '#ffffff' }}
               >
                 Explore Products
               </motion.button>

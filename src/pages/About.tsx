@@ -61,7 +61,9 @@ function DigitalEcosystem() {
   };
 
   return (
-    <section className="bg-soft-blue" style={{ padding: '110px 0 120px', overflow: 'hidden', position: 'relative' }}>
+
+    <section className="surface-matte" style={{ padding: '110px 0 120px', overflow: 'hidden', position: 'relative' }}>
+
       {/* Animated grid */}
       <div style={{
         position: 'absolute', inset: 0,
@@ -135,8 +137,8 @@ function DigitalEcosystem() {
             </defs>
 
             {/* Orbit rings */}
-            <circle cx={CX} cy={CY} r={R} fill="none" stroke="var(--orbit-stroke)" strokeWidth="1" />
-            <circle cx={CX} cy={CY} r={R * 0.55} fill="none" stroke="var(--orbit-stroke)" strokeWidth="1" strokeDasharray="5 9" />
+            <circle cx={CX} cy={CY} r={R} fill="none" stroke="rgba(255,255,255,0.035)" strokeWidth="1" />
+            <circle cx={CX} cy={CY} r={R * 0.55} fill="none" stroke="rgba(255,255,255,0.025)" strokeWidth="1" strokeDasharray="5 9" />
             <circle cx={CX} cy={CY} r={R * 0.4} fill="none" stroke="rgba(245,158,11,0.08)" strokeWidth="1" />
             {/* Center ambient glow */}
             <circle cx={CX} cy={CY} r={130} fill="url(#eco-center-grad)" />
@@ -220,7 +222,7 @@ function DigitalEcosystem() {
                         x={p.x + lox}
                         y={p.y + loy + li * 23 + (lines.length > 1 ? -12 : 0)}
                         textAnchor={ta} fontSize="18" fontWeight="800"
-                        fill={active ? n.color : 'var(--node-text)'}
+                        fill={active ? n.color : '#F5F5F5'}
                         fontFamily="var(--font-headings)"
                         letterSpacing="0.4"
                         filter={active ? 'url(#eco-glow)' : undefined}
@@ -255,7 +257,7 @@ function DigitalEcosystem() {
                 transition={{ duration: 3, repeat: Infinity }}
               />
               <text x={CX} y={CY - 15} textAnchor="middle" fontSize="34" fontWeight="800" fill="#C8A276" fontFamily="var(--font-headings)" letterSpacing="2">CEA</text>
-              <text x={CX} y={CY + 12} textAnchor="middle" fontSize="19" fontWeight="700" fill="var(--node-text)" fontFamily="var(--font-headings)" letterSpacing="1">INFOTECH</text>
+              <text x={CX} y={CY + 12} textAnchor="middle" fontSize="19" fontWeight="700" fill="#F5F5F5" fontFamily="var(--font-headings)" letterSpacing="1">INFOTECH</text>
               <text x={CX} y={CY + 32} textAnchor="middle" fontSize="12.5" fontWeight="600" fill="rgba(200,162,118,0.85)" fontFamily="var(--font-headings)" letterSpacing="1.8">DIGITAL ECOSYSTEM</text>
             </g>
           </svg>
@@ -298,7 +300,9 @@ function IndustriesWall() {
   const [hovered, setHovered] = useState<string | null>(null);
 
   return (
-    <section className="bg-royal" style={{ padding: '110px 0 120px', overflow: 'hidden', position: 'relative' }}>
+
+    <section className="surface-royal" style={{ padding: '110px 0 120px', overflow: 'hidden', position: 'relative' }}>
+
       <div style={{
         position: 'absolute', inset: 0,
         backgroundImage: 'linear-gradient(rgba(245,158,11,0.018) 1px,transparent 1px),linear-gradient(90deg,rgba(245,158,11,0.018) 1px,transparent 1px)',
@@ -557,15 +561,15 @@ function GlassValueNode({
           boxShadow: isHovered
             ? '0 12px 40px rgba(0, 0, 0, 0.45)'
             : '0 8px 32px rgba(0, 0, 0, 0.35)',
-          borderColor: isHovered ? 'rgba(200, 162, 118, 0.45)' : 'var(--node-border)',
-          backgroundColor: isHovered ? 'var(--node-bg-hover)' : 'var(--node-bg)',
+          borderColor: isHovered ? 'rgba(200, 162, 118, 0.45)' : 'rgba(200, 162, 118, 0.18)',
+          backgroundColor: isHovered ? 'rgba(17, 34, 64, 0.92)' : 'rgba(17, 34, 64, 0.85)',
           backdropFilter: isHovered ? 'blur(12px)' : 'blur(8px)',
         }}
         transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
         style={{
           borderRadius: '16px',
-          border: '1px solid var(--node-border)',
-          background: 'var(--node-bg)',
+          border: '1px solid rgba(200, 162, 118, 0.18)',
+          background: 'rgba(17, 34, 64, 0.85)',
           backdropFilter: 'blur(8px)',
           WebkitBackdropFilter: 'blur(8px)',
           padding: '20px 24px',
@@ -594,7 +598,7 @@ function GlassValueNode({
         <div style={{
           fontSize: '9px',
           fontWeight: '900',
-          color: isHovered ? '#C8A276' : 'var(--node-muted)',
+          color: isHovered ? '#C8A276' : 'rgba(255, 255, 255, 0.25)',
           fontFamily: 'var(--font-headings)',
           letterSpacing: '1px',
           marginBottom: '8px',
@@ -611,13 +615,13 @@ function GlassValueNode({
           fontFamily: 'var(--font-headings)',
           letterSpacing: '-0.3px',
           transition: 'color 0.3s',
-          color: isHovered ? '#C8A276' : 'var(--node-text)',
+          color: isHovered ? '#C8A276' : '#FFFFFF',
         }}>
           {v.title}
         </h4>
         <div style={{
           fontSize: '11px',
-          color: 'var(--node-muted)',
+          color: 'rgba(209, 213, 219, 0.55)',
           fontWeight: '500',
           lineHeight: 1.2,
         }}>
@@ -628,7 +632,7 @@ function GlassValueNode({
       <div style={{ display: 'flex', justifyContent: 'center', marginTop: '8px' }}>
         <motion.div
           animate={{
-            backgroundColor: isHovered ? '#C8A276' : 'var(--node-muted)',
+            backgroundColor: isHovered ? '#C8A276' : 'rgba(255, 255, 255, 0.15)',
             boxShadow: isHovered ? '0 0 10px #C8A276' : 'none',
             scale: isHovered ? 1.25 : 1,
           }}
@@ -637,7 +641,7 @@ function GlassValueNode({
             width: '8px',
             height: '8px',
             borderRadius: '50%',
-            border: '2px solid var(--node-border)',
+            border: '2px solid #040810',
           }}
         />
       </div>
@@ -760,10 +764,13 @@ function CoreValuesSection() {
 
   return (
     <section
-      className="bg-light-blue"
+
+      className="surface-matte"
+
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       style={{
+        background: '#040810',
         padding: '120px 0 130px',
         overflow: 'hidden',
         position: 'relative',
@@ -850,6 +857,7 @@ function CoreValuesSection() {
           <h2 style={{
             fontSize: 'clamp(32px, 3.8vw, 52px)',
             fontWeight: '800',
+            color: '#FFFFFF',
             margin: '0 0 14px 0',
             fontFamily: 'var(--font-headings)',
             letterSpacing: '-0.5px',
@@ -858,6 +866,7 @@ function CoreValuesSection() {
           </h2>
           <p style={{
             fontSize: '15.5px',
+            color: 'rgba(209, 213, 219, 0.6)',
             maxWidth: '520px',
             margin: '0 auto',
             lineHeight: 1.65,
@@ -903,22 +912,22 @@ function CoreValuesSection() {
               minHeight: '120px',
               textAlign: 'center',
               padding: '16px 20px',
-              background: 'var(--node-bg)',
+              background: 'rgba(10, 15, 28, 0.45)',
               backdropFilter: 'blur(10px)',
               borderRadius: '16px',
-              border: '1px solid var(--node-border)',
+              border: '1px solid rgba(212, 175, 55, 0.1)',
             }}>
               {activeValue ? (
                 <div>
                   <div style={{ fontSize: '10px', fontWeight: '800', color: '#C8A276', letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: '4px' }}>{activeValue.theme}</div>
-                  <h4 style={{ fontSize: '18px', fontWeight: '800', color: 'var(--node-text)', margin: '0 0 6px 0', fontFamily: 'var(--font-headings)' }}>{activeValue.title}</h4>
-                  <p style={{ fontSize: '13px', color: 'var(--node-text)', opacity: 0.8, margin: 0, lineHeight: 1.45 }}>{activeValue.desc}</p>
+                  <h4 style={{ fontSize: '18px', fontWeight: '800', color: '#fff', margin: '0 0 6px 0', fontFamily: 'var(--font-headings)' }}>{activeValue.title}</h4>
+                  <p style={{ fontSize: '13px', color: 'rgba(209, 213, 219, 0.85)', margin: 0, lineHeight: 1.45 }}>{activeValue.desc}</p>
                 </div>
               ) : (
                 <div>
-                  <div style={{ fontSize: '10px', fontWeight: '700', color: 'var(--node-muted)', letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: '4px' }}>CEA Pillars</div>
-                  <h4 style={{ fontSize: '18px', fontWeight: '800', color: 'var(--node-text)', margin: '0 0 6px 0', fontFamily: 'var(--font-headings)' }}>Enterprise DNA</h4>
-                  <p style={{ fontSize: '13px', color: 'var(--node-muted)', margin: 0, lineHeight: 1.45 }}>Tap on our values below to explore.</p>
+                  <div style={{ fontSize: '10px', fontWeight: '700', color: 'rgba(255, 255, 255, 0.3)', letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: '4px' }}>CEA Pillars</div>
+                  <h4 style={{ fontSize: '18px', fontWeight: '800', color: '#fff', margin: '0 0 6px 0', fontFamily: 'var(--font-headings)' }}>Enterprise DNA</h4>
+                  <p style={{ fontSize: '13px', color: 'rgba(209, 213, 219, 0.55)', margin: 0, lineHeight: 1.45 }}>Tap on our values below to explore.</p>
                 </div>
               )}
             </div>
@@ -933,8 +942,8 @@ function CoreValuesSection() {
                     onClick={() => setHovered(isSelected ? null : v.id)}
                     style={{
                       borderRadius: '12px',
-                      border: `1.5px solid ${isSelected ? '#C8A276' : 'var(--node-border)'}`,
-                      background: isSelected ? 'var(--node-bg-hover)' : 'var(--node-bg)',
+                      border: `1px solid ${isSelected ? '#C8A276' : 'rgba(255, 255, 255, 0.08)'}`,
+                      background: isSelected ? 'rgba(255, 255, 255, 0.12)' : 'rgba(255, 255, 255, 0.08)',
                       padding: '14px 20px',
                       cursor: 'pointer',
                       display: 'flex',
@@ -945,14 +954,14 @@ function CoreValuesSection() {
                     }}
                   >
                     <div>
-                      <div style={{ fontSize: '14px', fontWeight: '800', color: isSelected ? '#C8A276' : 'var(--node-text)', fontFamily: 'var(--font-headings)' }}>{v.title}</div>
-                      <div style={{ fontSize: '10.5px', color: 'var(--node-muted)' }}>{v.theme}</div>
+                      <div style={{ fontSize: '14px', fontWeight: '800', color: isSelected ? '#C8A276' : '#fff', fontFamily: 'var(--font-headings)' }}>{v.title}</div>
+                      <div style={{ fontSize: '10.5px', color: 'rgba(209, 213, 219, 0.5)' }}>{v.theme}</div>
                     </div>
                     <div style={{
                       width: '8px',
                       height: '8px',
                       borderRadius: '50%',
-                      backgroundColor: isSelected ? '#C8A276' : 'var(--node-muted)',
+                      backgroundColor: isSelected ? '#C8A276' : 'rgba(255, 255, 255, 0.2)',
                       boxShadow: isSelected ? '0 0 8px #C8A276' : 'none',
                       transition: 'all 0.3s ease',
                     }} />
@@ -1367,6 +1376,7 @@ export default function About() {
 
   return (
     <div className="about-page-bg">
+
       <style dangerouslySetInnerHTML={{ __html: `
         .about-page-bg {
           --node-bg: rgba(17, 34, 64, 0.85);
@@ -1377,7 +1387,7 @@ export default function About() {
           --node-muted: rgba(209, 213, 219, 0.55);
           --orbit-stroke: rgba(255, 255, 255, 0.035);
         }
-        .bg-soft-blue, .bg-light-blue {
+        .surface-matte, .surface-matte, .surface-matte, .surface-matte, .surface-matte {
           --node-bg: rgba(255, 255, 255, 0.7);
           --node-bg-hover: rgba(255, 255, 255, 0.95);
           --node-border: rgba(15, 23, 42, 0.08);
@@ -1387,6 +1397,7 @@ export default function About() {
           --orbit-stroke: rgba(15, 23, 42, 0.05);
         }
       `}} />
+
       {/* ===== HERO ===== */}
       <section className="about-hero">
         <div className="about-hero-bg">
@@ -1405,7 +1416,9 @@ export default function About() {
       </section>
 
       {/* ===== WHO WE ARE ===== */}
-      <section className="section bg-soft-blue about-who-section">
+
+      <section className="section surface-matte about-who-section">
+
         <div className="container">
           <div className="about-who-grid">
             <motion.div className="about-who-image" {...fadeInUp}>
@@ -1428,7 +1441,9 @@ export default function About() {
       </section>
 
       {/* ===== VISION ===== */}
-      <section className="section bg-royal about-vision-section">
+
+      <section className="section surface-royal about-vision-section">
+
         <div className="container">
           <motion.div className="section-title-wrapper" {...fadeInUp}>
             <span className="section-subtitle">Our Vision</span>
@@ -1459,7 +1474,9 @@ export default function About() {
       <CoreValuesSection />
 
       {/* ===== FOUNDER ===== */}
-      <section className="section bg-royal about-founder-section">
+
+      <section className="section surface-royal about-founder-section">
+
         <div className="container">
           <motion.div className="section-title-wrapper" {...fadeInUp}>
             <span className="section-subtitle">Leadership</span>
@@ -1498,7 +1515,9 @@ export default function About() {
       <IndustriesWall />
 
       {/* ===== COMPANY JOURNEY ===== */}
-      <section className="section bg-light-blue about-journey-section">
+
+      <section className="section surface-matte about-journey-section">
+
         <div className="container">
           <motion.div className="section-title-wrapper" {...fadeInUp}>
             <span className="section-subtitle">Milestones</span>
@@ -1523,7 +1542,9 @@ export default function About() {
       </section>
 
       {/* ===== WHY CHOOSE CEA ===== */}
-      <section className="section bg-royal about-why-section" style={{ padding: '100px 0' }}>
+
+      <section className="section surface-royal about-why-section" style={{ padding: '100px 0' }}>
+
         <div className="container">
           <motion.div className="section-title-wrapper" {...fadeInUp}>
             <span className="section-subtitle">Our Advantage</span>
@@ -1596,7 +1617,9 @@ export default function About() {
       </section>
 
       {/* ===== CTA ===== */}
-      <section className="about-cta-section bg-soft-blue">
+
+      <section className="about-cta-section surface-matte">
+
         <div className="container">
           <motion.div className="about-cta-content" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
             <h2>Let's Build Smarter Business Solutions Together</h2>

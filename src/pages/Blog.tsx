@@ -212,6 +212,21 @@ export default function Blog() {
         }}
       >
         <div className="container" style={{ textAlign: 'center', position: 'relative', zIndex: 10 }}>
+          {/* FactSafe Logo on Risk Management / Blog page */}
+          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '24px' }}>
+            <div style={{ 
+              padding: '10px 20px', 
+              background: 'rgba(255, 255, 255, 0.03)', 
+              border: '1px solid rgba(255, 255, 255, 0.08)',
+              borderRadius: '16px',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '12px'
+            }}>
+              <span style={{ fontSize: '11px', fontWeight: 700, color: 'var(--supporting)', letterSpacing: '1px' }}>POWERED BY</span>
+              <img src="/images/Fact_safe.png" alt="FactSafe Logo" style={{ height: '32px', width: 'auto', objectFit: 'contain' }} />
+            </div>
+          </div>
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}

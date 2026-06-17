@@ -330,41 +330,33 @@ export default function Partners() {
 
               {/* Floating Node 1: Manufacturing */}
               <div className="partners-float-1" style={{ position: 'absolute', left: '15%', top: '15%', zIndex: 3 }}>
-                <div style={{ padding: '10px 16px', borderRadius: '12px', background: 'rgba(43,74,115,0.9)', border: '1px solid var(--accent)', boxShadow: 'var(--shadow-md)' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#D4A85A' }} />
-                    <span style={{ fontSize: '12px', fontWeight: '800', color: '#ffffff' }}>Manufacturing</span>
-                  </div>
+                <div style={{ padding: '10px 16px', borderRadius: '12px', background: 'rgba(43,74,115,0.9)', border: '1px solid var(--accent)', boxShadow: 'var(--shadow-md)', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <img src="/images/Vericea.png" alt="Vericea Logo" style={{ height: '14px', width: 'auto', objectFit: 'contain' }} />
+                  <span style={{ fontSize: '12px', fontWeight: '800', color: '#ffffff' }}>Manufacturing</span>
                 </div>
               </div>
 
               {/* Floating Node 2: Logistics */}
               <div className="partners-float-2" style={{ position: 'absolute', right: '10%', top: '25%', zIndex: 3 }}>
-                <div style={{ padding: '10px 16px', borderRadius: '12px', background: 'rgba(43,74,115,0.9)', border: '1px solid var(--accent)', boxShadow: 'var(--shadow-md)' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#D4A85A' }} />
-                    <span style={{ fontSize: '12px', fontWeight: '800', color: '#ffffff' }}>Logistics</span>
-                  </div>
+                <div style={{ padding: '10px 16px', borderRadius: '12px', background: 'rgba(43,74,115,0.9)', border: '1px solid var(--accent)', boxShadow: 'var(--shadow-md)', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <img src="/images/Courier Cost Optimizer.png" alt="Courier Cost Optimizer Logo" style={{ height: '20px', width: 'auto', objectFit: 'contain' }} />
+                  <span style={{ fontSize: '12px', fontWeight: '800', color: '#ffffff' }}>Logistics</span>
                 </div>
               </div>
 
               {/* Floating Node 3: Compliance */}
               <div className="partners-float-3" style={{ position: 'absolute', left: '8%', bottom: '25%', zIndex: 3 }}>
-                <div style={{ padding: '10px 16px', borderRadius: '12px', background: 'rgba(43,74,115,0.9)', border: '1px solid var(--accent)', boxShadow: 'var(--shadow-md)' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#D4A85A' }} />
-                    <span style={{ fontSize: '12px', fontWeight: '800', color: '#ffffff' }}>Compliance</span>
-                  </div>
+                <div style={{ padding: '10px 16px', borderRadius: '12px', background: 'rgba(43,74,115,0.9)', border: '1px solid var(--accent)', boxShadow: 'var(--shadow-md)', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <img src="/images/Vericea.png" alt="Vericea Logo" style={{ height: '14px', width: 'auto', objectFit: 'contain' }} />
+                  <span style={{ fontSize: '12px', fontWeight: '800', color: '#ffffff' }}>Compliance</span>
                 </div>
               </div>
 
               {/* Floating Node 4: Risk Management */}
               <div className="partners-float-1" style={{ position: 'absolute', right: '18%', bottom: '15%', zIndex: 3 }}>
-                <div style={{ padding: '10px 16px', borderRadius: '12px', background: 'rgba(43,74,115,0.9)', border: '1px solid var(--accent)', boxShadow: 'var(--shadow-md)' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#D4A85A' }} />
-                    <span style={{ fontSize: '12px', fontWeight: '800', color: '#ffffff' }}>Risk Management</span>
-                  </div>
+                <div style={{ padding: '10px 16px', borderRadius: '12px', background: 'rgba(43,74,115,0.9)', border: '1px solid var(--accent)', boxShadow: 'var(--shadow-md)', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <img src="/images/Fact_safe.png" alt="FactSafe Logo" style={{ height: '18px', width: 'auto', objectFit: 'contain' }} />
+                  <span style={{ fontSize: '12px', fontWeight: '800', color: '#ffffff' }}>Risk Management</span>
                 </div>
               </div>
 
@@ -406,7 +398,8 @@ export default function Partners() {
                 img: '/images/flagship_manufacturing.jpg',
                 url: '/products/vericea-manufacturing',
                 desc: 'Real-time production visibility, yield metrics, and AI-enabled defect tracking to optimize factory floor execution.',
-                focus: 'Smart Factory Operations'
+                focus: 'Smart Factory Operations',
+                logo: '/images/Vericea.png'
               },
               {
                 title: 'Courier Expense Control & Analytics',
@@ -414,7 +407,8 @@ export default function Partners() {
                 img: '/images/flagship_courier.jpg',
                 url: '/products/courier-cost-management',
                 desc: 'Deep audit analytics mapping shipping invoices to courier SLAs. Reclaims automated refunds for late shipments.',
-                focus: 'Logistics Optimization'
+                focus: 'Logistics Optimization',
+                logo: '/images/Courier Cost Optimizer.png'
               },
               {
                 title: 'Compliance Audit Management & Tracking',
@@ -422,7 +416,8 @@ export default function Partners() {
                 img: '/images/flagship_compliance.jpg',
                 url: '/products/vericea-compliance',
                 desc: 'Automates scheduling and tracks visual evidence of regulatory compliance metrics across manufacturing facilities.',
-                focus: 'Regulatory Governance'
+                focus: 'Regulatory Governance',
+                logo: '/images/Vericea.png'
               },
               {
                 title: 'Risk Assessment & Monitoring',
@@ -430,7 +425,8 @@ export default function Partners() {
                 img: '/images/flagship_factsafe.jpg',
                 url: '/products/factsafe',
                 desc: 'Proactive industrial safety monitoring, vendor surveys, and real-time environment dashboard logs.',
-                focus: 'Enterprise Risk Dashboard'
+                focus: 'Enterprise Risk Dashboard',
+                logo: '/images/Fact_safe.png'
               }
             ].map((p, idx) => (
               <motion.div
@@ -480,6 +476,11 @@ export default function Partners() {
 
                 {/* Info Content */}
                 <div style={{ padding: '20px', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
+                  {p.logo && (
+                    <div style={{ marginBottom: '14px', display: 'flex', alignItems: 'center' }}>
+                      <img src={p.logo} alt={`${p.title} Logo`} style={{ height: p.logo.includes('courier') ? '48px' : '28px', width: 'auto', objectFit: 'contain' }} />
+                    </div>
+                  )}
                   <h3 style={{ fontSize: '18px', fontWeight: '800', color: '#ffffff', margin: 0, minHeight: '52px', lineHeight: '1.3' }}>
                     {p.title}
                   </h3>

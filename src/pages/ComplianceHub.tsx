@@ -802,6 +802,12 @@ export default function ComplianceHub() {
                 textAlign: 'center'
               }}
             >
+              <div style={{ display: 'flex', justifyContent: 'center', gap: '24px', alignItems: 'center', marginBottom: '24px' }}>
+                <img src="/images/Vericea.png" alt="Vericea Logo" style={{ height: '32px', width: 'auto', objectFit: 'contain' }} />
+                <div style={{ width: '1px', height: '24px', backgroundColor: 'rgba(255, 255, 255, 0.15)' }}></div>
+                <img src="/images/Fact_safe.png" alt="FactSafe Logo" style={{ height: '36px', width: 'auto', objectFit: 'contain' }} />
+              </div>
+
               <div className="compliance-hero-badge" style={{ margin: '0 auto 24px auto' }}>
                 <Sparkles size={14} style={{ color: 'var(--c-gold)' }} />
                 <span>Compliance Excellence Platform</span>
@@ -1196,6 +1202,27 @@ export default function ComplianceHub() {
                 </div>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+
+      {/* --- INTEGRATED RISK & SAFETY MODULE --- */}
+      <section className="section" style={{ background: 'rgba(17, 34, 64, 0.4)', borderBottom: '1px solid rgba(200, 162, 118, 0.10)' }}>
+        <div className="container">
+          <div className="glass-card" style={{ display: 'grid', gridTemplateColumns: '1fr 2.5fr', gap: '32px', alignItems: 'center', padding: '40px', background: 'rgba(17, 34, 64, 0.75)', borderColor: 'rgba(200, 162, 118, 0.18)' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '16px' }}>
+              <img src="/images/Fact_safe.png" alt="FactSafe Logo" style={{ height: '54px', width: 'auto', objectFit: 'contain' }} />
+              <span className="preview-pill" style={{ color: 'var(--c-teal)', background: 'rgba(6, 182, 212, 0.1)' }}>Integrated Risk Module</span>
+            </div>
+            <div>
+              <h3 style={{ fontSize: '24px', color: '#ffffff', fontWeight: 800, marginBottom: '12px', textAlign: 'left' }}>
+                Proactive Hazard Mitigation with FactSafe
+              </h3>
+              <p style={{ color: 'var(--c-slate-700)', fontSize: '14.5px', lineHeight: '1.6', margin: 0, textAlign: 'left' }}>
+                Vericea Compliance integrates seamlessly with FactSafe, our proactive risk assessment and monitoring platform. Identify operational hazards, trigger corrective action workflows, and monitor safety checklists live from a unified compliance hub.
+              </p>
+            </div>
           </div>
         </div>
       </section>

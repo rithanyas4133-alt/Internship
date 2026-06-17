@@ -360,7 +360,22 @@ export default function Services() {
         <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'radial-gradient(circle at 80% 20%, rgba(200, 162, 118, 0.05) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
           <div style={{ maxWidth: '780px', margin: '0 auto', textAlign: 'center' }}>
-                <motion.div 
+              {/* Courier Cost Optimizer Logo on Courier Optimization page */}
+              <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '24px' }}>
+                <div style={{ 
+                  padding: '12px 24px', 
+                  background: 'rgba(255, 255, 255, 0.03)', 
+                  border: '1px solid rgba(255, 255, 255, 0.08)',
+                  borderRadius: '16px',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '12px'
+                }}>
+                  <span style={{ fontSize: '11px', fontWeight: 800, color: 'var(--supporting)', letterSpacing: '1px' }}>POWERED BY</span>
+                  <img src="/images/Courier Cost Optimizer.png" alt="Courier Cost Optimizer Logo" style={{ height: '40px', width: 'auto', objectFit: 'contain' }} />
+                </div>
+              </div>
+              <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
@@ -732,7 +747,27 @@ export default function Services() {
                   </span>
                 </div>
 
-                <div style={{ flexGrow: 1 }}>
+                 <div style={{ flexGrow: 1 }}>
+                  {sol.product === "Courier Cost Management" && (
+                    <div style={{ marginBottom: '12px', display: 'flex', alignItems: 'center' }}>
+                      <img src="/images/Courier Cost Optimizer.png" alt="Courier Cost Optimizer Logo" style={{ height: '48px', width: 'auto', objectFit: 'contain' }} />
+                    </div>
+                  )}
+                  {sol.product === "Vericea Manufacturing" && (
+                    <div style={{ marginBottom: '12px', display: 'flex', alignItems: 'center' }}>
+                      <img src="/images/Vericea.png" alt="Vericea Logo" style={{ height: '24px', width: 'auto', objectFit: 'contain' }} />
+                    </div>
+                  )}
+                  {sol.product === "Vericea Compliance" && (
+                    <div style={{ marginBottom: '12px', display: 'flex', alignItems: 'center' }}>
+                      <img src="/images/Vericea.png" alt="Vericea Logo" style={{ height: '24px', width: 'auto', objectFit: 'contain' }} />
+                    </div>
+                  )}
+                  {sol.product === "FactSafe" && (
+                    <div style={{ marginBottom: '12px', display: 'flex', alignItems: 'center' }}>
+                      <img src="/images/Fact_safe.png" alt="FactSafe Logo" style={{ height: '32px', width: 'auto', objectFit: 'contain' }} />
+                    </div>
+                  )}
                   <h3 style={{ fontSize: '18px', fontWeight: '800', color: '#ffffff', margin: '0 0 6px 0', fontFamily: 'var(--font-headings)' }}>
                     {sol.product}
                   </h3>

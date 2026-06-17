@@ -45,6 +45,7 @@ interface ProductData {
     desc: string;
   }[];
   industries: string[];
+  logo?: string;
 }
 
 const productsMap: Record<string, ProductData> = {
@@ -90,7 +91,8 @@ const productsMap: Record<string, ProductData> = {
       { stat: '45%', label: 'Paper Reduction', desc: 'Elimination of physical floor slips and manual assembly sheets.' },
       { stat: '100%', label: 'Live Traceability', desc: 'Instant batch tracing from raw materials to shipped pallets.' }
     ],
-    industries: ['Textiles', 'Apparel', 'Precision Engineering', 'Automotive Assembly']
+    industries: ['Textiles', 'Apparel', 'Precision Engineering', 'Automotive Assembly'],
+    logo: '/images/Vericea.png'
   },
   'vericea-compliance': {
     id: 'vericea-compliance',
@@ -134,7 +136,8 @@ const productsMap: Record<string, ProductData> = {
       { stat: '0%', label: 'Late Penalties', desc: 'Complete elimination of late filings and certificate expiration lapses.' },
       { stat: '12x', label: 'Faster Retrieval', desc: 'Retrieve historical records instantly during surprise investigations.' }
     ],
-    industries: ['Factories', 'Export Houses', 'Pharmaceuticals', 'Logistics Operations']
+    industries: ['Factories', 'Export Houses', 'Pharmaceuticals', 'Logistics Operations'],
+    logo: '/images/Vericea.png'
   },
   'factsafe': {
     id: 'factsafe',
@@ -178,7 +181,8 @@ const productsMap: Record<string, ProductData> = {
       { stat: '3.2h', label: 'Average Resolution', desc: 'Time taken to assign and start action plans for critical alerts.' },
       { stat: '100%', label: 'Compliance Audit', desc: 'Accurate record archiving matching health and safety laws.' }
     ],
-    industries: ['Heavy Industry', 'Chemical Processing', 'Warehouses', 'Supply Chain Networks']
+    industries: ['Heavy Industry', 'Chemical Processing', 'Warehouses', 'Supply Chain Networks'],
+    logo: '/images/Fact_safe.png'
   },
   'courier-cost-management': {
     id: 'courier-cost-management',
@@ -222,7 +226,8 @@ const productsMap: Record<string, ProductData> = {
       { stat: '95%', label: 'Auto Reconciliation', desc: 'Saves time compared to manual cargo check operations.' },
       { stat: '0.2%', label: 'Billing Discrepancy', desc: 'Drastically reduces the margin of unrecovered carrier overcharges.' }
     ],
-    industries: ['E-Commerce Retailers', 'Apparel Export Houses', 'Logistics Distributors', 'Manufacturing Plants']
+    industries: ['E-Commerce Retailers', 'Apparel Export Houses', 'Logistics Distributors', 'Manufacturing Plants'],
+    logo: '/images/Courier Cost Optimizer.png'
   },
   'family-tree-platform': {
     id: 'family-tree-platform',
@@ -439,6 +444,23 @@ export default function ProductDetail() {
                 <Sparkles size={14} />
                 <span>Proprietary Software</span>
               </div>
+              {product.logo && (
+                <div style={{ 
+                  display: 'flex', 
+                  alignItems: 'center',
+                  marginBottom: '8px'
+                }}>
+                  <img 
+                    src={product.logo} 
+                    alt={`${product.name} Logo`} 
+                    style={{ 
+                      height: product.id.includes('courier') ? '80px' : '48px', 
+                      width: 'auto', 
+                      objectFit: 'contain' 
+                    }} 
+                  />
+                </div>
+              )}
               <h1 style={{ fontSize: '48px', lineHeight: '1.15', fontWeight: '800', color: '#ffffff', letterSpacing: '-1.5px', margin: 0, fontFamily: 'var(--font-headings)' }}>
                 {product.name}
               </h1>

@@ -33,6 +33,7 @@ interface Product {
   industries: string[];
   image: string;
   icon: ReactNode;
+  logo?: string;
 }
 
 export default function Products() {
@@ -109,7 +110,8 @@ export default function Products() {
       businessValue: 'Improves productivity, visibility and operational control across manufacturing units.',
       industries: ['Textiles', 'Apparel', 'Engineering', 'Manufacturing'],
       image: '/images/manufacturing_floor_1780850784796.png',
-      icon: <Factory size={22} />
+      icon: <Factory size={22} />,
+      logo: '/images/Vericea.png'
     },
     {
       id: 'vericea-compliance',
@@ -127,7 +129,8 @@ export default function Products() {
       businessValue: 'Improves compliance visibility and supports continuous audit preparedness.',
       industries: ['Manufacturing', 'Export Houses', 'Factories', 'Compliance Teams'],
       image: '/images/quality_audit_1780850801169.png',
-      icon: <ShieldCheck size={22} />
+      icon: <ShieldCheck size={22} />,
+      logo: '/images/Vericea.png'
     },
     {
       id: 'factsafe',
@@ -145,7 +148,8 @@ export default function Products() {
       businessValue: 'Supports informed decision-making and risk mitigation.',
       industries: ['Manufacturing', 'Factories', 'Export Houses', 'Compliance Teams'],
       image: '/images/safety_inspection_1780850817856.png',
-      icon: <AlertTriangle size={22} />
+      icon: <AlertTriangle size={22} />,
+      logo: '/images/Fact_safe.png'
     },
     {
       id: 'courier-cost-management',
@@ -163,7 +167,8 @@ export default function Products() {
       businessValue: 'Reduces logistics costs and improves efficiency.',
       industries: ['Logistics', 'Apparel', 'Textiles', 'Export Organizations'],
       image: '/images/logistics_terminal_1780850837146.png',
-      icon: <Truck size={22} />
+      icon: <Truck size={22} />,
+      logo: '/images/Courier Cost Optimizer.png'
     },
     {
       id: 'family-tree-platform',
@@ -547,6 +552,23 @@ export default function Products() {
                       >
                         {activeProduct.tagline}
                       </span>
+                      {activeProduct.logo && (
+                        <div style={{ 
+                          marginBottom: '16px',
+                          display: 'flex',
+                          alignItems: 'center'
+                        }}>
+                          <img 
+                            src={activeProduct.logo} 
+                            alt={`${activeProduct.name} Logo`} 
+                            style={{ 
+                              height: activeProduct.id.includes('courier') ? '54px' : '36px', 
+                              width: 'auto', 
+                              objectFit: 'contain' 
+                            }} 
+                          />
+                        </div>
+                      )}
                       <h2 style={{ fontSize: '32px', color: '#ffffff', fontWeight: '800', margin: 0 }}>
                         {activeProduct.name}
                       </h2>

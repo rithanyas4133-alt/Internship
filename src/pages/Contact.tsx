@@ -66,8 +66,42 @@ export default function Contact() {
       className="contact-page-bg"
       style={{ color: 'var(--text-main)' }}
     >
+
+      <style dangerouslySetInnerHTML={{ __html: `
+        .surface-matte .contact-form-card,
+        .surface-matte .contact-form-card {
+          background-color: rgba(255, 255, 255, 0.75);
+          border-color: rgba(15, 23, 42, 0.08);
+          box-shadow: 0 12px 40px rgba(15, 23, 42, 0.08);
+          color: #0F172A;
+        }
+        .surface-matte .contact-form-card h3,
+        .surface-matte .contact-form-card h3 {
+          color: #0F172A !important;
+        }
+        .surface-matte .contact-form-card .form-label,
+        .surface-matte .contact-form-card .form-label {
+          color: #0F172A;
+        }
+        .surface-matte .contact-form-card .form-control,
+        .surface-matte .contact-form-card .form-control {
+          background-color: rgba(15, 23, 42, 0.03);
+          border-color: rgba(15, 23, 42, 0.08);
+          color: #0F172A;
+        }
+        .surface-matte .contact-form-card .form-control:focus,
+        .surface-matte .contact-form-card .form-control:focus {
+          border-color: var(--accent);
+          background-color: rgba(255, 255, 255, 0.95);
+        }
+        .surface-matte .contact-form-card .form-control::placeholder,
+        .surface-matte .contact-form-card .form-control::placeholder {
+          color: #64748b;
+        }
+      `}} />
       {/* --- HERO SECTION --- */}
-      <section className="inner-hero contact-hero" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.18)' }}>
+      <section className="inner-hero contact-hero surface-royal" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.18)' }}>
+
         <div className="container" style={{ textAlign: 'center' }}>
           <span className="section-subtitle">Get In Touch</span>
           <h1 className="inner-hero-title">Start Your Modernization Journey</h1>
@@ -78,7 +112,9 @@ export default function Contact() {
       </section>
 
       {/* --- CONTACT DETAIL & FORM SECTION --- */}
-      <section className="section contact-section-texture">
+
+      <section className="section surface-matte contact-section-texture">
+
         <div className="container">
           <div className="grid-2">
             

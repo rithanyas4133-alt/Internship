@@ -889,7 +889,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section section-alt" style={{ padding: '60px 0', backgroundColor: 'var(--secondary-bg)', borderBottom: '1px solid var(--border-color)' }}>
+
+      <section className="section surface-matte" style={{ padding: '60px 0', borderBottom: '1px solid var(--border-color)' }}>
+
         <div className="container">
           <div className="grid-4" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '20px' }}>
             <motion.div 
@@ -967,7 +969,9 @@ export default function Home() {
 
 
       {/* --- SERVICES OVERVIEW (Enterprise Capability Showcase Carousel) --- */}
-      <section className="section services-section-texture" style={{ padding: '40px 0' }}>
+
+      <section className="section surface-royal services-section-texture" style={{ padding: '40px 0' }}>
+
         <div className="container">
           <div className="section-title-wrapper">
             <span className="section-subtitle">Our Capabilities</span>
@@ -983,7 +987,9 @@ export default function Home() {
           SECTION: FLAGSHIP PLATFORMS SHOWCASE (HOME PAGE)  â€” PREMIUM
           ================================================== */}
       <section
-        className="section products-section-texture flagship-shimmer-border"
+
+        className="section surface-matte products-section-texture flagship-shimmer-border"
+
         style={{
           color: '#E5E7EB',
           overflow: 'hidden',
@@ -1157,7 +1163,9 @@ export default function Home() {
       </section>
 
       {/* --- SOLUTIONS SUCCESSFULLY DELIVERED --- */}
-      <section className="section services-section-texture" style={{ overflow: 'hidden', position: 'relative', padding: '72px 0 80px' }}>
+
+      <section className="section surface-royal services-section-texture" style={{ overflow: 'hidden', position: 'relative', padding: '72px 0 80px' }}>
+
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
           {/* Section header */}
           <div style={{ textAlign: 'center', marginBottom: '44px' }}>
@@ -1171,7 +1179,9 @@ export default function Home() {
       </section>
 
       {/* --- PRODUCTION TRACKING TOOL VIDEO PLACEHOLDER --- */}
-      <section className="section products-section-texture" style={{ color: '#ffffff', position: 'relative', overflow: 'hidden' }}>
+
+      <section className="section surface-matte products-section-texture" style={{ position: 'relative', overflow: 'hidden' }}>
+
         <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'radial-gradient(circle at center, rgba(37, 99, 235, 0.08) 0%, transparent 80%)', zIndex: 1, pointerEvents: 'none' }}></div>
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
           <div className="section-title-wrapper">
@@ -1222,7 +1232,9 @@ export default function Home() {
 
 
       {/* --- WHY CHOOSE CEA INFOTECH --- */}
-      <section className="section about-section-texture">
+
+      <section className="section surface-royal about-section-texture">
+
         <div className="container">
           <div className="section-title-wrapper">
             <span className="section-subtitle">Our Value Proposition</span>
@@ -1274,7 +1286,9 @@ export default function Home() {
       </section>
 
       {/* --- TRUSTED PARTNERS SECTION --- */}
-      <section className="section contact-section-texture" style={{ 
+
+      <section className="section surface-matte contact-section-texture" style={{ 
+
         padding: '100px 0 110px 0',
         position: 'relative',
         overflow: 'hidden'
@@ -1436,7 +1450,9 @@ export default function Home() {
       </section>
 
       {/* --- CALL TO ACTION --- */}
-      <section className="section contact-section-texture" style={{ position: 'relative', overflow: 'hidden' }}>
+
+      <section className="section surface-royal contact-section-texture" style={{ position: 'relative', overflow: 'hidden' }}>
+
         <div style={{ position: 'absolute', top: '-10%', right: '-10%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(200, 162, 118, 0.12) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
         <div style={{ position: 'absolute', bottom: '-10%', left: '-10%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(200, 162, 118, 0.08) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
 

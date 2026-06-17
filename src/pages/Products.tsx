@@ -339,7 +339,9 @@ export default function Products() {
           HERO SECTION
           ================================================== */}
       <section 
-        className="section section-dark"
+
+        className="section surface-royal"
+
         style={{ 
           padding: '180px 0 140px 0', 
           color: 'var(--text-main)',
@@ -417,12 +419,14 @@ export default function Products() {
       {/* ==================================================
           SECTION: OUR PRODUCT ECOSYSTEM (CAROUSEL SLIDER)
           ================================================== */}
-      <section id="ecosystem-section" className="section services-section-texture" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.10)' }}>
+
+      <section id="ecosystem-section" className="section surface-matte services-section-texture" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.10)' }}>
+
         <div className="container">
           <div className="section-title-wrapper" style={{ marginBottom: '48px' }}>
             <span className="section-subtitle" style={{ color: 'var(--supporting)' }}>Core Platforms</span>
-            <h2 className="section-title" style={{ color: 'var(--text-main)' }}>Our Product Ecosystem</h2>
-            <p className="section-desc" style={{ color: 'var(--text-muted)' }}>Explore CEA's flagship enterprise software platforms designed for scalable business operations.</p>
+            <h2 className="section-title">Our Product Ecosystem</h2>
+            <p className="section-desc">Explore CEA's flagship enterprise software platforms designed for scalable business operations.</p>
           </div>
 
           {/* Slider Controls Row */}
@@ -431,7 +435,7 @@ export default function Products() {
               <span style={{ fontSize: '11px', fontWeight: '800', textTransform: 'uppercase', color: 'var(--supporting)', letterSpacing: '1px' }}>
                 Active Platform
               </span>
-              <h3 style={{ fontSize: '20px', fontWeight: '800', color: 'var(--text-main)', margin: 0, display: 'flex', alignItems: 'center', gap: '10px' }}>
+              <h3 style={{ fontSize: '20px', fontWeight: '800', margin: 0, display: 'flex', alignItems: 'center', gap: '10px' }}>
                 <span style={{
                   width: '32px',
                   height: '32px',
@@ -595,7 +599,7 @@ export default function Products() {
                     </div>
 
                     {/* Business Value & Target Industries */}
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', borderTop: '1px solid rgba(255, 255, 255, 0.08)', paddingTop: '20px' }}>
+                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', borderTop: '1px solid var(--border-color)', paddingTop: '20px' }}>
                       <div>
                         <h4 style={{ fontSize: '11px', fontWeight: '800', textTransform: 'uppercase', color: 'var(--supporting)', letterSpacing: '0.5px', marginBottom: '6px' }}>
                           Business Value
@@ -614,12 +618,12 @@ export default function Products() {
                               key={idx} 
                               style={{ 
                                 fontSize: '11.5px', 
-                                backgroundColor: 'rgba(255, 255, 255, 0.05)', 
-                                color: '#ffffff', 
+                                backgroundColor: 'var(--card-bg)', 
+                                color: 'var(--text-main)', 
                                 padding: '3px 10px', 
                                 borderRadius: '4px',
                                 fontWeight: '600',
-                                border: '1px solid rgba(255, 255, 255, 0.08)'
+                                border: '1px solid var(--border-color)'
                               }}
                             >
                               {ind}
@@ -693,7 +697,7 @@ export default function Products() {
                     width: isActive ? '24px' : '8px',
                     height: '8px',
                     borderRadius: '4px',
-                    backgroundColor: isActive ? 'var(--supporting)' : 'rgba(255, 255, 255, 0.2)',
+                    backgroundColor: isActive ? 'var(--supporting)' : 'var(--border-color)',
                     border: 'none',
                     cursor: 'pointer',
                     transition: 'all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1)',
@@ -710,7 +714,9 @@ export default function Products() {
       {/* ==================================================
           SECTION: BUSINESS CHALLENGES SOLVED BY OUR PRODUCTS
           ================================================== */}
-      <section className="section about-section-texture" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.10)' }}>
+
+      <section className="section surface-royal about-section-texture" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.10)' }}>
+
         <div className="container">
           <div className="section-title-wrapper" style={{ marginBottom: '56px' }}>
             <span className="section-subtitle" style={{ color: 'var(--supporting)' }}>Diagnostics & Resolution</span>
@@ -826,7 +832,9 @@ export default function Products() {
       {/* ==================================================
           SECTION: WHY OUR PRODUCTS STAND OUT
           ================================================== */}
-      <section className="section compliance-section-texture" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.10)' }}>
+
+      <section className="section surface-matte compliance-section-texture" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.10)' }}>
+
         <div className="container">
           <div className="section-title-wrapper" style={{ marginBottom: '56px' }}>
             <span className="section-subtitle" style={{ color: 'var(--supporting)' }}>Architectural Quality</span>
@@ -943,7 +951,9 @@ export default function Products() {
       {/* ==================================================
           SECTION: PRODUCT INQUIRY & FINAL CTA
           ================================================== */}
-      <section ref={inquiryRef} className="section contact-section-texture" id="inquiry-form" style={{ background: 'radial-gradient(circle at bottom, rgba(200, 162, 118, 0.05) 0%, transparent 40%)', borderBottom: '1px solid rgba(200, 162, 118, 0.10)' }}>
+
+      <section ref={inquiryRef} className="section surface-royal contact-section-texture" id="inquiry-form" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.10)' }}>
+
         <div className="container" style={{ maxWidth: '780px' }}>
           <div className="section-title-wrapper" style={{ marginBottom: '40px' }}>
             <span className="section-subtitle" style={{ color: 'var(--supporting)' }}>Request Information</span>
@@ -1121,7 +1131,9 @@ export default function Products() {
       {/* ==================================================
           FINAL CTA PANEL
           ================================================== */}
-      <section className="section contact-section-texture" style={{ position: 'relative', overflow: 'hidden' }}>
+
+      <section className="section surface-matte contact-section-texture" style={{ position: 'relative', overflow: 'hidden' }}>
+
         <div style={{ position: 'absolute', top: '-10%', right: '-10%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(200, 162, 118, 0.06) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
         <div style={{ position: 'absolute', bottom: '-10%', left: '-10%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(200, 162, 118, 0.06) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
 

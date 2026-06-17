@@ -61,7 +61,9 @@ function DigitalEcosystem() {
   };
 
   return (
-    <section style={{ background: 'var(--primary-bg)', padding: '110px 0 120px', overflow: 'hidden', position: 'relative' }}>
+
+    <section className="surface-matte" style={{ padding: '110px 0 120px', overflow: 'hidden', position: 'relative' }}>
+
       {/* Animated grid */}
       <div style={{
         position: 'absolute', inset: 0,
@@ -298,7 +300,9 @@ function IndustriesWall() {
   const [hovered, setHovered] = useState<string | null>(null);
 
   return (
-    <section style={{ background: '#060C18', padding: '110px 0 120px', overflow: 'hidden', position: 'relative' }}>
+
+    <section className="surface-royal" style={{ padding: '110px 0 120px', overflow: 'hidden', position: 'relative' }}>
+
       <div style={{
         position: 'absolute', inset: 0,
         backgroundImage: 'linear-gradient(rgba(245,158,11,0.018) 1px,transparent 1px),linear-gradient(90deg,rgba(245,158,11,0.018) 1px,transparent 1px)',
@@ -760,6 +764,9 @@ function CoreValuesSection() {
 
   return (
     <section
+
+      className="surface-matte"
+
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       style={{
@@ -1369,6 +1376,28 @@ export default function About() {
 
   return (
     <div className="about-page-bg">
+
+      <style dangerouslySetInnerHTML={{ __html: `
+        .about-page-bg {
+          --node-bg: rgba(17, 34, 64, 0.85);
+          --node-bg-hover: rgba(17, 34, 64, 0.92);
+          --node-border: rgba(200, 162, 118, 0.18);
+          --node-text: #FFFFFF;
+          --node-text-hover: #C8A276;
+          --node-muted: rgba(209, 213, 219, 0.55);
+          --orbit-stroke: rgba(255, 255, 255, 0.035);
+        }
+        .surface-matte, .surface-matte, .surface-matte, .surface-matte, .surface-matte {
+          --node-bg: rgba(255, 255, 255, 0.7);
+          --node-bg-hover: rgba(255, 255, 255, 0.95);
+          --node-border: rgba(15, 23, 42, 0.08);
+          --node-text: #0F172A;
+          --node-text-hover: #C8A276;
+          --node-muted: #334155;
+          --orbit-stroke: rgba(15, 23, 42, 0.05);
+        }
+      `}} />
+
       {/* ===== HERO ===== */}
       <section className="about-hero">
         <div className="about-hero-bg">
@@ -1387,7 +1416,9 @@ export default function About() {
       </section>
 
       {/* ===== WHO WE ARE ===== */}
-      <section className="about-who-section">
+
+      <section className="section surface-matte about-who-section">
+
         <div className="container">
           <div className="about-who-grid">
             <motion.div className="about-who-image" {...fadeInUp}>
@@ -1410,7 +1441,9 @@ export default function About() {
       </section>
 
       {/* ===== VISION ===== */}
-      <section className="about-vision-section">
+
+      <section className="section surface-royal about-vision-section">
+
         <div className="container">
           <motion.div className="section-title-wrapper" {...fadeInUp}>
             <span className="section-subtitle">Our Vision</span>
@@ -1441,7 +1474,9 @@ export default function About() {
       <CoreValuesSection />
 
       {/* ===== FOUNDER ===== */}
-      <section className="about-founder-section">
+
+      <section className="section surface-royal about-founder-section">
+
         <div className="container">
           <motion.div className="section-title-wrapper" {...fadeInUp}>
             <span className="section-subtitle">Leadership</span>
@@ -1480,7 +1515,9 @@ export default function About() {
       <IndustriesWall />
 
       {/* ===== COMPANY JOURNEY ===== */}
-      <section className="about-journey-section">
+
+      <section className="section surface-matte about-journey-section">
+
         <div className="container">
           <motion.div className="section-title-wrapper" {...fadeInUp}>
             <span className="section-subtitle">Milestones</span>
@@ -1505,7 +1542,9 @@ export default function About() {
       </section>
 
       {/* ===== WHY CHOOSE CEA ===== */}
-      <section className="about-why-section" style={{ padding: '100px 0', backgroundColor: 'var(--alternate-bg)' }}>
+
+      <section className="section surface-royal about-why-section" style={{ padding: '100px 0' }}>
+
         <div className="container">
           <motion.div className="section-title-wrapper" {...fadeInUp}>
             <span className="section-subtitle">Our Advantage</span>
@@ -1578,7 +1617,9 @@ export default function About() {
       </section>
 
       {/* ===== CTA ===== */}
-      <section className="about-cta-section">
+
+      <section className="about-cta-section surface-matte">
+
         <div className="container">
           <motion.div className="about-cta-content" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
             <h2>Let's Build Smarter Business Solutions Together</h2>

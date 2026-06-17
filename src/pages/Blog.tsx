@@ -200,7 +200,9 @@ export default function Blog() {
     >
       {/* SECTION 1: HERO SECTION */}
       <section
-        className="inner-hero"
+
+        className="inner-hero surface-royal"
+
         style={{
           position: 'relative',
           padding: '180px 0 120px 0',
@@ -294,7 +296,9 @@ export default function Blog() {
       </section>
 
       {/* SECTION 2: FEATURED INSIGHTS */}
-      <section className="section about-section-texture" style={{ padding: '80px 0 100px 0', borderBottom: '1px solid rgba(200, 162, 118, 0.12)' }}>
+
+      <section className="section surface-matte about-section-texture" style={{ padding: '80px 0 100px 0', borderBottom: '1px solid rgba(200, 162, 118, 0.12)' }}>
+
         <div className="container">
           <div className="section-title-wrapper" style={{ marginBottom: '56px', textAlign: 'left', marginLeft: '0' }}>
             <span className="section-subtitle" style={{ color: 'var(--supporting)' }}>EDITOR'S PICKS</span>
@@ -411,7 +415,9 @@ export default function Blog() {
       </section>
 
       {/* SECTION 5: LATEST INSIGHTS */}
-      <section className="section services-section-texture" style={{ padding: '100px 0', borderBottom: '1px solid rgba(200, 162, 118, 0.12)' }}>
+
+      <section className="section surface-royal services-section-texture" style={{ padding: '100px 0', borderBottom: '1px solid rgba(200, 162, 118, 0.12)' }}>
+
         <div className="container">
           <div
             style={{
@@ -536,7 +542,9 @@ export default function Blog() {
       </section>
 
       {/* SECTION 6: CUSTOMER SUCCESS PERSPECTIVE */}
-      <section className="section compliance-section-texture" style={{ padding: '100px 0', borderBottom: '1px solid rgba(200, 162, 118, 0.12)' }}>
+
+      <section className="section surface-matte compliance-section-texture" style={{ padding: '100px 0', borderBottom: '1px solid rgba(200, 162, 118, 0.12)' }}>
+
         <div className="container">
           <div className="section-title-wrapper" style={{ marginBottom: '56px' }}>
             <span className="section-subtitle">IMPACT METRICS</span>
@@ -618,7 +626,9 @@ export default function Blog() {
       </section>
 
       {/* SECTION 7: NEWSLETTER SUBSCRIPTION */}
-      <section className="section products-section-texture" style={{ padding: '80px 0', borderBottom: '1px solid rgba(200, 162, 118, 0.12)' }}>
+
+      <section className="section surface-royal products-section-texture" style={{ padding: '80px 0', borderBottom: '1px solid rgba(200, 162, 118, 0.12)' }}>
+
         <div className="container" style={{ maxWidth: '800px' }}>
           <motion.div
             variants={fadeInUp}
@@ -720,7 +730,9 @@ export default function Blog() {
       </section>
 
       {/* SECTION 8: FUTURE INSIGHTS PLACEHOLDER */}
-      <section className="section about-section-texture" style={{ padding: '100px 0', borderBottom: '1px solid rgba(200, 162, 118, 0.12)' }}>
+
+      <section className="section surface-matte about-section-texture" style={{ padding: '100px 0', borderBottom: '1px solid rgba(200, 162, 118, 0.12)' }}>
+
         <div className="container">
           <div className="section-title-wrapper" style={{ marginBottom: '56px' }}>
             <span className="section-subtitle">FUTURE INTEGRATION</span>
@@ -796,7 +808,9 @@ export default function Blog() {
       </section>
 
       {/* SECTION 9: CALL TO ACTION */}
-      <section className="section contact-section-texture" style={{ padding: '0', position: 'relative', overflow: 'hidden' }}>
+
+      <section className="section surface-royal contact-section-texture" style={{ padding: '0', position: 'relative', overflow: 'hidden' }}>
+
             <div
           style={{
             padding: '100px 0',

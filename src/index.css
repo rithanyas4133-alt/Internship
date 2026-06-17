@@ -10,6 +10,22 @@
   --tertiary-bg: #1B2A4A;
   --tertiary-bg-rgb: 27, 42, 74;
 
+  /* ── Light and Medium Blue Surfaces ── */
+  --soft-enterprise-blue: #4F6F95;
+  --soft-enterprise-blue-rgb: 79, 111, 149;
+  --light-steel-blue: #6F89A8;
+  --light-steel-blue-rgb: 111, 137, 168;
+  --mist-blue: #AFC0D4;
+  --mist-blue-rgb: 175, 192, 212;
+  --premium-light-blue: #D7E3F0;
+  --premium-light-blue-rgb: 215, 227, 240;
+
+  /* Legacy aliases for maximum safety and compatibility */
+  --light-surface: var(--premium-light-blue);
+  --light-surface-rgb: var(--premium-light-blue-rgb);
+  --soft-surface: var(--premium-light-blue);
+  --soft-surface-rgb: var(--premium-light-blue-rgb);
+
   /* ── Text Colors ── */
   --primary: #F5F5F5;
   --primary-rgb: 245, 245, 245;
@@ -554,7 +570,22 @@ code, pre, kbd, samp {
   width: max-content;
 }
 
-/* --- GLASSMORPHISM CARDS & SURFACE ELEMENTS --- */
+/* --- PREMIUM ENTERPRISE MATERIAL SYSTEM --- */
+
+/* 1. Royal Blue Surface (Main heroes, major features, primary brand) */
+.surface-royal {
+  background-color: var(--primary-bg);
+  position: relative;
+}
+
+/* 2. Premium Matte Surface (Alternate content sections) */
+.surface-matte {
+  background-color: var(--secondary-bg);
+  position: relative;
+}
+
+/* 3. Frosted Glass Surface (Cards, dashboards, panels) */
+.surface-glass,
 .card,
 .glass-card {
   background: rgba(17, 34, 64, 0.85);
@@ -3376,6 +3407,97 @@ a.cta:hover { color: var(--cta-hover); transform: translateY(-2px); }
   transform: translateY(-24px);
 }
 
+/* Light Blue Surfaces */
+.bg-premium-light,
+.bg-soft-blue {
+  background-color: var(--premium-light-blue) !important;
+}
+.bg-mist-blue,
+.bg-light-blue {
+  background-color: var(--mist-blue) !important;
+}
+.bg-light-steel {
+  background-color: var(--light-steel-blue) !important;
+}
+.bg-soft-enterprise {
+  background-color: var(--soft-enterprise-blue) !important;
+}
+
+/* Light Section Text Override Rules */
+.bg-premium-light,
+.bg-soft-blue,
+.bg-mist-blue,
+.bg-light-blue,
+.bg-light-steel {
+  color: #2F3E56 !important;
+}
+.bg-premium-light h1, .bg-premium-light h2, .bg-premium-light h3, .bg-premium-light h4, .bg-premium-light h5, .bg-premium-light h6,
+.bg-soft-blue h1, .bg-soft-blue h2, .bg-soft-blue h3, .bg-soft-blue h4, .bg-soft-blue h5, .bg-soft-blue h6,
+.bg-mist-blue h1, .bg-mist-blue h2, .bg-mist-blue h3, .bg-mist-blue h4, .bg-mist-blue h5, .bg-mist-blue h6,
+.bg-light-blue h1, .bg-light-blue h2, .bg-light-blue h3, .bg-light-blue h4, .bg-light-blue h5, .bg-light-blue h6,
+.bg-light-steel h1, .bg-light-steel h2, .bg-light-steel h3, .bg-light-steel h4, .bg-light-steel h5, .bg-light-steel h6 {
+  color: #0F294D !important;
+}
+.bg-premium-light p, .bg-premium-light .section-desc, .bg-premium-light .text-muted, .bg-premium-light .muted,
+.bg-soft-blue p, .bg-soft-blue .section-desc, .bg-soft-blue .text-muted, .bg-soft-blue .muted,
+.bg-mist-blue p, .bg-mist-blue .section-desc, .bg-mist-blue .text-muted, .bg-mist-blue .muted,
+.bg-light-blue p, .bg-light-blue .section-desc, .bg-light-blue .text-muted, .bg-light-blue .muted,
+.bg-light-steel p, .bg-light-steel .section-desc, .bg-light-steel .text-muted, .bg-light-steel .muted {
+  color: #2F3E56 !important;
+}
+.bg-premium-light li,
+.bg-soft-blue li,
+.bg-mist-blue li,
+.bg-light-blue li,
+.bg-light-steel li {
+  color: #2F3E56 !important;
+}
+.bg-premium-light .section-subtitle,
+.bg-soft-blue .section-subtitle,
+.bg-mist-blue .section-subtitle,
+.bg-light-blue .section-subtitle,
+.bg-light-steel .section-subtitle {
+  color: #C8A45D !important;
+}
+
+/* Button overrides in light sections */
+.bg-premium-light .btn-dark-outline,
+.bg-soft-blue .btn-dark-outline,
+.bg-mist-blue .btn-dark-outline,
+.bg-light-blue .btn-dark-outline,
+.bg-light-steel .btn-dark-outline {
+  color: #0F294D !important;
+  border-color: rgba(15, 41, 77, 0.25) !important;
+  background-color: transparent !important;
+}
+.bg-premium-light .btn-dark-outline:hover,
+.bg-soft-blue .btn-dark-outline:hover,
+.bg-mist-blue .btn-dark-outline:hover,
+.bg-light-blue .btn-dark-outline:hover,
+.bg-light-steel .btn-dark-outline:hover {
+  border-color: #0F294D !important;
+  background-color: rgba(15, 41, 77, 0.08) !important;
+  color: #0F294D !important;
+}
+.bg-premium-light .btn-secondary,
+.bg-soft-blue .btn-secondary,
+.bg-mist-blue .btn-secondary,
+.bg-light-blue .btn-secondary,
+.bg-light-steel .btn-secondary {
+  color: #0F294D !important;
+  border-color: rgba(200, 162, 118, 0.45) !important;
+  background-color: transparent !important;
+}
+.bg-premium-light .btn-secondary:hover,
+.bg-soft-blue .btn-secondary:hover,
+.bg-mist-blue .btn-secondary:hover,
+.bg-light-blue .btn-secondary:hover,
+.bg-light-steel .btn-secondary:hover {
+  background-color: rgba(200, 162, 118, 0.1) !important;
+  border-color: #C8A45D !important;
+  color: #0F294D !important;
+}
+
 .compliance-lifecycle-title-item.is-future {
   opacity: 0;
   transform: translateY(24px);
@@ -3425,6 +3547,18 @@ a.cta:hover { color: var(--cta-hover); transform: translateY(-2px); }
   opacity: 1;
   transform: translateY(0) scale(1.1);
   pointer-events: auto;
+}
+
+
+/* Video wrapper text protection */
+.video-wrapper,
+.video-wrapper *,
+.video-overlay-details,
+.video-overlay-details * {
+  color: #FFFFFF !important;
+}
+.video-overlay-details .video-info-subtitle {
+  color: var(--accent) !important;
 }
 
 .compliance-lifecycle-number-item.is-past {
@@ -3727,4 +3861,5 @@ a.cta:hover { color: var(--cta-hover); transform: translateY(-2px); }
     transform: scale(1.08);
   }
 }
+
 

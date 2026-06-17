@@ -771,10 +771,11 @@ export default function ComplianceHub() {
       `}} />
 
       {/* --- HERO SECTION --- */}
-      <section
-        className="section"
-        style={{
-          padding: '170px 0 110px 0',
+      <section 
+        className="section surface-royal" 
+        style={{ 
+          padding: '170px 0 110px 0', 
+
           color: 'var(--text-main)',
           position: 'relative',
           overflow: 'hidden',
@@ -851,7 +852,9 @@ export default function ComplianceHub() {
       </section>
 
       {/* --- KEY COMPLIANCE CHALLENGES SECTION --- */}
-      <section className="section about-section-texture" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.10)' }}>
+
+      <section className="section surface-matte about-section-texture" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.10)' }}>
+
         <div className="container">
           <div className="section-title-wrapper" style={{ marginBottom: '56px' }}>
             <span className="section-subtitle" style={{ color: 'var(--c-teal)' }}>Key Compliance Challenges</span>
@@ -887,7 +890,9 @@ export default function ComplianceHub() {
       </section>
 
       {/* --- AUDIT COMMAND CENTER SECTION --- */}
-      <section className="section compliance-section-texture" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.10)', overflow: 'hidden' }}>
+
+      <section className="section surface-royal compliance-section-texture" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.10)', overflow: 'hidden' }}>
+
         <div className="container">
           <div className="section-title-wrapper" style={{ marginBottom: '60px' }}>
             <span className="section-subtitle">Audit Command Center</span>
@@ -984,7 +989,9 @@ export default function ComplianceHub() {
       </section>
 
       {/* --- MAJOR AUDIT TYPES SECTION --- */}
-      <section className="section services-section-texture" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.10)' }}>
+
+      <section className="section surface-matte services-section-texture" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.10)' }}>
+
         <div className="container">
           <div className="section-title-wrapper">
             <span className="section-subtitle" style={{ color: 'var(--c-teal)' }}>Major Audit Types</span>
@@ -1044,7 +1051,9 @@ export default function ComplianceHub() {
       </section>
 
       {/* --- HOW Vericea COMPLIANCE WORKS SECTION --- */}
-      <section id="how-it-works" className="section products-section-texture" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.10)' }}>
+
+      <section id="how-it-works" className="section surface-royal products-section-texture" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.10)' }}>
+
         <div className="container">
           <div className="section-title-wrapper" style={{ marginBottom: '56px' }}>
             <span className="section-subtitle" style={{ color: 'var(--c-teal)' }}>How Vericea Compliance Works</span>
@@ -1146,7 +1155,9 @@ export default function ComplianceHub() {
 
 
       {/* --- MANAGEMENT BENEFITS SECTION --- */}
-      <section className="section about-section-texture" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.10)' }}>
+
+      <section className="section surface-matte about-section-texture" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.10)' }}>
+
         <div className="container">
           <div className="section-title-wrapper">
             <span className="section-subtitle" style={{ color: 'var(--c-teal)' }}>Management Benefits</span>
@@ -1229,10 +1240,12 @@ export default function ComplianceHub() {
 
 
       {/* --- FINAL CTA SECTION --- */}
-      <section
-        className="section contact-section-texture"
-        style={{
-          padding: '100px 0',
+
+      <section 
+        className="section surface-royal contact-section-texture" 
+        style={{ 
+          padding: '100px 0', 
+
           color: '#ffffff',
           position: 'relative',
           overflow: 'hidden'

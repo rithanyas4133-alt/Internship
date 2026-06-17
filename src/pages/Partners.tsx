@@ -373,7 +373,9 @@ export default function Partners() {
       </section>
 
       {/* ── SECTION 2: PRODUCT ECOSYSTEM SHOWCASE ────────────────────────── */}
-      <section style={{ padding: '100px 0', borderBottom: '1px solid var(--gold-divider)' }}>
+
+      <section className="surface-matte" style={{ padding: '100px 0', background: 'linear-gradient(180deg, var(--premium-light-blue) 0%, var(--mist-blue) 100%)', borderBottom: '1px solid rgba(11, 25, 44, 0.1)' }}>
+
         <div className="container">
           <motion.div 
             {...fadeIn}
@@ -717,8 +719,10 @@ export default function Partners() {
         </div>
       </section>
 
-      {/* ── SECTION 4: 50/50 JOINT VENTURE MODEL ───────────────────────────── */}
-      <section style={{ padding: '100px 0', borderBottom: '1px solid var(--gold-divider)', position: 'relative' }}>
+
+      {/* ── SECTION 4: REVENUE SHARING MODEL ───────────────────────────── */}
+      <section className="surface-matte" style={{ padding: '100px 0', background: 'linear-gradient(180deg, var(--mist-blue) 0%, var(--light-steel-blue) 100%)', borderBottom: '1px solid rgba(11, 25, 44, 0.1)', position: 'relative' }}>
+
         <div className="container">
           <motion.div 
             {...fadeIn}
@@ -1019,7 +1023,9 @@ export default function Partners() {
       </section>
 
       {/* ── SECTION 6: REVENUE OPPORTUNITY DASHBOARD ───────────────────────── */}
-      <section style={{ padding: '100px 0', borderBottom: '1px solid var(--gold-divider)', position: 'relative' }}>
+
+      <section className="surface-matte" style={{ padding: '100px 0', background: 'linear-gradient(180deg, var(--premium-light-blue) 0%, var(--mist-blue) 100%)', borderBottom: '1px solid rgba(11, 25, 44, 0.1)', position: 'relative' }}>
+
         <div className="container">
           <motion.div 
             {...fadeIn}
@@ -1239,7 +1245,9 @@ export default function Partners() {
 
 
       {/* ── SECTION 9: WHO WE ARE LOOKING FOR ────────────────────────────── */}
-      <section style={{ padding: '100px 0', borderBottom: '1px solid var(--gold-divider)', position: 'relative' }}>
+
+      <section className="surface-matte" style={{ padding: '100px 0', background: 'linear-gradient(180deg, var(--premium-light-blue) 0%, var(--mist-blue) 100%)', borderBottom: '1px solid rgba(11, 25, 44, 0.1)', position: 'relative' }}>
+
         <div className="container">
           <motion.div 
             {...fadeIn}

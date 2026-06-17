@@ -345,7 +345,9 @@ export default function Services() {
           HERO SECTION
           ================================================== */}
       <section 
-        className="section"
+
+        className="section surface-royal"
+
         style={{ 
           padding: '160px 0 120px 0', 
           color: 'var(--text-main)',
@@ -449,7 +451,9 @@ export default function Services() {
       {/* ==================================================
           SECTION: HOW WE PARTNER WITH OUR CLIENTS
           ================================================== */}
-      <section className="section about-section-texture" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.12)' }}>
+
+      <section className="section surface-matte about-section-texture" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.12)' }}>
+
         <div className="container">
           <div className="section-title-wrapper" style={{ marginBottom: '56px' }}>
             <span className="section-subtitle" style={{ color: 'var(--supporting)' }}>Our Engagement Model</span>
@@ -613,7 +617,9 @@ export default function Services() {
       {/* ==================================================
           SECTION: OUR SOLUTION DELIVERY FRAMEWORK
           ================================================== */}
-      <section className="section compliance-section-texture" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.12)', position: 'relative', overflow: 'hidden' }}>
+
+      <section className="section surface-royal compliance-section-texture" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.12)', position: 'relative', overflow: 'hidden' }}>
+
         <div style={{ position: 'absolute', top: '0', left: '50%', transform: 'translateX(-50%)', width: '600px', height: '300px', background: 'radial-gradient(ellipse at center, rgba(200, 162, 118, 0.04) 0%, transparent 70%)', pointerEvents: 'none' }} />
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <div className="section-title-wrapper" style={{ marginBottom: '64px' }}>
@@ -698,7 +704,9 @@ export default function Services() {
       {/* ==================================================
           SECTION: MATCHING BUSINESS NEEDS TO SOLUTIONS
           ================================================== */}
-      <section id="solutions-matching" className="section products-section-texture" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.12)', position: 'relative', overflow: 'hidden' }}>
+
+      <section id="solutions-matching" className="section surface-matte products-section-texture" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.12)', position: 'relative', overflow: 'hidden' }}>
+
         <div style={{ position: 'absolute', top: '-20%', right: '-10%', width: '500px', height: '500px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(200, 162, 118, 0.04) 0%, transparent 65%)', pointerEvents: 'none' }} />
         <div style={{ position: 'absolute', bottom: '-20%', left: '-10%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(200, 162, 118, 0.03) 0%, transparent 65%)', pointerEvents: 'none' }} />
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
@@ -805,7 +813,9 @@ export default function Services() {
       {/* ==================================================
           SECTION: BUSINESS OUTCOMES (KPI Conveyor Belt)
           ================================================== */}
-      <section className="section services-section-texture" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.12)', position: 'relative', overflow: 'hidden', padding: '60px 0 65px 0' }}>
+
+      <section className="section surface-royal services-section-texture" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.12)', position: 'relative', overflow: 'hidden', padding: '60px 0 65px 0' }}>
+
         {/* Shared SVG gradients and filters */}
         <svg style={{ position: 'absolute', width: 0, height: 0, overflow: 'hidden' }} aria-hidden="true">
           <defs>
@@ -990,7 +1000,9 @@ export default function Services() {
       {/* ==================================================
           CTA SECTION
           ================================================== */}
-      <section className="section contact-section-texture" style={{ position: 'relative', overflow: 'hidden' }}>
+
+      <section className="section surface-matte contact-section-texture" style={{ position: 'relative', overflow: 'hidden' }}>
+
         <div style={{ position: 'absolute', top: '-10%', right: '-10%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(200, 162, 118, 0.04) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
         <div style={{ position: 'absolute', bottom: '-10%', left: '-10%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(200, 162, 118, 0.04) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
 
@@ -1022,7 +1034,7 @@ export default function Services() {
               <motion.button 
                 onClick={() => navigate('/products')} 
                 className="btn btn-dark-outline"
-                whileHover={{ scale: 1.03, borderColor: '#ffffff', backgroundColor: 'rgba(255,255,255,0.05)' }}
+                whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.98 }}
                 style={{ border: '2px solid rgba(255,255,255,0.25)', color: '#ffffff' }}
               >

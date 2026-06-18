@@ -11,7 +11,7 @@ const capabilities: Capability[] = [
   {
     title: 'Project Management',
     desc: 'Structured execution roadmaps tracking dependencies, risk metrics, and release timelines for system predictability.',
-    image: '/images/vericea_dashboard_mockup.png'
+    image: '/images/project_management.jpg'
   },
   {
     title: 'Consulting Services',
@@ -21,7 +21,7 @@ const capabilities: Capability[] = [
   {
     title: 'Web Application Development',
     desc: 'High-performance cloud databases and executive dashboards built utilizing secure React & TypeScript.',
-    image: '/images/product_tab_compliance_1780851018319.png'
+    image: '/images/sol_dev_project.jpg'
   },
   {
     title: 'Mobile Application Development',

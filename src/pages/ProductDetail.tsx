@@ -17,6 +17,8 @@ import {
   Send,
   ArrowLeft
 } from 'lucide-react';
+import PlatformWorkflow from '../components/PlatformWorkflow';
+import IndustryCarousel from '../components/IndustryCarousel';
 
 interface ProductData {
   id: string;
@@ -564,29 +566,8 @@ export default function ProductDetail() {
         </div>
       </section>
 
-      {/* --- SECTION 3: SOLUTION OVERVIEW --- */}
-      <section className="section" style={{ backgroundColor: '#0A0F1C' }}>
-        <div className="container" style={{ maxWidth: '900px' }}>
-          <motion.div
-            variants={scrollReveal}
-            initial="initial"
-            whileInView="whileInView"
-            viewport={scrollReveal.viewport}
-            style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', gap: '20px', alignItems: 'center' }}
-          >
-            <span style={{ color: product.themeColor, fontSize: '12px', fontWeight: '800', textTransform: 'uppercase', letterSpacing: '1.5px' }}>
-              System Architecture
-            </span>
-            <h2 style={{ fontSize: '36px', fontWeight: '800', color: '#ffffff', fontFamily: 'var(--font-headings)', margin: 0 }}>
-              How the Platform Works
-            </h2>
-            <p style={{ fontSize: '16px', color: '#E5E7EB', lineHeight: '1.7', maxWidth: '780px', margin: 0 }}>
-              {product.solutionOverview}
-            </p>
-            <div style={{ width: '80px', height: '3px', backgroundColor: 'var(--accent)', marginTop: '10px' }}></div>
-          </motion.div>
-        </div>
-      </section>
+      {/* --- SECTION 3: HOW THE PLATFORM WORKS (VISUAL WORKFLOW) --- */}
+      <PlatformWorkflow accent={product.themeColor} />
 
       {/* --- SECTION 4: KEY CAPABILITIES --- */}
       <section className="section" style={{ backgroundColor: '#111827', borderTop: '1px solid rgba(255,255,255,0.05)', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
@@ -698,56 +679,7 @@ export default function ProductDetail() {
         </div>
       </section>
 
-      {/* --- SECTION 6: DASHBOARDS & ANALYTICS --- */}
-      <section className="section" style={{ backgroundColor: '#111827', borderTop: '1px solid rgba(255,255,255,0.05)', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
-        <div className="container">
-          <div className="section-title-wrapper" style={{ marginBottom: '56px' }}>
-            <span className="section-subtitle" style={{ color: 'var(--accent)' }}>System Visuals</span>
-            <h2 className="section-title" style={{ color: '#ffffff' }}>Dashboards & Live Analytics</h2>
-            <p className="section-desc" style={{ color: '#9CA3AF' }}>Simulated representation of the production interface showing widgets, filters, and transaction tables.</p>
-          </div>
-
-          <motion.div
-            variants={scrollReveal}
-            initial="initial"
-            whileInView="whileInView"
-            viewport={scrollReveal.viewport}
-            style={{
-              backgroundColor: '#0A0F1C',
-              borderRadius: '16px',
-              border: '1px solid rgba(255, 255, 255, 0.08)',
-              boxShadow: 'var(--shadow-xl)',
-              overflow: 'hidden',
-              maxWidth: '840px',
-              margin: '0 auto'
-            }}
-          >
-            {/* Browser Header */}
-            <div style={{
-              height: '36px',
-              background: '#111827',
-              borderBottom: '1px solid rgba(255,255,255,0.08)',
-              display: 'flex',
-              alignItems: 'center',
-              padding: '0 16px',
-              gap: '6px'
-            }}>
-              <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#ef4444' }}></span>
-              <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#f59e0b' }}></span>
-              <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#10b981' }}></span>
-              <span style={{ fontSize: '11px', color: '#94a3b8', marginLeft: '12px', fontWeight: '500' }}>{product.id}.cea-infotech.com/console</span>
-            </div>
-
-            <div style={{ position: 'relative', overflow: 'hidden' }}>
-              <img 
-                src={product.dashboardImage} 
-                alt={product.dashboardTitle} 
-                style={{ width: '100%', display: 'block', maxHeight: '420px', objectFit: 'cover' }}
-              />
-            </div>
-          </motion.div>
-        </div>
-      </section>
+      {/* --- SECTION 6: DASHBOARDS & LIVE ANALYTICS (removed) --- */}
 
       {/* --- SECTION 7: BUSINESS BENEFITS --- */}
       <section className="section" style={{ backgroundColor: '#0A0F1C' }}>
@@ -790,36 +722,8 @@ export default function ProductDetail() {
         </div>
       </section>
 
-      {/* --- SECTION 8: INDUSTRIES SERVED --- */}
-      <section className="section" style={{ backgroundColor: '#111827', borderTop: '1px solid rgba(255,255,255,0.05)', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
-        <div className="container" style={{ textAlign: 'center' }}>
-          <div className="section-title-wrapper">
-            <span className="section-subtitle" style={{ color: 'var(--accent)' }}>Target Verticals</span>
-            <h2 className="section-title" style={{ color: '#ffffff' }}>Industries Served</h2>
-            <p className="section-desc" style={{ color: '#9CA3AF' }}>Customized configuration templates are available for these primary sectors.</p>
-          </div>
-
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', justifyContent: 'center', maxWidth: '640px', margin: '0 auto' }}>
-            {product.industries.map((ind, idx) => (
-              <span 
-                key={idx}
-                style={{
-                  fontSize: '14px',
-                  fontWeight: '700',
-                  color: '#ffffff',
-                  backgroundColor: '#0A0F1C',
-                  border: '1px solid rgba(255,255,255,0.08)',
-                  padding: '10px 24px',
-                  borderRadius: '30px',
-                  boxShadow: 'var(--shadow-sm)'
-                }}
-              >
-                {ind}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* --- SECTION 8: INDUSTRIES SERVED (Interactive Carousel) --- */}
+      <IndustryCarousel themeColor={product.themeColor} />
 
       {/* --- CROSS-PRODUCT NAVIGATION ── */}
       <section style={{ backgroundColor: '#0A0F1C', padding: '60px 0', borderTop: '1px solid rgba(255,255,255,0.04)' }}>

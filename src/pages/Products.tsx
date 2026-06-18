@@ -1,4 +1,4 @@
-import { useState, useRef, type ReactNode } from 'react';
+import { useState, useRef, useEffect, type ReactNode } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Factory, 
@@ -245,6 +245,151 @@ export default function Products() {
     { title: 'Operational Efficiency', icon: <Clock size={24} />, desc: 'Eliminate manual logs and reduce machinery downtime stages, boosting resource utility.' },
     { title: 'Long-Term Business Value', icon: <Award size={24} />, desc: 'Demonstrable reductions in courier costs, audit penalties, and assembly tracking errors.' }
   ];
+
+  // 3D Coverflow Carousel component
+  function CoverflowCarousel({ items, onCardClick }: { items: typeof challengeSolutionData, onCardClick: (s: string) => void }) {
+    const [activeIndex, setActiveIndex] = useState(0);
+    const [isHovered, setIsHovered] = useState(false);
+
+    useEffect(() => {
+      if (isHovered) return;
+      const interval = setInterval(() => {
+        setActiveIndex((prev) => (prev + 1) % items.length);
+      }, 4000);
+      return () => clearInterval(interval);
+    }, [isHovered, items.length]);
+
+    return (
+      <div 
+        style={{ position: 'relative', width: '100%', height: '560px', display: 'flex', alignItems: 'center', justifyContent: 'center', perspective: '1200px', overflow: 'hidden' }}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        <div style={{ position: 'relative', width: '340px', height: '420px', display: 'flex', alignItems: 'center', justifyContent: 'center', transformStyle: 'preserve-3d' }}>
+          {items.map((item, i) => {
+            const diff = (i - activeIndex + items.length) % items.length;
+            let offset = diff;
+            if (offset > Math.floor(items.length / 2)) offset -= items.length;
+            
+            const isCenter = offset === 0;
+            const absOffset = Math.abs(offset);
+            
+            const x = offset * 220; 
+            const z = -absOffset * 150;
+            const rotateY = offset > 0 ? -35 : offset < 0 ? 35 : 0;
+            const scale = isCenter ? 1.05 : 0.85;
+            const opacity = isCenter ? 1 : Math.max(0, 1 - absOffset * 0.4);
+            const zIndex = items.length - absOffset;
+
+            return (
+              <motion.div
+                key={i}
+                initial={false}
+                animate={{ x, z, rotateY, scale, opacity, zIndex }}
+                transition={{ type: 'spring', stiffness: 220, damping: 28 }}
+                drag="x"
+                dragConstraints={{ left: 0, right: 0 }}
+                dragElastic={0.2}
+                onDragEnd={(_, info) => {
+                  if (info.offset.x < -60) {
+                    setActiveIndex((prev) => (prev + 1) % items.length);
+                  } else if (info.offset.x > 60) {
+                    setActiveIndex((prev) => (prev - 1 + items.length) % items.length);
+                  }
+                }}
+                style={{
+                  position: 'absolute',
+                  width: '340px',
+                  cursor: isCenter ? 'default' : 'pointer',
+                  transformStyle: 'preserve-3d',
+                }}
+                onClick={() => {
+                  if (!isCenter) {
+                    setActiveIndex(i);
+                  }
+                }}
+              >
+                <motion.div
+                  className="eco-card"
+                  whileHover={isCenter ? { scale: 1.02 } : {}}
+                  style={{
+                    background: 'linear-gradient(135deg, rgba(11, 25, 44, 0.8), rgba(3, 10, 20, 0.9))',
+                    backdropFilter: 'blur(16px)',
+                    border: isCenter ? '1px solid rgba(200, 162, 118, 0.4)' : '1px solid rgba(255, 255, 255, 0.08)',
+                    boxShadow: isCenter ? '0 16px 40px rgba(200, 162, 118, 0.15), 0 0 20px rgba(200, 162, 118, 0.1) inset' : '0 10px 30px rgba(0,0,0,0.6)',
+                    padding: '32px',
+                    borderRadius: '20px',
+                    transformOrigin: 'center center',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    height: '100%'
+                  }}
+                >
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <div style={{ width: '56px', height: '56px', borderRadius: '14px', background: 'rgba(200,162,118,0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--supporting)' }}>
+                      {item.icon}
+                    </div>
+                    <div className="solution-badge" style={{ backgroundColor: 'rgba(200,162,118,0.15)', color: 'var(--supporting)', padding: '6px 12px', borderRadius: '20px', fontSize: '11px', fontWeight: 700 }}>
+                      {item.solution}
+                    </div>
+                  </div>
+                  <div style={{ marginTop: '28px', flexGrow: 1 }}>
+                    <div style={{ fontSize: '12px', color: '#f87171', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '8px' }}>Challenge</div>
+                    <div className="challenge-title" style={{ fontSize: '22px', color: '#ffffff', fontWeight: 800, marginBottom: '12px', lineHeight: 1.3 }}>{item.challenge}</div>
+                    <div className="challenge-desc" style={{ fontSize: '15px', color: '#94a3b8', lineHeight: 1.6 }}>{item.desc}</div>
+                  </div>
+                  <div style={{ marginTop: '32px', borderTop: '1px solid rgba(255,255,255,0.08)', paddingTop: '20px' }}>
+                    <button 
+                      onClick={(e) => { 
+                        if (isCenter) {
+                          e.stopPropagation(); 
+                          onCardClick(item.solution); 
+                        }
+                      }} 
+                      style={{ 
+                        background: 'none', 
+                        border: 'none', 
+                        color: 'var(--supporting)', 
+                        fontWeight: 700, 
+                        cursor: isCenter ? 'pointer' : 'default',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '8px',
+                        fontSize: '14px',
+                        padding: 0
+                      }}
+                    >
+                      Learn more about this solution <ArrowRight size={14} />
+                    </button>
+                  </div>
+                </motion.div>
+              </motion.div>
+            );
+          })}
+        </div>
+        
+        {/* Navigation Dots */}
+        <div style={{ position: 'absolute', bottom: '20px', display: 'flex', gap: '8px' }}>
+          {items.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setActiveIndex(i)}
+              style={{
+                width: activeIndex === i ? '24px' : '8px',
+                height: '8px',
+                borderRadius: '4px',
+                backgroundColor: activeIndex === i ? 'var(--supporting)' : 'rgba(255,255,255,0.2)',
+                border: 'none',
+                cursor: 'pointer',
+                transition: 'all 0.3s ease',
+                padding: 0
+              }}
+            />
+          ))}
+        </div>
+      </div>
+    );
+  }
 
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -726,106 +871,18 @@ export default function Products() {
             </p>
           </div>
 
-          <motion.div 
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            style={{ 
-              display: 'grid', 
-              gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
-              gap: '24px' 
-            }}
-          >
-            {challengeSolutionData.map((item, index) => (
-              <motion.div
-                key={index}
-                variants={fadeIn}
-                className="glass-card"
-                style={{
-                  padding: '32px 28px',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'space-between',
-                  height: '100%',
-                  position: 'relative',
-                  overflow: 'hidden'
-                }}
-              >
-                {/* Top Row: Icon and Solution Badge */}
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '20px' }}>
-                  <div style={{
-                    width: '44px',
-                    height: '44px',
-                    borderRadius: '10px',
-                    backgroundColor: 'rgba(200, 162, 118, 0.08)',
-                    color: 'var(--supporting)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center'
-                  }}>
-                    {item.icon}
-                  </div>
-                  <span style={{ 
-                    fontSize: '11px', 
-                    fontWeight: '800', 
-                    color: 'var(--supporting)', 
-                    backgroundColor: 'rgba(200, 162, 118, 0.08)', 
-                    padding: '4px 12px', 
-                    borderRadius: '20px',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.5px'
-                  }}>
-                    {item.solution}
-                  </span>
-                </div>
-
-                {/* Middle Section: Challenge & Description */}
-                <div style={{ flexGrow: 1, display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                  <span style={{ fontSize: '11px', fontWeight: '700', color: '#f87171', textTransform: 'uppercase', letterSpacing: '1px', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                    <span style={{ width: '5px', height: '5px', borderRadius: '50%', backgroundColor: '#f87171' }}></span>
-                    Challenge
-                  </span>
-                  <h3 style={{ fontSize: '17.5px', fontWeight: '800', color: '#ffffff', margin: '0 0 6px 0', fontFamily: 'var(--font-headings)' }}>
-                    {item.challenge}
-                  </h3>
-                  <p style={{ fontSize: '13.5px', color: '#94a3b8', lineHeight: '1.6', margin: 0 }}>
-                    {item.desc}
-                  </p>
-                </div>
-
-                {/* Bottom Row: Action Link */}
-                <div style={{ display: 'flex', justifyContent: 'flex-start', borderTop: '1px solid rgba(255, 255, 255, 0.06)', paddingTop: '16px', marginTop: '20px' }}>
-                  <button 
-                    onClick={() => selectProductAndScroll(
-                      item.solution === "Workflow Automation Solutions" ? "Vericea Manufacturing" : 
-                      item.solution === "Analytics Dashboards" ? "Vericea Manufacturing" : 
-                      item.solution === "Courier Cost Management" ? "Courier Cost Management System" :
-                      item.solution
-                    )}
-                    style={{
-                      background: 'none',
-                      border: 'none',
-                      color: 'var(--supporting)',
-                      fontSize: '12.5px',
-                      fontWeight: '700',
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '4px',
-                      padding: 0,
-                      cursor: 'pointer',
-                      transition: 'color 0.2s'
-                    }}
-                    onMouseEnter={(e) => e.currentTarget.style.color = 'var(--accent)'}
-                    onMouseLeave={(e) => e.currentTarget.style.color = 'var(--supporting)'}
-                  >
-                    Learn more about this solution
-                    <ArrowRight size={13} />
-                  </button>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
+          {/* Enterprise Solution Coverflow - 3D Carousel */}
+          <div style={{ position: 'relative' }}>
+            <CoverflowCarousel
+              items={challengeSolutionData}
+              onCardClick={(sol) => selectProductAndScroll(
+                sol === "Workflow Automation Solutions" ? "Vericea Manufacturing" : 
+                sol === "Analytics Dashboards" ? "Vericea Manufacturing" : 
+                sol === "Courier Cost Management" ? "Courier Cost Management System" :
+                sol
+              )}
+            />
+          </div>
         </div>
       </section>
 

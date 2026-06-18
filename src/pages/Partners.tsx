@@ -374,7 +374,7 @@ export default function Partners() {
 
       {/* ── SECTION 2: PRODUCT ECOSYSTEM SHOWCASE ────────────────────────── */}
 
-      <section className="surface-matte" style={{ padding: '100px 0', background: 'linear-gradient(180deg, var(--premium-light-blue) 0%, var(--mist-blue) 100%)', borderBottom: '1px solid rgba(11, 25, 44, 0.1)' }}>
+      <section className="section surface-matte" style={{ padding: '100px 0' }}>
 
         <div className="container">
           <motion.div 
@@ -520,7 +520,7 @@ export default function Partners() {
       </section>
 
       {/* ── SECTION 3: WHY PARTNERS SAY YES ────────────────────────────────── */}
-      <section style={{ padding: '100px 0', borderBottom: '1px solid var(--gold-divider)', position: 'relative' }}>
+      <section className="section surface-royal" style={{ padding: '100px 0', position: 'relative' }}>
         <div className="container">
           <motion.div 
             {...fadeIn}
@@ -721,7 +721,7 @@ export default function Partners() {
 
 
       {/* ── SECTION 4: REVENUE SHARING MODEL ───────────────────────────── */}
-      <section className="surface-matte" style={{ padding: '100px 0', background: 'linear-gradient(180deg, var(--mist-blue) 0%, var(--light-steel-blue) 100%)', borderBottom: '1px solid rgba(11, 25, 44, 0.1)', position: 'relative' }}>
+      <section className="section surface-matte" style={{ padding: '100px 0', position: 'relative' }}>
 
         <div className="container">
           <motion.div 
@@ -863,7 +863,7 @@ export default function Partners() {
       </section>
 
       {/* ── SECTION 5: PARTNER BUSINESS MODELS ────────────────────────────── */}
-      <section style={{ padding: '100px 0', borderBottom: '1px solid var(--gold-divider)', position: 'relative' }}>
+      <section className="section surface-royal" style={{ padding: '100px 0', position: 'relative' }}>
         <div className="container">
           <motion.div 
             {...fadeIn}
@@ -1024,7 +1024,7 @@ export default function Partners() {
 
       {/* ── SECTION 6: REVENUE OPPORTUNITY DASHBOARD ───────────────────────── */}
 
-      <section className="surface-matte" style={{ padding: '100px 0', background: 'linear-gradient(180deg, var(--premium-light-blue) 0%, var(--mist-blue) 100%)', borderBottom: '1px solid rgba(11, 25, 44, 0.1)', position: 'relative' }}>
+      <section className="section surface-matte" style={{ padding: '100px 0', position: 'relative' }}>
 
         <div className="container">
           <motion.div 
@@ -1222,7 +1222,7 @@ export default function Partners() {
       </section>
 
       {/* ── SECTION 7: INDIA MARKET OPPORTUNITY ───────────────────────────── */}
-      <section style={{ padding: '100px 0', borderBottom: '1px solid var(--gold-divider)', position: 'relative' }}>
+      <section className="section surface-royal" style={{ padding: '100px 0', position: 'relative' }}>
         <div className="container">
           <motion.div 
             {...fadeIn}
@@ -1246,7 +1246,7 @@ export default function Partners() {
 
       {/* ── SECTION 9: WHO WE ARE LOOKING FOR ────────────────────────────── */}
 
-      <section className="surface-matte" style={{ padding: '100px 0', background: 'linear-gradient(180deg, var(--premium-light-blue) 0%, var(--mist-blue) 100%)', borderBottom: '1px solid rgba(11, 25, 44, 0.1)', position: 'relative' }}>
+      <section className="section surface-matte" style={{ padding: '100px 0', position: 'relative' }}>
 
         <div className="container">
           <motion.div 
@@ -1366,7 +1366,7 @@ export default function Partners() {
       </section>
 
       {/* ── SECTION 10: TERRITORIES ARE EXCLUSIVE ─────────────────────────── */}
-      <section style={{ padding: '100px 0', borderBottom: '1px solid var(--gold-divider)', position: 'relative', overflow: 'hidden' }}>
+      <section className="section surface-royal" style={{ padding: '100px 0', position: 'relative', overflow: 'hidden' }}>
         {/* Glowing visual indicators in the background */}
         <div style={{ position: 'absolute', right: '-10%', top: '-20%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(212,168,90,0.06) 0%, transparent 70%)', pointerEvents: 'none' }} />
 
@@ -1448,7 +1448,7 @@ export default function Partners() {
       </section>
 
       {/* ── FINAL CTA ──────────────────────────────────────────────────────── */}
-      <section style={{ padding: '120px 0', position: 'relative' }}>
+      <section className="section surface-matte" style={{ padding: '120px 0', position: 'relative' }}>
         {/* Subtle glow background */}
         <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none', background: 'radial-gradient(circle at 50% 50%, rgba(31,58,95,0.85) 0%, transparent 60%)' }} />
         

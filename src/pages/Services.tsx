@@ -270,8 +270,8 @@ export default function Services() {
   ];
 
   const solutionMatching = [
-    { need: "Production Efficiency", product: "Vericea Manufacturing", desc: "Improve production tracking and operational efficiency.", accent: "var(--secondary)", icon: <Factory size={20} /> },
-    { need: "Compliance Management", product: "Vericea Compliance", desc: "Track compliance activities and improve audit readiness.", accent: "var(--accent)", icon: <ShieldCheck size={20} /> },
+    { need: "Production Efficiency", product: "Vericea® Manufacturing", desc: "Improve production tracking and operational efficiency.", accent: "var(--secondary)", icon: <Factory size={20} /> },
+    { need: "Compliance Management", product: "Vericea® Compliance", desc: "Track compliance activities and improve audit readiness.", accent: "var(--accent)", icon: <ShieldCheck size={20} /> },
     { need: "Risk Assessment", product: "FactSafe", desc: "Identify, assess and monitor business risks.", accent: "#ef4444", icon: <AlertTriangle size={20} /> },
     { need: "Logistics Cost Optimization", product: "Courier Cost Management", desc: "Control and reduce logistics-related expenses.", accent: "#3b82f6", icon: <Truck size={20} /> },
     { need: "Custom Business Operations", product: "Custom Application Development", desc: "Tailored software solutions designed around business requirements.", accent: "var(--cta)", icon: <Code size={20} /> }
@@ -761,14 +761,20 @@ export default function Services() {
                       <img src="/images/Courier Cost Optimizer.png" alt="Courier Cost Optimizer Logo" style={{ height: '48px', width: 'auto', objectFit: 'contain' }} />
                     </div>
                   )}
-                  {sol.product === "Vericea Manufacturing" && (
+                  {sol.product === "Vericea® Manufacturing" && (
                     <div style={{ marginBottom: '12px', display: 'flex', alignItems: 'center' }}>
-                      <img src="/images/Vericea.png" alt="Vericea Logo" style={{ height: '24px', width: 'auto', objectFit: 'contain' }} />
+                      <span className="vericea-logo-wrap">
+                        <img src="/images/Vericea.png" alt="Vericea® Logo" style={{ height: '24px', width: 'auto', objectFit: 'contain' }} />
+                        <sup className="vericea-logo-sup">®</sup>
+                      </span>
                     </div>
                   )}
-                  {sol.product === "Vericea Compliance" && (
+                  {sol.product === "Vericea® Compliance" && (
                     <div style={{ marginBottom: '12px', display: 'flex', alignItems: 'center' }}>
-                      <img src="/images/Vericea.png" alt="Vericea Logo" style={{ height: '24px', width: 'auto', objectFit: 'contain' }} />
+                      <span className="vericea-logo-wrap">
+                        <img src="/images/Vericea.png" alt="Vericea® Logo" style={{ height: '24px', width: 'auto', objectFit: 'contain' }} />
+                        <sup className="vericea-logo-sup">®</sup>
+                      </span>
                     </div>
                   )}
                   {sol.product === "FactSafe" && (

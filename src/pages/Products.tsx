@@ -64,7 +64,7 @@ export default function Products() {
     name: '',
     email: '',
     company: '',
-    product: 'Vericea Manufacturing',
+    product: 'Vericea® Manufacturing',
     message: ''
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -96,7 +96,7 @@ export default function Products() {
   const productsData: Product[] = [
     {
       id: 'vericea-manufacturing',
-      name: 'Vericea Manufacturing',
+      name: 'Vericea® Manufacturing',
       tagline: 'Transforming Production Visibility Into Operational Excellence',
       oneLiner: 'Live shop-floor production tracking and equipment efficiency analytics.',
       description: 'A production tracking platform that helps manufacturing companies monitor activities, improve efficiency and optimize shop-floor operations.',
@@ -115,7 +115,7 @@ export default function Products() {
     },
     {
       id: 'vericea-compliance',
-      name: 'Vericea Compliance',
+      name: 'Vericea® Compliance',
       tagline: 'Create. Maintain. Monitor.',
       oneLiner: 'Automated audit tracking and secure compliance evidence vaults.',
       description: 'A compliance management platform that helps organizations track activities, manage evidence and maintain audit readiness.',
@@ -193,13 +193,13 @@ export default function Products() {
   const challengeSolutionData = [
     {
       challenge: "Production Tracking Challenges",
-      solution: "Vericea Manufacturing",
+      solution: "Vericea® Manufacturing",
       desc: "Real-time production monitoring, efficiency tracking and operational visibility.",
       icon: <Factory size={22} />
     },
     {
       challenge: "Compliance Monitoring Difficulties",
-      solution: "Vericea Compliance",
+      solution: "Vericea® Compliance",
       desc: "Automated compliance activities, evidence management and audit readiness.",
       icon: <ShieldCheck size={22} />
     },
@@ -217,7 +217,7 @@ export default function Products() {
     },
     {
       challenge: "Audit Readiness Issues",
-      solution: "Vericea Compliance",
+      solution: "Vericea® Compliance",
       desc: "Continuous compliance monitoring and audit preparation.",
       icon: <ShieldCheck size={22} />
     },
@@ -707,15 +707,20 @@ export default function Products() {
                           display: 'flex',
                           alignItems: 'center'
                         }}>
-                          <img 
-                            src={activeProduct.logo} 
-                            alt={`${activeProduct.name} Logo`} 
-                            style={{ 
-                              height: activeProduct.id.includes('courier') ? '54px' : '36px', 
-                              width: 'auto', 
-                              objectFit: 'contain' 
-                            }} 
-                          />
+                          <span className="vericea-logo-wrap">
+                            <img 
+                              src={activeProduct.logo} 
+                              alt={`${activeProduct.name} Logo`} 
+                              style={{ 
+                                height: activeProduct.id.includes('courier') ? '54px' : '36px', 
+                                width: 'auto', 
+                                objectFit: 'contain' 
+                              }} 
+                            />
+                            {activeProduct.id.includes('vericea') && (
+                              <sup className="vericea-logo-sup">®</sup>
+                            )}
+                          </span>
                         </div>
                       )}
                       <h2 style={{ fontSize: '32px', color: '#ffffff', fontWeight: '800', margin: 0 }}>
@@ -876,8 +881,8 @@ export default function Products() {
             <CoverflowCarousel
               items={challengeSolutionData}
               onCardClick={(sol) => selectProductAndScroll(
-                sol === "Workflow Automation Solutions" ? "Vericea Manufacturing" : 
-                sol === "Analytics Dashboards" ? "Vericea Manufacturing" : 
+                sol === "Workflow Automation Solutions" ? "Vericea® Manufacturing" : 
+                sol === "Analytics Dashboards" ? "Vericea® Manufacturing" : 
                 sol === "Courier Cost Management" ? "Courier Cost Management System" :
                 sol
               )}
@@ -1141,8 +1146,8 @@ export default function Products() {
                     value={formData.product}
                     onChange={handleInputChange}
                   >
-                    <option value="Vericea Manufacturing">Vericea Manufacturing</option>
-                    <option value="Vericea Compliance">Vericea Compliance</option>
+                    <option value="Vericea® Manufacturing">Vericea® Manufacturing</option>
+                    <option value="Vericea® Compliance">Vericea® Compliance</option>
                     <option value="FactSafe">FactSafe (Risk Platform)</option>
                     <option value="Courier Cost Management">Courier Cost Management System</option>
                     <option value="Family Tree Platform">Family Tree Platform</option>

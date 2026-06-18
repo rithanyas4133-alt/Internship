@@ -56,12 +56,12 @@ export default function Footer() {
               <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '14px' }}>
                 <li>
                   <Link to="/products" onClick={handleScrollToTop} style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
-                    Vericea Manufacturing <ArrowUpRight size={12} style={{ opacity: 0.5 }} />
+                    Vericea® Manufacturing <ArrowUpRight size={12} style={{ opacity: 0.5 }} />
                   </Link>
                 </li>
                 <li>
                   <Link to="/products" onClick={handleScrollToTop} style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
-                    Vericea Compliance <ArrowUpRight size={12} style={{ opacity: 0.5 }} />
+                    Vericea® Compliance <ArrowUpRight size={12} style={{ opacity: 0.5 }} />
                   </Link>
                 </li>
                 <li>

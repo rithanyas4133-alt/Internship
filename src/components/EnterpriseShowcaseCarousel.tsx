@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
 interface Capability {
@@ -44,18 +44,32 @@ export default function EnterpriseShowcaseCarousel() {
   const total = capabilities.length;
   const [index, setIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
-  const containerRef = useRef<HTMLDivElement | null>(null);
-  const autoRef = useRef<number | null>(null);
 
   useEffect(() => {
-    if (isHovered) {
-      if (autoRef.current) window.clearInterval(autoRef.current);
-      return;
-    }
-    autoRef.current = window.setInterval(() => setIndex(i => (i + 1) % total), 5000);
-    return () => { if (autoRef.current) window.clearInterval(autoRef.current); };
+    if (isHovered) return;
+
+    const interval = window.setInterval(() => {
+      setIndex((current) => (current + 1) % total);
+    }, 5000);
+
+    return () => window.clearInterval(interval);
   }, [isHovered, total]);
 
+  const goToSlide = (direction: 'prev' | 'next') => {
+    setIndex((current) =>
+      direction === 'next'
+        ? (current + 1) % total
+        : (current - 1 + total) % total
+    );
+  };
+
+  const handleDragEnd = (_event: unknown, info: { offset: { x: number } }) => {
+    if (info.offset.x < -80) {
+      goToSlide('next');
+    } else if (info.offset.x > 80) {
+      goToSlide('prev');
+    }
+  };
 
   return (
     <section
@@ -63,28 +77,91 @@ export default function EnterpriseShowcaseCarousel() {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="container" ref={containerRef} style={{ color: '#E6EEF8' }}>
+      <div className="container" style={{ color: '#E6EEF8' }}>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: 8 }}>
-          {/* Prev button centered */}
-          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 8 }}>
-            <button onClick={() => setIndex((index - 1 + total) % total)} style={{ background: 'transparent', border: '1px solid rgba(255,255,255,0.06)', color: '#E6EEF8', padding: '8px 14px', borderRadius: 8, cursor: 'pointer' }}>Previous</button>
-          </div>
-
-          {/* Three-column center-focused slider: 15% | 70% | 15% */}
-          <div style={{ display: 'grid', gridTemplateColumns: '15% 70% 15%', gap: 16, alignItems: 'center' }}>
-            {/* Left preview */}
-            <motion.div key="left" initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} style={{ height: 420, borderRadius: 12, overflow: 'hidden', boxShadow: '0 18px 48px rgba(2,6,23,0.6)', transform: 'rotateY(12deg)' }}>
-              <img src={capabilities[(index - 1 + total) % total].image} alt={capabilities[(index - 1 + total) % total].title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: '15% 70% 15%',
+              gap: 16,
+              alignItems: 'center'
+            }}
+          >
+            <motion.div
+              key={`left-${index}`}
+              initial={{ opacity: 0.45, x: -24 }}
+              animate={{ opacity: 0.88, x: 0 }}
+              transition={{ duration: 0.5 }}
+              style={{
+                height: 420,
+                borderRadius: 12,
+                overflow: 'hidden',
+                boxShadow: '0 18px 48px rgba(2,6,23,0.62)',
+                transform: 'rotateY(12deg)'
+              }}
+            >
+              <img
+                src={capabilities[(index - 1 + total) % total].image}
+                alt={capabilities[(index - 1 + total) % total].title}
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              />
             </motion.div>
 
-            {/* Active center */}
-            <motion.div key="center" initial={{ opacity: 0, scale: 0.98 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.6 }} style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-              <motion.div whileHover={{ scale: 1.02 }} style={{ height: 340, borderRadius: 12, overflow: 'hidden', position: 'relative', boxShadow: '0 40px 90px rgba(2,6,23,0.7)', border: '1px solid rgba(212,175,55,0.06)' }}>
-                <img src={capabilities[index].image} alt={capabilities[index].title} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+            <motion.div
+              key={`center-${index}`}
+              drag="x"
+              dragConstraints={{ left: 0, right: 0 }}
+              dragElastic={0.18}
+              onDragEnd={handleDragEnd}
+              initial={{ opacity: 0, scale: 0.98, y: 12 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 0.55, ease: 'easeOut' }}
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 12,
+                cursor: 'grab'
+              }}
+            >
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+                style={{
+                  height: 340,
+                  borderRadius: 12,
+                  overflow: 'hidden',
+                  position: 'relative',
+                  boxShadow: '0 42px 90px rgba(2,6,23,0.78), inset 0 0 0 1px rgba(212,175,55,0.06)',
+                  background: '#0B1833'
+                }}
+              >
+                <motion.img
+                  key={capabilities[index].image}
+                  src={capabilities[index].image}
+                  alt={capabilities[index].title}
+                  initial={{ scale: 1.06 }}
+                  animate={{ scale: 1 }}
+                  transition={{ duration: 0.7, ease: 'easeOut' }}
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                />
               </motion.div>
 
-              {/* Glass panel below image with number, title, description */}
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '14px', borderRadius: 12, background: 'linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.008))', border: '1px solid rgba(255,255,255,0.04)', boxShadow: '0 12px 40px rgba(2,6,23,0.6)' }}>
+              <motion.div
+                key={`content-${index}`}
+                initial={{ opacity: 0, y: 18 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.45 }}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  padding: '14px',
+                  borderRadius: 12,
+                  background: 'linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01))',
+                  border: '1px solid rgba(255,255,255,0.06)',
+                  boxShadow: '0 14px 42px rgba(2,6,23,0.58)'
+                }}
+              >
                 <div style={{ color: '#D4AF37', fontWeight: 900, fontSize: 16 }}>{String(index + 1).padStart(2, '0')} / {String(total).padStart(2, '0')}</div>
 
                 <div style={{ flex: 1, marginLeft: 16 }}>
@@ -93,22 +170,38 @@ export default function EnterpriseShowcaseCarousel() {
                 </div>
 
                 <div style={{ width: 160, marginLeft: 16 }}>
-                  <div style={{ height: 8, background: 'rgba(255,255,255,0.03)', borderRadius: 8, overflow: 'hidden' }}>
-                    <motion.div key={index} initial={{ width: 0 }} animate={{ width: `${((index + 1) / total) * 100}%` }} transition={{ duration: 0.8 }} style={{ height: '100%', background: 'linear-gradient(90deg,#C8A276,#D4AF37)' }} />
+                  <div style={{ height: 8, background: 'rgba(255,255,255,0.04)', borderRadius: 8, overflow: 'hidden' }}>
+                    <motion.div
+                      key={index}
+                      initial={{ width: 0 }}
+                      animate={{ width: `${((index + 1) / total) * 100}%` }}
+                      transition={{ duration: 0.8 }}
+                      style={{ height: '100%', background: 'linear-gradient(90deg,#C8A276,#D4AF37)' }}
+                    />
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </motion.div>
 
-            {/* Right preview */}
-            <motion.div key="right" initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} style={{ height: 420, borderRadius: 12, overflow: 'hidden', boxShadow: '0 18px 48px rgba(2,6,23,0.6)', transform: 'rotateY(-12deg)' }}>
-              <img src={capabilities[(index + 1) % total].image} alt={capabilities[(index + 1) % total].title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            <motion.div
+              key={`right-${index}`}
+              initial={{ opacity: 0.45, x: 24 }}
+              animate={{ opacity: 0.88, x: 0 }}
+              transition={{ duration: 0.5 }}
+              style={{
+                height: 420,
+                borderRadius: 12,
+                overflow: 'hidden',
+                boxShadow: '0 18px 48px rgba(2,6,23,0.62)',
+                transform: 'rotateY(-12deg)'
+              }}
+            >
+              <img
+                src={capabilities[(index + 1) % total].image}
+                alt={capabilities[(index + 1) % total].title}
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              />
             </motion.div>
-          </div>
-
-          {/* Next button centered */}
-          <div style={{ display: 'flex', justifyContent: 'center', marginTop: 8 }}>
-            <button onClick={() => setIndex((index + 1) % total)} style={{ background: 'linear-gradient(135deg,#C8A276,#D4AF37)', border: 'none', color: '#071027', padding: '8px 14px', borderRadius: 8, fontWeight: 800, cursor: 'pointer' }}>Next</button>
           </div>
         </div>
       </div>

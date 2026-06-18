@@ -242,7 +242,7 @@ export default function ComplianceHub() {
     {
       title: 'Verify',
       subtitle: 'Rich Media Evidence Collection',
-      desc: 'Prevent verbal approximations. Inspectors capture and attach real-time evidence directly to specific checklist questions. Store photos with annotations, voice notes explaining issues, legal PDF uploads, and video records into the secure Vericea Evidence Locker.',
+      desc: 'Prevent verbal approximations. Inspectors capture and attach real-time evidence directly to specific checklist questions. Store photos with annotations, voice notes explaining issues, legal PDF uploads, and video records into the secure Vericea® Evidence Locker.',
       features: ['Secure Evidence Locker', 'Photo Annotations & Tags', 'Multi-format File Uploads'],
       image: '/images/vericea_dashboard_mockup.png',
       badge: 'Evidence Management'
@@ -804,7 +804,10 @@ export default function ComplianceHub() {
               }}
             >
               <div style={{ display: 'flex', justifyContent: 'center', gap: '24px', alignItems: 'center', marginBottom: '24px' }}>
-                <img src="/images/Vericea.png" alt="Vericea Logo" style={{ height: '32px', width: 'auto', objectFit: 'contain' }} />
+                <span className="vericea-logo-wrap">
+                  <img src="/images/Vericea.png" alt="Vericea® Logo" style={{ height: '32px', width: 'auto', objectFit: 'contain' }} />
+                  <sup className="vericea-logo-sup">®</sup>
+                </span>
                 <div style={{ width: '1px', height: '24px', backgroundColor: 'rgba(255, 255, 255, 0.15)' }}></div>
                 <img src="/images/Fact_safe.png" alt="FactSafe Logo" style={{ height: '36px', width: 'auto', objectFit: 'contain' }} />
               </div>
@@ -834,7 +837,7 @@ export default function ComplianceHub() {
                   whileTap={{ scale: 0.98 }}
                   style={{ color: '#0F172A' }}
                 >
-                  Explore Vericea Compliance
+                  Explore Vericea® Compliance
                   <ArrowRight size={16} />
                 </motion.button>
                 <motion.button
@@ -1056,10 +1059,10 @@ export default function ComplianceHub() {
 
         <div className="container">
           <div className="section-title-wrapper" style={{ marginBottom: '56px' }}>
-            <span className="section-subtitle" style={{ color: 'var(--c-teal)' }}>How Vericea Compliance Works</span>
+            <span className="section-subtitle" style={{ color: 'var(--c-teal)' }}>How Vericea® Compliance Works</span>
             <h2 className="section-title" style={{ color: '#ffffff' }}>A Smarter Way To Manage Compliance</h2>
             <p className="section-desc" style={{ color: 'var(--c-slate-700)' }}>
-              Vericea provides an end-to-end digital dashboard to map, measure, and scale compliance management processes.
+              Vericea® provides an end-to-end digital dashboard to map, measure, and scale compliance management processes.
             </p>
           </div>
 
@@ -1231,7 +1234,7 @@ export default function ComplianceHub() {
                 Proactive Hazard Mitigation with FactSafe
               </h3>
               <p style={{ color: 'var(--c-slate-700)', fontSize: '14.5px', lineHeight: '1.6', margin: 0, textAlign: 'left' }}>
-                Vericea Compliance integrates seamlessly with FactSafe, our proactive risk assessment and monitoring platform. Identify operational hazards, trigger corrective action workflows, and monitor safety checklists live from a unified compliance hub.
+                Vericea® Compliance integrates seamlessly with FactSafe, our proactive risk assessment and monitoring platform. Identify operational hazards, trigger corrective action workflows, and monitor safety checklists live from a unified compliance hub.
               </p>
             </div>
           </div>
@@ -1258,7 +1261,7 @@ export default function ComplianceHub() {
             Ready To Strengthen Your Compliance Framework?
           </h2>
           <p style={{ color: 'rgba(255, 255, 255, 0.8)', fontSize: '16px', lineHeight: '1.6', marginBottom: '36px' }}>
-            Transform compliance from a reactive activity into a structured and continuously monitored business process with Vericea Compliance.
+            Transform compliance from a reactive activity into a structured and continuously monitored business process with Vericea® Compliance.
           </p>
 
           <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>

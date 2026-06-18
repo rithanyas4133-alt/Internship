@@ -21,7 +21,7 @@ const internationalHubs: HubInfo[] = [
     y: 468,
     focus: 'Enterprise Compliance & Audit Systems',
     opportunity: 'High compliance mandates in heavy industrial zones, construction, and oil/gas distribution.',
-    marketPotential: 'Tier 1 Region for Vericea Compliance and FactSafe'
+    marketPotential: 'Tier 1 Region for Vericea® Compliance and FactSafe'
   },
   {
     name: 'Singapore / Hanoi',
@@ -58,7 +58,7 @@ const continentToHubs: Record<string, string[]> = {
 };
 
 export default function WorldMap() {
-  const [selectedHub, setSelectedHub] = useState<HubInfo | null>(internationalHubs[0]);
+  const [selectedHub, setSelectedHub] = useState<HubInfo | null>(null);
   const [hoveredHub, setHoveredHub] = useState<HubInfo | null>(null);
   const [hoveredContinentId, setHoveredContinentId] = useState<string | null>(null);
 
@@ -68,23 +68,7 @@ export default function WorldMap() {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '24px', width: '100%' }}>
       {/* Map visual card */}
-      <div 
-        style={{ 
-          borderRadius: '20px', 
-          padding: '24px', 
-          background: 'rgba(43, 74, 115, 0.25)', 
-          border: '1px solid var(--border-color)',
-          boxShadow: 'var(--shadow-lg)',
-          backdropFilter: 'blur(8px)',
-          position: 'relative',
-          overflow: 'hidden',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          minHeight: '400px',
-          width: '100%'
-        }}
-      >
+      <div className="map-premium-card">
         {/* Subtle grid background */}
         <div style={{ position: 'absolute', inset: 0, opacity: 0.1, backgroundImage: 'linear-gradient(rgba(212,168,90,0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(212,168,90,0.15) 1px, transparent 1px)', backgroundSize: '20px 20px', pointerEvents: 'none' }} />
 
@@ -359,70 +343,6 @@ export default function WorldMap() {
           </AnimatePresence>
         </div>
       </div>
-
-      {/* Selected hub information panel below */}
-      <AnimatePresence mode="wait">
-        {selectedHub && (
-          <motion.div
-            key={selectedHub.name}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.25 }}
-            style={{
-              borderRadius: '16px',
-              padding: '20px',
-              background: 'linear-gradient(180deg, rgba(43, 74, 115, 0.6), rgba(27, 42, 74, 0.7))',
-              border: '1.5px solid var(--accent)',
-              boxShadow: '0 12px 36px rgba(0,0,0,0.4)',
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '12px'
-            }}
-          >
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-              <div>
-                <span style={{ fontSize: '10px', fontWeight: '800', textTransform: 'uppercase', letterSpacing: '1.2px', color: '#D4A85A', background: 'rgba(212, 168, 90, 0.12)', padding: '3px 8px', borderRadius: '4px' }}>
-                  {selectedHub.region}
-                </span>
-                <h3 style={{ margin: '6px 0 2px 0', fontSize: '20px', fontWeight: '800', color: '#ffffff' }}>
-                  {selectedHub.name}
-                </h3>
-              </div>
-              <span style={{ fontSize: '11px', color: 'var(--supporting)', fontWeight: '600' }}>
-                International Expansion
-              </span>
-            </div>
-
-            <div style={{ height: '1px', background: 'rgba(212, 168, 90, 0.2)' }} />
-
-            {/* Focus */}
-            <div>
-              <h4 style={{ margin: '0 0 4px 0', fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.8px', color: 'var(--text-muted)' }}>
-                Target Product Focus
-              </h4>
-              <p style={{ margin: 0, fontSize: '13px', color: '#ffffff', fontWeight: '600' }}>
-                {selectedHub.focus}
-              </p>
-            </div>
-
-            {/* Opportunities */}
-            <div>
-              <h4 style={{ margin: '0 0 4px 0', fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.8px', color: 'var(--text-muted)' }}>
-                Regional Market Need
-              </h4>
-              <p style={{ margin: 0, fontSize: '12px', color: 'var(--text-muted)', lineHeight: '1.5' }}>
-                {selectedHub.opportunity}
-              </p>
-            </div>
-
-            <div style={{ marginTop: '4px', display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12px', fontWeight: '700', color: '#D4A85A' }}>
-              <span>Potential: {selectedHub.marketPotential}</span>
-              <ArrowRight size={12} style={{ animation: 'conveyor-left-to-right 1.5s infinite linear' }} />
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </div>
   );
 }

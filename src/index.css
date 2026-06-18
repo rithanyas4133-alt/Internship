@@ -4004,3 +4004,209 @@ a.cta:hover { color: var(--cta-hover); transform: translateY(-2px); }
 }
 
 
+/* ══════════════════════════════════════════════════════════════════════════
+   PARTNERS – "WHY PARTNERS SAY YES" ORBITAL NETWORK VISUALIZATION
+   ══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Keyframe: Slow orbit ring rotation ── */
+@keyframes orbit-rotate {
+  0%   { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* ── Keyframe: Orbit ring pulse glow ── */
+@keyframes orbit-pulse {
+  0%, 100% { opacity: 0.75; filter: drop-shadow(0 0 12px rgba(244, 196, 78, 0.35)) drop-shadow(0 0 22px rgba(244, 196, 78, 0.18)); }
+  50%      { opacity: 1;    filter: drop-shadow(0 0 18px rgba(244, 196, 78, 0.55)) drop-shadow(0 0 32px rgba(244, 196, 78, 0.3)); }
+}
+
+/* ── Keyframe: Rotating conic gradient on orbit dash offset ── */
+@keyframes orbit-dash-flow {
+  0%   { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: -1008; }
+}
+
+/* ── Keyframe: Node idle glow ── */
+@keyframes node-glow-pulse {
+  0%, 100% { box-shadow: 0 0 10px rgba(244, 196, 78, 0.24), 0 0 24px rgba(244, 196, 78, 0.1), inset 0 0 10px rgba(244, 196, 78, 0.08); }
+  50%      { box-shadow: 0 0 18px rgba(244, 196, 78, 0.48), 0 0 38px rgba(244, 196, 78, 0.18), inset 0 0 14px rgba(244, 196, 78, 0.16); }
+}
+
+/* ── Keyframe: Center core beacon ── */
+@keyframes core-beacon {
+  0%, 100% { box-shadow: 0 0 32px rgba(244, 196, 78, 0.28), 0 0 60px rgba(244, 196, 78, 0.1); }
+  50%      { box-shadow: 0 0 48px rgba(244, 196, 78, 0.45), 0 0 90px rgba(244, 196, 78, 0.18); }
+}
+
+/* ── Keyframe: Connector line shimmer ── */
+@keyframes connector-shimmer {
+  0%, 100% { opacity: 0.38; }
+  50%      { opacity: 0.9; }
+}
+
+/* ── Orbit SVG container ── */
+.orbit-svg-ring {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 1;
+  filter: saturate(1.1);
+}
+
+/* ── Primary orbit circle stroke ── */
+.orbit-ring-main {
+  fill: none;
+  stroke: rgba(244, 196, 78, 0.98);
+  stroke-width: 5.5;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 14px rgba(244, 196, 78, 0.58)) drop-shadow(0 0 30px rgba(244, 196, 78, 0.25));
+  animation: orbit-pulse 4s ease-in-out infinite;
+}
+
+/* ── Animated dashed overlay for flowing energy effect ── */
+.orbit-ring-flow {
+  fill: none;
+  stroke: rgba(255, 231, 155, 0.94);
+  stroke-width: 3;
+  stroke-dasharray: 12 15;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 10px rgba(255, 231, 155, 0.42));
+  animation: orbit-dash-flow 12s linear infinite;
+}
+
+/* ── Outer soft halo ring ── */
+.orbit-ring-halo {
+  fill: none;
+  stroke: rgba(212, 168, 90, 0.22);
+  stroke-width: 18;
+  filter: blur(5px);
+}
+
+/* ── Center core glow ── */
+.orbit-center-core {
+  animation: core-beacon 3s ease-in-out infinite;
+}
+
+/* ── Benefit node button glow ── */
+.orbit-benefit-node {
+  animation: node-glow-pulse 3s ease-in-out infinite;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  border: 1px solid rgba(244, 196, 78, 0.82) !important;
+  box-shadow: 0 0 14px rgba(212, 168, 90, 0.22), inset 0 0 10px rgba(212, 168, 90, 0.08) !important;
+}
+
+.orbit-benefit-node:hover,
+.orbit-benefit-node.is-active {
+  box-shadow: 0 0 22px rgba(244, 196, 78, 0.5), 0 0 38px rgba(244, 196, 78, 0.22), inset 0 0 14px rgba(244, 196, 78, 0.15) !important;
+  border-color: #F4C44E !important;
+  transform: scale(1.08);
+}
+
+.orbit-benefit-node.is-active {
+  background: linear-gradient(135deg, #D4A85A, #F2D58A) !important;
+  color: #0E1720 !important;
+  border-color: #fff !important;
+  box-shadow: 0 0 26px rgba(244, 196, 78, 0.7), 0 0 48px rgba(244, 196, 78, 0.3), inset 0 0 14px rgba(255, 255, 255, 0.18) !important;
+}
+
+/* ── Node label tag glow on hover ── */
+.orbit-node-label {
+  transition: all 0.3s ease;
+}
+
+.orbit-benefit-node:hover ~ .orbit-node-label,
+.orbit-benefit-node.is-active ~ .orbit-node-label {
+  border-color: rgba(212, 175, 55, 0.58) !important;
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.18);
+  color: #ffffff !important;
+}
+
+/* ── SVG connector lines ── */
+.orbit-connector {
+  animation: connector-shimmer 3.5s ease-in-out infinite;
+  transition: opacity 0.3s ease, stroke 0.3s ease;
+  stroke-width: 1.6;
+}
+
+.orbit-connector.is-active {
+  opacity: 1 !important;
+  stroke: rgba(212, 175, 55, 0.88) !important;
+  filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.4));
+}
+
+/* ── Responsive orbit sizing ── */
+@media (max-width: 768px) {
+  .orbit-svg-ring {
+    max-width: 340px !important;
+    max-height: 340px !important;
+  }
+  .orbit-ring-main { stroke-width: 4.4; }
+  .orbit-ring-flow { stroke-width: 2.6; }
+  .orbit-ring-halo { stroke-width: 16; }
+}
+
+@media (max-width: 480px) {
+  .orbit-svg-ring {
+    max-width: 300px !important;
+    max-height: 300px !important;
+  }
+  .orbit-ring-main { stroke-width: 4; }
+  .orbit-ring-flow { stroke-width: 2.2; }
+  .orbit-ring-halo { stroke-width: 14; }
+}
+
+/* Geographic Maps Side-by-Side Responsive Grid */
+.maps-responsive-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  width: 100%;
+  align-items: stretch;
+}
+
+.map-premium-card {
+  border-radius: 20px;
+  padding: 24px;
+  background: rgba(43, 74, 115, 0.25);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-lg);
+  backdrop-filter: blur(8px);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 540px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.map-premium-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 25px rgba(212, 168, 90, 0.2), var(--shadow-lg);
+  transform: translateY(-4px);
+  background: rgba(43, 74, 115, 0.35);
+}
+
+@media (max-width: 1024px) {
+  .maps-responsive-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .map-premium-card {
+    min-height: 480px;
+  }
+}
+
+@media (max-width: 768px) {
+  .maps-responsive-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .map-premium-card {
+    min-height: 440px;
+  }
+}
+

@@ -1059,7 +1059,7 @@ export default function Partners() {
 
       {/* ── SECTION 6: REVENUE OPPORTUNITY PROJECTION ───────────────────────── */}
 
-      <section className="section surface-matte" style={{ padding: '100px 0', position: 'relative' }}>
+      <section className="section surface-matte" style={{ padding: '100px 0 60px 0', position: 'relative' }}>
 
         <div className="container">
           <motion.div 
@@ -1077,310 +1077,277 @@ export default function Partners() {
             </p>
           </motion.div>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
-            
-            {/* Chart Wrapper Card */}
+          {/* Chart Wrapper Card */}
+          <div 
+            style={{ 
+              borderRadius: '20px', 
+              padding: '36px', 
+              background: 'rgba(43, 74, 115, 0.25)', 
+              border: '1px solid var(--border-color)',
+              boxShadow: 'var(--shadow-lg)',
+              backdropFilter: 'blur(8px)',
+              position: 'relative',
+              maxWidth: '1000px',
+              margin: '0 auto'
+            }}
+          >
+            {/* Chart Top Header & Legend */}
             <div 
               style={{ 
-                borderRadius: '20px', 
-                padding: '36px', 
-                background: 'rgba(43, 74, 115, 0.25)', 
-                border: '1px solid var(--border-color)',
-                boxShadow: 'var(--shadow-lg)',
-                backdropFilter: 'blur(8px)',
-                position: 'relative'
+                display: 'flex', 
+                justifyContent: 'space-between', 
+                alignItems: 'center', 
+                flexWrap: 'wrap', 
+                gap: '20px',
+                marginBottom: '40px',
+                borderBottom: '1px solid rgba(255,255,255,0.06)',
+                paddingBottom: '20px'
               }}
             >
-              {/* Chart Top Header & Legend */}
-              <div 
-                style={{ 
-                  display: 'flex', 
-                  justifyContent: 'space-between', 
-                  alignItems: 'center', 
-                  flexWrap: 'wrap', 
-                  gap: '20px',
-                  marginBottom: '40px',
-                  borderBottom: '1px solid rgba(255,255,255,0.06)',
-                  paddingBottom: '20px'
-                }}
-              >
-                <div>
-                  <h4 style={{ margin: 0, fontSize: '14px', fontWeight: '800', color: '#ffffff', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <PieChart size={16} color="#D4A85A" />
-                    Growth Curve (₹ In Lakhs)
-                  </h4>
-                  <span style={{ fontSize: '11px', color: 'var(--text-muted)' }}>Cumulative Projections</span>
-                </div>
-
-                {/* Legend */}
-                <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
-                  {revenueModels.map((model) => (
-                    <div key={model.key} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                      <div style={{ width: '12px', height: '12px', borderRadius: '3px', background: model.color }} />
-                      <div style={{ display: 'flex', flexDirection: 'column' }}>
-                        <span style={{ fontSize: '12px', fontWeight: '800', color: '#ffffff' }}>{model.label}</span>
-                        <span style={{ fontSize: '10px', color: 'var(--text-muted)' }}>{model.investment} investment</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
+              <div>
+                <h4 style={{ margin: 0, fontSize: '14px', fontWeight: '800', color: '#ffffff', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <PieChart size={16} color="#D4A85A" />
+                  Growth Curve (₹ In Lakhs)
+                </h4>
+                <span style={{ fontSize: '11px', color: 'var(--text-muted)' }}>Cumulative Projections</span>
               </div>
 
-              {/* Grouped Bar Chart */}
-              <div style={{ position: 'relative', paddingLeft: '40px', paddingRight: '20px' }}>
-                {/* Y-Axis Labels */}
-                <div style={{ position: 'absolute', left: 0, top: 0, bottom: '40px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', fontSize: '11px', color: 'var(--text-muted)', textAlign: 'right', width: '30px' }}>
-                  <span>300L</span>
-                  <span>225L</span>
-                  <span>150L</span>
-                  <span>75L</span>
-                  <span>0L</span>
-                </div>
-
-                {/* Main Grid Area */}
-                <div 
-                  style={{ 
-                    height: '240px', 
-                    borderBottom: '2px solid rgba(255,255,255,0.1)',
-                    position: 'relative',
-                    display: 'flex',
-                    justifyContent: 'space-around',
-                    alignItems: 'flex-end',
-                    paddingBottom: '4px'
-                  }}
-                >
-                  {/* Grid Lines */}
-                  <div style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', justifyContent: 'space-between', pointerEvents: 'none' }}>
-                    <div style={{ height: '1px', background: 'rgba(255,255,255,0.05)' }} />
-                    <div style={{ height: '1px', background: 'rgba(255,255,255,0.05)' }} />
-                    <div style={{ height: '1px', background: 'rgba(255,255,255,0.05)' }} />
-                    <div style={{ height: '1px', background: 'rgba(255,255,255,0.05)' }} />
-                    <div style={{ height: '1px', background: 'transparent' }} />
-                  </div>
-
-                  {/* Year 1 Group */}
-                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', flex: '1 1 0' }}>
-                    <div style={{ display: 'flex', gap: '8px', alignItems: 'flex-end' }}>
-                      {revenueModels.map((model) => {
-                        const val = model.year1;
-                        const isHovered = hoveredBar?.model === model.key && hoveredBar?.year === 'Year 1';
-                        return (
-                          <div 
-                            key={model.key} 
-                            style={{ position: 'relative' }}
-                            onMouseEnter={() => setHoveredBar({ model: model.key, year: 'Year 1', value: val })}
-                            onMouseLeave={() => setHoveredBar(null)}
-                          >
-                            {/* Bar Tooltip */}
-                            {isHovered && (
-                              <motion.div
-                                initial={{ opacity: 0, y: 5 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                style={{
-                                  position: 'absolute',
-                                  bottom: `calc(${(val / 300) * 230}px + 10px)`,
-                                  left: '50%',
-                                  transform: 'translateX(-50%)',
-                                  background: 'rgba(14, 31, 53, 0.95)',
-                                  border: `1px solid ${model.color}`,
-                                  borderRadius: '8px',
-                                  padding: '8px 12px',
-                                  zIndex: 10,
-                                  boxShadow: '0 8px 24px rgba(0,0,0,0.5)',
-                                  pointerEvents: 'none',
-                                  whiteSpace: 'nowrap'
-                                }}
-                              >
-                                <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>{model.label}</div>
-                                <div style={{ fontSize: '14px', fontWeight: '800', color: '#ffffff', marginTop: '2px' }}>₹{val} Lakhs</div>
-                                <div style={{ fontSize: '10px', color: model.color, marginTop: '2px' }}>{model.investment} investment</div>
-                              </motion.div>
-                            )}
-
-                            {/* Bar Pillar */}
-                            <motion.div
-                              initial={{ height: 0 }}
-                              whileInView={{ height: `${(val / 300) * 230}px` }}
-                              viewport={{ once: true }}
-                              transition={{ duration: 0.8, ease: 'easeOut' }}
-                              style={{
-                                width: '28px',
-                                background: `linear-gradient(180deg, ${model.color}, ${model.color}33)`,
-                                borderRadius: '4px 4px 0 0',
-                                cursor: 'pointer',
-                                transition: 'filter 0.2s',
-                                filter: hoveredBar && !isHovered ? 'brightness(0.5) grayscale(0.2)' : 'none',
-                                boxShadow: isHovered ? `0 0 15px ${model.color}40` : 'none'
-                              }}
-                            />
-                          </div>
-                        );
-                      })}
+              {/* Legend */}
+              <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
+                {revenueModels.map((model) => (
+                  <div key={model.key} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <div style={{ width: '12px', height: '12px', borderRadius: '3px', background: model.color }} />
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                      <span style={{ fontSize: '12px', fontWeight: '800', color: '#ffffff' }}>{model.label}</span>
+                      <span style={{ fontSize: '10px', color: 'var(--text-muted)' }}>{model.investment} investment</span>
                     </div>
                   </div>
-
-                  {/* Year 2 Group */}
-                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', flex: '1 1 0' }}>
-                    <div style={{ display: 'flex', gap: '8px', alignItems: 'flex-end' }}>
-                      {revenueModels.map((model) => {
-                        const val = model.year2;
-                        const isHovered = hoveredBar?.model === model.key && hoveredBar?.year === 'Year 2';
-                        return (
-                          <div 
-                            key={model.key} 
-                            style={{ position: 'relative' }}
-                            onMouseEnter={() => setHoveredBar({ model: model.key, year: 'Year 2', value: val })}
-                            onMouseLeave={() => setHoveredBar(null)}
-                          >
-                            {/* Bar Tooltip */}
-                            {isHovered && (
-                              <motion.div
-                                initial={{ opacity: 0, y: 5 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                style={{
-                                  position: 'absolute',
-                                  bottom: `calc(${(val / 300) * 230}px + 10px)`,
-                                  left: '50%',
-                                  transform: 'translateX(-50%)',
-                                  background: 'rgba(14, 31, 53, 0.95)',
-                                  border: `1px solid ${model.color}`,
-                                  borderRadius: '8px',
-                                  padding: '8px 12px',
-                                  zIndex: 10,
-                                  boxShadow: '0 8px 24px rgba(0,0,0,0.5)',
-                                  pointerEvents: 'none',
-                                  whiteSpace: 'nowrap'
-                                }}
-                              >
-                                <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>{model.label}</div>
-                                <div style={{ fontSize: '14px', fontWeight: '800', color: '#ffffff', marginTop: '2px' }}>₹{val} Lakhs</div>
-                                <div style={{ fontSize: '10px', color: model.color, marginTop: '2px' }}>{model.investment} investment</div>
-                              </motion.div>
-                            )}
-
-                            {/* Bar Pillar */}
-                            <motion.div
-                              initial={{ height: 0 }}
-                              whileInView={{ height: `${(val / 300) * 230}px` }}
-                              viewport={{ once: true }}
-                              transition={{ duration: 0.8, ease: 'easeOut', delay: 0.15 }}
-                              style={{
-                                width: '28px',
-                                background: `linear-gradient(180deg, ${model.color}, ${model.color}33)`,
-                                borderRadius: '4px 4px 0 0',
-                                cursor: 'pointer',
-                                transition: 'filter 0.2s',
-                                filter: hoveredBar && !isHovered ? 'brightness(0.5) grayscale(0.2)' : 'none',
-                                boxShadow: isHovered ? `0 0 15px ${model.color}40` : 'none'
-                              }}
-                            />
-                          </div>
-                        );
-                      })}
-                    </div>
-                  </div>
-
-                  {/* Year 3 Group */}
-                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', flex: '1 1 0' }}>
-                    <div style={{ display: 'flex', gap: '8px', alignItems: 'flex-end' }}>
-                      {revenueModels.map((model) => {
-                        const val = model.year3;
-                        const isHovered = hoveredBar?.model === model.key && hoveredBar?.year === 'Year 3';
-                        return (
-                          <div 
-                            key={model.key} 
-                            style={{ position: 'relative' }}
-                            onMouseEnter={() => setHoveredBar({ model: model.key, year: 'Year 3', value: val })}
-                            onMouseLeave={() => setHoveredBar(null)}
-                          >
-                            {/* Bar Tooltip */}
-                            {isHovered && (
-                              <motion.div
-                                initial={{ opacity: 0, y: 5 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                style={{
-                                  position: 'absolute',
-                                  bottom: `calc(${(val / 300) * 230}px + 10px)`,
-                                  left: '50%',
-                                  transform: 'translateX(-50%)',
-                                  background: 'rgba(14, 31, 53, 0.95)',
-                                  border: `1px solid ${model.color}`,
-                                  borderRadius: '8px',
-                                  padding: '8px 12px',
-                                  zIndex: 10,
-                                  boxShadow: '0 8px 24px rgba(0,0,0,0.5)',
-                                  pointerEvents: 'none',
-                                  whiteSpace: 'nowrap'
-                                }}
-                              >
-                                <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>{model.label}</div>
-                                <div style={{ fontSize: '14px', fontWeight: '800', color: '#ffffff', marginTop: '2px' }}>₹{val} Lakhs</div>
-                                <div style={{ fontSize: '10px', color: model.color, marginTop: '2px' }}>{model.investment} investment</div>
-                              </motion.div>
-                            )}
-
-                            {/* Bar Pillar */}
-                            <motion.div
-                              initial={{ height: 0 }}
-                              whileInView={{ height: `${(val / 300) * 230}px` }}
-                              viewport={{ once: true }}
-                              transition={{ duration: 0.8, ease: 'easeOut', delay: 0.3 }}
-                              style={{
-                                width: '28px',
-                                background: `linear-gradient(180deg, ${model.color}, ${model.color}33)`,
-                                borderRadius: '4px 4px 0 0',
-                                cursor: 'pointer',
-                                transition: 'filter 0.2s',
-                                filter: hoveredBar && !isHovered ? 'brightness(0.5) grayscale(0.2)' : 'none',
-                                boxShadow: isHovered ? `0 0 15px ${model.color}40` : 'none'
-                              }}
-                            />
-                          </div>
-                        );
-                      })}
-                    </div>
-                  </div>
-                </div>
-
-                {/* X-Axis Labels */}
-                <div style={{ display: 'flex', justifyContent: 'space-around', marginTop: '12px', fontSize: '12px', fontWeight: '700', color: 'var(--text-muted)' }}>
-                  <div style={{ width: '100px', textAlign: 'center', color: '#ffffff' }}>Year 1</div>
-                  <div style={{ width: '100px', textAlign: 'center', color: '#ffffff' }}>Year 2</div>
-                  <div style={{ width: '100px', textAlign: 'center', color: '#ffffff' }}>Year 3</div>
-                </div>
+                ))}
               </div>
-
             </div>
 
-            {/* Bottom Summary Cards */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
-              {revenueModels.map((model) => (
-                <div 
-                  key={model.key}
-                  style={{
-                    borderRadius: '16px',
-                    padding: '24px',
-                    background: 'rgba(43, 74, 115, 0.2)',
-                    border: `1px solid rgba(212, 168, 90, 0.1)`,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: '8px'
-                  }}
-                >
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: model.color }} />
-                    <span style={{ fontSize: '14px', fontWeight: '800', color: '#ffffff' }}>{model.label}</span>
-                  </div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px', marginTop: '4px' }}>
-                    <span style={{ color: 'var(--text-muted)' }}>Capital Commitment:</span>
-                    <span style={{ fontWeight: '700', color: '#ffffff' }}>{model.investment}</span>
-                  </div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px' }}>
-                    <span style={{ color: 'var(--text-muted)' }}>Year 3 Target Revenue:</span>
-                    <span style={{ fontWeight: '700', color: 'var(--accent)' }}>₹{model.year3} Lakhs</span>
+            {/* Grouped Bar Chart */}
+            <div style={{ position: 'relative', paddingLeft: '40px', paddingRight: '20px' }}>
+              {/* Y-Axis Labels */}
+              <div style={{ position: 'absolute', left: 0, top: 0, height: '320px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', fontSize: '11px', color: 'var(--text-muted)', textAlign: 'right', width: '30px' }}>
+                <span>300L</span>
+                <span>225L</span>
+                <span>150L</span>
+                <span>75L</span>
+                <span>0L</span>
+              </div>
+
+              {/* Main Grid Area */}
+              <div 
+                style={{ 
+                  height: '320px', 
+                  borderBottom: '2px solid rgba(255,255,255,0.1)',
+                  position: 'relative',
+                  display: 'flex',
+                  justifyContent: 'space-around',
+                  alignItems: 'flex-end',
+                  paddingBottom: '4px'
+                }}
+              >
+                {/* Grid Lines */}
+                <div style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', justifyContent: 'space-between', pointerEvents: 'none' }}>
+                  <div style={{ height: '1px', background: 'rgba(255,255,255,0.05)' }} />
+                  <div style={{ height: '1px', background: 'rgba(255,255,255,0.05)' }} />
+                  <div style={{ height: '1px', background: 'rgba(255,255,255,0.05)' }} />
+                  <div style={{ height: '1px', background: 'rgba(255,255,255,0.05)' }} />
+                  <div style={{ height: '1px', background: 'transparent' }} />
+                </div>
+
+                {/* Year 1 Group */}
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', flex: '1 1 0' }}>
+                  <div style={{ display: 'flex', gap: '8px', alignItems: 'flex-end' }}>
+                    {revenueModels.map((model) => {
+                      const val = model.year1;
+                      const isHovered = hoveredBar?.model === model.key && hoveredBar?.year === 'Year 1';
+                      return (
+                        <div 
+                          key={model.key} 
+                          style={{ position: 'relative' }}
+                          onMouseEnter={() => setHoveredBar({ model: model.key, year: 'Year 1', value: val })}
+                          onMouseLeave={() => setHoveredBar(null)}
+                        >
+                          {/* Bar Tooltip */}
+                          {isHovered && (
+                            <motion.div
+                              initial={{ opacity: 0, y: 5 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              style={{
+                                position: 'absolute',
+                                bottom: `calc(${(val / 300) * 300}px + 10px)`,
+                                left: '50%',
+                                transform: 'translateX(-50%)',
+                                background: 'rgba(14, 31, 53, 0.95)',
+                                border: `1px solid ${model.color}`,
+                                borderRadius: '8px',
+                                padding: '8px 12px',
+                                zIndex: 10,
+                                boxShadow: '0 8px 24px rgba(0,0,0,0.5)',
+                                pointerEvents: 'none',
+                                whiteSpace: 'nowrap'
+                              }}
+                            >
+                              <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>{model.label}</div>
+                              <div style={{ fontSize: '14px', fontWeight: '800', color: '#ffffff', marginTop: '2px' }}>₹{val} Lakhs</div>
+                              <div style={{ fontSize: '10px', color: model.color, marginTop: '2px' }}>{model.investment} investment</div>
+                            </motion.div>
+                          )}
+
+                          {/* Bar Pillar */}
+                          <motion.div
+                            initial={{ height: 0 }}
+                            whileInView={{ height: `${(val / 300) * 300}px` }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.8, ease: 'easeOut' }}
+                            style={{
+                              width: '32px',
+                              background: `linear-gradient(180deg, ${model.color}, ${model.color}33)`,
+                              borderRadius: '4px 4px 0 0',
+                              cursor: 'pointer',
+                              transition: 'filter 0.2s',
+                              filter: hoveredBar && !isHovered ? 'brightness(0.5) grayscale(0.2)' : 'none',
+                              boxShadow: isHovered ? `0 0 15px ${model.color}40` : 'none'
+                            }}
+                          />
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
-              ))}
+
+                {/* Year 2 Group */}
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', flex: '1 1 0' }}>
+                  <div style={{ display: 'flex', gap: '8px', alignItems: 'flex-end' }}>
+                    {revenueModels.map((model) => {
+                      const val = model.year2;
+                      const isHovered = hoveredBar?.model === model.key && hoveredBar?.year === 'Year 2';
+                      return (
+                        <div 
+                          key={model.key} 
+                          style={{ position: 'relative' }}
+                          onMouseEnter={() => setHoveredBar({ model: model.key, year: 'Year 2', value: val })}
+                          onMouseLeave={() => setHoveredBar(null)}
+                        >
+                          {/* Bar Tooltip */}
+                          {isHovered && (
+                            <motion.div
+                              initial={{ opacity: 0, y: 5 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              style={{
+                                position: 'absolute',
+                                bottom: `calc(${(val / 300) * 300}px + 10px)`,
+                                left: '50%',
+                                transform: 'translateX(-50%)',
+                                background: 'rgba(14, 31, 53, 0.95)',
+                                border: `1px solid ${model.color}`,
+                                borderRadius: '8px',
+                                padding: '8px 12px',
+                                zIndex: 10,
+                                boxShadow: '0 8px 24px rgba(0,0,0,0.5)',
+                                pointerEvents: 'none',
+                                whiteSpace: 'nowrap'
+                              }}
+                            >
+                              <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>{model.label}</div>
+                              <div style={{ fontSize: '14px', fontWeight: '800', color: '#ffffff', marginTop: '2px' }}>₹{val} Lakhs</div>
+                              <div style={{ fontSize: '10px', color: model.color, marginTop: '2px' }}>{model.investment} investment</div>
+                            </motion.div>
+                          )}
+
+                          {/* Bar Pillar */}
+                          <motion.div
+                            initial={{ height: 0 }}
+                            whileInView={{ height: `${(val / 300) * 300}px` }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.8, ease: 'easeOut', delay: 0.15 }}
+                            style={{
+                              width: '32px',
+                              background: `linear-gradient(180deg, ${model.color}, ${model.color}33)`,
+                              borderRadius: '4px 4px 0 0',
+                              cursor: 'pointer',
+                              transition: 'filter 0.2s',
+                              filter: hoveredBar && !isHovered ? 'brightness(0.5) grayscale(0.2)' : 'none',
+                              boxShadow: isHovered ? `0 0 15px ${model.color}40` : 'none'
+                            }}
+                          />
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* Year 3 Group */}
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', flex: '1 1 0' }}>
+                  <div style={{ display: 'flex', gap: '8px', alignItems: 'flex-end' }}>
+                    {revenueModels.map((model) => {
+                      const val = model.year3;
+                      const isHovered = hoveredBar?.model === model.key && hoveredBar?.year === 'Year 3';
+                      return (
+                        <div 
+                          key={model.key} 
+                          style={{ position: 'relative' }}
+                          onMouseEnter={() => setHoveredBar({ model: model.key, year: 'Year 3', value: val })}
+                          onMouseLeave={() => setHoveredBar(null)}
+                        >
+                          {/* Bar Tooltip */}
+                          {isHovered && (
+                            <motion.div
+                              initial={{ opacity: 0, y: 5 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              style={{
+                                position: 'absolute',
+                                bottom: `calc(${(val / 300) * 300}px + 10px)`,
+                                left: '50%',
+                                transform: 'translateX(-50%)',
+                                background: 'rgba(14, 31, 53, 0.95)',
+                                border: `1px solid ${model.color}`,
+                                borderRadius: '8px',
+                                padding: '8px 12px',
+                                zIndex: 10,
+                                boxShadow: '0 8px 24px rgba(0,0,0,0.5)',
+                                pointerEvents: 'none',
+                                whiteSpace: 'nowrap'
+                              }}
+                            >
+                              <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>{model.label}</div>
+                              <div style={{ fontSize: '14px', fontWeight: '800', color: '#ffffff', marginTop: '2px' }}>₹{val} Lakhs</div>
+                              <div style={{ fontSize: '10px', color: model.color, marginTop: '2px' }}>{model.investment} investment</div>
+                            </motion.div>
+                          )}
+
+                          {/* Bar Pillar */}
+                          <motion.div
+                            initial={{ height: 0 }}
+                            whileInView={{ height: `${(val / 300) * 300}px` }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.8, ease: 'easeOut', delay: 0.3 }}
+                            style={{
+                              width: '32px',
+                              background: `linear-gradient(180deg, ${model.color}, ${model.color}33)`,
+                              borderRadius: '4px 4px 0 0',
+                              cursor: 'pointer',
+                              transition: 'filter 0.2s',
+                              filter: hoveredBar && !isHovered ? 'brightness(0.5) grayscale(0.2)' : 'none',
+                              boxShadow: isHovered ? `0 0 15px ${model.color}40` : 'none'
+                            }}
+                          />
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
+
+              {/* X-Axis Labels */}
+              <div style={{ display: 'flex', justifyContent: 'space-around', marginTop: '12px', fontSize: '12px', fontWeight: '700', color: 'var(--text-muted)' }}>
+                <div style={{ width: '100px', textAlign: 'center', color: '#ffffff' }}>Year 1</div>
+                <div style={{ width: '100px', textAlign: 'center', color: '#ffffff' }}>Year 2</div>
+                <div style={{ width: '100px', textAlign: 'center', color: '#ffffff' }}>Year 3</div>
+              </div>
             </div>
 
           </div>

@@ -1020,19 +1020,6 @@ export default function Partners() {
           pointerEvents: 'none',
           zIndex: 0
         }} />
-        {/* Dark glow backing specifically for the center "Shared Growth Partnership" block */}
-        <div style={{
-          position: 'absolute',
-          left: '50%',
-          top: '55%',
-          transform: 'translate(-50%, -50%)',
-          width: '280px',
-          height: '280px',
-          background: 'radial-gradient(circle, rgba(11, 19, 36, 0.75) 0%, rgba(11, 19, 36, 0.3) 55%, transparent 75%)',
-          pointerEvents: 'none',
-          zIndex: 0
-        }} />
-
         <div className="container">
           <motion.div 
             {...fadeIn}
@@ -1078,12 +1065,15 @@ export default function Partners() {
                 flex: '1 1 320px', 
                 borderRadius: '18px', 
                 padding: '28px', 
-                background: 'rgba(30, 41, 59, 0.45)', 
-                border: '1px solid var(--border-color)',
-                boxShadow: 'var(--shadow-md)'
+                background: 'linear-gradient(135deg, #071B3A 0%, #0A234D 100%)', 
+                border: '1px solid rgba(56, 189, 248, 0.15)',
+                boxShadow: '0 20px 40px -15px rgba(7, 27, 58, 0.3), 0 0 25px rgba(56, 189, 248, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.05)',
+                backdropFilter: 'blur(16px)',
+                position: 'relative',
+                zIndex: 1
               }}
             >
-              <h3 style={{ fontSize: '18px', fontWeight: '800', color: 'var(--accent)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <h3 style={{ fontSize: '18px', fontWeight: '800', color: '#38BDF8', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <Cpu size={18} />
                 CEA Infotech Provides
               </h3>
@@ -1101,7 +1091,7 @@ export default function Partners() {
                     <CheckCircle2 size={16} color="#38BDF8" style={{ marginTop: '3px', flexShrink: 0 }} />
                     <div>
                       <h4 style={{ margin: 0, fontSize: '15px', fontWeight: '800', color: '#ffffff' }}>{item.title}</h4>
-                      <p style={{ margin: '1px 0 0 0', fontSize: '13.5px', color: 'var(--text-muted)' }}>{item.desc}</p>
+                      <p style={{ margin: '1px 0 0 0', fontSize: '13.5px', color: '#CBD5E1' }}>{item.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -1111,46 +1101,50 @@ export default function Partners() {
             {/* Center animated visual */}
             <div 
               style={{ 
-                width: '180px', 
+                width: '200px', 
                 display: 'flex', 
                 flexDirection: 'column', 
                 alignItems: 'center', 
                 justifyContent: 'center',
-                gap: '16px',
+                gap: '18px',
                 textAlign: 'center',
                 flexGrow: 1,
-                alignSelf: 'center'
+                alignSelf: 'center',
+                position: 'relative',
+                zIndex: 2
               }}
             >
               <div 
                 style={{ 
-                  width: '74px', 
-                  height: '74px', 
+                  width: '96px', 
+                  height: '96px', 
                   borderRadius: '50%', 
                   background: 'rgba(56, 189, 248, 0.12)', 
-                  border: '1.5px solid var(--accent)',
+                  border: '2px solid #0284C7',
                   display: 'grid',
                   placeItems: 'center',
-                  boxShadow: '0 0 25px rgba(56,189,248,0.08)'
+                  boxShadow: '0 12px 30px rgba(56, 189, 248, 0.25), 0 0 15px rgba(56, 189, 248, 0.15)',
+                  position: 'relative',
+                  zIndex: 1
                 }}
               >
-                <HeartHandshake size={32} color="#38BDF8" style={{ animation: 'node-float-3 4s infinite ease-in-out' }} />
+                <HeartHandshake size={40} color="#38BDF8" style={{ animation: 'node-float-3 4s infinite ease-in-out' }} />
               </div>
               <div>
-                <div style={{ color: '#ffffff', fontWeight: '900', fontSize: '16px' }}>Shared Growth Partnership</div>
-                <div style={{ color: 'var(--text-muted)', fontSize: '13px', marginTop: '4px', maxWidth: '160px', margin: '4px auto 0 auto', lineHeight: '1.4' }}>
+                <div style={{ color: '#071B3A', fontWeight: '900', fontSize: '18px' }}>Shared Growth Partnership</div>
+                <div style={{ color: '#334155', fontSize: '13.5px', marginTop: '6px', maxWidth: '170px', margin: '6px auto 0 auto', lineHeight: '1.4', fontWeight: '500' }}>
                   Both parties contribute their respective strengths to build scalable and sustainable market growth.
                 </div>
               </div>
               
               {/* Dynamic flowing dot indicator */}
-              <div style={{ width: '100%', height: '4px', background: 'rgba(255,255,255,0.06)', borderRadius: '2px', position: 'relative', overflow: 'hidden' }}>
+              <div style={{ width: '100%', height: '4px', background: 'rgba(7, 27, 58, 0.08)', borderRadius: '2px', position: 'relative', overflow: 'hidden' }}>
                 <div 
                   style={{ 
                     position: 'absolute', 
                     height: '100%', 
                     width: '30%', 
-                    background: 'linear-gradient(90deg, transparent, var(--accent), transparent)', 
+                    background: 'linear-gradient(90deg, transparent, #0284C7, transparent)', 
                     animation: 'data-pulse-sweep 2.5s infinite linear' 
                   }} 
                 />
@@ -1163,12 +1157,15 @@ export default function Partners() {
                 flex: '1 1 320px', 
                 borderRadius: '18px', 
                 padding: '28px', 
-                background: 'rgba(30, 41, 59, 0.45)', 
-                border: '1px solid var(--border-color)',
-                boxShadow: 'var(--shadow-md)'
+                background: 'linear-gradient(135deg, #071B3A 0%, #0A234D 100%)', 
+                border: '1px solid rgba(56, 189, 248, 0.15)',
+                boxShadow: '0 20px 40px -15px rgba(7, 27, 58, 0.3), 0 0 25px rgba(56, 189, 248, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.05)',
+                backdropFilter: 'blur(16px)',
+                position: 'relative',
+                zIndex: 1
               }}
             >
-              <h3 style={{ fontSize: '18px', fontWeight: '800', color: 'var(--accent)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <h3 style={{ fontSize: '18px', fontWeight: '800', color: '#38BDF8', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <Users size={18} />
                 Partner Provides
               </h3>
@@ -1186,7 +1183,7 @@ export default function Partners() {
                     <CheckCircle2 size={16} color="#38BDF8" style={{ marginTop: '3px', flexShrink: 0 }} />
                     <div>
                       <h4 style={{ margin: 0, fontSize: '15px', fontWeight: '800', color: '#ffffff' }}>{item.title}</h4>
-                      <p style={{ margin: '1px 0 0 0', fontSize: '13.5px', color: 'var(--text-muted)' }}>{item.desc}</p>
+                      <p style={{ margin: '1px 0 0 0', fontSize: '13.5px', color: '#CBD5E1' }}>{item.desc}</p>
                     </div>
                   </div>
                 ))}

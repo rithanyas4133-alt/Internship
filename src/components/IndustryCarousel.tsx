@@ -1,5 +1,5 @@
-import React, { useState, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useRef } from 'react';
+import { motion } from 'framer-motion';
 import { Factory, Globe, TestTube, Truck, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const industries = [
@@ -9,14 +9,14 @@ const industries = [
   { id: 'logistics', name: 'Logistics Operations', icon: <Truck size={26} />, desc: 'Transport hubs, terminals and inventory traceability.' }
 ];
 
-export default function IndustryCarousel({ themeColor = 'var(--accent)' }: { themeColor?: string }) {
+export default function IndustryCarousel(_props: { themeColor?: string }) {
   const [index, setIndex] = useState(0);
   const trackRef = useRef<HTMLDivElement | null>(null);
 
   const prev = () => setIndex(i => (i - 1 + industries.length) % industries.length);
   const next = () => setIndex(i => (i + 1) % industries.length);
 
-  const onDragEnd = (event: any, info: any) => {
+  const onDragEnd = (_event: any, info: any) => {
     const threshold = 50;
     if (info.offset.x > threshold) prev();
     else if (info.offset.x < -threshold) next();

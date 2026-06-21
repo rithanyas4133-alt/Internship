@@ -48,7 +48,7 @@ export default function EnterpriseShowcaseCarousel() {
   const [progress, setProgress] = useState(0);
 
   // Easing curve for high-end transitions
-  const premiumTransition = { duration: 0.8, ease: [0.16, 1, 0.3, 1] };
+  const premiumTransition = { duration: 0.8, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] };
 
   // Timer interval for progress bar
   useEffect(() => {

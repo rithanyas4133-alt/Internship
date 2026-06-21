@@ -1315,7 +1315,7 @@ export default function Home() {
                 desc: 'Dedicated support SLAs, training operations, and onsite assistance ensuring consistent uptime.',
                 icon: <Headset />
               }
-            ].map((item, idx) => (
+            ].map((item) => (
               <motion.div
                 key={item.title}
                 variants={scrollReveal}

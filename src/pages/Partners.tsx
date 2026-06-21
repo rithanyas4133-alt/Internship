@@ -1434,10 +1434,10 @@ export default function Partners() {
             style={{ 
               borderRadius: '20px', 
               padding: '36px', 
-              background: 'rgba(30, 41, 59, 0.25)', 
-              border: '1.5px solid var(--border-color)',
-              boxShadow: 'var(--shadow-lg)',
-              backdropFilter: 'blur(8px)',
+              background: 'linear-gradient(135deg, #071B3A 0%, #0B2348 100%)', 
+              border: '1.5px solid rgba(212, 175, 55, 0.25)',
+              boxShadow: '0 20px 40px -15px rgba(7, 27, 58, 0.45), 0 0 30px rgba(212, 175, 55, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.05)',
+              backdropFilter: 'blur(16px)',
               position: 'relative',
               maxWidth: '1000px',
               margin: '0 auto'
@@ -1461,7 +1461,7 @@ export default function Partners() {
                   <PieChart size={16} color="#38BDF8" />
                   Growth Curve (₹ In Lakhs)
                 </h4>
-                <span style={{ fontSize: '11px', color: 'var(--text-muted)' }}>Cumulative Projections</span>
+                <span style={{ fontSize: '11px', color: '#E5C158', fontWeight: '500' }}>Cumulative Projections</span>
               </div>
 
               {/* Legend */}
@@ -1471,7 +1471,7 @@ export default function Partners() {
                     <div style={{ width: '12px', height: '12px', borderRadius: '3px', background: model.color }} />
                     <div style={{ display: 'flex', flexDirection: 'column' }}>
                       <span style={{ fontSize: '12px', fontWeight: '800', color: '#ffffff' }}>{model.label}</span>
-                      <span style={{ fontSize: '10px', color: 'var(--text-muted)' }}>{model.investment} investment</span>
+                      <span style={{ fontSize: '10px', color: '#94A3B8' }}>{model.investment} investment</span>
                     </div>
                   </div>
                 ))}
@@ -1481,7 +1481,7 @@ export default function Partners() {
             {/* Grouped Bar Chart */}
             <div style={{ position: 'relative', paddingLeft: '40px', paddingRight: '20px' }}>
               {/* Y-Axis Labels */}
-              <div style={{ position: 'absolute', left: 0, top: 0, height: '320px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', fontSize: '11px', color: 'var(--text-muted)', textAlign: 'right', width: '30px' }}>
+              <div style={{ position: 'absolute', left: 0, top: 0, height: '320px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', fontSize: '11px', color: '#CBD5E1', fontWeight: '500', textAlign: 'right', width: '30px' }}>
                 <span>300L</span>
                 <span>225L</span>
                 <span>150L</span>
@@ -1543,7 +1543,7 @@ export default function Partners() {
                                 whiteSpace: 'nowrap'
                               }}
                             >
-                              <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>{model.label}</div>
+                              <div style={{ fontSize: '11px', color: '#94A3B8' }}>{model.label}</div>
                               <div style={{ fontSize: '14px', fontWeight: '800', color: '#ffffff', marginTop: '2px' }}>₹{val} Lakhs</div>
                               <div style={{ fontSize: '10px', color: model.color, marginTop: '2px' }}>{model.investment} investment</div>
                             </motion.div>
@@ -1604,7 +1604,7 @@ export default function Partners() {
                                 whiteSpace: 'nowrap'
                               }}
                             >
-                              <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>{model.label}</div>
+                              <div style={{ fontSize: '11px', color: '#94A3B8' }}>{model.label}</div>
                               <div style={{ fontSize: '14px', fontWeight: '800', color: '#ffffff', marginTop: '2px' }}>₹{val} Lakhs</div>
                               <div style={{ fontSize: '10px', color: model.color, marginTop: '2px' }}>{model.investment} investment</div>
                             </motion.div>
@@ -1665,7 +1665,7 @@ export default function Partners() {
                                 whiteSpace: 'nowrap'
                               }}
                             >
-                              <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>{model.label}</div>
+                              <div style={{ fontSize: '11px', color: '#94A3B8' }}>{model.label}</div>
                               <div style={{ fontSize: '14px', fontWeight: '800', color: '#ffffff', marginTop: '2px' }}>₹{val} Lakhs</div>
                               <div style={{ fontSize: '10px', color: model.color, marginTop: '2px' }}>{model.investment} investment</div>
                             </motion.div>
@@ -1695,7 +1695,7 @@ export default function Partners() {
               </div>
 
               {/* X-Axis Labels */}
-              <div style={{ display: 'flex', justifyContent: 'space-around', marginTop: '12px', fontSize: '12px', fontWeight: '700', color: 'var(--text-muted)' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-around', marginTop: '12px', fontSize: '12px', fontWeight: '700', color: '#CBD5E1' }}>
                 <div style={{ width: '100px', textAlign: 'center', color: '#ffffff' }}>Year 1</div>
                 <div style={{ width: '100px', textAlign: 'center', color: '#ffffff' }}>Year 2</div>
                 <div style={{ width: '100px', textAlign: 'center', color: '#ffffff' }}>Year 3</div>

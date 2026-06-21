@@ -971,25 +971,97 @@ export default function Partners() {
 
 
       {/* ── SECTION 4: REVENUE SHARING MODEL ───────────────────────────── */}
-      <section className="section surface-matte" style={{ padding: '100px 0', position: 'relative' }}>
+      <section 
+        className="section" 
+        style={{ 
+          padding: '100px 0', 
+          position: 'relative', 
+          backgroundColor: '#F8F9FB', 
+          overflow: 'hidden' 
+        }}
+      >
+        {/* Premium light background abstract shapes and gradient accents */}
+        <div style={{
+          position: 'absolute',
+          top: '-10%',
+          left: '-10%',
+          width: '50%',
+          height: '60%',
+          background: 'radial-gradient(circle, rgba(56, 189, 248, 0.12) 0%, transparent 70%)',
+          pointerEvents: 'none',
+          zIndex: 0
+        }} />
+        <div style={{
+          position: 'absolute',
+          bottom: '-10%',
+          right: '-10%',
+          width: '50%',
+          height: '60%',
+          background: 'radial-gradient(circle, rgba(29, 78, 216, 0.08) 0%, transparent 70%)',
+          pointerEvents: 'none',
+          zIndex: 0
+        }} />
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          backgroundImage: 'radial-gradient(rgba(56, 189, 248, 0.07) 1.5px, transparent 1.5px)',
+          backgroundSize: '24px 24px',
+          opacity: 0.7,
+          pointerEvents: 'none',
+          zIndex: 0
+        }} />
+        {/* Dark glow backing specifically for the center "Shared Growth Partnership" block */}
+        <div style={{
+          position: 'absolute',
+          left: '50%',
+          top: '55%',
+          transform: 'translate(-50%, -50%)',
+          width: '280px',
+          height: '280px',
+          background: 'radial-gradient(circle, rgba(11, 19, 36, 0.75) 0%, rgba(11, 19, 36, 0.3) 55%, transparent 75%)',
+          pointerEvents: 'none',
+          zIndex: 0
+        }} />
 
         <div className="container">
           <motion.div 
             {...fadeIn}
-            style={{ textAlign: 'center', marginBottom: '60px' }}
+            style={{ textAlign: 'center', marginBottom: '60px', position: 'relative', zIndex: 1 }}
           >
-            <span style={{ color: 'var(--supporting)', fontWeight: '800', textTransform: 'uppercase', fontSize: '13px', letterSpacing: '2px' }}>
+            <span 
+              style={{ 
+                color: '#0284C7', 
+                fontWeight: '800', 
+                textTransform: 'uppercase', 
+                fontSize: '12px', 
+                letterSpacing: '2px',
+                background: 'rgba(2, 132, 199, 0.08)',
+                padding: '5px 14px',
+                borderRadius: '20px',
+                display: 'inline-block'
+              }}
+            >
               MUTUAL CO-INVESTMENT MODEL
             </span>
-            <h2 style={{ fontSize: '36px', fontWeight: '800', color: '#ffffff', marginTop: '10px' }}>
+            <h2 
+              style={{ 
+                fontSize: '36px', 
+                fontWeight: '800', 
+                background: 'linear-gradient(135deg, #0B1F3F 0%, #2563EB 50%, #0284C7 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                marginTop: '12px',
+                display: 'inline-block'
+              }}
+            >
               Strategic Co-Investment Partnership
             </h2>
-            <p style={{ color: 'var(--text-muted)', maxWidth: '600px', margin: '12px auto 0 auto' }}>
+            <p style={{ color: '#475569', maxWidth: '600px', margin: '12px auto 0 auto', fontSize: '15.5px', lineHeight: '1.6' }}>
               A premium split-screen breakdown showing exactly how roles are distributed to drive scalable success.
             </p>
           </motion.div>
 
-          <div style={{ display: 'flex', gap: '24px', alignItems: 'stretch', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: '24px', alignItems: 'stretch', flexWrap: 'wrap', position: 'relative', zIndex: 1 }}>
             {/* Left side: CEA Infotech Provides */}
             <div 
               style={{ 

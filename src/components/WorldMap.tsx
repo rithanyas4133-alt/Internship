@@ -295,14 +295,15 @@ export default function WorldMap() {
 
                     {/* Pin base dot */}
                     <motion.circle
-                      cx="0"
-                      cy="0"
+                      cx={0}
+                      cy={0}
                       r={isSelected ? 6 : 4.5}
                       fill={isSelected ? '#0284C7' : '#38BDF8'}
                       stroke="#FFFFFF"
                       strokeWidth="1.5"
                       animate={{ scale: isSelected || isHovered ? 1.3 : 1 }}
                       transition={{ type: 'spring', stiffness: 300, damping: 15 }}
+                      style={{ transformOrigin: 'center' }}
                     />
                   </g>
                 );

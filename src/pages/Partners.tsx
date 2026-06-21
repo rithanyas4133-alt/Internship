@@ -21,11 +21,302 @@ import {
   Zap,
   HeartHandshake,
   CheckCircle2,
-  Info
+  Info,
+  Factory,
+  Truck,
+  AlertTriangle
 } from 'lucide-react';
 import CountUp from '../components/CountUp';
 import IndiaMap from '../components/IndiaMap';
 import WorldMap from '../components/WorldMap';
+
+
+function PartnersHeroEcosystem() {
+  const CX = 230;
+  const CY = 230;
+  const R = 135; // Orbit radius
+
+  const pos = (angle: number) => {
+    const rad = (angle * Math.PI) / 180;
+    return { x: CX + R * Math.cos(rad), y: CY + R * Math.sin(rad) };
+  };
+
+  const nodes = [
+    {
+      name: 'Vericea® Manufacturing',
+      icon: <Factory size={18} color="#FFD700" />,
+      angle: 315, // Top Left
+      color: '#D4AF37'
+    },
+    {
+      name: 'Vericea® Compliance',
+      icon: <ShieldCheck size={18} color="#FFD700" />,
+      angle: 45, // Top Right
+      color: '#D4AF37'
+    },
+    {
+      name: 'Logistics',
+      icon: <Truck size={18} color="#FFD700" />,
+      angle: 135, // Bottom Right
+      color: '#D4AF37'
+    },
+    {
+      name: 'Risk Management',
+      icon: <AlertTriangle size={18} color="#FFD700" />,
+      angle: 225, // Bottom Left
+      color: '#D4AF37'
+    }
+  ];
+
+  return (
+    <svg 
+      viewBox="0 0 460 460" 
+      style={{ 
+        width: '100%', 
+        height: '100%', 
+        overflow: 'visible' 
+      }}
+    >
+      <defs>
+        <filter id="partners-hero-glow" x="-30%" y="-30%" width="160%" height="160%">
+          <feGaussianBlur stdDeviation="6" result="blur" />
+          <feMerge>
+            <feMergeNode in="blur" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+        <radialGradient id="partners-center-glow-grad" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor="#D4AF37" stopOpacity="0.3" />
+          <stop offset="100%" stopColor="#D4AF37" stopOpacity="0" />
+        </radialGradient>
+      </defs>
+
+      {/* Subtle outer glow backdrop */}
+      <circle cx={CX} cy={CY} r={100} fill="url(#partners-center-glow-grad)" />
+
+      {/* Orbit Rings */}
+      <motion.circle 
+        cx={CX} 
+        cy={CY} 
+        r={R} 
+        fill="none" 
+        stroke="rgba(212, 175, 55, 0.2)" 
+        strokeWidth="1.5" 
+        strokeDasharray="6 12" 
+        animate={{ rotate: 360 }}
+        transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}
+        style={{ transformOrigin: 'center' }}
+      />
+      <circle cx={CX} cy={CY} r={R} fill="none" stroke="rgba(212, 175, 55, 0.05)" strokeWidth="4" />
+
+      {/* Thick Gold Connection Lines with Glow */}
+      {nodes.map((n, idx) => {
+        const p = pos(n.angle);
+        return (
+          <g key={`lines-${idx}`}>
+            {/* Outer blur glowing line for high contrast */}
+            <motion.line
+              x1={CX}
+              y1={CY}
+              x2={p.x}
+              y2={p.y}
+              stroke="#D4AF37"
+              strokeWidth="6"
+              opacity="0.25"
+              filter="url(#partners-hero-glow)"
+              animate={{ opacity: [0.2, 0.35, 0.2] }}
+              transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut', delay: idx * 0.5 }}
+            />
+            {/* Main thick connection line */}
+            <motion.line
+              x1={CX}
+              y1={CY}
+              x2={p.x}
+              y2={p.y}
+              stroke="#C8A276"
+              strokeWidth="2.5"
+              opacity="0.85"
+              animate={{ opacity: [0.75, 0.95, 0.75] }}
+              transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut', delay: idx * 0.5 }}
+            />
+            {/* Bright highlight line on top */}
+            <line
+              x1={CX}
+              y1={CY}
+              x2={p.x}
+              y2={p.y}
+              stroke="#FFD700"
+              strokeWidth="1"
+              opacity="0.9"
+            />
+          </g>
+        );
+      })}
+
+      {/* Pulse travel dots along connection lines */}
+      {nodes.map((n, idx) => {
+        const p = pos(n.angle);
+        return (
+          <motion.circle
+            key={`pulse-${idx}`}
+            cx={0}
+            cy={0}
+            r={4.5}
+            fill="#FFD700"
+            filter="url(#partners-hero-glow)"
+            animate={{
+              x: [CX, p.x],
+              y: [CY, p.y],
+              opacity: [0, 1, 1, 0]
+            }}
+            transition={{
+              duration: 3,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: idx * 0.75
+            }}
+          />
+        );
+      })}
+
+      {/* Product Nodes */}
+      {nodes.map((n, idx) => {
+        const p = pos(n.angle);
+        return (
+          <motion.g
+            key={`node-${idx}`}
+            animate={{
+              y: [0, -6, 0]
+            }}
+            transition={{
+              duration: 4,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: idx * 0.8
+            }}
+          >
+            <foreignObject
+              x={p.x - 85}
+              y={p.y - 32}
+              width={170}
+              height={64}
+              style={{ overflow: 'visible' }}
+            >
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                style={{
+                  background: 'rgba(11, 19, 36, 0.9)',
+                  backdropFilter: 'blur(8px)',
+                  WebkitBackdropFilter: 'blur(8px)',
+                  border: '1.5px solid rgba(212, 175, 55, 0.35)',
+                  boxShadow: '0 8px 30px rgba(0,0,0,0.65), 0 0 15px rgba(212, 175, 55, 0.1)',
+                  borderRadius: '12px',
+                  padding: '10px 12px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  width: '100%',
+                  height: '100%',
+                  boxSizing: 'border-box',
+                  cursor: 'pointer',
+                  color: '#FFFFFF'
+                }}
+              >
+                <div 
+                  style={{ 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    justifyContent: 'center',
+                    background: 'rgba(212, 175, 55, 0.12)',
+                    border: '1px solid rgba(212, 175, 55, 0.3)',
+                    borderRadius: '8px',
+                    width: '30px',
+                    height: '30px',
+                    flexShrink: 0
+                  }}
+                >
+                  {n.icon}
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                  <div 
+                    style={{ 
+                      fontSize: '12px', 
+                      fontWeight: '800', 
+                      lineHeight: '1.25',
+                      fontFamily: 'var(--font-headings)',
+                      letterSpacing: '-0.2px'
+                    }}
+                  >
+                    {n.name}
+                  </div>
+                </div>
+              </motion.div>
+            </foreignObject>
+          </motion.g>
+        );
+      })}
+
+      {/* Central Hub Element */}
+      <g>
+        {/* Glow backdrop circle behind center element */}
+        <motion.circle 
+          cx={CX} 
+          cy={CY} 
+          r={45} 
+          fill="none" 
+          stroke="rgba(212, 175, 55, 0.4)" 
+          strokeWidth="2"
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.5, 0.8, 0.5]
+          }}
+          transition={{
+            duration: 3,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          style={{ transformOrigin: 'center' }}
+          filter="url(#partners-hero-glow)"
+        />
+        
+        {/* HTML Content inside center SVG */}
+        <foreignObject
+          x={CX - 38}
+          y={CY - 38}
+          width={76}
+          height={76}
+        >
+          <div
+            style={{
+              width: '100%',
+              height: '100%',
+              background: 'radial-gradient(circle, #1E293B 0%, #0F172A 100%)',
+              border: '2.5px solid #D4AF37',
+              borderRadius: '50%',
+              boxShadow: '0 0 20px rgba(212, 175, 55, 0.5)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              padding: '10px',
+              boxSizing: 'border-box'
+            }}
+          >
+            <img 
+              src="/images/logo.png" 
+              style={{ 
+                maxWidth: '100%', 
+                maxHeight: '100%', 
+                objectFit: 'contain' 
+              }} 
+              alt="CEA" 
+            />
+          </div>
+        </foreignObject>
+      </g>
+    </svg>
+  );
+}
+
 
 // Custom CSS Variable scoped wrapper
 export default function Partners() {
@@ -298,88 +589,7 @@ export default function Partners() {
               }}
               transition={{ type: 'spring', stiffness: 100, damping: 20 }}
             >
-              {/* Outer orbit lines */}
-              <div style={{ position: 'absolute', inset: '40px', border: '1px dashed rgba(56, 189, 248, 0.15)', borderRadius: '50%' }} />
-              <div style={{ position: 'absolute', inset: '100px', border: '1px dashed rgba(56, 189, 248, 0.1)', borderRadius: '50%' }} />
-
-              {/* Central Glowing Core */}
-              <div 
-                style={{ 
-                  position: 'absolute', 
-                  left: '50%', 
-                  top: '50%', 
-                  transform: 'translate(-50%, -50%)',
-                  width: '120px',
-                  height: '120px',
-                  borderRadius: '50%',
-                  background: 'radial-gradient(circle, rgba(56,189,248,0.15) 0%, transparent 70%)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  zIndex: 2
-                }}
-              >
-                <div 
-                  style={{ 
-                    width: '74px', 
-                    height: '74px', 
-                    borderRadius: '50%', 
-                    background: 'rgba(15, 23, 42, 0.9)', 
-                    border: '2px solid var(--accent)',
-                    boxShadow: '0 0 30px rgba(56,189,248,0.25)',
-                    display: 'grid',
-                    placeItems: 'center'
-                  }}
-                >
-                  <Cpu size={30} color="#38BDF8" />
-                </div>
-              </div>
-
-              {/* Floating Node 1: Manufacturing */}
-              <div className="partners-float-1" style={{ position: 'absolute', left: '15%', top: '15%', zIndex: 3 }}>
-                <div style={{ padding: '10px 16px', borderRadius: '12px', background: 'rgba(15,23,42,0.9)', border: '1px solid var(--accent)', boxShadow: 'var(--shadow-md)', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <span className="vericea-logo-wrap">
-                    <img src="/images/Vericea.png" alt="Vericea® Logo" style={{ height: '14px', width: 'auto', objectFit: 'contain' }} />
-                    <sup className="vericea-logo-sup">®</sup>
-                  </span>
-                  <span style={{ fontSize: '12px', fontWeight: '800', color: '#ffffff' }}>Manufacturing</span>
-                </div>
-              </div>
-
-              {/* Floating Node 2: Logistics */}
-              <div className="partners-float-2" style={{ position: 'absolute', right: '10%', top: '25%', zIndex: 3 }}>
-                <div style={{ padding: '10px 16px', borderRadius: '12px', background: 'rgba(15,23,42,0.9)', border: '1px solid var(--accent)', boxShadow: 'var(--shadow-md)', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <img src="/images/Courier Cost Optimizer.png" alt="Courier Cost Optimizer Logo" style={{ height: '20px', width: 'auto', objectFit: 'contain' }} />
-                  <span style={{ fontSize: '12px', fontWeight: '800', color: '#ffffff' }}>Logistics</span>
-                </div>
-              </div>
-
-              {/* Floating Node 3: Compliance */}
-              <div className="partners-float-3" style={{ position: 'absolute', left: '8%', bottom: '25%', zIndex: 3 }}>
-                <div style={{ padding: '10px 16px', borderRadius: '12px', background: 'rgba(15,23,42,0.9)', border: '1px solid var(--accent)', boxShadow: 'var(--shadow-md)', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <span className="vericea-logo-wrap">
-                    <img src="/images/Vericea.png" alt="Vericea® Logo" style={{ height: '14px', width: 'auto', objectFit: 'contain' }} />
-                    <sup className="vericea-logo-sup">®</sup>
-                  </span>
-                  <span style={{ fontSize: '12px', fontWeight: '800', color: '#ffffff' }}>Compliance</span>
-                </div>
-              </div>
-
-              {/* Floating Node 4: Risk Management */}
-              <div className="partners-float-1" style={{ position: 'absolute', right: '18%', bottom: '15%', zIndex: 3 }}>
-                <div style={{ padding: '10px 16px', borderRadius: '12px', background: 'rgba(15,23,42,0.9)', border: '1px solid var(--accent)', boxShadow: 'var(--shadow-md)', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <img src="/images/Fact_safe.png" alt="FactSafe Logo" style={{ height: '18px', width: 'auto', objectFit: 'contain' }} />
-                  <span style={{ fontSize: '12px', fontWeight: '800', color: '#ffffff' }}>Risk Management</span>
-                </div>
-              </div>
-
-              {/* Dynamic Connection lines in background */}
-              <svg style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', pointerEvents: 'none' }}>
-                <path d="M 120 100 Q 230 180 230 230" fill="none" stroke="rgba(56,189,248,0.15)" strokeWidth="1.5" strokeDasharray="4 4" />
-                <path d="M 370 140 Q 280 200 230 230" fill="none" stroke="rgba(56,189,248,0.15)" strokeWidth="1.5" strokeDasharray="4 4" />
-                <path d="M 100 320 Q 200 280 230 230" fill="none" stroke="rgba(56,189,248,0.15)" strokeWidth="1.5" />
-                <path d="M 340 360 Q 250 280 230 230" fill="none" stroke="rgba(56,189,248,0.15)" strokeWidth="1.5" />
-              </svg>
+              <PartnersHeroEcosystem />
             </motion.div>
           </div>
         </div>

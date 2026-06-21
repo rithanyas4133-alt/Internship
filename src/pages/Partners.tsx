@@ -12,7 +12,6 @@ import {
   Cpu,
   Layers,
   ChevronRight,
-  ChevronLeft,
   Sparkles,
   PieChart,
   Briefcase,
@@ -333,9 +332,7 @@ export default function Partners() {
 
   // Section 9: Ideal profiles active selection state
   const [activeAudience, setActiveAudience] = useState<number>(0);
-  
-  // Section 7: Active Map slider state
-  const [activeMap, setActiveMap] = useState<'india' | 'world'>('india');
+
   
   // Mouse parallax hook for Hero Visual
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -1716,10 +1713,10 @@ export default function Partners() {
           overflow: 'hidden'
         }}
       >
-        <div className="container">
+        <div className="container" style={{ maxWidth: '1360px' }}>
           <motion.div 
             {...fadeIn}
-            style={{ textAlign: 'center', marginBottom: '40px' }}
+            style={{ textAlign: 'center', marginBottom: '60px' }}
           >
             <span style={{ color: 'var(--accent)', fontWeight: '800', textTransform: 'uppercase', fontSize: '14px', letterSpacing: '2px' }}>
               PRIORITY TERRITORIES & GLOBAL FOOTPRINT
@@ -1732,165 +1729,74 @@ export default function Partners() {
             </p>
           </motion.div>
 
-          {/* Segmented Map Switcher Slider */}
-          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '32px' }}>
+          {/* Side-by-side Maps Flex Container */}
+          <div 
+            style={{ 
+              display: 'flex', 
+              gap: '40px', 
+              alignItems: 'stretch', 
+              flexWrap: 'wrap', 
+              justifyContent: 'center',
+              width: '100%'
+            }}
+          >
+            {/* Left Column: India Map */}
             <div 
               style={{ 
-                display: 'inline-flex',
-                background: 'rgba(15, 23, 42, 0.6)', 
-                border: '1.5px solid rgba(56, 189, 248, 0.25)', 
-                borderRadius: '9999px',
-                padding: '6px',
-                position: 'relative',
-                boxShadow: '0 8px 32px rgba(0, 0, 0, 0.2)',
-                zIndex: 5
+                flex: '1 1 500px', 
+                maxWidth: '620px', 
+                display: 'flex', 
+                flexDirection: 'column',
+                background: 'rgba(30, 41, 59, 0.2)',
+                border: '1px solid rgba(255, 255, 255, 0.05)',
+                borderRadius: '16px',
+                padding: '24px',
+                boxShadow: '0 8px 32px rgba(0, 0, 0, 0.15)',
+                backdropFilter: 'blur(8px)'
               }}
             >
-              <button
-                onClick={() => setActiveMap('india')}
-                style={{
-                  padding: '10px 24px',
-                  borderRadius: '9999px',
-                  border: 'none',
-                  background: 'transparent',
-                  color: activeMap === 'india' ? '#0B111F' : '#CBD5E1',
-                  fontSize: '14px',
-                  fontWeight: '700',
-                  cursor: 'pointer',
-                  transition: 'color 0.3s ease',
-                  position: 'relative',
-                  zIndex: 2
-                }}
-              >
-                India Coverage
-                {activeMap === 'india' && (
-                  <motion.div
-                    layoutId="activeMapIndicator"
-                    style={{
-                      position: 'absolute',
-                      inset: 0,
-                      background: '#38BDF8',
-                      borderRadius: '9999px',
-                      zIndex: -1,
-                      boxShadow: '0 2px 10px rgba(56, 189, 248, 0.3)'
-                    }}
-                    transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-                  />
-                )}
-              </button>
-              <button
-                onClick={() => setActiveMap('world')}
-                style={{
-                  padding: '10px 24px',
-                  borderRadius: '9999px',
-                  border: 'none',
-                  background: 'transparent',
-                  color: activeMap === 'world' ? '#0B111F' : '#CBD5E1',
-                  fontSize: '14px',
-                  fontWeight: '700',
-                  cursor: 'pointer',
-                  transition: 'color 0.3s ease',
-                  position: 'relative',
-                  zIndex: 2
-                }}
-              >
-                World Expansion
-                {activeMap === 'world' && (
-                  <motion.div
-                    layoutId="activeMapIndicator"
-                    style={{
-                      position: 'absolute',
-                      inset: 0,
-                      background: '#38BDF8',
-                      borderRadius: '9999px',
-                      zIndex: -1,
-                      boxShadow: '0 2px 10px rgba(56, 189, 248, 0.3)'
-                    }}
-                    transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-                  />
-                )}
-              </button>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '24px', minHeight: '56px' }}>
+                <div style={{ width: '36px', height: '36px', borderRadius: '10px', background: 'rgba(56, 189, 248, 0.15)', border: '1px solid rgba(56, 189, 248, 0.35)', display: 'grid', placeItems: 'center', flexShrink: 0 }}>
+                  <Globe size={18} color="#38BDF8" />
+                </div>
+                <div>
+                  <h3 style={{ margin: 0, fontSize: '18px', fontWeight: '800', color: '#ffffff' }}>India — National Market Coverage</h3>
+                  <p style={{ margin: '2px 0 0 0', fontSize: '13px', color: 'var(--text-muted)' }}>Industrial corridors, MSME clusters, and high-growth manufacturing regions</p>
+                </div>
+              </div>
+              <div style={{ flexGrow: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <IndiaMap />
+              </div>
             </div>
-          </div>
 
-          {/* Sliding container hosting the maps */}
-          <div style={{ maxWidth: '800px', margin: '0 auto', position: 'relative', overflow: 'visible' }}>
-            {/* Side Navigation Arrow Buttons */}
-            <AnimatePresence>
-              {activeMap === 'world' && (
-                <motion.button 
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.8 }}
-                  transition={{ duration: 0.2 }}
-                  className="map-arrow-btn map-arrow-btn-left"
-                  onClick={() => setActiveMap('india')}
-                  aria-label="Previous Map"
-                >
-                  <ChevronLeft size={24} color="#38BDF8" />
-                </motion.button>
-              )}
-            </AnimatePresence>
-
-            <AnimatePresence>
-              {activeMap === 'india' && (
-                <motion.button 
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.8 }}
-                  transition={{ duration: 0.2 }}
-                  className="map-arrow-btn map-arrow-btn-right"
-                  onClick={() => setActiveMap('world')}
-                  aria-label="Next Map"
-                >
-                  <ChevronRight size={24} color="#38BDF8" />
-                </motion.button>
-              )}
-            </AnimatePresence>
-
-            <AnimatePresence mode="wait">
-              {activeMap === 'india' ? (
-                <motion.div
-                  key="india-map-slide"
-                  initial={{ opacity: 0, x: -30 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: 30 }}
-                  transition={{ duration: 0.3, ease: 'easeInOut' }}
-                  style={{ display: 'flex', flexDirection: 'column' }}
-                >
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px', minHeight: '56px' }}>
-                    <div style={{ width: '36px', height: '36px', borderRadius: '10px', background: 'rgba(56, 189, 248, 0.15)', border: '1px solid rgba(56, 189, 248, 0.35)', display: 'grid', placeItems: 'center', flexShrink: 0 }}>
-                      <Globe size={18} color="#38BDF8" />
-                    </div>
-                    <div>
-                      <h3 style={{ margin: 0, fontSize: '18px', fontWeight: '800', color: '#ffffff' }}>India — National Market Coverage</h3>
-                      <p style={{ margin: '2px 0 0 0', fontSize: '13px', color: 'var(--text-muted)' }}>Industrial corridors, MSME clusters, and high-growth manufacturing regions</p>
-                    </div>
-                  </div>
-                  <IndiaMap />
-                </motion.div>
-              ) : (
-                <motion.div
-                  key="world-map-slide"
-                  initial={{ opacity: 0, x: 30 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -30 }}
-                  transition={{ duration: 0.3, ease: 'easeInOut' }}
-                  style={{ display: 'flex', flexDirection: 'column' }}
-                >
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px', minHeight: '56px' }}>
-                    <div style={{ width: '36px', height: '36px', borderRadius: '10px', background: 'rgba(56, 189, 248, 0.15)', border: '1px solid rgba(56, 189, 248, 0.35)', display: 'grid', placeItems: 'center', flexShrink: 0 }}>
-                      <Globe size={18} color="#38BDF8" />
-                    </div>
-                    <div>
-                      <h3 style={{ margin: 0, fontSize: '18px', fontWeight: '800', color: '#ffffff' }}>International — Global Expansion</h3>
-                      <p style={{ margin: '2px 0 0 0', fontSize: '13px', color: 'var(--text-muted)' }}>Strategic hubs across Middle East, Southeast Asia, Europe, and North America</p>
-                    </div>
-                  </div>
-                  <WorldMap />
-                </motion.div>
-              )}
-            </AnimatePresence>
+            {/* Right Column: World Map */}
+            <div 
+              style={{ 
+                flex: '1 1 500px', 
+                maxWidth: '620px', 
+                display: 'flex', 
+                flexDirection: 'column',
+                background: 'rgba(30, 41, 59, 0.2)',
+                border: '1px solid rgba(255, 255, 255, 0.05)',
+                borderRadius: '16px',
+                padding: '24px',
+                boxShadow: '0 8px 32px rgba(0, 0, 0, 0.15)',
+                backdropFilter: 'blur(8px)'
+              }}
+            >
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '24px', minHeight: '56px' }}>
+                <div style={{ width: '36px', height: '36px', borderRadius: '10px', background: 'rgba(56, 189, 248, 0.15)', border: '1px solid rgba(56, 189, 248, 0.35)', display: 'grid', placeItems: 'center', flexShrink: 0 }}>
+                  <Globe size={18} color="#38BDF8" />
+                </div>
+                <div>
+                  <h3 style={{ margin: 0, fontSize: '18px', fontWeight: '800', color: '#ffffff' }}>International — Global Expansion</h3>
+                  <p style={{ margin: '2px 0 0 0', fontSize: '13px', color: 'var(--text-muted)' }}>Strategic hubs across Middle East, Southeast Asia, Europe, and North America</p>
+                </div>
+              </div>
+              <div style={{ flexGrow: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <WorldMap />
+              </div>
+            </div>
           </div>
         </div>
       </section>

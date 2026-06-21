@@ -976,18 +976,18 @@ export default function Partners() {
         style={{ 
           padding: '100px 0', 
           position: 'relative', 
-          backgroundColor: '#F8F9FB', 
+          backgroundColor: '#FAF7F2', 
           overflow: 'hidden' 
         }}
       >
-        {/* Premium light background abstract shapes and gradient accents */}
+        {/* Premium warm creamy-white background abstract shapes and gradient accents */}
         <div style={{
           position: 'absolute',
           top: '-10%',
           left: '-10%',
           width: '50%',
           height: '60%',
-          background: 'radial-gradient(circle, rgba(56, 189, 248, 0.12) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, rgba(239, 231, 218, 0.35) 50%, transparent 70%)',
           pointerEvents: 'none',
           zIndex: 0
         }} />
@@ -997,14 +997,24 @@ export default function Partners() {
           right: '-10%',
           width: '50%',
           height: '60%',
-          background: 'radial-gradient(circle, rgba(29, 78, 216, 0.08) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, rgba(245, 240, 232, 0.4) 50%, transparent 70%)',
+          pointerEvents: 'none',
+          zIndex: 0
+        }} />
+        <div style={{
+          position: 'absolute',
+          top: '20%',
+          right: '10%',
+          width: '40%',
+          height: '50%',
+          background: 'radial-gradient(circle, rgba(255, 248, 238, 0.6) 0%, transparent 75%)',
           pointerEvents: 'none',
           zIndex: 0
         }} />
         <div style={{
           position: 'absolute',
           inset: 0,
-          backgroundImage: 'radial-gradient(rgba(56, 189, 248, 0.07) 1.5px, transparent 1.5px)',
+          backgroundImage: 'radial-gradient(rgba(212, 175, 55, 0.075) 1.5px, transparent 1.5px)',
           backgroundSize: '24px 24px',
           opacity: 0.7,
           pointerEvents: 'none',

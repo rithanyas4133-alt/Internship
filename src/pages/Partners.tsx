@@ -12,6 +12,7 @@ import {
   Cpu,
   Layers,
   ChevronRight,
+  ChevronLeft,
   Sparkles,
   PieChart,
   Briefcase,
@@ -41,6 +42,9 @@ export default function Partners() {
 
   // Section 9: Ideal profiles active selection state
   const [activeAudience, setActiveAudience] = useState<number>(0);
+  
+  // Section 7: Active Map slider state
+  const [activeMap, setActiveMap] = useState<'india' | 'world'>('india');
   
   // Mouse parallax hook for Hero Visual
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -137,7 +141,7 @@ export default function Partners() {
       key: 'consultant',
       label: 'Growth Consultant',
       investment: '₹5–10L',
-      color: '#D4A85A', // Gold
+      color: '#38BDF8', // Arctic Blue
       year1: 25,
       year2: 75,
       year3: 150
@@ -198,7 +202,7 @@ export default function Partners() {
           zIndex: 1,
           borderBottom: '1px solid var(--gold-divider)',
           overflow: 'hidden',
-          backgroundImage: 'linear-gradient(rgba(31, 58, 95, 0.78), rgba(14, 31, 53, 0.92)), url("/images/business_consultation_1780850767888.png")',
+          backgroundImage: 'linear-gradient(rgba(11, 17, 31, 0.82), rgba(15, 23, 42, 0.92)), url("/images/business_consultation_1780850767888.png")',
           backgroundSize: 'cover',
           backgroundPosition: 'center'
         }}
@@ -295,8 +299,8 @@ export default function Partners() {
               transition={{ type: 'spring', stiffness: 100, damping: 20 }}
             >
               {/* Outer orbit lines */}
-              <div style={{ position: 'absolute', inset: '40px', border: '1px dashed rgba(212, 168, 90, 0.15)', borderRadius: '50%' }} />
-              <div style={{ position: 'absolute', inset: '100px', border: '1px dashed rgba(212, 168, 90, 0.1)', borderRadius: '50%' }} />
+              <div style={{ position: 'absolute', inset: '40px', border: '1px dashed rgba(56, 189, 248, 0.15)', borderRadius: '50%' }} />
+              <div style={{ position: 'absolute', inset: '100px', border: '1px dashed rgba(56, 189, 248, 0.1)', borderRadius: '50%' }} />
 
               {/* Central Glowing Core */}
               <div 
@@ -308,7 +312,7 @@ export default function Partners() {
                   width: '120px',
                   height: '120px',
                   borderRadius: '50%',
-                  background: 'radial-gradient(circle, rgba(212,168,90,0.2) 0%, transparent 70%)',
+                  background: 'radial-gradient(circle, rgba(56,189,248,0.15) 0%, transparent 70%)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
@@ -320,20 +324,20 @@ export default function Partners() {
                     width: '74px', 
                     height: '74px', 
                     borderRadius: '50%', 
-                    background: 'rgba(31, 58, 95, 0.9)', 
+                    background: 'rgba(15, 23, 42, 0.9)', 
                     border: '2px solid var(--accent)',
-                    boxShadow: '0 0 30px rgba(212,168,90,0.3)',
+                    boxShadow: '0 0 30px rgba(56,189,248,0.25)',
                     display: 'grid',
                     placeItems: 'center'
                   }}
                 >
-                  <Cpu size={30} color="#D4A85A" />
+                  <Cpu size={30} color="#38BDF8" />
                 </div>
               </div>
 
               {/* Floating Node 1: Manufacturing */}
               <div className="partners-float-1" style={{ position: 'absolute', left: '15%', top: '15%', zIndex: 3 }}>
-                <div style={{ padding: '10px 16px', borderRadius: '12px', background: 'rgba(43,74,115,0.9)', border: '1px solid var(--accent)', boxShadow: 'var(--shadow-md)', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <div style={{ padding: '10px 16px', borderRadius: '12px', background: 'rgba(15,23,42,0.9)', border: '1px solid var(--accent)', boxShadow: 'var(--shadow-md)', display: 'flex', alignItems: 'center', gap: '8px' }}>
                   <span className="vericea-logo-wrap">
                     <img src="/images/Vericea.png" alt="Vericea® Logo" style={{ height: '14px', width: 'auto', objectFit: 'contain' }} />
                     <sup className="vericea-logo-sup">®</sup>
@@ -344,7 +348,7 @@ export default function Partners() {
 
               {/* Floating Node 2: Logistics */}
               <div className="partners-float-2" style={{ position: 'absolute', right: '10%', top: '25%', zIndex: 3 }}>
-                <div style={{ padding: '10px 16px', borderRadius: '12px', background: 'rgba(43,74,115,0.9)', border: '1px solid var(--accent)', boxShadow: 'var(--shadow-md)', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <div style={{ padding: '10px 16px', borderRadius: '12px', background: 'rgba(15,23,42,0.9)', border: '1px solid var(--accent)', boxShadow: 'var(--shadow-md)', display: 'flex', alignItems: 'center', gap: '8px' }}>
                   <img src="/images/Courier Cost Optimizer.png" alt="Courier Cost Optimizer Logo" style={{ height: '20px', width: 'auto', objectFit: 'contain' }} />
                   <span style={{ fontSize: '12px', fontWeight: '800', color: '#ffffff' }}>Logistics</span>
                 </div>
@@ -352,7 +356,7 @@ export default function Partners() {
 
               {/* Floating Node 3: Compliance */}
               <div className="partners-float-3" style={{ position: 'absolute', left: '8%', bottom: '25%', zIndex: 3 }}>
-                <div style={{ padding: '10px 16px', borderRadius: '12px', background: 'rgba(43,74,115,0.9)', border: '1px solid var(--accent)', boxShadow: 'var(--shadow-md)', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <div style={{ padding: '10px 16px', borderRadius: '12px', background: 'rgba(15,23,42,0.9)', border: '1px solid var(--accent)', boxShadow: 'var(--shadow-md)', display: 'flex', alignItems: 'center', gap: '8px' }}>
                   <span className="vericea-logo-wrap">
                     <img src="/images/Vericea.png" alt="Vericea® Logo" style={{ height: '14px', width: 'auto', objectFit: 'contain' }} />
                     <sup className="vericea-logo-sup">®</sup>
@@ -363,7 +367,7 @@ export default function Partners() {
 
               {/* Floating Node 4: Risk Management */}
               <div className="partners-float-1" style={{ position: 'absolute', right: '18%', bottom: '15%', zIndex: 3 }}>
-                <div style={{ padding: '10px 16px', borderRadius: '12px', background: 'rgba(43,74,115,0.9)', border: '1px solid var(--accent)', boxShadow: 'var(--shadow-md)', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <div style={{ padding: '10px 16px', borderRadius: '12px', background: 'rgba(15,23,42,0.9)', border: '1px solid var(--accent)', boxShadow: 'var(--shadow-md)', display: 'flex', alignItems: 'center', gap: '8px' }}>
                   <img src="/images/Fact_safe.png" alt="FactSafe Logo" style={{ height: '18px', width: 'auto', objectFit: 'contain' }} />
                   <span style={{ fontSize: '12px', fontWeight: '800', color: '#ffffff' }}>Risk Management</span>
                 </div>
@@ -371,10 +375,10 @@ export default function Partners() {
 
               {/* Dynamic Connection lines in background */}
               <svg style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', pointerEvents: 'none' }}>
-                <path d="M 120 100 Q 230 180 230 230" fill="none" stroke="rgba(212,168,90,0.15)" strokeWidth="1.5" strokeDasharray="4 4" />
-                <path d="M 370 140 Q 280 200 230 230" fill="none" stroke="rgba(212,168,90,0.15)" strokeWidth="1.5" strokeDasharray="4 4" />
-                <path d="M 100 320 Q 200 280 230 230" fill="none" stroke="rgba(212,168,90,0.15)" strokeWidth="1.5" />
-                <path d="M 340 360 Q 250 280 230 230" fill="none" stroke="rgba(212,168,90,0.15)" strokeWidth="1.5" />
+                <path d="M 120 100 Q 230 180 230 230" fill="none" stroke="rgba(56,189,248,0.15)" strokeWidth="1.5" strokeDasharray="4 4" />
+                <path d="M 370 140 Q 280 200 230 230" fill="none" stroke="rgba(56,189,248,0.15)" strokeWidth="1.5" strokeDasharray="4 4" />
+                <path d="M 100 320 Q 200 280 230 230" fill="none" stroke="rgba(56,189,248,0.15)" strokeWidth="1.5" />
+                <path d="M 340 360 Q 250 280 230 230" fill="none" stroke="rgba(56,189,248,0.15)" strokeWidth="1.5" />
               </svg>
             </motion.div>
           </div>
@@ -450,8 +454,8 @@ export default function Partners() {
                 style={{
                   borderRadius: '16px',
                   overflow: 'hidden',
-                  background: 'rgba(43, 74, 115, 0.45)',
-                  border: '1px solid var(--border-color)',
+                  background: 'rgba(30, 41, 59, 0.45)',
+                  border: '1.5px solid var(--border-color)',
                   boxShadow: 'var(--shadow-md)',
                   display: 'flex',
                   flexDirection: 'column',
@@ -466,17 +470,17 @@ export default function Partners() {
                     style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }} 
                     className="showcase-img"
                   />
-                  <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(31,58,95,0.9) 0%, transparent 100%)' }} />
+                  <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(11,17,31,0.9) 0%, transparent 100%)' }} />
                   <span 
                     style={{ 
                       position: 'absolute', 
                       bottom: '12px', 
                       left: '16px', 
-                      fontSize: '10px', 
+                      fontSize: '12px', 
                       fontWeight: '800', 
                       color: 'var(--accent)', 
-                      background: 'rgba(31, 58, 95, 0.9)', 
-                      border: '1px solid var(--border-color)', 
+                      background: 'rgba(15, 23, 42, 0.9)', 
+                      border: '1.5px solid var(--border-color)', 
                       padding: '3px 8px', 
                       borderRadius: '4px' 
                     }}
@@ -500,7 +504,7 @@ export default function Partners() {
                   <h3 style={{ fontSize: '18px', fontWeight: '800', color: '#ffffff', margin: 0, minHeight: '52px', lineHeight: '1.3' }}>
                     {p.title}
                   </h3>
-                  <p style={{ color: 'var(--text-muted)', fontSize: '13px', lineHeight: '1.5', marginTop: '10px', flexGrow: 1 }}>
+                  <p style={{ color: 'var(--text-muted)', fontSize: '14.5px', lineHeight: '1.5', marginTop: '10px', flexGrow: 1 }}>
                     {p.desc}
                   </p>
                   
@@ -515,7 +519,7 @@ export default function Partners() {
                         border: 'none', 
                         color: '#ffffff', 
                         fontWeight: '700', 
-                        fontSize: '12px', 
+                        fontSize: '13px', 
                         display: 'flex', 
                         alignItems: 'center', 
                         gap: '4px', 
@@ -523,7 +527,7 @@ export default function Partners() {
                       }}
                     >
                       Details
-                      <ChevronRight size={14} color="#D4A85A" />
+                      <ChevronRight size={14} color="#38BDF8" />
                     </button>
                   </div>
                 </div>
@@ -592,7 +596,7 @@ export default function Partners() {
                       y2={y2}
                       style={{
                         opacity: isSelected ? 1 : 0.55,
-                        stroke: isSelected ? 'rgba(244, 196, 78, 0.9)' : 'rgba(244, 196, 78, 0.38)'
+                        stroke: isSelected ? 'rgba(56,189,248, 0.9)' : 'rgba(56,189,248, 0.38)'
                       }}
                     />
                   );
@@ -606,9 +610,9 @@ export default function Partners() {
                   width: '140px',
                   height: '140px',
                   borderRadius: '50%',
-                  background: 'rgba(43, 74, 115, 0.95)',
+                  background: 'rgba(15, 23, 42, 0.95)',
                   border: '2px solid var(--accent)',
-                  boxShadow: '0 0 35px rgba(212,168,90,0.25)',
+                  boxShadow: '0 0 35px rgba(56,189,248,0.2)',
                   zIndex: 2,
                   display: 'flex',
                   flexDirection: 'column',
@@ -652,10 +656,10 @@ export default function Partners() {
                         width: '52px',
                         height: '52px',
                         borderRadius: '50%',
-                        background: isSelected ? 'var(--accent)' : 'rgba(43, 74, 115, 0.9)',
+                        background: isSelected ? 'var(--accent)' : 'rgba(15, 23, 42, 0.9)',
                         display: 'grid',
                         placeItems: 'center',
-                        color: isSelected ? '#1F3A5F' : '#D4A85A',
+                        color: isSelected ? '#0B111F' : '#38BDF8',
                         cursor: 'pointer',
                         transition: 'all 0.25s'
                       }}
@@ -673,7 +677,7 @@ export default function Partners() {
                         top: '14px',
                         whiteSpace: 'nowrap',
                         background: 'rgba(14, 31, 53, 0.88)',
-                        border: '1px solid rgba(212,168,90,0.18)',
+                        border: '1px solid rgba(56,189,248,0.15)',
                         padding: '3px 8px',
                         borderRadius: '6px',
                         fontSize: '10px',
@@ -701,8 +705,8 @@ export default function Partners() {
                     exit={{ opacity: 0, x: -20 }}
                     transition={{ duration: 0.25 }}
                     style={{
-                      background: 'rgba(43, 74, 115, 0.5)',
-                      border: '1px solid var(--accent)',
+                      background: 'rgba(30, 41, 59, 0.5)',
+                      border: '1.5px solid var(--accent)',
                       borderRadius: '18px',
                       padding: '28px',
                       boxShadow: 'var(--shadow-lg)',
@@ -710,10 +714,10 @@ export default function Partners() {
                     }}
                   >
                     <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
-                      <div style={{ width: '48px', height: '48px', borderRadius: '10px', background: 'rgba(212, 168, 90, 0.15)', display: 'grid', placeItems: 'center' }}>
+                      <div style={{ width: '48px', height: '48px', borderRadius: '10px', background: 'rgba(56, 189, 248, 0.15)', display: 'grid', placeItems: 'center' }}>
                         {(() => {
                           const IconComp = benefits[activeBenefit].icon;
-                          return <IconComp size={22} color="#D4A85A" />;
+                          return <IconComp size={22} color="#38BDF8" />;
                         })()}
                       </div>
                       <div>
@@ -730,22 +734,21 @@ export default function Partners() {
                       {benefits[activeBenefit].desc}
                     </p>
                     
-                    <p style={{ fontSize: '14px', color: 'var(--text-muted)', lineHeight: '1.6', marginTop: '12px', borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: '12px' }}>
+                    <p style={{ fontSize: '14.5px', color: 'var(--text-muted)', lineHeight: '1.6', marginTop: '12px', borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: '12px' }}>
                       {benefits[activeBenefit].detail}
                     </p>
                   </motion.div>
                 ) : (
                   <div 
                     style={{
-                      background: 'rgba(43, 74, 115, 0.2)',
-                      border: '1px dashed var(--border-color)',
+                      background: 'rgba(164, 182, 204, 0.1)',
+                      border: '1.5px dashed rgba(56, 189, 248, 0.45)',
                       borderRadius: '18px',
                       padding: '40px 28px',
                       textAlign: 'center',
-                      color: 'var(--text-muted)'
                     }}
                   >
-                    <Info size={32} color="#D4A85A" style={{ marginBottom: '12px' }} />
+                    <Info size={32} color="#38BDF8" style={{ marginBottom: '12px' }} />
                     <h4 style={{ color: '#ffffff', fontWeight: '800', margin: '0 0 4px 0' }}>Explore Benefits Network</h4>
                     <p style={{ margin: 0, fontSize: '13px' }}>Hover over or select any of the benefit orbital nodes in the network system to read detailed metrics.</p>
                   </div>
@@ -783,7 +786,7 @@ export default function Partners() {
                 flex: '1 1 320px', 
                 borderRadius: '18px', 
                 padding: '28px', 
-                background: 'rgba(43, 74, 115, 0.45)', 
+                background: 'rgba(30, 41, 59, 0.45)', 
                 border: '1px solid var(--border-color)',
                 boxShadow: 'var(--shadow-md)'
               }}
@@ -803,10 +806,10 @@ export default function Partners() {
                   { title: 'Consulting Advisory', desc: 'Pre-sales technical and security consults.' }
                 ].map((item, i) => (
                   <div key={i} style={{ display: 'flex', gap: '10px', alignItems: 'flex-start' }}>
-                    <CheckCircle2 size={16} color="#D4A85A" style={{ marginTop: '3px', flexShrink: 0 }} />
+                    <CheckCircle2 size={16} color="#38BDF8" style={{ marginTop: '3px', flexShrink: 0 }} />
                     <div>
-                      <h4 style={{ margin: 0, fontSize: '13px', fontWeight: '800', color: '#ffffff' }}>{item.title}</h4>
-                      <p style={{ margin: '1px 0 0 0', fontSize: '12px', color: 'var(--text-muted)' }}>{item.desc}</p>
+                      <h4 style={{ margin: 0, fontSize: '15px', fontWeight: '800', color: '#ffffff' }}>{item.title}</h4>
+                      <p style={{ margin: '1px 0 0 0', fontSize: '13.5px', color: 'var(--text-muted)' }}>{item.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -832,18 +835,18 @@ export default function Partners() {
                   width: '74px', 
                   height: '74px', 
                   borderRadius: '50%', 
-                  background: 'rgba(212, 168, 90, 0.12)', 
+                  background: 'rgba(56, 189, 248, 0.12)', 
                   border: '1.5px solid var(--accent)',
                   display: 'grid',
                   placeItems: 'center',
-                  boxShadow: '0 0 25px rgba(212,168,90,0.1)'
+                  boxShadow: '0 0 25px rgba(56,189,248,0.08)'
                 }}
               >
-                <HeartHandshake size={32} color="#D4A85A" style={{ animation: 'node-float-3 4s infinite ease-in-out' }} />
+                <HeartHandshake size={32} color="#38BDF8" style={{ animation: 'node-float-3 4s infinite ease-in-out' }} />
               </div>
               <div>
-                <div style={{ color: '#ffffff', fontWeight: '900', fontSize: '15px' }}>Shared Growth Partnership</div>
-                <div style={{ color: 'var(--text-muted)', fontSize: '11px', marginTop: '4px', maxWidth: '160px', margin: '4px auto 0 auto', lineHeight: '1.4' }}>
+                <div style={{ color: '#ffffff', fontWeight: '900', fontSize: '16px' }}>Shared Growth Partnership</div>
+                <div style={{ color: 'var(--text-muted)', fontSize: '13px', marginTop: '4px', maxWidth: '160px', margin: '4px auto 0 auto', lineHeight: '1.4' }}>
                   Both parties contribute their respective strengths to build scalable and sustainable market growth.
                 </div>
               </div>
@@ -868,7 +871,7 @@ export default function Partners() {
                 flex: '1 1 320px', 
                 borderRadius: '18px', 
                 padding: '28px', 
-                background: 'rgba(43, 74, 115, 0.45)', 
+                background: 'rgba(30, 41, 59, 0.45)', 
                 border: '1px solid var(--border-color)',
                 boxShadow: 'var(--shadow-md)'
               }}
@@ -888,10 +891,10 @@ export default function Partners() {
                   { title: 'Local Integration Support', desc: 'Assisting client with setup checklists.' }
                 ].map((item, i) => (
                   <div key={i} style={{ display: 'flex', gap: '10px', alignItems: 'flex-start' }}>
-                    <CheckCircle2 size={16} color="#D4A85A" style={{ marginTop: '3px', flexShrink: 0 }} />
+                    <CheckCircle2 size={16} color="#38BDF8" style={{ marginTop: '3px', flexShrink: 0 }} />
                     <div>
-                      <h4 style={{ margin: 0, fontSize: '13px', fontWeight: '800', color: '#ffffff' }}>{item.title}</h4>
-                      <p style={{ margin: '1px 0 0 0', fontSize: '12px', color: 'var(--text-muted)' }}>{item.desc}</p>
+                      <h4 style={{ margin: 0, fontSize: '15px', fontWeight: '800', color: '#ffffff' }}>{item.title}</h4>
+                      <p style={{ margin: '1px 0 0 0', fontSize: '13.5px', color: 'var(--text-muted)' }}>{item.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -932,13 +935,13 @@ export default function Partners() {
                   borderRadius: '12px',
                   border: '1.5px solid',
                   borderColor: activeModel === idx ? 'var(--accent)' : 'rgba(255,255,255,0.06)',
-                  background: activeModel === idx ? 'rgba(212, 168, 90, 0.15)' : 'rgba(43, 74, 115, 0.3)',
+                  background: activeModel === idx ? 'rgba(56, 189, 248, 0.15)' : 'rgba(30, 41, 59, 0.3)',
                   color: '#ffffff',
                   fontSize: '14px',
                   fontWeight: '800',
                   cursor: 'pointer',
                   transition: 'all 0.25s',
-                  boxShadow: activeModel === idx ? '0 4px 15px rgba(212,168,90,0.1)' : 'none'
+                  boxShadow: activeModel === idx ? '0 4px 15px rgba(56,189,248,0.08)' : 'none'
                 }}
               >
                 {model.title}
@@ -955,8 +958,8 @@ export default function Partners() {
               exit={{ opacity: 0, y: -15 }}
               transition={{ duration: 0.3 }}
               style={{
-                background: 'rgba(43, 74, 115, 0.45)',
-                border: '1px solid var(--border-color)',
+                background: 'rgba(30, 41, 59, 0.45)',
+                border: '1.5px solid var(--border-color)',
                 borderRadius: '20px',
                 padding: '36px',
                 boxShadow: 'var(--shadow-xl)',
@@ -965,7 +968,7 @@ export default function Partners() {
             >
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '16px' }}>
                 <div>
-                  <span style={{ fontSize: '10px', fontWeight: '800', textTransform: 'uppercase', letterSpacing: '1px', color: 'var(--accent)', background: 'rgba(212, 168, 90, 0.12)', padding: '4px 10px', borderRadius: '4px' }}>
+                  <span style={{ fontSize: '10px', fontWeight: '800', textTransform: 'uppercase', letterSpacing: '1px', color: 'var(--accent)', background: 'rgba(56, 189, 248, 0.12)', padding: '4px 10px', borderRadius: '4px' }}>
                     {businessModels[activeModel].badge}
                   </span>
                   <h3 style={{ fontSize: '28px', fontWeight: '900', color: '#ffffff', marginTop: '10px', margin: '8px 0 0 0' }}>
@@ -989,15 +992,15 @@ export default function Partners() {
 
               <div style={{ display: 'flex', gap: '32px', flexWrap: 'wrap' }}>
                 <div style={{ flex: '1 1 340px' }}>
-                  <h4 style={{ fontSize: '12px', textTransform: 'uppercase', letterSpacing: '1px', color: 'var(--text-muted)', marginBottom: '8px' }}>
+                  <h4 style={{ fontSize: '13px', textTransform: 'uppercase', letterSpacing: '1px', color: 'var(--text-muted)', marginBottom: '8px' }}>
                     Growth Trajectory
                   </h4>
-                  <p style={{ fontSize: '14.5px', color: 'var(--text-main)', lineHeight: '1.6', margin: 0 }}>
+                  <p style={{ fontSize: '15px', color: 'var(--text-main)', lineHeight: '1.6', margin: 0 }}>
                     {businessModels[activeModel].trajectory}
                   </p>
 
                   <div style={{ marginTop: '20px' }}>
-                    <h4 style={{ fontSize: '12px', textTransform: 'uppercase', letterSpacing: '1px', color: 'var(--text-muted)', marginBottom: '10px' }}>
+                    <h4 style={{ fontSize: '13px', textTransform: 'uppercase', letterSpacing: '1px', color: 'var(--text-muted)', marginBottom: '10px' }}>
                       Key Capabilities Needed
                     </h4>
                     <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
@@ -1005,7 +1008,7 @@ export default function Partners() {
                         <span 
                           key={sIdx}
                           style={{
-                            fontSize: '11px',
+                            fontSize: '12px',
                             fontWeight: '600',
                             color: '#ffffff',
                             background: 'rgba(255,255,255,0.04)',
@@ -1082,8 +1085,8 @@ export default function Partners() {
             style={{ 
               borderRadius: '20px', 
               padding: '36px', 
-              background: 'rgba(43, 74, 115, 0.25)', 
-              border: '1px solid var(--border-color)',
+              background: 'rgba(30, 41, 59, 0.25)', 
+              border: '1.5px solid var(--border-color)',
               boxShadow: 'var(--shadow-lg)',
               backdropFilter: 'blur(8px)',
               position: 'relative',
@@ -1106,7 +1109,7 @@ export default function Partners() {
             >
               <div>
                 <h4 style={{ margin: 0, fontSize: '14px', fontWeight: '800', color: '#ffffff', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <PieChart size={16} color="#D4A85A" />
+                  <PieChart size={16} color="#38BDF8" />
                   Growth Curve (₹ In Lakhs)
                 </h4>
                 <span style={{ fontSize: '11px', color: 'var(--text-muted)' }}>Cumulative Projections</span>
@@ -1355,66 +1358,190 @@ export default function Partners() {
       </section>
 
       {/* ── SECTION 7: PRIORITY TERRITORIES & GLOBAL FOOTPRINT ────────── */}
-      <section className="section surface-royal" style={{ padding: '100px 0', position: 'relative' }}>
+      <section 
+        className="section partners-section-texture" 
+        style={{ 
+          padding: '100px 0', 
+          position: 'relative',
+          borderBottom: '1px solid var(--gold-divider)',
+          overflow: 'hidden'
+        }}
+      >
         <div className="container">
           <motion.div 
             {...fadeIn}
-            style={{ textAlign: 'center', marginBottom: '60px' }}
+            style={{ textAlign: 'center', marginBottom: '40px' }}
           >
-            <span style={{ color: 'var(--supporting)', fontWeight: '800', textTransform: 'uppercase', fontSize: '13px', letterSpacing: '2px' }}>
+            <span style={{ color: 'var(--accent)', fontWeight: '800', textTransform: 'uppercase', fontSize: '14px', letterSpacing: '2px' }}>
               PRIORITY TERRITORIES & GLOBAL FOOTPRINT
             </span>
             <h2 style={{ fontSize: '36px', fontWeight: '800', color: '#ffffff', marginTop: '10px' }}>
               India & International Market Opportunities
             </h2>
-            <p style={{ color: 'var(--text-muted)', maxWidth: '660px', margin: '12px auto 0 auto' }}>
+            <p style={{ color: 'var(--text-muted)', maxWidth: '660px', margin: '12px auto 0 auto', fontSize: '15px' }}>
               Explore partnership territories across India’s industrial corridors and high-potential global markets. Click on markers to discover regional opportunities.
             </p>
           </motion.div>
 
-          {/* Dual map layout */}
-          <div className="maps-responsive-grid">
-
-            {/* India Map Block */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-80px' }}
-              transition={{ duration: 0.6 }}
-              style={{ display: 'flex', flexDirection: 'column' }}
+          {/* Segmented Map Switcher Slider */}
+          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '32px' }}>
+            <div 
+              style={{ 
+                display: 'inline-flex',
+                background: 'rgba(15, 23, 42, 0.6)', 
+                border: '1.5px solid rgba(56, 189, 248, 0.25)', 
+                borderRadius: '9999px',
+                padding: '6px',
+                position: 'relative',
+                boxShadow: '0 8px 32px rgba(0, 0, 0, 0.2)',
+                zIndex: 5
+              }}
             >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px', minHeight: '56px' }}>
-                <div style={{ width: '36px', height: '36px', borderRadius: '10px', background: 'rgba(212, 168, 90, 0.12)', border: '1px solid rgba(212, 168, 90, 0.25)', display: 'grid', placeItems: 'center', flexShrink: 0 }}>
-                  <Globe size={18} color="#D4A85A" />
-                </div>
-                <div>
-                  <h3 style={{ margin: 0, fontSize: '18px', fontWeight: '800', color: '#ffffff' }}>India — National Market Coverage</h3>
-                  <p style={{ margin: '2px 0 0 0', fontSize: '12px', color: 'var(--text-muted)' }}>Industrial corridors, MSME clusters, and high-growth manufacturing regions</p>
-                </div>
-              </div>
-              <IndiaMap />
-            </motion.div>
+              <button
+                onClick={() => setActiveMap('india')}
+                style={{
+                  padding: '10px 24px',
+                  borderRadius: '9999px',
+                  border: 'none',
+                  background: 'transparent',
+                  color: activeMap === 'india' ? '#0B111F' : '#CBD5E1',
+                  fontSize: '14px',
+                  fontWeight: '700',
+                  cursor: 'pointer',
+                  transition: 'color 0.3s ease',
+                  position: 'relative',
+                  zIndex: 2
+                }}
+              >
+                India Coverage
+                {activeMap === 'india' && (
+                  <motion.div
+                    layoutId="activeMapIndicator"
+                    style={{
+                      position: 'absolute',
+                      inset: 0,
+                      background: '#38BDF8',
+                      borderRadius: '9999px',
+                      zIndex: -1,
+                      boxShadow: '0 2px 10px rgba(56, 189, 248, 0.3)'
+                    }}
+                    transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                  />
+                )}
+              </button>
+              <button
+                onClick={() => setActiveMap('world')}
+                style={{
+                  padding: '10px 24px',
+                  borderRadius: '9999px',
+                  border: 'none',
+                  background: 'transparent',
+                  color: activeMap === 'world' ? '#0B111F' : '#CBD5E1',
+                  fontSize: '14px',
+                  fontWeight: '700',
+                  cursor: 'pointer',
+                  transition: 'color 0.3s ease',
+                  position: 'relative',
+                  zIndex: 2
+                }}
+              >
+                World Expansion
+                {activeMap === 'world' && (
+                  <motion.div
+                    layoutId="activeMapIndicator"
+                    style={{
+                      position: 'absolute',
+                      inset: 0,
+                      background: '#38BDF8',
+                      borderRadius: '9999px',
+                      zIndex: -1,
+                      boxShadow: '0 2px 10px rgba(56, 189, 248, 0.3)'
+                    }}
+                    transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                  />
+                )}
+              </button>
+            </div>
+          </div>
 
-            {/* World Map Block */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-80px' }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              style={{ display: 'flex', flexDirection: 'column' }}
-            >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px', minHeight: '56px' }}>
-                <div style={{ width: '36px', height: '36px', borderRadius: '10px', background: 'rgba(212, 168, 90, 0.12)', border: '1px solid rgba(212, 168, 90, 0.25)', display: 'grid', placeItems: 'center', flexShrink: 0 }}>
-                  <Globe size={18} color="#D4A85A" />
-                </div>
-                <div>
-                  <h3 style={{ margin: 0, fontSize: '18px', fontWeight: '800', color: '#ffffff' }}>International — Global Expansion</h3>
-                  <p style={{ margin: '2px 0 0 0', fontSize: '12px', color: 'var(--text-muted)' }}>Strategic hubs across Middle East, Southeast Asia, Europe, and North America</p>
-                </div>
-              </div>
-              <WorldMap />
-            </motion.div>
+          {/* Sliding container hosting the maps */}
+          <div style={{ maxWidth: '800px', margin: '0 auto', position: 'relative', overflow: 'visible' }}>
+            {/* Side Navigation Arrow Buttons */}
+            <AnimatePresence>
+              {activeMap === 'world' && (
+                <motion.button 
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.8 }}
+                  transition={{ duration: 0.2 }}
+                  className="map-arrow-btn map-arrow-btn-left"
+                  onClick={() => setActiveMap('india')}
+                  aria-label="Previous Map"
+                >
+                  <ChevronLeft size={24} color="#38BDF8" />
+                </motion.button>
+              )}
+            </AnimatePresence>
 
+            <AnimatePresence>
+              {activeMap === 'india' && (
+                <motion.button 
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.8 }}
+                  transition={{ duration: 0.2 }}
+                  className="map-arrow-btn map-arrow-btn-right"
+                  onClick={() => setActiveMap('world')}
+                  aria-label="Next Map"
+                >
+                  <ChevronRight size={24} color="#38BDF8" />
+                </motion.button>
+              )}
+            </AnimatePresence>
+
+            <AnimatePresence mode="wait">
+              {activeMap === 'india' ? (
+                <motion.div
+                  key="india-map-slide"
+                  initial={{ opacity: 0, x: -30 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: 30 }}
+                  transition={{ duration: 0.3, ease: 'easeInOut' }}
+                  style={{ display: 'flex', flexDirection: 'column' }}
+                >
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px', minHeight: '56px' }}>
+                    <div style={{ width: '36px', height: '36px', borderRadius: '10px', background: 'rgba(56, 189, 248, 0.15)', border: '1px solid rgba(56, 189, 248, 0.35)', display: 'grid', placeItems: 'center', flexShrink: 0 }}>
+                      <Globe size={18} color="#38BDF8" />
+                    </div>
+                    <div>
+                      <h3 style={{ margin: 0, fontSize: '18px', fontWeight: '800', color: '#ffffff' }}>India — National Market Coverage</h3>
+                      <p style={{ margin: '2px 0 0 0', fontSize: '13px', color: 'var(--text-muted)' }}>Industrial corridors, MSME clusters, and high-growth manufacturing regions</p>
+                    </div>
+                  </div>
+                  <IndiaMap />
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="world-map-slide"
+                  initial={{ opacity: 0, x: 30 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -30 }}
+                  transition={{ duration: 0.3, ease: 'easeInOut' }}
+                  style={{ display: 'flex', flexDirection: 'column' }}
+                >
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px', minHeight: '56px' }}>
+                    <div style={{ width: '36px', height: '36px', borderRadius: '10px', background: 'rgba(56, 189, 248, 0.15)', border: '1px solid rgba(56, 189, 248, 0.35)', display: 'grid', placeItems: 'center', flexShrink: 0 }}>
+                      <Globe size={18} color="#38BDF8" />
+                    </div>
+                    <div>
+                      <h3 style={{ margin: 0, fontSize: '18px', fontWeight: '800', color: '#ffffff' }}>International — Global Expansion</h3>
+                      <p style={{ margin: '2px 0 0 0', fontSize: '13px', color: 'var(--text-muted)' }}>Strategic hubs across Middle East, Southeast Asia, Europe, and North America</p>
+                    </div>
+                  </div>
+                  <WorldMap />
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
         </div>
       </section>
@@ -1455,7 +1582,7 @@ export default function Partners() {
                     style={{
                       borderRadius: '12px',
                       padding: '16px',
-                      background: isActive ? 'rgba(212, 168, 90, 0.15)' : 'rgba(43, 74, 115, 0.3)',
+                      background: isActive ? 'rgba(56, 189, 248, 0.15)' : 'rgba(30, 41, 59, 0.3)',
                       border: '1px solid',
                       borderColor: isActive ? 'var(--accent)' : 'rgba(255, 255, 255, 0.05)',
                       display: 'flex',
@@ -1486,8 +1613,8 @@ export default function Partners() {
                   exit={{ opacity: 0, x: -20 }}
                   transition={{ duration: 0.25 }}
                   style={{
-                    background: 'rgba(43, 74, 115, 0.45)',
-                    border: '1px solid var(--accent)',
+                    background: 'rgba(30, 41, 59, 0.45)',
+                    border: '1.5px solid var(--accent)',
                     borderRadius: '18px',
                     padding: '32px',
                     boxShadow: 'var(--shadow-xl)',
@@ -1501,7 +1628,7 @@ export default function Partners() {
                 >
                   <div>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
-                      <span style={{ fontSize: '10px', fontWeight: '800', textTransform: 'uppercase', letterSpacing: '1px', color: '#D4A85A', background: 'rgba(212, 168, 90, 0.12)', padding: '4px 10px', borderRadius: '4px' }}>
+                      <span style={{ fontSize: '10px', fontWeight: '800', textTransform: 'uppercase', letterSpacing: '1px', color: '#38BDF8', background: 'rgba(56, 189, 248, 0.12)', padding: '4px 10px', borderRadius: '4px' }}>
                         {targetAudiences[activeAudience].badge}
                       </span>
                       <span style={{ fontSize: '12px', fontWeight: '700', color: 'var(--success)' }}>
@@ -1546,7 +1673,7 @@ export default function Partners() {
       {/* ── FINAL CTA ──────────────────────────────────────────────────────── */}
       <section className="section surface-matte" style={{ padding: '120px 0', position: 'relative' }}>
         {/* Subtle glow background */}
-        <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none', background: 'radial-gradient(circle at 50% 50%, rgba(31,58,95,0.85) 0%, transparent 60%)' }} />
+        <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none', background: 'radial-gradient(circle at 50% 50%, rgba(11,17,31,0.85) 0%, transparent 60%)' }} />
         
         <div className="container" style={{ position: 'relative', zIndex: 1, textAlign: 'center' }}>
           <span style={{ color: 'var(--supporting)', fontWeight: '800', textTransform: 'uppercase', fontSize: '13px', letterSpacing: '2.5px' }}>

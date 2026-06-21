@@ -98,7 +98,7 @@ const priorityCities: CityInfo[] = [
 ];
 
 export default function IndiaMap() {
-  const [selectedCity, setSelectedCity] = useState<CityInfo | null>(priorityCities[0]);
+  const [selectedCity, setSelectedCity] = useState<CityInfo | null>(priorityCities[3]);
   const [hoveredCity, setHoveredCity] = useState<CityInfo | null>(null);
   const [hoveredStateId, setHoveredStateId] = useState<string | null>(null);
 
@@ -108,16 +108,23 @@ export default function IndiaMap() {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '24px', width: '100%' }}>
       {/* Map visual card */}
-      <div className="map-premium-card">
+      <div 
+        className="map-premium-card"
+        style={{
+          background: '#ffffff',
+          border: '2px solid #38BDF8',
+          boxShadow: '0 10px 30px rgba(14, 165, 233, 0.15)',
+        }}
+      >
         {/* Subtle grid background */}
-        <div style={{ position: 'absolute', inset: 0, opacity: 0.1, backgroundImage: 'linear-gradient(rgba(212,168,90,0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(212,168,90,0.15) 1px, transparent 1px)', backgroundSize: '20px 20px', pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', inset: 0, opacity: 0.15, backgroundImage: 'linear-gradient(rgba(56, 189, 248, 0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(56, 189, 248, 0.2) 1px, transparent 1px)', backgroundSize: '20px 20px', pointerEvents: 'none' }} />
 
         {/* Map visual wrapper */}
         <div 
           style={{ 
             position: 'relative', 
             width: '100%', 
-            maxWidth: '440px', 
+            maxWidth: '520px', 
             aspectRatio: '612 / 696',
             borderRadius: '16px',
             overflow: 'visible',
@@ -135,7 +142,7 @@ export default function IndiaMap() {
             }}
           >
             <defs>
-              {/* Soft gold glow filter for active pins */}
+              {/* Soft sky-blue glow filter for active pins */}
               <filter id="gold-glow" x="-50%" y="-50%" width="200%" height="200%">
                 <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />
                 <feMerge>
@@ -144,10 +151,10 @@ export default function IndiaMap() {
                 </feMerge>
               </filter>
 
-              {/* Gold gradient for routes */}
+              {/* Sky Blue gradient for routes */}
               <linearGradient id="route-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#D4A85A" stopOpacity="0.9" />
-                <stop offset="100%" stopColor="#E6C27A" stopOpacity="0.15" />
+                <stop offset="0%" stopColor="#38BDF8" stopOpacity="0.9" />
+                <stop offset="100%" stopColor="#0284C7" stopOpacity="0.15" />
               </linearGradient>
             </defs>
 
@@ -167,9 +174,9 @@ export default function IndiaMap() {
                   <path
                     key={state.id}
                     d={state.d}
-                    fill={isStateActive ? 'rgba(21, 50, 97, 0.95)' : isStateHovered ? 'rgba(31, 74, 135, 0.7)' : 'rgba(11, 27, 61, 0.55)'}
-                    stroke={isStateActive ? '#D4A85A' : isStateHovered ? 'rgba(212, 168, 90, 0.6)' : 'rgba(43, 74, 115, 0.6)'}
-                    strokeWidth={isStateActive ? 1.5 : isStateHovered ? 1.0 : 0.75}
+                    fill={isStateActive ? '#BAE6FD' : isStateHovered ? '#F0F9FF' : '#ffffff'}
+                    stroke={isStateActive ? '#0284C7' : isStateHovered ? '#38BDF8' : '#334155'}
+                    strokeWidth={isStateActive ? 2.0 : isStateHovered ? 1.5 : 1.0}
                     style={{
                       transition: 'all 0.3s ease',
                       cursor: 'pointer'
@@ -241,17 +248,17 @@ export default function IndiaMap() {
                     <circle cx="0" cy="0" r="16" fill="none" style={{ pointerEvents: 'none' }}>
                       <animate attributeName="r" values="6;22" dur="2.5s" repeatCount="indefinite" />
                       <animate attributeName="opacity" values="0.8;0" dur="2.5s" repeatCount="indefinite" />
-                      <animate attributeName="stroke" values={isSelected ? '#D4A85A' : 'rgba(212, 168, 90, 0.4)'} dur="2.5s" repeatCount="indefinite" />
-                      <animate attributeName="stroke-width" values="1" dur="2.5s" repeatCount="indefinite" />
+                      <animate attributeName="stroke" values={isSelected ? '#0284C7' : 'rgba(56, 189, 248, 0.4)'} dur="2.5s" repeatCount="indefinite" />
+                      <animate attributeName="stroke-width" values="1.5" dur="2.5s" repeatCount="indefinite" />
                     </circle>
 
-                    {/* Golden glow backing for active items */}
+                    {/* Sky blue glow backing for active items */}
                     {isSelected && (
                       <circle 
                         cx="0" 
                         cy="0" 
                         r="8" 
-                        fill="rgba(212, 168, 90, 0.3)" 
+                        fill="rgba(56, 189, 248, 0.3)" 
                         filter="url(#gold-glow)"
                         style={{ pointerEvents: 'none' }}
                       />
@@ -262,8 +269,8 @@ export default function IndiaMap() {
                       cx="0" 
                       cy="0" 
                       r={isSelected ? 6 : 4.5} 
-                      fill={isSelected ? '#D4A85A' : '#E6C27A'} 
-                      stroke="#0e1f35" 
+                      fill={isSelected ? '#0284C7' : '#38BDF8'} 
+                      stroke="#FFFFFF" 
                       strokeWidth="1.5"
                       animate={{ scale: isSelected || isHovered ? 1.3 : 1 }}
                       transition={{ type: 'spring', stiffness: 300, damping: 15 }}
@@ -310,14 +317,14 @@ export default function IndiaMap() {
                   pointerEvents: 'none'
                 }}
               >
-                <div style={{ width: '36px', height: '36px', borderRadius: '8px', background: 'rgba(212, 168, 90, 0.15)', display: 'grid', placeItems: 'center', flexShrink: 0 }}>
-                  <MapPin size={18} color="#D4A85A" />
+                <div style={{ width: '36px', height: '36px', borderRadius: '8px', background: 'rgba(56, 189, 248, 0.15)', display: 'grid', placeItems: 'center', flexShrink: 0 }}>
+                  <MapPin size={18} color="#38BDF8" />
                 </div>
                 <div style={{ flexGrow: 1 }}>
                   <h4 style={{ margin: 0, fontSize: '14px', fontWeight: '800', color: '#ffffff' }}>{hoveredCity.name}</h4>
                   <p style={{ margin: '2px 0 0 0', fontSize: '11px', color: 'var(--text-muted)' }}>{hoveredCity.type}</p>
                 </div>
-                <div style={{ fontSize: '11px', color: '#D4A85A', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                <div style={{ fontSize: '11px', color: '#38BDF8', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
                   Click to Select
                 </div>
               </motion.div>

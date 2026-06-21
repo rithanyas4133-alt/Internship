@@ -29,13 +29,13 @@ export default function Services() {
       case "Increased Productivity":
         return (
           <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="5" y="10" width="70" height="60" rx="10" fill="url(#navyGrad)" stroke="rgba(200, 162, 118, 0.25)" strokeWidth="1.5" />
-            <path d="M5 25 H75 M5 45 H75 M25 10 V70 M50 10 V70" stroke="rgba(200, 162, 118, 0.08)" strokeWidth="1" />
-            <path d="M12 55 L22 45 L32 55 V65 H12 V55 Z" fill="rgba(200, 162, 118, 0.15)" stroke="var(--accent)" strokeWidth="1.5" />
-            <path d="M22 45 L32 35 L42 45 V65 H22 V45 Z" fill="rgba(212, 175, 55, 0.2)" stroke="var(--supporting)" strokeWidth="1.5" />
+            <rect x="5" y="10" width="70" height="60" rx="10" fill="url(#navyGrad)" stroke="rgba(0, 229, 255, 0.25)" strokeWidth="1.5" />
+            <path d="M5 25 H75 M5 45 H75 M25 10 V70 M50 10 V70" stroke="rgba(0, 229, 255, 0.08)" strokeWidth="1" />
+            <path d="M12 55 L22 45 L32 55 V65 H12 V55 Z" fill="rgba(0, 229, 255, 0.15)" stroke="var(--accent)" strokeWidth="1.5" />
+            <path d="M22 45 L32 35 L42 45 V65 H22 V45 Z" fill="rgba(103, 232, 249, 0.2)" stroke="var(--supporting)" strokeWidth="1.5" />
             <rect x="55" y="16" width="12" height="12" rx="3" fill="rgba(16, 185, 129, 0.15)" stroke="var(--success)" strokeWidth="1" />
             <circle cx="61" cy="22" r="3" fill="var(--success)" />
-            <rect x="55" y="32" width="12" height="12" rx="3" fill="rgba(200, 162, 118, 0.1)" stroke="var(--accent)" strokeWidth="1" />
+            <rect x="55" y="32" width="12" height="12" rx="3" fill="rgba(0, 229, 255, 0.1)" stroke="var(--accent)" strokeWidth="1" />
             <path d="M58 38 H64" stroke="var(--accent)" strokeWidth="1.5" strokeLinecap="round" />
             <path d="M15 58 L30 42 L48 48 L68 22" stroke="var(--accent)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
             <circle cx="68" cy="22" r="4" fill="var(--supporting)" filter="url(#goldGlow)" />
@@ -45,10 +45,10 @@ export default function Services() {
       case "Operational Efficiency":
         return (
           <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="10" y="10" width="60" height="60" rx="12" fill="url(#navyGrad)" stroke="rgba(200, 162, 118, 0.2)" strokeWidth="1.5" />
-            <circle cx="25" cy="25" r="7" fill="rgba(200, 162, 118, 0.15)" stroke="var(--accent)" strokeWidth="1.5" />
-            <circle cx="55" cy="25" r="7" fill="rgba(200, 162, 118, 0.15)" stroke="var(--accent)" strokeWidth="1.5" />
-            <circle cx="40" cy="55" r="7" fill="rgba(212, 175, 55, 0.2)" stroke="var(--supporting)" strokeWidth="1.5" />
+            <rect x="10" y="10" width="60" height="60" rx="12" fill="url(#navyGrad)" stroke="rgba(0, 229, 255, 0.2)" strokeWidth="1.5" />
+            <circle cx="25" cy="25" r="7" fill="rgba(0, 229, 255, 0.15)" stroke="var(--accent)" strokeWidth="1.5" />
+            <circle cx="55" cy="25" r="7" fill="rgba(0, 229, 255, 0.15)" stroke="var(--accent)" strokeWidth="1.5" />
+            <circle cx="40" cy="55" r="7" fill="rgba(103, 232, 249, 0.2)" stroke="var(--supporting)" strokeWidth="1.5" />
             <path d="M32 25 H48" stroke="rgba(255, 255, 255, 0.2)" strokeWidth="1.5" strokeDasharray="3 3" />
             <path d="M28 31 L35 49" stroke="var(--accent)" strokeWidth="2" strokeLinecap="round" />
             <path d="M52 31 L45 49" stroke="var(--supporting)" strokeWidth="2.5" strokeLinecap="round" />
@@ -61,10 +61,10 @@ export default function Services() {
       case "Compliance Readiness":
         return (
           <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="40" cy="40" r="32" fill="rgba(17, 34, 64, 0.6)" stroke="rgba(200, 162, 118, 0.15)" strokeWidth="1.5" />
-            <circle cx="40" cy="40" r="24" stroke="rgba(200, 162, 118, 0.08)" strokeDasharray="4 4" />
+            <circle cx="40" cy="40" r="32" fill="rgba(12, 22, 50, 0.6)" stroke="rgba(0, 229, 255, 0.15)" strokeWidth="1.5" />
+            <circle cx="40" cy="40" r="24" stroke="rgba(0, 229, 255, 0.08)" strokeDasharray="4 4" />
             <path d="M40 16 C48 16 58 20 58 28 C58 42 48 54 40 60 C32 54 22 42 22 28 C22 20 32 16 40 16 Z" fill="url(#navyGrad)" stroke="var(--accent)" strokeWidth="2.5" strokeLinejoin="round" />
-            <path d="M40 21 C45.5 21 53 24 53 30 C53 40 45.5 50 40 55 C34.5 50 27 40 27 30 C27 24 34.5 21 40 21 Z" fill="rgba(200, 162, 118, 0.08)" stroke="var(--supporting)" strokeWidth="1.5" />
+            <path d="M40 21 C45.5 21 53 24 53 30 C53 40 45.5 50 40 55 C34.5 50 27 40 27 30 C27 24 34.5 21 40 21 Z" fill="rgba(0, 229, 255, 0.08)" stroke="var(--supporting)" strokeWidth="1.5" />
             <path d="M32 37 L37 42 L48 29" stroke="var(--supporting)" strokeWidth="4.5" strokeLinecap="round" strokeLinejoin="round" filter="url(#goldGlow)" />
             <circle cx="40" cy="48" r="2" fill="#ffffff" />
           </svg>
@@ -72,10 +72,10 @@ export default function Services() {
       case "Improved Visibility":
         return (
           <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="8" y="12" width="64" height="56" rx="8" fill="url(#navyGrad)" stroke="rgba(200, 162, 118, 0.2)" strokeWidth="1.5" />
-            <path d="M8 26 H72 M8 48 H72" stroke="rgba(200, 162, 118, 0.08)" strokeWidth="1" />
-            <circle cx="28" cy="38" r="16" fill="rgba(200, 162, 118, 0.05)" stroke="var(--accent)" strokeWidth="1" />
-            <circle cx="28" cy="38" r="8" stroke="rgba(200, 162, 118, 0.2)" strokeWidth="1" />
+            <rect x="8" y="12" width="64" height="56" rx="8" fill="url(#navyGrad)" stroke="rgba(0, 229, 255, 0.2)" strokeWidth="1.5" />
+            <path d="M8 26 H72 M8 48 H72" stroke="rgba(0, 229, 255, 0.08)" strokeWidth="1" />
+            <circle cx="28" cy="38" r="16" fill="rgba(0, 229, 255, 0.05)" stroke="var(--accent)" strokeWidth="1" />
+            <circle cx="28" cy="38" r="8" stroke="rgba(0, 229, 255, 0.2)" strokeWidth="1" />
             <line x1="28" y1="38" x2="38" y2="28" stroke="var(--supporting)" strokeWidth="2" strokeLinecap="round" />
             <circle cx="38" cy="28" r="2" fill="var(--supporting)" filter="url(#goldGlow)" />
             <rect x="50" y="24" width="6" height="28" rx="2" fill="var(--accent)" />
@@ -86,11 +86,11 @@ export default function Services() {
       case "Reduced Manual Effort":
         return (
           <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="10" y="10" width="60" height="60" rx="12" fill="url(#navyGrad)" stroke="rgba(200, 162, 118, 0.2)" strokeWidth="1.5" />
+            <rect x="10" y="10" width="60" height="60" rx="12" fill="url(#navyGrad)" stroke="rgba(0, 229, 255, 0.2)" strokeWidth="1.5" />
             <circle cx="34" cy="32" r="12" stroke="var(--accent)" strokeWidth="2" strokeDasharray="6 3" />
-            <circle cx="34" cy="32" r="5" fill="rgba(200, 162, 118, 0.2)" stroke="var(--accent)" strokeWidth="1" />
+            <circle cx="34" cy="32" r="5" fill="rgba(0, 229, 255, 0.2)" stroke="var(--accent)" strokeWidth="1" />
             <circle cx="52" cy="46" r="8" stroke="var(--supporting)" strokeWidth="1.5" strokeDasharray="4 2" />
-            <circle cx="52" cy="46" r="3" fill="rgba(212, 175, 55, 0.2)" stroke="var(--supporting)" strokeWidth="1" />
+            <circle cx="52" cy="46" r="3" fill="rgba(103, 232, 249, 0.2)" stroke="var(--supporting)" strokeWidth="1" />
             <path d="M18 50 C18 42 24 38 30 38" stroke="rgba(255,255,255,0.2)" strokeWidth="1.5" strokeLinecap="round" />
             <path d="M46 24 H56 V34" stroke="var(--supporting)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             <line x1="38" y1="20" x2="56" y2="24" stroke="var(--supporting)" strokeWidth="2" strokeLinecap="round" />
@@ -99,13 +99,13 @@ export default function Services() {
       case "Cost Optimization":
         return (
           <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="10" y="10" width="60" height="60" rx="12" fill="url(#navyGrad)" stroke="rgba(200, 162, 118, 0.2)" strokeWidth="1.5" />
-            <ellipse cx="28" cy="54" rx="10" ry="4" fill="rgba(200, 162, 118, 0.4)" stroke="var(--accent)" strokeWidth="1" />
-            <ellipse cx="28" cy="49" rx="10" ry="4" fill="rgba(200, 162, 118, 0.6)" stroke="var(--accent)" strokeWidth="1" />
+            <rect x="10" y="10" width="60" height="60" rx="12" fill="url(#navyGrad)" stroke="rgba(0, 229, 255, 0.2)" strokeWidth="1.5" />
+            <ellipse cx="28" cy="54" rx="10" ry="4" fill="rgba(0, 229, 255, 0.4)" stroke="var(--accent)" strokeWidth="1" />
+            <ellipse cx="28" cy="49" rx="10" ry="4" fill="rgba(0, 229, 255, 0.6)" stroke="var(--accent)" strokeWidth="1" />
             <ellipse cx="28" cy="44" rx="10" ry="4" fill="var(--accent)" stroke="var(--supporting)" strokeWidth="1.2" />
-            <ellipse cx="50" cy="54" rx="10" ry="4" fill="rgba(212, 175, 55, 0.4)" stroke="var(--supporting)" strokeWidth="1" />
-            <ellipse cx="50" cy="49" rx="10" ry="4" fill="rgba(212, 175, 55, 0.6)" stroke="var(--supporting)" strokeWidth="1" />
-            <ellipse cx="50" cy="44" rx="10" ry="4" fill="rgba(212, 175, 55, 0.8)" stroke="var(--supporting)" strokeWidth="1" />
+            <ellipse cx="50" cy="54" rx="10" ry="4" fill="rgba(103, 232, 249, 0.4)" stroke="var(--supporting)" strokeWidth="1" />
+            <ellipse cx="50" cy="49" rx="10" ry="4" fill="rgba(103, 232, 249, 0.6)" stroke="var(--supporting)" strokeWidth="1" />
+            <ellipse cx="50" cy="44" rx="10" ry="4" fill="rgba(103, 232, 249, 0.8)" stroke="var(--supporting)" strokeWidth="1" />
             <ellipse cx="50" cy="39" rx="10" ry="4" fill="var(--supporting)" stroke="#ffffff" strokeWidth="1.2" />
             <path d="M18 20 L35 34 L48 26 L62 40" stroke="var(--accent)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
             <path d="M54 40 H62 V32" stroke="var(--accent)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
@@ -114,8 +114,8 @@ export default function Services() {
       case "Better Decision-Making":
         return (
           <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="8" y="10" width="64" height="60" rx="10" fill="url(#navyGrad)" stroke="rgba(200, 162, 118, 0.2)" strokeWidth="1.5" />
-            <path d="M8 30 H72 M38 10 V70" stroke="rgba(200, 162, 118, 0.08)" strokeWidth="1" />
+            <rect x="8" y="10" width="64" height="60" rx="10" fill="url(#navyGrad)" stroke="rgba(0, 229, 255, 0.2)" strokeWidth="1.5" />
+            <path d="M8 30 H72 M38 10 V70" stroke="rgba(0, 229, 255, 0.08)" strokeWidth="1" />
             <circle cx="38" cy="42" r="18" stroke="var(--accent)" strokeWidth="1.5" strokeDasharray="3 3" />
             <circle cx="38" cy="42" r="10" stroke="var(--supporting)" strokeWidth="1.5" />
             <circle cx="38" cy="42" r="3" fill="#ffffff" />
@@ -130,10 +130,10 @@ export default function Services() {
       case "Scalable Growth":
         return (
           <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="10" y="10" width="60" height="60" rx="12" fill="url(#navyGrad)" stroke="rgba(200, 162, 118, 0.2)" strokeWidth="1.5" />
-            <rect x="18" y="50" width="10" height="12" rx="2" fill="rgba(200, 162, 118, 0.2)" stroke="var(--accent)" strokeWidth="1.2" />
-            <rect x="34" y="38" width="10" height="24" rx="2" fill="rgba(200, 162, 118, 0.4)" stroke="var(--accent)" strokeWidth="1.2" />
-            <rect x="50" y="24" width="10" height="38" rx="2" fill="rgba(212, 175, 55, 0.3)" stroke="var(--supporting)" strokeWidth="1.2" />
+            <rect x="10" y="10" width="60" height="60" rx="12" fill="url(#navyGrad)" stroke="rgba(0, 229, 255, 0.2)" strokeWidth="1.5" />
+            <rect x="18" y="50" width="10" height="12" rx="2" fill="rgba(0, 229, 255, 0.2)" stroke="var(--accent)" strokeWidth="1.2" />
+            <rect x="34" y="38" width="10" height="24" rx="2" fill="rgba(0, 229, 255, 0.4)" stroke="var(--accent)" strokeWidth="1.2" />
+            <rect x="50" y="24" width="10" height="38" rx="2" fill="rgba(103, 232, 249, 0.3)" stroke="var(--supporting)" strokeWidth="1.2" />
             <path d="M15 54 L32 32 L48 22 L62 14" stroke="var(--supporting)" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" />
             <path d="M52 14 H62 V24" stroke="var(--supporting)" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" filter="url(#goldGlow)" />
             <circle cx="62" cy="14" r="3" fill="#ffffff" />
@@ -182,12 +182,12 @@ export default function Services() {
   };
 
   const buttonHover = {
-    whileHover: { scale: 1.03, boxShadow: '0px 6px 12px rgba(200, 162, 118, 0.3)' },
+    whileHover: { scale: 1.03, boxShadow: '0px 6px 12px rgba(0, 229, 255, 0.3)' },
     whileTap: { scale: 0.98 }
   };
 
   const secondaryButtonHover = {
-    whileHover: { scale: 1.03, backgroundColor: 'rgba(255, 255, 255, 0.1)' },
+    whileHover: { scale: 1.03, backgroundColor: 'rgba(0, 229, 255, 0.08)' },
     whileTap: { scale: 0.98 }
   };
 
@@ -353,13 +353,13 @@ export default function Services() {
           color: 'var(--text-main)',
           position: 'relative',
           overflow: 'hidden',
-          backgroundImage: 'linear-gradient(rgba(31, 58, 95, 0.85), rgba(15, 28, 50, 0.92)), url("/images/industrial_control_room_1780849774868.png")',
+          backgroundImage: 'linear-gradient(rgba(5, 10, 15, 0.88), rgba(12, 22, 50, 0.92)), url("/images/industrial_control_room_1780849774868.png")',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          borderBottom: '1px solid rgba(200, 162, 118, 0.18)'
+          borderBottom: '1px solid rgba(0, 229, 255, 0.12)'
         }}
       >
-        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'radial-gradient(circle at 80% 20%, rgba(200, 162, 118, 0.05) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
+        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'radial-gradient(circle at 80% 20%, rgba(0, 229, 255, 0.04) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
           <div style={{ maxWidth: '780px', margin: '0 auto', textAlign: 'center' }}>
               {/* Courier Cost Optimizer Logo on Courier Optimization page */}
@@ -387,13 +387,13 @@ export default function Services() {
                     alignItems: 'center', 
                     gap: '8px', 
                     padding: '6px 14px', 
-                    background: 'rgba(200, 162, 118, 0.12)', 
+                    background: 'rgba(0, 229, 255, 0.08)', 
                     borderRadius: '20px', 
                     fontSize: '13px', 
                     color: 'var(--accent)', 
                     fontWeight: '600',
                     marginBottom: '24px',
-                    border: '1px solid rgba(200, 162, 118, 0.3)'
+                    border: '1px solid rgba(0, 229, 255, 0.25)'
                   }}
             >
               <Sparkles size={14} style={{ color: 'var(--cta)' }} />
@@ -439,7 +439,7 @@ export default function Services() {
                 className="btn btn-dark-outline"
                 whileHover={secondaryButtonHover.whileHover}
                 whileTap={secondaryButtonHover.whileTap}
-                style={{ border: '2px solid rgba(200, 162, 118, 0.35)', color: 'var(--text-main)' }}
+                style={{ border: '2px solid rgba(0, 229, 255, 0.35)', color: 'var(--text-main)' }}
               >
                 Explore Solutions
               </motion.button>
@@ -452,7 +452,7 @@ export default function Services() {
           SECTION: HOW WE PARTNER WITH OUR CLIENTS
           ================================================== */}
 
-      <section className="section surface-matte about-section-texture" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.12)' }}>
+      <section className="section surface-matte about-section-texture" style={{ borderBottom: '1px solid rgba(0, 229, 255, 0.10)' }}>
 
         <div className="container">
           <div className="section-title-wrapper" style={{ marginBottom: '56px' }}>
@@ -591,9 +591,9 @@ export default function Services() {
                         <div style={{ 
                           marginTop: '24px',
                           padding: '16px 20px', 
-                          backgroundColor: 'rgba(200, 162, 118, 0.05)', 
+                          backgroundColor: 'rgba(0, 229, 255, 0.04)', 
                           borderRadius: '8px',
-                          border: '1px solid rgba(200, 162, 118, 0.18)',
+                          border: '1px solid rgba(0, 229, 255, 0.15)',
                           borderLeftWidth: '4px',
                           borderLeftColor: 'var(--supporting)'
                         }}>
@@ -618,9 +618,9 @@ export default function Services() {
           SECTION: OUR SOLUTION DELIVERY FRAMEWORK
           ================================================== */}
 
-      <section className="section surface-royal compliance-section-texture" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.12)', position: 'relative', overflow: 'hidden' }}>
+      <section className="section surface-royal compliance-section-texture" style={{ borderBottom: '1px solid rgba(0, 229, 255, 0.10)', position: 'relative', overflow: 'hidden' }}>
 
-        <div style={{ position: 'absolute', top: '0', left: '50%', transform: 'translateX(-50%)', width: '600px', height: '300px', background: 'radial-gradient(ellipse at center, rgba(200, 162, 118, 0.04) 0%, transparent 70%)', pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', top: '0', left: '50%', transform: 'translateX(-50%)', width: '600px', height: '300px', background: 'radial-gradient(ellipse at center, rgba(0, 229, 255, 0.03) 0%, transparent 70%)', pointerEvents: 'none' }} />
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <div className="section-title-wrapper" style={{ marginBottom: '64px' }}>
             <span className="section-subtitle" style={{ color: 'var(--supporting)' }}>Workflow & Rigor</span>
@@ -672,9 +672,9 @@ export default function Services() {
                       width: '50px',
                       height: '50px',
                       borderRadius: '50%',
-                      backgroundColor: 'rgba(200, 162, 118, 0.12)',
+                      backgroundColor: 'rgba(0, 229, 255, 0.1)',
                       border: '2px solid var(--accent)',
-                      boxShadow: '0 0 15px rgba(200, 162, 118, 0.2)',
+                      boxShadow: '0 0 15px rgba(0, 229, 255, 0.2)',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
@@ -705,10 +705,10 @@ export default function Services() {
           SECTION: MATCHING BUSINESS NEEDS TO SOLUTIONS
           ================================================== */}
 
-      <section id="solutions-matching" className="section surface-matte products-section-texture" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.12)', position: 'relative', overflow: 'hidden' }}>
+      <section id="solutions-matching" className="section surface-matte products-section-texture" style={{ borderBottom: '1px solid rgba(0, 229, 255, 0.10)', position: 'relative', overflow: 'hidden' }}>
 
-        <div style={{ position: 'absolute', top: '-20%', right: '-10%', width: '500px', height: '500px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(200, 162, 118, 0.04) 0%, transparent 65%)', pointerEvents: 'none' }} />
-        <div style={{ position: 'absolute', bottom: '-20%', left: '-10%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(200, 162, 118, 0.03) 0%, transparent 65%)', pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', top: '-20%', right: '-10%', width: '500px', height: '500px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(0, 229, 255, 0.03) 0%, transparent 65%)', pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', bottom: '-20%', left: '-10%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(0, 229, 255, 0.02) 0%, transparent 65%)', pointerEvents: 'none' }} />
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <div className="section-title-wrapper" style={{ marginBottom: '56px' }}>
             <span className="section-subtitle" style={{ color: 'var(--supporting)' }}>Product Alignments</span>
@@ -820,18 +820,18 @@ export default function Services() {
           SECTION: BUSINESS OUTCOMES (KPI Conveyor Belt)
           ================================================== */}
 
-      <section className="section surface-royal services-section-texture" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.12)', position: 'relative', overflow: 'hidden', padding: '60px 0 65px 0' }}>
+      <section className="section surface-royal services-section-texture" style={{ borderBottom: '1px solid rgba(0, 229, 255, 0.10)', position: 'relative', overflow: 'hidden', padding: '60px 0 65px 0' }}>
 
         {/* Shared SVG gradients and filters */}
         <svg style={{ position: 'absolute', width: 0, height: 0, overflow: 'hidden' }} aria-hidden="true">
           <defs>
             <linearGradient id="navyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#0B192C" />
-              <stop offset="100%" stopColor="#1B2A4A" />
+              <stop offset="0%" stopColor="#050A0F" />
+              <stop offset="100%" stopColor="#0C1632" />
             </linearGradient>
             <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#C8A276" />
-              <stop offset="100%" stopColor="#D4AF37" />
+              <stop offset="0%" stopColor="#00E5FF" />
+              <stop offset="100%" stopColor="#67E8F9" />
             </linearGradient>
             <filter id="goldGlow" x="-20%" y="-20%" width="140%" height="140%">
               <feGaussianBlur stdDeviation="3" result="blur" />
@@ -844,7 +844,7 @@ export default function Services() {
           </defs>
         </svg>
 
-        <div style={{ position: 'absolute', bottom: 0, right: '20%', width: '500px', height: '300px', background: 'radial-gradient(ellipse at center, rgba(200, 162, 118, 0.03) 0%, transparent 70%)', pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', bottom: 0, right: '20%', width: '500px', height: '300px', background: 'radial-gradient(ellipse at center, rgba(0, 229, 255, 0.02) 0%, transparent 70%)', pointerEvents: 'none' }} />
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <div className="section-title-wrapper" style={{ marginBottom: '32px' }}>
             <span className="section-subtitle" style={{ color: 'var(--supporting)' }}>Target Metrics</span>
@@ -874,7 +874,7 @@ export default function Services() {
             left: 0,
             width: '100%',
             height: '100%',
-            background: 'linear-gradient(90deg, transparent, rgba(200, 162, 118, 0.02) 15%, rgba(200, 162, 118, 0.06) 20%, rgba(212, 175, 55, 0.12) 25%, rgba(200, 162, 118, 0.06) 30%, rgba(200, 162, 118, 0.02) 35%, transparent)',
+            background: 'linear-gradient(90deg, transparent, rgba(0, 229, 255, 0.02) 15%, rgba(0, 229, 255, 0.06) 20%, rgba(103, 232, 249, 0.12) 25%, rgba(0, 229, 255, 0.06) 30%, rgba(0, 229, 255, 0.02) 35%, transparent)',
             pointerEvents: 'none',
             mixBlendMode: 'plus-lighter',
             animation: 'data-pulse-sweep 10s cubic-bezier(0.25, 1, 0.5, 1) infinite',
@@ -916,10 +916,10 @@ export default function Services() {
                     alignItems: 'center',
                     gap: '20px',
                     borderRadius: '12px',
-                    backgroundColor: isCardHovered ? 'rgba(17, 34, 64, 0.95)' : 'rgba(17, 34, 64, 0.75)',
-                    border: isCardHovered ? '1px solid var(--accent)' : '1px solid rgba(200, 162, 118, 0.15)',
+                    backgroundColor: isCardHovered ? 'rgba(12, 22, 50, 0.95)' : 'rgba(12, 22, 50, 0.75)',
+                    border: isCardHovered ? '1.5px solid var(--accent)' : '1.5px solid rgba(0, 229, 255, 0.12)',
                     boxShadow: isCardHovered 
-                      ? '0 12px 32px rgba(200, 162, 118, 0.25), 0 8px 24px rgba(0, 0, 0, 0.5)' 
+                      ? '0 12px 32px rgba(0, 229, 255, 0.2), 0 8px 24px rgba(0, 0, 0, 0.5)' 
                       : '0 8px 24px rgba(0, 0, 0, 0.35)',
                     transform: isCardHovered ? 'scale(1.03) translateY(-4px)' : 'scale(1) translateY(0)',
                     transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
@@ -935,7 +935,7 @@ export default function Services() {
                     left: 0,
                     width: '100%',
                     height: '100%',
-                    background: 'linear-gradient(115deg, transparent, rgba(200, 162, 118, 0.05) 40%, rgba(200, 162, 118, 0.15) 50%, rgba(200, 162, 118, 0.05) 60%, transparent)',
+                    background: 'linear-gradient(115deg, transparent, rgba(0, 229, 255, 0.04) 40%, rgba(0, 229, 255, 0.12) 50%, rgba(0, 229, 255, 0.04) 60%, transparent)',
                     opacity: isCardHovered ? 1 : 0,
                     transition: 'opacity 0.3s ease',
                     pointerEvents: 'none'
@@ -951,7 +951,7 @@ export default function Services() {
                     flexShrink: 0,
                     transition: 'transform 0.3s ease, filter 0.3s ease',
                     transform: isCardHovered ? 'scale(1.08)' : 'scale(1)',
-                    filter: isCardHovered ? 'drop-shadow(0 0 8px rgba(212, 175, 55, 0.35))' : 'none'
+                    filter: isCardHovered ? 'drop-shadow(0 0 8px rgba(0, 229, 255, 0.35))' : 'none'
                   }}>
                     {getOutcomeIcon(out.title)}
                   </div>
@@ -982,7 +982,7 @@ export default function Services() {
               height: '2px', 
               width: '100%', 
               overflow: 'hidden', 
-              backgroundColor: 'rgba(200, 162, 118, 0.12)', 
+              backgroundColor: 'rgba(0, 229, 255, 0.10)', 
               borderRadius: '1px',
               transformOrigin: 'left'
             }}
@@ -1009,8 +1009,8 @@ export default function Services() {
 
       <section className="section surface-matte contact-section-texture" style={{ position: 'relative', overflow: 'hidden' }}>
 
-        <div style={{ position: 'absolute', top: '-10%', right: '-10%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(200, 162, 118, 0.04) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
-        <div style={{ position: 'absolute', bottom: '-10%', left: '-10%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(200, 162, 118, 0.04) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
+        <div style={{ position: 'absolute', top: '-10%', right: '-10%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(0, 229, 255, 0.03) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
+        <div style={{ position: 'absolute', bottom: '-10%', left: '-10%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(0, 229, 255, 0.03) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
 
         <div className="container" style={{ textAlign: 'center', position: 'relative', zIndex: 2 }}>
           <motion.div 
@@ -1032,7 +1032,7 @@ export default function Services() {
                 className="btn btn-cta"
                 whileHover={buttonHover.whileHover}
                 whileTap={buttonHover.whileTap}
-                style={{ color: '#0F172A', display: 'flex', alignItems: 'center', gap: '8px' }}
+                style={{ color: '#050A0F', display: 'flex', alignItems: 'center', gap: '8px' }}
               >
                 Schedule A Consultation
                 <ArrowRight size={16} />

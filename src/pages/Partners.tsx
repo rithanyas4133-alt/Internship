@@ -1804,20 +1804,60 @@ export default function Partners() {
 
       {/* ── SECTION 9: WHO WE ARE LOOKING FOR ────────────────────────────── */}
 
-      <section className="section surface-matte" style={{ padding: '100px 0', position: 'relative' }}>
+      <section 
+        className="section" 
+        style={{ 
+          padding: '100px 0', 
+          position: 'relative',
+          backgroundColor: '#F7F4EE',
+          overflow: 'hidden'
+        }}
+      >
+        {/* Subtle light geometric dot texture */}
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          backgroundImage: 'radial-gradient(rgba(212, 175, 55, 0.05) 1.5px, transparent 1.5px)',
+          backgroundSize: '24px 24px',
+          opacity: 0.7,
+          pointerEvents: 'none',
+          zIndex: 0
+        }} />
 
-        <div className="container">
+        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <motion.div 
             {...fadeIn}
             style={{ textAlign: 'center', marginBottom: '60px' }}
           >
-            <span style={{ color: 'var(--supporting)', fontWeight: '800', textTransform: 'uppercase', fontSize: '13px', letterSpacing: '2px' }}>
+            <span 
+              style={{ 
+                color: '#0A2342', 
+                fontWeight: '800', 
+                textTransform: 'uppercase', 
+                fontSize: '12px', 
+                letterSpacing: '2px',
+                background: 'rgba(56, 189, 248, 0.15)',
+                padding: '5px 14px',
+                borderRadius: '20px',
+                display: 'inline-block'
+              }}
+            >
               IDEAL PROFILES
             </span>
-            <h2 style={{ fontSize: '36px', fontWeight: '800', color: '#ffffff', marginTop: '10px' }}>
+            <h2 
+              style={{ 
+                fontSize: '36px', 
+                fontWeight: '800', 
+                background: 'linear-gradient(135deg, #0A2342 0%, #1D4ED8 50%, #38BDF8 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                marginTop: '12px',
+                display: 'inline-block'
+              }}
+            >
               Who We Are Looking For
             </h2>
-            <p style={{ color: 'var(--text-muted)', maxWidth: '600px', margin: '12px auto 0 auto' }}>
+            <p style={{ color: '#334155', maxWidth: '600px', margin: '12px auto 0 auto', fontSize: '15.5px', lineHeight: '1.6' }}>
               Are you positioned to build regional success? Tap on a category below to explore custom synergy scores and target focus areas.
             </p>
           </motion.div>

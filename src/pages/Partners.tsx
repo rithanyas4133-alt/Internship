@@ -1877,20 +1877,24 @@ export default function Partners() {
                     style={{
                       borderRadius: '12px',
                       padding: '16px',
-                      background: isActive ? 'rgba(56, 189, 248, 0.15)' : 'rgba(30, 41, 59, 0.3)',
-                      border: '1px solid',
-                      borderColor: isActive ? 'var(--accent)' : 'rgba(255, 255, 255, 0.05)',
+                      background: 'linear-gradient(135deg, #071A35 0%, #0B2347 100%)',
+                      border: '1.2px solid',
+                      borderColor: isActive ? '#C9A45C' : 'rgba(201, 164, 92, 0.18)',
                       display: 'flex',
                       gap: '12px',
                       alignItems: 'center',
                       cursor: 'pointer',
-                      transition: 'all 0.25s'
+                      transition: 'all 0.25s',
+                      backdropFilter: 'blur(12px)',
+                      boxShadow: isActive 
+                        ? '0 12px 25px -8px rgba(7, 26, 53, 0.55), 0 0 15px rgba(201, 164, 92, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.05)'
+                        : '0 8px 20px -10px rgba(7, 26, 53, 0.35), 0 0 10px rgba(201, 164, 92, 0.03), inset 0 1px 0 rgba(255, 255, 255, 0.02)'
                     }}
                   >
-                    <div style={{ color: isActive ? '#ffffff' : 'var(--accent)', flexShrink: 0 }}>
+                    <div style={{ color: isActive ? '#ffffff' : '#38BDF8', flexShrink: 0 }}>
                       <AudIcon size={18} />
                     </div>
-                    <span style={{ fontSize: '13px', fontWeight: isActive ? '800' : '600', color: isActive ? '#ffffff' : 'var(--text-main)' }}>
+                    <span style={{ fontSize: '13px', fontWeight: isActive ? '800' : '600', color: isActive ? '#ffffff' : '#E2E8F0' }}>
                       {aud.title}
                     </span>
                   </motion.div>

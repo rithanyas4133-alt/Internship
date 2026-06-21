@@ -364,47 +364,49 @@ export default function ProductDetail() {
       style={{ backgroundColor: 'var(--background)', color: 'var(--text-main)', minHeight: '100vh', overflow: 'hidden' }}
     >
       {/* ── TOP NAVIGATION BAR ── */}
-      <div className="container" style={{ paddingTop: '100px', position: 'relative', zIndex: 10 }}>
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px' }}>
-          {/* Back to Products */}
-          <button 
-            onClick={handleBackToProducts}
-            style={{
-              background: 'rgba(var(--primary-rgb), 0.03)',
-              color: 'var(--text-muted)',
-              fontSize: '13.5px',
-              fontWeight: '600',
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '8px',
-              cursor: 'pointer',
-              padding: '8px 16px',
-              borderRadius: '8px',
-              border: '1px solid rgba(var(--primary-rgb), 0.07)',
-              transition: 'all 0.25s'
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = 'rgba(var(--primary-rgb), 0.07)';
-              e.currentTarget.style.color = 'var(--text-main)';
-              e.currentTarget.style.borderColor = 'rgba(var(--primary-rgb),0.15)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = 'rgba(var(--primary-rgb), 0.03)';
-              e.currentTarget.style.color = 'var(--text-muted)';
-              e.currentTarget.style.borderColor = 'rgba(var(--primary-rgb), 0.07)';
-            }}
-          >
-            <ArrowLeft size={15} />
-            All Products
-          </button>
+      <div style={{ backgroundColor: '#F8FAFC', borderBottom: '1px solid rgba(0, 0, 0, 0.08)', padding: '110px 0 24px 0' }}>
+        <div className="container" style={{ position: 'relative', zIndex: 10 }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px' }}>
+            {/* Back to Products */}
+            <button 
+              onClick={handleBackToProducts}
+              style={{
+                background: 'rgba(11, 15, 25, 0.03)',
+                color: '#64748B',
+                fontSize: '18px',
+                fontWeight: '600',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                cursor: 'pointer',
+                padding: '10px 20px',
+                borderRadius: '8px',
+                border: '1.5px solid rgba(11, 15, 25, 0.15)',
+                transition: 'all 0.25s'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = 'rgba(11, 15, 25, 0.07)';
+                e.currentTarget.style.color = '#0B0F19';
+                e.currentTarget.style.borderColor = '#0B0F19';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = 'rgba(11, 15, 25, 0.03)';
+                e.currentTarget.style.color = '#64748B';
+                e.currentTarget.style.borderColor = 'rgba(11, 15, 25, 0.15)';
+              }}
+            >
+              <ArrowLeft size={16} />
+              All Products
+            </button>
 
-          {/* Breadcrumb */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12.5px', color: 'var(--text-muted)' }}>
-            <span>Home</span>
-            <ChevronRight size={12} />
-            <span>Products</span>
-            <ChevronRight size={12} />
-            <span style={{ color: 'var(--accent)', fontWeight: '600' }}>{product.name}</span>
+            {/* Breadcrumb */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '16px', color: '#64748B' }}>
+              <span>Home</span>
+              <ChevronRight size={14} />
+              <span>Products</span>
+              <ChevronRight size={14} />
+              <span style={{ color: '#D4AF37', fontWeight: '600' }}>{product.name}</span>
+            </div>
           </div>
         </div>
       </div>
@@ -413,10 +415,11 @@ export default function ProductDetail() {
       <section 
         className="section"
         style={{ 
-          padding: '40px 0 100px 0', 
+          padding: '80px 0 100px 0', 
           position: 'relative',
           overflow: 'hidden',
-          backgroundColor: '#0A0F1C'
+          backgroundColor: '#0B0F19',
+          color: '#FFFFFF'
         }}
       >
         <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'radial-gradient(circle at 70% 30%, rgba(200, 162, 118, 0.08) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
@@ -474,7 +477,7 @@ export default function ProductDetail() {
               <p style={{ fontSize: '18px', color: '#E5E7EB', lineHeight: '1.5', fontWeight: '600' }}>
                 {product.tagline}
               </p>
-              <p style={{ fontSize: '15px', color: '#9CA3AF', lineHeight: '1.6' }}>
+              <p style={{ fontSize: '18px', color: '#9CA3AF', lineHeight: '1.6' }}>
                 {product.valueProp}
               </p>
               
@@ -482,7 +485,7 @@ export default function ProductDetail() {
                 <button 
                   onClick={() => formRef.current?.scrollIntoView({ behavior: 'smooth' })} 
                   className="btn btn-cta"
-                  style={{ color: '#0F172A', display: 'flex', alignItems: 'center', gap: '8px' }}
+                  style={{ color: '#0F172A', display: 'flex', alignItems: 'center', gap: '8px', fontSize: '18px' }}
                 >
                   Request Platform Demo
                   <ArrowRight size={16} />
@@ -514,7 +517,7 @@ export default function ProductDetail() {
       </section>
 
       {/* --- SECTION 2: BUSINESS CHALLENGES --- */}
-      <section className="section" style={{ backgroundColor: '#111827', borderTop: '1px solid rgba(255,255,255,0.05)', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+      <section className="section" style={{ backgroundColor: '#F8FAFC', color: '#0B0F19', borderTop: '1px solid rgba(0, 0, 0, 0.05)', borderBottom: '1px solid rgba(0, 0, 0, 0.05)' }}>
         <div className="container">
           <div className="grid-2" style={{ gap: '60px' }}>
             <motion.div
@@ -523,13 +526,13 @@ export default function ProductDetail() {
               whileInView="whileInView"
               viewport={scrollReveal.viewport}
             >
-              <span style={{ color: 'var(--accent)', fontSize: '12px', fontWeight: '800', textTransform: 'uppercase', letterSpacing: '1.5px', display: 'block', marginBottom: '8px' }}>
+              <span style={{ color: '#D4AF37', fontSize: '12px', fontWeight: '800', textTransform: 'uppercase', letterSpacing: '1.5px', display: 'block', marginBottom: '8px' }}>
                 Operational Barriers
               </span>
-              <h2 style={{ fontSize: '36px', fontWeight: '800', color: '#ffffff', fontFamily: 'var(--font-headings)', margin: '0 0 20px 0' }}>
+              <h2 style={{ fontSize: '32px', fontWeight: '800', color: '#0B0F19', fontFamily: 'var(--font-headings)', margin: '0 0 20px 0' }}>
                 Business Challenges Addressed
               </h2>
-              <p style={{ fontSize: '15px', color: '#9CA3AF', lineHeight: '1.6' }}>
+              <p style={{ fontSize: '18px', color: '#64748B', lineHeight: '1.6' }}>
                 Industrial and commercial organizations often face major operational inefficiencies due to outdated manual logs, spreadsheets, and lack of real-time visibility. {product.name} directly addresses these operational hurdles.
               </p>
             </motion.div>
@@ -554,16 +557,17 @@ export default function ProductDetail() {
                   style={{
                     display: 'flex',
                     gap: '12px',
-                    backgroundColor: 'rgba(255, 255, 255, 0.02)',
-                    border: '1px solid rgba(255, 255, 255, 0.05)',
+                    backgroundColor: '#FFFFFF',
+                    border: '1px solid rgba(0, 0, 0, 0.08)',
                     padding: '18px 20px',
-                    borderRadius: '12px'
+                    borderRadius: '12px',
+                    boxShadow: '0 4px 12px rgba(0, 0, 0, 0.03)'
                   }}
                 >
                   <div style={{ color: '#ef4444', flexShrink: 0, marginTop: '2px' }}>
                     <AlertTriangle size={18} />
                   </div>
-                  <span style={{ fontSize: '14.5px', color: '#E5E7EB', lineHeight: '1.5' }}>{challenge}</span>
+                  <span style={{ fontSize: '18px', color: '#0B0F19', lineHeight: '1.5' }}>{challenge}</span>
                 </motion.div>
               ))}
             </motion.div>
@@ -575,12 +579,12 @@ export default function ProductDetail() {
       <PlatformWorkflow accent={product.themeColor} />
 
       {/* --- SECTION 4: KEY CAPABILITIES --- */}
-      <section className="section" style={{ backgroundColor: '#111827', borderTop: '1px solid rgba(255,255,255,0.05)', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+      <section className="section" style={{ backgroundColor: '#0B0F19', color: '#FFFFFF', borderTop: '1px solid rgba(255,255,255,0.05)', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
         <div className="container">
           <div className="section-title-wrapper">
-            <span className="section-subtitle" style={{ color: 'var(--accent)' }}>System Features</span>
-            <h2 className="section-title" style={{ color: '#ffffff' }}>Key Platform Capabilities</h2>
-            <p className="section-desc" style={{ color: '#9CA3AF' }}>Built with features tailored to automate checks, report status, and secure transaction history.</p>
+            <span className="section-subtitle" style={{ color: '#D4AF37' }}>System Features</span>
+            <h2 className="section-title" style={{ color: '#ffffff', fontSize: '32px' }}>Key Platform Capabilities</h2>
+            <p className="section-desc" style={{ color: '#94A3B8', fontSize: '18px' }}>Built with features tailored to automate checks, report status, and secure transaction history.</p>
           </div>
 
           <div className="grid-3" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px' }}>
@@ -594,8 +598,8 @@ export default function ProductDetail() {
                 className="glass-card"
                 whileHover={{ y: -6, borderColor: 'rgba(200, 162, 118, 0.3)' }}
                 style={{
-                  backgroundColor: '#0A0F1C',
-                  border: '1px solid rgba(200, 162, 118, 0.12)',
+                  backgroundColor: '#121826',
+                  border: '1px solid rgba(212, 175, 55, 0.25)',
                   padding: '32px 24px',
                   borderRadius: '16px'
                 }}
@@ -613,8 +617,8 @@ export default function ProductDetail() {
                 }}>
                   {idx === 0 ? <Cpu size={22} /> : idx === 1 ? <Layers size={22} /> : <TrendingUp size={22} />}
                 </div>
-                <h3 style={{ fontSize: '18px', fontWeight: '700', color: '#ffffff', marginBottom: '12px' }}>{cap.title}</h3>
-                <p style={{ fontSize: '14px', color: '#9CA3AF', lineHeight: '1.6', margin: 0 }}>{cap.description}</p>
+                <h3 style={{ fontSize: '22px', fontWeight: '700', color: '#ffffff', marginBottom: '12px' }}>{cap.title}</h3>
+                <p style={{ fontSize: '18px', color: '#D1D5DB', lineHeight: '1.6', margin: 0 }}>{cap.description}</p>
               </motion.div>
             ))}
           </div>
@@ -622,12 +626,12 @@ export default function ProductDetail() {
       </section>
 
       {/* --- SECTION 5: PROCESS WORKFLOW --- */}
-      <section className="section" style={{ backgroundColor: '#0A0F1C' }}>
+      <section className="section" style={{ backgroundColor: '#F8FAFC', color: '#0B0F19', borderTop: '1px solid rgba(0, 0, 0, 0.05)', borderBottom: '1px solid rgba(0, 0, 0, 0.05)' }}>
         <div className="container">
           <div className="section-title-wrapper">
-            <span className="section-subtitle" style={{ color: product.themeColor }}>Implementation Roadmap</span>
-            <h2 className="section-title" style={{ color: '#ffffff' }}>Operational Process Workflow</h2>
-            <p className="section-desc" style={{ color: '#9CA3AF' }}>How the system integrates with daily operations and transfers data logs to dashboard monitors.</p>
+            <span className="section-subtitle" style={{ color: '#D4AF37' }}>Implementation Roadmap</span>
+            <h2 className="section-title" style={{ color: '#0B0F19', fontSize: '32px' }}>Operational Process Workflow</h2>
+            <p className="section-desc" style={{ color: '#475569', fontSize: '18px' }}>How the system integrates with daily operations and transfers data logs to dashboard monitors.</p>
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '24px', position: 'relative' }}>
@@ -639,12 +643,13 @@ export default function ProductDetail() {
                 whileInView="whileInView"
                 viewport={scrollReveal.viewport}
                 style={{
-                  backgroundColor: '#111827',
-                  border: '1px solid rgba(255,255,255,0.05)',
+                  backgroundColor: '#FFFFFF',
+                  border: '1px solid rgba(0,0,0,0.08)',
                   borderRadius: '16px',
                   padding: '28px 24px',
                   position: 'relative',
-                  overflow: 'hidden'
+                  overflow: 'hidden',
+                  boxShadow: '0 4px 12px rgba(0,0,0,0.03)'
                 }}
               >
                 <span style={{ 
@@ -653,7 +658,7 @@ export default function ProductDetail() {
                   right: '-10px', 
                   fontSize: '64px', 
                   fontWeight: '900', 
-                  color: 'rgba(255,255,255,0.02)',
+                  color: 'rgba(11, 15, 25, 0.03)',
                   lineHeight: 1
                 }}>
                   {step.step}
@@ -662,7 +667,7 @@ export default function ProductDetail() {
                 <div style={{ 
                   fontSize: '13px', 
                   fontWeight: '800', 
-                  color: 'var(--accent)', 
+                  color: '#D4AF37', 
                   marginBottom: '12px',
                   display: 'flex',
                   alignItems: 'center',
@@ -672,10 +677,10 @@ export default function ProductDetail() {
                   {idx < product.workflowSteps.length - 1 && <ChevronRight size={14} className="workflow-arrow" style={{ opacity: 0.5 }} />}
                 </div>
 
-                <h4 style={{ fontSize: '16px', fontWeight: '700', color: '#ffffff', marginBottom: '8px', margin: 0 }}>
+                <h4 style={{ fontSize: '22px', fontWeight: '700', color: '#0B0F19', marginBottom: '8px', margin: 0 }}>
                   {step.title}
                 </h4>
-                <p style={{ fontSize: '13px', color: '#9CA3AF', lineHeight: '1.5', margin: 0, marginTop: '8px' }}>
+                <p style={{ fontSize: '18px', color: '#475569', lineHeight: '1.5', margin: 0, marginTop: '8px' }}>
                   {step.description}
                 </p>
               </motion.div>
@@ -687,12 +692,20 @@ export default function ProductDetail() {
       {/* --- SECTION 6: DASHBOARDS & LIVE ANALYTICS (removed) --- */}
 
       {/* --- SECTION 7: BUSINESS BENEFITS --- */}
-      <section className="section" style={{ backgroundColor: '#0A0F1C' }}>
+      <section 
+        className="section" 
+        style={{ 
+          backgroundColor: '#0B0F19',
+          padding: '80px 0 100px 0',
+          borderTop: '1px solid rgba(255, 255, 255, 0.05)',
+          borderBottom: '1px solid rgba(255, 255, 255, 0.05)'
+        }}
+      >
         <div className="container">
-          <div className="section-title-wrapper">
-            <span className="section-subtitle" style={{ color: product.themeColor }}>System ROI</span>
-            <h2 className="section-title" style={{ color: '#ffffff' }}>Demonstrated Business Benefits</h2>
-            <p className="section-desc" style={{ color: '#9CA3AF' }}>Operational scorecards showing average improvement ratios across deployed enterprise installations.</p>
+          <div className="section-title-wrapper" style={{ marginBottom: '40px' }}>
+            <span className="section-subtitle" style={{ color: '#D4AF37', fontSize: '12px', fontWeight: '800', textTransform: 'uppercase', letterSpacing: '1.5px', display: 'block', marginBottom: '8px' }}>System ROI</span>
+            <h2 className="section-title" style={{ color: '#ffffff', fontSize: '32px', fontWeight: '800', fontFamily: 'var(--font-headings)' }}>Demonstrated Business Benefits</h2>
+            <p className="section-desc" style={{ color: '#94A3B8', fontSize: '18px', lineHeight: '1.6' }}>Operational scorecards showing average improvement ratios across deployed enterprise installations.</p>
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '24px' }}>
@@ -704,21 +717,21 @@ export default function ProductDetail() {
                 whileInView="whileInView"
                 viewport={scrollReveal.viewport}
                 style={{
-                  backgroundColor: '#111827',
-                  border: '1px solid rgba(255,255,255,0.05)',
+                  backgroundColor: '#121826',
+                  border: '1px solid rgba(212, 175, 55, 0.25)',
                   borderRadius: '16px',
                   padding: '36px 28px',
                   textAlign: 'center',
                   position: 'relative'
                 }}
               >
-                <div style={{ fontSize: '44px', fontWeight: '900', color: 'var(--accent)', fontFamily: 'var(--font-headings)', marginBottom: '8px' }}>
+                <div style={{ fontSize: '44px', fontWeight: '900', color: '#FFD700', fontFamily: 'var(--font-headings)', marginBottom: '8px' }}>
                   {benefit.stat}
                 </div>
-                <h4 style={{ fontSize: '15px', fontWeight: '700', color: '#ffffff', marginBottom: '8px', margin: 0 }}>
+                <h4 style={{ fontSize: '18px', fontWeight: '700', color: '#ffffff', marginBottom: '8px', margin: 0 }}>
                   {benefit.label}
                 </h4>
-                <p style={{ fontSize: '13px', color: '#9CA3AF', lineHeight: '1.5', margin: 0, marginTop: '8px' }}>
+                <p style={{ fontSize: '18px', color: '#94A3B8', lineHeight: '1.6', margin: 0, marginTop: '8px' }}>
                   {benefit.desc}
                 </p>
               </motion.div>
@@ -731,42 +744,46 @@ export default function ProductDetail() {
       <IndustryCarousel themeColor={product.themeColor} />
 
       {/* --- CROSS-PRODUCT NAVIGATION ── */}
-      <section style={{ backgroundColor: '#0A0F1C', padding: '60px 0', borderTop: '1px solid rgba(255,255,255,0.04)' }}>
+      <section style={{ backgroundColor: '#F8FAFC', padding: '80px 0', borderTop: '1px solid rgba(0, 0, 0, 0.05)', borderBottom: '1px solid rgba(0, 0, 0, 0.05)' }}>
         <div className="container">
-          <div style={{ marginBottom: '28px' }}>
-            <span style={{ fontSize: '11px', fontWeight: '800', color: '#C8A276', textTransform: 'uppercase', letterSpacing: '1.5px' }}>Explore More Platforms</span>
-            <h3 style={{ fontSize: '22px', fontWeight: '800', color: '#FFFFFF', margin: '6px 0 0 0', fontFamily: 'var(--font-headings)' }}>Other CEA Platforms</h3>
+          <div style={{ marginBottom: '32px' }}>
+            <span style={{ fontSize: '12px', fontWeight: '800', color: '#D4AF37', textTransform: 'uppercase', letterSpacing: '1.5px', display: 'block', marginBottom: '8px' }}>Explore More Platforms</span>
+            <h3 style={{ fontSize: '32px', fontWeight: '800', color: '#0B0F19', margin: 0, fontFamily: 'var(--font-headings)' }}>Other CEA Platforms</h3>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '16px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '20px' }}>
             {otherPlatforms.map((p) => (
               <motion.div
                 key={p.id}
-                whileHover={{ y: -4, borderColor: 'rgba(200,162,118,0.35)', boxShadow: '0 12px 32px rgba(0,0,0,0.4)' }}
+                whileHover={{ y: -4, borderColor: '#D4AF37', boxShadow: '0 12px 32px rgba(0,0,0,0.06)' }}
                 onClick={() => navigate(`/products/${p.id}`)}
                 style={{
-                  backgroundColor: '#111827',
-                  border: '1px solid rgba(255,255,255,0.06)',
+                  backgroundColor: '#FFFFFF',
+                  border: '1px solid rgba(0, 0, 0, 0.08)',
                   borderRadius: '12px',
-                  padding: '20px',
+                  padding: '24px',
                   cursor: 'pointer',
                   transition: 'all 0.25s',
                   display: 'flex',
                   flexDirection: 'column',
-                  gap: '8px'
+                  gap: '12px'
                 }}
               >
                 <div style={{
-                  width: '36px', height: '36px', borderRadius: '8px',
-                  backgroundColor: 'rgba(200,162,118,0.08)',
+                  width: '44px', height: '44px', borderRadius: '8px',
+                  backgroundColor: 'rgba(11, 15, 25, 0.03)',
+                  border: '1px solid rgba(0, 0, 0, 0.08)',
                   marginBottom: '4px',
-                  overflow: 'hidden'
+                  overflow: 'hidden',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
                 }}>
-                  <img src={p.image} alt={p.name} style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.7 }} />
+                  <img src={p.image} alt={p.name} style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 1 }} />
                 </div>
-                <h4 style={{ fontSize: '14px', fontWeight: '700', color: '#FFFFFF', margin: 0, lineHeight: 1.3 }}>{p.name}</h4>
-                <p style={{ fontSize: '11.5px', color: '#6B7280', margin: 0, lineHeight: 1.4 }}>{p.tagline}</p>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '4px', color: '#C8A276', fontSize: '11px', fontWeight: '700', marginTop: '4px' }}>
-                  Explore <ArrowRight size={11} />
+                <h4 style={{ fontSize: '22px', fontWeight: '700', color: '#0B0F19', margin: 0, lineHeight: 1.3 }}>{p.name}</h4>
+                <p style={{ fontSize: '18px', color: '#64748B', margin: 0, lineHeight: 1.5 }}>{p.tagline}</p>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#D4AF37', fontSize: '18px', fontWeight: '700', marginTop: 'auto', paddingTop: '8px' }}>
+                  Explore <ArrowRight size={16} />
                 </div>
               </motion.div>
             ))}
@@ -775,21 +792,30 @@ export default function ProductDetail() {
       </section>
 
       {/* --- SECTION 9: CALL TO ACTION (INQUIRY FORM) --- */}
-      <section ref={formRef} className="section" style={{ backgroundColor: '#0A0F1C', background: 'radial-gradient(circle at bottom, rgba(200, 162, 118, 0.04) 0%, transparent 50%)' }}>
+      <section 
+        ref={formRef} 
+        className="section" 
+        style={{ 
+          backgroundColor: '#0B0F19', 
+          padding: '80px 0 100px 0',
+          background: 'radial-gradient(circle at bottom, rgba(212, 175, 55, 0.05) 0%, transparent 50%)',
+          borderTop: '1px solid rgba(255, 255, 255, 0.05)'
+        }}
+      >
         <div className="container" style={{ maxWidth: '680px' }}>
-          <div className="section-title-wrapper" style={{ marginBottom: '32px' }}>
-            <span className="section-subtitle" style={{ color: 'var(--accent)' }}>Partner With Us</span>
-            <h2 className="section-title" style={{ color: '#ffffff' }}>Schedule a Platform Demo</h2>
-            <p className="section-desc" style={{ color: '#9CA3AF' }}>Discuss deployment sizing, timeline setups, or request read-only access to our demo databases.</p>
+          <div className="section-title-wrapper" style={{ marginBottom: '40px', textAlign: 'center' }}>
+            <span className="section-subtitle" style={{ color: '#D4AF37', fontSize: '12px', fontWeight: '800', textTransform: 'uppercase', letterSpacing: '1.5px', display: 'block', marginBottom: '8px' }}>Partner With Us</span>
+            <h2 className="section-title" style={{ color: '#ffffff', fontSize: '32px', fontWeight: '800', fontFamily: 'var(--font-headings)' }}>Schedule a Platform Demo</h2>
+            <p className="section-desc" style={{ color: '#94A3B8', fontSize: '18px', lineHeight: '1.6' }}>Discuss deployment sizing, timeline setups, or request read-only access to our demo databases.</p>
           </div>
 
           <div 
             style={{
-              backgroundColor: 'rgba(17, 34, 64, 0.85)',
-              border: '1px solid rgba(200, 162, 118, 0.18)',
+              backgroundColor: '#121826',
+              border: '1px solid rgba(212, 175, 55, 0.25)',
               borderRadius: '16px',
               padding: '36px',
-              boxShadow: 'var(--shadow-xl)'
+              boxShadow: '0 20px 40px rgba(0, 0, 0, 0.4)'
             }}
           >
             {isSubmitted ? (
@@ -802,115 +828,160 @@ export default function ProductDetail() {
                   <Check size={32} />
                 </div>
                 <h3 style={{ fontSize: '22px', marginBottom: '8px', color: '#ffffff', fontWeight: '800' }}>Inquiry Filed Successfully</h3>
-                <p style={{ color: '#9CA3AF', fontSize: '14.5px', marginBottom: '24px', maxWidth: '440px', margin: '0 auto 24px auto' }}>
+                <p style={{ color: '#9CA3AF', fontSize: '18px', marginBottom: '24px', maxWidth: '440px', margin: '0 auto 24px auto', lineHeight: '1.6' }}>
                   Thank you. Your demo request for **{product.name}** has been registered. An engineer will coordinate database parameters with you.
                 </p>
-                <button onClick={() => setIsSubmitted(false)} className="btn btn-secondary btn-sm" style={{ border: '1px solid rgba(255,255,255,0.15)', color: '#ffffff' }}>
+                <button 
+                  onClick={() => setIsSubmitted(false)} 
+                  className="btn" 
+                  style={{ 
+                    border: '1.5px solid rgba(212, 175, 55, 0.5)', 
+                    color: '#D4AF37',
+                    background: 'transparent',
+                    fontSize: '18px',
+                    padding: '10px 20px',
+                    borderRadius: '8px',
+                    cursor: 'pointer',
+                    fontWeight: '600',
+                    transition: 'all 0.2s'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = 'rgba(212, 175, 55, 0.08)';
+                    e.currentTarget.style.borderColor = '#FFD700';
+                    e.currentTarget.style.color = '#FFD700';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = 'transparent';
+                    e.currentTarget.style.borderColor = 'rgba(212, 175, 55, 0.5)';
+                    e.currentTarget.style.color = '#D4AF37';
+                  }}
+                >
                   Submit Another Request
                 </button>
               </motion.div>
             ) : (
               <form onSubmit={handleSubmit}>
                 <div className="form-group" style={{ marginBottom: '20px' }}>
-                  <label className="form-label" style={{ fontSize: '13px', fontWeight: '700', display: 'block', marginBottom: '6px', color: '#ffffff' }} htmlFor="name">Full Name</label>
+                  <label className="form-label" style={{ fontSize: '18px', fontWeight: '600', display: 'block', marginBottom: '8px', color: '#ffffff' }} htmlFor="name">Full Name</label>
                   <input 
                     type="text" 
                     id="name" 
                     name="name" 
                     style={{
                       width: '100%',
-                      padding: '12px 16px',
+                      padding: '14px 18px',
                       borderRadius: '8px',
-                      border: '1px solid rgba(255, 255, 255, 0.1)',
-                      backgroundColor: 'rgba(10, 15, 28, 0.4)',
+                      border: '1px solid rgba(255, 255, 255, 0.15)',
+                      backgroundColor: 'rgba(10, 15, 28, 0.6)',
                       color: '#ffffff',
-                      fontSize: '14.5px',
+                      fontSize: '18px',
                       outline: 'none',
-                      transition: 'border-color 0.2s'
+                      transition: 'all 0.2s'
                     }}
                     value={formData.name}
                     onChange={handleInputChange}
                     placeholder="Enter your name"
+                    onFocus={(e) => e.target.style.borderColor = '#D4AF37'}
+                    onBlur={(e) => e.target.style.borderColor = 'rgba(255, 255, 255, 0.15)'}
                   />
-                  {errors.name && <span style={{ color: '#ef4444', fontSize: '12px', marginTop: '4px', display: 'block' }}>{errors.name}</span>}
+                  {errors.name && <span style={{ color: '#ef4444', fontSize: '14px', marginTop: '4px', display: 'block' }}>{errors.name}</span>}
                 </div>
 
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', marginBottom: '20px' }}>
                   <div className="form-group">
-                    <label className="form-label" style={{ fontSize: '13px', fontWeight: '700', display: 'block', marginBottom: '6px', color: '#ffffff' }} htmlFor="email">Email Address</label>
+                    <label className="form-label" style={{ fontSize: '18px', fontWeight: '600', display: 'block', marginBottom: '8px', color: '#ffffff' }} htmlFor="email">Email Address</label>
                     <input 
                       type="email" 
                       id="email" 
                       name="email" 
                       style={{
                         width: '100%',
-                        padding: '12px 16px',
+                        padding: '14px 18px',
                         borderRadius: '8px',
-                        border: '1px solid rgba(255, 255, 255, 0.1)',
-                        backgroundColor: 'rgba(10, 15, 28, 0.4)',
+                        border: '1px solid rgba(255, 255, 255, 0.15)',
+                        backgroundColor: 'rgba(10, 15, 28, 0.6)',
                         color: '#ffffff',
-                        fontSize: '14.5px',
+                        fontSize: '18px',
                         outline: 'none',
-                        transition: 'border-color 0.2s'
+                        transition: 'all 0.2s'
                       }}
                       value={formData.email}
                       onChange={handleInputChange}
                       placeholder="name@company.com"
+                      onFocus={(e) => e.target.style.borderColor = '#D4AF37'}
+                      onBlur={(e) => e.target.style.borderColor = 'rgba(255, 255, 255, 0.15)'}
                     />
-                    {errors.email && <span style={{ color: '#ef4444', fontSize: '12px', marginTop: '4px', display: 'block' }}>{errors.email}</span>}
+                    {errors.email && <span style={{ color: '#ef4444', fontSize: '14px', marginTop: '4px', display: 'block' }}>{errors.email}</span>}
                   </div>
 
                   <div className="form-group">
-                    <label className="form-label" style={{ fontSize: '13px', fontWeight: '700', display: 'block', marginBottom: '6px', color: '#ffffff' }} htmlFor="company">Company Name</label>
+                    <label className="form-label" style={{ fontSize: '18px', fontWeight: '600', display: 'block', marginBottom: '8px', color: '#ffffff' }} htmlFor="company">Company Name</label>
                     <input 
                       type="text" 
                       id="company" 
                       name="company" 
                       style={{
                         width: '100%',
-                        padding: '12px 16px',
+                        padding: '14px 18px',
                         borderRadius: '8px',
-                        border: '1px solid rgba(255, 255, 255, 0.1)',
-                        backgroundColor: 'rgba(10, 15, 28, 0.4)',
+                        border: '1px solid rgba(255, 255, 255, 0.15)',
+                        backgroundColor: 'rgba(10, 15, 28, 0.6)',
                         color: '#ffffff',
-                        fontSize: '14.5px',
+                        fontSize: '18px',
                         outline: 'none',
-                        transition: 'border-color 0.2s'
+                        transition: 'all 0.2s'
                       }}
                       value={formData.company}
                       onChange={handleInputChange}
                       placeholder="Your organization"
+                      onFocus={(e) => e.target.style.borderColor = '#D4AF37'}
+                      onBlur={(e) => e.target.style.borderColor = 'rgba(255, 255, 255, 0.15)'}
                     />
-                    {errors.company && <span style={{ color: '#ef4444', fontSize: '12px', marginTop: '4px', display: 'block' }}>{errors.company}</span>}
+                    {errors.company && <span style={{ color: '#ef4444', fontSize: '14px', marginTop: '4px', display: 'block' }}>{errors.company}</span>}
                   </div>
                 </div>
 
                 <div className="form-group" style={{ marginBottom: '24px' }}>
-                  <label className="form-label" style={{ fontSize: '13px', fontWeight: '700', display: 'block', marginBottom: '6px', color: '#ffffff' }} htmlFor="message">Deployment Sizing Details</label>
+                  <label className="form-label" style={{ fontSize: '18px', fontWeight: '600', display: 'block', marginBottom: '8px', color: '#ffffff' }} htmlFor="message">Deployment Sizing Details</label>
                   <textarea 
                     id="message" 
                     name="message" 
                     style={{
                       width: '100%',
-                      padding: '12px 16px',
+                      padding: '14px 18px',
                       borderRadius: '8px',
-                      border: '1px solid rgba(255, 255, 255, 0.1)',
-                      backgroundColor: 'rgba(10, 15, 28, 0.4)',
+                      border: '1px solid rgba(255, 255, 255, 0.15)',
+                      backgroundColor: 'rgba(10, 15, 28, 0.6)',
                       color: '#ffffff',
-                      fontSize: '14.5px',
+                      fontSize: '18px',
                       outline: 'none',
-                      transition: 'border-color 0.2s',
+                      transition: 'all 0.2s',
                       resize: 'vertical'
                     }}
                     rows={4}
                     value={formData.message}
                     onChange={handleInputChange}
                     placeholder={`Tell us about your requirements for ${product.name}...`}
+                    onFocus={(e) => e.target.style.borderColor = '#D4AF37'}
+                    onBlur={(e) => e.target.style.borderColor = 'rgba(255, 255, 255, 0.15)'}
                   ></textarea>
-                  {errors.message && <span style={{ color: '#ef4444', fontSize: '12px', marginTop: '4px', display: 'block' }}>{errors.message}</span>}
+                  {errors.message && <span style={{ color: '#ef4444', fontSize: '14px', marginTop: '4px', display: 'block' }}>{errors.message}</span>}
                 </div>
 
-                <button type="submit" className="btn btn-cta" style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', color: '#0F172A' }}>
+                <button 
+                  type="submit" 
+                  className="btn btn-cta" 
+                  style={{ 
+                    width: '100%', 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    justifyContent: 'center', 
+                    gap: '8px', 
+                    color: '#0B0F19',
+                    fontSize: '18px',
+                    padding: '14px 28px'
+                  }}
+                >
                   Submit Demo Request
                   <Send size={16} />
                 </button>

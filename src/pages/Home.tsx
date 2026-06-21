@@ -325,7 +325,8 @@ function FlagshipCard({ platform, onNavigate, variant = 'standard' }: {
         border: '1px solid rgba(212, 175, 55, 0.18)',
         backgroundColor: 'rgba(18, 24, 38, 0.85)',
         cursor: 'pointer',
-        height: isHero ? '720px' : '580px',
+        minHeight: isHero ? '750px' : '620px',
+        height: 'auto',
         display: 'flex',
         flexDirection: 'column',
         backdropFilter: 'blur(8px)',
@@ -432,7 +433,7 @@ function FlagshipCard({ platform, onNavigate, variant = 'standard' }: {
       {/* Content area */}
       <div style={{ padding: '22px 22px 20px 22px', flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
         <h3 style={{
-          fontSize: isHero ? '21px' : '17px',
+          fontSize: isHero ? '24px' : '20px',
           fontWeight: '800',
           color: '#FFFFFF',
           margin: '0 0 6px 0',
@@ -443,8 +444,8 @@ function FlagshipCard({ platform, onNavigate, variant = 'standard' }: {
           {platform.name}
         </h3>
         <p style={{
-          fontSize: '12.5px',
-          color: '#9CA3AF',
+          fontSize: '18px',
+          color: '#E2E8F0',
           lineHeight: 1.45,
           margin: 0,
           flexGrow: 1
@@ -453,7 +454,7 @@ function FlagshipCard({ platform, onNavigate, variant = 'standard' }: {
         </p>
 
         {/* Divider */}
-        <div style={{ height: '1px', background: 'rgba(255,255,255,0.05)', margin: '16px 0 0 0' }} />
+        <div style={{ height: '1px', background: 'rgba(255,255,255,0.08)', margin: '16px 0 0 0' }} />
 
         {/* Hover-revealed capabilities + button */}
         <motion.div
@@ -467,7 +468,7 @@ function FlagshipCard({ platform, onNavigate, variant = 'standard' }: {
                   width: '5px', height: '5px', borderRadius: '50%',
                   backgroundColor: platform.accentColor, flexShrink: 0
                 }} />
-                <span style={{ fontSize: '12.5px', color: '#D1D5DB', fontWeight: '500' }}>{cap}</span>
+                <span style={{ fontSize: '18px', color: '#E2E8F0', fontWeight: '500' }}>{cap}</span>
               </div>
             ))}
           </div>
@@ -481,7 +482,7 @@ function FlagshipCard({ platform, onNavigate, variant = 'standard' }: {
               color: '#FFFFFF',
               borderRadius: '8px',
               padding: '9px 18px',
-              fontSize: '12px',
+              fontSize: '18px',
               fontWeight: '800',
               boxShadow: '0 4px 12px rgba(212,175,55,0.3)',
               letterSpacing: '0.3px'
@@ -496,7 +497,7 @@ function FlagshipCard({ platform, onNavigate, variant = 'standard' }: {
   );
 }
 
-// â”€â”€ SOLUTIONS COVERFLOW CAROUSEL â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ——— SOLUTIONS COVERFLOW CAROUSEL —————————————————————————————————————————————
 
 interface SolutionItem {
   title: string;
@@ -550,8 +551,8 @@ function SolutionsCoverflow({
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* Left / right fade edges */}
-      <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: '120px', background: 'linear-gradient(to right, var(--secondary-bg), transparent)', zIndex: 10, pointerEvents: 'none' }} />
-      <div style={{ position: 'absolute', right: 0, top: 0, bottom: 0, width: '120px', background: 'linear-gradient(to left, var(--secondary-bg), transparent)', zIndex: 10, pointerEvents: 'none' }} />
+      <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: '120px', background: 'linear-gradient(to right, #0B0F19, transparent)', zIndex: 10, pointerEvents: 'none' }} />
+      <div style={{ position: 'absolute', right: 0, top: 0, bottom: 0, width: '120px', background: 'linear-gradient(to left, #0B0F19, transparent)', zIndex: 10, pointerEvents: 'none' }} />
 
       {/* Track */}
       <motion.div
@@ -656,7 +657,7 @@ function SolutionsCoverflow({
                 justifyContent: 'space-between',
               }}>
                 <span style={{
-                  fontSize: isCenter ? '14px' : '12.5px',
+                  fontSize: isCenter ? '18px' : '16px',
                   fontWeight: '700',
                   color: '#FFFFFF',
                   fontFamily: 'var(--font-headings)',
@@ -789,7 +790,7 @@ export default function Home() {
           color: '#ffffff',
           position: 'relative',
           overflow: 'hidden',
-          backgroundColor: 'var(--primary-bg)'
+          backgroundColor: '#0B0F19'
         }}
       >
         {/* Auto-playing fading background slides */}
@@ -856,7 +857,7 @@ export default function Home() {
               <h1 style={{ fontSize: '48px', lineHeight: '1.15', margin: '0 0 20px 0', letterSpacing: '-1.5px', color: '#ffffff' }}>
                 Engineering Digital Excellence for Manufacturing, Compliance & Enterprise Growth
               </h1>
-              <p style={{ fontSize: '17px', color: 'rgba(241, 245, 249, 0.85)', marginBottom: '32px', lineHeight: '1.6' }}>
+              <p style={{ fontSize: '18px', color: 'rgba(241, 245, 249, 0.85)', marginBottom: '32px', lineHeight: '1.6' }}>
                 CEA Infotech delivers enterprise software solutions, compliance platforms, audit intelligence systems and digital transformation initiatives that help organizations improve operational performance, governance and business efficiency.
               </p>
               
@@ -890,7 +891,7 @@ export default function Home() {
       </section>
 
 
-      <section className="section surface-matte" style={{ padding: '60px 0', borderBottom: '1px solid var(--border-color)' }}>
+      <section className="section" style={{ padding: '60px 0', backgroundColor: '#F8FAFC', borderBottom: '1px solid rgba(0, 0, 0, 0.08)' }}>
 
         <div className="container">
           <div className="grid-4" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '20px' }}>
@@ -900,15 +901,27 @@ export default function Home() {
               whileInView="whileInView"
               viewport={scrollReveal.viewport}
               className="glass-card stat-card"
-              whileHover={{ y: -4 }}
-              style={{ padding: '24px' }}
+              whileHover={{ y: -4, borderColor: '#D4AF37' }}
+              style={{
+                padding: '24px',
+                backgroundColor: '#0B0F19',
+                border: '1px solid rgba(212, 175, 55, 0.2)',
+                borderRadius: '16px',
+                color: '#FFFFFF'
+              }}
             >
-              <div className="stat-icon-wrapper">
+              <div className="stat-icon-wrapper" style={{ color: '#D4AF37', marginBottom: '12px' }}>
                 <Calendar size={22} strokeWidth={1.5} />
               </div>
-              <div className="stat-number"><CountUp end={25} suffix="+" duration={1} /></div>
-              <div className="stat-label">Years Combined Expertise</div>
-              <div className="stat-desc">Strategic executive leadership</div>
+              <div className="stat-number" style={{ color: '#FFD700', fontSize: '48px', fontWeight: '800', fontFamily: 'var(--font-headings)' }}>
+                <CountUp end={25} suffix="+" duration={1} />
+              </div>
+              <div className="stat-label" style={{ fontSize: '18px', fontWeight: '700', color: '#FFFFFF', marginTop: '6px' }}>
+                Years Combined Expertise
+              </div>
+              <div className="stat-desc" style={{ fontSize: '15px', color: '#94A3B8', marginTop: '4px' }}>
+                Strategic executive leadership
+              </div>
             </motion.div>
 
             <motion.div 
@@ -917,15 +930,27 @@ export default function Home() {
               whileInView="whileInView"
               viewport={scrollReveal.viewport}
               className="glass-card stat-card"
-              whileHover={{ y: -4 }}
-              style={{ padding: '24px' }}
+              whileHover={{ y: -4, borderColor: '#D4AF37' }}
+              style={{
+                padding: '24px',
+                backgroundColor: '#0B0F19',
+                border: '1px solid rgba(212, 175, 55, 0.2)',
+                borderRadius: '16px',
+                color: '#FFFFFF'
+              }}
             >
-              <div className="stat-icon-wrapper">
+              <div className="stat-icon-wrapper" style={{ color: '#D4AF37', marginBottom: '12px' }}>
                 <Award size={22} strokeWidth={1.5} />
               </div>
-              <div className="stat-number"><CountUp end={100} suffix="+" duration={1.2} /></div>
-              <div className="stat-label">Projects Delivered</div>
-              <div className="stat-desc">Production-grade systems</div>
+              <div className="stat-number" style={{ color: '#FFD700', fontSize: '48px', fontWeight: '800', fontFamily: 'var(--font-headings)' }}>
+                <CountUp end={100} suffix="+" duration={1.2} />
+              </div>
+              <div className="stat-label" style={{ fontSize: '18px', fontWeight: '700', color: '#FFFFFF', marginTop: '6px' }}>
+                Projects Delivered
+              </div>
+              <div className="stat-desc" style={{ fontSize: '15px', color: '#94A3B8', marginTop: '4px' }}>
+                Production-grade systems
+              </div>
             </motion.div>
 
             <motion.div 
@@ -934,15 +959,27 @@ export default function Home() {
               whileInView="whileInView"
               viewport={scrollReveal.viewport}
               className="glass-card stat-card"
-              whileHover={{ y: -4 }}
-              style={{ padding: '24px' }}
+              whileHover={{ y: -4, borderColor: '#D4AF37' }}
+              style={{
+                padding: '24px',
+                backgroundColor: '#0B0F19',
+                border: '1px solid rgba(212, 175, 55, 0.2)',
+                borderRadius: '16px',
+                color: '#FFFFFF'
+              }}
             >
-              <div className="stat-icon-wrapper">
+              <div className="stat-icon-wrapper" style={{ color: '#D4AF37', marginBottom: '12px' }}>
                 <Users size={22} strokeWidth={1.5} />
               </div>
-              <div className="stat-number"><CountUp end={50} suffix="+" duration={1} /></div>
-              <div className="stat-label">Enterprise Customers</div>
-              <div className="stat-desc">Trusted by large organizations</div>
+              <div className="stat-number" style={{ color: '#FFD700', fontSize: '48px', fontWeight: '800', fontFamily: 'var(--font-headings)' }}>
+                <CountUp end={50} suffix="+" duration={1} />
+              </div>
+              <div className="stat-label" style={{ fontSize: '18px', fontWeight: '700', color: '#FFFFFF', marginTop: '6px' }}>
+                Enterprise Customers
+              </div>
+              <div className="stat-desc" style={{ fontSize: '15px', color: '#94A3B8', marginTop: '4px' }}>
+                Trusted by large organizations
+              </div>
             </motion.div>
 
             <motion.div 
@@ -951,15 +988,27 @@ export default function Home() {
               whileInView="whileInView"
               viewport={scrollReveal.viewport}
               className="glass-card stat-card"
-              whileHover={{ y: -4 }}
-              style={{ padding: '24px' }}
+              whileHover={{ y: -4, borderColor: '#D4AF37' }}
+              style={{
+                padding: '24px',
+                backgroundColor: '#0B0F19',
+                border: '1px solid rgba(212, 175, 55, 0.2)',
+                borderRadius: '16px',
+                color: '#FFFFFF'
+              }}
             >
-              <div className="stat-icon-wrapper">
+              <div className="stat-icon-wrapper" style={{ color: '#D4AF37', marginBottom: '12px' }}>
                 <Building size={22} strokeWidth={1.5} />
               </div>
-              <div className="stat-number"><CountUp end={10} suffix="+" duration={1.2} /></div>
-              <div className="stat-label">Industry Domains</div>
-              <div className="stat-desc">Custom-configured solutions</div>
+              <div className="stat-number" style={{ color: '#FFD700', fontSize: '48px', fontWeight: '800', fontFamily: 'var(--font-headings)' }}>
+                <CountUp end={10} suffix="+" duration={1.2} />
+              </div>
+              <div className="stat-label" style={{ fontSize: '18px', fontWeight: '700', color: '#FFFFFF', marginTop: '6px' }}>
+                Industry Domains
+              </div>
+              <div className="stat-desc" style={{ fontSize: '15px', color: '#94A3B8', marginTop: '4px' }}>
+                Custom-configured solutions
+              </div>
             </motion.div>
           </div>
         </div>
@@ -970,13 +1019,13 @@ export default function Home() {
 
       {/* --- SERVICES OVERVIEW (Enterprise Capability Showcase Carousel) --- */}
 
-      <section className="section surface-royal services-section-texture" style={{ padding: '40px 0' }}>
+      <section className="section" style={{ padding: '80px 0', backgroundColor: '#0B0F19', color: '#FFFFFF' }}>
 
         <div className="container">
           <div className="section-title-wrapper">
-            <span className="section-subtitle">Our Capabilities</span>
-            <h2 className="section-title">Enterprise Software Services</h2>
-            <p className="section-desc">Consulting, custom programming, and application delivery engineered for industrial scale.</p>
+            <span className="section-subtitle" style={{ color: '#D4AF37' }}>Our Capabilities</span>
+            <h2 className="section-title" style={{ color: '#FFFFFF' }}>Enterprise Software Services</h2>
+            <p className="section-desc" style={{ color: '#94A3B8', fontSize: '18px' }}>Consulting, custom programming, and application delivery engineered for industrial scale.</p>
           </div>
 
           <EnterpriseShowcaseCarousel />
@@ -984,17 +1033,18 @@ export default function Home() {
       </section>
 
       {/* ==================================================
-          SECTION: FLAGSHIP PLATFORMS SHOWCASE (HOME PAGE)  â€” PREMIUM
+          SECTION: FLAGSHIP PLATFORMS SHOWCASE (HOME PAGE)  — PREMIUM
           ================================================== */}
       <section
-
-        className="section surface-matte products-section-texture flagship-shimmer-border"
-
+        className="section"
         style={{
-          color: '#E5E7EB',
+          backgroundColor: '#EAF6FF',
+          color: '#0B0F19',
           overflow: 'hidden',
           position: 'relative',
-          padding: '120px 0 140px 0'
+          padding: '120px 0 140px 0',
+          borderTop: '1px solid rgba(0, 0, 0, 0.05)',
+          borderBottom: '1px solid rgba(0, 0, 0, 0.05)'
         }}
       >
         {/* Ambient background decoration */}
@@ -1013,14 +1063,14 @@ export default function Home() {
         {/* Subtle grid lines */}
         <div style={{
           position: 'absolute', inset: 0,
-          backgroundImage: 'linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px)',
+          backgroundImage: 'linear-gradient(rgba(0,0,0,0.015) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.015) 1px, transparent 1px)',
           backgroundSize: '80px 80px',
           pointerEvents: 'none', zIndex: 0
         }} />
 
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
 
-          {/* â”€â”€ SECTION HEADER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+          {/* —— SECTION HEADER ————————————————————————————————— */}
           <motion.div
             variants={scrollReveal}
             initial="initial"
@@ -1031,14 +1081,14 @@ export default function Home() {
             {/* Eyebrow */}
             <div style={{
               display: 'inline-flex', alignItems: 'center', gap: '10px',
-              background: 'rgba(212, 175, 55, 0.07)',
-              border: '1px solid rgba(212, 175, 55, 0.2)',
+              background: 'rgba(11, 15, 25, 0.05)',
+              border: '1px solid rgba(11, 15, 25, 0.15)',
               borderRadius: '40px',
               padding: '7px 18px',
               marginBottom: '24px'
             }}>
               <div style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: '#D4AF37' }} />
-              <span style={{ fontSize: '12px', fontWeight: '700', color: '#D4AF37', textTransform: 'uppercase', letterSpacing: '1.5px' }}>
+              <span style={{ fontSize: '12px', fontWeight: '700', color: '#0B0F19', textTransform: 'uppercase', letterSpacing: '1.5px' }}>
                 CEA Proprietary Platforms
               </span>
               <div style={{
@@ -1055,7 +1105,7 @@ export default function Home() {
             <h2 style={{
               fontSize: 'clamp(32px, 4vw, 52px)',
               fontWeight: '900',
-              color: '#FFFFFF',
+              color: '#0B0F19',
               fontFamily: 'var(--font-headings)',
               margin: '0 0 20px 0',
               letterSpacing: '-1.5px',
@@ -1064,8 +1114,8 @@ export default function Home() {
               CEA Flagship Platforms
             </h2>
             <p style={{
-              fontSize: '17px',
-              color: 'rgba(229,231,235,0.75)',
+              fontSize: '18px',
+              color: '#334155',
               lineHeight: 1.7,
               maxWidth: '700px',
               margin: '0 auto'
@@ -1082,7 +1132,7 @@ export default function Home() {
             }} />
           </motion.div>
 
-          {/* â”€â”€ HERO CARD (Product #1 â€” full width) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+          {/* —— HERO CARD (Product #1 — full width) ———————————————— */}
           <motion.div
             variants={scrollReveal}
             initial="initial"
@@ -1097,7 +1147,7 @@ export default function Home() {
             />
           </motion.div>
 
-          {/* â”€â”€ GRID ROW 2 (Products #2 + #3) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+          {/* —— GRID ROW 2 (Products #2 + #3) ————————————————————— */}
           <motion.div
             variants={{ initial: {}, whileInView: { transition: { staggerChildren: 0.12 } } }}
             initial="initial"
@@ -1112,7 +1162,7 @@ export default function Home() {
             ))}
           </motion.div>
 
-          {/* â”€â”€ GRID ROW 3 (Products #4 + #5) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+          {/* —— GRID ROW 3 (Products #4 + #5) ————————————————————— */}
           <motion.div
             variants={{ initial: {}, whileInView: { transition: { staggerChildren: 0.12 } } }}
             initial="initial"
@@ -1127,7 +1177,7 @@ export default function Home() {
             ))}
           </motion.div>
 
-          {/* â”€â”€ VIEW ALL PRODUCTS CTA â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+          {/* —— VIEW ALL PRODUCTS CTA ————————————————————— */}
           <motion.div
             variants={scrollReveal}
             initial="initial"
@@ -1135,7 +1185,7 @@ export default function Home() {
             viewport={{ once: true }}
             style={{ textAlign: 'center', marginTop: '60px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px' }}
           >
-            <p style={{ fontSize: '14px', color: 'rgba(229,231,235,0.5)', fontWeight: '500' }}>
+            <p style={{ fontSize: '14px', color: '#475569', fontWeight: '500' }}>
               Ready to explore a specific platform?
             </p>
             <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', justifyContent: 'center' }}>
@@ -1151,9 +1201,15 @@ export default function Home() {
               </motion.button>
               <motion.button
                 onClick={() => navigate('/contact')}
-                whileHover={{ scale: 1.03, backgroundColor: 'rgba(255,255,255,0.07)' }}
+                whileHover={{ scale: 1.03, backgroundColor: 'rgba(11, 15, 25, 0.05)' }}
                 whileTap={{ scale: 0.98 }}
-                className="btn btn-dark-outline"
+                className="btn"
+                style={{
+                  border: '2px solid #0B0F19',
+                  color: '#0B0F19',
+                  backgroundColor: 'transparent',
+                  fontWeight: '700'
+                }}
               >
                 Request a Demo
               </motion.button>
@@ -1163,31 +1219,27 @@ export default function Home() {
       </section>
 
       {/* --- SOLUTIONS SUCCESSFULLY DELIVERED --- */}
-
-      <section className="section surface-royal services-section-texture" style={{ overflow: 'hidden', position: 'relative', padding: '72px 0 80px' }}>
-
+      <section className="section" style={{ overflow: 'hidden', position: 'relative', padding: '80px 0', backgroundColor: '#0B0F19', color: '#FFFFFF' }}>
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
           {/* Section header */}
           <div style={{ textAlign: 'center', marginBottom: '44px' }}>
-            <span className="section-subtitle">Our Delivery Record</span>
-            <h2 className="section-title">Solutions Successfully Delivered</h2>
+            <span className="section-subtitle" style={{ color: '#D4AF37' }}>Our Delivery Record</span>
+            <h2 className="section-title" style={{ color: '#FFFFFF' }}>Solutions Successfully Delivered</h2>
           </div>
         </div>
 
-        {/* Coverflow Carousel â€” full bleed */}
+        {/* Coverflow Carousel — full bleed */}
         <SolutionsCoverflow solutions={solutions} onNavigate={navigate} />
       </section>
 
       {/* --- PRODUCTION TRACKING TOOL VIDEO PLACEHOLDER --- */}
-
-      <section className="section surface-matte products-section-texture" style={{ position: 'relative', overflow: 'hidden' }}>
-
-        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'radial-gradient(circle at center, rgba(37, 99, 235, 0.08) 0%, transparent 80%)', zIndex: 1, pointerEvents: 'none' }}></div>
+      <section className="section" style={{ position: 'relative', overflow: 'hidden', backgroundColor: '#F1F5F9', color: '#0B0F19', padding: '120px 0', borderTop: '1px solid rgba(0, 0, 0, 0.05)', borderBottom: '1px solid rgba(0, 0, 0, 0.05)' }}>
+        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'radial-gradient(circle at center, rgba(212, 175, 55, 0.08) 0%, transparent 80%)', zIndex: 1, pointerEvents: 'none' }}></div>
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
           <div className="section-title-wrapper">
-            <span className="section-subtitle" style={{ color: 'var(--accent)' }}>Production Tracking Tool</span>
-            <h2 className="section-title" style={{ color: '#ffffff' }}>Watch Vericea® in Action</h2>
-            <p className="section-desc" style={{ color: 'rgba(255,255,255,0.7)' }}>Watch how Vericea® improves manufacturing efficiency, production visibility and operational performance.</p>
+            <span className="section-subtitle" style={{ color: '#D4AF37' }}>Production Tracking Tool</span>
+            <h2 className="section-title" style={{ color: '#0B0F19' }}>Watch Vericea® in Action</h2>
+            <p className="section-desc" style={{ color: '#334155', fontSize: '18px' }}>Watch how Vericea® improves manufacturing efficiency, production visibility and operational performance.</p>
           </div>
 
           <motion.div 
@@ -1196,7 +1248,7 @@ export default function Home() {
             whileInView="whileInView" 
             viewport={scrollReveal.viewport} 
             className="video-wrapper"
-            style={{ border: '1px solid rgba(255, 255, 255, 0.08)', contentVisibility: 'auto' }}
+            style={{ border: '1px solid rgba(0, 0, 0, 0.08)', contentVisibility: 'auto' }}
           >
             {/* Real Industrial Control Room Photograph background with dark overlay */}
             <div 
@@ -1215,13 +1267,13 @@ export default function Home() {
                   aria-label="Play product video"
                   whileHover={{ scale: 1.08 }}
                   whileTap={{ scale: 0.96 }}
-                  style={{ backgroundColor: 'var(--cta)', color: '#0F172A' }}
+                  style={{ backgroundColor: '#D4AF37', color: '#0B0F19' }}
                 >
                   <Play fill="currentColor" size={28} />
                 </motion.button>
-                <h3 className="video-info-title">Launch Vericea® Demo Walkthrough</h3>
+                <h3 className="video-info-title" style={{ color: '#FFFFFF' }}>Launch Vericea® Demo Walkthrough</h3>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', justifyContent: 'center', marginTop: '6px' }}>
-                  <span className="video-info-subtitle" style={{ color: 'var(--accent)' }}>Operations Overview â€¢ 2:40 mins</span>
+                  <span className="video-info-subtitle" style={{ color: 'var(--accent)' }}>Operations Overview • 2:40 mins</span>
                   <span style={{ fontSize: '11px', fontWeight: '700', padding: '3px 8px', background: 'rgba(245, 158, 11, 0.15)', color: 'var(--cta)', borderRadius: '4px', border: '1px solid rgba(245, 158, 11, 0.3)' }}>COMING SOON</span>
                 </div>
               </div>
@@ -1232,14 +1284,13 @@ export default function Home() {
 
 
       {/* --- WHY CHOOSE CEA INFOTECH --- */}
-
-      <section className="section surface-royal about-section-texture">
+      <section className="section" style={{ backgroundColor: '#0B0F19', color: '#FFFFFF', padding: '120px 0' }}>
 
         <div className="container">
           <div className="section-title-wrapper">
-            <span className="section-subtitle">Our Value Proposition</span>
-            <h2 className="section-title">Why Enterprise Leaders Partner With Us</h2>
-            <p className="section-desc">Over a decade of deploying high-uptime business software optimized for bottom-line results.</p>
+            <span className="section-subtitle" style={{ color: '#D4AF37' }}>Our Value Proposition</span>
+            <h2 className="section-title" style={{ color: '#FFFFFF' }}>Why Enterprise Leaders Partner With Us</h2>
+            <p className="section-desc" style={{ color: '#94A3B8', fontSize: '18px' }}>Over a decade of deploying high-uptime business software optimized for bottom-line results.</p>
           </div>
 
           <div className="grid-4">
@@ -1272,13 +1323,13 @@ export default function Home() {
                 whileInView="whileInView"
                 viewport={scrollReveal.viewport}
                 className="glass-card"
-                style={{ backgroundColor: 'var(--background)', borderColor: 'var(--border-color)' }}
-                whileHover={{ y: -6, borderColor: 'rgba(37, 99, 235, 0.25)', boxShadow: 'var(--shadow-lg)' }}
+                style={{ backgroundColor: '#121826', border: '1px solid rgba(212, 175, 55, 0.2)' }}
+                whileHover={{ y: -6, borderColor: '#D4AF37', boxShadow: '0 12px 40px rgba(212, 175, 55, 0.15)' }}
               >
-                <div className="card-icon" style={{ backgroundColor: 'var(--alternate-bg)', color: idx === 0 ? 'var(--secondary)' : idx === 1 ? 'var(--cta)' : idx === 2 ? 'var(--accent)' : '#10b981' }}>{item.icon}</div>
+                <div className="card-icon" style={{ backgroundColor: 'rgba(212, 175, 55, 0.1)', color: '#D4AF37', border: '1px solid rgba(212, 175, 55, 0.2)' }}>{item.icon}</div>
 
-                <h3 className="card-title" style={{ fontSize: '18px', fontWeight: '700' }}>{item.title}</h3>
-                <p className="card-text" style={{ fontSize: '14px', lineHeight: '1.6' }}>{item.desc}</p>
+                <h3 className="card-title" style={{ fontSize: '22px', fontWeight: '700', color: '#FFFFFF' }}>{item.title}</h3>
+                <p className="card-text" style={{ fontSize: '18px', lineHeight: '1.6', color: '#D1D5DB' }}>{item.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -1286,12 +1337,13 @@ export default function Home() {
       </section>
 
       {/* --- TRUSTED PARTNERS SECTION --- */}
-
-      <section className="section surface-matte contact-section-texture" style={{ 
-
+      <section className="section" style={{ 
         padding: '100px 0 110px 0',
         position: 'relative',
-        overflow: 'hidden'
+        overflow: 'hidden',
+        backgroundColor: '#F8FAFC',
+        borderTop: '1px solid rgba(0, 0, 0, 0.05)',
+        borderBottom: '1px solid rgba(0, 0, 0, 0.05)'
       }}>
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
           {/* Section Heading */}
@@ -1303,11 +1355,11 @@ export default function Home() {
             className="section-title-wrapper" 
             style={{ marginBottom: '56px' }}
           >
-            <span className="section-subtitle" style={{ color: 'var(--secondary)' }}>Trusted Partners</span>
-            <h2 className="section-title" style={{ fontSize: '38px', fontWeight: '800' }}>
+            <span className="section-subtitle" style={{ color: '#D4AF37' }}>Trusted Partners</span>
+            <h2 className="section-title" style={{ fontSize: '38px', fontWeight: '800', color: '#0B0F19' }}>
               Trusted Partners
             </h2>
-            <p className="section-desc" style={{ fontSize: '16px', lineHeight: '1.6', color: 'var(--text-muted)' }}>
+            <p className="section-desc" style={{ fontSize: '18px', lineHeight: '1.6', color: '#475569' }}>
               Organizations across manufacturing, engineering, consulting, NGO and enterprise sectors trust CEA Infotech for technology solutions, compliance systems and digital transformation initiatives.
             </p>
           </motion.div>
@@ -1335,21 +1387,21 @@ export default function Home() {
                         scale: 1.04, 
                         filter: 'grayscale(0%)', 
                         opacity: 1,
-                        borderColor: 'var(--supporting)',
-                        boxShadow: 'var(--shadow-md)'
+                        borderColor: '#D4AF37',
+                        boxShadow: '0 8px 24px rgba(212, 175, 55, 0.15)'
                       }}
                       style={{
                         display: 'flex',
                         alignItems: 'center',
                         gap: '12px',
-                        background: 'var(--secondary-bg)',
-                        border: '1px solid var(--border-color)',
+                        background: '#FFFFFF',
+                        border: '1px solid rgba(0,0,0,0.08)',
                         borderRadius: '12px',
                         padding: '12px 22px',
-                        boxShadow: 'var(--shadow-sm)',
+                        boxShadow: '0 4px 12px rgba(0,0,0,0.03)',
                         cursor: 'pointer',
                         filter: 'grayscale(100%)',
-                        opacity: 0.6,
+                        opacity: 0.72,
                         transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
                         whiteSpace: 'nowrap'
                       }}
@@ -1358,8 +1410,8 @@ export default function Home() {
                         width: '32px', 
                         height: '32px', 
                         borderRadius: '6px', 
-                        backgroundColor: `${partner.color}15`, 
-                        color: partner.color,
+                        backgroundColor: 'rgba(212, 175, 55, 0.1)', 
+                        color: '#D4AF37',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
@@ -1367,7 +1419,7 @@ export default function Home() {
                       }}>
                         <IconComp size={16} strokeWidth={2} />
                       </div>
-                      <span style={{ fontSize: '15px', fontWeight: '600', color: 'var(--text-main)', fontFamily: 'var(--font-headings)' }}>
+                      <span style={{ fontSize: '15px', fontWeight: '600', color: '#0B0F19', fontFamily: 'var(--font-headings)' }}>
                         {partner.name}
                       </span>
                     </motion.div>
@@ -1386,21 +1438,21 @@ export default function Home() {
                         scale: 1.04, 
                         filter: 'grayscale(0%)', 
                         opacity: 1,
-                        borderColor: 'var(--supporting)',
-                        boxShadow: 'var(--shadow-md)'
+                        borderColor: '#D4AF37',
+                        boxShadow: '0 8px 24px rgba(212, 175, 55, 0.15)'
                       }}
                       style={{
                         display: 'flex',
                         alignItems: 'center',
                         gap: '12px',
-                        background: 'var(--secondary-bg)',
-                        border: '1px solid var(--border-color)',
+                        background: '#FFFFFF',
+                        border: '1px solid rgba(0,0,0,0.08)',
                         borderRadius: '12px',
                         padding: '12px 22px',
-                        boxShadow: 'var(--shadow-sm)',
+                        boxShadow: '0 4px 12px rgba(0,0,0,0.03)',
                         cursor: 'pointer',
                         filter: 'grayscale(100%)',
-                        opacity: 0.6,
+                        opacity: 0.72,
                         transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
                         whiteSpace: 'nowrap'
                       }}
@@ -1409,8 +1461,8 @@ export default function Home() {
                         width: '32px', 
                         height: '32px', 
                         borderRadius: '6px', 
-                        backgroundColor: `${partner.color}15`, 
-                        color: partner.color,
+                        backgroundColor: 'rgba(212, 175, 55, 0.1)', 
+                        color: '#D4AF37',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
@@ -1418,7 +1470,7 @@ export default function Home() {
                       }}>
                         <IconComp size={16} strokeWidth={2} />
                       </div>
-                      <span style={{ fontSize: '15px', fontWeight: '600', color: 'var(--text-main)', fontFamily: 'var(--font-headings)' }}>
+                      <span style={{ fontSize: '15px', fontWeight: '600', color: '#0B0F19', fontFamily: 'var(--font-headings)' }}>
                         {partner.name}
                       </span>
                     </motion.div>
@@ -1439,7 +1491,7 @@ export default function Home() {
               textAlign: 'center', 
               marginTop: '48px', 
               fontSize: '15px', 
-              color: 'var(--text-muted)', 
+              color: '#475569', 
               fontWeight: '500',
               fontStyle: 'italic'
             }}
@@ -1450,9 +1502,7 @@ export default function Home() {
       </section>
 
       {/* --- CALL TO ACTION --- */}
-
-      <section className="section surface-royal contact-section-texture" style={{ position: 'relative', overflow: 'hidden' }}>
-
+      <section className="section" style={{ position: 'relative', overflow: 'hidden', backgroundColor: '#0B0F19', color: '#FFFFFF', padding: '120px 0' }}>
         <div style={{ position: 'absolute', top: '-10%', right: '-10%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(212, 175, 55, 0.12) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
         <div style={{ position: 'absolute', bottom: '-10%', left: '-10%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
 
@@ -1465,7 +1515,7 @@ export default function Home() {
             style={{ maxWidth: '720px', margin: '0 auto' }}
           >
             <h2 style={{ fontSize: '40px', marginBottom: '20px', letterSpacing: '-1px', color: '#ffffff' }}>Ready To Transform Your Operations?</h2>
-            <p style={{ fontSize: '18px', color: 'rgba(241, 245, 249, 0.8)', marginBottom: '40px', lineHeight: '1.6' }}>
+            <p style={{ fontSize: '18px', color: '#E2E8F0', marginBottom: '40px', lineHeight: '1.6' }}>
               Improve productivity, compliance and operational visibility with CEA Infotech solutions. Connect with solutions architect M.D. Manohar and our team.
             </p>
             <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap' }}>
@@ -1481,8 +1531,9 @@ export default function Home() {
               <motion.button 
                 onClick={() => navigate('/services')} 
                 className="btn btn-dark-outline"
-                whileHover={{ scale: 1.03 }}
+                whileHover={{ scale: 1.03, borderColor: '#D4AF37', backgroundColor: 'rgba(212, 175, 55, 0.08)' }}
                 whileTap={{ scale: 0.98 }}
+                style={{ border: '2px solid rgba(255, 255, 255, 0.35)', color: '#FFFFFF' }}
               >
                 Explore Services
               </motion.button>

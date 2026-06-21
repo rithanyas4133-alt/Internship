@@ -1351,20 +1351,80 @@ export default function Partners() {
 
       {/* ── SECTION 6: REVENUE OPPORTUNITY PROJECTION ───────────────────────── */}
 
-      <section className="section surface-matte" style={{ padding: '100px 0 60px 0', position: 'relative' }}>
+      <section 
+        className="section" 
+        style={{ 
+          padding: '100px 0 60px 0', 
+          position: 'relative', 
+          backgroundColor: '#F8F4EE', 
+          overflow: 'hidden' 
+        }}
+      >
+        {/* Premium light warm-cream background decoration glow assets */}
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '50%',
+          height: '50%',
+          background: 'radial-gradient(circle at top left, rgba(56, 189, 248, 0.06) 0%, transparent 60%)',
+          pointerEvents: 'none',
+          zIndex: 0
+        }} />
+        <div style={{
+          position: 'absolute',
+          bottom: 0,
+          right: 0,
+          width: '50%',
+          height: '50%',
+          background: 'radial-gradient(circle at bottom right, rgba(212, 175, 55, 0.06) 0%, rgba(239, 231, 218, 0.25) 50%, transparent 70%)',
+          pointerEvents: 'none',
+          zIndex: 0
+        }} />
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          backgroundImage: 'radial-gradient(rgba(212, 175, 55, 0.06) 1.5px, transparent 1.5px)',
+          backgroundSize: '24px 24px',
+          opacity: 0.7,
+          pointerEvents: 'none',
+          zIndex: 0
+        }} />
 
-        <div className="container">
+        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <motion.div 
             {...fadeIn}
             style={{ textAlign: 'center', marginBottom: '60px' }}
           >
-            <span style={{ color: 'var(--supporting)', fontWeight: '800', textTransform: 'uppercase', fontSize: '13px', letterSpacing: '2px' }}>
+            <span 
+              style={{ 
+                color: '#0284C7', 
+                fontWeight: '800', 
+                textTransform: 'uppercase', 
+                fontSize: '12px', 
+                letterSpacing: '2px',
+                background: 'rgba(2, 132, 199, 0.08)',
+                padding: '5px 14px',
+                borderRadius: '20px',
+                display: 'inline-block'
+              }}
+            >
               GROWTH SIMULATOR
             </span>
-            <h2 style={{ fontSize: '36px', fontWeight: '800', color: '#ffffff', marginTop: '10px' }}>
+            <h2 
+              style={{ 
+                fontSize: '36px', 
+                fontWeight: '800', 
+                background: 'linear-gradient(135deg, #0B1F3F 0%, #2563EB 50%, #0284C7 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                marginTop: '12px',
+                display: 'inline-block'
+              }}
+            >
               Revenue Opportunity Projection
             </h2>
-            <p style={{ color: 'var(--text-muted)', maxWidth: '600px', margin: '12px auto 0 auto' }}>
+            <p style={{ color: '#475569', maxWidth: '600px', margin: '12px auto 0 auto', fontSize: '15.5px', lineHeight: '1.6' }}>
               A comparative analysis of the cumulative revenue potential across the three partnership models over a three-year horizon.
             </p>
           </motion.div>

@@ -133,6 +133,7 @@ export default function IndiaMap() {
         >
           {/* Geographically accurate SVG India Map */}
           <svg 
+            id="pdf-india-map"
             viewBox="0 0 612 696" 
             style={{ 
               width: '100%', 

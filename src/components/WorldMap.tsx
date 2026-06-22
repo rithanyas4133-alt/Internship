@@ -92,6 +92,7 @@ export default function WorldMap() {
           }}
         >
           <svg 
+            id="pdf-world-map"
             viewBox="30.767 241.591 784.077 458.627" 
             style={{ 
               width: '100%', 

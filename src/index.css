@@ -4330,3 +4330,70 @@ a.cta:hover { color: var(--cta-hover); transform: translateY(-2px); }
   }
 }
 
+/* ─── PRINT STYLES ─── */
+@media print {
+  /* Hide navbar, drawer, overlays, toggle hamburger, and download buttons */
+  header.navbar,
+  .navbar,
+  .mobile-nav-overlay,
+  .mobile-nav,
+  .hamburger,
+  .no-print {
+    display: none !important;
+  }
+
+  /* Force background color and printing styles */
+  body, html {
+    background-color: #0b0f19 !important; /* Force primary dark background */
+    color: #ffffff !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Ensure standard elements print background graphics properly */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Compress layout and font sizing to fit exactly into 4 A4 pages */
+  .partners-page {
+    zoom: 82% !important;
+  }
+
+  .section {
+    padding: 32px 0 !important;
+  }
+
+  .section-title-wrapper {
+    margin-bottom: 28px !important;
+  }
+
+  /* Force clean page-break boundaries at Section 4, Section 6, and Section 9 */
+  #print-page-2 {
+    page-break-before: always !important;
+    break-before: page !important;
+  }
+
+  #print-page-3 {
+    page-break-before: always !important;
+    break-before: page !important;
+  }
+
+  #print-page-4 {
+    page-break-before: always !important;
+    break-before: page !important;
+  }
+
+  /* Avoid page-breaks cutting map elements and cards in half within pages */
+  .map-premium-card,
+  .gold-border-glow-hover,
+  .glass-card,
+  .timeline-item {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+}
+

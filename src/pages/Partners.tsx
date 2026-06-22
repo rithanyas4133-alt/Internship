@@ -28,6 +28,7 @@ import {
 import CountUp from '../components/CountUp';
 import IndiaMap from '../components/IndiaMap';
 import WorldMap from '../components/WorldMap';
+import { generatePartnerProspectus } from '../utils/ProspectusPDFGenerator';
 
 
 function PartnersHeroEcosystem() {
@@ -69,6 +70,7 @@ function PartnersHeroEcosystem() {
 
   return (
     <svg 
+      id="pdf-hero-ecosystem"
       viewBox="0 0 460 460" 
       style={{ 
         width: '100%', 
@@ -560,11 +562,10 @@ export default function Partners() {
                 Become a Partner
                 <ArrowRight size={16} />
               </button>
-              <button 
-                className="btn btn-secondary"
+                <button 
+                className="btn btn-secondary no-print"
                 onClick={() => {
-                  // Direct download fallback
-                  window.open('/images/partners_prospectus.pdf', '_blank');
+                  generatePartnerProspectus();
                 }}
               >
                 Download Prospectus
@@ -969,6 +970,7 @@ export default function Partners() {
 
       {/* ── SECTION 4: REVENUE SHARING MODEL ───────────────────────────── */}
       <section 
+        id="print-page-2"
         className="section" 
         style={{ 
           padding: '100px 0', 
@@ -1330,7 +1332,7 @@ export default function Partners() {
                       <span style={{ color: 'var(--text-muted)' }}>Initial Team Size:</span>
                       <span style={{ fontWeight: '700', color: '#ffffff' }}>{businessModels[activeModel].teamSize}</span>
                     </div>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px' }}>
                       <span style={{ color: 'var(--text-muted)' }}>Investment ROI Index:</span>
                       <span style={{ fontWeight: '700', color: 'var(--supporting)' }}>{businessModels[activeModel].roi}</span>
                     </div>
@@ -1349,6 +1351,7 @@ export default function Partners() {
       {/* ── SECTION 6: REVENUE OPPORTUNITY PROJECTION ───────────────────────── */}
 
       <section 
+        id="print-page-3"
         className="section" 
         style={{ 
           padding: '100px 0 60px 0', 
@@ -1805,6 +1808,7 @@ export default function Partners() {
       {/* ── SECTION 9: WHO WE ARE LOOKING FOR ────────────────────────────── */}
 
       <section 
+        id="print-page-4"
         className="section" 
         style={{ 
           padding: '100px 0', 

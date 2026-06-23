@@ -1442,29 +1442,105 @@ export default function About() {
 
       {/* ===== VISION ===== */}
 
-      <section className="section surface-royal about-vision-section">
+      <section
+        className="section"
+        style={{
+          backgroundColor: '#FAF7F2',
+          backgroundImage: 'radial-gradient(circle at 20% 30%, rgba(239,231,218,0.35) 0%, transparent 60%), radial-gradient(circle at 80% 70%, rgba(56,189,248,0.08) 0%, transparent 60%)',
+          borderTop: '1px solid rgba(15,23,42,0.06)',
+          borderBottom: '1px solid rgba(15,23,42,0.06)',
+        }}
+      >
 
         <div className="container">
           <motion.div className="section-title-wrapper" {...fadeInUp}>
-            <span className="section-subtitle">Our Vision</span>
-            <h2 className="section-title">What Drives Us Forward</h2>
-            <p className="section-desc">Our foundation is anchored on customer success, business excellence and continuous innovation.</p>
+            <span className="section-subtitle" style={{ color: '#374151', fontWeight: 500 }}>What Drives Us Forward</span>
+            <h2 className="section-title">
+              <span style={{
+                background: 'linear-gradient(135deg, #0B1F3F 0%, #2563EB 50%, #0284C7 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+                color: 'transparent',
+              }}>Our Vision</span>
+            </h2>
+            <p className="section-desc" style={{ color: '#475569' }}>Our foundation is anchored on customer success, business excellence and continuous innovation.</p>
           </motion.div>
           <motion.div className="grid-3" variants={staggerContainer} initial="initial" whileInView="whileInView" viewport={{ once: true }}>
-            <motion.div variants={staggerItem} className="vision-card">
+            <motion.div
+              variants={staggerItem}
+              whileHover={{
+                y: -8,
+                boxShadow: '0 20px 45px rgba(56,189,248,0.18), 0 8px 24px rgba(37,99,235,0.12)',
+                borderColor: 'rgba(56,189,248,0.45)',
+              }}
+              transition={{ duration: 0.28, ease: 'easeOut' }}
+              style={{
+                borderRadius: '14px',
+                position: 'relative',
+                background: 'linear-gradient(135deg, rgba(11,31,63,0.96) 0%, rgba(15,23,42,0.95) 100%)',
+                border: '1px solid rgba(56,189,248,0.12)',
+                backdropFilter: 'blur(12px)',
+                WebkitBackdropFilter: 'blur(12px)',
+                boxShadow: '0 4px 18px rgba(0,0,0,0.2)',
+                overflow: 'hidden',
+                padding: '32px 28px',
+              }}
+            >
+              <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '3px', background: 'linear-gradient(90deg, #38BDF8, #0EA5E9, #2563EB)', borderRadius: '999px' }} />
               <div className="vision-icon icon-amber"><HeartHandshake size={28} /></div>
-              <h3>Customer Success</h3>
-              <p>Building long-term customer relationships through trusted solutions and services.</p>
+              <h3 style={{ color: '#FFFFFF' }}>Customer Success</h3>
+              <p style={{ color: 'rgba(255,255,255,0.72)' }}>Building long-term customer relationships through trusted solutions and services.</p>
             </motion.div>
-            <motion.div variants={staggerItem} className="vision-card">
+            <motion.div
+              variants={staggerItem}
+              whileHover={{
+                y: -8,
+                boxShadow: '0 20px 45px rgba(56,189,248,0.18), 0 8px 24px rgba(37,99,235,0.12)',
+                borderColor: 'rgba(56,189,248,0.45)',
+              }}
+              transition={{ duration: 0.28, ease: 'easeOut' }}
+              style={{
+                borderRadius: '14px',
+                position: 'relative',
+                background: 'linear-gradient(135deg, rgba(11,31,63,0.96) 0%, rgba(15,23,42,0.95) 100%)',
+                border: '1px solid rgba(56,189,248,0.12)',
+                backdropFilter: 'blur(12px)',
+                WebkitBackdropFilter: 'blur(12px)',
+                boxShadow: '0 4px 18px rgba(0,0,0,0.2)',
+                overflow: 'hidden',
+                padding: '32px 28px',
+              }}
+            >
+              <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '3px', background: 'linear-gradient(90deg, #38BDF8, #0EA5E9, #2563EB)', borderRadius: '999px' }} />
               <div className="vision-icon icon-blue"><Target size={28} /></div>
-              <h3>Business Excellence</h3>
-              <p>Helping organizations overcome challenges and improve operational efficiency.</p>
+              <h3 style={{ color: '#FFFFFF' }}>Business Excellence</h3>
+              <p style={{ color: 'rgba(255,255,255,0.72)' }}>Helping organizations overcome challenges and improve operational efficiency.</p>
             </motion.div>
-            <motion.div variants={staggerItem} className="vision-card">
+            <motion.div
+              variants={staggerItem}
+              whileHover={{
+                y: -8,
+                boxShadow: '0 20px 45px rgba(56,189,248,0.18), 0 8px 24px rgba(37,99,235,0.12)',
+                borderColor: 'rgba(56,189,248,0.45)',
+              }}
+              transition={{ duration: 0.28, ease: 'easeOut' }}
+              style={{
+                borderRadius: '14px',
+                position: 'relative',
+                background: 'linear-gradient(135deg, rgba(11,31,63,0.96) 0%, rgba(15,23,42,0.95) 100%)',
+                border: '1px solid rgba(56,189,248,0.12)',
+                backdropFilter: 'blur(12px)',
+                WebkitBackdropFilter: 'blur(12px)',
+                boxShadow: '0 4px 18px rgba(0,0,0,0.2)',
+                overflow: 'hidden',
+                padding: '32px 28px',
+              }}
+            >
+              <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '3px', background: 'linear-gradient(90deg, #38BDF8, #0EA5E9, #2563EB)', borderRadius: '999px' }} />
               <div className="vision-icon icon-teal"><Lightbulb size={28} /></div>
-              <h3>Continuous Innovation</h3>
-              <p>Delivering scalable software products and digital transformation solutions.</p>
+              <h3 style={{ color: '#FFFFFF' }}>Continuous Innovation</h3>
+              <p style={{ color: 'rgba(255,255,255,0.72)' }}>Delivering scalable software products and digital transformation solutions.</p>
             </motion.div>
           </motion.div>
         </div>
@@ -1475,12 +1551,28 @@ export default function About() {
 
       {/* ===== FOUNDER ===== */}
 
-      <section className="section surface-royal about-founder-section">
+      <section
+        className="section"
+        style={{
+          backgroundColor: '#FAF7F2',
+          backgroundImage: 'radial-gradient(circle at 70% 20%, rgba(239,231,218,0.35) 0%, transparent 60%), radial-gradient(circle at 30% 80%, rgba(56,189,248,0.08) 0%, transparent 60%)',
+          borderTop: '1px solid rgba(15,23,42,0.06)',
+          borderBottom: '1px solid rgba(15,23,42,0.06)',
+        }}
+      >
 
         <div className="container">
           <motion.div className="section-title-wrapper" {...fadeInUp}>
-            <span className="section-subtitle">Leadership</span>
-            <h2 className="section-title">FOUNDER DIRECTOR</h2>
+            <span className="section-subtitle" style={{ color: '#374151', fontWeight: 500 }}>FOUNDER DIRECTOR</span>
+            <h2 className="section-title">
+              <span style={{
+                background: 'linear-gradient(135deg, #0B1F3F 0%, #2563EB 50%, #0284C7 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+                color: 'transparent',
+              }}>Leadership</span>
+            </h2>
           </motion.div>
           <motion.div className="founder-card" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-80px' }} transition={{ duration: 0.7 }}>
             <div className="founder-grid">
@@ -1516,24 +1608,60 @@ export default function About() {
 
       {/* ===== COMPANY JOURNEY ===== */}
 
-      <section className="section surface-matte about-journey-section">
+      <section
+        className="section"
+        style={{
+          backgroundColor: '#FAF7F2',
+          backgroundImage: 'radial-gradient(circle at 20% 30%, rgba(239,231,218,0.35) 0%, transparent 60%), radial-gradient(circle at 80% 70%, rgba(56,189,248,0.08) 0%, transparent 60%)',
+          borderTop: '1px solid rgba(15,23,42,0.06)',
+          borderBottom: '1px solid rgba(15,23,42,0.06)',
+          padding: '80px 0',
+        }}
+      >
 
         <div className="container">
           <motion.div className="section-title-wrapper" {...fadeInUp}>
-            <span className="section-subtitle">Milestones</span>
-            <h2 className="section-title">Our Journey</h2>
-            <p className="section-desc">A decade of growth, innovation and global impact.</p>
+            <span className="section-subtitle" style={{ color: '#374151', fontWeight: 500 }}>Our Journey</span>
+            <h2 className="section-title">
+              <span style={{
+                background: 'linear-gradient(135deg, #0B1F3F 0%, #2563EB 50%, #0284C7 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+                color: 'transparent',
+              }}>Milestones</span>
+            </h2>
+            <p className="section-desc" style={{ color: '#475569' }}>A decade of growth, innovation and global impact.</p>
           </motion.div>
           <div className="h-timeline">
             <div className="h-timeline-line" />
             <motion.div className="h-timeline-items" variants={staggerContainer} initial="initial" whileInView="whileInView" viewport={{ once: true }}>
               {timeline.map((item, i) => (
                 <motion.div key={i} variants={staggerItem} className="h-timeline-item">
-                  <div className="h-timeline-card">
-                    <div className="h-timeline-year"><Calendar size={14} /><span>{item.year}</span></div>
-                    <h3>{item.title}</h3>
-                  </div>
-                  <div className="h-timeline-dot" />
+                  <motion.div
+                    className="h-timeline-card"
+                    whileHover={{
+                      y: -8,
+                      boxShadow: '0 20px 45px rgba(56,189,248,0.18), 0 8px 24px rgba(37,99,235,0.12)',
+                      borderColor: 'rgba(56,189,248,0.45)',
+                    }}
+                    transition={{ duration: 0.28, ease: 'easeOut' }}
+                    style={{
+                      position: 'relative',
+                      background: 'linear-gradient(135deg, rgba(11,31,63,0.96) 0%, rgba(15,23,42,0.95) 100%)',
+                      border: '1px solid rgba(56,189,248,0.12)',
+                      backdropFilter: 'blur(12px)',
+                      WebkitBackdropFilter: 'blur(12px)',
+                      boxShadow: '0 4px 18px rgba(0,0,0,0.2)',
+                      overflow: 'hidden',
+                      borderRadius: '14px',
+                    }}
+                  >
+                    <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '3px', background: 'linear-gradient(90deg, #38BDF8, #0EA5E9, #2563EB)', borderRadius: '999px' }} />
+                    <div className="h-timeline-year" style={{ color: '#38BDF8', background: 'rgba(56,189,248,0.08)', border: '1px solid rgba(56,189,248,0.15)' }}><Calendar size={14} /><span style={{ color: '#38BDF8' }}>{item.year}</span></div>
+                    <h3 style={{ color: '#FFFFFF' }}>{item.title}</h3>
+                  </motion.div>
+                  <div className="h-timeline-dot" style={{ backgroundColor: '#2563EB', border: '3px solid #FAF7F2', boxShadow: '0 0 0 4px rgba(37,99,235,0.15)' }} />
                 </motion.div>
               ))}
             </motion.div>

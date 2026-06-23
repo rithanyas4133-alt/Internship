@@ -33,10 +33,10 @@
   --secondary-rgb: 200, 208, 216;
 
   /* ── Brand Accents — Obsidian Gold ── */
-  --accent: #D4AF37;
-  --accent-rgb: 212, 175, 55;
-  --supporting: #FFD700;
-  --supporting-rgb: 255, 215, 0;
+  --accent: #38BDF8;
+  --accent-rgb: 56, 189, 248;
+  --supporting: #38BDF8;
+  --supporting-rgb: 56, 189, 248;
 
   /* ── CTA ── */
   --cta: var(--accent);
@@ -68,12 +68,12 @@
   --shadow-md: 0 8px 32px rgba(0, 0, 0, 0.30);
   --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.40);
   --shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.50);
-  --shadow-cta: 0 8px 28px rgba(212, 175, 55, 0.30);
+  --shadow-cta: 0 8px 28px rgba(56, 189, 248, 0.30);
 
   /* ── Borders & Cards ── */
   --border-color: rgba(38, 50, 71, 0.8);
   --card-bg: rgba(18, 24, 38, 0.85);
-  --gold-divider: rgba(212, 175, 55, 0.15);
+  --gold-divider: rgba(56, 189, 248, 0.15);
 
   /* ── Border Radius ── */
   --border-radius-sm: 8px;
@@ -393,11 +393,11 @@ code, pre, kbd, samp {
   transform: translateX(-50%);
   width: 97%;
   max-width: 1850px;
-  height: 78px;
+  height: 60px;
   background-color: rgba(11, 15, 25, 0.88);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(212, 175, 55, 0.15);
+  border: 1px solid rgba(56, 189, 248, 0.15);
   border-radius: 16px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.40);
   z-index: 1000;
@@ -408,9 +408,9 @@ code, pre, kbd, samp {
 
 .navbar.scrolled {
   top: 10px;
-  height: 68px;
+  height: 52px;
   background-color: rgba(11, 15, 25, 0.95);
-  border: 1px solid rgba(212, 175, 55, 0.25);
+  border: 1px solid rgba(56, 189, 248, 0.25);
   box-shadow: 0 12px 48px rgba(0, 0, 0, 0.50);
 }
 
@@ -435,7 +435,7 @@ code, pre, kbd, samp {
 
 /* Logo images in navbar */
 .logo-image {
-  height: 50px; /* slightly reduced for a more balanced header */
+  height: 40px; /* slightly reduced for a more balanced header */
   width: auto;
   display: block;
   object-fit: contain;
@@ -443,7 +443,7 @@ code, pre, kbd, samp {
 }
 
 .navbar.scrolled .logo-image {
-  height: 40px;
+  height: 34px;
 }
 
 .logo-main {
@@ -568,6 +568,138 @@ code, pre, kbd, samp {
   font-size: 18px;
   display: inline-block;
   width: max-content;
+}
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   SOLUTIONS HORIZONTAL MEGA-BAR
+   – Fixed below the navbar, viewport-centred (translateX -50% from left:50%)
+   – Four items in a single flex row with equal spacing
+   – Cyan accent on hover / active, consistent with the main nav aesthetic
+   ══════════════════════════════════════════════════════════════════════════════ */
+
+.solutions-megabar {
+  /* Visual shell */
+  background: rgba(9, 14, 28, 0.96);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(56, 189, 248, 0.18);
+  border-radius: 14px;
+  box-shadow:
+    0 24px 56px rgba(0, 0, 0, 0.55),
+    0  0  0  1px rgba(56, 189, 248, 0.06) inset,
+    0 -1px 0  0   rgba(255, 255, 255, 0.04) inset;
+
+  /* Layout */
+  padding: 6px 10px 10px 10px;
+  min-width: 680px;          /* wide enough for 4 items at comfortable size */
+  overflow: hidden;
+}
+
+/* Thin cyan accent stripe at the top of the bar */
+.solutions-megabar__accent {
+  width: 100%;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(56, 189, 248, 0.55) 25%,
+    rgba(56, 189, 248, 0.90) 50%,
+    rgba(56, 189, 248, 0.55) 75%,
+    transparent 100%
+  );
+  margin-bottom: 8px;
+}
+
+/* Flex row that holds all four submenu items */
+.solutions-megabar__items {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 0;                    /* dividers handle spacing visually */
+}
+
+/* Individual submenu link */
+.solutions-megabar__item {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  flex: 1;                   /* equal 25 % width per item */
+  padding: 10px 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: rgba(200, 210, 230, 0.78);
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: 0.1px;
+  white-space: nowrap;
+  transition:
+    color            0.2s ease,
+    background-color 0.2s ease;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Vertical divider between items (pseudo-element on all but the last) */
+.solutions-megabar__item:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 20%;
+  height: 60%;
+  width: 1px;
+  background: rgba(56, 189, 248, 0.12);
+  pointer-events: none;
+}
+
+/* Hover state */
+.solutions-megabar__item:hover {
+  color: #38BDF8;                            /* --accent */
+  background-color: rgba(56, 189, 248, 0.07);
+}
+
+/* Active / current-route state */
+.solutions-megabar__item--active {
+  color: #38BDF8 !important;
+  background-color: rgba(56, 189, 248, 0.10) !important;
+}
+
+/* Animated underline that slides in on hover */
+.solutions-megabar__underline {
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+  width: 36px;
+  height: 2px;
+  border-radius: 2px;
+  background: #38BDF8;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.solutions-megabar__item:hover   .solutions-megabar__underline,
+.solutions-megabar__item--active .solutions-megabar__underline {
+  transform: translateX(-50%) scaleX(1);
+}
+
+/* "Solutions" trigger indicator — open state gets the cyan underline */
+.solutions-trigger--open {
+  color: var(--text-main) !important;
+}
+
+.solutions-trigger--open::after {
+  width: 100% !important;
+}
+
+/* ── Responsive: hide mega-bar on small screens ─────────────────────────── */
+@media (max-width: 1024px) {
+  .solutions-megabar {
+    display: none;   /* mobile uses the drawer accordion instead */
+  }
 }
 
 /* --- PREMIUM ENTERPRISE MATERIAL SYSTEM --- */
@@ -766,11 +898,11 @@ a:hover {
   .grid-3 { grid-template-columns: 1fr; }
   .grid-4 { grid-template-columns: 1fr 1fr; }
   .grid-2 { grid-template-columns: 1fr; }
-  .navbar { height: 76px; }
+  .navbar { height: 60px; }
 
-  .logo-image { height: 50px; }
+  .logo-image { height: 40px; }
 
-  .navbar.scrolled .logo-image { height: 42px; }
+  .navbar.scrolled .logo-image { height: 34px; }
 
   .logo-container { gap: 10px; }
   
@@ -1473,6 +1605,175 @@ a:hover {
   border: 1px solid var(--border-color);
   padding: 40px;
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+}
+
+/* ──────────────────────────────────────────────────────────
+   CONTACT PAGE — PRECISION LAYOUT SYSTEM
+   Goal: Perfect 50/50 alignment, equal top baseline,
+         consistent card spacing, and balanced heights.
+   ────────────────────────────────────────────────────────── */
+
+/*
+  Outer two-column grid.
+  - 1fr 1fr  → exactly 50 % each column
+  - gap 40px → generous column gutter on desktop
+  - align-items: start → both columns pin to the same top edge;
+    neither column stretches the other
+*/
+.contact-layout-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;   /* ← critical: prevents vertical centering that pushes form down */
+}
+
+/*
+  Left column: stacks the card mini-grid + map vertically.
+  Using flex column so the two children (card grid & map)
+  sit one below the other with a consistent gap.
+*/
+.contact-left-col {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;            /* gap between card block and map */
+}
+
+/*
+  Info-card mini-grid inside the left column.
+  Fixed 2 columns so cards always form a clean 2×2 + 1 wide layout.
+  No auto-fit — that caused irregular column widths at mid-breakpoints.
+*/
+.contact-info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+/*
+  Each individual contact info card.
+  Fixed padding, min-height keeps all four cards at the same height
+  even if their content length differs.
+*/
+.contact-info-card {
+  padding: 22px 20px !important;  /* override .glass-card's default 32px */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 140px;
+}
+
+/* Full-width card (Office Address) — spans both columns */
+.contact-info-card--wide {
+  grid-column: 1 / -1;
+  min-height: auto;
+}
+
+/* Icon container inside info cards — smaller than the global .card-icon */
+.contact-card-icon {
+  width: 38px !important;
+  height: 38px !important;
+  border-radius: 10px !important;
+  margin-bottom: 14px !important;
+  font-size: 18px !important;
+  flex-shrink: 0;
+}
+
+/* Card heading */
+.contact-card-title {
+  font-size: 13px !important;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  margin-bottom: 6px;
+  color: var(--text-main);
+}
+
+/* Card body text / link */
+.contact-card-value {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.55;
+  transition: color var(--transition-fast);
+}
+
+a.contact-card-value:hover {
+  color: var(--accent);
+}
+
+/*
+  Map wrapper: fills remaining left-column height.
+  300px is the fixed map height; adjust freely — it does NOT
+  affect alignment because the outer grid uses align-items:start.
+*/
+.contact-map-wrapper {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1.5px solid rgba(var(--accent-rgb), 0.18);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.40);
+  height: 240px;        /* fixed height — change without layout side-effects */
+  flex-shrink: 0;
+}
+
+/*
+  Right column wrapper: stretches to the same height as the left column
+  so the form card can fill it completely.
+*/
+.contact-right-col {
+  display: flex;
+  flex-direction: column;
+}
+
+/*
+  Full-height form card variant.
+  height: 100%  → matches its flex parent (.contact-right-col).
+*/
+.contact-form-card--full {
+  flex: 1;              /* grow to fill .contact-right-col */
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Tablet (≤ 1024px) ─────────────────────────────────── */
+@media (max-width: 1024px) {
+  .contact-layout-grid {
+    gap: 24px;          /* tighten gutter on tablet */
+  }
+}
+
+/* ── Mobile (≤ 767px) ──────────────────────────────────── */
+@media (max-width: 767px) {
+  .contact-layout-grid {
+    grid-template-columns: 1fr;  /* single column on mobile */
+    gap: 32px;
+  }
+
+  .contact-left-col,
+  .contact-right-col {
+    width: 100%;
+  }
+
+  .contact-map-wrapper {
+    height: 220px;
+  }
+
+  .contact-info-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .contact-info-card {
+    min-height: 120px;
+  }
+}
+
+/* ── Very small screens (≤ 480px) ─────────────────────── */
+@media (max-width: 480px) {
+  .contact-info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-info-card--wide {
+    grid-column: 1;
+  }
 }
 
 .form-group {
@@ -3188,8 +3489,8 @@ a.cta:hover { color: var(--cta-hover); transform: translateY(-2px); }
 .products-section-texture {
   background-color: #0B0F19;
   background-image: 
-    radial-gradient(rgba(212, 175, 55, 0.04) 1px, transparent 1px),
-    radial-gradient(circle at 30% 20%, rgba(212, 175, 55, 0.03), transparent 50%);
+    radial-gradient(rgba(56, 189, 248, 0.04) 1px, transparent 1px),
+    radial-gradient(circle at 30% 20%, rgba(56, 189, 248, 0.03), transparent 50%);
   background-size: 32px 32px, auto;
 }
 
@@ -4189,8 +4490,8 @@ a.cta:hover { color: var(--cta-hover); transform: translateY(-2px); }
 
 .orbit-benefit-node:hover ~ .orbit-node-label,
 .orbit-benefit-node.is-active ~ .orbit-node-label {
-  border-color: rgba(212, 175, 55, 0.58) !important;
-  box-shadow: 0 0 12px rgba(212, 175, 55, 0.18);
+  border-color: rgba(56, 189, 248, 0.58) !important;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.18);
   color: #ffffff !important;
 }
 
@@ -4203,8 +4504,8 @@ a.cta:hover { color: var(--cta-hover); transform: translateY(-2px); }
 
 .orbit-connector.is-active {
   opacity: 1 !important;
-  stroke: rgba(212, 175, 55, 0.88) !important;
-  filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.4));
+  stroke: rgba(56, 189, 248, 0.88) !important;
+  filter: drop-shadow(0 0 6px rgba(56, 189, 248, 0.4));
 }
 
 /* ── Responsive orbit sizing ── */
@@ -4396,4 +4697,5 @@ a.cta:hover { color: var(--cta-hover); transform: translateY(-2px); }
     page-break-inside: avoid !important;
   }
 }
+
 

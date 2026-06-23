@@ -323,7 +323,7 @@ export default function IndiaMap() {
                   <MapPin size={18} color="#38BDF8" />
                 </div>
                 <div style={{ flexGrow: 1 }}>
-                  <h4 style={{ margin: 0, fontSize: '14px', fontWeight: '800', color: '#ffffff' }}>{hoveredCity.name}</h4>
+                  <h4 style={{ margin: 0, fontSize: '14px', fontWeight: '800' }}>{hoveredCity.name}</h4>
                   <p style={{ margin: '2px 0 0 0', fontSize: '11px', color: 'var(--text-muted)' }}>{hoveredCity.type}</p>
                 </div>
                 <div style={{ fontSize: '11px', color: '#38BDF8', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
@@ -337,3 +337,4 @@ export default function IndiaMap() {
     </div>
   );
 }
+

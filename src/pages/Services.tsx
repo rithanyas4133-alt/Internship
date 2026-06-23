@@ -270,11 +270,11 @@ export default function Services() {
   ];
 
   const solutionMatching = [
-    { need: "Production Efficiency", product: "Vericea® Manufacturing", desc: "Improve production tracking and operational efficiency.", accent: "var(--secondary)", icon: <Factory size={20} /> },
-    { need: "Compliance Management", product: "Vericea® Compliance", desc: "Track compliance activities and improve audit readiness.", accent: "var(--accent)", icon: <ShieldCheck size={20} /> },
-    { need: "Risk Assessment", product: "FactSafe", desc: "Identify, assess and monitor business risks.", accent: "#ef4444", icon: <AlertTriangle size={20} /> },
-    { need: "Logistics Cost Optimization", product: "Courier Cost Management", desc: "Control and reduce logistics-related expenses.", accent: "#3b82f6", icon: <Truck size={20} /> },
-    { need: "Custom Business Operations", product: "Custom Application Development", desc: "Tailored software solutions designed around business requirements.", accent: "var(--cta)", icon: <Code size={20} /> }
+    { need: "Production Efficiency", product: "Vericea® Manufacturing", desc: "Improve production tracking and operational efficiency.", accent: "var(--secondary)", icon: <Factory size={20} />, path: "/products/vericea-manufacturing" },
+    { need: "Compliance Management", product: "Vericea® Compliance", desc: "Track compliance activities and improve audit readiness.", accent: "var(--accent)", icon: <ShieldCheck size={20} />, path: "/products/vericea-compliance" },
+    { need: "Risk Assessment", product: "FactSafe", desc: "Identify, assess and monitor business risks.", accent: "#ef4444", icon: <AlertTriangle size={20} />, path: "/products/factsafe" },
+    { need: "Logistics Cost Optimization", product: "Courier Cost Management", desc: "Control and reduce logistics-related expenses.", accent: "#3b82f6", icon: <Truck size={20} />, path: "/products/courier-cost-management" },
+    { need: "Custom Business Operations", product: "Custom Application Development", desc: "Tailored software solutions designed around business requirements.", accent: "var(--cta)", icon: <Code size={20} />, path: "/products" }
   ];
 
   const outcomes = [
@@ -457,7 +457,7 @@ export default function Services() {
         <div className="container">
           <div className="section-title-wrapper" style={{ marginBottom: '56px' }}>
             <span className="section-subtitle" style={{ color: 'var(--supporting)' }}>Our Engagement Model</span>
-            <h2 className="section-title" style={{ color: '#ffffff' }}>How We Partner With Our Clients</h2>
+            <h2 className="section-title" >How We Partner With Our Clients</h2>
             <p className="section-desc" style={{ color: '#94a3b8' }}>
               Every organization has unique challenges. Explore how CEA Infotech collaborates with businesses to design, develop and support technology solutions.
             </p>
@@ -498,7 +498,7 @@ export default function Services() {
                         {card.icon}
                       </div>
                       <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
-                        <h3 style={{ fontSize: '18px', fontWeight: '800', color: '#ffffff', margin: 0 }}>
+                        <h3 style={{ fontSize: '18px', fontWeight: '800', margin: 0 }}>
                           {card.title}
                         </h3>
                         {!isExpanded && (
@@ -618,14 +618,53 @@ export default function Services() {
           SECTION: OUR SOLUTION DELIVERY FRAMEWORK
           ================================================== */}
 
-      <section className="section surface-royal compliance-section-texture" style={{ borderBottom: '1px solid rgba(0, 229, 255, 0.10)', position: 'relative', overflow: 'hidden' }}>
-
-        <div style={{ position: 'absolute', top: '0', left: '50%', transform: 'translateX(-50%)', width: '600px', height: '300px', background: 'radial-gradient(ellipse at center, rgba(0, 229, 255, 0.03) 0%, transparent 70%)', pointerEvents: 'none' }} />
+      <section className="section" style={{ position: 'relative', overflow: 'hidden', padding: '100px 0', backgroundColor: '#FAF7F2', borderBottom: '1px solid rgba(0, 0, 0, 0.08)' }}>
+        {/* Layered radial gradients */}
+        <div style={{
+          position: 'absolute',
+          top: '-10%',
+          left: '-10%',
+          width: '50%',
+          height: '60%',
+          background: 'radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, rgba(239, 231, 218, 0.35) 50%, transparent 70%)',
+          pointerEvents: 'none',
+          zIndex: 0
+        }} />
+        <div style={{
+          position: 'absolute',
+          bottom: '-10%',
+          right: '-10%',
+          width: '50%',
+          height: '60%',
+          background: 'radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, rgba(245, 240, 232, 0.4) 50%, transparent 70%)',
+          pointerEvents: 'none',
+          zIndex: 0
+        }} />
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <div className="section-title-wrapper" style={{ marginBottom: '64px' }}>
-            <span className="section-subtitle" style={{ color: 'var(--supporting)' }}>Workflow & Rigor</span>
-            <h2 className="section-title" style={{ color: '#ffffff' }}>How We Deliver Results</h2>
-            <p className="section-desc" style={{ color: '#94a3b8' }}>Our end-to-end delivery framework ensures predictable schedules and high-uptime solutions.</p>
+            <h2 className="section-title" style={{
+              fontSize: '36px',
+              fontWeight: '800',
+              fontFamily: 'var(--font-headings)',
+              background: 'linear-gradient(135deg, #0B1F3F 0%, #2563EB 50%, #0284C7 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+              color: 'transparent',
+              marginBottom: '10px'
+            }}>
+              Workflow & Rigor
+            </h2>
+            <h3 style={{
+              fontSize: '22px',
+              fontWeight: '600',
+              color: '#374151',
+              margin: '0 0 16px 0',
+              fontFamily: 'var(--font-headings)'
+            }}>
+              How We Deliver Results
+            </h3>
+            <p className="section-desc" style={{ color: '#4b5563', margin: '0' }}>Our end-to-end delivery framework ensures predictable schedules and high-uptime solutions.</p>
           </div>
 
           {/* Animated Horizontal Process Roadmap */}
@@ -644,7 +683,7 @@ export default function Services() {
                 left: '80px',
                 right: '80px',
                 height: '3px',
-                backgroundColor: 'var(--gold-divider)',
+                backgroundColor: 'rgba(2, 132, 199, 0.15)',
                 zIndex: 1
               }}></div>
 
@@ -672,13 +711,12 @@ export default function Services() {
                       width: '50px',
                       height: '50px',
                       borderRadius: '50%',
-                      backgroundColor: 'rgba(0, 229, 255, 0.1)',
-                      border: '2px solid var(--accent)',
-                      boxShadow: '0 0 15px rgba(0, 229, 255, 0.2)',
+                      backgroundColor: 'rgba(2, 132, 199, 0.08)',
+                      border: '2px solid #0284C7',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      color: 'var(--supporting)',
+                      color: '#0284C7',
                       fontSize: '14px',
                       fontWeight: '800',
                       marginBottom: '16px',
@@ -688,10 +726,10 @@ export default function Services() {
                     {step.step}
                   </motion.div>
 
-                  <h3 style={{ fontSize: '15px', fontWeight: '800', color: '#ffffff', margin: '0 0 6px 0' }}>
+                  <h3 style={{ fontSize: '15px', fontWeight: '800', margin: '0 0 6px 0', color: '#0B1220' }}>
                     {step.name}
                   </h3>
-                  <p style={{ fontSize: '11.5px', color: '#94a3b8', lineHeight: '1.5', margin: 0 }}>
+                  <p style={{ fontSize: '11.5px', color: '#4b5563', lineHeight: '1.5', margin: 0 }}>
                     {step.desc}
                   </p>
                 </motion.div>
@@ -712,7 +750,7 @@ export default function Services() {
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <div className="section-title-wrapper" style={{ marginBottom: '56px' }}>
             <span className="section-subtitle" style={{ color: 'var(--supporting)' }}>Product Alignments</span>
-            <h2 className="section-title" style={{ color: '#ffffff' }}>The Right Solution For Every Business Need</h2>
+            <h2 className="section-title" >The Right Solution For Every Business Need</h2>
             <p className="section-desc" style={{ color: '#94a3b8' }}>Aligning specific operational demands to our proprietary tools or customized engineering tracks.</p>
           </div>
 
@@ -724,6 +762,7 @@ export default function Services() {
                 initial="initial"
                 whileInView="whileInView"
                 viewport={scrollReveal.viewport}
+                onClick={() => navigate(sol.path)}
                 className="glass-card"
                 style={{
                   padding: '32px 24px',
@@ -732,7 +771,8 @@ export default function Services() {
                   gap: '16px',
                   position: 'relative',
                   overflow: 'hidden',
-                  borderRadius: '12px'
+                  borderRadius: '12px',
+                  cursor: 'pointer'
                 }}
               >
                 <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', backgroundColor: sol.accent }}></div>
@@ -782,7 +822,7 @@ export default function Services() {
                       <img src="/images/Fact_safe.png" alt="FactSafe Logo" style={{ height: '32px', width: 'auto', objectFit: 'contain' }} />
                     </div>
                   )}
-                  <h3 style={{ fontSize: '18px', fontWeight: '800', color: '#ffffff', margin: '0 0 6px 0', fontFamily: 'var(--font-headings)' }}>
+                  <h3 style={{ fontSize: '18px', fontWeight: '800', margin: '0 0 6px 0', fontFamily: 'var(--font-headings)' }}>
                     {sol.product}
                   </h3>
                   <p style={{ fontSize: '13.5px', color: '#94a3b8', lineHeight: '1.5', margin: 0 }}>
@@ -792,7 +832,10 @@ export default function Services() {
 
                 <div style={{ display: 'flex', justifyContent: 'flex-start', borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: '16px', marginTop: '8px' }}>
                   <button 
-                    onClick={() => navigate('/products')} 
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      navigate(sol.path);
+                    }} 
                     style={{
                       background: 'none',
                       border: 'none',
@@ -820,7 +863,28 @@ export default function Services() {
           SECTION: BUSINESS OUTCOMES (KPI Conveyor Belt)
           ================================================== */}
 
-      <section className="section surface-royal services-section-texture" style={{ borderBottom: '1px solid rgba(0, 229, 255, 0.10)', position: 'relative', overflow: 'hidden', padding: '60px 0 65px 0' }}>
+      <section className="section" style={{ position: 'relative', overflow: 'hidden', padding: '60px 0 65px 0', backgroundColor: '#FAF7F2', borderBottom: '1px solid rgba(0, 0, 0, 0.08)' }}>
+        {/* Layered radial gradients */}
+        <div style={{
+          position: 'absolute',
+          top: '-10%',
+          left: '-10%',
+          width: '50%',
+          height: '60%',
+          background: 'radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, rgba(239, 231, 218, 0.35) 50%, transparent 70%)',
+          pointerEvents: 'none',
+          zIndex: 0
+        }} />
+        <div style={{
+          position: 'absolute',
+          bottom: '-10%',
+          right: '-10%',
+          width: '50%',
+          height: '60%',
+          background: 'radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, rgba(245, 240, 232, 0.4) 50%, transparent 70%)',
+          pointerEvents: 'none',
+          zIndex: 0
+        }} />
 
         {/* Shared SVG gradients and filters */}
         <svg style={{ position: 'absolute', width: 0, height: 0, overflow: 'hidden' }} aria-hidden="true">
@@ -830,8 +894,8 @@ export default function Services() {
               <stop offset="100%" stopColor="#0C1632" />
             </linearGradient>
             <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#00E5FF" />
-              <stop offset="100%" stopColor="#67E8F9" />
+              <stop offset="0%" stopColor="#38BDF8" />
+              <stop offset="100%" stopColor="#7DD3FC" />
             </linearGradient>
             <filter id="goldGlow" x="-20%" y="-20%" width="140%" height="140%">
               <feGaussianBlur stdDeviation="3" result="blur" />
@@ -844,12 +908,31 @@ export default function Services() {
           </defs>
         </svg>
 
-        <div style={{ position: 'absolute', bottom: 0, right: '20%', width: '500px', height: '300px', background: 'radial-gradient(ellipse at center, rgba(0, 229, 255, 0.02) 0%, transparent 70%)', pointerEvents: 'none' }} />
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <div className="section-title-wrapper" style={{ marginBottom: '32px' }}>
-            <span className="section-subtitle" style={{ color: 'var(--supporting)' }}>Target Metrics</span>
-            <h2 className="section-title" style={{ color: '#ffffff' }}>Value Delivered To Our Customers</h2>
-            <p className="section-desc" style={{ color: '#94a3b8' }}>Concrete outcomes and performance updates organizations achieve with CEA systems.</p>
+            <h2 className="section-title" style={{
+              fontSize: '36px',
+              fontWeight: '800',
+              fontFamily: 'var(--font-headings)',
+              background: 'linear-gradient(135deg, #0B1F3F 0%, #2563EB 50%, #0284C7 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+              color: 'transparent',
+              marginBottom: '10px'
+            }}>
+              Target Metrics
+            </h2>
+            <h3 style={{
+              fontSize: '22px',
+              fontWeight: '600',
+              color: '#374151',
+              margin: '0 0 16px 0',
+              fontFamily: 'var(--font-headings)'
+            }}>
+              Value Delivered To Our Customers
+            </h3>
+            <p className="section-desc" style={{ color: '#4b5563', margin: '0' }}>Concrete outcomes and performance updates organizations achieve with CEA systems.</p>
           </div>
         </div>
 
@@ -859,7 +942,8 @@ export default function Services() {
             overflow: 'hidden', 
             width: '100%', 
             position: 'relative', 
-            padding: '16px 0'
+            padding: '16px 0',
+            zIndex: 2
           }}
           onMouseEnter={() => setIsConveyorHovered(true)}
           onMouseLeave={() => {
@@ -874,7 +958,7 @@ export default function Services() {
             left: 0,
             width: '100%',
             height: '100%',
-            background: 'linear-gradient(90deg, transparent, rgba(0, 229, 255, 0.02) 15%, rgba(0, 229, 255, 0.06) 20%, rgba(103, 232, 249, 0.12) 25%, rgba(0, 229, 255, 0.06) 30%, rgba(0, 229, 255, 0.02) 35%, transparent)',
+            background: 'linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.02) 15%, rgba(56, 189, 248, 0.06) 20%, rgba(56, 189, 248, 0.12) 25%, rgba(56, 189, 248, 0.06) 30%, rgba(56, 189, 248, 0.02) 35%, transparent)',
             pointerEvents: 'none',
             mixBlendMode: 'plus-lighter',
             animation: 'data-pulse-sweep 10s cubic-bezier(0.25, 1, 0.5, 1) infinite',
@@ -917,9 +1001,9 @@ export default function Services() {
                     gap: '20px',
                     borderRadius: '12px',
                     backgroundColor: isCardHovered ? 'rgba(12, 22, 50, 0.95)' : 'rgba(12, 22, 50, 0.75)',
-                    border: isCardHovered ? '1.5px solid var(--accent)' : '1.5px solid rgba(0, 229, 255, 0.12)',
+                    border: isCardHovered ? '1.5px solid #38BDF8' : '1.5px solid rgba(56, 189, 248, 0.12)',
                     boxShadow: isCardHovered 
-                      ? '0 12px 32px rgba(0, 229, 255, 0.2), 0 8px 24px rgba(0, 0, 0, 0.5)' 
+                      ? '0 12px 32px rgba(56, 189, 248, 0.2), 0 8px 24px rgba(0, 0, 0, 0.5)' 
                       : '0 8px 24px rgba(0, 0, 0, 0.35)',
                     transform: isCardHovered ? 'scale(1.03) translateY(-4px)' : 'scale(1) translateY(0)',
                     transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
@@ -935,7 +1019,7 @@ export default function Services() {
                     left: 0,
                     width: '100%',
                     height: '100%',
-                    background: 'linear-gradient(115deg, transparent, rgba(0, 229, 255, 0.04) 40%, rgba(0, 229, 255, 0.12) 50%, rgba(0, 229, 255, 0.04) 60%, transparent)',
+                    background: 'linear-gradient(115deg, transparent, rgba(56, 189, 248, 0.04) 40%, rgba(56, 189, 248, 0.12) 50%, rgba(56, 189, 248, 0.04) 60%, transparent)',
                     opacity: isCardHovered ? 1 : 0,
                     transition: 'opacity 0.3s ease',
                     pointerEvents: 'none'
@@ -951,16 +1035,16 @@ export default function Services() {
                     flexShrink: 0,
                     transition: 'transform 0.3s ease, filter 0.3s ease',
                     transform: isCardHovered ? 'scale(1.08)' : 'scale(1)',
-                    filter: isCardHovered ? 'drop-shadow(0 0 8px rgba(0, 229, 255, 0.35))' : 'none'
+                    filter: isCardHovered ? 'drop-shadow(0 0 8px rgba(56, 189, 248, 0.35))' : 'none'
                   }}>
                     {getOutcomeIcon(out.title)}
                   </div>
                   
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', textAlign: 'left' }}>
-                    <h4 style={{ fontSize: '16px', fontWeight: '700', color: '#ffffff', margin: 0, letterSpacing: '-0.1px' }}>
+                    <h4 style={{ fontSize: '16px', fontWeight: '700', margin: 0, letterSpacing: '-0.1px' }}>
                       {out.title}
                     </h4>
-                    <p style={{ fontSize: '13px', color: '#94a3b8', lineHeight: '1.45', margin: 0 }}>
+                    <p style={{ fontSize: '13px', color: '#CBD5E1', lineHeight: '1.45', margin: 0 }}>
                       {out.desc}
                     </p>
                   </div>
@@ -982,7 +1066,7 @@ export default function Services() {
               height: '2px', 
               width: '100%', 
               overflow: 'hidden', 
-              backgroundColor: 'rgba(0, 229, 255, 0.10)', 
+              backgroundColor: 'rgba(56, 189, 248, 0.15)', 
               borderRadius: '1px',
               transformOrigin: 'left'
             }}
@@ -1020,7 +1104,7 @@ export default function Services() {
             viewport={scrollReveal.viewport}
             style={{ maxWidth: '720px', margin: '0 auto' }}
           >
-            <h2 style={{ fontSize: '38px', marginBottom: '20px', letterSpacing: '-1px', color: '#ffffff', fontWeight: '800' }}>
+            <h2 style={{ fontSize: '38px', marginBottom: '20px', letterSpacing: '-1px', fontWeight: '800' }}>
               Ready To Solve Your Business Challenges?
             </h2>
             <p style={{ fontSize: '16px', color: 'rgba(241, 245, 249, 0.8)', marginBottom: '40px', lineHeight: '1.6' }}>
@@ -1042,7 +1126,7 @@ export default function Services() {
                 className="btn btn-dark-outline"
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.98 }}
-                style={{ border: '2px solid rgba(255,255,255,0.25)', color: '#ffffff' }}
+                style={{ border: '2px solid rgba(255,255,255,0.25)' }}
               >
                 Explore Products
               </motion.button>
@@ -1053,3 +1137,4 @@ export default function Services() {
     </motion.div>
   );
 }
+

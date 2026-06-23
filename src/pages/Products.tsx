@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect, type ReactNode } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Factory, 
@@ -34,9 +35,11 @@ interface Product {
   image: string;
   icon: ReactNode;
   logo?: string;
+  path: string;
 }
 
 export default function Products() {
+  const navigate = useNavigate();
   const inquiryRef = useRef<HTMLDivElement>(null);
   
   // Selection state for products (slider index & transition direction)
@@ -90,7 +93,8 @@ export default function Products() {
       industries: ['Textiles', 'Apparel', 'Engineering', 'Manufacturing'],
       image: '/images/manufacturing_floor_1780850784796.png',
       icon: <Factory size={22} />,
-      logo: '/images/Vericea.png'
+      logo: '/images/Vericea.png',
+      path: '/products/vericea-manufacturing'
     },
     {
       id: 'vericea-compliance',
@@ -109,7 +113,8 @@ export default function Products() {
       industries: ['Manufacturing', 'Export Houses', 'Factories', 'Compliance Teams'],
       image: '/images/quality_audit_1780850801169.png',
       icon: <ShieldCheck size={22} />,
-      logo: '/images/Vericea.png'
+      logo: '/images/Vericea.png',
+      path: '/products/vericea-compliance'
     },
     {
       id: 'factsafe',
@@ -128,7 +133,8 @@ export default function Products() {
       industries: ['Manufacturing', 'Factories', 'Export Houses', 'Compliance Teams'],
       image: '/images/safety_inspection_1780850817856.png',
       icon: <AlertTriangle size={22} />,
-      logo: '/images/Fact_safe.png'
+      logo: '/images/Fact_safe.png',
+      path: '/products/factsafe'
     },
     {
       id: 'courier-cost-management',
@@ -147,7 +153,8 @@ export default function Products() {
       industries: ['Logistics', 'Apparel', 'Textiles', 'Export Organizations'],
       image: '/images/logistics_terminal_1780850837146.png',
       icon: <Truck size={22} />,
-      logo: '/images/Courier Cost Optimizer.png'
+      logo: '/images/Courier Cost Optimizer.png',
+      path: '/products/courier-cost-management'
     },
     {
       id: 'family-tree-platform',
@@ -165,7 +172,8 @@ export default function Products() {
       businessValue: 'Simplifies complex relationship tracking and visualization.',
       industries: ['Consulting', 'NGOs', 'Demographics', 'Government Projects'],
       image: '/images/family_archives_1780850863160.png',
-      icon: <Network size={22} />
+      icon: <Network size={22} />,
+      path: '/products/family-tree-platform'
     }
   ];
 
@@ -301,7 +309,8 @@ export default function Products() {
                     transformOrigin: 'center center',
                     display: 'flex',
                     flexDirection: 'column',
-                    height: '100%'
+                    height: '100%',
+                    transition: 'border 200ms ease, box-shadow 300ms ease, transform 300ms ease'
                   }}
                 >
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -544,28 +553,71 @@ export default function Products() {
           SECTION: OUR PRODUCT ECOSYSTEM (CAROUSEL SLIDER)
           ================================================== */}
 
-      <section id="ecosystem-section" className="section surface-matte services-section-texture" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.10)' }}>
+      <section id="ecosystem-section" className="section" style={{ position: 'relative', overflow: 'hidden', padding: '80px 0', backgroundColor: '#FAF7F2', borderBottom: '1px solid rgba(0, 0, 0, 0.08)' }}>
+        {/* Layered radial gradients */}
+        <div style={{
+          position: 'absolute',
+          top: '-10%',
+          left: '-10%',
+          width: '50%',
+          height: '60%',
+          background: 'radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, rgba(239, 231, 218, 0.35) 50%, transparent 70%)',
+          pointerEvents: 'none',
+          zIndex: 0
+        }} />
+        <div style={{
+          position: 'absolute',
+          bottom: '-10%',
+          right: '-10%',
+          width: '50%',
+          height: '60%',
+          background: 'radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, rgba(245, 240, 232, 0.4) 50%, transparent 70%)',
+          pointerEvents: 'none',
+          zIndex: 0
+        }} />
 
-        <div className="container">
+        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <div className="section-title-wrapper" style={{ marginBottom: '48px' }}>
-            <span className="section-subtitle" style={{ color: 'var(--supporting)' }}>Core Platforms</span>
-            <h2 className="section-title">Our Product Ecosystem</h2>
-            <p className="section-desc">Explore CEA's flagship enterprise software platforms designed for scalable business operations.</p>
+            <h2 className="section-title" style={{
+              fontSize: '36px',
+              fontWeight: '800',
+              fontFamily: 'var(--font-headings)',
+              background: 'linear-gradient(135deg, #0B1F3F 0%, #2563EB 50%, #0284C7 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+              color: 'transparent',
+              marginBottom: '10px'
+            }}>
+              Core Platforms
+            </h2>
+            <h3 style={{
+              fontSize: '22px',
+              fontWeight: '600',
+              color: '#374151',
+              margin: '0 0 16px 0',
+              fontFamily: 'var(--font-headings)'
+            }}>
+              Our Product Ecosystem
+            </h3>
+            <p className="section-desc" style={{ color: '#4b5563', margin: '0' }}>
+              Explore CEA's flagship enterprise software platforms designed for scalable business operations.
+            </p>
           </div>
 
           {/* Slider Controls Row */}
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px', flexWrap: 'wrap', gap: '16px' }}>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-              <span style={{ fontSize: '11px', fontWeight: '800', textTransform: 'uppercase', color: 'var(--supporting)', letterSpacing: '1px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+              <span style={{ fontSize: '11px', fontWeight: '800', textTransform: 'uppercase', color: '#0284C7', letterSpacing: '1px' }}>
                 Active Platform
               </span>
-              <h3 style={{ fontSize: '20px', fontWeight: '800', margin: 0, display: 'flex', alignItems: 'center', gap: '10px' }}>
+              <h3 style={{ fontSize: '20px', fontWeight: '800', margin: 0, display: 'flex', alignItems: 'center', gap: '10px', color: '#0B1220' }}>
                 <span style={{
                   width: '32px',
                   height: '32px',
                   borderRadius: '6px',
                   backgroundColor: resolveTint('var(--supporting)', 0.08),
-                  color: 'var(--supporting)',
+                  color: '#0284C7',
                   display: 'inline-flex',
                   alignItems: 'center',
                   justifyContent: 'center'
@@ -576,48 +628,48 @@ export default function Products() {
               </h3>
             </div>
             
-              <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
-              <span style={{ fontSize: '14.5px', fontWeight: '700', color: 'var(--text-muted)', fontFamily: 'var(--font-headings)' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
+              <span style={{ fontSize: '14.5px', fontWeight: '700', color: '#475569', fontFamily: 'var(--font-headings)' }}>
                 {String(currentIndex + 1).padStart(2, '0')} <span style={{ opacity: 0.4 }}>/</span> {String(productsData.length).padStart(2, '0')}
               </span>
               
               <div style={{ display: 'flex', gap: '10px' }}>
                 <motion.button
-                  whileHover={{ scale: 1.05, backgroundColor: 'rgba(255, 255, 255, 0.08)' }}
+                  whileHover={{ scale: 1.05, backgroundColor: 'rgba(11, 18, 32, 0.08)' }}
                   whileTap={{ scale: 0.95 }}
                   onClick={handlePrev}
-                    style={{
+                  style={{
                     width: '40px',
                     height: '40px',
                     borderRadius: '50%',
-                    border: '1px solid rgba(var(--primary-rgb), 0.1)',
-                    backgroundColor: 'rgba(var(--primary-rgb), 0.04)',
+                    border: '1px solid rgba(11, 18, 32, 0.15)',
+                    backgroundColor: 'rgba(11, 18, 32, 0.04)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                     cursor: 'pointer',
-                    color: 'var(--text-main)'
+                    color: '#0B1220'
                   }}
                 >
                   <ArrowRight size={16} style={{ transform: 'rotate(180deg)' }} />
                 </motion.button>
                 
                 <motion.button
-                  whileHover={{ scale: 1.05, backgroundColor: 'rgba(255, 255, 255, 0.08)' }}
+                  whileHover={{ scale: 1.05, backgroundColor: 'rgba(11, 18, 32, 0.08)' }}
                   whileTap={{ scale: 0.95 }}
                   onClick={handleNext}
                   style={{
-                      width: '40px',
-                      height: '40px',
-                      borderRadius: '50%',
-                      border: '1px solid rgba(var(--primary-rgb), 0.1)',
-                      backgroundColor: 'rgba(var(--primary-rgb), 0.04)',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      cursor: 'pointer',
-                      color: 'var(--text-main)'
-                    }}
+                    width: '40px',
+                    height: '40px',
+                    borderRadius: '50%',
+                    border: '1px solid rgba(11, 18, 32, 0.15)',
+                    backgroundColor: 'rgba(11, 18, 32, 0.04)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    cursor: 'pointer',
+                    color: '#0B1220'
+                  }}
                 >
                   <ArrowRight size={16} />
                 </motion.button>
@@ -762,7 +814,7 @@ export default function Products() {
                       </div>
                     </div>
 
-                    <div style={{ marginTop: '8px' }}>
+                    <div style={{ marginTop: '8px', display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
                       <button 
                         onClick={() => selectProductAndScroll(activeProduct.name)} 
                         className="btn btn-cta btn-sm"
@@ -770,15 +822,24 @@ export default function Products() {
                       >
                         Request Product Demo
                       </button>
+                      <button 
+                        onClick={() => navigate(activeProduct.path)} 
+                        className="btn btn-dark-outline btn-sm"
+                        style={{ padding: '10px 22px', border: '2px solid rgba(255,255,255,0.25)', color: '#ffffff', minWidth: '140px' }}
+                      >
+                        View Product Details
+                      </button>
                     </div>
                   </div>
 
                   {/* Right Interactive Mockup Screen */}
                   <div style={{ display: 'flex', justifyContent: 'center' }}>
                     <motion.div 
+                      onClick={() => navigate(activeProduct.path)}
                       initial={{ opacity: 0, scale: 0.95 }}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ duration: 0.4 }}
+                      whileHover={{ scale: 1.02, borderColor: 'rgba(255, 255, 255, 0.2)' }}
                       style={{
                         width: '100%',
                         background: '#020617',
@@ -786,7 +847,8 @@ export default function Products() {
                         borderRadius: '12px',
                         padding: '12px',
                         boxShadow: 'var(--shadow-xl)',
-                        overflow: 'hidden'
+                        overflow: 'hidden',
+                        cursor: 'pointer'
                       }}
                     >
                       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px', borderBottom: '1px solid rgba(255,255,255,0.06)', paddingBottom: '8px' }}>
@@ -844,19 +906,32 @@ export default function Products() {
           SECTION: BUSINESS CHALLENGES SOLVED BY OUR PRODUCTS
           ================================================== */}
 
-      <section className="section surface-royal about-section-texture" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.10)' }}>
+      <section className="section surface-royal about-section-texture" style={{
+        padding: '100px 0',
+        position: 'relative',
+        borderTop: '1px solid rgba(255, 255, 255, 0.06)',
+        borderBottom: '1px solid rgba(255, 255, 255, 0.06)',
+        boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.05)'
+      }}>
 
-        <div className="container">
+        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <div className="section-title-wrapper" style={{ marginBottom: '56px' }}>
             <span className="section-subtitle" style={{ color: 'var(--supporting)' }}>Diagnostics & Resolution</span>
-            <h2 className="section-title" style={{ color: '#ffffff' }}>Business Challenges Solved By Our Products</h2>
+            <h2 className="section-title" style={{ color: '#ffffff', letterSpacing: '-1px', textShadow: '0 1px 2px rgba(0, 0, 0, 0.3)' }}>Business Challenges Solved By Our Products</h2>
             <p className="section-desc" style={{ color: '#94a3b8' }}>
               Every product in the CEA portfolio is designed to solve a specific operational, compliance or management challenge.
             </p>
           </div>
 
           {/* Enterprise Solution Coverflow - 3D Carousel */}
-          <div style={{ position: 'relative' }}>
+          <div style={{
+            position: 'relative',
+            border: '1px solid rgba(255, 255, 255, 0.08)',
+            borderRadius: '16px',
+            padding: '8px',
+            transition: 'all 300ms ease',
+            boxShadow: '0 4px 30px rgba(0, 0, 0, 0.2)'
+          }}>
             <CoverflowCarousel
               items={challengeSolutionData}
               onCardClick={(sol) => selectProductAndScroll(
@@ -874,13 +949,54 @@ export default function Products() {
           SECTION: WHY OUR PRODUCTS STAND OUT
           ================================================== */}
 
-      <section className="section surface-matte compliance-section-texture" style={{ borderBottom: '1px solid rgba(200, 162, 118, 0.10)' }}>
+      <section className="section" style={{ position: 'relative', overflow: 'hidden', padding: '100px 0', backgroundColor: '#FAF7F2', borderBottom: '1px solid rgba(0, 0, 0, 0.08)' }}>
+        {/* Layered radial gradients */}
+        <div style={{
+          position: 'absolute',
+          top: '-10%',
+          left: '-10%',
+          width: '50%',
+          height: '60%',
+          background: 'radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, rgba(239, 231, 218, 0.35) 50%, transparent 70%)',
+          pointerEvents: 'none',
+          zIndex: 0
+        }} />
+        <div style={{
+          position: 'absolute',
+          bottom: '-10%',
+          right: '-10%',
+          width: '50%',
+          height: '60%',
+          background: 'radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, rgba(245, 240, 232, 0.4) 50%, transparent 70%)',
+          pointerEvents: 'none',
+          zIndex: 0
+        }} />
 
-        <div className="container">
+        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <div className="section-title-wrapper" style={{ marginBottom: '56px' }}>
-            <span className="section-subtitle" style={{ color: 'var(--supporting)' }}>Architectural Quality</span>
-            <h2 className="section-title" style={{ color: '#ffffff' }}>Why Our Products Stand Out</h2>
-            <p className="section-desc" style={{ color: '#94a3b8' }}>We build enterprise software that integrates directly, ensures compliance, and scales easily.</p>
+            <h2 className="section-title" style={{
+              fontSize: '36px',
+              fontWeight: '800',
+              fontFamily: 'var(--font-headings)',
+              background: 'linear-gradient(135deg, #0B1F3F 0%, #2563EB 50%, #0284C7 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+              color: 'transparent',
+              marginBottom: '10px'
+            }}>
+              Architectural Quality
+            </h2>
+            <h3 style={{
+              fontSize: '22px',
+              fontWeight: '600',
+              color: '#374151',
+              margin: '0 0 16px 0',
+              fontFamily: 'var(--font-headings)'
+            }}>
+              Why Our Products Stand Out
+            </h3>
+            <p className="section-desc" style={{ color: '#4b5563', margin: '0' }}>We build enterprise software that integrates directly, ensures compliance, and scales easily.</p>
           </div>
 
           <div className="capability-section">

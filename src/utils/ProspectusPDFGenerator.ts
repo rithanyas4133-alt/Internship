@@ -20,8 +20,8 @@ const C = {
   cardAlt:      [18, 26, 44]   as [number, number, number],
   panelDark:    [13, 21, 38]   as [number, number, number],
 
-  gold:         [212, 175, 55] as [number, number, number],
-  brightGold:   [255, 215, 0]  as [number, number, number],
+  gold:         [56, 189, 248] as [number, number, number],
+  brightGold:   [56, 189, 248]  as [number, number, number],
   blue:         [56, 189, 248] as [number, number, number],
   silverBlue:   [111, 137, 168] as [number, number, number],
   teal:         [16, 185, 129] as [number, number, number],
@@ -729,3 +729,4 @@ export async function generatePartnerProspectus(): Promise<void> {
 }
 
 export default generatePartnerProspectus;
+

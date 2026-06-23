@@ -136,19 +136,19 @@ const solutions = [
 ];
 
 const partnersRow1 = [
-  { name: "Bosch", icon: Cog, color: "#D4AF37" },
-  { name: "Siemens", icon: Cpu, color: "#D4AF37" },
-  { name: "Schneider Electric", icon: Layers, color: "#D4AF37" },
-  { name: "Honeywell", icon: ShieldCheck, color: "#D4AF37" },
-  { name: "ABB", icon: Cog, color: "#D4AF37" }
+  { name: "Bosch", icon: Cog, color: "#38BDF8" },
+  { name: "Siemens", icon: Cpu, color: "#38BDF8" },
+  { name: "Schneider Electric", icon: Layers, color: "#38BDF8" },
+  { name: "Honeywell", icon: ShieldCheck, color: "#38BDF8" },
+  { name: "ABB", icon: Cog, color: "#38BDF8" }
 ];
 
 const partnersRow2 = [
-  { name: "Tata Group", icon: Building, color: "#D4AF37" },
-  { name: "TVS", icon: Factory, color: "#D4AF37" },
-  { name: "Ashok Leyland", icon: Truck, color: "#D4AF37" },
-  { name: "Larsen & Toubro", icon: Briefcase, color: "#D4AF37" },
-  { name: "Mahindra", icon: Factory, color: "#D4AF37" }
+  { name: "Tata Group", icon: Building, color: "#38BDF8" },
+  { name: "TVS", icon: Factory, color: "#38BDF8" },
+  { name: "Ashok Leyland", icon: Truck, color: "#38BDF8" },
+  { name: "Larsen & Toubro", icon: Briefcase, color: "#38BDF8" },
+  { name: "Mahindra", icon: Factory, color: "#38BDF8" }
 ];
 
 // â”€â”€ FLAGSHIP PLATFORMS DATA â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
@@ -164,7 +164,7 @@ const flagshipPlatforms = [
     image: "/images/flagship_manufacturing.jpg",
     dashboardImage: "/images/product_tab_manufacturing_1780851000218.png",
     path: "/products/vericea-manufacturing",
-    accentColor: "#D4AF37",
+    accentColor: "#38BDF8",
     stat: { value: "22%", label: "OEE Increase" }
   },
   {
@@ -177,7 +177,7 @@ const flagshipPlatforms = [
     image: "/images/flagship_compliance.jpg",
     dashboardImage: "/images/product_tab_compliance_1780851018319.png",
     path: "/products/vericea-compliance",
-    accentColor: "#D4AF37",
+    accentColor: "#38BDF8",
     stat: { value: "100%", label: "Audit Success" }
   },
   {
@@ -226,14 +226,14 @@ const flagshipPlatforms = [
 const flagshipCardVariants = {
   initial: {
     y: 0,
-    borderColor: 'rgba(212, 175, 55, 0.18)',
+    borderColor: 'rgba(56, 189, 248, 0.18)',
     boxShadow: '0 8px 32px rgba(0, 0, 0, 0.35)',
     backdropFilter: 'blur(8px)',
     WebkitBackdropFilter: 'blur(8px)'
   },
   hover: {
     y: -6,
-    borderColor: 'rgba(212, 175, 55, 0.45)',
+    borderColor: 'rgba(56, 189, 248, 0.45)',
     backgroundColor: 'rgba(18, 24, 38, 0.92)',
     boxShadow: '0 12px 40px rgba(0, 0, 0, 0.45)',
     backdropFilter: 'blur(12px)',
@@ -322,7 +322,7 @@ function FlagshipCard({ platform, onNavigate, variant = 'standard' }: {
         position: 'relative',
         borderRadius: '16px',
         overflow: 'hidden',
-        border: '1px solid rgba(212, 175, 55, 0.18)',
+        border: '1px solid rgba(56, 189, 248, 0.18)',
         backgroundColor: 'rgba(18, 24, 38, 0.85)',
         cursor: 'pointer',
         minHeight: isHero ? '750px' : '620px',
@@ -435,7 +435,6 @@ function FlagshipCard({ platform, onNavigate, variant = 'standard' }: {
         <h3 style={{
           fontSize: isHero ? '24px' : '20px',
           fontWeight: '800',
-          color: '#FFFFFF',
           margin: '0 0 6px 0',
           fontFamily: 'var(--font-headings)',
           lineHeight: 1.2,
@@ -478,13 +477,12 @@ function FlagshipCard({ platform, onNavigate, variant = 'standard' }: {
               display: 'inline-flex',
               alignItems: 'center',
               gap: '6px',
-              background: 'linear-gradient(135deg, #D4AF37, #FFD700)',
-              color: '#FFFFFF',
+              background: 'linear-gradient(135deg, #38BDF8, #38BDF8)',
               borderRadius: '8px',
               padding: '9px 18px',
               fontSize: '18px',
               fontWeight: '800',
-              boxShadow: '0 4px 12px rgba(212,175,55,0.3)',
+              boxShadow: '0 4px 12px rgba(56, 189, 248,0.3)',
               letterSpacing: '0.3px'
             }}>
               Explore Platform
@@ -608,10 +606,10 @@ function SolutionsCoverflow({
                 overflow: 'hidden',
                 cursor: 'pointer',
                 border: isCenter
-                  ? '1.5px solid rgba(212, 175, 55, 0.75)'
+                  ? '1.5px solid rgba(56, 189, 248, 0.75)'
                   : '1px solid rgba(255,255,255,0.08)',
                 boxShadow: isCenter
-                  ? '0 0 32px rgba(212, 175, 55, 0.22), 0 16px 48px rgba(0,0,0,0.6)'
+                  ? '0 0 32px rgba(56, 189, 248, 0.22), 0 16px 48px rgba(0,0,0,0.6)'
                   : '0 4px 24px rgba(0,0,0,0.4)',
               }}
             >
@@ -642,7 +640,7 @@ function SolutionsCoverflow({
                   layoutId="teal-bar"
                   style={{
                     position: 'absolute', top: 0, left: 0, right: 0, height: '2px',
-                    background: 'linear-gradient(90deg, transparent, #D4AF37, #FFD700, #D4AF37, transparent)',
+                    background: 'linear-gradient(90deg, transparent, #38BDF8, #38BDF8, #38BDF8, transparent)',
                   }}
                 />
               )}
@@ -659,7 +657,6 @@ function SolutionsCoverflow({
                 <span style={{
                   fontSize: isCenter ? '18px' : '16px',
                   fontWeight: '700',
-                  color: '#FFFFFF',
                   fontFamily: 'var(--font-headings)',
                   lineHeight: 1.3,
                   letterSpacing: '-0.2px',
@@ -674,13 +671,13 @@ function SolutionsCoverflow({
                     animate={{ opacity: 1, x: 0 }}
                     style={{
                       width: '28px', height: '28px', borderRadius: '50%',
-                      background: 'rgba(212,175,55,0.18)',
-                      border: '1px solid rgba(212,175,55,0.5)',
+                      background: 'rgba(56, 189, 248,0.18)',
+                      border: '1px solid rgba(56, 189, 248,0.5)',
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
                       flexShrink: 0,
                     }}
                   >
-                    <ArrowRight size={13} color="#D4AF37" />
+                    <ArrowRight size={13} color="#38BDF8" />
                   </motion.div>
                 )}
               </div>
@@ -694,7 +691,7 @@ function SolutionsCoverflow({
                 borderRadius: '6px',
                 padding: '3px 8px',
                 fontSize: '10px', fontWeight: '700',
-                color: isCenter ? '#D4AF37' : '#9CA3AF',
+                color: isCenter ? '#38BDF8' : '#9CA3AF',
                 letterSpacing: '0.5px',
                 fontFamily: 'var(--font-headings)',
               }}>
@@ -713,7 +710,7 @@ function SolutionsCoverflow({
             <motion.button
               key={i}
               onClick={() => setActiveIdx(startOffset + i)}
-              animate={{ width: dotActive ? '22px' : '6px', backgroundColor: dotActive ? '#D4AF37' : 'rgba(255,255,255,0.2)' }}
+              animate={{ width: dotActive ? '22px' : '6px', backgroundColor: dotActive ? '#38BDF8' : 'rgba(255,255,255,0.2)' }}
               transition={{ duration: 0.3 }}
               style={{
                 height: '6px', borderRadius: '3px', border: 'none',
@@ -766,12 +763,12 @@ export default function Home() {
   };
 
   const buttonHover = {
-    whileHover: { scale: 1.03, boxShadow: '0px 6px 12px rgba(245, 158, 11, 0.3)' },
+    whileHover: { scale: 1.02, boxShadow: '0 0 20px rgba(56, 189, 248, 0.4)' },
     whileTap: { scale: 0.98 }
   };
 
   const secondaryButtonHover = {
-    whileHover: { scale: 1.03, backgroundColor: 'rgba(255, 255, 255, 0.1)' },
+    whileHover: { scale: 1.02, backgroundColor: 'rgba(56, 189, 248, 0.1)' },
     whileTap: { scale: 0.98 }
   };
 
@@ -787,10 +784,9 @@ export default function Home() {
         className="section" 
         style={{ 
           padding: '160px 0 120px 0', 
-          color: '#ffffff',
           position: 'relative',
           overflow: 'hidden',
-          backgroundColor: '#0B0F19'
+          background: 'linear-gradient(180deg, #0B1220 0%, #0A1A33 100%)'
         }}
       >
         {/* Auto-playing fading background slides */}
@@ -807,7 +803,7 @@ export default function Home() {
               left: 0,
               right: 0,
               bottom: 0,
-              backgroundImage: `linear-gradient(rgba(11, 15, 25, 0.55), rgba(11, 15, 25, 0.65)), url(${heroBackgrounds[currentBgIndex]})`,
+              backgroundImage: `linear-gradient(180deg, rgba(11, 18, 32, 0.7) 0%, rgba(10, 26, 51, 0.85) 100%), url(${heroBackgrounds[currentBgIndex]})`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               zIndex: 0
@@ -815,49 +811,76 @@ export default function Home() {
           />
         </AnimatePresence>
 
-        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.15) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
+        {/* Premium layered glow effects */}
+        <div style={{ position: 'absolute', top: '-10%', left: '-10%', width: '60%', height: '60%', background: 'radial-gradient(circle, rgba(56, 189, 248, 0.10) 0%, transparent 70%)', zIndex: 1, pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', bottom: '-10%', right: '-10%', width: '60%', height: '60%', background: 'radial-gradient(circle, rgba(37, 99, 235, 0.08) 0%, transparent 70%)', zIndex: 1, pointerEvents: 'none' }} />
+
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
           <div className="grid-2" style={{ alignItems: 'center' }}>
-            {/* Blurred Left Text Container */}
+            {/* Blurred Left Text Container (Glassmorphic Hero Card) */}
             <motion.div 
               initial={heroFadeIn.initial}
               animate={heroFadeIn.animate}
               transition={heroFadeIn.transition}
               style={{
-                background: 'rgba(11, 15, 25, 0.85)',
-                backdropFilter: 'blur(8px)',
-                WebkitBackdropFilter: 'blur(8px)',
+                background: 'rgba(15, 23, 42, 0.60)',
+                backdropFilter: 'blur(20px)',
+                WebkitBackdropFilter: 'blur(20px)',
                 padding: '44px',
                 borderRadius: '16px',
-                border: '1px solid rgba(212, 175, 55, 0.18)',
-                boxShadow: '0 12px 40px rgba(0, 0, 0, 0.45)',
+                border: '1px solid rgba(56, 189, 248, 0.20)',
+                boxShadow: '0 20px 50px rgba(0, 0, 0, 0.55), inset 0 1px 1px rgba(255, 255, 255, 0.05)',
                 width: '100%',
                 maxWidth: '580px',
                 marginRight: 'auto'
               }}
             >
               <div 
-                className="section-subtitle" 
                 style={{ 
                   display: 'inline-flex', 
                   alignItems: 'center', 
                   gap: '8px', 
                   padding: '6px 14px', 
-                  background: 'rgba(212, 175, 55, 0.1)', 
+                  background: 'rgba(2, 132, 199, 0.08)', 
+                  border: '1px solid rgba(2, 132, 199, 0.15)',
                   borderRadius: '20px', 
-                  fontSize: '13px', 
-                  color: 'var(--accent)', 
-                  fontWeight: '600',
+                  fontSize: '12px', 
+                  color: '#0284C7', 
+                  fontWeight: '700',
+                  textTransform: 'uppercase',
+                  letterSpacing: '1px',
                   marginBottom: '16px'
                 }}
               >
-                <Sparkles size={14} style={{ color: 'var(--cta)' }} />
-                <span>Enterprise Software & Technology Consulting</span>
+                <Sparkles size={13} />
+                <span>CEA Infotech Global</span>
               </div>
-              <h1 style={{ fontSize: '48px', lineHeight: '1.15', margin: '0 0 20px 0', letterSpacing: '-1.5px', color: '#ffffff' }}>
-                Engineering Digital Excellence for Manufacturing, Compliance & Enterprise Growth
+              <h1 style={{
+                fontSize: 'clamp(36px, 5vw, 56px)',
+                fontWeight: '800',
+                lineHeight: '1.15',
+                margin: '0 0 16px 0',
+                letterSpacing: '-2px',
+                background: 'linear-gradient(135deg, #0B1F3F 0%, #2563EB 45%, #38BDF8 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+                color: 'transparent',
+                textShadow: '0 0 40px rgba(56, 189, 248, 0.15)'
+              }}>
+                Enterprise Software & Technology Consulting
               </h1>
-              <p style={{ fontSize: '18px', color: 'rgba(241, 245, 249, 0.85)', marginBottom: '32px', lineHeight: '1.6' }}>
+              <h2 style={{
+                fontSize: '22px',
+                fontWeight: '600',
+                lineHeight: '1.45',
+                color: '#CBD5E1',
+                margin: '0 0 20px 0',
+                letterSpacing: '-0.5px'
+              }}>
+                Engineering Digital Excellence for Manufacturing, Compliance & Enterprise Growth
+              </h2>
+              <p style={{ fontSize: '16px', color: '#94A3B8', marginBottom: '36px', lineHeight: '1.7' }}>
                 CEA Infotech delivers enterprise software solutions, compliance platforms, audit intelligence systems and digital transformation initiatives that help organizations improve operational performance, governance and business efficiency.
               </p>
               
@@ -867,7 +890,7 @@ export default function Home() {
                   className="btn btn-cta"
                   whileHover={buttonHover.whileHover}
                   whileTap={buttonHover.whileTap}
-                  style={{ color: '#0F172A' }}
+                  style={{ backgroundColor: '#38BDF8', color: '#0B1220', border: 'none', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '8px' }}
                 >
                   Explore Solutions
                   <ArrowRight size={16} />
@@ -877,7 +900,7 @@ export default function Home() {
                   className="btn btn-dark-outline"
                   whileHover={secondaryButtonHover.whileHover}
                   whileTap={secondaryButtonHover.whileTap}
-                  style={{ border: '2px solid rgba(255, 255, 255, 0.35)' }}
+                  style={{ border: '2px solid rgba(56, 189, 248, 0.3)', backgroundColor: 'transparent', color: '#FFFFFF', fontWeight: '600', backdropFilter: 'blur(4px)' }}
                 >
                   Schedule Consultation
                 </motion.button>
@@ -891,9 +914,39 @@ export default function Home() {
       </section>
 
 
-      <section className="section" style={{ padding: '60px 0', backgroundColor: '#F8FAFC', borderBottom: '1px solid rgba(0, 0, 0, 0.08)' }}>
+      <section className="section" style={{ padding: '60px 0', backgroundColor: '#FAF7F2', borderBottom: '1px solid rgba(0, 0, 0, 0.08)', position: 'relative', overflow: 'hidden' }}>
+        {/* Layered radial gradients and dotted grid pattern */}
+        <div style={{
+          position: 'absolute',
+          top: '-10%',
+          left: '-10%',
+          width: '50%',
+          height: '60%',
+          background: 'radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, rgba(239, 231, 218, 0.35) 50%, transparent 70%)',
+          pointerEvents: 'none',
+          zIndex: 0
+        }} />
+        <div style={{
+          position: 'absolute',
+          bottom: '-10%',
+          right: '-10%',
+          width: '50%',
+          height: '60%',
+          background: 'radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, rgba(245, 240, 232, 0.4) 50%, transparent 70%)',
+          pointerEvents: 'none',
+          zIndex: 0
+        }} />
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          backgroundImage: 'radial-gradient(rgba(56, 189, 248, 0.075) 1.5px, transparent 1.5px)',
+          backgroundSize: '24px 24px',
+          opacity: 0.7,
+          pointerEvents: 'none',
+          zIndex: 0
+        }} />
 
-        <div className="container">
+        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <div className="grid-4" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '20px' }}>
             <motion.div 
               variants={scrollReveal}
@@ -901,25 +954,24 @@ export default function Home() {
               whileInView="whileInView"
               viewport={scrollReveal.viewport}
               className="glass-card stat-card"
-              whileHover={{ y: -4, borderColor: '#D4AF37' }}
+              whileHover={{ y: -4, borderColor: '#38BDF8' }}
               style={{
                 padding: '24px',
                 backgroundColor: '#0B0F19',
-                border: '1px solid rgba(212, 175, 55, 0.2)',
+                border: '1.5px solid rgba(56, 189, 248, 0.35)',
                 borderRadius: '16px',
-                color: '#FFFFFF'
-              }}
+                color: '#FFFFFF' }}
             >
-              <div className="stat-icon-wrapper" style={{ color: '#D4AF37', marginBottom: '12px' }}>
+              <div className="stat-icon-wrapper" style={{ color: '#38BDF8', marginBottom: '12px' }}>
                 <Calendar size={22} strokeWidth={1.5} />
               </div>
-              <div className="stat-number" style={{ color: '#FFD700', fontSize: '48px', fontWeight: '800', fontFamily: 'var(--font-headings)' }}>
+              <div className="stat-number" style={{ color: '#38BDF8', fontSize: '48px', fontWeight: '800', fontFamily: 'var(--font-headings)' }}>
                 <CountUp end={25} suffix="+" duration={1} />
               </div>
-              <div className="stat-label" style={{ fontSize: '18px', fontWeight: '700', color: '#FFFFFF', marginTop: '6px' }}>
+              <div className="stat-label" style={{ fontSize: '18px', fontWeight: '700', marginTop: '6px', color: '#FFFFFF' }}>
                 Years Combined Expertise
               </div>
-              <div className="stat-desc" style={{ fontSize: '15px', color: '#94A3B8', marginTop: '4px' }}>
+              <div className="stat-desc" style={{ fontSize: '15px', color: '#E2E8F0', marginTop: '4px' }}>
                 Strategic executive leadership
               </div>
             </motion.div>
@@ -930,25 +982,24 @@ export default function Home() {
               whileInView="whileInView"
               viewport={scrollReveal.viewport}
               className="glass-card stat-card"
-              whileHover={{ y: -4, borderColor: '#D4AF37' }}
+              whileHover={{ y: -4, borderColor: '#38BDF8' }}
               style={{
                 padding: '24px',
                 backgroundColor: '#0B0F19',
-                border: '1px solid rgba(212, 175, 55, 0.2)',
+                border: '1.5px solid rgba(56, 189, 248, 0.35)',
                 borderRadius: '16px',
-                color: '#FFFFFF'
-              }}
+                color: '#FFFFFF' }}
             >
-              <div className="stat-icon-wrapper" style={{ color: '#D4AF37', marginBottom: '12px' }}>
+              <div className="stat-icon-wrapper" style={{ color: '#38BDF8', marginBottom: '12px' }}>
                 <Award size={22} strokeWidth={1.5} />
               </div>
-              <div className="stat-number" style={{ color: '#FFD700', fontSize: '48px', fontWeight: '800', fontFamily: 'var(--font-headings)' }}>
+              <div className="stat-number" style={{ color: '#38BDF8', fontSize: '48px', fontWeight: '800', fontFamily: 'var(--font-headings)' }}>
                 <CountUp end={100} suffix="+" duration={1.2} />
               </div>
-              <div className="stat-label" style={{ fontSize: '18px', fontWeight: '700', color: '#FFFFFF', marginTop: '6px' }}>
+              <div className="stat-label" style={{ fontSize: '18px', fontWeight: '700', marginTop: '6px', color: '#FFFFFF' }}>
                 Projects Delivered
               </div>
-              <div className="stat-desc" style={{ fontSize: '15px', color: '#94A3B8', marginTop: '4px' }}>
+              <div className="stat-desc" style={{ fontSize: '15px', color: '#E2E8F0', marginTop: '4px' }}>
                 Production-grade systems
               </div>
             </motion.div>
@@ -959,25 +1010,24 @@ export default function Home() {
               whileInView="whileInView"
               viewport={scrollReveal.viewport}
               className="glass-card stat-card"
-              whileHover={{ y: -4, borderColor: '#D4AF37' }}
+              whileHover={{ y: -4, borderColor: '#38BDF8' }}
               style={{
                 padding: '24px',
                 backgroundColor: '#0B0F19',
-                border: '1px solid rgba(212, 175, 55, 0.2)',
+                border: '1.5px solid rgba(56, 189, 248, 0.35)',
                 borderRadius: '16px',
-                color: '#FFFFFF'
-              }}
+                color: '#FFFFFF' }}
             >
-              <div className="stat-icon-wrapper" style={{ color: '#D4AF37', marginBottom: '12px' }}>
+              <div className="stat-icon-wrapper" style={{ color: '#38BDF8', marginBottom: '12px' }}>
                 <Users size={22} strokeWidth={1.5} />
               </div>
-              <div className="stat-number" style={{ color: '#FFD700', fontSize: '48px', fontWeight: '800', fontFamily: 'var(--font-headings)' }}>
+              <div className="stat-number" style={{ color: '#38BDF8', fontSize: '48px', fontWeight: '800', fontFamily: 'var(--font-headings)' }}>
                 <CountUp end={50} suffix="+" duration={1} />
               </div>
-              <div className="stat-label" style={{ fontSize: '18px', fontWeight: '700', color: '#FFFFFF', marginTop: '6px' }}>
+              <div className="stat-label" style={{ fontSize: '18px', fontWeight: '700', marginTop: '6px', color: '#FFFFFF' }}>
                 Enterprise Customers
               </div>
-              <div className="stat-desc" style={{ fontSize: '15px', color: '#94A3B8', marginTop: '4px' }}>
+              <div className="stat-desc" style={{ fontSize: '15px', color: '#E2E8F0', marginTop: '4px' }}>
                 Trusted by large organizations
               </div>
             </motion.div>
@@ -988,25 +1038,24 @@ export default function Home() {
               whileInView="whileInView"
               viewport={scrollReveal.viewport}
               className="glass-card stat-card"
-              whileHover={{ y: -4, borderColor: '#D4AF37' }}
+              whileHover={{ y: -4, borderColor: '#38BDF8' }}
               style={{
                 padding: '24px',
                 backgroundColor: '#0B0F19',
-                border: '1px solid rgba(212, 175, 55, 0.2)',
+                border: '1.5px solid rgba(56, 189, 248, 0.35)',
                 borderRadius: '16px',
-                color: '#FFFFFF'
-              }}
+                color: '#FFFFFF' }}
             >
-              <div className="stat-icon-wrapper" style={{ color: '#D4AF37', marginBottom: '12px' }}>
+              <div className="stat-icon-wrapper" style={{ color: '#38BDF8', marginBottom: '12px' }}>
                 <Building size={22} strokeWidth={1.5} />
               </div>
-              <div className="stat-number" style={{ color: '#FFD700', fontSize: '48px', fontWeight: '800', fontFamily: 'var(--font-headings)' }}>
+              <div className="stat-number" style={{ color: '#38BDF8', fontSize: '48px', fontWeight: '800', fontFamily: 'var(--font-headings)' }}>
                 <CountUp end={10} suffix="+" duration={1.2} />
               </div>
-              <div className="stat-label" style={{ fontSize: '18px', fontWeight: '700', color: '#FFFFFF', marginTop: '6px' }}>
+              <div className="stat-label" style={{ fontSize: '18px', fontWeight: '700', marginTop: '6px', color: '#FFFFFF' }}>
                 Industry Domains
               </div>
-              <div className="stat-desc" style={{ fontSize: '15px', color: '#94A3B8', marginTop: '4px' }}>
+              <div className="stat-desc" style={{ fontSize: '15px', color: '#E2E8F0', marginTop: '4px' }}>
                 Custom-configured solutions
               </div>
             </motion.div>
@@ -1019,12 +1068,15 @@ export default function Home() {
 
       {/* --- SERVICES OVERVIEW (Enterprise Capability Showcase Carousel) --- */}
 
-      <section className="section" style={{ padding: '80px 0', backgroundColor: '#0B0F19', color: '#FFFFFF' }}>
+      <section className="section" style={{ padding: '80px 0', backgroundColor: '#0B0F19' }}>
 
         <div className="container">
           <div className="section-title-wrapper">
-            <span className="section-subtitle" style={{ color: '#D4AF37' }}>Our Capabilities</span>
-            <h2 className="section-title" style={{ color: '#FFFFFF' }}>Enterprise Software Services</h2>
+            <span className="section-subtitle" style={{ color: '#38BDF8' }}>Our Capabilities</span>
+            <h2 className="section-title" style={{
+              color: '#FFFFFF',
+              textShadow: '0 0 12px rgba(56, 189, 248, 0.15), 0 0 24px rgba(56, 189, 248, 0.08), 0 2px 12px rgba(255, 255, 255, 0.10)'
+            }}>Enterprise Software Services</h2>
             <p className="section-desc" style={{ color: '#94A3B8', fontSize: '18px' }}>Consulting, custom programming, and application delivery engineered for industrial scale.</p>
           </div>
 
@@ -1038,8 +1090,7 @@ export default function Home() {
       <section
         className="section"
         style={{
-          backgroundColor: '#EAF6FF',
-          color: '#0B0F19',
+          backgroundColor: '#FAF7F2',
           overflow: 'hidden',
           position: 'relative',
           padding: '120px 0 140px 0',
@@ -1047,25 +1098,45 @@ export default function Home() {
           borderBottom: '1px solid rgba(0, 0, 0, 0.05)'
         }}
       >
-        {/* Ambient background decoration */}
+        {/* Layered radial gradients and dotted grid pattern */}
         <div style={{
-          position: 'absolute', top: '-120px', left: '-120px',
-          width: '600px', height: '600px', borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(245,158,11,0.05) 0%, transparent 65%)',
-          pointerEvents: 'none', zIndex: 0
+          position: 'absolute',
+          top: '-10%',
+          left: '-10%',
+          width: '50%',
+          height: '60%',
+          background: 'radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, rgba(239, 231, 218, 0.35) 50%, transparent 70%)',
+          pointerEvents: 'none',
+          zIndex: 0
         }} />
         <div style={{
-          position: 'absolute', bottom: '-100px', right: '-100px',
-          width: '500px', height: '500px', borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(34,211,238,0.04) 0%, transparent 65%)',
-          pointerEvents: 'none', zIndex: 0
+          position: 'absolute',
+          bottom: '-10%',
+          right: '-10%',
+          width: '50%',
+          height: '60%',
+          background: 'radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, rgba(245, 240, 232, 0.4) 50%, transparent 70%)',
+          pointerEvents: 'none',
+          zIndex: 0
         }} />
-        {/* Subtle grid lines */}
         <div style={{
-          position: 'absolute', inset: 0,
-          backgroundImage: 'linear-gradient(rgba(0,0,0,0.015) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.015) 1px, transparent 1px)',
-          backgroundSize: '80px 80px',
-          pointerEvents: 'none', zIndex: 0
+          position: 'absolute',
+          top: '20%',
+          right: '10%',
+          width: '40%',
+          height: '50%',
+          background: 'radial-gradient(circle, rgba(255, 248, 238, 0.6) 0%, transparent 75%)',
+          pointerEvents: 'none',
+          zIndex: 0
+        }} />
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          backgroundImage: 'radial-gradient(rgba(56, 189, 248, 0.075) 1.5px, transparent 1.5px)',
+          backgroundSize: '24px 24px',
+          opacity: 0.7,
+          pointerEvents: 'none',
+          zIndex: 0
         }} />
 
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
@@ -1081,41 +1152,45 @@ export default function Home() {
             {/* Eyebrow */}
             <div style={{
               display: 'inline-flex', alignItems: 'center', gap: '10px',
-              background: 'rgba(11, 15, 25, 0.05)',
-              border: '1px solid rgba(11, 15, 25, 0.15)',
+              background: 'rgba(2, 132, 199, 0.08)',
+              border: '1px solid rgba(2, 132, 199, 0.15)',
               borderRadius: '40px',
               padding: '7px 18px',
               marginBottom: '24px'
             }}>
-              <div style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: '#D4AF37' }} />
-              <span style={{ fontSize: '12px', fontWeight: '700', color: '#0B0F19', textTransform: 'uppercase', letterSpacing: '1.5px' }}>
+              <div style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: '#0284C7' }} />
+              <span style={{ fontSize: '12px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1.5px', color: '#0284C7' }}>
                 CEA Proprietary Platforms
               </span>
               <div style={{
-                background: 'rgba(212, 175, 55, 0.15)',
-                border: '1px solid rgba(212, 175, 55, 0.3)',
+                background: 'rgba(2, 132, 199, 0.15)',
+                border: '1px solid rgba(2, 132, 199, 0.3)',
                 borderRadius: '20px',
                 padding: '2px 9px',
                 fontSize: '10px',
                 fontWeight: '800',
-                color: '#D4AF37'
+                color: '#0284C7'
               }}>5 PRODUCTS</div>
             </div>
 
             <h2 style={{
               fontSize: 'clamp(32px, 4vw, 52px)',
               fontWeight: '900',
-              color: '#0B0F19',
               fontFamily: 'var(--font-headings)',
               margin: '0 0 20px 0',
               letterSpacing: '-1.5px',
-              lineHeight: 1.1
+              lineHeight: 1.1,
+              background: 'linear-gradient(135deg, #0B1F3F 0%, #2563EB 50%, #0284C7 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+              color: 'transparent'
             }}>
               CEA Flagship Platforms
             </h2>
             <p style={{
               fontSize: '18px',
-              color: '#334155',
+              color: '#475569',
               lineHeight: 1.7,
               maxWidth: '700px',
               margin: '0 auto'
@@ -1127,7 +1202,7 @@ export default function Home() {
             {/* Separator line */}
             <div style={{
               width: '60px', height: '3px', margin: '28px auto 0 auto',
-              background: 'linear-gradient(90deg, transparent, #D4AF37, transparent)',
+              background: 'linear-gradient(90deg, transparent, #38BDF8, transparent)',
               borderRadius: '2px'
             }} />
           </motion.div>
@@ -1206,7 +1281,6 @@ export default function Home() {
                 className="btn"
                 style={{
                   border: '2px solid #0B0F19',
-                  color: '#0B0F19',
                   backgroundColor: 'transparent',
                   fontWeight: '700'
                 }}
@@ -1219,12 +1293,12 @@ export default function Home() {
       </section>
 
       {/* --- SOLUTIONS SUCCESSFULLY DELIVERED --- */}
-      <section className="section" style={{ overflow: 'hidden', position: 'relative', padding: '80px 0', backgroundColor: '#0B0F19', color: '#FFFFFF' }}>
+      <section className="section" style={{ overflow: 'hidden', position: 'relative', padding: '80px 0', backgroundColor: '#0B0F19' }}>
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
           {/* Section header */}
           <div style={{ textAlign: 'center', marginBottom: '44px' }}>
-            <span className="section-subtitle" style={{ color: '#D4AF37' }}>Our Delivery Record</span>
-            <h2 className="section-title" style={{ color: '#FFFFFF' }}>Solutions Successfully Delivered</h2>
+            <span className="section-subtitle" style={{ color: '#38BDF8' }}>Our Delivery Record</span>
+            <h2 className="section-title" >Solutions Successfully Delivered</h2>
           </div>
         </div>
 
@@ -1233,13 +1307,48 @@ export default function Home() {
       </section>
 
       {/* --- PRODUCTION TRACKING TOOL VIDEO PLACEHOLDER --- */}
-      <section className="section" style={{ position: 'relative', overflow: 'hidden', backgroundColor: '#F1F5F9', color: '#0B0F19', padding: '120px 0', borderTop: '1px solid rgba(0, 0, 0, 0.05)', borderBottom: '1px solid rgba(0, 0, 0, 0.05)' }}>
-        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'radial-gradient(circle at center, rgba(212, 175, 55, 0.08) 0%, transparent 80%)', zIndex: 1, pointerEvents: 'none' }}></div>
+      <section className="section" style={{ position: 'relative', overflow: 'hidden', backgroundColor: '#FAF7F2', padding: '120px 0', borderTop: '1px solid rgba(0, 0, 0, 0.05)', borderBottom: '1px solid rgba(0, 0, 0, 0.05)' }}>
+        {/* Layered radial gradients and dotted grid pattern */}
+        <div style={{
+          position: 'absolute',
+          top: '-10%',
+          left: '-10%',
+          width: '50%',
+          height: '60%',
+          background: 'radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, rgba(239, 231, 218, 0.35) 50%, transparent 70%)',
+          pointerEvents: 'none',
+          zIndex: 0
+        }} />
+        <div style={{
+          position: 'absolute',
+          bottom: '-10%',
+          right: '-10%',
+          width: '50%',
+          height: '60%',
+          background: 'radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, rgba(245, 240, 232, 0.4) 50%, transparent 70%)',
+          pointerEvents: 'none',
+          zIndex: 0
+        }} />
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          backgroundImage: 'radial-gradient(rgba(56, 189, 248, 0.075) 1.5px, transparent 1.5px)',
+          backgroundSize: '24px 24px',
+          opacity: 0.7,
+          pointerEvents: 'none',
+          zIndex: 0
+        }} />
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
-          <div className="section-title-wrapper">
-            <span className="section-subtitle" style={{ color: '#D4AF37' }}>Production Tracking Tool</span>
-            <h2 className="section-title" style={{ color: '#0B0F19' }}>Watch Vericea® in Action</h2>
-            <p className="section-desc" style={{ color: '#334155', fontSize: '18px' }}>Watch how Vericea® improves manufacturing efficiency, production visibility and operational performance.</p>
+          <div className="section-title-wrapper" style={{ textAlign: 'center', marginBottom: '48px' }}>
+            <span className="section-subtitle" style={{ color: '#475569', fontWeight: 600 }}>Watch Vericea® in Action</span>
+            <h2 className="section-title" style={{
+              background: 'linear-gradient(135deg, #0B1F3F 0%, #2563EB 50%, #0284C7 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+              color: 'transparent'
+            }}>Production Tracking Tool</h2>
+            <p className="section-desc" style={{ color: '#475569', fontSize: '18px', maxWidth: '700px', margin: '0 auto' }}>Watch how Vericea® improves manufacturing efficiency, production visibility and operational performance.</p>
           </div>
 
           <motion.div 
@@ -1267,11 +1376,11 @@ export default function Home() {
                   aria-label="Play product video"
                   whileHover={{ scale: 1.08 }}
                   whileTap={{ scale: 0.96 }}
-                  style={{ backgroundColor: '#D4AF37', color: '#0B0F19' }}
+                  style={{ backgroundColor: '#38BDF8' }}
                 >
                   <Play fill="currentColor" size={28} />
                 </motion.button>
-                <h3 className="video-info-title" style={{ color: '#FFFFFF' }}>Launch Vericea® Demo Walkthrough</h3>
+                <h3 className="video-info-title" >Launch Vericea® Demo Walkthrough</h3>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', justifyContent: 'center', marginTop: '6px' }}>
                   <span className="video-info-subtitle" style={{ color: 'var(--accent)' }}>Operations Overview • 2:40 mins</span>
                   <span style={{ fontSize: '11px', fontWeight: '700', padding: '3px 8px', background: 'rgba(245, 158, 11, 0.15)', color: 'var(--cta)', borderRadius: '4px', border: '1px solid rgba(245, 158, 11, 0.3)' }}>COMING SOON</span>
@@ -1284,12 +1393,12 @@ export default function Home() {
 
 
       {/* --- WHY CHOOSE CEA INFOTECH --- */}
-      <section className="section" style={{ backgroundColor: '#0B0F19', color: '#FFFFFF', padding: '120px 0' }}>
+      <section className="section" style={{ backgroundColor: '#0B0F19', padding: '120px 0' }}>
 
         <div className="container">
           <div className="section-title-wrapper">
-            <span className="section-subtitle" style={{ color: '#D4AF37' }}>Our Value Proposition</span>
-            <h2 className="section-title" style={{ color: '#FFFFFF' }}>Why Enterprise Leaders Partner With Us</h2>
+            <span className="section-subtitle" style={{ color: '#38BDF8' }}>Our Value Proposition</span>
+            <h2 className="section-title" >Why Enterprise Leaders Partner With Us</h2>
             <p className="section-desc" style={{ color: '#94A3B8', fontSize: '18px' }}>Over a decade of deploying high-uptime business software optimized for bottom-line results.</p>
           </div>
 
@@ -1323,12 +1432,12 @@ export default function Home() {
                 whileInView="whileInView"
                 viewport={scrollReveal.viewport}
                 className="glass-card"
-                style={{ backgroundColor: '#121826', border: '1px solid rgba(212, 175, 55, 0.2)' }}
-                whileHover={{ y: -6, borderColor: '#D4AF37', boxShadow: '0 12px 40px rgba(212, 175, 55, 0.15)' }}
+                style={{ backgroundColor: '#121826', border: '1px solid rgba(56, 189, 248, 0.2)' }}
+                whileHover={{ y: -6, borderColor: '#38BDF8', boxShadow: '0 12px 40px rgba(56, 189, 248, 0.15)' }}
               >
-                <div className="card-icon" style={{ backgroundColor: 'rgba(212, 175, 55, 0.1)', color: '#D4AF37', border: '1px solid rgba(212, 175, 55, 0.2)' }}>{item.icon}</div>
+                <div className="card-icon" style={{ backgroundColor: 'rgba(56, 189, 248, 0.1)', color: '#38BDF8', border: '1px solid rgba(56, 189, 248, 0.2)' }}>{item.icon}</div>
 
-                <h3 className="card-title" style={{ fontSize: '22px', fontWeight: '700', color: '#FFFFFF' }}>{item.title}</h3>
+                <h3 className="card-title" style={{ fontSize: '22px', fontWeight: '700' }}>{item.title}</h3>
                 <p className="card-text" style={{ fontSize: '18px', lineHeight: '1.6', color: '#D1D5DB' }}>{item.desc}</p>
               </motion.div>
             ))}
@@ -1355,8 +1464,8 @@ export default function Home() {
             className="section-title-wrapper" 
             style={{ marginBottom: '56px' }}
           >
-            <span className="section-subtitle" style={{ color: '#D4AF37' }}>Trusted Partners</span>
-            <h2 className="section-title" style={{ fontSize: '38px', fontWeight: '800', color: '#0B0F19' }}>
+            <span className="section-subtitle" style={{ color: '#38BDF8' }}>Trusted Partners</span>
+            <h2 className="section-title" style={{ fontSize: '38px', fontWeight: '800' }}>
               Trusted Partners
             </h2>
             <p className="section-desc" style={{ fontSize: '18px', lineHeight: '1.6', color: '#475569' }}>
@@ -1387,8 +1496,8 @@ export default function Home() {
                         scale: 1.04, 
                         filter: 'grayscale(0%)', 
                         opacity: 1,
-                        borderColor: '#D4AF37',
-                        boxShadow: '0 8px 24px rgba(212, 175, 55, 0.15)'
+                        borderColor: '#38BDF8',
+                        boxShadow: '0 8px 24px rgba(56, 189, 248, 0.15)'
                       }}
                       style={{
                         display: 'flex',
@@ -1410,8 +1519,8 @@ export default function Home() {
                         width: '32px', 
                         height: '32px', 
                         borderRadius: '6px', 
-                        backgroundColor: 'rgba(212, 175, 55, 0.1)', 
-                        color: '#D4AF37',
+                        backgroundColor: 'rgba(56, 189, 248, 0.1)', 
+                        color: '#38BDF8',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
@@ -1419,7 +1528,7 @@ export default function Home() {
                       }}>
                         <IconComp size={16} strokeWidth={2} />
                       </div>
-                      <span style={{ fontSize: '15px', fontWeight: '600', color: '#0B0F19', fontFamily: 'var(--font-headings)' }}>
+                      <span style={{ fontSize: '15px', fontWeight: '600', fontFamily: 'var(--font-headings)' }}>
                         {partner.name}
                       </span>
                     </motion.div>
@@ -1438,8 +1547,8 @@ export default function Home() {
                         scale: 1.04, 
                         filter: 'grayscale(0%)', 
                         opacity: 1,
-                        borderColor: '#D4AF37',
-                        boxShadow: '0 8px 24px rgba(212, 175, 55, 0.15)'
+                        borderColor: '#38BDF8',
+                        boxShadow: '0 8px 24px rgba(56, 189, 248, 0.15)'
                       }}
                       style={{
                         display: 'flex',
@@ -1461,8 +1570,8 @@ export default function Home() {
                         width: '32px', 
                         height: '32px', 
                         borderRadius: '6px', 
-                        backgroundColor: 'rgba(212, 175, 55, 0.1)', 
-                        color: '#D4AF37',
+                        backgroundColor: 'rgba(56, 189, 248, 0.1)', 
+                        color: '#38BDF8',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
@@ -1470,7 +1579,7 @@ export default function Home() {
                       }}>
                         <IconComp size={16} strokeWidth={2} />
                       </div>
-                      <span style={{ fontSize: '15px', fontWeight: '600', color: '#0B0F19', fontFamily: 'var(--font-headings)' }}>
+                      <span style={{ fontSize: '15px', fontWeight: '600', fontFamily: 'var(--font-headings)' }}>
                         {partner.name}
                       </span>
                     </motion.div>
@@ -1502,9 +1611,9 @@ export default function Home() {
       </section>
 
       {/* --- CALL TO ACTION --- */}
-      <section className="section" style={{ position: 'relative', overflow: 'hidden', backgroundColor: '#0B0F19', color: '#FFFFFF', padding: '120px 0' }}>
-        <div style={{ position: 'absolute', top: '-10%', right: '-10%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(212, 175, 55, 0.12) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
-        <div style={{ position: 'absolute', bottom: '-10%', left: '-10%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
+      <section className="section" style={{ position: 'relative', overflow: 'hidden', backgroundColor: '#0B0F19', padding: '120px 0' }}>
+        <div style={{ position: 'absolute', top: '-10%', right: '-10%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(56, 189, 248, 0.12) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
+        <div style={{ position: 'absolute', bottom: '-10%', left: '-10%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, transparent 60%)', zIndex: 1, pointerEvents: 'none' }}></div>
 
         <div className="container" style={{ textAlign: 'center', position: 'relative', zIndex: 2 }}>
           <motion.div 
@@ -1514,7 +1623,7 @@ export default function Home() {
             viewport={scrollReveal.viewport}
             style={{ maxWidth: '720px', margin: '0 auto' }}
           >
-            <h2 style={{ fontSize: '40px', marginBottom: '20px', letterSpacing: '-1px', color: '#ffffff' }}>Ready To Transform Your Operations?</h2>
+            <h2 style={{ fontSize: '40px', marginBottom: '20px', letterSpacing: '-1px' }}>Ready To Transform Your Operations?</h2>
             <p style={{ fontSize: '18px', color: '#E2E8F0', marginBottom: '40px', lineHeight: '1.6' }}>
               Improve productivity, compliance and operational visibility with CEA Infotech solutions. Connect with solutions architect M.D. Manohar and our team.
             </p>
@@ -1531,9 +1640,9 @@ export default function Home() {
               <motion.button 
                 onClick={() => navigate('/services')} 
                 className="btn btn-dark-outline"
-                whileHover={{ scale: 1.03, borderColor: '#D4AF37', backgroundColor: 'rgba(212, 175, 55, 0.08)' }}
+                whileHover={{ scale: 1.03, borderColor: '#38BDF8', backgroundColor: 'rgba(56, 189, 248, 0.08)' }}
                 whileTap={{ scale: 0.98 }}
-                style={{ border: '2px solid rgba(255, 255, 255, 0.35)', color: '#FFFFFF' }}
+                style={{ border: '2px solid rgba(255, 255, 255, 0.35)' }}
               >
                 Explore Services
               </motion.button>
@@ -1569,7 +1678,7 @@ export default function Home() {
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.95, y: 15 }}
               transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-              style={{ position: 'relative', width: '100%', maxWidth: '840px', aspectRatio: '16/9', backgroundColor: '#020617', borderRadius: '16px', border: '1px solid rgba(212, 175, 55, 0.3)', overflow: 'hidden', boxShadow: '0 25px 50px -12px rgba(0,0,0,0.8)' }}
+              style={{ position: 'relative', width: '100%', maxWidth: '840px', aspectRatio: '16/9', backgroundColor: '#020617', borderRadius: '16px', border: '1px solid rgba(56, 189, 248, 0.3)', overflow: 'hidden', boxShadow: '0 25px 50px -12px rgba(0,0,0,0.8)' }}
               onClick={(e) => e.stopPropagation()}
             >
               <button 
@@ -1580,7 +1689,7 @@ export default function Home() {
                 <X size={20} />
               </button>
               <div style={{ width: '100%', height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', color: '#fff', padding: '40px', textAlign: 'center' }}>
-                <div style={{ position: 'relative', width: '72px', height: '72px', borderRadius: '50%', backgroundColor: 'rgba(212, 175, 55, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '24px' }}>
+                <div style={{ position: 'relative', width: '72px', height: '72px', borderRadius: '50%', backgroundColor: 'rgba(56, 189, 248, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '24px' }}>
                   <Cpu size={36} style={{ color: 'var(--accent)' }} />
                   <span className="map-pulse" style={{ position: 'absolute', width: '72px', height: '72px', borderRadius: '50%', border: '2px solid var(--accent)', opacity: 0.4 }}></span>
                 </div>
@@ -1599,3 +1708,5 @@ export default function Home() {
     </motion.div>
   );
 }
+
+

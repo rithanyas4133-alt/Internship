@@ -341,7 +341,7 @@ export default function WorldMap() {
                   <MapPin size={18} color="#38BDF8" />
                 </div>
                 <div style={{ flexGrow: 1 }}>
-                  <h4 style={{ margin: 0, fontSize: '14px', fontWeight: '800', color: '#ffffff' }}>{hoveredHub.name}</h4>
+                  <h4 style={{ margin: 0, fontSize: '14px', fontWeight: '800' }}>{hoveredHub.name}</h4>
                   <p style={{ margin: '2px 0 0 0', fontSize: '11px', color: 'var(--text-muted)' }}>{hoveredHub.region}</p>
                 </div>
                 <div style={{ fontSize: '11px', color: '#38BDF8', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
@@ -355,3 +355,4 @@ export default function WorldMap() {
     </div>
   );
 }
+

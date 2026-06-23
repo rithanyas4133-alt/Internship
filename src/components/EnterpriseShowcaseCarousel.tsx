@@ -247,7 +247,7 @@ export default function EnterpriseShowcaseCarousel() {
               }}
             >
               <div style={{ display: 'flex', alignItems: 'center', gap: 20, flex: '1 1 300px', overflow: 'hidden', position: 'relative' }}>
-                <div style={{ color: '#D4AF37', fontWeight: 900, fontSize: 18, fontFamily: 'var(--font-headings)', minWidth: '60px' }}>
+                <div style={{ color: '#38BDF8', fontWeight: 900, fontSize: 18, fontFamily: 'var(--font-headings)', minWidth: '60px' }}>
                   {String(index + 1).padStart(2, '0')} / {String(total).padStart(2, '0')}
                 </div>
 
@@ -261,7 +261,7 @@ export default function EnterpriseShowcaseCarousel() {
                       transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
                       style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}
                     >
-                      <h3 style={{ fontSize: 20, fontWeight: 900, color: '#FFFFFF', margin: 0, fontFamily: 'var(--font-headings)' }}>
+                      <h3 style={{ fontSize: 20, fontWeight: 900, margin: 0, fontFamily: 'var(--font-headings)' }}>
                         {capabilities[index].title}
                       </h3>
                       <p style={{ fontSize: 14, color: 'rgba(230,238,248,0.85)', marginTop: 4, margin: '4px 0 0 0', lineHeight: 1.4 }}>
@@ -279,7 +279,7 @@ export default function EnterpriseShowcaseCarousel() {
                     style={{
                       height: '100%',
                       width: `${progress}%`,
-                      background: 'linear-gradient(90deg, #C8A276, #D4AF37)',
+                      background: 'linear-gradient(90deg, #C8A276, #38BDF8)',
                       transition: isHovered ? 'none' : 'width 50ms linear',
                       borderRadius: 8
                     }}
@@ -320,3 +320,5 @@ export default function EnterpriseShowcaseCarousel() {
     </section>
   );
 }
+
+

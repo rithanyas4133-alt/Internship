@@ -103,7 +103,7 @@ export default function ComplianceHub() {
       desc: 'Define periodic audit frequencies (daily, weekly, monthly, quarterly and annual) and create structured audit plans across departments, locations and business units.',
       activities: ['Define audit calendar', 'Set frequencies', 'Schedule locations', 'Establish priorities'],
       outcome: 'A clear compliance roadmap with planned audit activities.',
-      image: '/images/business_consultation_1780850767888.png'
+      image: '/images/scheduling_lifecycle.png'
     },
     {
       stageNumber: '02',
@@ -113,7 +113,7 @@ export default function ComplianceHub() {
       desc: 'Assign qualified auditors, department representatives and compliance owners to execute audit activities efficiently.',
       activities: ['Auditor assignment', 'Team allocation', 'Responsibility mapping', 'Department ownership'],
       outcome: 'Clearly defined accountability across the organization.',
-      image: '/images/about_us_md_cards_1780850959717.png'
+      image: '/images/resource_allocation.png'
     },
     {
       stageNumber: '03',
@@ -123,7 +123,7 @@ export default function ComplianceHub() {
       desc: 'Engage employees, supervisors and process owners using predefined questionnaires and structured assessments.',
       activities: ['Staff interviews', 'Process reviews', 'Awareness evaluation', 'Compliance checks'],
       outcome: 'Understanding of process adherence and compliance maturity.',
-      image: '/images/about_us_section_1780850946744.png'
+      image: '/images/interviews_assessments.png'
     },
     {
       stageNumber: '04',
@@ -133,7 +133,7 @@ export default function ComplianceHub() {
       desc: 'Review operating procedures, certifications, legal registers, calibration records and supporting documentation.',
       activities: ['SOP review', 'Certification checks', 'Record validation', 'Documentation assessment'],
       outcome: 'Verification of documented compliance requirements.',
-      image: '/images/product_tab_compliance_1780851018319.png'
+      image: '/images/document_verification.png'
     },
     {
       stageNumber: '05',
@@ -143,7 +143,7 @@ export default function ComplianceHub() {
       desc: 'Observe production activities, workplace conditions, machinery operations and safety practices.',
       activities: ['Factory walkthroughs', 'Safety inspections', 'Process observation', 'Equipment verification'],
       outcome: 'Validation of actual operational practices.',
-      image: '/images/safety_inspection_1780850817856.png'
+      image: '/images/production_observation.png'
     },
     {
       stageNumber: '06',
@@ -153,7 +153,7 @@ export default function ComplianceHub() {
       desc: 'Evaluate quality management systems, process controls, defect handling and operational consistency.',
       activities: ['Process audits', 'Quality checks', 'Non-conformance review', 'Corrective action verification'],
       outcome: 'Improved quality system effectiveness.',
-      image: '/images/quality_audit_1780850801169.png'
+      image: '/images/quality_system.png'
     },
     {
       stageNumber: '07',
@@ -163,7 +163,7 @@ export default function ComplianceHub() {
       desc: 'Assess labor practices, employee welfare, workplace ethics and social compliance standards.',
       activities: ['Labor verification', 'Welfare assessment', 'Working hour review', 'Ethical compliance checks'],
       outcome: 'Enhanced workforce compliance and ethical standards.',
-      image: '/images/manufacturing_floor_1780850784796.png'
+      image: '/images/social_compliance.png'
     },
     {
       stageNumber: '08',
@@ -173,7 +173,7 @@ export default function ComplianceHub() {
       desc: 'Compile findings, classify observations, document non-conformities and generate comprehensive reports.',
       activities: ['Findings summary', 'NC documentation', 'Rating generation', 'Report publishing'],
       outcome: 'Actionable audit reports ready for management review.',
-      image: '/images/vericea_dashboard_mockup.png'
+      image: '/images/final_reporting.png'
     },
     {
       stageNumber: '09',
@@ -183,7 +183,7 @@ export default function ComplianceHub() {
       desc: 'Analyze historical audits, identify recurring issues and drive continuous improvement initiatives.',
       activities: ['Trend analysis', 'Root cause review', 'KPI tracking', 'Improvement planning'],
       outcome: 'Long-term compliance excellence and operational improvement.',
-      image: '/images/logistics_terminal_1780850837146.png'
+      image: '/images/analytics_improvement.png'
     }
   ];
 
@@ -228,7 +228,7 @@ export default function ComplianceHub() {
       subtitle: 'Audit Scheduling & Scoping',
       desc: 'Configure customizable audit schedules based on calendar cycles or dynamic triggers. Allocate responsibilities to specific plant inspectors, safety leads, or external agencies. Scope specific audit checklists, department targets, and regulatory standards to be verified.',
       features: ['Dynamic Master Planner', 'Auditor Assignment System', 'Standard Checklist Mapping'],
-      image: '/images/business_consultation_1780850767888.png',
+      image: '/images/works_plan.png',
       badge: 'Planning & Governance'
     },
     {
@@ -236,7 +236,7 @@ export default function ComplianceHub() {
       subtitle: 'Mobile & Tablet Floor Auditing',
       desc: 'Equip floor inspectors with standard tablet/mobile templates. Inspectors record findings live on the production floor, completing structured compliance questions (Yes/No, scored, or textual). The system operates seamlessly offline in areas with poor network coverage.',
       features: ['Configurable Audit Templates', 'Scored & Qualitative Questions', 'Offline-First Floor Logging'],
-      image: '/images/safety_inspection_1780850817856.png',
+      image: '/images/works_assess.png',
       badge: 'Floor Inspections'
     },
     {
@@ -244,7 +244,7 @@ export default function ComplianceHub() {
       subtitle: 'Rich Media Evidence Collection',
       desc: 'Prevent verbal approximations. Inspectors capture and attach real-time evidence directly to specific checklist questions. Store photos with annotations, voice notes explaining issues, legal PDF uploads, and video records into the secure Vericea® Evidence Locker.',
       features: ['Secure Evidence Locker', 'Photo Annotations & Tags', 'Multi-format File Uploads'],
-      image: '/images/vericea_dashboard_mockup.png',
+      image: '/images/works_verify.png',
       badge: 'Evidence Management'
     },
     {
@@ -252,7 +252,7 @@ export default function ComplianceHub() {
       subtitle: 'Real-time Metrics & Dashboarding',
       desc: 'View compliance performance globally or zoom in on individual branches, departments, or machine lines. Track pending corrective actions, open non-conformities, and overall safety scores. Get automated email reports and urgent compliance flags as they arise.',
       features: ['Multi-plant Performance Matrix', 'CAPA Routing & Ticket Tracking', 'Executive Email Digests'],
-      image: '/images/product_tab_compliance_1780851018319.png',
+      image: '/images/works_monitor.png',
       badge: 'Management Visibility'
     },
     {
@@ -260,7 +260,7 @@ export default function ComplianceHub() {
       subtitle: 'Analytics & Trend Assessments',
       desc: 'Utilize long-term analytical tools to examine recurrent failures, pinpoint weak manufacturing zones, and optimize corrective loops. Compare monthly performance graphs and historical ratings to guide training, investments, and process standardization.',
       features: ['Historical Score Comparison', 'Recurring NC Analytics', 'Continuous Training Insights'],
-      image: '/images/manufacturing_floor_1780850784796.png',
+      image: '/images/works_improve.png',
       badge: 'Continuous Optimization'
     }
   ];

@@ -12,15 +12,8 @@ import {
   Globe,
   Building,
   Users,
-  Briefcase,
-  Layers,
-  Factory,
-  ShieldCheck,
-  Truck,
-  Cog,
   Rocket,
-  Headset,
-  Cpu
+  Headset
 } from 'lucide-react';
 import EnterpriseShowcaseCarousel from '../components/EnterpriseShowcaseCarousel';
 
@@ -135,21 +128,29 @@ const solutions = [
   }
 ];
 
-const partnersRow1 = [
-  { name: "Bosch", icon: Cog, color: "#38BDF8" },
-  { name: "Siemens", icon: Cpu, color: "#38BDF8" },
-  { name: "Schneider Electric", icon: Layers, color: "#38BDF8" },
-  { name: "Honeywell", icon: ShieldCheck, color: "#38BDF8" },
-  { name: "ABB", icon: Cog, color: "#38BDF8" }
+const customerLogos = [
+  { name: 'Vrutti', path: '/images/Vrutti logo.png' },
+  { name: 'AIC', path: '/images/AIC.png' },
+  { name: 'Ashwath Inc', path: '/images/Ashwath Inc logo.jpg' },
+  { name: 'Atlas Export Enterprises', path: '/images/Atlas Export Enterprises logo-1.jpg' },
+  { name: 'Aviram', path: '/images/Aviram logo-v1.png' },
+  { name: 'CBC', path: '/images/cbc-logo.png' },
+  { name: 'Deal', path: '/images/Deal-Final-Logo.jpg' },
+  { name: 'Dynamic Eng', path: '/images/Dynamic Eng logo.jpg' },
+  { name: 'High Octavez', path: '/images/high octavez.png' },
+  { name: 'Kandhan Knitts', path: '/images/Kandhan Knitts logo.png' },
+  { name: 'Genygolf', path: '/images/LOGO-with-genygolf.png' },
+  { name: 'Masturlal', path: '/images/Masturlal site_logo-2.png' },
+  { name: 'Omega Scientific', path: '/images/omega Scientific.png' },
+  { name: 'Poshan Abhiyaan', path: '/images/POSAHN-ABHIYAAN-LOGO.png' },
+  { name: 'Premier Fine Linens', path: '/images/Premier Fine Linens logo.png' },
+  { name: 'RDMC', path: '/images/rdmc logo.jpg' },
+  { name: 'Sira', path: '/images/sira_logo.png' },
+  { name: 'Skilfil', path: '/images/skilfil logo.png' },
+  { name: 'Skilift Consulting', path: '/images/Skilift Consulting logo.png' },
+  { name: 'Swasti', path: '/images/swasti logo.png' }
 ];
 
-const partnersRow2 = [
-  { name: "Tata Group", icon: Building, color: "#38BDF8" },
-  { name: "TVS", icon: Factory, color: "#38BDF8" },
-  { name: "Ashok Leyland", icon: Truck, color: "#38BDF8" },
-  { name: "Larsen & Toubro", icon: Briefcase, color: "#38BDF8" },
-  { name: "Mahindra", icon: Factory, color: "#38BDF8" }
-];
 
 // â”€â”€ FLAGSHIP PLATFORMS DATA â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
@@ -727,7 +728,33 @@ function SolutionsCoverflow({
 
 export default function Home() {
   const navigate = useNavigate();
-  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+  const [activeVideoUrl, setActiveVideoUrl] = useState<string | null>(null);
+  const [isConveyorHovered, setIsConveyorHovered] = useState(false);
+  const [hoveredCardIndex, setHoveredCardIndex] = useState<number | null>(null);
+
+  const conveyorContainerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.08,
+        delayChildren: 0.1
+      }
+    }
+  };
+
+  const conveyorCardVariants = {
+    hidden: { opacity: 0, y: 24, scale: 0.96 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: { 
+        duration: 0.7, 
+        ease: [0.16, 1, 0.3, 1] as [number, number, number, number]
+      }
+    }
+  };
 
   // Background slideshow slider state
   const [currentBgIndex, setCurrentBgIndex] = useState(0);
@@ -767,10 +794,7 @@ export default function Home() {
     whileTap: { scale: 0.98 }
   };
 
-  const secondaryButtonHover = {
-    whileHover: { scale: 1.02, backgroundColor: 'rgba(56, 189, 248, 0.1)' },
-    whileTap: { scale: 0.98 }
-  };
+
 
   return (
     <motion.div
@@ -786,7 +810,7 @@ export default function Home() {
           padding: '160px 0 120px 0', 
           position: 'relative',
           overflow: 'hidden',
-          background: 'linear-gradient(180deg, #0B1220 0%, #0A1A33 100%)'
+          background: '#0B1220'
         }}
       >
         {/* Auto-playing fading background slides */}
@@ -803,17 +827,19 @@ export default function Home() {
               left: 0,
               right: 0,
               bottom: 0,
-              backgroundImage: `linear-gradient(180deg, rgba(11, 18, 32, 0.7) 0%, rgba(10, 26, 51, 0.85) 100%), url(${heroBackgrounds[currentBgIndex]})`,
+              backgroundImage: `linear-gradient(180deg, rgba(11, 17, 31, 0.82) 0%, rgba(15, 23, 42, 0.92) 100%), url(${heroBackgrounds[currentBgIndex]})`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
+              filter: 'blur(4px)',
+              transform: 'scale(1.05)',
               zIndex: 0
             }}
           />
         </AnimatePresence>
 
         {/* Premium layered glow effects */}
-        <div style={{ position: 'absolute', top: '-10%', left: '-10%', width: '60%', height: '60%', background: 'radial-gradient(circle, rgba(56, 189, 248, 0.10) 0%, transparent 70%)', zIndex: 1, pointerEvents: 'none' }} />
-        <div style={{ position: 'absolute', bottom: '-10%', right: '-10%', width: '60%', height: '60%', background: 'radial-gradient(circle, rgba(37, 99, 235, 0.08) 0%, transparent 70%)', zIndex: 1, pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', top: '-10%', left: '-10%', width: '60%', height: '60%', background: 'radial-gradient(circle, rgba(255, 255, 255, 0.02) 0%, transparent 70%)', zIndex: 1, pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', bottom: '-10%', right: '-10%', width: '60%', height: '60%', background: 'radial-gradient(circle, rgba(255, 255, 255, 0.01) 0%, transparent 70%)', zIndex: 1, pointerEvents: 'none' }} />
 
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
           <div className="grid-2" style={{ alignItems: 'center' }}>
@@ -855,41 +881,39 @@ export default function Home() {
                 <Sparkles size={13} />
                 <span>CEA Infotech Global</span>
               </div>
-              <h1 style={{
-                fontSize: 'clamp(36px, 5vw, 56px)',
-                fontWeight: '800',
-                lineHeight: '1.15',
-                margin: '0 0 16px 0',
-                letterSpacing: '-2px',
-                background: 'linear-gradient(135deg, #0B1F3F 0%, #2563EB 45%, #38BDF8 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-                color: 'transparent',
-                textShadow: '0 0 40px rgba(56, 189, 248, 0.15)'
-              }}>
-                Enterprise Software & Technology Consulting
+              <h1 
+                className="premium-hero-shine"
+                style={{
+                  fontSize: 'clamp(36px, 5vw, 56px)',
+                  fontWeight: '800',
+                  lineHeight: '1.15',
+                  margin: '0 0 16px 0',
+                  letterSpacing: '-2px'
+                }}
+              >
+                Enterprise Software &<br />
+                <span style={{ color: '#38BDF8', WebkitTextFillColor: '#38BDF8' }}>Technology Consulting</span>
               </h1>
               <h2 style={{
                 fontSize: '22px',
                 fontWeight: '600',
                 lineHeight: '1.45',
-                color: '#CBD5E1',
+                color: '#E2E8F0',
                 margin: '0 0 20px 0',
                 letterSpacing: '-0.5px'
               }}>
                 Engineering Digital Excellence for Manufacturing, Compliance & Enterprise Growth
               </h2>
-              <p style={{ fontSize: '16px', color: '#94A3B8', marginBottom: '36px', lineHeight: '1.7' }}>
+              <p style={{ fontSize: '16px', color: '#CBD5E1', marginBottom: '36px', lineHeight: '1.7' }}>
                 CEA Infotech delivers enterprise software solutions, compliance platforms, audit intelligence systems and digital transformation initiatives that help organizations improve operational performance, governance and business efficiency.
               </p>
               
               <div className="btn-group">
                 <motion.button 
                   onClick={() => navigate('/products')} 
-                  className="btn btn-cta"
-                  whileHover={buttonHover.whileHover}
-                  whileTap={buttonHover.whileTap}
+                  className="btn"
+                  whileHover={{ scale: 1.02, boxShadow: '0 4px 12px rgba(56, 189, 248, 0.25)' }}
+                  whileTap={{ scale: 0.98 }}
                   style={{ backgroundColor: '#38BDF8', color: '#0B1220', border: 'none', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '8px' }}
                 >
                   Explore Solutions
@@ -897,10 +921,10 @@ export default function Home() {
                 </motion.button>
                 <motion.button 
                   onClick={() => navigate('/contact')} 
-                  className="btn btn-dark-outline"
-                  whileHover={secondaryButtonHover.whileHover}
-                  whileTap={secondaryButtonHover.whileTap}
-                  style={{ border: '2px solid rgba(56, 189, 248, 0.3)', backgroundColor: 'transparent', color: '#FFFFFF', fontWeight: '600', backdropFilter: 'blur(4px)' }}
+                  className="btn"
+                  whileHover={{ scale: 1.02, backgroundColor: 'rgba(255, 255, 255, 0.06)' }}
+                  whileTap={{ scale: 0.98 }}
+                  style={{ border: '1.5px solid rgba(255,255,255,0.18)', backgroundColor: 'transparent', color: '#FFFFFF', fontWeight: '600', backdropFilter: 'blur(4px)' }}
                 >
                   Schedule Consultation
                 </motion.button>
@@ -1306,7 +1330,7 @@ export default function Home() {
         <SolutionsCoverflow solutions={solutions} onNavigate={navigate} />
       </section>
 
-      {/* --- PRODUCTION TRACKING TOOL VIDEO PLACEHOLDER --- */}
+      {/* --- DUAL VIDEO SHOWCASE SECTION --- */}
       <section className="section" style={{ position: 'relative', overflow: 'hidden', backgroundColor: '#FAF7F2', padding: '120px 0', borderTop: '1px solid rgba(0, 0, 0, 0.05)', borderBottom: '1px solid rgba(0, 0, 0, 0.05)' }}>
         {/* Layered radial gradients and dotted grid pattern */}
         <div style={{
@@ -1340,54 +1364,72 @@ export default function Home() {
         }} />
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
           <div className="section-title-wrapper" style={{ textAlign: 'center', marginBottom: '48px' }}>
-            <span className="section-subtitle" style={{ color: '#475569', fontWeight: 600 }}>Watch Vericea® in Action</span>
+            <span className="section-subtitle" style={{ color: '#475569', fontWeight: 600 }}>WATCH VERICEA® IN ACTION</span>
             <h2 className="section-title" style={{
               background: 'linear-gradient(135deg, #0B1F3F 0%, #2563EB 50%, #0284C7 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
               color: 'transparent'
-            }}>Production Tracking Tool</h2>
-            <p className="section-desc" style={{ color: '#475569', fontSize: '18px', maxWidth: '700px', margin: '0 auto' }}>Watch how Vericea® improves manufacturing efficiency, production visibility and operational performance.</p>
+            }}>Vericea® Product Demonstrations</h2>
+            <p className="section-desc" style={{ color: '#475569', fontSize: '18px', maxWidth: '700px', margin: '0 auto' }}>Explore how Vericea® helps organizations improve planning, operational efficiency, project visibility, and execution excellence.</p>
           </div>
 
-          <motion.div 
-            variants={scrollReveal} 
-            initial="initial" 
-            whileInView="whileInView" 
-            viewport={scrollReveal.viewport} 
-            className="video-wrapper"
-            style={{ border: '1px solid rgba(0, 0, 0, 0.08)', contentVisibility: 'auto' }}
-          >
-            {/* Real Industrial Control Room Photograph background with dark overlay */}
-            <div 
-              className="video-placeholder-bg"
-              style={{
-                backgroundImage: 'linear-gradient(rgba(2, 6, 23, 0.75), rgba(2, 6, 23, 0.85)), url("/images/industrial_control_room_1780849774868.png")',
-                backgroundSize: 'cover',
-                backgroundPosition: 'center'
-              }}
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))',
+            gap: '32px',
+            maxWidth: '1000px',
+            margin: '0 auto'
+          }}>
+            {/* Card 1 */}
+            <motion.div 
+              variants={scrollReveal}
+              initial="initial"
+              whileInView="whileInView"
+              viewport={scrollReveal.viewport}
+              className="video-card-premium"
+              onClick={() => setActiveVideoUrl('/images/WhatsApp Video 2026-06-24 at 5.55.10 AM.mp4')}
             >
-              <div className="video-overlay-details">
-                {/* Play button */}
-                <motion.button 
-                  onClick={() => setIsVideoModalOpen(true)}
-                  className="video-play-btn" 
-                  aria-label="Play product video"
-                  whileHover={{ scale: 1.08 }}
-                  whileTap={{ scale: 0.96 }}
-                  style={{ backgroundColor: '#38BDF8' }}
-                >
-                  <Play fill="currentColor" size={28} />
-                </motion.button>
-                <h3 className="video-info-title" >Launch Vericea® Demo Walkthrough</h3>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', justifyContent: 'center', marginTop: '6px' }}>
-                  <span className="video-info-subtitle" style={{ color: 'var(--accent)' }}>Operations Overview • 2:40 mins</span>
-                  <span style={{ fontSize: '11px', fontWeight: '700', padding: '3px 8px', background: 'rgba(245, 158, 11, 0.15)', color: 'var(--cta)', borderRadius: '4px', border: '1px solid rgba(245, 158, 11, 0.3)' }}>COMING SOON</span>
+              <video 
+                src="/images/WhatsApp Video 2026-06-24 at 5.55.10 AM.mp4" 
+                muted 
+                preload="metadata" 
+                className="video-card-element"
+                playsInline
+              />
+              <div className="video-play-overlay">
+                <div className="video-play-btn-circle">
+                  <Play fill="currentColor" size={24} style={{ marginLeft: '2px' }} />
                 </div>
+                <h3 className="video-card-title">Capacity Planning & Resource Optimization</h3>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+
+            {/* Card 2 */}
+            <motion.div 
+              variants={scrollReveal}
+              initial="initial"
+              whileInView="whileInView"
+              viewport={scrollReveal.viewport}
+              className="video-card-premium"
+              onClick={() => setActiveVideoUrl('/images/WhatsApp Video 2026-06-24 at 5.55.57 AM.mp4')}
+            >
+              <video 
+                src="/images/WhatsApp Video 2026-06-24 at 5.55.57 AM.mp4" 
+                muted 
+                preload="metadata" 
+                className="video-card-element"
+                playsInline
+              />
+              <div className="video-play-overlay">
+                <div className="video-play-btn-circle">
+                  <Play fill="currentColor" size={24} style={{ marginLeft: '2px' }} />
+                </div>
+                <h3 className="video-card-title">Construction Project Management</h3>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -1445,15 +1487,37 @@ export default function Home() {
         </div>
       </section>
 
-      {/* --- TRUSTED PARTNERS SECTION --- */}
+      {/* --- OUR CUSTOMERS SHOWCASE SECTION --- */}
       <section className="section" style={{ 
-        padding: '100px 0 110px 0',
-        position: 'relative',
-        overflow: 'hidden',
-        backgroundColor: '#F8FAFC',
-        borderTop: '1px solid rgba(0, 0, 0, 0.05)',
-        borderBottom: '1px solid rgba(0, 0, 0, 0.05)'
+        position: 'relative', 
+        overflow: 'hidden', 
+        backgroundColor: '#FAF7F2', 
+        padding: '100px 0 110px 0', 
+        borderTop: '1px solid rgba(0, 0, 0, 0.05)', 
+        borderBottom: '1px solid rgba(0, 0, 0, 0.05)' 
       }}>
+        {/* Layered radial gradients */}
+        <div style={{
+          position: 'absolute',
+          top: '-10%',
+          left: '-10%',
+          width: '50%',
+          height: '60%',
+          background: 'radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, rgba(239, 231, 218, 0.35) 50%, transparent 70%)',
+          pointerEvents: 'none',
+          zIndex: 0
+        }} />
+        <div style={{
+          position: 'absolute',
+          bottom: '-10%',
+          right: '-10%',
+          width: '50%',
+          height: '60%',
+          background: 'radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, rgba(245, 240, 232, 0.4) 50%, transparent 70%)',
+          pointerEvents: 'none',
+          zIndex: 0
+        }} />
+
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
           {/* Section Heading */}
           <motion.div 
@@ -1464,133 +1528,130 @@ export default function Home() {
             className="section-title-wrapper" 
             style={{ marginBottom: '56px' }}
           >
-            <span className="section-subtitle" style={{ color: '#38BDF8' }}>Trusted Partners</span>
-            <h2 className="section-title" style={{ fontSize: '38px', fontWeight: '800' }}>
-              Trusted Partners
+            <span className="section-subtitle" style={{ color: '#38BDF8' }}>OUR CUSTOMERS</span>
+            <h2 className="section-title" style={{ 
+              fontSize: '38px', 
+              fontWeight: '800',
+              background: 'linear-gradient(135deg, #0B1F3F 0%, #2563EB 50%, #0284C7 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+              color: 'transparent'
+            }}>
+              Organizations We Serve
             </h2>
             <p className="section-desc" style={{ fontSize: '18px', lineHeight: '1.6', color: '#475569' }}>
-              Organizations across manufacturing, engineering, consulting, NGO and enterprise sectors trust CEA Infotech for technology solutions, compliance systems and digital transformation initiatives.
+              Trusted by organizations across diverse industries, CEA Infotech delivers technology, compliance, and digital transformation solutions that drive measurable business outcomes.
             </p>
           </motion.div>
+        </div>
 
-          {/* Infinite Marquee Logo Carousel */}
+        {/* Conveyor Belt Wrapper */}
+        <div 
+          style={{ 
+            overflow: 'hidden', 
+            width: '100%', 
+            position: 'relative', 
+            padding: '16px 0',
+            zIndex: 2
+          }}
+          onMouseEnter={() => setIsConveyorHovered(true)}
+          onMouseLeave={() => {
+            setIsConveyorHovered(false);
+            setHoveredCardIndex(null);
+          }}
+        >
+
+
+          {/* Data Pulse travelling across all logos */}
+          <div style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            background: 'linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.02) 15%, rgba(56, 189, 248, 0.06) 20%, rgba(56, 189, 248, 0.12) 25%, rgba(56, 189, 248, 0.06) 30%, rgba(56, 189, 248, 0.02) 35%, transparent)',
+            pointerEvents: 'none',
+            mixBlendMode: 'plus-lighter',
+            animation: 'data-pulse-sweep 10s cubic-bezier(0.25, 1, 0.5, 1) infinite',
+            animationPlayState: isConveyorHovered ? 'paused' : 'running',
+            zIndex: 3
+          }} />
+
           <motion.div 
-            variants={scrollReveal}
-            initial="initial"
-            whileInView="whileInView"
-            viewport={{ once: true, margin: "-100px" }}
-            className="logo-carousel-container"
+            variants={conveyorContainerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            style={{
+              display: 'flex',
+              gap: '24px',
+              width: 'max-content',
+              animation: 'conveyor-left-to-right 45s linear infinite',
+              animationPlayState: isConveyorHovered ? 'paused' : 'running',
+              paddingLeft: '24px'
+            }}
           >
-            <div className="logo-marquee-wrapper" style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-              
-              {/* Replace placeholders with official customer and partner logos provided by CEA Infotech. */}
-              
-              {/* Row 1: Left to Right */}
-              <div className="marquee-row marquee-row-ltr">
-                {[...partnersRow1, ...partnersRow1].map((partner, index) => {
-                  const IconComp = partner.icon;
-                  return (
-                    <motion.div
-                      key={`row1-${index}`}
-                      whileHover={{ 
-                        scale: 1.04, 
-                        filter: 'grayscale(0%)', 
-                        opacity: 1,
-                        borderColor: '#38BDF8',
-                        boxShadow: '0 8px 24px rgba(56, 189, 248, 0.15)'
-                      }}
-                      style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '12px',
-                        background: '#FFFFFF',
-                        border: '1px solid rgba(0,0,0,0.08)',
-                        borderRadius: '12px',
-                        padding: '12px 22px',
-                        boxShadow: '0 4px 12px rgba(0,0,0,0.03)',
-                        cursor: 'pointer',
-                        filter: 'grayscale(100%)',
-                        opacity: 0.72,
-                        transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
-                        whiteSpace: 'nowrap'
-                      }}
-                    >
-                      <div style={{ 
-                        width: '32px', 
-                        height: '32px', 
-                        borderRadius: '6px', 
-                        backgroundColor: 'rgba(56, 189, 248, 0.1)', 
-                        color: '#38BDF8',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        flexShrink: 0
-                      }}>
-                        <IconComp size={16} strokeWidth={2} />
-                      </div>
-                      <span style={{ fontSize: '15px', fontWeight: '600', fontFamily: 'var(--font-headings)' }}>
-                        {partner.name}
-                      </span>
-                    </motion.div>
-                  );
-                })}
-              </div>
-
-              {/* Row 2: Right to Left */}
-              <div className="marquee-row marquee-row-rtl">
-                {[...partnersRow2, ...partnersRow2].map((partner, index) => {
-                  const IconComp = partner.icon;
-                  return (
-                    <motion.div
-                      key={`row2-${index}`}
-                      whileHover={{ 
-                        scale: 1.04, 
-                        filter: 'grayscale(0%)', 
-                        opacity: 1,
-                        borderColor: '#38BDF8',
-                        boxShadow: '0 8px 24px rgba(56, 189, 248, 0.15)'
-                      }}
-                      style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '12px',
-                        background: '#FFFFFF',
-                        border: '1px solid rgba(0,0,0,0.08)',
-                        borderRadius: '12px',
-                        padding: '12px 22px',
-                        boxShadow: '0 4px 12px rgba(0,0,0,0.03)',
-                        cursor: 'pointer',
-                        filter: 'grayscale(100%)',
-                        opacity: 0.72,
-                        transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
-                        whiteSpace: 'nowrap'
-                      }}
-                    >
-                      <div style={{ 
-                        width: '32px', 
-                        height: '32px', 
-                        borderRadius: '6px', 
-                        backgroundColor: 'rgba(56, 189, 248, 0.1)', 
-                        color: '#38BDF8',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        flexShrink: 0
-                      }}>
-                        <IconComp size={16} strokeWidth={2} />
-                      </div>
-                      <span style={{ fontSize: '15px', fontWeight: '600', fontFamily: 'var(--font-headings)' }}>
-                        {partner.name}
-                      </span>
-                    </motion.div>
-                  );
-                })}
-              </div>
-
-            </div>
+            {/* Double the customerLogos for a seamless infinite loop */}
+            {[...customerLogos, ...customerLogos].map((logo, index) => {
+              const isCardHovered = hoveredCardIndex === index;
+              return (
+                <motion.div
+                  key={index}
+                  variants={conveyorCardVariants}
+                  onMouseEnter={() => setHoveredCardIndex(index)}
+                  onMouseLeave={() => setHoveredCardIndex(null)}
+                  className="customer-logo-card"
+                  style={{
+                    transform: isCardHovered ? 'scale(1.03) translateY(-6px)' : 'scale(1) translateY(0)',
+                    transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)'
+                  }}
+                >
+                  <div className="customer-logo-container">
+                    <img 
+                      src={logo.path} 
+                      alt={`${logo.name} Logo`} 
+                      className="customer-logo-img"
+                    />
+                  </div>
+                </motion.div>
+              );
+            })}
           </motion.div>
+        </div>
 
-          {/* Supporting Text */}
+        {/* Animated Gold Tracking Line */}
+        <div className="container" style={{ position: 'relative', marginTop: '16px', zIndex: 2 }}>
+          <motion.div 
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
+            style={{ 
+              position: 'relative', 
+              height: '2px', 
+              width: '100%', 
+              overflow: 'hidden', 
+              backgroundColor: 'rgba(56, 189, 248, 0.15)', 
+              borderRadius: '1px',
+              transformOrigin: 'left'
+            }}
+          >
+            <div style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              height: '100%',
+              width: '240px',
+              background: 'linear-gradient(90deg, transparent, #38BDF8, #BCC0C0, #38BDF8, transparent)',
+              animation: 'gold-tracker-flow 3.5s linear infinite',
+              animationPlayState: isConveyorHovered ? 'paused' : 'running'
+            }} />
+          </motion.div>
+        </div>
+
+        {/* Supporting Text / Tagline */}
+        <div className="container" style={{ position: 'relative', zIndex: 2 }}>
           <motion.div
             variants={scrollReveal}
             initial="initial"
@@ -1605,7 +1666,7 @@ export default function Home() {
               fontStyle: 'italic'
             }}
           >
-            Building long-term relationships through innovation, reliability and business excellence.
+            Delivering value and building lasting partnerships across industries.
           </motion.div>
         </div>
       </section>
@@ -1653,7 +1714,7 @@ export default function Home() {
 
       {/* --- VIDEO PLAYBACK OVERLAY MODAL --- */}
       <AnimatePresence>
-        {isVideoModalOpen && (
+        {activeVideoUrl && (
           <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -1671,35 +1732,30 @@ export default function Home() {
               zIndex: 2000, 
               padding: '24px' 
             }}
-            onClick={() => setIsVideoModalOpen(false)}
+            onClick={() => setActiveVideoUrl(null)}
           >
             <motion.div 
               initial={{ scale: 0.95, y: 15 }}
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.95, y: 15 }}
               transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-              style={{ position: 'relative', width: '100%', maxWidth: '840px', aspectRatio: '16/9', backgroundColor: '#020617', borderRadius: '16px', border: '1px solid rgba(56, 189, 248, 0.3)', overflow: 'hidden', boxShadow: '0 25px 50px -12px rgba(0,0,0,0.8)' }}
+              style={{ position: 'relative', width: '100%', maxWidth: '960px', aspectRatio: '16/9', backgroundColor: '#020617', borderRadius: '16px', border: '1px solid rgba(56, 189, 248, 0.3)', overflow: 'hidden', boxShadow: '0 25px 50px -12px rgba(0,0,0,0.8)' }}
               onClick={(e) => e.stopPropagation()}
             >
               <button 
-                onClick={() => setIsVideoModalOpen(false)} 
+                onClick={() => setActiveVideoUrl(null)} 
                 style={{ position: 'absolute', top: '16px', right: '16px', backgroundColor: 'rgba(2, 6, 23, 0.8)', border: 'none', color: '#fff', cursor: 'pointer', padding: '8px', borderRadius: '50%', zIndex: 10, display: 'flex', alignItems: 'center', justifyContent: 'center' }}
                 aria-label="Close modal"
               >
                 <X size={20} />
               </button>
-              <div style={{ width: '100%', height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', color: '#fff', padding: '40px', textAlign: 'center' }}>
-                <div style={{ position: 'relative', width: '72px', height: '72px', borderRadius: '50%', backgroundColor: 'rgba(56, 189, 248, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '24px' }}>
-                  <Cpu size={36} style={{ color: 'var(--accent)' }} />
-                  <span className="map-pulse" style={{ position: 'absolute', width: '72px', height: '72px', borderRadius: '50%', border: '2px solid var(--accent)', opacity: 0.4 }}></span>
-                </div>
-                <h3 style={{ color: '#fff', marginBottom: '12px', fontSize: '24px', fontFamily: 'var(--font-headings)' }}>Vericea® Production Tracking Walkthrough</h3>
-                <p style={{ color: '#94a3b8', fontSize: '15px', maxWidth: '480px', marginBottom: '32px', lineHeight: '1.5' }}>
-                  This overlay represents the interactive media player for the Vericea® Manufacturing software. In a production environment, this embeds the explainer video walk-through.
-                </p>
-                <button onClick={() => setIsVideoModalOpen(false)} className="btn btn-cta btn-sm">
-                  Close Walkthrough Demo
-                </button>
+              <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: '#000' }}>
+                <video
+                  src={activeVideoUrl}
+                  controls
+                  autoPlay
+                  style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+                />
               </div>
             </motion.div>
           </motion.div>

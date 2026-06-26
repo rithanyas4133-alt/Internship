@@ -1024,21 +1024,23 @@ export default function Partners() {
             {...fadeIn}
             style={{ textAlign: 'center', marginBottom: '60px', position: 'relative', zIndex: 1 }}
           >
-            <span 
-              style={{ 
-                color: '#0284C7', 
-                fontWeight: '800', 
-                textTransform: 'uppercase', 
-                fontSize: '12px', 
-                letterSpacing: '2px',
-                background: 'rgba(2, 132, 199, 0.08)',
-                padding: '5px 14px',
-                borderRadius: '20px',
-                display: 'inline-block'
-              }}
-            >
-              MUTUAL CO-INVESTMENT MODEL
-            </span>
+            <div style={{ display: 'block' }}>
+              <span 
+                style={{ 
+                  color: '#0284C7', 
+                  fontWeight: '800', 
+                  textTransform: 'uppercase', 
+                  fontSize: '12px', 
+                  letterSpacing: '2px',
+                  background: 'rgba(2, 132, 199, 0.08)',
+                  padding: '5px 14px',
+                  borderRadius: '20px',
+                  display: 'inline-block'
+                }}
+              >
+                MUTUAL CO-INVESTMENT MODEL
+              </span>
+            </div>
             <h2 
               style={{ 
                 fontSize: '36px', 
@@ -1047,7 +1049,7 @@ export default function Partners() {
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 marginTop: '12px',
-                display: 'inline-block'
+                display: 'block'
               }}
             >
               Strategic Co-Investment Partnership
@@ -1396,21 +1398,23 @@ export default function Partners() {
             {...fadeIn}
             style={{ textAlign: 'center', marginBottom: '60px' }}
           >
-            <span 
-              style={{ 
-                color: '#0284C7', 
-                fontWeight: '800', 
-                textTransform: 'uppercase', 
-                fontSize: '12px', 
-                letterSpacing: '2px',
-                background: 'rgba(2, 132, 199, 0.08)',
-                padding: '5px 14px',
-                borderRadius: '20px',
-                display: 'inline-block'
-              }}
-            >
-              GROWTH SIMULATOR
-            </span>
+            <div style={{ display: 'block' }}>
+              <span 
+                style={{ 
+                  color: '#0284C7', 
+                  fontWeight: '800', 
+                  textTransform: 'uppercase', 
+                  fontSize: '12px', 
+                  letterSpacing: '2px',
+                  background: 'rgba(2, 132, 199, 0.08)',
+                  padding: '5px 14px',
+                  borderRadius: '20px',
+                  display: 'inline-block'
+                }}
+              >
+                GROWTH SIMULATOR
+              </span>
+            </div>
             <h2 
               style={{ 
                 fontSize: '36px', 
@@ -1419,7 +1423,7 @@ export default function Partners() {
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 marginTop: '12px',
-                display: 'inline-block'
+                display: 'block'
               }}
             >
               Revenue Opportunity Projection
@@ -1833,21 +1837,23 @@ export default function Partners() {
             {...fadeIn}
             style={{ textAlign: 'center', marginBottom: '60px' }}
           >
-            <span 
-              style={{ 
-                color: '#0A2342', 
-                fontWeight: '800', 
-                textTransform: 'uppercase', 
-                fontSize: '12px', 
-                letterSpacing: '2px',
-                background: 'rgba(56, 189, 248, 0.15)',
-                padding: '5px 14px',
-                borderRadius: '20px',
-                display: 'inline-block'
-              }}
-            >
-              IDEAL PROFILES
-            </span>
+            <div style={{ display: 'block' }}>
+              <span 
+                style={{ 
+                  color: '#0A2342', 
+                  fontWeight: '800', 
+                  textTransform: 'uppercase', 
+                  fontSize: '12px', 
+                  letterSpacing: '2px',
+                  background: 'rgba(56, 189, 248, 0.15)',
+                  padding: '5px 14px',
+                  borderRadius: '20px',
+                  display: 'inline-block'
+                }}
+              >
+                IDEAL PROFILES
+              </span>
+            </div>
             <h2 
               style={{ 
                 fontSize: '36px', 
@@ -1856,7 +1862,7 @@ export default function Partners() {
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 marginTop: '12px',
-                display: 'inline-block'
+                display: 'block'
               }}
             >
               Who We Are Looking For
@@ -1916,12 +1922,12 @@ export default function Partners() {
                   exit={{ opacity: 0, x: -20 }}
                   transition={{ duration: 0.25 }}
                   style={{
-                    background: 'rgba(30, 41, 59, 0.45)',
-                    border: '1.5px solid var(--accent)',
+                    background: 'linear-gradient(135deg, #071A35 0%, #0B2347 100%)',
+                    border: '1.5px solid #C9A45C',
                     borderRadius: '18px',
                     padding: '32px',
-                    boxShadow: 'var(--shadow-xl)',
-                    backdropFilter: 'blur(8px)',
+                    boxShadow: '0 20px 40px -15px rgba(7, 26, 53, 0.6), 0 0 20px rgba(201, 164, 92, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.05)',
+                    backdropFilter: 'blur(12px)',
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'space-between',
@@ -1934,7 +1940,7 @@ export default function Partners() {
                       <span style={{ fontSize: '10px', fontWeight: '800', textTransform: 'uppercase', letterSpacing: '1px', color: '#38BDF8', background: 'rgba(56, 189, 248, 0.12)', padding: '4px 10px', borderRadius: '4px' }}>
                         {targetAudiences[activeAudience].badge}
                       </span>
-                      <span style={{ fontSize: '12px', fontWeight: '700', color: 'var(--success)' }}>
+                      <span style={{ fontSize: '12px', fontWeight: '700', color: '#10B981' }}>
                         Synergy Score: {targetAudiences[activeAudience].synergy}%
                       </span>
                     </div>
@@ -1943,24 +1949,24 @@ export default function Partners() {
                       {targetAudiences[activeAudience].title}
                     </h3>
                     
-                    <p style={{ fontSize: '14px', color: 'var(--text-muted)', lineHeight: '1.6', margin: 0 }}>
+                    <p style={{ fontSize: '14px', color: '#E2E8F0', lineHeight: '1.6', margin: 0 }}>
                       {targetAudiences[activeAudience].desc}
                     </p>
                   </div>
 
-                  <div style={{ marginTop: '24px', borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: '20px' }}>
+                  <div style={{ marginTop: '24px', borderTop: '1px solid rgba(255,255,255,0.08)', paddingTop: '20px' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '12px', marginBottom: '8px' }}>
-                      <span style={{ color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Partner Focus Area:</span>
-                      <span style={{ fontWeight: '700', color: 'var(--supporting)' }}>{targetAudiences[activeAudience].focus}</span>
+                      <span style={{ color: '#94A3B8', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Partner Focus Area:</span>
+                      <span style={{ fontWeight: '700', color: '#C9A45C' }}>{targetAudiences[activeAudience].focus}</span>
                     </div>
                     
                     {/* Synergy Progress Bar */}
-                    <div style={{ width: '100%', height: '6px', background: 'rgba(255,255,255,0.06)', borderRadius: '3px', overflow: 'hidden', marginTop: '12px' }}>
+                    <div style={{ width: '100%', height: '6px', background: 'rgba(255,255,255,0.08)', borderRadius: '3px', overflow: 'hidden', marginTop: '12px' }}>
                       <motion.div
                         initial={{ width: 0 }}
                         animate={{ width: `${targetAudiences[activeAudience].synergy}%` }}
                         transition={{ duration: 0.5, ease: 'easeOut' }}
-                        style={{ height: '100%', background: 'linear-gradient(90deg, var(--accent), var(--supporting))' }}
+                        style={{ height: '100%', background: 'linear-gradient(90deg, #C9A45C, #F5D0A9)' }}
                       />
                     </div>
                   </div>

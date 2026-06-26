@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MapPin, ArrowRight } from 'lucide-react';
+import { MapPin } from 'lucide-react';
 import { worldMapData } from './WorldMapData';
 
 interface HubInfo {
@@ -68,16 +68,23 @@ export default function WorldMap() {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '24px', width: '100%' }}>
       {/* Map visual card */}
-      <div className="map-premium-card">
+      <div 
+        className="map-premium-card"
+        style={{
+          background: '#ffffff',
+          border: '2px solid #38BDF8',
+          boxShadow: '0 10px 30px rgba(14, 165, 233, 0.15)',
+        }}
+      >
         {/* Subtle grid background */}
-        <div style={{ position: 'absolute', inset: 0, opacity: 0.1, backgroundImage: 'linear-gradient(rgba(212,168,90,0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(212,168,90,0.15) 1px, transparent 1px)', backgroundSize: '20px 20px', pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', inset: 0, opacity: 0.15, backgroundImage: 'linear-gradient(rgba(56, 189, 248, 0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(56, 189, 248, 0.2) 1px, transparent 1px)', backgroundSize: '20px 20px', pointerEvents: 'none' }} />
 
         {/* Map visual wrapper */}
         <div 
           style={{ 
             position: 'relative', 
             width: '100%', 
-            maxWidth: '600px', 
+            maxWidth: '520px', 
             aspectRatio: '784 / 458',
             borderRadius: '16px',
             overflow: 'visible',
@@ -85,6 +92,7 @@ export default function WorldMap() {
           }}
         >
           <svg 
+            id="pdf-world-map"
             viewBox="30.767 241.591 784.077 458.627" 
             style={{ 
               width: '100%', 
@@ -94,7 +102,7 @@ export default function WorldMap() {
             }}
           >
             <defs>
-              {/* Soft gold glow filter for active pins */}
+              {/* Soft sky-blue glow filter for active pins */}
               <filter id="world-gold-glow" x="-50%" y="-50%" width="200%" height="200%">
                 <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur" />
                 <feMerge>
@@ -103,10 +111,10 @@ export default function WorldMap() {
                 </feMerge>
               </filter>
 
-              {/* Gold gradient for routes */}
+              {/* Sky Blue gradient for routes */}
               <linearGradient id="world-route-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#D4A85A" stopOpacity="0.9" />
-                <stop offset="100%" stopColor="#E6C27A" stopOpacity="0.15" />
+                <stop offset="0%" stopColor="#38BDF8" stopOpacity="0.9" />
+                <stop offset="100%" stopColor="#0284C7" stopOpacity="0.15" />
               </linearGradient>
             </defs>
 
@@ -119,20 +127,20 @@ export default function WorldMap() {
                 const isHoverState = hoveredContinentId === country.continent;
 
                 const fill = isHighlighted 
-                  ? 'rgba(21, 50, 97, 0.95)' 
+                  ? '#BAE6FD' 
                   : isHoverState 
-                    ? 'rgba(31, 74, 135, 0.7)' 
-                    : 'rgba(11, 27, 61, 0.55)';
+                    ? '#F0F9FF' 
+                    : '#ffffff';
                 const stroke = isHighlighted 
-                  ? '#D4A85A' 
+                  ? '#0284C7' 
                   : isHoverState 
-                    ? 'rgba(212, 168, 90, 0.6)' 
-                    : 'rgba(43, 74, 115, 0.6)';
+                    ? '#38BDF8' 
+                    : '#334155';
                 const strokeWidth = isHighlighted 
-                  ? 1.5 
+                  ? 2.0 
                   : isHoverState 
-                    ? 1.0 
-                    : 0.75;
+                    ? 1.5 
+                    : 1.0;
 
                 const handleMouseEnter = () => {
                   if (['na', 'eurasia'].includes(country.continent)) {
@@ -221,7 +229,7 @@ export default function WorldMap() {
                   <path
                     d={`M ${indiaHQ.x} ${indiaHQ.y} Q ${(indiaHQ.x + hub.x) / 2} ${Math.min(indiaHQ.y, hub.y) - 35}, ${hub.x} ${hub.y}`}
                     fill="none"
-                    stroke="rgba(212, 168, 90, 0.08)"
+                    stroke="rgba(56, 189, 248, 0.08)"
                     strokeWidth="3.0"
                     style={{ pointerEvents: 'none' }}
                   />
@@ -231,8 +239,8 @@ export default function WorldMap() {
 
             {/* India HQ Marker (Base Center) */}
             <g transform={`translate(${indiaHQ.x}, ${indiaHQ.y})`}>
-              <circle cx="0" cy="0" r="8" fill="rgba(212, 168, 90, 0.25)" style={{ pointerEvents: 'none' }} />
-              <circle cx="0" cy="0" r="3.5" fill="#D4A85A" stroke="#0e1f35" strokeWidth="1" />
+              <circle cx="0" cy="0" r="8" fill="rgba(56, 189, 248, 0.25)" style={{ pointerEvents: 'none' }} />
+              <circle cx="0" cy="0" r="3.5" fill="#0284C7" stroke="#FFFFFF" strokeWidth="1.5" />
               {/* HQ Label */}
               <text x="0" y="-12" textAnchor="middle" fontSize="9" fontWeight="800" fill="#ffffff" letterSpacing="0.5">
                 CEA HQ
@@ -270,17 +278,17 @@ export default function WorldMap() {
                     <circle cx="0" cy="0" r="16" fill="none" style={{ pointerEvents: 'none' }}>
                       <animate attributeName="r" values="6;22" dur="2.5s" repeatCount="indefinite" />
                       <animate attributeName="opacity" values="0.8;0" dur="2.5s" repeatCount="indefinite" />
-                      <animate attributeName="stroke" values={isSelected ? '#D4A85A' : 'rgba(212, 168, 90, 0.4)'} dur="2.5s" repeatCount="indefinite" />
-                      <animate attributeName="stroke-width" values="1" dur="2.5s" repeatCount="indefinite" />
+                      <animate attributeName="stroke" values={isSelected ? '#0284C7' : 'rgba(56, 189, 248, 0.4)'} dur="2.5s" repeatCount="indefinite" />
+                      <animate attributeName="stroke-width" values="1.5" dur="2.5s" repeatCount="indefinite" />
                     </circle>
 
-                    {/* Gold backing glow filter for active */}
+                    {/* Sky-blue backing glow filter for active */}
                     {isSelected && (
                       <circle
                         cx="0"
                         cy="0"
                         r="8"
-                        fill="rgba(212, 168, 90, 0.3)"
+                        fill="rgba(56, 189, 248, 0.3)"
                         filter="url(#world-gold-glow)"
                         style={{ pointerEvents: 'none' }}
                       />
@@ -288,14 +296,15 @@ export default function WorldMap() {
 
                     {/* Pin base dot */}
                     <motion.circle
-                      cx="0"
-                      cy="0"
+                      cx={0}
+                      cy={0}
                       r={isSelected ? 6 : 4.5}
-                      fill={isSelected ? '#D4A85A' : '#E6C27A'}
-                      stroke="#0e1f35"
+                      fill={isSelected ? '#0284C7' : '#38BDF8'}
+                      stroke="#FFFFFF"
                       strokeWidth="1.5"
                       animate={{ scale: isSelected || isHovered ? 1.3 : 1 }}
                       transition={{ type: 'spring', stiffness: 300, damping: 15 }}
+                      style={{ transformOrigin: 'center' }}
                     />
                   </g>
                 );
@@ -328,14 +337,14 @@ export default function WorldMap() {
                   pointerEvents: 'none'
                 }}
               >
-                <div style={{ width: '36px', height: '36px', borderRadius: '8px', background: 'rgba(212, 168, 90, 0.15)', display: 'grid', placeItems: 'center', flexShrink: 0 }}>
-                  <MapPin size={18} color="#D4A85A" />
+                <div style={{ width: '36px', height: '36px', borderRadius: '8px', background: 'rgba(56, 189, 248, 0.15)', display: 'grid', placeItems: 'center', flexShrink: 0 }}>
+                  <MapPin size={18} color="#38BDF8" />
                 </div>
                 <div style={{ flexGrow: 1 }}>
-                  <h4 style={{ margin: 0, fontSize: '14px', fontWeight: '800', color: '#ffffff' }}>{hoveredHub.name}</h4>
+                  <h4 style={{ margin: 0, fontSize: '14px', fontWeight: '800' }}>{hoveredHub.name}</h4>
                   <p style={{ margin: '2px 0 0 0', fontSize: '11px', color: 'var(--text-muted)' }}>{hoveredHub.region}</p>
                 </div>
-                <div style={{ fontSize: '11px', color: '#D4A85A', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                <div style={{ fontSize: '11px', color: '#38BDF8', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
                   Click to Pin
                 </div>
               </motion.div>
@@ -346,3 +355,4 @@ export default function WorldMap() {
     </div>
   );
 }
+

@@ -297,13 +297,29 @@ export default function Blog() {
 
       {/* SECTION 2: FEATURED INSIGHTS */}
 
-      <section className="section surface-matte about-section-texture" style={{ padding: '80px 0 100px 0', borderBottom: '1px solid rgba(200, 162, 118, 0.12)' }}>
+      <section 
+        className="section" 
+        style={{ 
+          backgroundColor: '#FAF7F2',
+          backgroundImage: 'radial-gradient(circle at 20% 30%, rgba(239, 231, 218, 0.35) 0%, transparent 60%), radial-gradient(circle at 80% 70%, rgba(56, 189, 248, 0.08) 0%, transparent 60%)',
+          padding: '80px 0 100px 0', 
+          borderBottom: '1px solid rgba(15, 23, 42, 0.06)' 
+        }}
+      >
 
         <div className="container">
           <div className="section-title-wrapper" style={{ marginBottom: '56px', textAlign: 'left', marginLeft: '0' }}>
-            <span className="section-subtitle" style={{ color: 'var(--supporting)' }}>EDITOR'S PICKS</span>
-            <h2 className="section-title" style={{ fontSize: '38px' }}>Featured Insights</h2>
-            <p className="section-desc" style={{ maxWidth: '600px' }}>Deep-dive analyses and strategic frameworks selected by our industrial leadership team.</p>
+            <span className="section-subtitle" style={{ color: '#374151', fontSize: '14px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1.5px', display: 'block', marginBottom: '8px' }}>EDITOR'S PICKS</span>
+            <h2 className="section-title" style={{ fontSize: '38px', fontWeight: '800', fontFamily: 'var(--font-headings)', margin: '0 0 12px 0' }}>
+              <span style={{
+                background: 'linear-gradient(135deg, #0B1F3F 0%, #2563EB 50%, #0284C7 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent'
+              }}>
+                Featured Insights
+              </span>
+            </h2>
+            <p className="section-desc" style={{ color: '#4B5563', fontSize: '18px', lineHeight: '1.6', maxWidth: '600px' }}>Deep-dive analyses and strategic frameworks selected by our industrial leadership team.</p>
           </div>
 
           <div className="grid-3" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '32px' }}>
@@ -543,13 +559,29 @@ export default function Blog() {
 
       {/* SECTION 6: CUSTOMER SUCCESS PERSPECTIVE */}
 
-      <section className="section surface-matte compliance-section-texture" style={{ padding: '100px 0', borderBottom: '1px solid rgba(200, 162, 118, 0.12)' }}>
+      <section 
+        className="section" 
+        style={{ 
+          backgroundColor: '#FAF7F2',
+          backgroundImage: 'radial-gradient(circle at 20% 40%, rgba(239, 231, 218, 0.35) 0%, transparent 60%), radial-gradient(circle at 80% 60%, rgba(56, 189, 248, 0.08) 0%, transparent 60%)',
+          padding: '100px 0', 
+          borderBottom: '1px solid rgba(15, 23, 42, 0.06)' 
+        }}
+      >
 
         <div className="container">
           <div className="section-title-wrapper" style={{ marginBottom: '56px' }}>
-            <span className="section-subtitle">IMPACT METRICS</span>
-            <h2 className="section-title">Technology That Creates Lasting Impact</h2>
-            <p className="section-desc">What enterprise operations leaders say about deploying CEA Infotech frameworks.</p>
+            <span className="section-subtitle" style={{ color: '#374151', fontSize: '14px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1.5px', display: 'block', marginBottom: '8px' }}>IMPACT METRICS</span>
+            <h2 className="section-title" style={{ fontSize: '38px', fontWeight: '800', fontFamily: 'var(--font-headings)', margin: '0 0 12px 0' }}>
+              <span style={{
+                background: 'linear-gradient(135deg, #0B1F3F 0%, #2563EB 50%, #0284C7 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent'
+              }}>
+                Technology That Creates Lasting Impact
+              </span>
+            </h2>
+            <p className="section-desc" style={{ color: '#4B5563', fontSize: '18px', lineHeight: '1.6' }}>What enterprise operations leaders say about deploying CEA Infotech frameworks.</p>
           </div>
 
           <div className="grid-2" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(420px, 1fr))', gap: '32px' }}>
@@ -561,17 +593,40 @@ export default function Blog() {
                 whileInView="whileInView"
                 viewport={{ once: true }}
                 className="glass-card"
+                whileHover={{ 
+                  y: -8, 
+                  boxShadow: '0 20px 45px rgba(56, 189, 248, 0.18), 0 8px 24px rgba(37, 99, 235, 0.12)',
+                  borderColor: 'rgba(56, 189, 248, 0.45)' 
+                }}
+                transition={{ duration: 0.28, ease: 'easeOut' }}
                 style={{
-                  borderRadius: '16px',
+                  borderRadius: '14px',
                   padding: '40px',
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'space-between',
-                  position: 'relative'
+                  position: 'relative',
+                  background: 'linear-gradient(135deg, rgba(11, 31, 63, 0.96) 0%, rgba(15, 23, 42, 0.95) 100%)',
+                  border: '1px solid rgba(56, 189, 248, 0.12)',
+                  backdropFilter: 'blur(12px)',
+                  WebkitBackdropFilter: 'blur(12px)',
+                  boxShadow: '0 4px 18px rgba(0, 0, 0, 0.2)',
+                  overflow: 'hidden'
                 }}
               >
+                {/* Top accent line */}
+                <div style={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  height: '3px',
+                  background: 'linear-gradient(90deg, #38BDF8, #0EA5E9, #2563EB)',
+                  borderRadius: '999px'
+                }} />
+
                 {/* Visual quote mark */}
-                <div style={{ position: 'absolute', top: '32px', right: '32px', color: 'rgba(255,255,255,0.03)' }}>
+                <div style={{ position: 'absolute', top: '32px', right: '32px', color: 'rgba(255, 255, 255, 0.03)' }}>
                   <Quote size={54} strokeWidth={1} fill="currentColor" />
                 </div>
 
@@ -581,13 +636,14 @@ export default function Blog() {
                       display: 'inline-block',
                       fontSize: '11px',
                       fontWeight: 700,
-                      color: 'var(--supporting)',
-                      backgroundColor: 'rgba(200, 162, 118, 0.12)',
+                      color: '#38BDF8',
+                      backgroundColor: 'rgba(56, 189, 248, 0.08)',
                       padding: '4px 10px',
                       borderRadius: '4px',
                       textTransform: 'uppercase',
                       letterSpacing: '1px',
-                      marginBottom: '24px'
+                      marginBottom: '24px',
+                      border: '1px solid rgba(56, 189, 248, 0.15)'
                     }}
                   >
                     {q.theme}
@@ -596,7 +652,7 @@ export default function Blog() {
                   <p
                     style={{
                       fontSize: '16px',
-                      color: 'var(--text-main)',
+                      color: 'rgba(255, 255, 255, 0.78)',
                       lineHeight: 1.7,
                       fontWeight: 500,
                       fontStyle: 'italic',
@@ -610,14 +666,14 @@ export default function Blog() {
 
                 <div
                   style={{
-                    borderTop: '1px solid rgba(200, 162, 118, 0.18)',
+                    borderTop: '1px solid rgba(255, 255, 255, 0.08)',
                     paddingTop: '20px',
                     display: 'flex',
                     flexDirection: 'column'
                   }}
                 >
-                  <span style={{ fontSize: '15px', color: 'var(--text-main)', fontWeight: 700 }}>{q.author}</span>
-                  <span style={{ fontSize: '13px', color: 'var(--text-muted)' }}>{q.company}</span>
+                  <span style={{ fontSize: '15px', color: '#FFFFFF', fontWeight: 700 }}>{q.author}</span>
+                  <span style={{ fontSize: '13px', color: 'rgba(255, 255, 255, 0.6)' }}>{q.company}</span>
                 </div>
               </motion.div>
             ))}
@@ -731,42 +787,81 @@ export default function Blog() {
 
       {/* SECTION 8: FUTURE INSIGHTS PLACEHOLDER */}
 
-      <section className="section surface-matte about-section-texture" style={{ padding: '100px 0', borderBottom: '1px solid rgba(200, 162, 118, 0.12)' }}>
+      <section 
+        className="section" 
+        style={{ 
+          backgroundColor: '#FAF7F2',
+          backgroundImage: 'radial-gradient(circle at 20% 30%, rgba(239, 231, 218, 0.35) 0%, transparent 60%), radial-gradient(circle at 80% 70%, rgba(56, 189, 248, 0.08) 0%, transparent 60%)',
+          padding: '100px 0', 
+          borderBottom: '1px solid rgba(15, 23, 42, 0.06)' 
+        }}
+      >
 
         <div className="container">
           <div className="section-title-wrapper" style={{ marginBottom: '56px' }}>
-            <span className="section-subtitle">FUTURE INTEGRATION</span>
-            <h2 className="section-title">More Insights Coming Soon</h2>
-            <p className="section-desc">This section is designed for future integration of dynamic blogs and knowledge resources.</p>
+            <span className="section-subtitle" style={{ color: '#374151', fontSize: '14px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1.5px', display: 'block', marginBottom: '8px' }}>FUTURE INTEGRATION</span>
+            <h2 className="section-title" style={{ fontSize: '38px', fontWeight: '800', fontFamily: 'var(--font-headings)', margin: '0 0 12px 0' }}>
+              <span style={{
+                background: 'linear-gradient(135deg, #0B1F3F 0%, #2563EB 50%, #0284C7 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent'
+              }}>
+                More Insights Coming Soon
+              </span>
+            </h2>
+            <p className="section-desc" style={{ color: '#4B5563', fontSize: '18px', lineHeight: '1.6' }}>This section is designed for future integration of dynamic blogs and knowledge resources.</p>
           </div>
 
           <div className="grid-3" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px' }}>
             {futureInsights.map((fi, idx) => (
-              <div
+              <motion.div
                 key={idx}
-                className="glass-card"
+                whileHover={{ 
+                  y: -8, 
+                  boxShadow: '0 20px 45px rgba(56, 189, 248, 0.18), 0 8px 24px rgba(37, 99, 235, 0.12)',
+                  borderColor: 'rgba(56, 189, 248, 0.45)' 
+                }}
+                transition={{ duration: 0.28, ease: 'easeOut' }}
                 style={{
-                  border: '2px dashed rgba(200, 162, 118, 0.3)',
-                  borderRadius: '16px',
+                  border: '2px dashed rgba(56, 189, 248, 0.3)',
+                  borderRadius: '14px',
                   padding: '40px 32px',
                   textAlign: 'center',
                   display: 'flex',
                   flexDirection: 'column',
                   alignItems: 'center',
-                  justifyContent: 'center'
+                  justifyContent: 'center',
+                  background: 'linear-gradient(135deg, rgba(11, 31, 63, 0.96) 0%, rgba(15, 23, 42, 0.95) 100%)',
+                  backdropFilter: 'blur(12px)',
+                  WebkitBackdropFilter: 'blur(12px)',
+                  boxShadow: '0 4px 18px rgba(0, 0, 0, 0.2)',
+                  position: 'relative',
+                  overflow: 'hidden'
                 }}
               >
+                {/* Top accent line */}
+                <div style={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  height: '3px',
+                  background: 'linear-gradient(90deg, #38BDF8, #0EA5E9, #2563EB)',
+                  borderRadius: '999px'
+                }} />
+
                 <div
                   style={{
                     width: '44px',
                     height: '44px',
                     borderRadius: '50%',
-                    backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                    color: 'var(--supporting)',
+                    backgroundColor: 'rgba(56, 189, 248, 0.08)',
+                    color: '#38BDF8',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    marginBottom: '20px'
+                    marginBottom: '20px',
+                    border: '1px solid rgba(56, 189, 248, 0.15)'
                   }}
                 >
                   <FileText size={20} />
@@ -776,7 +871,7 @@ export default function Blog() {
                   style={{
                     fontSize: '11px',
                     fontWeight: 700,
-                    color: 'var(--text-muted)',
+                    color: 'rgba(255, 255, 255, 0.6)',
                     textTransform: 'uppercase',
                     letterSpacing: '1px',
                     marginBottom: '8px'
@@ -785,23 +880,24 @@ export default function Blog() {
                   {fi.tag}
                 </span>
 
-                <h3 style={{ fontSize: '16px', color: 'var(--text-main)', fontWeight: 600, marginBottom: '16px', lineHeight: 1.4, maxWidth: '240px' }}>
+                <h3 style={{ fontSize: '16px', color: '#FFFFFF', fontWeight: 600, marginBottom: '16px', lineHeight: 1.4, maxWidth: '240px' }}>
                   {fi.title}
                 </h3>
 
                 <span
                   style={{
                     fontSize: '12px',
-                    color: 'var(--text-muted)',
+                    color: '#38BDF8',
                     fontWeight: 500,
-                    backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                    backgroundColor: 'rgba(56, 189, 248, 0.08)',
                     padding: '4px 12px',
-                    borderRadius: '20px'
+                    borderRadius: '20px',
+                    border: '1px solid rgba(56, 189, 248, 0.15)'
                   }}
                 >
                   {fi.status}
                 </span>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>

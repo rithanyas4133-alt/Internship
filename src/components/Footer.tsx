@@ -30,7 +30,7 @@ export default function Footer() {
                       display: 'block',
                     }}
                   />
-                  <span style={{ color: '#FFFFFF', fontWeight: 600, fontSize: '14px', letterSpacing: '0.4px' }}>CEA Infotech</span>
+                  <span style={{ fontWeight: 600, fontSize: '14px', letterSpacing: '0.4px' }}>CEA Infotech</span>
                 </Link>
               </div>
               <p style={{ fontSize: '14px', lineHeight: '1.6', color: 'var(--text-muted)' }}>
@@ -135,7 +135,7 @@ export default function Footer() {
                   opacity: 0.95,
                 }}
               />
-              <span style={{ color: '#FFFFFF', fontWeight: 600, marginRight: '8px' }}>CEA Infotech</span>
+              <span style={{ fontWeight: 600, marginRight: '8px' }}>CEA Infotech</span>
               <small style={{ color: 'var(--text-muted)' }}>&copy; {currentYear} All rights reserved.</small>
             </div>
           <div style={{ display: 'flex', gap: '24px' }}>
@@ -147,3 +147,4 @@ export default function Footer() {
     </footer>
   );
 }
+

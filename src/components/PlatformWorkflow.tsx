@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { FileText, ClipboardList, UserCheck, UploadCloud, CheckCircle2, ShieldCheck, BarChart2 } from 'lucide-react';
 
@@ -14,12 +13,22 @@ const stages = [
 
 export default function PlatformWorkflow({ accent = 'var(--accent)' }: { accent?: string }) {
   return (
-    <section className="platform-workflow-section" aria-label="How the platform works">
+    <section 
+      className="platform-workflow-section" 
+      aria-label="How the platform works"
+      style={{
+        backgroundColor: '#EAF6FF',
+        background: 'none',
+        padding: '80px 0',
+        borderTop: '1px solid rgba(0, 0, 0, 0.05)',
+        borderBottom: '1px solid rgba(0, 0, 0, 0.05)'
+      }}
+    >
       <div className="container">
-        <div className="workflow-header">
-          <span className="section-subtitle" style={{ color: accent }}>How It Works</span>
-          <h2 className="section-title">How the Platform Works</h2>
-          <p className="section-desc">Transforming compliance requirements into a structured, auditable digital process.</p>
+        <div className="workflow-header" style={{ textAlign: 'center', marginBottom: '40px' }}>
+          <span className="section-subtitle" style={{ color: '#38BDF8', fontSize: '12px', fontWeight: '800', textTransform: 'uppercase', letterSpacing: '1.5px', display: 'block', marginBottom: '8px' }}>How It Works</span>
+          <h2 className="section-title" style={{ fontSize: '32px', fontWeight: '800', fontFamily: 'var(--font-headings)', margin: 0 }}>How the Platform Works</h2>
+          <p className="section-desc" style={{ color: '#475569', fontSize: '18px', lineHeight: '1.6', marginTop: '12px', marginBottom: 0 }}>Transforming compliance requirements into a structured, auditable digital process.</p>
         </div>
 
         <div className="workflow-canvas">
@@ -36,20 +45,26 @@ export default function PlatformWorkflow({ accent = 'var(--accent)' }: { accent?
                 role="article"
                 aria-label={s.title}
               >
-                <div className="workflow-connector" aria-hidden />
+                <div 
+                  className="workflow-connector" 
+                  aria-hidden 
+                  style={{
+                    background: 'linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.4), transparent)'
+                  }}
+                />
 
                 <div className="workflow-card">
                   <div className="workflow-icon" style={{ borderColor: accent }}>
-                    <div className="workflow-icon-fill" style={{ background: 'linear-gradient(180deg, rgba(212,175,55,0.12), rgba(200,162,118,0.06))' }}>{s.icon}</div>
+                    <div className="workflow-icon-fill" style={{ background: 'linear-gradient(180deg, rgba(56, 189, 248,0.12), rgba(200,162,118,0.06))' }}>{s.icon}</div>
                   </div>
 
                   <div className="workflow-card-body">
-                    <div className="workflow-step-num">{s.key}</div>
-                    <h4 className="workflow-step-title">{s.title}</h4>
+                    <div className="workflow-step-num" style={{ color: '#38BDF8', fontSize: '14px', fontWeight: '700' }}>{s.key}</div>
+                    <h4 className="workflow-step-title" style={{ fontSize: '18px', fontWeight: '700', margin: 0 }}>{s.title}</h4>
                   </div>
 
                   <div className="workflow-thumb">
-                    <img src={s.img} alt={s.title} loading="lazy" />
+                    <img src={s.img} alt={s.title} loading="lazy" style={{ border: '1px solid rgba(255, 255, 255, 0.1)' }} />
                   </div>
                 </div>
               </motion.div>
@@ -60,3 +75,5 @@ export default function PlatformWorkflow({ accent = 'var(--accent)' }: { accent?
     </section>
   );
 }
+
+

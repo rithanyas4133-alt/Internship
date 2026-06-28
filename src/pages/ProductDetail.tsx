@@ -52,46 +52,46 @@ const productsMap: Record<string, ProductData> = {
   'vericea-manufacturing': {
     id: 'vericea-manufacturing',
     name: 'Vericea Manufacturing',
-    tagline: 'Real-Time Production Visibility & Defect Intelligence',
-    valueProp: 'A production tracking platform that helps manufacturing companies monitor activities, improve efficiency and optimize shop-floor operations.',
+    tagline: 'Real-Time Production & Defect Tracking',
+    valueProp: 'Digitize manufacturing operations, monitor production in real time, and reduce defects with actionable insights across every process stage.',
     image: '/images/manufacturing_floor_1780850784796.png',
     icon: <Factory size={24} />,
     themeColor: 'var(--supporting)',
     challenges: [
-      'Lack of real-time visibility into production milestones and assembly throughput.',
-      'Manual log sheets causing delays in tracking defects and yield stats.',
-      'Siloed communications between floor operations and executive teams.',
-      'Inefficient machinery diagnostics leading to high downtime rates.'
+      'Paper-based production registers that delay data availability and limit real-time decision-making.',
+      'Lack of centralized visibility into order status, work-in-progress, and floor stock across production stages.',
+      'Communication gaps between management, production, HR, and sales planning teams.',
+      'Inability to quickly identify defects, rework, and rejections at the process level.'
     ],
-    solutionOverview: 'Vericea Manufacturing integrates directly with your assembly floor sensors and localized reporting terminals. By capturing real-time telemetry, it translates floor activity into live dashboards, allowing managers to instantly detect bottlenecks, log defective units, and assess Overall Equipment Effectiveness (OEE) metrics.',
+    solutionOverview: 'VERICEA helps manufacturing organizations track production, defects, rework, and order progress through a centralized digital platform. It replaces manual registers with real-time visibility across the production floor, enabling faster corrective actions and better coordination between management, production, HR, and sales planning teams.',
     capabilities: [
       {
-        title: 'Production Tracking',
-        description: 'Track jobs and raw materials throughout their assembly states with absolute timestamp precision.'
+        title: 'Real-Time Production Data Capture',
+        description: 'Capture production data at configurable intervals with process-wise and sub-process-wise monitoring across multiple stages.'
       },
       {
-        title: 'Defect Monitoring',
-        description: 'Log and catalog defect categories at quality inspection nodes to isolate and resolve tooling issues.'
+        title: 'Defect, Rework & Rejection Analysis',
+        description: 'Track defects, rework, and rejections at the process level with work-in-progress and floor stock visibility.'
       },
       {
-        title: 'Operational Dashboards',
-        description: 'Display real-time KPIs, cycle times, and OEE indicators directly on central floor dashboards.'
+        title: 'Graphical Dashboards & Reports',
+        description: 'Access graphical dashboards, decision-support reports, and mobile and web-based reporting with flexible workflows for different manufacturing domains.'
       }
     ],
     workflowSteps: [
-      { step: '01', title: 'Telemetry Capture', description: 'Sensors and localized terminals record material input and operator start signals.' },
-      { step: '02', title: 'State Processing', description: 'Central engine compiles cycle time metrics and assesses performance deviations.' },
-      { step: '03', title: 'Quality Validation', description: 'Defects are logged at inspection stations to update defect indices.' },
-      { step: '04', title: 'Analytics Delivery', description: 'Operations leaders receive live reports and OEE scorecards via mobile and desktop.' }
+      { step: '01', title: 'Data Capture', description: 'Real-time production data is captured at configurable intervals from the shop floor.' },
+      { step: '02', title: 'Order Tracking', description: 'Track order status across multiple stages with process-wise and sub-process-wise monitoring.' },
+      { step: '03', title: 'Quality Analysis', description: 'Defects, rework, and rejections are analyzed with work-in-progress and floor stock visibility.' },
+      { step: '04', title: 'Reporting & Insights', description: 'Graphical dashboards and decision-support reports are delivered via mobile and web-based interfaces.' }
     ],
     dashboardImage: '/images/vericea_dashboard_mockup.png',
-    dashboardTitle: 'Vericea Manufacturing Control Console',
+    dashboardTitle: 'VERICEA Production Tracking Console',
     benefits: [
-      { stat: '22%', label: 'OEE Increase', desc: 'Average increase in Overall Equipment Effectiveness within 6 months.' },
-      { stat: '45%', label: 'Paper Reduction', desc: 'Elimination of physical floor slips and manual assembly sheets.' },
-      { stat: '100%', label: 'Live Traceability', desc: 'Instant batch tracing from raw materials to shipped pallets.' }
+      { stat: '100%', label: 'Paper-Free Production Tracking', desc: 'Eliminates paper-based production registers with centralized, real-time data access across all teams.' },
+      { stat: '40%', label: 'Faster Corrective Actions', desc: 'Improves accountability, reduces communication delays, and enables faster corrective actions across production.' },
+      { stat: '360°', label: 'Cross-Team Visibility', desc: 'Supports management, production, HR, and sales planning with unified operational data and schedule tracking.' }
     ],
-    industries: ['Textiles', 'Apparel', 'Precision Engineering', 'Automotive Assembly'],
+    industries: ['Textiles & Apparel', 'Automotive Assembly', 'Precision Engineering', 'General Manufacturing'],
     logo: '/images/Vericea.png'
   },
   'vericea-compliance': {
@@ -142,91 +142,91 @@ const productsMap: Record<string, ProductData> = {
   'factsafe': {
     id: 'factsafe',
     name: 'FactSafe',
-    tagline: 'Proactive Risk Assessment & Management Platform',
-    valueProp: 'A risk assessment solution that enables organizations to identify, evaluate and monitor operational and business risks.',
+    tagline: 'Proactive Risk Assessment & Compliance',
+    valueProp: 'Identify, analyze, prioritize, and monitor organizational risks through a centralized, data-driven platform.',
     image: '/images/safety_inspection_1780850817856.png',
     icon: <AlertTriangle size={24} />,
     themeColor: 'var(--supporting)',
     challenges: [
-      'Unstructured risk reporting relying on casual word-of-mouth warning signals.',
-      'Slow response to environmental hazards on factory floor setups.',
-      'Difficulty in calculating probability vs. severity risk index values.',
-      'Lack of clear audit history for risk mitigations and safety responses.'
+      'Reactive risk tracking that identifies threats only after incidents have already occurred.',
+      'Lack of structured risk scoring and prioritization across the organization.',
+      'Fragmented visibility into supplier-level and unit-level risk exposure.',
+      'Manual compliance processes that increase audit preparation time and effort.'
     ],
-    solutionOverview: 'FactSafe digitizes the health, safety, and risk register of enterprise sites. It allows supervisors to quickly file hazard observations, assign severity rankings, trigger corrective action plans, and track resolution states. The centralized framework gives executive leaders global safety visibility.',
+    solutionOverview: 'FactSafe transforms risk management from reactive tracking to proactive decision-making by providing real-time visibility, structured assessments, and compliance-ready monitoring. It centralizes the risk register, enables scoring and prioritization, and delivers consolidated dashboards across multi-level organizational structures.',
     capabilities: [
       {
-        title: 'Risk Register',
-        description: 'Maintain a single database for all identified workplace safety, supplier, and operational risks.'
+        title: 'Centralized Risk Register',
+        description: 'Maintain a single, structured register of all organizational risks with scoring, prioritization, and real-time monitoring dashboards.'
       },
       {
-        title: 'Risk Scoring',
-        description: 'Utilize automated matrices to map risk likelihood and impact scores for prioritisation.'
+        title: 'Audit & Compliance Readiness',
+        description: 'Multi-level organizational assessments with built-in audit trails, compliance tracking, and scalable multi-country support.'
       },
       {
-        title: 'Supplier Risk Monitoring',
-        description: 'Conduct remote safety reviews and ESG checks across supplier networks.'
+        title: 'Supplier & Unit-Level Tracking',
+        description: 'Track risks at the supplier and business unit level with consolidated management dashboards for enhanced visibility across teams.'
       }
     ],
     workflowSteps: [
-      { step: '01', title: 'Incident Reporting', description: 'Floor operators file hazard details via simple mobile and desktop forms.' },
-      { step: '02', title: 'Severity Assessment', description: 'Safety managers review photos, categorize hazards, and assign risk codes.' },
-      { step: '03', title: 'Action Protocol', description: 'System issues mitigation assignments with strict deadlines.' },
-      { step: '04', title: 'Closure Verification', description: 'Observation is resolved, signs-off are logged, and history is locked.' }
+      { step: '01', title: 'Risk Identification', description: 'Log and categorize risks across departments, suppliers, and operational units in a centralized register.' },
+      { step: '02', title: 'Scoring & Prioritization', description: 'Apply risk scoring frameworks to assess likelihood and impact, enabling structured prioritization.' },
+      { step: '03', title: 'Monitoring & Dashboards', description: 'Track risk status in real time through consolidated dashboards with multi-level organizational views.' },
+      { step: '04', title: 'Audit & Compliance', description: 'Maintain audit-ready records and compliance documentation across scalable, multi-country structures.' }
     ],
     dashboardImage: '/images/industrial_control_room_1780849774868.png',
-    dashboardTitle: 'FactSafe Operations Dashboard',
+    dashboardTitle: 'FactSafe Risk Assessment Dashboard',
     benefits: [
-      { stat: '35%', label: 'Accident Reduction', desc: 'Average drop in minor floor accidents through proactive risk management.' },
-      { stat: '3.2h', label: 'Average Resolution', desc: 'Time taken to assign and start action plans for critical alerts.' },
-      { stat: '100%', label: 'Compliance Audit', desc: 'Accurate record archiving matching health and safety laws.' }
+      { stat: '70%', label: 'Early Risk Detection', desc: 'Proactive identification of risks before they escalate, reducing compliance effort and improving operational resilience.' },
+      { stat: '100%', label: 'Better Accountability', desc: 'Complete visibility across teams and suppliers with structured assessments for faster, more confident decisions.' },
+      { stat: '360°', label: 'Organization-Wide Visibility', desc: 'Enhanced visibility for corporates, management, risk and compliance teams, operations, quality, and HR evaluation teams.' }
     ],
-    industries: ['Heavy Industry', 'Chemical Processing', 'Warehouses', 'Supply Chain Networks'],
+    industries: ['Corporates & Brands', 'Risk & Compliance Teams', 'Operations & Quality', 'HR & Performance Evaluation'],
     logo: '/images/Fact_safe.png'
   },
   'courier-cost-management': {
     id: 'courier-cost-management',
     name: 'Courier Cost Management System',
-    tagline: 'Enterprise Logistics Cost Optimization Platform',
-    valueProp: 'A platform designed to optimize courier operations and reduce logistics expenses through monitoring and analytics.',
+    tagline: 'Smart Courier Cost Optimization',
+    valueProp: 'Automate courier selection, control shipping costs, and gain complete visibility into courier operations across departments and destinations.',
     image: '/images/logistics_terminal_1780850837146.png',
     icon: <Truck size={24} />,
     themeColor: 'var(--accent)',
     challenges: [
-      'Overpaying on logistics invoices due to incorrect carrier weight calculations.',
-      'Manual, time-consuming verification of freight invoices against rate cards.',
-      'Lack of centralized carrier tracking to assess delivery performance levels.',
-      'Difficulty comparing vendor rates dynamically for different shipping regions.'
+      'No automated mechanism to recommend the best-rate courier partner for each shipment.',
+      'Hidden invoicing differences between booked and billed amounts going undetected.',
+      'Lack of department-wise, customer-wise, and destination-wise analytics for courier spending.',
+      'Manual reconciliation of courier invoices consuming significant operational bandwidth.'
     ],
-    solutionOverview: 'The Courier Cost Management System automates freight auditing. By comparing the warehouse weight logs against courier carrier invoices and negotiated rate cards, it calls out discrepancies, processes carrier refunds, and suggests lower-cost routing options dynamically.',
+    solutionOverview: 'Designed for enterprise organizations handling high courier volumes, this solution helps select the best-rate courier partner, monitor expenses, and identify billing discrepancies. It provides department-wise and customer-wise analytics, destination-wise and courier-partner-wise analysis, with multi-country and multi-currency support.',
     capabilities: [
       {
-        title: 'Courier Cost Analysis',
-        description: 'Reconcile cargo metrics against courier carrier bills automatically.'
+        title: 'Best-Rate Courier Recommendations',
+        description: 'Automated recommendations for the best-rate courier partner with approval workflows for non-recommended selections.'
       },
       {
-        title: 'Vendor Comparison',
-        description: 'Evaluate carrier pricing matrices dynamically across regions to select optimum options.'
+        title: 'Invoice vs. Booking Verification',
+        description: 'Compare invoice amounts against booking amounts to identify hidden differences and reduce manual reconciliation effort.'
       },
       {
-        title: 'Shipment Intelligence',
-        description: 'Assess delivery success metrics, delivery speeds, and surcharge parameters.'
+        title: 'Multi-Dimensional Analytics',
+        description: 'Department-wise, customer-wise, destination-wise, and courier-partner-wise analysis with detailed comparison and utilization reports.'
       }
     ],
     workflowSteps: [
-      { step: '01', title: 'Order Details Import', description: 'Logistics orders and shipping weights are fed into the system.' },
-      { step: '02', title: 'Carrier Bill Sync', description: 'Courier partner invoices are imported via APIs or spreadsheets.' },
-      { step: '03', title: 'Discrepancy Audit', description: 'System highlights weight mismatches and invoice rate deviations.' },
-      { step: '04', title: 'Dispute Generation', description: 'Automated dispute logs are created to claim credit from carriers.' }
+      { step: '01', title: 'Courier Selection', description: 'System recommends the best-rate courier partner based on destination, weight, and service requirements.' },
+      { step: '02', title: 'Booking & Approval', description: 'Approval workflows manage non-recommended selections and capture booking details for reconciliation.' },
+      { step: '03', title: 'Invoice Verification', description: 'Booked amounts are matched against invoiced amounts to detect billing discrepancies automatically.' },
+      { step: '04', title: 'Analytics & Reporting', description: 'Department-wise, customer-wise, and destination-wise reports provide actionable insights for vendor decisions.' }
     ],
     dashboardImage: '/images/logistics_terminal_1780850837146.png', // Fallback to professional image
-    dashboardTitle: 'Logistics Operations Portal',
+    dashboardTitle: 'Courier Cost Optimization Portal',
     benefits: [
-      { stat: '12.4%', label: 'Logistics Savings', desc: 'Direct cost reduction by identifying overcharges and incorrect billings.' },
-      { stat: '95%', label: 'Auto Reconciliation', desc: 'Saves time compared to manual cargo check operations.' },
-      { stat: '0.2%', label: 'Billing Discrepancy', desc: 'Drastically reduces the margin of unrecovered carrier overcharges.' }
+      { stat: '60%', label: 'Reduced Booking Time', desc: 'Significantly reduces courier booking time with automated best-rate recommendations and streamlined approval workflows.' },
+      { stat: '100%', label: 'Invoice Transparency', desc: 'Identifies hidden invoicing differences and improves negotiation leverage with courier partners.' },
+      { stat: '360°', label: 'Courier Spend Visibility', desc: 'Clear visibility into courier spending across departments, customers, and destinations for long-term vendor decisions.' }
     ],
-    industries: ['E-Commerce Retailers', 'Apparel Export Houses', 'Logistics Distributors', 'Manufacturing Plants'],
+    industries: ['E-Commerce & Retail', 'Apparel Export Houses', 'Logistics & Distribution', 'Manufacturing & Supply Chain'],
     logo: '/images/Courier Cost Optimizer.png'
   },
   'family-tree-platform': {
